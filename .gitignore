@@ -1,0 +1,19 @@
+.DS_Store
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.next/
+dist/
+build/
+data/private/
+transcripts/
+*.log
+!.env.example
+.pytest_cache/
+.ruff_cache/
+# claude_code_batch work files hold transcript chunks: never commit them
+evals/queue/
+evals/results/

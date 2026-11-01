@@ -1,0 +1,2677 @@
+{
+  "meta": {
+    "source": "SEED-v4.json",
+    "created": "2026-10-31",
+    "note": "Slice 1 per Build Spec v1 \u00a72. Core = niches named in the spec; adjacent = contrast niches, approved by Benjamin 2026-10-31 (D-31.9).",
+    "approved": "2026-10-31"
+  },
+  "niches": [
+    {
+      "niche_id": "rationalists",
+      "name": "Rationalists (LessWrong / ACX)",
+      "tier": "core",
+      "description": "A community organized around Bayesian epistemics, cognitive-bias correction and long essays, centered on LessWrong and Astral Codex Ten. It produced much of the early AI-risk analysis and overlaps heavily with EA and with forecasting.",
+      "landmarks": [
+        "scott-alexander",
+        "zvi-mowshowitz"
+      ]
+    },
+    {
+      "niche_id": "ai-safety-xrisk",
+      "name": "AI safety / existential-risk community",
+      "tier": "core",
+      "description": "People who believe advanced AI could cause human extinction or permanent disempowerment, and that the industry race makes this likely without intervention. It ranges from technical alignment researchers to people calling for a global moratorium. The 2025 book 'If Anyone Builds It, Everyone Dies' and the 'AI 2027' scenario raised its profile.",
+      "landmarks": [
+        "eliezer-yudkowsky",
+        "daniel-kokotajlo",
+        "liron-shapira",
+        "max-tegmark",
+        "holly-elmore"
+      ]
+    },
+    {
+      "niche_id": "effective-accelerationism",
+      "name": "Effective accelerationists (e/acc)",
+      "tier": "core",
+      "description": "An online movement, born in 2022 on X, that treats technological and capital growth as a thermodynamic imperative. It wants to speed AI and other technology up rather than slow it down. Members talk in memes, physics metaphors and builder culture, and see AI-safety regulation as the main obstacle.",
+      "landmarks": [
+        "guillaume-verdon",
+        "garry-tan",
+        "nick-land",
+        "bayeslord"
+      ]
+    },
+    {
+      "niche_id": "techno-optimists-american-dynamism",
+      "name": "Techno-optimists / American Dynamism / hard-tech builders",
+      "tier": "core",
+      "description": "Venture capitalists and founders who hold that technology is the main engine of human flourishing and of national strength. Its American Dynamism wing wants to rebuild physical industry, defense and manufacturing in the US. Andreessen's 2023 'Techno-Optimist Manifesto' is its founding text.",
+      "landmarks": [
+        "marc-andreessen",
+        "katherine-boyle",
+        "palmer-luckey",
+        "john-coogan-jordi-hays"
+      ]
+    },
+    {
+      "niche_id": "tpot-post-rationalists",
+      "name": "TPOT / post-rationalists",
+      "tier": "core",
+      "description": "A loose X subculture that grew out of and away from rationalism. It values wisdom, embodiment, vibes, meditation and playful sincerity over strict Bayesianism, and has its own gatherings (Vibecamp) and blogging culture. It sits at the meeting point of tech, meaning-making and contemplative practice.",
+      "landmarks": [
+        "venkatesh-rao",
+        "visakan-veerasamy",
+        "qiaochu-yuan"
+      ]
+    },
+    {
+      "niche_id": "effective-altruism",
+      "name": "Effective altruists",
+      "tier": "core",
+      "description": "A philanthropic and intellectual movement that tries to do the most good per unit of resources. Its main priorities are global health, animal welfare and, increasingly, reducing catastrophic risk from AI. It rebranded and decentralized after the FTX collapse.",
+      "landmarks": [
+        "rob-wiblin",
+        "william-macaskill",
+        "kelsey-piper"
+      ]
+    },
+    {
+      "niche_id": "tech-right",
+      "name": "Tech right / Silicon Valley New Right",
+      "tier": "core",
+      "description": "The political turn of a section of Silicon Valley toward the Republican right, centered on Peter Thiel's network, the All-In podcast and figures who joined or advised the 2025 Trump administration (JD Vance, David Sacks). It mixes libertarian economics with national-conservative, anti-'woke' and civilizational themes.",
+      "landmarks": [
+        "david-sacks",
+        "joe-lonsdale",
+        "peter-thiel",
+        "chamath-palihapitiya"
+      ]
+    },
+    {
+      "niche_id": "crypto-degens",
+      "name": "Degens / memecoin culture",
+      "tier": "core",
+      "description": "Speculative crypto culture organized around memecoins, livestreamed trading and irony. It holds that everything is a casino and the honest move is to play it. Members treat community belief and memes as the real asset ('memecoin supercycle'), and the Remilia / Milady wing adds a net-art, quasi-spiritual layer.",
+      "landmarks": [
+        "threadguy",
+        "ansem",
+        "murad-mahmudov",
+        "cobie",
+        "kevin-paffrath"
+      ]
+    },
+    {
+      "niche_id": "agi-frontier-builders",
+      "name": "AGI frontier-lab builders & AI-progress watchers",
+      "tier": "adjacent",
+      "description": "Leaders, researchers and close observers of the frontier AI labs (OpenAI, Anthropic, Google DeepMind, xAI) who expect transformative or general AI within years. They see building it carefully, and first, as the central project of the age. Their views sit between acceleration and safety, and they debate timelines, scaling and governance among themselves.",
+      "landmarks": [
+        "dario-amodei",
+        "sam-altman",
+        "dwarkesh-patel",
+        "nathan-labenz"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "ai-ethics-critics",
+      "name": "AI ethics / critical AI studies",
+      "tier": "adjacent",
+      "description": "Scholars and advocates who focus on present-day harms of AI: bias, surveillance, labor exploitation, concentration of power and misleading hype. They reject both the utopian and the extinction narratives as distractions that serve the industry. The 2025 book 'The AI Con' and the DAIR institute are focal points.",
+      "landmarks": [
+        "alex-hanna",
+        "emily-m-bender",
+        "timnit-gebru",
+        "karen-hao"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "dacc-pluralist-tech",
+      "name": "d/acc & pluralist tech",
+      "tier": "adjacent",
+      "description": "A middle path between e/acc and pause. It wants to speed up defensive, decentralizing and democratic technologies (cryptography, biosecurity, open-source, collective intelligence) rather than all technology or none. Vitalik Buterin's d/acc essays and Weyl and Tang's 'Plurality' are its texts.",
+      "landmarks": [
+        "e-glen-weyl",
+        "vitalik-buterin",
+        "audrey-tang"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "forecasters-prediction-markets",
+      "name": "Forecasters / prediction-market culture",
+      "tier": "adjacent",
+      "description": "People who believe beliefs should be stated as probabilities and tested by markets or forecasting tournaments. It grew from rationalist forecasting (Metaculus) into a mass prediction-market culture (Polymarket, Kalshi) after 2024, and now overlaps with sports betting and political media.",
+      "landmarks": [
+        "nate-silver",
+        "shayne-coplan",
+        "robin-hanson"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "populist-ai-backlash",
+      "name": "Populist AI backlash (anti-transhumanist right & AI-accountability coalition)",
+      "tier": "adjacent",
+      "description": "A cross-partisan political front, loudest on the populist right, that opposes the AI industry's agenda: federal preemption of state AI laws, data-center buildout paid for by ratepayers, AI companions for children and job displacement. Its right wing frames transhumanism as a spiritual threat to human nature; its policy wing works for liability rules, child-safety laws and super PACs that back regulation.",
+      "landmarks": [
+        "joe-allen",
+        "josh-hawley",
+        "brad-carson"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "neoreaction-vitalist-right",
+      "name": "Neoreaction & vitalist dissident right",
+      "tier": "adjacent",
+      "description": "An online intellectual subculture inspired by Bronze Age Pervert, Nietzschean 'vitalism', bodybuilding and aesthetic greatness. It is hostile to egalitarianism and 'bugman' modernity and is influential among young right-wing staffers. It overlaps with neoreaction and with raw-food and fitness culture.",
+      "landmarks": [
+        "curtis-yarvin",
+        "bronze-age-pervert",
+        "auron-macintyre",
+        "raw-egg-nationalist"
+      ],
+      "status": "approved"
+    },
+    {
+      "niche_id": "progress-studies-abundance",
+      "name": "Progress studies / abundance",
+      "tier": "adjacent",
+      "description": "An intellectual movement that asks why progress happens and why it has slowed, and pushes to remove the barriers that hold it back: permitting, NIMBYism, slow science funding. In 2025 'Abundance' (Klein and Thompson) carried it into center-left politics, while progress-studies institutes kept a nonpartisan, history-of-technology tone.",
+      "landmarks": [
+        "tyler-cowen",
+        "jason-crawford",
+        "lars-doucet"
+      ],
+      "status": "approved"
+    }
+  ],
+  "landmarks": [
+    {
+      "landmark_id": "scott-alexander",
+      "name": "Scott Alexander",
+      "primary_niche": "rationalists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Writer of Astral Codex Ten and the scene's central essayist; co-author of AI 2027.",
+      "platforms": {
+        "podcast": "Astral Codex Ten Podcast (audio readings); guest on Dwarkesh Podcast",
+        "substack": "https://www.astralcodexten.com"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: rationalists)",
+        "https://www.astralcodexten.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "rationalists"
+    },
+    {
+      "landmark_id": "zvi-mowshowitz",
+      "name": "Zvi Mowshowitz",
+      "primary_niche": "rationalists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Writes a prolific weekly AI roundup, Don't Worry About the Vase, and is a frequent podcast guest.",
+      "platforms": {
+        "podcast": "Don't Worry About the Vase (audio); guest on Cognitive Revolution",
+        "substack": "https://thezvi.substack.com",
+        "x": "@TheZvi"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: rationalists)",
+        "https://thezvi.substack.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "rationalists"
+    },
+    {
+      "landmark_id": "eliezer-yudkowsky",
+      "name": "Eliezer Yudkowsky",
+      "primary_niche": "ai-safety-xrisk",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Founded the field (MIRI) and co-wrote 'If Anyone Builds It, Everyone Dies' (2025).",
+      "platforms": {
+        "podcast": "Many guest appearances during the 2025 book tour",
+        "x": "@ESYudkowsky",
+        "other": "https://intelligence.org"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: doomers)",
+        "https://intelligence.org"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "ai-safety-xrisk"
+    },
+    {
+      "landmark_id": "daniel-kokotajlo",
+      "name": "Daniel Kokotajlo",
+      "primary_niche": "ai-safety-xrisk",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Former OpenAI researcher and lead author of AI 2027 (AI Futures Project).",
+      "platforms": {
+        "podcast": "Guest on Dwarkesh, Hard Fork, Interesting Times and others",
+        "substack": "https://blog.ai-futures.org",
+        "x": "@DKokotajlo",
+        "other": "https://ai-2027.com"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: doomers)",
+        "https://ai-2027.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "ai-safety-xrisk"
+    },
+    {
+      "landmark_id": "liron-shapira",
+      "name": "Liron Shapira",
+      "primary_niche": "ai-safety-xrisk",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Host of Doom Debates, which brings accelerationists and skeptics in to debate p(doom).",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@DoomDebates",
+        "podcast": "Doom Debates",
+        "substack": "https://lironshapira.substack.com",
+        "x": "@liron"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.audioscrape.com/podcast/doom-debates/episode/are-we-a-circular-firing-squad-with-holly-elmore-executive-director-of-pauseai-us-9536"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "ai-safety-xrisk"
+    },
+    {
+      "landmark_id": "max-tegmark",
+      "name": "Max Tegmark",
+      "primary_niche": "ai-safety-xrisk",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "MIT physicist and president of the Future of Life Institute. He bridges to mainstream science, policy and religious audiences.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@futureoflifeinstitute",
+        "podcast": "Future of Life Institute Podcast; frequent guest",
+        "x": "@tegmark",
+        "other": "https://futureoflife.org"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://futureoflife.org"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "ai-safety-xrisk"
+    },
+    {
+      "landmark_id": "holly-elmore",
+      "name": "Holly Elmore",
+      "primary_niche": "ai-safety-xrisk",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "edge",
+      "why": "Executive director of PauseAI US, representing the street-activist wing. She openly criticizes EA's inside-game approach.",
+      "platforms": {
+        "podcast": "Guest on Doom Debates and others",
+        "substack": "https://hollyelmore.substack.com",
+        "x": "@ilex_ulmus",
+        "bluesky": "pauseaius.bsky.social (org)",
+        "other": "https://www.pauseai-us.org"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://news.berkeley.edu/2026/02/06/berkeley-talks-pause-ai/",
+        "https://www.audioscrape.com/podcast/doom-debates/episode/are-we-a-circular-firing-squad-with-holly-elmore-executive-director-of-pauseai-us-9536"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "ai-safety-xrisk"
+    },
+    {
+      "landmark_id": "guillaume-verdon",
+      "name": "Guillaume Verdon (Beff Jezos)",
+      "primary_niche": "effective-accelerationism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Co-founder and main voice of e/acc. He founded Extropic and goes on long-form podcasts often.",
+      "platforms": {
+        "podcast": "Frequent guest (Lex Fridman Podcast #407 and others)",
+        "substack": "https://beff.substack.com",
+        "x": "@BasedBeffJezos (also @GillVerd)",
+        "other": "https://www.extropic.ai"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: eacc)",
+        "https://lexfridman.com/guillaume-verdon/"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-accelerationism"
+    },
+    {
+      "landmark_id": "garry-tan",
+      "name": "Garry Tan",
+      "primary_niche": "effective-accelerationism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Y Combinator CEO who amplifies e/acc themes. He bridges to startup culture and to SF city politics.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@garrytan",
+        "podcast": "Lightcone Podcast (YC)",
+        "x": "@garrytan"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: eacc)",
+        "https://www.ycombinator.com/blog/tag/lightcone-podcast"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-accelerationism"
+    },
+    {
+      "landmark_id": "nick-land",
+      "name": "Nick Land",
+      "primary_niche": "effective-accelerationism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "edge",
+      "why": "Philosophical forebear of accelerationism; the Atlas's 'Landian accel' island.",
+      "platforms": {
+        "podcast": "Occasional guest appearances",
+        "x": "@Outsideness",
+        "other": "Atlas also lists xenocosmography"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: landian)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-accelerationism"
+    },
+    {
+      "landmark_id": "marc-andreessen",
+      "name": "Marc Andreessen",
+      "primary_niche": "techno-optimists-american-dynamism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Author of the Techno-Optimist Manifesto; a16z co-founder; talks at length on podcasts.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@a16z",
+        "podcast": "a16z Podcast / The Ben & Marc Show",
+        "substack": "https://pmarca.substack.com",
+        "x": "@pmarca",
+        "other": "https://a16z.com/the-techno-optimist-manifesto/"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://a16z.com/the-techno-optimist-manifesto/",
+        "https://a16z.com/podcasts/"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "techno-optimists-american-dynamism"
+    },
+    {
+      "landmark_id": "katherine-boyle",
+      "name": "Katherine Boyle",
+      "primary_niche": "techno-optimists-american-dynamism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "a16z general partner who founded the American Dynamism practice and goes on podcasts often.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@a16z",
+        "podcast": "a16z Podcast (American Dynamism episodes)",
+        "x": "@KTmBoyle",
+        "other": "https://a16z.com/american-dynamism/"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://a16z.com/podcast/from-thesis-to-meme-to-fund-building-american-dynamism/",
+        "https://a16z.com/podcast/startups-defense-katherine-boyle-on-tbpn/"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "techno-optimists-american-dynamism"
+    },
+    {
+      "landmark_id": "palmer-luckey",
+      "name": "Palmer Luckey",
+      "primary_niche": "techno-optimists-american-dynamism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Anduril founder and the public face of defense-tech; listed in the Atlas's hard-tech figures.",
+      "platforms": {
+        "podcast": "Frequent guest (Shawn Ryan, TBPN, others)",
+        "x": "@PalmerLuckey",
+        "other": "https://www.anduril.com"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: hardtech)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "techno-optimists-american-dynamism"
+    },
+    {
+      "landmark_id": "john-coogan-jordi-hays",
+      "name": "John Coogan & Jordi Hays (TBPN)",
+      "primary_niche": "techno-optimists-american-dynamism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "A daily live tech show that has become the scene's town square, interviewing founders, VCs and politicians.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@TBPNLive",
+        "podcast": "TBPN (Technology Business Programming Network)",
+        "x": "@johncoogan / @jordihays",
+        "other": "https://tbpn.com"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [
+        "multi-person record: consider splitting into person-level records"
+      ],
+      "record_type": "multi-person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: hardtech)",
+        "https://a16z.com/podcast/startups-defense-katherine-boyle-on-tbpn/"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "techno-optimists-american-dynamism"
+    },
+    {
+      "landmark_id": "venkatesh-rao",
+      "name": "Venkatesh Rao",
+      "primary_niche": "tpot-post-rationalists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Ribbonfarm / Contraptions writer who coined 'cozyweb'; a long-time intellectual anchor for TPOT.",
+      "platforms": {
+        "podcast": "Occasional guest; Breaking Smart",
+        "substack": "https://contraptions.venkateshrao.com",
+        "x": "@vgr"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://contraptions.venkateshrao.com/sitemap.xml",
+      "evidence_date": "2026-10-26",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-A.json",
+      "verification_batches": [
+        "A"
+      ],
+      "verification_notes": "62 Contraptions posts in 2026, the latest 'cognitive-mercantilism' on 2026-10-26.",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: tpot, cozyweb)",
+        "https://contraptions.venkateshrao.com/sitemap.xml"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tpot-post-rationalists"
+    },
+    {
+      "landmark_id": "visakan-veerasamy",
+      "name": "Visakan Veerasamy",
+      "primary_niche": "tpot-post-rationalists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Prolific TPOT 'friendship technologist' and thread-writer; an archetypal ingroup voice.",
+      "platforms": {
+        "podcast": "Guest appearances",
+        "substack": "https://visakanv.com",
+        "x": "@visakanv"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: visakanv.substack.com has sitemap/2024 only; no 2025-26 sitemap linked. | prior: Not searched (budget). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://visakanv.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tpot-post-rationalists"
+    },
+    {
+      "landmark_id": "qiaochu-yuan",
+      "name": "Qiaochu Yuan",
+      "primary_niche": "tpot-post-rationalists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Former rationalist who became a post-rationalist; bridges rationalist and contemplative audiences.",
+      "platforms": {
+        "podcast": "Guest appearances",
+        "substack": "https://qchu.substack.com",
+        "x": "@QiaochuYuan"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: tpot)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tpot-post-rationalists"
+    },
+    {
+      "landmark_id": "rob-wiblin",
+      "name": "Rob Wiblin",
+      "primary_niche": "effective-altruism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Host of the 80,000 Hours Podcast, the movement's main long-form interview show.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@eightythousandhours",
+        "podcast": "80,000 Hours Podcast",
+        "x": "@robertwiblin",
+        "other": "https://80000hours.org/podcast/"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: ea lists 80000Hours)",
+        "https://80000hours.org/podcast/"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-altruism"
+    },
+    {
+      "landmark_id": "william-macaskill",
+      "name": "William MacAskill",
+      "primary_niche": "effective-altruism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Co-founder and philosopher of EA. His 2025 work on 'better futures' and the AI transition makes him a frequent podcast guest.",
+      "platforms": {
+        "podcast": "Guest on 80,000 Hours, Dwarkesh and others",
+        "substack": "https://www.forethought.org",
+        "x": "@willmacaskill",
+        "other": "Forethought"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: ea)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-altruism"
+    },
+    {
+      "landmark_id": "kelsey-piper",
+      "name": "Kelsey Piper",
+      "primary_niche": "effective-altruism",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Journalist (formerly Vox Future Perfect, now The Argument) who translates EA and AI-risk thinking for liberal and abundance audiences.",
+      "platforms": {
+        "substack": "The Argument",
+        "x": "@KelseyTuoc"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g6-representation",
+      "verification_batches": [
+        "g6"
+      ],
+      "verification_notes": "Not searched (budget). Confirm current outlet and a dated 2026 item.",
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [],
+      "source_domains": [
+        "g6-representation"
+      ],
+      "g6_reason": "Bridger + woman for EA.",
+      "slice_tier": "core",
+      "slice_niche": "effective-altruism"
+    },
+    {
+      "landmark_id": "david-sacks",
+      "name": "David Sacks",
+      "primary_niche": "tech-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "All-In co-host and White House AI & crypto czar; the niche's main policy voice.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@allin",
+        "podcast": "All-In Podcast",
+        "x": "@DavidSacks"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.youtube.com/@allin"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tech-right"
+    },
+    {
+      "landmark_id": "joe-lonsdale",
+      "name": "Joe Lonsdale",
+      "primary_niche": "tech-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Palantir co-founder, 8VC; hosts a podcast and helped found the University of Austin.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@JoeLonsdale",
+        "podcast": "American Optimist",
+        "x": "@JTLonsdale"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.youtube.com/@JoeLonsdale"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tech-right"
+    },
+    {
+      "landmark_id": "peter-thiel",
+      "name": "Peter Thiel",
+      "primary_niche": "tech-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Center of gravity and patron of the network. His 2025 long-form interviews and 'Antichrist' lectures framed its theology of technology.",
+      "platforms": {
+        "podcast": "Long-form guest (Interesting Times with Ross Douthat, Uncommon Knowledge, others)",
+        "other": "Founders Fund"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://sharpenyouraxe.substack.com/p/the-silicon-valley-right",
+        "https://www.npr.org/2024/07/16/nx-s1-5042445/vances-early-roots-are-in-appalachia-now-he-has-ties-to-silicon-valley"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tech-right"
+    },
+    {
+      "landmark_id": "chamath-palihapitiya",
+      "name": "Chamath Palihapitiya",
+      "primary_niche": "tech-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "All-In co-host. He bridges to retail finance and to general business audiences.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@allin",
+        "podcast": "All-In Podcast",
+        "substack": "https://chamath.substack.com",
+        "x": "@chamath"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.youtube.com/@allin"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "tech-right"
+    },
+    {
+      "landmark_id": "threadguy",
+      "name": "Threadguy",
+      "primary_niche": "crypto-degens",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Weekday live crypto/markets stream and podcast from New York; the most-watched long-form voice of the memecoin and trading-degen scene.",
+      "platforms": {
+        "podcast": "Threadguy Live https://threadguy.buzzsprout.com/2535072",
+        "x": "@notthreadguy",
+        "youtube": "UNVERIFIED (streams also on YouTube/X)"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://threadguy.buzzsprout.com/2535072/episodes",
+      "evidence_date": "2026-10-30",
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g6-representation",
+      "verification_batches": [
+        "g6"
+      ],
+      "verification_notes": "Pseudonymous persona, but the persona is itself a major public figure in the niche (brief exception). US-based (NY) per show page. X handle from knowledge, not re-checked.",
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://threadguy.buzzsprout.com/2535072/episodes",
+        "https://rosetta.to/u/bankless/why-gen-z-will-turn-everything-into-a-market-threadguy?t=0"
+      ],
+      "source_domains": [
+        "g6-representation"
+      ],
+      "g6_reason": "Gives crypto-degens its first verified-active, US-based, high-longform landmark; Ansem/Murad are low-longform and pending.",
+      "slice_tier": "core",
+      "slice_niche": "crypto-degens"
+    },
+    {
+      "landmark_id": "ansem",
+      "name": "Ansem (Zion Thomas)",
+      "primary_niche": "crypto-degens",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "The best-known Solana memecoin trader and caller; the Atlas lists him first among degen figures.",
+      "platforms": {
+        "podcast": "Guest appearances; livestreams",
+        "x": "@blknoiz06"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). Pseudonymous; low longform. [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: degens)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "crypto-degens"
+    },
+    {
+      "landmark_id": "murad-mahmudov",
+      "name": "Murad Mahmudov",
+      "primary_niche": "crypto-degens",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Theorist of the 'memecoin supercycle' and 'cult coins'. His 2024 conference talk is canonical in the scene.",
+      "platforms": {
+        "podcast": "Guest (Blockcrunch, Farokh Radio)",
+        "x": "@MustStopMurad"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://recapio.com/digest/why-2025-is-the-year-of-memecoins-murad-mahmudov-by-the-blockcrunch-podcast-with-jason-choi",
+        "https://regional-front.cointelegraph.com/news/murad-mahmudov-memecoin-supercycle-spx-holdings-controversy"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "crypto-degens"
+    },
+    {
+      "landmark_id": "cobie",
+      "name": "Cobie (Jordan Fish)",
+      "primary_niche": "crypto-degens",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Long-time CT figure and UpOnly co-host who founded Echo (sold to Coinbase in 2025); bridges degen and VC culture.",
+      "platforms": {
+        "podcast": "UpOnly (intermittent)",
+        "x": "@cobie"
+      },
+      "longform_output": "low",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: degens)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "crypto-degens"
+    },
+    {
+      "landmark_id": "kevin-paffrath",
+      "name": "Kevin Paffrath (Meet Kevin)",
+      "primary_niche": "crypto-degens",
+      "secondary_niches": [
+        "markets-investing-mainstream"
+      ],
+      "secondary_roles": {
+        "markets-investing-mainstream": "bridger"
+      },
+      "domain": "d3-tech-futures",
+      "role": "edge",
+      "why": "Daily long-form market livestreams for retail traders; launched an ETF; 2021 CA gubernatorial candidate",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@MeetKevin",
+        "x": "@realMeetKevin"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g3-mainstream-culture",
+      "verification_batches": [],
+      "verification_notes": "Gap agent (g3) found a dated 2025-26 item; the date was not recorded, so it may predate the v2 window (2025-10-31).",
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.aol.com/news/youtube-trader-meet-kevin-says-155646252.html",
+        "https://www.etfcentral.com/news/new-meet-kevin-youtuber-etf-launched-nyse-arca"
+      ],
+      "source_domains": [
+        "g3-mainstream-culture"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "crypto-degens"
+    },
+    {
+      "landmark_id": "dario-amodei",
+      "name": "Dario Amodei",
+      "primary_niche": "agi-frontier-builders",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Anthropic CEO and author of 'Machines of Loving Grace'; the leading voice of safety-focused acceleration.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@anthropic-ai",
+        "podcast": "Long-form guest (Lex Fridman, Dwarkesh, others)",
+        "other": "https://www.darioamodei.com"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.darioamodei.com/essay/machines-of-loving-grace"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "agi-frontier-builders"
+    },
+    {
+      "landmark_id": "sam-altman",
+      "name": "Sam Altman",
+      "primary_niche": "agi-frontier-builders",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "OpenAI CEO; the public face of the AGI build-out.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@OpenAI",
+        "podcast": "Frequent guest; OpenAI Podcast",
+        "x": "@sama",
+        "other": "https://blog.samaltman.com"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://blog.samaltman.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "agi-frontier-builders"
+    },
+    {
+      "landmark_id": "dwarkesh-patel",
+      "name": "Dwarkesh Patel",
+      "primary_niche": "agi-frontier-builders",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "His podcast is where lab leaders, safety researchers and skeptics are all interviewed at length.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@DwarkeshPatel",
+        "podcast": "Dwarkesh Podcast",
+        "substack": "https://www.dwarkesh.com",
+        "x": "@dwarkesh_sp"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.dwarkesh.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "agi-frontier-builders"
+    },
+    {
+      "landmark_id": "nathan-labenz",
+      "name": "Nathan Labenz",
+      "primary_niche": "agi-frontier-builders",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Host of The Cognitive Revolution, which covers AI builders and 'live players', with a safety-aware lean.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@CognitiveRevolutionPodcast",
+        "podcast": "The Cognitive Revolution",
+        "substack": "https://cognitiverevolution.substack.com",
+        "x": "@labenz"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.theneuron.ai/explainer-articles/ai-isnt-slowing-down-nathan-labenz-of-the-cognitive-revolution-on-real-progress-agents-and-whats-next/",
+        "https://podcasts.apple.com/us/podcast/the-cognitive-revolution-how-ai-changes-everything/id1669813431"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "agi-frontier-builders"
+    },
+    {
+      "landmark_id": "alex-hanna",
+      "name": "Alex Hanna",
+      "primary_niche": "ai-ethics-critics",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "DAIR director of research; co-author and co-host with Bender.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@DAIRInstitute",
+        "podcast": "Mystery AI Hype Theater 3000",
+        "bluesky": "@alexhanna.bsky.social",
+        "other": "https://www.dair-institute.org"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/The_AI_Con",
+        "https://www.buzzsprout.com/2126417/episodes/17927752-three-years-of-ridicule-as-praxis-2025-09-19"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "ai-ethics-critics"
+    },
+    {
+      "landmark_id": "emily-m-bender",
+      "name": "Emily M. Bender",
+      "primary_niche": "ai-ethics-critics",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Co-author of 'Stochastic Parrots' and 'The AI Con' (2025); co-hosts a weekly podcast.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@DAIRInstitute",
+        "podcast": "Mystery AI Hype Theater 3000",
+        "substack": "https://buttondown.com/maiht3k",
+        "bluesky": "@emilymbender.bsky.social"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/The_AI_Con",
+        "https://www.buzzsprout.com/2126417/episodes"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "ai-ethics-critics"
+    },
+    {
+      "landmark_id": "timnit-gebru",
+      "name": "Timnit Gebru",
+      "primary_niche": "ai-ethics-critics",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "DAIR founder and co-coiner of the 'TESCREAL' critique.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@DAIRInstitute",
+        "podcast": "Frequent guest",
+        "x": "@timnitGebru",
+        "bluesky": "@timnitgebru.bsky.social",
+        "other": "https://www.dair-institute.org"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://www.democracynow.org/es/2026/8/13/timnit_gebru",
+      "evidence_date": "2026-08-13",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Democracy Now! (en Espanol) feature, 2026-08-13. [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.dair-institute.org",
+        "https://www.democracynow.org/es/2026/8/13/timnit_gebru"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "ai-ethics-critics"
+    },
+    {
+      "landmark_id": "karen-hao",
+      "name": "Karen Hao",
+      "primary_niche": "ai-ethics-critics",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Journalist and author of 'Empire of AI' (2025). She brings the critique to mainstream audiences across many podcasts.",
+      "platforms": {
+        "podcast": "Wide 2025 book-tour circuit",
+        "x": "@_KarenHao",
+        "bluesky": "@karenhao.bsky.social"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://ccc.govt.nz/news-and-events/whats-on/event/author-talk-karen-hao-empire-of-ai",
+      "evidence_date": "2026-05-11",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-A.json",
+      "verification_batches": [
+        "A"
+      ],
+      "verification_notes": "Large 2025-26 book tour (Empire of AI). Longform medium->high.",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": "medium",
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "female",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Karen_Hao",
+        "https://ccc.govt.nz/news-and-events/whats-on/event/author-talk-karen-hao-empire-of-ai"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "ai-ethics-critics"
+    },
+    {
+      "landmark_id": "e-glen-weyl",
+      "name": "E. Glen Weyl",
+      "primary_niche": "dacc-pluralist-tech",
+      "secondary_niches": [
+        "deliberative-democracy-civic-tech"
+      ],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Co-author of 'Plurality' and founder of RadicalxChange. The Atlas also lists him under regens.",
+      "platforms": {
+        "podcast": "Frequent guest",
+        "x": "@glenweyl",
+        "other": "https://www.plurality.net"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: regens)",
+        "https://www.plurality.net"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "dacc-pluralist-tech"
+    },
+    {
+      "landmark_id": "vitalik-buterin",
+      "name": "Vitalik Buterin",
+      "primary_niche": "dacc-pluralist-tech",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Coined d/acc. The Ethereum co-founder writes long essays and gives frequent interviews.",
+      "platforms": {
+        "podcast": "Frequent guest (Bankless, Greenpill, Lex Fridman)",
+        "x": "@VitalikButerin",
+        "other": "https://vitalik.eth.limo"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: dacc, eth)",
+        "https://vitalik.eth.limo/general/2025/01/05/dacc2.html"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "dacc-pluralist-tech"
+    },
+    {
+      "landmark_id": "audrey-tang",
+      "name": "Audrey Tang",
+      "primary_niche": "dacc-pluralist-tech",
+      "secondary_niches": [
+        "deliberative-democracy-civic-tech"
+      ],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Taiwan's former digital minister and co-author of 'Plurality'; a model for US civic-tech audiences.",
+      "platforms": {
+        "podcast": "Frequent guest",
+        "x": "@audreyt",
+        "other": "https://www.plurality.net"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "nonbinary",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.plurality.net"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "dacc-pluralist-tech"
+    },
+    {
+      "landmark_id": "nate-silver",
+      "name": "Nate Silver",
+      "primary_niche": "forecasters-prediction-markets",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Author of 'On the Edge'. A Polymarket adviser who writes Silver Bulletin and co-hosts Risky Business.",
+      "platforms": {
+        "podcast": "Risky Business (with Maria Konnikova)",
+        "substack": "https://www.natesilver.net",
+        "x": "@NateSilver538"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: forecasters)",
+        "https://www.natesilver.net"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "forecasters-prediction-markets"
+    },
+    {
+      "landmark_id": "shayne-coplan",
+      "name": "Shayne Coplan",
+      "primary_niche": "forecasters-prediction-markets",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Polymarket founder; the public face of crypto prediction markets.",
+      "platforms": {
+        "podcast": "Occasional guest",
+        "x": "@shayne_coplan",
+        "other": "https://polymarket.com"
+      },
+      "longform_output": "low",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://www.bloomberg.com/news/articles/2026-03-07/polymarket-founder-says-war-bets-are-facing-growing-resistance",
+      "evidence_date": "2026-03-07",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-A.json",
+      "verification_batches": [
+        "A"
+      ],
+      "verification_notes": "Also on 60 Minutes (CBS). Low longform; consider a swap.",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: forecasters lists Polymarket)",
+        "https://www.bloomberg.com/news/articles/2026-03-07/polymarket-founder-says-war-bets-are-facing-growing-resistance"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "forecasters-prediction-markets"
+    },
+    {
+      "landmark_id": "robin-hanson",
+      "name": "Robin Hanson",
+      "primary_niche": "forecasters-prediction-markets",
+      "secondary_niches": [
+        "rationalists"
+      ],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Inventor of futarchy and forefather of prediction markets. He is also listed under Rationalists, so do not count him twice.",
+      "platforms": {
+        "podcast": "Frequent guest; Minds Almost Meeting podcast",
+        "substack": "https://www.overcomingbias.com",
+        "x": "@robinhanson"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: forecasters, pronatalists)",
+        "https://www.overcomingbias.com",
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: forecasters)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "forecasters-prediction-markets"
+    },
+    {
+      "landmark_id": "joe-allen",
+      "name": "Joe Allen",
+      "primary_niche": "populist-ai-backlash",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "War Room's resident writer on transhumanism and AI, author of Dark Aeon; carries the anti-transhumanist case on Bannon's show, Blaze and podcast tours.",
+      "platforms": {
+        "podcast": "regular segments on Bannon's War Room",
+        "substack": null,
+        "other": "Dark Aeon (book); Blaze appearances"
+      },
+      "longform_output": "high",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g8-holistic-sweep",
+      "verification_batches": [
+        "g8"
+      ],
+      "verification_notes": "Several recent appearances found but none with a recorded date; spot-check.",
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.thefp.com/p/two-drinks-with-steve-bannons-transhumanist",
+        "https://www.theblaze.com/tech/the-emperor-vs-the-twink-joe-allen-attacks-the-transhumanoids",
+        "https://www.audioscrape.com/podcast/bannons-war-room/episode/episode-4870-revolt-of-the-luddites-49701"
+      ],
+      "source_domains": [
+        "g8-holistic-sweep"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "populist-ai-backlash"
+    },
+    {
+      "landmark_id": "josh-hawley",
+      "name": "Josh Hawley",
+      "primary_niche": "populist-ai-backlash",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Missouri senator leading Republican AI-skeptic legislation (AI liability, child safety, data-center cost bills).",
+      "platforms": {
+        "x": "@HawleyMO",
+        "other": "Senate hearings, interviews"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://axios.com/2026/01/30/josh-hawley-anti-ai-strategy",
+      "evidence_date": "2026-01-30",
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g8-holistic-sweep",
+      "verification_batches": [
+        "g8"
+      ],
+      "verification_notes": null,
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://axios.com/2026/01/30/josh-hawley-anti-ai-strategy",
+        "https://axios.com/2026/02/05/hawley-data-center-costs-bill"
+      ],
+      "source_domains": [
+        "g8-holistic-sweep"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "populist-ai-backlash"
+    },
+    {
+      "landmark_id": "brad-carson",
+      "name": "Brad Carson",
+      "primary_niche": "populist-ai-backlash",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "President of Americans for Responsible Innovation and leader of the Public First pro-regulation political operation; bridges AI-safety policy and bipartisan populist regulators.",
+      "platforms": {
+        "other": "Public First / ARI; interviews"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://builtin.com/articles/super-pacs-ai-regulation-2026-midterms",
+      "evidence_date": "2026 (midterm AI super-PAC coverage)",
+      "last_checked": "2026-10-31",
+      "verification_source": "raw/g8-holistic-sweep",
+      "verification_batches": [
+        "g8"
+      ],
+      "verification_notes": "Public First's largest reported backer is Anthropic (sources above); flag as conflict-of-interest for the map's builder.",
+      "verification_v1": null,
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": "Public First (his AI-policy group and super PAC) is reportedly funded mainly by Anthropic, the company whose model assembled this seed. Benjamin to decide whether to keep him (conflict-of-interest check).",
+      "flag_type": "conflict-of-interest",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Public_First_Action",
+        "https://builtin.com/articles/super-pacs-ai-regulation-2026-midterms"
+      ],
+      "source_domains": [
+        "g8-holistic-sweep"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "populist-ai-backlash"
+    },
+    {
+      "landmark_id": "curtis-yarvin",
+      "name": "Curtis Yarvin",
+      "primary_niche": "neoreaction-vitalist-right",
+      "secondary_niches": [
+        "tech-right"
+      ],
+      "secondary_roles": {},
+      "domain": "d1-right",
+      "role": "core",
+      "why": "Neoreactionary theorist (\"Mencius Moldbug\"); Gray Mirror Substack; frequent long-form interviews on post-democratic governance.",
+      "platforms": {
+        "youtube": null,
+        "podcast": null,
+        "substack": "https://graymirror.substack.com",
+        "x": "@curtis_yarvin",
+        "bluesky": null,
+        "other": null
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://metacast.app/podcast/the-daily/Csj81flD/the-interview-curtis-yarvin-says-democracy-is-done-powerful-conservatives-are-listening/urUln80l",
+        "https://stt.ai/podcasts/the-peter-mccormack-show/150-curtis-yarvin-can-democracy-survive-ai-and-deb/?lang=en"
+      ],
+      "source_domains": [
+        "qa-gapfill"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "neoreaction-vitalist-right"
+    },
+    {
+      "landmark_id": "bronze-age-pervert",
+      "name": "Bronze Age Pervert (Costin Alamariu)",
+      "primary_niche": "neoreaction-vitalist-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d1-right",
+      "role": "core",
+      "why": "Pseudonymous author of 'Bronze Age Mindset'; the scene's center. The persona is now publicly identified",
+      "platforms": {
+        "podcast": "Caribbean Rhythms",
+        "x": "@bronzeagemantis"
+      },
+      "longform_output": "high",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Searches returned no dated 2025-26 item (pseudonymous; Wikipedia lists real name Costin Alamariu, but name search returned nothing relevant). Needs manual check of Caribbean Rhythms feed. [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Bronze_Age_Pervert"
+      ],
+      "source_domains": [
+        "d1-right",
+        "d6-gender-lifestyle-subcultures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "neoreaction-vitalist-right"
+    },
+    {
+      "landmark_id": "auron-macintyre",
+      "name": "Auron MacIntyre",
+      "primary_niche": "neoreaction-vitalist-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d1-right",
+      "role": "bridger",
+      "why": "YouTube host and Blaze columnist; makes dissident-right theory (managerialism, Schmitt) accessible to the mainstream right",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@AuronMacIntyre",
+        "x": "@AuronMacintyre",
+        "podcast": "The Auron MacIntyre Show (Blaze Podcast Network)"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://www.audible.co.uk/podcast/The-Auron-MacIntyre-Show/episodes/B0G65QWB27",
+      "evidence_date": "2026-05-18",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-A.json",
+      "verification_batches": [
+        "A"
+      ],
+      "verification_notes": "Daily show; many 2026 episodes indexed (podwise Jan-Apr 2026).",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://www.theblaze.com",
+        "https://www.audible.co.uk/podcast/The-Auron-MacIntyre-Show/episodes/B0G65QWB27"
+      ],
+      "source_domains": [
+        "d1-right"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "neoreaction-vitalist-right"
+    },
+    {
+      "landmark_id": "raw-egg-nationalist",
+      "name": "Raw Egg Nationalist",
+      "primary_niche": "neoreaction-vitalist-right",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d1-right",
+      "role": "edge",
+      "why": "Pseudonymous author and podcaster of physique-and-diet nationalism; bridges to MAHA and fitness (D6)",
+      "platforms": {
+        "podcast": "The Raw Egg Nationalist Podcast",
+        "x": "@Babygravy9",
+        "other": "Man's World magazine; X"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item. Pseudonymous persona; may be UK-based. Check whether he is central to a US niche. [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [
+        "US focus: persona may be UK-based (batch A/D); not in the batch-C list, so us_focus_flag not set"
+      ],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://rawegg.com"
+      ],
+      "source_domains": [
+        "d1-right",
+        "d6-gender-lifestyle-subcultures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "neoreaction-vitalist-right"
+    },
+    {
+      "landmark_id": "tyler-cowen",
+      "name": "Tyler Cowen",
+      "primary_niche": "progress-studies-abundance",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Economist who co-coined 'progress studies' (with Patrick Collison) and hosts Conversations with Tyler.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@MercatusCenter",
+        "podcast": "Conversations with Tyler",
+        "substack": "https://marginalrevolution.com",
+        "x": "@tylercowen"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Progress_studies",
+        "https://conversationswithtyler.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "progress-studies-abundance"
+    },
+    {
+      "landmark_id": "jason-crawford",
+      "name": "Jason Crawford",
+      "primary_niche": "progress-studies-abundance",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Founder of the Roots of Progress Institute; the main progress-studies essayist and organizer.",
+      "platforms": {
+        "podcast": "Guest (Infinite Loops and others)",
+        "substack": "https://newsletter.rootsofprogress.org",
+        "x": "@jasoncrawford",
+        "other": "https://rootsofprogress.org"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: progress)",
+        "https://progressforum.org/posts/BKNYGrXxtKdKs7PmK/podcast-infinite-loops-with-jim-o-shaughnessy"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "progress-studies-abundance"
+    },
+    {
+      "landmark_id": "lars-doucet",
+      "name": "Lars Doucet",
+      "primary_niche": "progress-studies-abundance",
+      "secondary_niches": [
+        "urbanism-strong-towns-car-free"
+      ],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "bridger",
+      "why": "Georgist writer (Land Is a Big Deal); bridges urbanism, YIMBY and land-value-tax circles.",
+      "platforms": {
+        "substack": "https://progressandpoverty.substack.com",
+        "x": "@larsiusprime"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://www.astralcodexten.com/p/does-georgism-work-five-years-later",
+      "evidence_date": "2026-09-24",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-D.json",
+      "verification_batches": [
+        "A",
+        "D"
+      ],
+      "verification_notes": "Guest post on Astral Codex Ten (2026-09-24); UCLA Housing Voice ep 111 guest (2026-04-22). [source batch A]",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://progressandpoverty.substack.com",
+        "https://www.astralcodexten.com/p/does-georgism-work-five-years-later"
+      ],
+      "source_domains": [
+        "d7-economy-ecology-place"
+      ],
+      "slice_tier": "adjacent",
+      "slice_niche": "progress-studies-abundance"
+    },
+    {
+      "landmark_id": "bayeslord",
+      "name": "bayeslord",
+      "primary_niche": "effective-accelerationism",
+      "secondary_niches": [],
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Pseudonymous co-founder of the e/acc movement alongside Beff Jezos; anon persona is itself a major public figure in the scene (allowed under SEED-BRIEF anon rule). Added by Benjamin 2026-10-31 to strengthen the e/acc roster.",
+      "platforms": {
+        "x": "@bayeslord",
+        "other": "Spaces / podcast guest appearances (to discover in P1)"
+      },
+      "longform_output": "unknown",
+      "active_2025_2026": null,
+      "verification": "pending",
+      "record_type": "person",
+      "flag_for_benjamin": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: eacc)"
+      ],
+      "slice_tier": "core",
+      "slice_niche": "effective-accelerationism",
+      "added": "2026-10-31 (D-31.9)"
+    }
+  ],
+  "priority_encounters": [
+    {
+      "id": "PE-01",
+      "pair": [
+        "effective-accelerationism",
+        "dacc-pluralist-tech"
+      ],
+      "description": "e/acc \u00d7 d/acc \u2014 above all any recorded conversation between Guillaume Verdon (Beff Jezos) and Vitalik Buterin, then other e/acc \u2194 d/acc exchanges. Discovery crawl searches for these first; strongest candidate for the first event map (OD-23).",
+      "decided": "2026-10-31 (D-31.9)"
+    }
+  ]
+}

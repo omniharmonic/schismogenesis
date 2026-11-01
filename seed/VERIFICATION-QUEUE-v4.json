@@ -1,0 +1,4744 @@
+{
+ "meta": {
+  "generated": "2026-10-31",
+  "author_of_record": "Benjamin Life (@omniharmonic)",
+  "total": 225,
+  "by_domain": {
+   "d1-right": 30,
+   "d2-left-center": 22,
+   "d3-tech-futures": 12,
+   "d4-heterodox-sensemaking": 15,
+   "d5-religion-spirituality": 35,
+   "d6-gender-lifestyle-subcultures": 45,
+   "d7-economy-ecology-place": 36,
+   "d8-geopolitics-media": 10,
+   "d9-mainstream-culture": 20
+  },
+  "by_role": {
+   "core": 108,
+   "bridger": 72,
+   "edge": 45
+  },
+  "new_in_v4": 14,
+  "note": "Every SEED-v4 landmark that is not verified-active, grouped by domain, core first. 'spot_check' = v3 spot-checks still open plus v4 records verified with a year-only or approximate date. 'alternates' are held-out records."
+ },
+ "queue": {
+  "d1-right": [
+   {
+    "landmark_id": "kenny-xu",
+    "name": "Kenny Xu",
+    "primary_niche": "asian-american-conservatives",
+    "niche_name": "Asian American conservatives & merit advocates",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@kennyxu; other=Color Us United; Tucker/Fox appearances"
+    ]
+   },
+   {
+    "landmark_id": "stephen-wolfe",
+    "name": "Stephen Wolfe",
+    "primary_niche": "christian-nationalism",
+    "niche_name": "Christian nationalism (self-identified; Moscow-style Reformed)",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Latest dated items are from 2024-25. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@PerfInjust"
+    ]
+   },
+   {
+    "landmark_id": "justin-amash",
+    "name": "Justin Amash",
+    "primary_niche": "classical-liberal-libertarians",
+    "niche_name": "Classical-liberal libertarians",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Guest on FIRE So to Speak ep 247 and Advisory Opinions (undated). No 2025-26 dated item. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@justinamash; podcast=Amash Files https://podcasts.apple.com/us/podcast/amash-files/id1508915453"
+    ]
+   },
+   {
+    "landmark_id": "katherine-mangu-ward",
+    "name": "Katherine Mangu-Ward",
+    "primary_niche": "classical-liberal-libertarians",
+    "niche_name": "Classical-liberal libertarians",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Reason Roundtable; other=https://reason.com"
+    ]
+   },
+   {
+    "landmark_id": "nick-gillespie",
+    "name": "Nick Gillespie",
+    "primary_niche": "classical-liberal-libertarians",
+    "niche_name": "Classical-liberal libertarians",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Podnews page refreshed 2026-10-27, but episode list did not render. Reason feed fetch blocked. | prior: Feed confirmed; no dated episode was captured. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@ReasonTV; podcast=The Reason Interview With Nick Gillespie https://podcasts.apple.com/podcast/id1485021241; x=@nickgillespie"
+    ]
+   },
+   {
+    "landmark_id": "kimberley-strassel",
+    "name": "Kimberley Strassel",
+    "primary_niche": "fiscal-business-conservatives",
+    "niche_name": "Fiscal / business conservatives",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Kim Strassel hosts \"All Things with Kim Strassel\" (WSJ) eps \"The Minnesota Fraud Scandal...\" (Jan 6, no year) and a DHS reopening ep (undated, 2026 copyright). No full date. | prior: Her own show has a multi-page episode list, but no single dated episode was captured. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=All Things with Kim Strassel (WSJ) https://podcasts.apple.com/podcast/id1803015612; x=@KimStrassel"
+    ]
+   },
+   {
+    "landmark_id": "stephen-miller",
+    "name": "Stephen Miller",
+    "primary_niche": "immigration-restrictionists",
+    "niche_name": "Immigration restrictionists / border hawks",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@StephenM; other=White House"
+    ]
+   },
+   {
+    "landmark_id": "todd-bensman",
+    "name": "Todd Bensman",
+    "primary_niche": "immigration-restrictionists",
+    "niche_name": "Immigration restrictionists / border hawks",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@BensmanTodd; other=https://www.toddbensman.com"
+    ]
+   },
+   {
+    "landmark_id": "heather-mac-donald",
+    "name": "Heather Mac Donald",
+    "primary_niche": "law-and-order-police-support",
+    "niche_name": "Law-and-order / pro-police conservatives",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; other=City Journal"
+    ]
+   },
+   {
+    "landmark_id": "helen-andrews",
+    "name": "Helen Andrews",
+    "primary_niche": "national-conservatives",
+    "niche_name": "National conservatism / postliberal right",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://www.theamericanconservative.com; x=@herandrews"
+    ]
+   },
+   {
+    "landmark_id": "bronze-age-pervert",
+    "name": "Bronze Age Pervert (Costin Alamariu)",
+    "primary_niche": "neoreaction-vitalist-right",
+    "niche_name": "Neoreaction & vitalist dissident right",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Searches returned no dated 2025-26 item (pseudonymous; Wikipedia lists real name Costin Alamariu, but name search returned nothing relevant). Needs manual check of Caribbean Rhythms feed. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Caribbean Rhythms; x=@bronzeagemantis"
+    ]
+   },
+   {
+    "landmark_id": "david-j-bier",
+    "name": "David J. Bier",
+    "primary_niche": "pro-immigration-liberty-growth",
+    "niche_name": "Pro-immigration libertarians & growth advocates",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@David_J_Bier; other=https://www.cato.org"
+    ]
+   },
+   {
+    "landmark_id": "kelly-shackelford",
+    "name": "Kelly Shackelford",
+    "primary_niche": "religious-liberty-legal-movement",
+    "niche_name": "Religious-liberty legal movement",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@KellyShackelford; other=https://firstliberty.org"
+    ]
+   },
+   {
+    "landmark_id": "kristen-waggoner",
+    "name": "Kristen Waggoner",
+    "primary_niche": "religious-liberty-legal-movement",
+    "niche_name": "Religious-liberty legal movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@KWaggonerADF; other=https://adflegal.org"
+    ]
+   },
+   {
+    "landmark_id": "marcus-ruiz-evans",
+    "name": "Marcus Ruiz Evans",
+    "primary_niche": "secession-national-divorce",
+    "niche_name": "State sovereignty, secession & 'national divorce' movements",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-01-24 (refiling report undated)",
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep",
+    "notes": "Pending: no dated item after 2025-10-31 found.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=media interviews; Calexit campaign"
+    ]
+   },
+   {
+    "landmark_id": "dana-loesch",
+    "name": "Dana Loesch",
+    "primary_niche": "second-amendment-movement",
+    "niche_name": "Second Amendment movement",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Dana Show; x=@DLoesch"
+    ]
+   },
+   {
+    "landmark_id": "natalie-winters",
+    "name": "Natalie Winters",
+    "primary_niche": "war-room-populist-nationalists",
+    "niche_name": "War Room populist nationalism",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=War Room (Real America's Voice/Rumble); x=@nataliegwinters"
+    ]
+   },
+   {
+    "landmark_id": "harmeet-dhillon",
+    "name": "Harmeet Dhillon",
+    "primary_niche": "asian-american-conservatives",
+    "niche_name": "Asian American conservatives & merit advocates",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@pnjaban; other=Dhillon Law Group; podcast and cable appearances"
+    ]
+   },
+   {
+    "landmark_id": "kira-davis",
+    "name": "Kira Davis",
+    "primary_niche": "black-conservatives",
+    "niche_name": "Black conservatives",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Just Listen to Yourself (UNVERIFIED current); x=@KiraDavis"
+    ]
+   },
+   {
+    "landmark_id": "jeff-durbin",
+    "name": "Jeff Durbin",
+    "primary_niche": "christian-nationalism",
+    "niche_name": "Christian nationalism (self-identified; Moscow-style Reformed)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2025-05-28",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: YouTube channel ID confirmed (replaces UNVERIFIED). Latest dated item is older than 12 months, but this is likely a search gap, not inactivity. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Apologia Studios https://www.youtube.com/channel/UCK9RJwC7Er16-Y8dvIQ-3tw; podcast=Apologia Church https://podcasts.apple.com/podcast/id1487852879"
+    ]
+   },
+   {
+    "landmark_id": "saurabh-sharma",
+    "name": "Saurabh Sharma",
+    "primary_niche": "claremont-new-right",
+    "niche_name": "Claremont / New Right institution-builders",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@SaurabhSharma; other=https://www.americanmoment.org"
+    ]
+   },
+   {
+    "landmark_id": "erick-erickson",
+    "name": "Erick Erickson",
+    "primary_niche": "evangelical-christian-right",
+    "niche_name": "Evangelical Christian right (values voters)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Erick Erickson Show; substack=https://ericke.substack.com (Erick Erickson)"
+    ]
+   },
+   {
+    "landmark_id": "maria-elvira-salazar",
+    "name": "María Elvira Salazar",
+    "primary_niche": "hispanic-realignment-conservatives",
+    "niche_name": "Hispanic realignment conservatives",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@RepMariaSalazar"
+    ]
+   },
+   {
+    "landmark_id": "jeremy-tate",
+    "name": "Jeremy Tate",
+    "primary_niche": "parents-rights-school-choice",
+    "niche_name": "Parents' rights & school-choice movement",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Anchored (CLT); x=@JeremyDTate; other=Classic Learning Test"
+    ]
+   },
+   {
+    "landmark_id": "aimee-murphy",
+    "name": "Aimee Murphy",
+    "primary_niche": "pro-life-movement",
+    "niche_name": "Pro-life movement",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Life Matters Journal / Rehumanize podcast (UNVERIFIED); other=https://www.rehumanizeintl.org"
+    ]
+   },
+   {
+    "landmark_id": "mark-rienzi",
+    "name": "Mark Rienzi",
+    "primary_niche": "religious-liberty-legal-movement",
+    "niche_name": "Religious-liberty legal movement",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@mrienzi; other=https://www.becketlaw.org"
+    ]
+   },
+   {
+    "landmark_id": "ann-coulter",
+    "name": "Ann Coulter",
+    "primary_niche": "immigration-restrictionists",
+    "niche_name": "Immigration restrictionists / border hawks",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Unsafe; substack=https://anncoulter.substack.com; x=@AnnCoulter"
+    ]
+   },
+   {
+    "landmark_id": "raw-egg-nationalist",
+    "name": "Raw Egg Nationalist",
+    "primary_niche": "neoreaction-vitalist-right",
+    "niche_name": "Neoreaction & vitalist dissident right",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item. Pseudonymous persona; may be UK-based. Check whether he is central to a US niche. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Raw Egg Nationalist Podcast; x=@Babygravy9; other=Man's World magazine; X",
+     "US focus: persona may be UK-based (batch A/D); not in the batch-C list, so us_focus_flag not set"
+    ]
+   },
+   {
+    "landmark_id": "mike-davis",
+    "name": "Mike Davis",
+    "primary_niche": "originalist-legal-conservatives",
+    "niche_name": "Originalist / constitutional legal conservatives",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Wikipedia notes CPAC 2025 talk and PBS Frontline 2025 interview (dates not captured); Article III Project founder. | prior: No dated item was captured. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@mrddmia"
+    ]
+   },
+   {
+    "landmark_id": "bryan-caplan",
+    "name": "Bryan Caplan",
+    "primary_niche": "pro-immigration-liberty-growth",
+    "niche_name": "Pro-immigration libertarians & growth advocates",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; substack=https://www.betonit.ai; x=@bryan_caplan"
+    ]
+   }
+  ],
+  "d2-left-center": [
+   {
+    "landmark_id": "antonio-moore",
+    "name": "Antonio Moore",
+    "primary_niche": "ados-lineage-politics",
+    "niche_name": "ADOS / lineage-based Black politics",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Search returned nothing relevant. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Tonetalks — https://blubrry.com/tonetalks/; x=@tonetalks"
+    ]
+   },
+   {
+    "landmark_id": "yvette-carnell",
+    "name": "Yvette Carnell",
+    "primary_niche": "ados-lineage-politics",
+    "niche_name": "ADOS / lineage-based Black politics",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Search returned nothing relevant. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://yvettecarnell.substack.com; x=@YvetteCarnell; other=Breaking Brown YouTube; Patreon https://www.patreon.com/ycarnell"
+    ]
+   },
+   {
+    "landmark_id": "claudia-de-la-cruz",
+    "name": "Claudia De la Cruz",
+    "primary_niche": "anti-imperialist-ml-left",
+    "niche_name": "Anti-imperialist & Marxist-Leninist left",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2024-08-29",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Latest dated activity found is 2024 (presidential campaign). Stale-leaning, but only a Wikipedia page was checked, so left pending. A direct search of PSL/BreakThrough output may find newer items. The niche keeps verified core Max Blumenthal, so no replacement is needed. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@claudiadelacruz"
+    ]
+   },
+   {
+    "landmark_id": "eugene-puryear",
+    "name": "Eugene Puryear",
+    "primary_niche": "anti-imperialist-ml-left",
+    "niche_name": "Anti-imperialist & Marxist-Leninist left",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Guest on Bad Faith (Patreon post 147466329) covering Venezuela and the Mamdani administration, so likely 2026, but the episode is undated. Wikipedia: hosts The Freedom Side LIVE and The Punch Out on BreakThrough News. | prior: Search returned nothing dated. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@EugenePuryear; other=BreakThrough News shows: The Freedom Side LIVE; The Punch Out"
+    ]
+   },
+   {
+    "landmark_id": "adolph-reed-jr",
+    "name": "Adolph Reed Jr.",
+    "primary_niche": "class-first-heterodox-left",
+    "niche_name": "Class-first / heterodox left",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "stale",
+    "evidence_date": "2025-08-27",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Latest dated item is a Class Unity podcast interview (2025-08-27, date from search-result title; page not fetched). The niche keeps verified cores Briahna Joy Gray and Freddie deBoer, so no replacement is needed. [source batch A]",
+    "checks": [
+     "latest dated item is older than ~12 months: confirm or replace (see suggested_swaps)",
+     "confirm handles/URLs: other=Nonsite.org; Catalyst; occasional long interviews"
+    ]
+   },
+   {
+    "landmark_id": "chesa-boudin",
+    "name": "Chesa Boudin",
+    "primary_niche": "criminal-justice-reform-decarceration",
+    "niche_name": "Criminal-justice reform & decarceration movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@chesaboudin; other=Berkeley Law"
+    ]
+   },
+   {
+    "landmark_id": "john-pfaff",
+    "name": "John Pfaff",
+    "primary_niche": "criminal-justice-reform-decarceration",
+    "niche_name": "Criminal-justice reform & decarceration movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@JohnFPfaff; bluesky=@johnfpfaff.bsky.social"
+    ]
+   },
+   {
+    "landmark_id": "josie-duffy-rice",
+    "name": "Josie Duffy Rice",
+    "primary_niche": "criminal-justice-reform-decarceration",
+    "niche_name": "Criminal-justice reform & decarceration movement",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Unjust & Unsolved; newer show via The Josie Zone; substack=https://buttondown.com/josie; x=@jduffyrice"
+    ]
+   },
+   {
+    "landmark_id": "fred-guttenberg",
+    "name": "Fred Guttenberg",
+    "primary_niche": "gun-violence-prevention-movement",
+    "niche_name": "Gun-violence prevention / gun-safety movement",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@fred_guttenberg; other=Orange Ribbons for Jaime"
+    ]
+   },
+   {
+    "landmark_id": "becky-pringle",
+    "name": "Becky Pringle",
+    "primary_niche": "public-school-advocates-teachers-unions",
+    "niche_name": "Public-school advocates & teachers' unions",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@BeckyPringle; other=NEA"
+    ]
+   },
+   {
+    "landmark_id": "diane-ravitch",
+    "name": "Diane Ravitch",
+    "primary_niche": "public-school-advocates-teachers-unions",
+    "niche_name": "Public-school advocates & teachers' unions",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://dianeravitch.substack.com; x=@DianeRavitch; other=dianeravitch.net"
+    ]
+   },
+   {
+    "landmark_id": "renee-bracey-sherman",
+    "name": "Renee Bracey Sherman",
+    "primary_niche": "reproductive-rights-movement",
+    "niche_name": "Reproductive rights / reproductive freedom movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@RBraceySherman; other=https://www.reneebraceysherman.com"
+    ]
+   },
+   {
+    "landmark_id": "mariame-kaba",
+    "name": "Mariame Kaba",
+    "primary_niche": "anarchist-mutual-aid-left",
+    "niche_name": "Anarchist, abolitionist and mutual-aid left",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@prisonculture"
+    ]
+   },
+   {
+    "landmark_id": "kali-akuno",
+    "name": "Kali Akuno",
+    "primary_niche": "black-nationalism-self-determination",
+    "niche_name": "Black nationalism & self-determination (Pan-Africanist / conscious community)",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Cooperation Jackson (cooperationjackson.org); Black Agenda Report; podcast interviews"
+    ]
+   },
+   {
+    "landmark_id": "van-jones",
+    "name": "Van Jones",
+    "primary_niche": "criminal-justice-reform-decarceration",
+    "niche_name": "Criminal-justice reform & decarceration movement",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@VanJones68; other=CNN"
+    ]
+   },
+   {
+    "landmark_id": "maia-szalavitz",
+    "name": "Maia Szalavitz",
+    "primary_niche": "harm-reduction-drug-policy-reform",
+    "niche_name": "Harm reduction & drug-policy reform",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@maiasz; other=NYT opinion contributor"
+    ]
+   },
+   {
+    "landmark_id": "jose-antonio-vargas",
+    "name": "Jose Antonio Vargas",
+    "primary_niche": "immigrant-rights-movement",
+    "niche_name": "Immigrant-rights movement",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@joseiswriting; other=Define American"
+    ]
+   },
+   {
+    "landmark_id": "carlos-l-garrido",
+    "name": "Carlos L. Garrido",
+    "primary_niche": "patriotic-socialism-maga-communism",
+    "niche_name": "Patriotic socialism / 'MAGA communism' (American Communist Party)",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Midwestern Marx Institute (midwesternmarx.com); YouTube/podcast appearances"
+    ]
+   },
+   {
+    "landmark_id": "jennifer-berkshire",
+    "name": "Jennifer Berkshire",
+    "primary_niche": "public-school-advocates-teachers-unions",
+    "niche_name": "Public-school advocates & teachers' unions",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Have You Heard; x=@BisforBerkshire"
+    ]
+   },
+   {
+    "landmark_id": "bishara-bahbah",
+    "name": "Bishara Bahbah",
+    "primary_niche": "arab-muslim-american-political-bloc",
+    "niche_name": "Arab & Muslim American political bloc (Uncommitted to Dearborn)",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=interviews (Zeteo, cable news)"
+    ]
+   },
+   {
+    "landmark_id": "helen-prejean",
+    "name": "Helen Prejean",
+    "primary_niche": "criminal-justice-reform-decarceration",
+    "niche_name": "Criminal-justice reform & decarceration movement",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@helenprejean; other=https://www.sisterhelen.org"
+    ]
+   },
+   {
+    "landmark_id": "emily-hanford",
+    "name": "Emily Hanford",
+    "primary_niche": "public-school-advocates-teachers-unions",
+    "niche_name": "Public-school advocates & teachers' unions",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Sold a Story (APM Reports); x=@ehanford"
+    ]
+   }
+  ],
+  "d3-tech-futures": [
+   {
+    "landmark_id": "ansem",
+    "name": "Ansem (Zion Thomas)",
+    "primary_niche": "crypto-degens",
+    "niche_name": "Degens / memecoin culture",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). Pseudonymous; low longform. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Guest appearances; livestreams; x=@blknoiz06"
+    ]
+   },
+   {
+    "landmark_id": "murad-mahmudov",
+    "name": "Murad Mahmudov",
+    "primary_niche": "crypto-degens",
+    "niche_name": "Degens / memecoin culture",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Guest (Blockcrunch, Farokh Radio); x=@MustStopMurad"
+    ]
+   },
+   {
+    "landmark_id": "justine-bateman",
+    "name": "Justine Bateman",
+    "primary_niche": "neo-luddites-anti-ai-creatives",
+    "niche_name": "Neo-Luddites & anti-AI creative labor",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-09-22",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Latest dated item is a 17-min BBC audio interview (2025-09-22), five weeks outside the window. Stale-leaning, but one search is not conclusive, so left pending. The niche keeps verified cores Brian Merchant, Karla Ortiz and Sadowski/Ongweso, so no replacement is needed. [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Frequent guest; x=@JustineBateman"
+    ]
+   },
+   {
+    "landmark_id": "joe-allen",
+    "name": "Joe Allen",
+    "primary_niche": "populist-ai-backlash",
+    "niche_name": "Populist AI backlash (anti-transhumanist right & AI-accountability coalition)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep",
+    "notes": "Several recent appearances found but none with a recorded date; spot-check.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=regular segments on Bannon's War Room; other=Dark Aeon (book); Blaze appearances"
+    ]
+   },
+   {
+    "landmark_id": "visakan-veerasamy",
+    "name": "Visakan Veerasamy",
+    "primary_niche": "tpot-post-rationalists",
+    "niche_name": "TPOT / post-rationalists",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: visakanv.substack.com has sitemap/2024 only; no 2025-26 sitemap linked. | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Guest appearances; substack=https://visakanv.com; x=@visakanv"
+    ]
+   },
+   {
+    "landmark_id": "cobie",
+    "name": "Cobie (Jordan Fish)",
+    "primary_niche": "crypto-degens",
+    "niche_name": "Degens / memecoin culture",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=UpOnly (intermittent); x=@cobie"
+    ]
+   },
+   {
+    "landmark_id": "kelsey-piper",
+    "name": "Kelsey Piper",
+    "primary_niche": "effective-altruism",
+    "niche_name": "Effective altruists",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Not searched (budget). Confirm current outlet and a dated 2026 item.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=The Argument; x=@KelseyTuoc"
+    ]
+   },
+   {
+    "landmark_id": "ed-newton-rex",
+    "name": "Ed Newton-Rex",
+    "primary_niche": "neo-luddites-anti-ai-creatives",
+    "niche_name": "Neo-Luddites & anti-AI creative labor",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Latest dated longform: Future of Life Institute podcast (2025-06-20). Book \"The Intelligence Heist\" listed for 2027-03-25 (future). Leans stale; recheck X or KCL. | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Frequent guest; x=@ednewtonrex; other=https://www.fairlytrained.org"
+    ]
+   },
+   {
+    "landmark_id": "timour-kosters",
+    "name": "Timour Kosters (Edge City)",
+    "primary_niche": "network-state-charter-cities",
+    "niche_name": "Network state / charter & free cities",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@timourxyz; other=https://www.edgecity.live"
+    ]
+   },
+   {
+    "landmark_id": "qiaochu-yuan",
+    "name": "Qiaochu Yuan",
+    "primary_niche": "tpot-post-rationalists",
+    "niche_name": "TPOT / post-rationalists",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Guest appearances; substack=https://qchu.substack.com; x=@QiaochuYuan"
+    ]
+   },
+   {
+    "landmark_id": "nick-land",
+    "name": "Nick Land",
+    "primary_niche": "effective-accelerationism",
+    "niche_name": "Effective accelerationists (e/acc)",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Occasional guest appearances; x=@Outsideness; other=Atlas also lists xenocosmography"
+    ]
+   },
+   {
+    "landmark_id": "max-more",
+    "name": "Max More",
+    "primary_niche": "longevity-transhumanists",
+    "niche_name": "Longevity / transhumanists / biohackers",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch A]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Occasional guest; substack=https://maxmore.substack.com; x=@MaxTMore"
+    ]
+   }
+  ],
+  "d4-heterodox-sensemaking": [
+   {
+    "landmark_id": "charles-eisenstein",
+    "name": "Charles Eisenstein",
+    "primary_niche": "conspirituality-sovereignty",
+    "niche_name": "Awakening & sovereignty spirituality (new-paradigm community)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Reletter: Substack last issue about 25 days before capture (likely Oct 2026; undated). Posts include \"The Lost Subject: AI and the Human Being\". Latest fully dated item is Letter 4 (2025-06-19). Very likely active. | prior: The Substack is live (charleseisenstein.substack.com, numbered \"Letter\" series) but no dated item was retrieved. The sitemap fetch was blocked. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://charleseisenstein.substack.com; other=https://archive.charleseisenstein.org/videos/; podcast=Charles Eisenstein podcast"
+    ]
+   },
+   {
+    "landmark_id": "julia-doubleday",
+    "name": "Julia Doubleday",
+    "primary_niche": "covid-conscious-long-covid",
+    "niche_name": "COVID-conscious & long-COVID community",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-16",
+    "new_in_v4": true,
+    "source": "v4-QA step 2",
+    "notes": "Latest dated item found is a repost from Oct 16, 2025 (before the window). Needs a dated 2025-11+ item.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://www.thegauntlet.news; bluesky=juliadoubleday.bsky.social"
+    ]
+   },
+   {
+    "landmark_id": "james-fishkin",
+    "name": "James Fishkin",
+    "primary_niche": "deliberative-democracy-civic-tech",
+    "niche_name": "Deliberative democracy & civic tech",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Stanford Deliberative Democracy Lab"
+    ]
+   },
+   {
+    "landmark_id": "lee-drutman",
+    "name": "Lee Drutman",
+    "primary_niche": "democracy-reform-independents",
+    "niche_name": "Structural democracy reformers & anti-duopoly independents",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Politics in Question; substack=https://leedrutman.substack.com; x=@leedrutman"
+    ]
+   },
+   {
+    "landmark_id": "david-cole",
+    "name": "David Cole",
+    "primary_niche": "free-speech-civil-libertarians",
+    "niche_name": "Free-speech civil libertarians (FIRE / ACLU tradition)",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item retrieved. The Columbia faculty page redirects to login. Georgetown and ACLU bio pages exist. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=New York Review of Books; frequent podcast guest"
+    ]
+   },
+   {
+    "landmark_id": "peter-hotez",
+    "name": "Peter Hotez",
+    "primary_niche": "public-health-evidence-based-medicine",
+    "niche_name": "Public-health & evidence-based medicine defenders",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@PeterHotez; bluesky=@peterhotez.bsky.social"
+    ]
+   },
+   {
+    "landmark_id": "jennifer-pahlka",
+    "name": "Jennifer Pahlka",
+    "primary_niche": "deliberative-democracy-civic-tech",
+    "niche_name": "Deliberative democracy & civic tech",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-03",
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": "Gap agent dated item 2025-03 predates the v2 window (2025-10-31); needs a newer item.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Conversations with Tyler (guest) and others; substack=https://www.eatingpolicy.com; bluesky=pahlkadot.bsky.social"
+    ]
+   },
+   {
+    "landmark_id": "steven-pinker",
+    "name": "Steven Pinker",
+    "primary_niche": "heterodox-academy-open-inquiry",
+    "niche_name": "Open-inquiry / heterodox academia",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@sapinker"
+    ]
+   },
+   {
+    "landmark_id": "layman-pascal",
+    "name": "Layman Pascal",
+    "primary_niche": "integral-wilberian",
+    "niche_name": "Integral (Wilberian) community",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: One search hit was an 88-minute Substack-hosted episode dated 2026-01-27, but the host could not be confirmed (the page failed to load). [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Integral Stage https://www.podchaser.com/podcasts/the-integral-stage-author-seri-2176460"
+    ]
+   },
+   {
+    "landmark_id": "jimmy-corsetti",
+    "name": "Jimmy Corsetti",
+    "primary_niche": "lost-civilization-alt-history",
+    "niche_name": "Lost-civilization / alternative history",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Audioscrape: last guest appearance heard 2025-02 (stale-leaning). Bright Insight YouTube upload dates not reachable. | prior: No dated 2025-26 item retrieved. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@BrightInsight; x=@JimmyCorsetti; other=Rumble/Locals show (launched Sep 2023) https://www.globenewswire.com/news-release/2023/09/01/2736341/0/en/Researcher-and-Educator-Jimmy-Corsetti-Launches-Exclusive-Show-on-Rumble-and-Locals.html"
+    ]
+   },
+   {
+    "landmark_id": "jonathan-rowson",
+    "name": "Jonathan Rowson",
+    "primary_niche": "metamodernism",
+    "niche_name": "Metamodernism / political metamodernism",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2024-12-19",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: The only dated item is older than 12 months. He is still CEO of Perspectiva. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@Jonathan_Rowson; other=https://systems-souls-society.com (Perspectiva)"
+    ]
+   },
+   {
+    "landmark_id": "mike-varshavski",
+    "name": "Mike Varshavski (Doctor Mike)",
+    "primary_niche": "public-health-evidence-based-medicine",
+    "niche_name": "Public-health & evidence-based medicine defenders",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@DoctorMike; podcast=The Checkup with Doctor Mike; x=@RealDoctorMike"
+    ]
+   },
+   {
+    "landmark_id": "mick-west",
+    "name": "Mick West",
+    "primary_niche": "skeptics-debunkers",
+    "niche_name": "Skeptics & debunkers (science-communication counter-niche)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Mick West; other=https://www.metabunk.org; x=@MickWest"
+    ]
+   },
+   {
+    "landmark_id": "nellie-bowles",
+    "name": "Nellie Bowles",
+    "primary_niche": "free-press-heterodox-institutional",
+    "niche_name": "The Free Press / heterodox institution-builders",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": "2025-07-18",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: The latest dated TGIF found is older than 12 months; she is almost certainly active. Longform remains low. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://www.thefp.com; x=@NellieBowles"
+    ]
+   },
+   {
+    "landmark_id": "eric-topol",
+    "name": "Eric Topol",
+    "primary_niche": "public-health-evidence-based-medicine",
+    "niche_name": "Public-health & evidence-based medicine defenders",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Ground Truths; substack=https://erictopol.substack.com; x=@EricTopol"
+    ]
+   }
+  ],
+  "d5-religion-spirituality": [
+   {
+    "landmark_id": "alisa-childers",
+    "name": "Alisa Childers",
+    "primary_niche": "apologetics-debate-culture",
+    "niche_name": "Apologetics & debate culture (YouTube/Jubilee era)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Alisa Childers Podcast"
+    ]
+   },
+   {
+    "landmark_id": "otis-moss-iii",
+    "name": "Otis Moss III",
+    "primary_niche": "black-church-prophetic",
+    "niche_name": "Black church prophetic tradition",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-17 (approx)",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "He addressed the WCRC General Council in about Oct 2025 (a video exists), which is just over 12 months ago. Trinity UCC streams are unverified.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Trinity UCC streams (UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "chad-pecknold",
+    "name": "Chad Pecknold",
+    "primary_niche": "christian-postliberals-integralists",
+    "niche_name": "Christian postliberals & Catholic integralists",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Postliberal Order is active (37 posts in 2026, latest 2026-10-16), but no Pecknold-authored dated item was confirmed. The sampled 2026 posts were by guest authors. X @ccpecknold not re-checked. Domain is now postliberalorder.com.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://postliberalorder.substack.com; x=@ccpecknold"
+    ]
+   },
+   {
+    "landmark_id": "patrick-deneen",
+    "name": "Patrick Deneen",
+    "primary_niche": "christian-postliberals-integralists",
+    "niche_name": "Christian postliberals & Catholic integralists",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-07-11",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest dated items are older than 12 months: American Compass Podcast (2025-07-11) and Hungarian Conservative (2025-08-04). A Yale Law event, \"We are All Postliberals Now\", is undated. The seed has duplicate substack and other entries; keep the postliberalorder.com URL only.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://postliberalorder.substack.com; other=Postliberal Order (Substack, UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "kristin-kobes-du-mez",
+    "name": "Kristin Kobes Du Mez",
+    "primary_niche": "evangelical-conscience-critics",
+    "niche_name": "Evangelical conscience / 'post-Trump' evangelical critics",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Not seeded anywhere in SEED-v2; could instead be a secondary landmark of evangelical-conscience-critics. | g6: Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://kristindumez.substack.com (UNVERIFIED URL)"
+    ]
+   },
+   {
+    "landmark_id": "manis-friedman",
+    "name": "Manis Friedman",
+    "primary_niche": "jewish-orthodox-traditional",
+    "niche_name": "Orthodox & traditional Judaism (public voices)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2025-06-28",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Latest dated item is a 2025-06-28 Alef in Conversation interview, older than 12 months. The YouTube channel is still unconfirmed. A possible ID (UCnkB28NTo_OxXTYjCUv7m5Q) appeared via an Invidious mirror but was not verified. The jretreat2026 sched lists him as a speaker but gives no date.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=UNVERIFIED; other=https://itsgoodtoknow.org"
+    ]
+   },
+   {
+    "landmark_id": "emily-belle-freeman",
+    "name": "Emily Belle Freeman",
+    "primary_niche": "latter-day-saints",
+    "niche_name": "Latter-day Saints (faithful voices)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Sunday on Monday (Don't Miss This)"
+    ]
+   },
+   {
+    "landmark_id": "ayaan-hirsi-ali",
+    "name": "Ayaan Hirsi Ali",
+    "primary_niche": "meaning-crisis-religious-turn",
+    "niche_name": "Meaning crisis & the religious turn",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=Restoration (Ayaan Hirsi Ali); podcast=The Ayaan Hirsi Ali Podcast"
+    ]
+   },
+   {
+    "landmark_id": "annie-laurie-gaylor",
+    "name": "Annie Laurie Gaylor",
+    "primary_niche": "new-atheist-secular-humanist",
+    "niche_name": "New Atheists & secular humanists",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Freethought Radio; other=https://ffrf.org"
+    ]
+   },
+   {
+    "landmark_id": "jason-mankey",
+    "name": "Jason Mankey",
+    "primary_niche": "pagan-witchcraft",
+    "niche_name": "Neo-paganism & witchcraft",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-19",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest dated item is a guest spot on The Circle Is podCAST (2025-10-19), just over 12 months old. Patheos Pagan blog not checked.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Patheos Pagan (UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "casper-ter-kuile",
+    "name": "Casper ter Kuile",
+    "primary_niche": "post-religious-deconstruction-nones",
+    "niche_name": "Deconstruction, nones & post-religious life",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "No 2025-26 dated item found. The seed podcast \"UNVERIFIED\" should be cleared. He is a former co-host of Harry Potter and the Sacred Text; no current show was confirmed. Weak landmark for a core slot.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31"
+    ]
+   },
+   {
+    "landmark_id": "brian-mclaren",
+    "name": "Brian McLaren",
+    "primary_niche": "progressive-christianity",
+    "niche_name": "Progressive / mainline Christianity",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "He hosts CAC's Learning How to See (Season 10 co-hosted with Randy and Edith Woodley), but the listing showed no episode dates. Many guest interviews exist. Upgrade longform medium to high.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=brianmclaren.net; CAC; podcast=Learning How to See with Brian McLaren (Center for Action and Contemplation) https://cac.org/podcast/learning-how-to-see/"
+    ]
+   },
+   {
+    "landmark_id": "jen-wilkin",
+    "name": "Jen Wilkin",
+    "primary_niche": "reformed-tgc",
+    "niche_name": "Confessional Reformed evangelicalism (The Gospel Coalition / Southern Baptist Calvinists)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Verity Podcast"
+    ]
+   },
+   {
+    "landmark_id": "simran-jeet-singh",
+    "name": "Simran Jeet Singh",
+    "primary_niche": "sikh-american-voices",
+    "niche_name": "Sikh American voices",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep",
+    "notes": "Pending: no dated 2025-11+ item found (search dominated by namesakes).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=op-eds, talks; Aspen Institute"
+    ]
+   },
+   {
+    "landmark_id": "dalia-mogahed",
+    "name": "Dalia Mogahed",
+    "primary_niche": "american-muslim-mainstream",
+    "niche_name": "American Muslim scholarly mainstream",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Muslim Central (Dalia Mogahed)"
+    ]
+   },
+   {
+    "landmark_id": "hamza-yusuf",
+    "name": "Hamza Yusuf",
+    "primary_niche": "american-muslim-mainstream",
+    "niche_name": "American Muslim scholarly mainstream",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The only dated hit was a 2012 article. The Muslim Central lecture feed exists but is mostly archival. Needs a dated 2025-26 Sandala or Zaytuna item.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Hamza Yusuf / Sandala; other=sandala.org; podcast=Hamza Yusuf (Muslim Central feed) https://www.audible.com/pd/B0BH556621"
+    ]
+   },
+   {
+    "landmark_id": "jemar-tisby",
+    "name": "Jemar Tisby",
+    "primary_niche": "black-church-prophetic",
+    "niche_name": "Black church prophetic tradition",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=Footnotes (UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "michael-l-brown",
+    "name": "Michael L. Brown",
+    "primary_niche": "charismatic-pentecostal",
+    "niche_name": "Charismatic-Pentecostal: prophetic, apostolic & prosperity streams",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The search returned only noise from the NBC drama \"Line of Fire\". Check askdrbrown.org.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=ASKDrBrown (YouTube); podcast=The Line of Fire"
+    ]
+   },
+   {
+    "landmark_id": "sohrab-ahmari",
+    "name": "Sohrab Ahmari",
+    "primary_niche": "christian-postliberals-integralists",
+    "niche_name": "Christian postliberals & Catholic integralists",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "He is not listed as a Compact Podcast host (the hosts are Schmitz, Shullenberger and Frawley); he appeared in late-2024 episodes. No dated 2025-26 item was confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@SohrabAhmari; other=https://www.compactmag.com/contributor/sohrab-ahmari/"
+    ]
+   },
+   {
+    "landmark_id": "sunita-viswanath",
+    "name": "Sunita Viswanath",
+    "primary_niche": "hindu-american-voices",
+    "niche_name": "Hindu American voices",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://www.hindusforhumanrights.org"
+    ]
+   },
+   {
+    "landmark_id": "tovia-singer",
+    "name": "Tovia Singer",
+    "primary_niche": "jewish-orthodox-traditional",
+    "niche_name": "Orthodox & traditional Judaism (public voices)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Tovia Singer (UNVERIFIED); other=outreachjudaism.org"
+    ]
+   },
+   {
+    "landmark_id": "robert-chao-romero",
+    "name": "Robert Chao Romero",
+    "primary_niche": "latino-christianity",
+    "niche_name": "Latino Christianity (evangelical & Brown Church)",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://ivpress.com/brown-church-ebook"
+    ]
+   },
+   {
+    "landmark_id": "muhammed-ali",
+    "name": "Muhammed Ali (The Muslim Lantern)",
+    "primary_niche": "muslim-dawah-anti-liberal",
+    "niche_name": "Muslim dawah & anti-liberal traditionalists",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=The Muslim Lantern (UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "mat-auryn",
+    "name": "Mat Auryn",
+    "primary_niche": "pagan-witchcraft",
+    "niche_name": "Neo-paganism & witchcraft",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-19",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "He co-hosts The Circle Is podCAST, which replaces \"UNVERIFIED\". The newest episode seen is dated 2025-10-19, about 12.4 months old. The show likely continues; check newer episodes.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=UNVERIFIED; podcast=The Circle Is podCAST (co-host with Rachel True) https://www.buzzsprout.com/2372877"
+    ]
+   },
+   {
+    "landmark_id": "massimo-faggioli",
+    "name": "Massimo Faggioli",
+    "primary_niche": "progressive-catholic",
+    "niche_name": "Progressive / Francis-Leo Catholics",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@MassimoFaggioli (UNVERIFIED)"
+    ]
+   },
+   {
+    "landmark_id": "shane-claiborne",
+    "name": "Shane Claiborne",
+    "primary_niche": "progressive-christianity",
+    "niche_name": "Progressive / mainline Christianity",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-06-17 (before cutoff)",
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep.additions",
+    "notes": "Latest dated item June 2025; pending.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Red Letter Christians Podcast https://redletterchristians.podbean.com; other=https://redletterchristians.org; x=@ShaneClaiborne"
+    ]
+   },
+   {
+    "landmark_id": "rick-doblin",
+    "name": "Rick Doblin",
+    "primary_niche": "psychedelic-spirituality",
+    "niche_name": "Psychedelic spirituality",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "He has been MAPS president since Jan 2023 (no longer executive director). No dated 2025-26 item was found.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://maps.org"
+    ]
+   },
+   {
+    "landmark_id": "azhar-nasser",
+    "name": "Azhar Nasser",
+    "primary_niche": "american-muslim-mainstream",
+    "niche_name": "American Muslim scholarly mainstream",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=al-islam.org scholar page"
+    ]
+   },
+   {
+    "landmark_id": "susan-miller",
+    "name": "Susan Miller",
+    "primary_niche": "astrology-mainstream",
+    "niche_name": "Astrology mainstream ('astrology twitter')",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=astrologyzone.com"
+    ]
+   },
+   {
+    "landmark_id": "timothy-gordon",
+    "name": "Timothy Gordon",
+    "primary_niche": "catholic-traditionalist",
+    "niche_name": "Traditionalist Catholics (Latin Mass)",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=UNVERIFIED",
+     "Benjamin decision pending (exclusion-review): Possible harassment bar — review."
+    ]
+   },
+   {
+    "landmark_id": "rajiv-malhotra",
+    "name": "Rajiv Malhotra",
+    "primary_niche": "hindu-american-voices",
+    "niche_name": "Hindu American voices",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Rajiv Malhotra podcast (player.fm); other=https://infinityfoundation.com"
+    ]
+   },
+   {
+    "landmark_id": "patrick-q-mason",
+    "name": "Patrick Q. Mason",
+    "primary_niche": "latter-day-saints",
+    "niche_name": "Latter-day Saints (faithful voices)",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=UNVERIFIED"
+    ]
+   },
+   {
+    "landmark_id": "joe-dispenza",
+    "name": "Joe Dispenza",
+    "primary_niche": "new-age-manifestation-wellness",
+    "niche_name": "New Age, manifestation & wellness spirituality",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=UNVERIFIED"
+    ]
+   },
+   {
+    "landmark_id": "matt-dillahunty",
+    "name": "Matt Dillahunty",
+    "primary_niche": "new-atheist-secular-humanist",
+    "niche_name": "New Atheists & secular humanists",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Wikipedia confirms he moved to The Line after leaving The Atheist Experience in Oct 2022. No dated 2025-26 item was found.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=The Line (YouTube debate channel); other=Twitch"
+    ]
+   },
+   {
+    "landmark_id": "frederica-mathewes-green",
+    "name": "Frederica Mathewes-Green",
+    "primary_niche": "orthodox-convert-wave",
+    "niche_name": "Eastern Orthodox convert wave",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://frederica.com"
+    ]
+   }
+  ],
+  "d6-gender-lifestyle-subcultures": [
+   {
+    "landmark_id": "andrew-tate",
+    "name": "Andrew Tate",
+    "primary_niche": "alpha-hustle-masculinity",
+    "niche_name": "Top G / alpha hustle masculinity",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "2026 search found only coverage about him, not first-person output. Inclusion decision still open.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Emergency Meeting (with Tristan Tate); x=@Cobratate; other=Rumble; The Real World platform",
+     "Benjamin decision pending (exclusion-review): Possible harassment/incitement bar — review.",
+     "inclusion decision open (batch D)"
+    ]
+   },
+   {
+    "landmark_id": "justin-waller",
+    "name": "Justin Waller",
+    "primary_niche": "alpha-hustle-masculinity",
+    "niche_name": "Top G / alpha hustle masculinity",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "No dated 2025-26 item found. US-based alternative if the Tate inclusion decision goes against them.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Guest on PBD Podcast, Daily Wire"
+    ]
+   },
+   {
+    "landmark_id": "tristan-tate",
+    "name": "Tristan Tate",
+    "primary_niche": "alpha-hustle-masculinity",
+    "niche_name": "Top G / alpha hustle masculinity",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated output item retrieved. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Emergency Meeting; x=@TateTheTalisman; other=Rumble 'Cigar Night'",
+     "Benjamin decision pending (exclusion-review): Possible harassment/incitement bar — review.",
+     "inclusion decision open (batch D)"
+    ]
+   },
+   {
+    "landmark_id": "haley-mcnamara",
+    "name": "Haley McNamara",
+    "primary_niche": "anti-sexual-exploitation",
+    "niche_name": "Anti-pornography & anti-sexual-exploitation movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): NCOSE is verified active in 2025 (SCOTUS and FTC statements); McNamara's current title not confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=NCOSE's 'Ending Sexploitation' podcast (UNVERIFIED host role); other=endsexualexploitation.org"
+    ]
+   },
+   {
+    "landmark_id": "amy-blackstone",
+    "name": "Amy Blackstone",
+    "primary_niche": "childfree-by-choice",
+    "niche_name": "Childfree by choice",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=University of Maine; 'We're Not Having a Baby!' blog; CNN and other media interviews"
+    ]
+   },
+   {
+    "landmark_id": "ruby-warrington",
+    "name": "Ruby Warrington",
+    "primary_niche": "childfree-by-choice",
+    "niche_name": "Childfree by choice",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): UK-born, based in the US.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=UNVERIFIED (Ruby Warrington Substack); other=Kripalu 'Women Without Kids' retreats; guest on We Can Do Hard Things"
+    ]
+   },
+   {
+    "landmark_id": "amanda-montei-tracy-clark-flory",
+    "name": "Amanda Montei & Tracy Clark-Flory (Dire Straights)",
+    "primary_niche": "decentering-men-single-on-purpose",
+    "niche_name": "Decentering men & single-on-purpose women",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2025-06-10",
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "Show launched June 2025; a 'What happened to 4B?' episode exists but its date was not confirmed. Listed as one show-level entry. Montei is likely Bay Area-based (not confirmed).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Dire Straights https://pocketcasts.com/podcast/dire-straights/7f500ff0-27b4-013e-0d7c-0269e71698d3; substack=https://amandamontei.substack.com"
+    ]
+   },
+   {
+    "landmark_id": "rebecca-cokley",
+    "name": "Rebecca Cokley",
+    "primary_niche": "disability-rights-justice",
+    "niche_name": "Disability rights & disability justice",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas+g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; x=@RebeccaCokley; other=The Nation columns; X/Bluesky (UNVERIFIED handles)"
+    ]
+   },
+   {
+    "landmark_id": "dedeker-winston-jase-lindgren",
+    "name": "Dedeker Winston & Jase Lindgren (Multiamory)",
+    "primary_niche": "ethical-non-monogamy",
+    "niche_name": "Polyamory, ethical non-monogamy & relationship anarchy",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Show-level entry like other co-hosted shows in the seed; the weekly show is long-running, but no dated 2025-26 episode was confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Multiamory: Rethinking Modern Relationships - https://podcasts.apple.com/us/podcast/multiamory-rethinking-modern-relationships/id913403767; other=multiamory.com"
+    ]
+   },
+   {
+    "landmark_id": "virginia-sole-smith",
+    "name": "Virginia Sole-Smith",
+    "primary_niche": "fat-liberation",
+    "niche_name": "Fat liberation / body positivity",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Her Substack profile says \"Burnt Toast has moved to Patreon\". No dated item. | prior: Recent episodes listed, but without dates. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=Burnt Toast (Substack); podcast=The Burnt Toast Podcast https://podcasts.apple.com/us/podcast/the-burnt-toast-podcast/id1715677329; Substack https://virginiasolesmith.substack.com; other=Burnt Toast now on Patreon (per Substack profile)"
+    ]
+   },
+   {
+    "landmark_id": "abigail-shrier",
+    "name": "Abigail Shrier",
+    "primary_niche": "gender-medicine-skeptics",
+    "niche_name": "Gender-medicine skeptics & detransitioner voices",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Reletter: The Truth Fairy posted \"THE PLOT AGAINST LOVE (NEW BOOK)\" about a month before capture (undated). The book is due 2027-03 (Swift Press). Prior posts were about a year old. | prior: Knowledge Project ep #194 found, but no air date (page modified 2026-02-08). [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=The Truth Fairy (Substack; \"occasional newsletter\"); other=abigailshrier.com"
+    ]
+   },
+   {
+    "landmark_id": "yvette-hampton",
+    "name": "Yvette Hampton",
+    "primary_niche": "homeschool-self-directed-education",
+    "niche_name": "Homeschooling & self-directed education",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Schoolhouse Rocked Podcast - https://schoolhouserocked.podbean.com; other=schoolhouserocked.com"
+    ]
+   },
+   {
+    "landmark_id": "jessica-valenti",
+    "name": "Jessica Valenti",
+    "primary_niche": "liberal-feminism",
+    "niche_name": "Mainstream liberal / intersectional feminism",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: Reletter: Abortion, Every Day last issue about 37 hours before capture with multiple posts that week (undated). Very likely active. | prior: Substack archive fetch blocked; no dated item. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://jessica.substack.com (Abortion, Every Day)"
+    ]
+   },
+   {
+    "landmark_id": "jill-filipovic",
+    "name": "Jill Filipovic",
+    "primary_niche": "liberal-feminism",
+    "niche_name": "Mainstream liberal / intersectional feminism",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: jill.substack.com now redirects to https://www.throughline.news (fetch blocked). No dated item. | prior: Substack URL confirmed; no dated item. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://www.throughline.news (redirect from jill.substack.com)"
+    ]
+   },
+   {
+    "landmark_id": "janice-fiamengo",
+    "name": "Janice Fiamengo",
+    "primary_niche": "mens-rights-fathers-rights",
+    "niche_name": "Men's rights & fathers' rights (shared parenting / family-court reform)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Canadian; included as central to the US niche. Confirm 2025-26 output.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=UNVERIFIED (Fiamengo File); other=Fiamengo File video series; guest on Lawrence Krauss's Critical Mass"
+    ]
+   },
+   {
+    "landmark_id": "tom-golden",
+    "name": "Tom Golden",
+    "primary_niche": "mens-rights-fathers-rights",
+    "niche_name": "Men's rights & fathers' rights (shared parenting / family-court reform)",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Frequent recent posts (e.g., 'November is Men's Equality Month'); exact 2025-26 dates not confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://menaregood.substack.com; other=Locals: https://menaregood.locals.com; YouTube 'Tom Golden' (Men Are Good)"
+    ]
+   },
+   {
+    "landmark_id": "tamsen-fadal",
+    "name": "Tamsen Fadal",
+    "primary_niche": "midlife-women-second-act",
+    "niche_name": "Midlife women's health & second-act movement (menopause, gray divorce)",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Tamsen Fadal's menopause podcast (UNVERIFIED title); other=PBS 'The M Factor'; Hachette author"
+    ]
+   },
+   {
+    "landmark_id": "catherine-pakaluk",
+    "name": "Catherine Pakaluk",
+    "primary_niche": "pronatalism",
+    "niche_name": "Pronatalism",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item retrieved. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Catholic University of America; podcast guest"
+    ]
+   },
+   {
+    "landmark_id": "joan-meier",
+    "name": "Joan Meier",
+    "primary_niche": "protective-parents-family-court-reform",
+    "niche_name": "Protective parents & family-court reform (domestic-violence / child-safety)",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=National Family Violence Law Center at GW Law (law.gwu.edu); frequent podcast and legislative testimony"
+    ]
+   },
+   {
+    "landmark_id": "m-e-o-brien",
+    "name": "M. E. O'Brien",
+    "primary_niche": "queer-theory-abolitionist-left",
+    "niche_name": "Queer theory & gender/family-abolitionist left",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Pluto Press author; Positions interview; podcast guest (Ordinary Unhappiness)"
+    ]
+   },
+   {
+    "landmark_id": "annie-grace",
+    "name": "Annie Grace",
+    "primary_niche": "sober-curious-alcohol-free",
+    "niche_name": "Sober-curious & alcohol-free movement",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2026-10-24",
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "The show is active (episodes dated Oct 2026), but recent episodes are hosted by coaches (Cole Harvey, Hayley Scherders). Confirm Annie Grace's own 2026 talk before treating her as verified; the show itself is a usable source.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=This Naked Mind Podcast https://podcasts.apple.com/us/podcast/id1287269357; other=thisnakedmind.com"
+    ]
+   },
+   {
+    "landmark_id": "holly-whitaker",
+    "name": "Holly Whitaker",
+    "primary_niche": "sober-curious-alcohol-free",
+    "niche_name": "Sober-curious & alcohol-free movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "Guest episode on 'Love in a F*cked Up World' (2025-26; exact date not confirmed).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=UNVERIFIED"
+    ]
+   },
+   {
+    "landmark_id": "abbie-halberstadt",
+    "name": "Abbie Halberstadt",
+    "primary_niche": "tradwife-trad-femininity",
+    "niche_name": "Tradwife / traditional femininity",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Aggregator listing stopped at Ep.101 (2025-04-02) but a later Ep.143 exists, so the show continues; no dated item >= 2025-10-31 confirmed. Higher longform than Neeleman/Williams.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=M Is for Mama Podcast https://podcasts.apple.com/gb/podcast/m-is-for-mama-podcast/id1664528555"
+    ]
+   },
+   {
+    "landmark_id": "estee-williams",
+    "name": "Estee Williams",
+    "primary_niche": "tradwife-trad-femininity",
+    "niche_name": "Tradwife / traditional femininity",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not confirmed; age still unverified. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=TikTok/Instagram",
+     "age: not checked (batch B/D)"
+    ]
+   },
+   {
+    "landmark_id": "hannah-neeleman",
+    "name": "Hannah Neeleman (Ballerina Farm)",
+    "primary_niche": "tradwife-trad-femininity",
+    "niche_name": "Tradwife / traditional femininity",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 output item retrieved. Low longform. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=TikTok/Instagram @ballerinafarm"
+    ]
+   },
+   {
+    "landmark_id": "emily-ladau",
+    "name": "Emily Ladau",
+    "primary_niche": "disability-rights-justice",
+    "niche_name": "Disability rights & disability justice",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas+g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; substack=https://emilyladau.substack.com; x=@emily_ladau"
+    ]
+   },
+   {
+    "landmark_id": "jessica-fern",
+    "name": "Jessica Fern",
+    "primary_niche": "ethical-non-monogamy",
+    "niche_name": "Polyamory, ethical non-monogamy & relationship anarchy",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=jessicafern.com; frequent podcast guest"
+    ]
+   },
+   {
+    "landmark_id": "kevin-a-patterson",
+    "name": "Kevin A. Patterson",
+    "primary_niche": "ethical-non-monogamy",
+    "niche_name": "Polyamory, ethical non-monogamy & relationship anarchy",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Love's Not Color Blind (podcast); other=Microcosm Publishing author"
+    ]
+   },
+   {
+    "landmark_id": "kerry-mcdonald",
+    "name": "Kerry McDonald",
+    "primary_niche": "homeschool-self-directed-education",
+    "niche_name": "Homeschooling & self-directed education",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=LiberatED Podcast - https://podcasts.apple.com/nz/podcast/liberated-podcast/id1608978473; other=FEE (fee.org)"
+    ]
+   },
+   {
+    "landmark_id": "don-hubin",
+    "name": "Don Hubin",
+    "primary_niche": "mens-rights-fathers-rights",
+    "niche_name": "Men's rights & fathers' rights (shared parenting / family-court reform)",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): NPO itself is verified active (2025 Shared Parenting Report Card, National Press Club); Hubin's personal 2025-26 role not confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=National Parents Organization (sharedparenting.org); Daily Wire author page"
+    ]
+   },
+   {
+    "landmark_id": "sharon-malone",
+    "name": "Sharon Malone",
+    "primary_niche": "midlife-women-second-act",
+    "niche_name": "Midlife women's health & second-act movement (menopause, gray divorce)",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Aspen Ideas speaker; Alloy Women's Health"
+    ]
+   },
+   {
+    "landmark_id": "jules-gill-peterson",
+    "name": "Jules Gill-Peterson",
+    "primary_niche": "queer-theory-abolitionist-left",
+    "niche_name": "Queer theory & gender/family-abolitionist left",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=UNVERIFIED (Sad Brown Girl); other=Johns Hopkins University"
+    ]
+   },
+   {
+    "landmark_id": "hannah-pearl-davis",
+    "name": "Hannah Pearl Davis",
+    "primary_niche": "red-pill-dating",
+    "niche_name": "Red Pill dating / sexual market value",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: AGE: adult (Wikipedia gives birth year 1996/97). Activity not dated. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=JustPearlyThings (~2M subs); podcast=The Pre-Game Show; x=@pearlythingz"
+    ]
+   },
+   {
+    "landmark_id": "dan-savage",
+    "name": "Dan Savage",
+    "primary_niche": "sex-positivity-sex-worker-rights",
+    "niche_name": "Sex-positivity & sex-worker rights",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Source link not confirmed to be Savage's feed; confirm activity in Stage 2.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Savage Lovecast; other=savage.love"
+    ]
+   },
+   {
+    "landmark_id": "liz-moody",
+    "name": "Liz Moody",
+    "primary_niche": "wellness-girlies-hormone-health",
+    "niche_name": "Wellness girlies: 'that girl' self-optimization & hormone health",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "Show is listed in podcast directories; no 2026-dated episode confirmed this run.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Liz Moody Podcast"
+    ]
+   },
+   {
+    "landmark_id": "melissa-kearney",
+    "name": "Melissa Kearney",
+    "primary_niche": "biblical-womanhood-marriage-revival",
+    "niche_name": "Biblical womanhood & marriage revival",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=University of Notre Dame / Aspen Economic Strategy Group"
+    ]
+   },
+   {
+    "landmark_id": "bella-depaulo",
+    "name": "Bella DePaulo",
+    "primary_niche": "decentering-men-single-on-purpose",
+    "niche_name": "Decentering men & single-on-purpose women",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "Not searched this run (budget). Mostly written output; include only if 2025-26 talks are found.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Psychology Today blog 'Living Single'; belladepaulo.com"
+    ]
+   },
+   {
+    "landmark_id": "blaire-white",
+    "name": "Blaire White",
+    "primary_niche": "gay-conservatives-lgb-dissenters",
+    "niche_name": "Gay conservatives & LGB dissenters (the gay right)",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g4-political-subcultures",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@BlaireWhite; podcast=Blaire White Podcast (UNVERIFIED); x=@MsBlaireWhite"
+    ]
+   },
+   {
+    "landmark_id": "chad-felix-greene",
+    "name": "Chad Felix Greene",
+    "primary_niche": "gay-conservatives-lgb-dissenters",
+    "niche_name": "Gay conservatives & LGB dissenters (the gay right)",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@chadfelixg"
+    ]
+   },
+   {
+    "landmark_id": "helen-joyce",
+    "name": "Helen Joyce",
+    "primary_niche": "gender-critical-feminism",
+    "niche_name": "Gender-critical feminism",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-06-20",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: The latest dated item is older than 12 months. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Director of advocacy, Sex Matters"
+    ]
+   },
+   {
+    "landmark_id": "mike-mew",
+    "name": "Mike Mew",
+    "primary_niche": "looksmaxxing-blackpill",
+    "niche_name": "Looksmaxxing & blackpill",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item retrieved. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Orthotropics / Mike Mew"
+    ]
+   },
+   {
+    "landmark_id": "william-costello",
+    "name": "William Costello",
+    "primary_niche": "looksmaxxing-blackpill",
+    "niche_name": "Looksmaxxing & blackpill",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-03-31",
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures.additions",
+    "notes": "Latest dated long-form appearances are March-April 2025 (more than 12 months ago), so marked pending. He is a researcher who interprets incel and blackpill discourse, not a member of it.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: bluesky=williamcostello.bsky.social; x=UNVERIFIED; other=Quillette essays"
+    ]
+   },
+   {
+    "landmark_id": "kate-anthony",
+    "name": "Kate Anthony",
+    "primary_niche": "midlife-women-second-act",
+    "niche_name": "Midlife women's health & second-act movement (menopause, gray divorce)",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=The Divorce Survival Guide Podcast - https://podcasts.apple.com/us/podcast/id1345075933; other=kateanthony.com"
+    ]
+   },
+   {
+    "landmark_id": "aella",
+    "name": "Aella",
+    "primary_niche": "sex-positivity-sex-worker-rights",
+    "niche_name": "Sex-positivity & sex-worker rights",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g5-gender-family",
+    "notes": "note (g5): Adult public figure; confirm 2025-26 activity and long-form appearances.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://aella.substack.com (Knowingless); x=@Aella_Girl"
+    ]
+   },
+   {
+    "landmark_id": "alena-kate-pettitt",
+    "name": "Alena Kate Pettitt",
+    "primary_niche": "tradwife-trad-femininity",
+    "niche_name": "Tradwife / traditional femininity",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Not searched (budget). [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=The Darling Academy; books"
+    ]
+   }
+  ],
+  "d7-economy-ecology-place": [
+   {
+    "landmark_id": "ed-winters",
+    "name": "Ed Winters",
+    "primary_niche": "animal-rights-vegan",
+    "niche_name": "Animal rights / vegan",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2025-03",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest dated item is an Intelligence Squared talk (Mar 2025), older than 12 months. UK-based; flag for the US-focus rule.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@EarthlingEd; x=@EarthlingEd",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "jesse-jenkins",
+    "name": "Jesse Jenkins",
+    "primary_niche": "clean-energy-electrification",
+    "niche_name": "Clean energy / electrify-everything climate realists",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "stale",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Shift Key is active (ep 158, 2026-10-29), but recent descriptions list Robinson Meyer as the sole host. Jenkins may have left the show; no dated personal item was found. See replacements. | SEED-v2: marked stale as a landmark (no longer hosts the show this record relies on); kept, not deleted. Batch C: Shift Key is now \"Shift Key with Robinson Meyer\" and recent episodes (through ep 158, 2026-10-29) name Meyer as sole host; Jenkins appears to have left the show and no dated personal item was found.",
+    "checks": [
+     "latest dated item is older than ~12 months: confirm or replace (see suggested_swaps)",
+     "confirm handles/URLs: podcast=Shift Key (Heatmap) - retitled \"Shift Key with Robinson Meyer\"; Jenkins not named in recent episodes; x=@JesseJenkins; bluesky=jessejenkins.bsky.social; other=https://heatmap.news/podcast"
+    ]
+   },
+   {
+    "landmark_id": "robinson-meyer",
+    "name": "Robinson Meyer",
+    "primary_niche": "clean-energy-electrification",
+    "niche_name": "Clean energy / electrify-everything climate realists",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2026-10-29 (Shift Key ep 158; show-level evidence)",
+    "new_in_v4": false,
+    "source": "verify/batch-C.md (replacement recommendation)",
+    "notes": "Added in SEED-v2 as the sourced replacement for jesse-jenkins. Pending until a person-level check is done. Batch C: Shift Key is now \"Shift Key with Robinson Meyer\" and recent episodes (through ep 158, 2026-10-29) name Meyer as sole host; Jenkins appears to have left the show and no dated personal item was found.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Shift Key with Robinson Meyer https://shows.acast.com/shift-key/episodes; other=https://heatmap.news/podcast",
+     "person-level verification of the replacement"
+    ]
+   },
+   {
+    "landmark_id": "nathan-schneider",
+    "name": "Nathan Schneider",
+    "primary_niche": "cooperative-solidarity-economy-commons",
+    "niche_name": "Cooperative / solidarity economy & commons",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "No dated 2025-26 item confirmed (the Everything Co-op episode on co-ops and AI is undated). He is at CU Boulder, in Benjamin's local scene.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: bluesky=ntnsndr.bsky.social; other=https://nathanschneider.info"
+    ]
+   },
+   {
+    "landmark_id": "jason-hickel",
+    "name": "Jason Hickel",
+    "primary_niche": "degrowth-post-growth",
+    "niche_name": "Degrowth / post-growth",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-18",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest dated item is an El País interview (2025-10-18), just over 12 months old. Based at ICTA-UAB Barcelona (non-US); flag for the US-focus rule.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@jasonhickel; bluesky=jasonhickel.bsky.social; other=https://www.jasonhickel.org",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "ted-nordhaus",
+    "name": "Ted Nordhaus",
+    "primary_niche": "ecomodernism-nuclear-abundance",
+    "niche_name": "Ecomodernists & nuclear energy abundance",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "No dated 2025-26 item confirmed; the sitemap fetch was blocked.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://tedn.substack.com (personal Substack; thebreakthrough.org is not a Substack); x=@TedNordhaus"
+    ]
+   },
+   {
+    "landmark_id": "matt-davella",
+    "name": "Matt D'Avella",
+    "primary_niche": "minimalism-anti-consumerism",
+    "niche_name": "Minimalism & anti-consumerism (no-buy, deinfluencing)",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": "2025-07-02",
+    "new_in_v4": true,
+    "source": "raw/g7-online-subcultures",
+    "notes": "Latest confirmed video July 2025; 2026 activity not confirmed this run.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@mattdavella"
+    ]
+   },
+   {
+    "landmark_id": "pavlina-tcherneva",
+    "name": "Pavlina Tcherneva",
+    "primary_niche": "mmt-heterodox-macro",
+    "niche_name": "Modern Monetary Theory (MMT) / heterodox macro",
+    "role": "core",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Named president of the Levy Institute (announced Jul 2024). No dated 2025-26 talk was found. Core slot with low longform; consider a swap.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@ptcherneva; other=https://pavlina-tcherneva.net ; Levy Economics Institute (president)"
+    ]
+   },
+   {
+    "landmark_id": "andrew-millison",
+    "name": "Andrew Millison",
+    "primary_niche": "permaculture-homesteading",
+    "niche_name": "Permaculture & homesteading / back-to-the-land",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "An Invidious mirror shows an upload \"1 month ago\" but no capture date. OSU profile dated 2025-10-27. Almost certainly active, but no dated video was confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@AndrewMillison"
+    ]
+   },
+   {
+    "landmark_id": "justin-rhodes",
+    "name": "Justin Rhodes",
+    "primary_niche": "permaculture-homesteading",
+    "niche_name": "Permaculture & homesteading / back-to-the-land",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "No dated 2025-26 item found. The Rooted Life book is from 2022.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@JustinRhodes; podcast=The Justin Rhodes Show (audio feed exists; episodes undated)"
+    ]
+   },
+   {
+    "landmark_id": "city-prepping",
+    "name": "City Prepping (Dan)",
+    "primary_niche": "preppers-self-reliance",
+    "niche_name": "Preppers / self-reliance",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Video titles point to late 2025 and 2026 output (\"…in 2026\"), but no publish date was confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@CityPrepping; other=https://cityprepping.com ; Rumble https://rumble.com/c/CityPrepping"
+    ]
+   },
+   {
+    "landmark_id": "gabe-brown",
+    "name": "Gabe Brown",
+    "primary_niche": "regen-ag-food-freedom",
+    "niche_name": "Regenerative agriculture & food freedom",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest hits are undated or reissues (AgEmerge 177 is a throwback clip of a 2023 episode). There are many past long interviews.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://understandingag.com"
+    ]
+   },
+   {
+    "landmark_id": "gregory-landua",
+    "name": "Gregory Landua",
+    "primary_niche": "regens-refi",
+    "niche_name": "Regens / ReFi & public-goods funding",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-04-14",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Planetary Regeneration Podcast is dormant: the last episode (070) is dated 2025-04-14 and the one before (069) 2024-05-16. No 2025-26 dated item from Landua himself was found. Downgrade longform to low unless a recent item turns up. This is Benjamin's regen/ReFi scene, so verify rather than assume.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Planetary Regeneration Podcast; x=@grelandua; other=https://www.regen.network"
+    ]
+   },
+   {
+    "landmark_id": "monty-bryant",
+    "name": "Monty Bryant",
+    "primary_niche": "regens-refi",
+    "niche_name": "Regens / ReFi & public-goods funding",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Only 2023-24 appearances found; residence not confirmed (may be non-US).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Guest: The Blockchain Socialist; INATBA BC100+ series; ReFi DAO's ReFi Podcast; other=https://refidao.com",
+     "Benjamin decision pending (conflict-of-interest): Benjamin's long-term collaborator; confirm inclusion (also pending verification)."
+    ]
+   },
+   {
+    "landmark_id": "bayo-akomolafe",
+    "name": "Bayo Akomolafe",
+    "primary_niche": "bioregionalism-regenerative-culture",
+    "niche_name": "Bioregionalism & regenerative culture",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10 (approx)",
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Dated items are about 12-13 months old: Wonderstruck (about Oct 2025) and Planetary Regeneration Podcast ep 070 (2025-04-14). The Border Work and Bristol Conversations series look recent but are undated. Non-US-based (Nigerian-born), so flag him for the US-focus rule. The substack sitemap fetch was blocked.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://bayoakomolafe.substack.com; other=https://www.bayoakomolafe.net; podcast=Guest on many shows; also Border Work with Bayo Akomolafe & Tyson Yunkaporta (series on Coming Home to Life, hosted by Wahl/Duthie)",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "karen-washington",
+    "name": "Karen Washington",
+    "primary_niche": "black-agrarianism-rural-black-south",
+    "niche_name": "Black agrarianism & the rural Black South (land, food sovereignty, environmental justice)",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-09 (before cutoff)",
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep",
+    "notes": "Latest dated item Sept 2025; pending.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Food Tank, podcasts (Everything Co-op)"
+    ]
+   },
+   {
+    "landmark_id": "saul-griffith",
+    "name": "Saul Griffith",
+    "primary_niche": "clean-energy-electrification",
+    "niche_name": "Clean energy / electrify-everything climate realists",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@saulgriffith; other=https://www.otherlab.com"
+    ]
+   },
+   {
+    "landmark_id": "bill-mckibben",
+    "name": "Bill McKibben",
+    "primary_niche": "climate-justice-movement",
+    "niche_name": "Climate justice movement",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The Crucial Years Substack is clearly ongoing, but the sitemap fetch was blocked and no dated post was confirmed. Clear it with a sitemap fetch.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://billmckibben.substack.com; x=@billmckibben; bluesky=billmckibben.bsky.social; other=https://thirdact.org"
+    ]
+   },
+   {
+    "landmark_id": "trebor-scholz",
+    "name": "Trebor Scholz",
+    "primary_niche": "cooperative-solidarity-economy-commons",
+    "niche_name": "Cooperative / solidarity economy & commons",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). Low longform.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://platform.coop"
+    ]
+   },
+   {
+    "landmark_id": "juliet-schor",
+    "name": "Juliet Schor",
+    "primary_niche": "degrowth-post-growth",
+    "niche_name": "Degrowth / post-growth",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-09-29",
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Latest dated long-form item 2025-09-29 (one month outside window). Addresses the US-focus flag on Hickel/Raworth/Saito.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://www.bc.edu (faculty); TED talk on the four-day week"
+    ]
+   },
+   {
+    "landmark_id": "kate-raworth",
+    "name": "Kate Raworth",
+    "primary_niche": "degrowth-post-growth",
+    "niche_name": "Degrowth / post-growth",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). UK-based; flag for the US-focus rule.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@KateRaworth; other=https://doughnuteconomics.org",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "bjrn-lomborg",
+    "name": "Bjørn Lomborg",
+    "primary_niche": "energy-dominance-climate-skeptic",
+    "niche_name": "Energy dominance & fossil-fuel advocates",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). Non-US (Denmark/Copenhagen Consensus); flag for the US-focus rule.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@BjornLomborg; other=https://www.lomborg.com",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "tyne-morgan",
+    "name": "Tyne Morgan",
+    "primary_niche": "farm-ranch-mainstream",
+    "niche_name": "Farm-and-ranch mainstream (ag media & farm YouTube)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": true,
+    "source": "raw/g8-holistic-sweep",
+    "notes": "Pending: no dated 2025-11+ item captured.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=U.S. Farm Report https://www.agweb.com/authors/tyne-morgan"
+    ]
+   },
+   {
+    "landmark_id": "cea-weaver",
+    "name": "Cea Weaver",
+    "primary_niche": "housing-justice-tenant-movement",
+    "niche_name": "Housing justice / tenant movement",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). Low longform; find transcribable interviews or swap.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@cea_weaver"
+    ]
+   },
+   {
+    "landmark_id": "steve-grumbine",
+    "name": "Steve Grumbine",
+    "primary_niche": "mmt-heterodox-macro",
+    "niche_name": "Modern Monetary Theory (MMT) / heterodox macro",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Search did not surface the feed (noise). Check realprogressives.org episode dates.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Macro N Cheese (Real Progressives); other=https://realprogressives.org"
+    ]
+   },
+   {
+    "landmark_id": "warren-mosler",
+    "name": "Warren Mosler",
+    "primary_niche": "mmt-heterodox-macro",
+    "niche_name": "Modern Monetary Theory (MMT) / heterodox macro",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@wbmosler; other=https://moslereconomics.com"
+    ]
+   },
+   {
+    "landmark_id": "sam-quinones",
+    "name": "Sam Quinones",
+    "primary_niche": "recovery-first-public-order",
+    "niche_name": "Recovery-first & public-order advocates (addiction and homelessness)",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=frequent guest; substack=https://samquinones.substack.com; x=@samquinones7"
+    ]
+   },
+   {
+    "landmark_id": "diana-rodgers",
+    "name": "Diana Rodgers",
+    "primary_niche": "regen-ag-food-freedom",
+    "niche_name": "Regenerative agriculture & food freedom",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Sustainable Dish; x=@sustainabledish"
+    ]
+   },
+   {
+    "landmark_id": "chris-jones",
+    "name": "Chris Jones",
+    "primary_niche": "rural-populist-farmers",
+    "niche_name": "Rural populist / independent farmer movement",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). Low longform.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://swimmingupstream.substack.com"
+    ]
+   },
+   {
+    "landmark_id": "wayne-hsiung",
+    "name": "Wayne Hsiung",
+    "primary_niche": "animal-rights-vegan",
+    "niche_name": "Animal rights / vegan",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=https://www.directactioneverywhere.com; The Simple Heart (Substack)"
+    ]
+   },
+   {
+    "landmark_id": "hannah-ritchie",
+    "name": "Hannah Ritchie",
+    "primary_niche": "clean-energy-electrification",
+    "niche_name": "Clean energy / electrify-everything climate realists",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Book Clearing the Air (Sept 2025); award Nov 2025. The Substack (60k+ subscribers) is surely active, but no dated post was confirmed. UK-based (Oxford/Our World in Data); flag for the US-focus rule.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://www.sustainabilitybynumbers.com; x=@_HannahRitchie",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "mary-annaise-heglar",
+    "name": "Mary Annaïse Heglar",
+    "primary_niche": "climate-justice-movement",
+    "niche_name": "Climate justice movement",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Hot Take; substack=https://hottakes.substack.com; x=@MaryHeglar"
+    ]
+   },
+   {
+    "landmark_id": "kohei-saito",
+    "name": "Kohei Saito",
+    "primary_niche": "degrowth-post-growth",
+    "niche_name": "Degrowth / post-growth",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget). Japan-based; flag for the US-focus rule. Low longform in English.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Interviews; Japanese and English publications",
+     "non-US voice: confirm centrality to the US niche"
+    ]
+   },
+   {
+    "landmark_id": "roger-pielke-jr",
+    "name": "Roger Pielke Jr.",
+    "primary_niche": "energy-dominance-climate-skeptic",
+    "niche_name": "Energy dominance & fossil-fuel advocates",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://rogerpielkejr.substack.com; x=@RogerPielkeJr"
+    ]
+   },
+   {
+    "landmark_id": "paul-saladino",
+    "name": "Paul Saladino",
+    "primary_niche": "regen-ag-food-freedom",
+    "niche_name": "Regenerative agriculture & food freedom",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "The latest own episode (264) is dated \"Sep 9\" with no year; the previous one is from 2025-07-28. The year is ambiguous. He appears often as a guest.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@PaulSaladinoMD; podcast=Paul Saladino MD podcast (Apple id1461771083; formerly \"Fundamental Health\"); x=@paulsaladinomd"
+    ]
+   },
+   {
+    "landmark_id": "luke-gromen",
+    "name": "Luke Gromen",
+    "primary_niche": "sound-money-austrian-gold",
+    "niche_name": "Sound money / Austrian economics / gold & dedollarization",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-C.json",
+    "notes": "Not searched (budget).",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@LukeGromen"
+    ]
+   }
+  ],
+  "d8-geopolitics-media": [
+   {
+    "landmark_id": "matt-pottinger",
+    "name": "Matt Pottinger",
+    "primary_niche": "china-hawks",
+    "niche_name": "China Hawks",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: PBS NewsHour interview 2025-10-29 (2 days outside window). The batch B WSJ item around 2026-06 is still inferred. | prior: A WSJ Opinion podcast appearance was probably recorded around 2026-06-04, but that date is inferred. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Chairman, China Program, Foundation for Defense of Democracies (per PBS)"
+    ]
+   },
+   {
+    "landmark_id": "joyce-vance",
+    "name": "Joyce Vance",
+    "primary_niche": "democracy-protection-voting-rights",
+    "niche_name": "Democracy-Protection and Voting-Rights Advocates",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=https://joycevance.substack.com; podcast=#SistersInLaw"
+    ]
+   },
+   {
+    "landmark_id": "margaret-sullivan",
+    "name": "Margaret Sullivan",
+    "primary_niche": "legacy-media-institutionalists",
+    "niche_name": "Legacy-Media Institutionalists",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: substack=American Crisis (Margaret Sullivan)"
+    ]
+   },
+   {
+    "landmark_id": "dara-massicot",
+    "name": "Dara Massicot",
+    "primary_niche": "osint-war-analysis",
+    "niche_name": "OSINT and War-Analysis Community",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@MassDara"
+    ]
+   },
+   {
+    "landmark_id": "mohammed-el-kurd",
+    "name": "Mohammed El-Kurd",
+    "primary_niche": "pro-palestinian-movement",
+    "niche_name": "Pro-Palestinian movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: Substack archive fetch blocked. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@m7mdkurd; substack=https://mohammedelkurd.substack.com"
+    ]
+   },
+   {
+    "landmark_id": "noura-erakat",
+    "name": "Noura Erakat",
+    "primary_niche": "pro-palestinian-movement",
+    "niche_name": "Pro-Palestinian movement",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@4noura"
+    ]
+   },
+   {
+    "landmark_id": "jenin-younes",
+    "name": "Jenin Younes",
+    "primary_niche": "censorship-industrial-complex-critics",
+    "niche_name": "Censorship-Industrial-Complex Critics",
+    "role": "bridger",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g6-representation",
+    "notes": "Candidate from knowledge; not searched within budget. Confirm a dated item >= 2025-10-31 before promotion.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@Jenin_Younes"
+    ]
+   },
+   {
+    "landmark_id": "jay-rosen",
+    "name": "Jay Rosen",
+    "primary_niche": "legacy-media-institutionalists",
+    "niche_name": "Legacy-Media Institutionalists",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": "2025-10-08",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: PressThink Oct 2025 archive: only 2025-10-08 post. No later month confirmed. | prior: The latest PressThink post found is about three weeks past the 12-month window. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: bluesky=@jayrosen.bsky.social; other=https://pressthink.org"
+    ]
+   },
+   {
+    "landmark_id": "ryan-mcbeth",
+    "name": "Ryan McBeth",
+    "primary_niche": "osint-war-analysis",
+    "niche_name": "OSINT and War-Analysis Community",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "stale",
+    "evidence_date": "2025-03-07",
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Latest dated Substack item 2025-03-07 (batch B found 2024-04). YouTube upload dates were not checked, and he is an edge voice. Treat as stale until a 2026 upload is found. [source batch B]",
+    "checks": [
+     "latest dated item is older than ~12 months: confirm or replace (see suggested_swaps)",
+     "confirm handles/URLs: youtube=Ryan McBeth; substack=https://ryanmcbeth.substack.com"
+    ]
+   },
+   {
+    "landmark_id": "marc-lamont-hill",
+    "name": "Marc Lamont Hill",
+    "primary_niche": "pro-palestinian-movement",
+    "niche_name": "Pro-Palestinian movement",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "verify/batch-D.json",
+    "notes": "Batch D: No new evidence in batch D (not re-searched within budget). | prior: No dated 2025-26 item retrieved. [source batch B]",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@marclamonthill; other=Host of UpFront (Al Jazeera English); Coffee and Books podcast; Joe Budden Podcast co-host since 2024 (per Wikipedia)"
+    ]
+   }
+  ],
+  "d9-mainstream-culture": [
+   {
+    "landmark_id": "steve-harvey",
+    "name": "Steve Harvey",
+    "primary_niche": "black-family-faith-mainstream",
+    "niche_name": "Black faith-and-family mainstream",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Steve Harvey Morning Show; x=@IAmSteveHarvey"
+    ]
+   },
+   {
+    "landmark_id": "ben-mandelker-ronnie-karam",
+    "name": "Ben Mandelker & Ronnie Karam",
+    "primary_niche": "bravo-reality-tv",
+    "niche_name": "Bravo & reality-TV culture",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Watch What Crappens"
+    ]
+   },
+   {
+    "landmark_id": "n-o-r-e-dj-efn",
+    "name": "N.O.R.E. & DJ EFN",
+    "primary_niche": "hip-hop-culture-commentary",
+    "niche_name": "Hip-hop culture & commentary",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@DrinkChamps; podcast=Drink Champs (Revolt)"
+    ]
+   },
+   {
+    "landmark_id": "enrique-santos",
+    "name": "Enrique Santos",
+    "primary_niche": "latino-mainstream-media",
+    "niche_name": "Spanish-language & Latino mainstream media",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "v3-QA step 3",
+    "notes": "Latest dated source found is 2021; confirm 2025-26 activity.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=The Enrique Santos Show (Tu 94.9 Miami, iHeartRadio)"
+    ]
+   },
+   {
+    "landmark_id": "greg-miller",
+    "name": "Greg Miller",
+    "primary_niche": "mainstream-gaming-community",
+    "niche_name": "Mainstream gaming community & games media",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@KindaFunnyGames; podcast=Kinda Funny Games Daily; x=@GameOverGreggy"
+    ]
+   },
+   {
+    "landmark_id": "scott-wadsworth",
+    "name": "Scott Wadsworth (Essential Craftsman)",
+    "primary_niche": "skilled-trades-dignity-of-work",
+    "niche_name": "Skilled trades & dignity-of-work culture",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@EssentialCraftsman; podcast=Essential Craftsman podcast"
+    ]
+   },
+   {
+    "landmark_id": "ludwig-ahgren",
+    "name": "Ludwig Ahgren",
+    "primary_niche": "streamer-creator-culture",
+    "niche_name": "Streamer & IRL creator culture",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@ludwig"
+    ]
+   },
+   {
+    "landmark_id": "karen-kilgariff-georgia-hardstark",
+    "name": "Karen Kilgariff & Georgia Hardstark",
+    "primary_niche": "true-crime-community",
+    "niche_name": "True crime community",
+    "role": "core",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=My Favorite Murder (Exactly Right)"
+    ]
+   },
+   {
+    "landmark_id": "tim-kennedy",
+    "name": "Tim Kennedy",
+    "primary_niche": "veteran-warrior-culture-media",
+    "niche_name": "Veteran & warrior-culture sphere",
+    "role": "core",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g1-issue-arenas",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Tim Kennedy Podcast / frequent guest; x=@TimKennedyMMA"
+    ]
+   },
+   {
+    "landmark_id": "jason-bateman-sean-hayes-will-arnett",
+    "name": "Jason Bateman, Sean Hayes & Will Arnett",
+    "primary_niche": "celebrity-chat-comedy-podcasts",
+    "niche_name": "Celebrity-chat & comedy podcast mainstream (Armchair / SmartLess / Conan)",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=SmartLess"
+    ]
+   },
+   {
+    "landmark_id": "jelly-roll",
+    "name": "Jelly Roll",
+    "primary_niche": "country-heartland-culture",
+    "niche_name": "Country music & heartland culture",
+    "role": "bridger",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@JellyRoll; x=@JellyRoll615"
+    ]
+   },
+   {
+    "landmark_id": "jeff-gerstmann",
+    "name": "Jeff Gerstmann",
+    "primary_niche": "mainstream-gaming-community",
+    "niche_name": "Mainstream gaming community & games media",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@jeffgerstmann; podcast=The Jeff Gerstmann Show"
+    ]
+   },
+   {
+    "landmark_id": "adin-ross",
+    "name": "Adin Ross",
+    "primary_niche": "streamer-creator-culture",
+    "niche_name": "Streamer & IRL creator culture",
+    "role": "bridger",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g2-gen-z",
+    "notes": "age check (g2): born Oct 2000 per Wikipedia | notes (g2): Active through 2025 (Salon Oct 2025); 2026 streaming cadence not confirmed.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Kick adinross; Brand Risk podcast"
+    ]
+   },
+   {
+    "landmark_id": "tyler-perry",
+    "name": "Tyler Perry",
+    "primary_niche": "black-family-faith-mainstream",
+    "niche_name": "Black faith-and-family mainstream",
+    "role": "edge",
+    "longform_output": "low",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: other=Tyler Perry Studios"
+    ]
+   },
+   {
+    "landmark_id": "matt-farah",
+    "name": "Matt Farah",
+    "primary_niche": "car-truck-motorsports",
+    "niche_name": "Car, truck & motorsports culture",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@thesmokingtire; podcast=The Smoking Tire"
+    ]
+   },
+   {
+    "landmark_id": "john-rich",
+    "name": "John Rich",
+    "primary_niche": "country-heartland-culture",
+    "niche_name": "Country music & heartland culture",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: x=@johnrich"
+    ]
+   },
+   {
+    "landmark_id": "rissi-palmer",
+    "name": "Rissi Palmer",
+    "primary_niche": "country-heartland-culture",
+    "niche_name": "Country music & heartland culture",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Color Me Country Radio"
+    ]
+   },
+   {
+    "landmark_id": "math-hoffa",
+    "name": "Math Hoffa",
+    "primary_niche": "hip-hop-culture-commentary",
+    "niche_name": "Hip-hop culture & commentary",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=https://www.youtube.com/@MyExpertOpinion; other=Patreon"
+    ]
+   },
+   {
+    "landmark_id": "alex-otaola",
+    "name": "Alexander Otaola",
+    "primary_niche": "latino-mainstream-media",
+    "niche_name": "Spanish-language & Latino mainstream media",
+    "role": "edge",
+    "longform_output": "high",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "v3-QA step 3",
+    "notes": "No dated 2025-26 item confirmed within budget.",
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: youtube=Hola! Ota-Ola (Cubanos por el Mundo)"
+    ]
+   },
+   {
+    "landmark_id": "deuxmoi",
+    "name": "DeuxMoi",
+    "primary_niche": "pop-culture-stan",
+    "niche_name": "Pop culture, celebrity & stan culture",
+    "role": "edge",
+    "longform_output": "medium",
+    "verification": "pending",
+    "evidence_date": null,
+    "new_in_v4": false,
+    "source": "raw/g3-mainstream-culture",
+    "notes": null,
+    "checks": [
+     "find a dated first-person item (episode, video, post) on or after 2025-10-31",
+     "confirm handles/URLs: podcast=Deux U; other=Instagram @deuxmoi"
+    ]
+   }
+  ]
+ },
+ "spot_check": [
+  {
+   "landmark_id": "alex-nowrasteh",
+   "name": "Alex Nowrasteh",
+   "primary_niche": "pro-immigration-liberty-growth",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "brett-cooper",
+   "name": "Brett Cooper",
+   "primary_niche": "gen-z-conservative-creators",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "cj-pearson",
+   "name": "CJ Pearson",
+   "primary_niche": "gen-z-conservative-creators",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "corey-deangelis",
+   "name": "Corey DeAngelis",
+   "primary_niche": "parents-rights-school-choice",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "mark-krikorian",
+   "name": "Mark Krikorian",
+   "primary_niche": "immigration-restrictionists",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "rafael-mangual",
+   "name": "Rafael Mangual",
+   "primary_niche": "law-and-order-police-support",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "tiffany-justice",
+   "name": "Tiffany Justice",
+   "primary_niche": "parents-rights-school-choice",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "vivek-ramaswamy",
+   "name": "Vivek Ramaswamy",
+   "primary_niche": "asian-american-conservatives",
+   "role": "core",
+   "source": "raw/g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "brandon-tatum",
+   "name": "Brandon Tatum",
+   "primary_niche": "law-and-order-police-support",
+   "role": "bridger",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "xaviaer-durousseau",
+   "name": "Xaviaer DuRousseau",
+   "primary_niche": "gen-z-conservative-creators",
+   "role": "bridger",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "aaron-parnas",
+   "name": "Aaron Parnas",
+   "primary_niche": "gen-z-democratic-creators",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "aaron-reichlin-melnick",
+   "name": "Aaron Reichlin-Melnick",
+   "primary_niche": "immigrant-rights-movement",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "alexis-mcgill-johnson",
+   "name": "Alexis McGill Johnson",
+   "primary_niche": "reproductive-rights-movement",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "carl-hart",
+   "name": "Carl Hart",
+   "primary_niche": "harm-reduction-drug-policy-reform",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "david-hogg",
+   "name": "David Hogg",
+   "primary_niche": "gen-z-democratic-creators",
+   "role": "core",
+   "source": "raw/g1-issue-arenas+g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "greisa-martinez-rosas",
+   "name": "Greisa Martínez Rosas",
+   "primary_niche": "immigrant-rights-movement",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "jackson-hinkle",
+   "name": "Jackson Hinkle",
+   "primary_niche": "patriotic-socialism-maga-communism",
+   "role": "core",
+   "source": "raw/g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kassandra-frederique",
+   "name": "Kassandra Frederique",
+   "primary_niche": "harm-reduction-drug-policy-reform",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "michael-s-roth",
+   "name": "Michael S. Roth",
+   "primary_niche": "higher-ed-defenders",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "randi-weingarten",
+   "name": "Randi Weingarten",
+   "primary_niche": "public-school-advocates-teachers-unions",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "shannon-watts",
+   "name": "Shannon Watts",
+   "primary_niche": "gun-violence-prevention-movement",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "todd-wolfson",
+   "name": "Todd Wolfson",
+   "primary_niche": "higher-ed-defenders",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "olivia-julianna",
+   "name": "Olivia Julianna",
+   "primary_niche": "gen-z-democratic-creators",
+   "role": "bridger",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "harry-sisson",
+   "name": "Harry Sisson",
+   "primary_niche": "gen-z-democratic-creators",
+   "role": "edge",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kevin-paffrath",
+   "name": "Kevin Paffrath (Meet Kevin)",
+   "primary_niche": "crypto-degens",
+   "role": "edge",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "katelyn-jetelina",
+   "name": "Katelyn Jetelina",
+   "primary_niche": "public-health-evidence-based-medicine",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "nick-troiano",
+   "name": "Nick Troiano",
+   "primary_niche": "democracy-reform-independents",
+   "role": "core",
+   "source": "raw/g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "paul-offit",
+   "name": "Paul Offit",
+   "primary_niche": "public-health-evidence-based-medicine",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "philip-defranco",
+   "name": "Philip DeFranco",
+   "primary_niche": "bridging-depolarization-explainers",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "dan-osborn",
+   "name": "Dan Osborn",
+   "primary_niche": "democracy-reform-independents",
+   "role": "bridger",
+   "source": "raw/g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "v-spehar",
+   "name": "V Spehar",
+   "primary_niche": "bridging-depolarization-explainers",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "angela-halili",
+   "name": "Angela Halili",
+   "primary_niche": "gen-z-faith-revival",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "chani-nicholas",
+   "name": "Chani Nicholas",
+   "primary_niche": "astrology-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "chris-brennan",
+   "name": "Chris Brennan",
+   "primary_niche": "astrology-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "ruslan-kd",
+   "name": "Ruslan KD",
+   "primary_niche": "gen-z-faith-revival",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "sadie-robertson-huff",
+   "name": "Sadie Robertson Huff",
+   "primary_niche": "gen-z-faith-revival",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "beth-allison-barr",
+   "name": "Beth Allison Barr",
+   "primary_niche": "evangelical-egalitarians-purity-culture-critics",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "brad-polumbo",
+   "name": "Brad Polumbo",
+   "primary_niche": "gay-conservatives-lgb-dissenters",
+   "role": "core",
+   "source": "raw/g4-political-subcultures+g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "dave-rubin",
+   "name": "Dave Rubin",
+   "primary_niche": "gay-conservatives-lgb-dissenters",
+   "role": "core",
+   "source": "raw/g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "emily-morse",
+   "name": "Emily Morse",
+   "primary_niche": "sex-positivity-sex-worker-rights",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "ginny-yurich",
+   "name": "Ginny Yurich",
+   "primary_niche": "homeschool-self-directed-education",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "judith-butler",
+   "name": "Judith Butler",
+   "primary_niche": "queer-theory-abolitionist-left",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kaytlin-bailey",
+   "name": "Kaytlin Bailey",
+   "primary_niche": "sex-positivity-sex-worker-rights",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kristen-clark-bethany-beal",
+   "name": "Kristen Clark & Bethany Beal (Girl Defined)",
+   "primary_niche": "biblical-womanhood-marriage-revival",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "laila-mickelwait",
+   "name": "Laila Mickelwait",
+   "primary_niche": "anti-sexual-exploitation",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "mary-claire-haver",
+   "name": "Mary Claire Haver",
+   "primary_niche": "midlife-women-second-act",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "peter-gray",
+   "name": "Peter Gray",
+   "primary_niche": "homeschool-self-directed-education",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "sheila-wray-gregoire",
+   "name": "Sheila Wray Gregoire",
+   "primary_niche": "evangelical-egalitarians-purity-culture-critics",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "sophie-lewis",
+   "name": "Sophie Lewis",
+   "primary_niche": "queer-theory-abolitionist-left",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "tina-swithin",
+   "name": "Tina Swithin",
+   "primary_niche": "protective-parents-family-court-reform",
+   "role": "core",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "andrew-sullivan",
+   "name": "Andrew Sullivan",
+   "primary_niche": "gay-conservatives-lgb-dissenters",
+   "role": "bridger",
+   "source": "raw/g4-political-subcultures+g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "brad-wilcox",
+   "name": "Brad Wilcox",
+   "primary_niche": "biblical-womanhood-marriage-revival",
+   "role": "bridger",
+   "source": "raw/g5-gender-family",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "judge-glock",
+   "name": "Judge Glock",
+   "primary_niche": "recovery-first-public-order",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kevin-sabet",
+   "name": "Kevin Sabet",
+   "primary_niche": "recovery-first-public-order",
+   "role": "core",
+   "source": "raw/g1-issue-arenas",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "andy-cohen",
+   "name": "Andy Cohen",
+   "primary_niche": "bravo-reality-tv",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "andy-stumpf",
+   "name": "Andy Stumpf",
+   "primary_niche": "veteran-warrior-culture-media",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "ashley-flowers",
+   "name": "Ashley Flowers",
+   "primary_niche": "true-crime-community",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "bobby-bones",
+   "name": "Bobby Bones",
+   "primary_niche": "country-heartland-culture",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "bobby-finger-lindsey-weber",
+   "name": "Bobby Finger & Lindsey Weber",
+   "primary_niche": "pop-culture-stan",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "cleetus-mcfarland",
+   "name": "Cleetus McFarland (Garrett Mitchell)",
+   "primary_niche": "car-truck-motorsports",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "conan-o-brien",
+   "name": "Conan O'Brien",
+   "primary_niche": "celebrity-chat-comedy-podcasts",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "dan-katz",
+   "name": "Dan 'Big Cat' Katz",
+   "primary_niche": "barstool-boys-culture",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "dave-portnoy",
+   "name": "Dave Portnoy",
+   "primary_niche": "barstool-boys-culture",
+   "role": "core",
+   "source": "raw/g2-gen-z+g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "dax-shepard",
+   "name": "Dax Shepard",
+   "primary_niche": "celebrity-chat-comedy-podcasts",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "doug-demuro",
+   "name": "Doug DeMuro",
+   "primary_niche": "car-truck-motorsports",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "drew-barrymore",
+   "name": "Drew Barrymore",
+   "primary_niche": "daytime-lifestyle-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "ishowspeed",
+   "name": "IShowSpeed",
+   "primary_niche": "streamer-creator-culture",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "jason-schreier",
+   "name": "Jason Schreier",
+   "primary_niche": "mainstream-gaming-community",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "joe-budden",
+   "name": "Joe Budden",
+   "primary_niche": "hip-hop-culture-commentary",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kai-cenat",
+   "name": "Kai Cenat",
+   "primary_niche": "streamer-creator-culture",
+   "role": "core",
+   "source": "raw/g2-gen-z+g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kelly-clarkson",
+   "name": "Kelly Clarkson",
+   "primary_niche": "daytime-lifestyle-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "kyle-forgeard",
+   "name": "Kyle Forgeard",
+   "primary_niche": "barstool-boys-culture",
+   "role": "core",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "matt-rogers-bowen-yang",
+   "name": "Matt Rogers & Bowen Yang",
+   "primary_niche": "pop-culture-stan",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "mel-robbins",
+   "name": "Mel Robbins",
+   "primary_niche": "therapeutic-self-help-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "mike-rowe",
+   "name": "Mike Rowe",
+   "primary_niche": "skilled-trades-dignity-of-work",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "oprah-winfrey",
+   "name": "Oprah Winfrey",
+   "primary_niche": "daytime-lifestyle-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "pat-mcafee",
+   "name": "Pat McAfee",
+   "primary_niche": "sports-talk-culture",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "stephen-a-smith",
+   "name": "Stephen A. Smith",
+   "primary_niche": "sports-talk-culture",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "t-d-jakes",
+   "name": "T.D. Jakes",
+   "primary_niche": "black-family-faith-mainstream",
+   "role": "core",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "andrew-schulz",
+   "name": "Andrew Schulz",
+   "primary_niche": "barstool-boys-culture",
+   "role": "bridger",
+   "source": "raw/g2-gen-z",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "bailey-sarian",
+   "name": "Bailey Sarian",
+   "primary_niche": "true-crime-community",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "bill-simmons",
+   "name": "Bill Simmons",
+   "primary_niche": "sports-talk-culture",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "jason-kelce-travis-kelce",
+   "name": "Jason Kelce & Travis Kelce",
+   "primary_niche": "sports-talk-culture",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "jay-leno",
+   "name": "Jay Leno",
+   "primary_niche": "car-truck-motorsports",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "matt-risinger",
+   "name": "Matt Risinger",
+   "primary_niche": "skilled-trades-dignity-of-work",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "paul-rieckhoff",
+   "name": "Paul Rieckhoff",
+   "primary_niche": "veteran-warrior-culture-media",
+   "role": "bridger",
+   "source": "raw/g1-issue-arenas+g4-political-subcultures",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "pft-commenter",
+   "name": "PFT Commenter (Eric Sollenberger)",
+   "primary_niche": "barstool-boys-culture",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "pokimane",
+   "name": "Pokimane (Imane Anys)",
+   "primary_niche": "streamer-creator-culture",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "shannon-sharpe",
+   "name": "Shannon Sharpe",
+   "primary_niche": "hip-hop-culture-commentary",
+   "role": "bridger",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "bethenny-frankel",
+   "name": "Bethenny Frankel",
+   "primary_niche": "bravo-reality-tv",
+   "role": "edge",
+   "source": "raw/g3-mainstream-culture",
+   "check": "record a dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "brad-carson",
+   "name": "Brad Carson",
+   "primary_niche": "populist-ai-backlash",
+   "role": "bridger",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (midterm AI super-PAC coverage)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "chip-flory",
+   "name": "Chip Flory",
+   "primary_niche": "farm-ranch-mainstream",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (Yield Academy 2026 speaker)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "daniel-miller",
+   "name": "Daniel Miller",
+   "primary_niche": "secession-national-divorce",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (RPT convention independence planks)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "guerline-jozef",
+   "name": "Guerline Jozef",
+   "primary_niche": "immigrant-rights-movement",
+   "role": "bridger",
+   "source": "raw/g8-holistic-sweep.additions",
+   "check": "evidence date recorded as '2026 (CariPhil 2026 award)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "leah-penniman",
+   "name": "Leah Penniman",
+   "primary_niche": "black-agrarianism-rural-black-south",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (Bioneers 2026 speaker)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "mark-trahant",
+   "name": "Mark Trahant",
+   "primary_niche": "tribal-nations-native-politics",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (ID Summit 2026 journalism panel; approx)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "matt-hildreth",
+   "name": "Matt Hildreth",
+   "primary_niche": "rural-progressives-new-appalachia",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (Obama Leaders USA 2026-2027 cohort)': record an exact dated item on or after 2025-10-31"
+  },
+  {
+   "landmark_id": "silas-house",
+   "name": "Silas House",
+   "primary_niche": "rural-progressives-new-appalachia",
+   "role": "core",
+   "source": "raw/g8-holistic-sweep",
+   "check": "evidence date recorded as '2026 (approx; Talking Appalachian episode with Beth Macy, recent feed ID)': record an exact dated item on or after 2025-10-31"
+  }
+ ],
+ "alternates": [
+  {
+   "landmark_id": "keith-gill",
+   "name": "Keith Gill (Roaring Kitty)",
+   "would_sit_in": "crypto-degens",
+   "verification": "pending",
+   "reason": "Retail-trader niche absorbed into crypto-degens; sporadic output and UNVERIFIED. Symbolic figure only."
+  },
+  {
+   "landmark_id": "mat-best",
+   "name": "Mat Best",
+   "would_sit_in": "veteran-warrior-culture-media",
+   "verification": "pending",
+   "reason": "Over cap in the merged veteran niche (5 stronger voices); 2026 activity UNVERIFIED. Promote if Tim Kennedy fails verification."
+  },
+  {
+   "landmark_id": "susan-glasser",
+   "name": "Susan Glasser",
+   "would_sit_in": "foreign-policy-establishment",
+   "verification": "pending",
+   "reason": "Proposed by g6 as the first woman in foreign-policy-establishment, but the niche already has 5 verified-active high-longform voices. Held as an alternate: on verification, swap in for Tommy Vietor (who overlaps anti-Trump liberal media)."
+  },
+  {
+   "landmark_id": "daniel-christian-wahl",
+   "name": "Daniel Christian Wahl",
+   "would_sit_in": "bioregionalism-regenerative-culture",
+   "verification": "pending",
+   "reason": "Bioregionalism would exceed the cap of 5 after g6 added two verified US voices (Lyla June Johnston, Kenny Ausubel). Wahl is pending and non-US (us_focus_flag), so he moves to alternates. External reviewer may reverse."
+  }
+ ],
+ "held_out": [
+  {
+   "landmark_id": "androgenic",
+   "name": "Androgenic",
+   "status": "EXCLUDED (unchanged)",
+   "checks": [
+    "age: confirm >= 18 from a reliable source before any inclusion"
+   ]
+  }
+ ],
+ "candidates_unverified_g7": [
+  {
+   "name": "Eric Garcia",
+   "niche_id": "neurodivergence-identity",
+   "why": "Autistic journalist, author of 'We're Not Broken'; autistic self-advocacy voice. Not searched."
+  },
+  {
+   "name": "Ari Ne'eman",
+   "niche_id": "neurodivergence-identity",
+   "why": "ASAN co-founder, disability-policy scholar. Not searched."
+  },
+  {
+   "name": "Emmeline Clein",
+   "niche_id": "gen-z-disaffection",
+   "why": "Author of 'Dead Weight' (2024) on girlhood, eating disorders and femcel culture; mostly written output."
+  },
+  {
+   "name": "Christy Harrison",
+   "niche_id": "fat-liberation",
+   "why": "Rethinking Wellness podcast; anti-diet critic of wellness-girl culture."
+  },
+  {
+   "name": "Christelyn Karazin",
+   "niche_id": "black-family-faith-mainstream or modern-dating-mainstream",
+   "why": "'Pink Pill' / Black women leveling-up and divestment voice; 2025-26 activity not confirmed."
+  },
+  {
+   "name": "Riley Gaines",
+   "niche_id": "gender-critical-feminism or gender-medicine-skeptics (orchestrator to decide)",
+   "why": "OUTSIDE MY AREA: 'Save women's sports' voice who is absent from the seed. OutKick signed her to a new multi-year podcast deal in Dec 2025 (verified-active).",
+   "source": "https://tools.prnewswire.com/en-us/live/20772/release/20251217NY50031"
+  }
+ ]
+}
