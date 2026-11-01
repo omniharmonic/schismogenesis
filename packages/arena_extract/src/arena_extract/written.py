@@ -227,6 +227,7 @@ def _store_claim(
     found = _find_anchor(item, core)
     row: dict[str, Any] = {
         "chunk": chunk_id, "episode": episode_id, "author": author, "act": item.speech_act,
+        "tl": item.tl_type, "quant": item.quantifier,
         "claim": item.claim_text, "canonical": item.proposed_canonical, "att": item.attitude,
         "strength": item.strength, "src": item.source, "layer": item.layer, "mq": item.quote,
         "seg": None, "cs": None, "ce": None, "am": "none", "score": None, "qf": None, "qp": None,
@@ -248,12 +249,14 @@ def _store_claim(
         }  # fmt: skip
     connection.execute(
         text(
-            "INSERT INTO claim (chunk_id, episode_id, speaker_person_id, speaker_conf, speech_act,"
+            "INSERT INTO claim (tl_type, quantifier, chunk_id, episode_id, speaker_person_id,"
+            " speaker_conf, speech_act,"
             " claim_text, proposed_canonical, tl_attitude, strength, source, proposed_layer,"
             " model_quote, anchor_segment_id, anchor_char_start, anchor_char_end, anchor_match,"
             " anchor_score, quote_full, quote_public, locator, deep_link, validator_issues,"
             " gate_status, reject_reason, run_id, stage, model_name, model_version, prompt_id,"
-            " prompt_version, inputs_hash) VALUES (:chunk, :episode, :author, 1, :act, :claim,"
+            " prompt_version, inputs_hash) VALUES (:tl, :quant, :chunk, :episode, :author, 1, :act,"
+            " :claim,"
             " :canonical, :att, :strength, :src, :layer, :mq, :seg, :cs, :ce, :am, :score, :qf,"
             " :qp, CAST(:loc AS jsonb), :link, CAST(:issues AS jsonb), :status, :reason, :run,"
             " 'S8', :model, :model, :pid, :pv, :h)"
@@ -275,7 +278,7 @@ def hypothesis(canonical: str, attitude: str, quote: str = "") -> str:
     """
     bare = canonical.rstrip(".")
     if BELIEF_REPORT.search(quote):
-        lowered = bare[0].lower() + bare[1:]
+        lowered = bare if bare[:2].isupper() else bare[0].lower() + bare[1:]
         verb = "does not believe that" if attitude == "rejects" else "believes that"
         return f"The author {verb} {lowered}."
     return f"It is not the case that {bare}." if attitude == "rejects" else canonical

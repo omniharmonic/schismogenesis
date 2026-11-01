@@ -13,7 +13,7 @@ build-backend = "hatchling.build"
 packages = ["src/arena_extract"]
 
 [project.optional-dependencies]
-nli = ["torch>=2.4", "transformers>=4.44", "sentencepiece>=0.2", "protobuf>=4"]
+nli = ["torch>=2.4", "transformers>=4.44", "sentencepiece>=0.2", "protobuf>=4", "sentence-transformers>=3"]
 
 [tool.uv.sources]
 arena_core = { workspace = true }

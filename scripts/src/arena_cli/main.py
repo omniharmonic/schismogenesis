@@ -11,7 +11,7 @@ from arena_core.storage import FileSourceStore
 from arena_extract.written import chunk_source, extract_source, gate_source
 from arena_harness import gold, report
 from arena_ingest.written import WrittenWork, ingest_written
-from arena_llm import AnthropicApi, BackendDisabled, ClaudeCodeBatch
+from arena_llm import AnthropicApi, BackendDisabled, ClaudeCodeBatch, PendingBatch
 from rich.console import Console
 from rich.table import Table
 from sqlalchemy import text
@@ -164,6 +164,27 @@ def written_gate_all() -> None:
     nli = NLIGate()
     for episode_id in episodes:
         console.print(episode_id, gate_source(engine, nli.score, nli.MODEL, episode_id))
+
+
+@written_app.command("relate")
+def written_relate(batch: str = typer.Option(...)) -> None:
+    """Merge shared propositions and link relations. Needs the local embedding model."""
+    from arena_extract.normalize import EMBED_MODEL, build_bank, compare
+    from sentence_transformers import SentenceTransformer  # pyright: ignore[reportMissingImports]
+
+    model = SentenceTransformer(EMBED_MODEL)
+
+    def embed(texts: list[str]):
+        return model.encode(texts, normalize_embeddings=True)
+
+    engine = get_engine()
+    llm = ClaudeCodeBatch(batch, "gold")
+    try:
+        claims, verdicts = compare(engine, llm, embed)
+    except PendingBatch as pending:
+        console.print(f"Queued: {pending}")
+        return
+    console.print(build_bank(engine, claims, verdicts, llm.last_model))
 
 
 @written_app.command("extract")

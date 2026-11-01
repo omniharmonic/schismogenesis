@@ -15,7 +15,7 @@ arena_cli = { workspace = true }
 members = ["packages/*", "services/*", "scripts", "evals/harness"]
 
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6", "pyright>=1.1.380", "hypothesis>=3"]
+dev = ["pytest>=8", "ruff>=0.6", "pyright>=1.1.380", "hypothesis>=3", "numpy>=2"]
 
 [tool.ruff]
 line-length = 100

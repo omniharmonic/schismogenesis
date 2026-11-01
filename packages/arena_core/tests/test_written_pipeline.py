@@ -2,9 +2,11 @@
 
 import json
 
+import numpy as np
 import pytest
 from arena_core.storage import FileSourceStore
 from arena_extract.anchor import locate
+from arena_extract.normalize import candidate_pairs, merge_groups
 from arena_extract.schema import ClaimItem, ExtractClaimsOutput
 from arena_extract.validators import issues, strength_cap
 from arena_extract.written import (
@@ -192,3 +194,14 @@ def test_pending_batch_and_fake_backend_are_exported():
     assert issubclass(PendingBatch, Exception) and FakeBackend({}).last_model == "fake"
     assert (PROMPT_DIR / f"{PROMPT_ID}_{PROMPT_VERSION}.md").exists()
     assert ExtractClaimsOutput.model_json_schema()["type"] == "object"
+
+
+def test_merge_groups_are_transitive():
+    groups = merge_groups(4, [(0, 1), (1, 2)])
+    assert groups[0] == groups[1] == groups[2] != groups[3]
+
+
+def test_candidates_only_cross_authors_above_threshold():
+    vectors = np.array([[1.0, 0.0], [1.0, 0.0], [0.99, 0.141], [0.0, 1.0]])
+    pairs = candidate_pairs(vectors, ["a", "a", "b", "c"])
+    assert [(x, y) for x, y, _ in pairs] == [(0, 2), (1, 2)]
