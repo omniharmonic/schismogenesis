@@ -1,7 +1,6 @@
 """Add spine tables missing from 08a §A1 and fix two constraint defects (ADR-029)."""
 
 from alembic import op
-
 from arena_core.migrations import SQL_DIR, run_script
 
 revision = "0002_reconcile"

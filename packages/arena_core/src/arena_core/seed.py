@@ -112,8 +112,9 @@ def merge_inputs(seed: dict[str, Any], slice_: dict[str, Any]) -> list[dict[str,
     return list(landmarks.values())
 
 
-def _niche_row(niche: dict[str, Any], lookup: dict[str, str], tiers: dict[str, str],
-               version: str) -> dict[str, Any]:
+def _niche_row(
+    niche: dict[str, Any], lookup: dict[str, str], tiers: dict[str, str], version: str
+) -> dict[str, Any]:
     own_id = niche["niche_id"]
     return {
         "niche_id": own_id,
@@ -355,10 +356,12 @@ VERIFY_QUERIES = {
     "slice core niches": "SELECT count(*) FROM niche WHERE slice_tier = 'core'",
     "slice adjacent niches": "SELECT count(*) FROM niche WHERE slice_tier = 'adjacent'",
     "slice landmarks": "SELECT count(*) FROM landmark WHERE in_slice = 'slice-1'",
-    "landmarks hidden from public surfaces":
-        "SELECT count(*) FROM landmark WHERE NOT public_surface_allowed",
-    "flagged landmarks visible on public surfaces":
-        "SELECT count(*) FROM landmark WHERE flag_type IS NOT NULL AND public_surface_allowed",
+    "landmarks hidden from public surfaces": (
+        "SELECT count(*) FROM landmark WHERE NOT public_surface_allowed"
+    ),
+    "flagged landmarks visible on public surfaces": (
+        "SELECT count(*) FROM landmark WHERE flag_type IS NOT NULL AND public_surface_allowed"
+    ),
     "landmarks without exactly one primary niche": """
         SELECT count(*) FROM landmark l WHERE (SELECT count(*) FROM landmark_niche r
           WHERE r.landmark_id = l.landmark_id AND r.is_primary AND r.valid_to IS NULL) <> 1""",

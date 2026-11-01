@@ -14,3 +14,7 @@ class Settings(BaseSettings):
     @classmethod
     def use_psycopg_driver(cls, value: str) -> str:
         return value.replace("postgresql://", "postgresql+psycopg://", 1)
+
+
+def load_settings() -> Settings:
+    return Settings()  # pyright: ignore[reportCallIssue]  # values come from the environment

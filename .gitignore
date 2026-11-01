@@ -17,3 +17,4 @@ transcripts/
 # claude_code_batch work files hold transcript chunks: never commit them
 evals/queue/
 evals/results/
+.hypothesis/

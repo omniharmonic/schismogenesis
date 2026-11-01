@@ -24,14 +24,17 @@ exclude = ["docs/", "seed/scripts/"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"] # typer declares options as argument defaults
 
 [tool.pyright]
 include = ["packages", "services", "scripts", "evals/harness"]
 exclude = ["**/.venv", "**/__pycache__"]
 pythonVersion = "3.12"
 typeCheckingMode = "standard"
+extraPaths = ["packages/arena_core/tests"]
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "evals/harness/tests", "scripts/tests"]
 addopts = "--import-mode=importlib -ra"
+pythonpath = ["packages/arena_core/tests"]
 markers = ["db: needs a Postgres + pgvector server"]

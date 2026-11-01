@@ -7,7 +7,6 @@ Fixes and additions belong in later revisions, never here.
 import re
 
 from alembic import op
-
 from arena_core.migrations import SQL_DIR, run_script
 
 revision = "0001_initial"
@@ -20,7 +19,8 @@ def _guard_create_role(sql: str) -> str:
     """Roles belong to the whole Postgres server, so they can pre-exist from another database."""
     return re.sub(
         r"CREATE ROLE (\w+)\s+NOLOGIN;",
-        r"DO $do$ BEGIN CREATE ROLE \1 NOLOGIN; EXCEPTION WHEN duplicate_object THEN NULL; END $do$;",
+        r"DO $do$ BEGIN CREATE ROLE \1 NOLOGIN; "
+        r"EXCEPTION WHEN duplicate_object THEN NULL; END $do$;",
         sql,
     )
 
