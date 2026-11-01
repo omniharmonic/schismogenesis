@@ -1,0 +1,13 @@
+# P4 threshold sheet (Plan §4.2). Benjamin signs this at the P2 gate (OD-13).
+# After signing, any change needs an ADR he approves.
+status: proposed, unsigned (OD-13)
+metrics:
+  M1: {min: 0.75, min_ratio_of_reference: 0.85}
+  M2: {min: 0.85}
+  M3: {min: 0.90}
+  M4: {min: 0.75}
+  M5: {min: 0.85}
+  M6: {min: 0.95}
+  M6b: {min: 1.0}
+  M7: {max: 0.02}
+  M9: {min: 0.90}
