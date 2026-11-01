@@ -24,6 +24,8 @@ DERIVED = {
     "live_question",
     "position",
     "position_holding",
+    "meme",
+    "meme_use",
 }
 # Carry provenance through a parent run or snapshot, as designed in 08a.
 DERIVED_VIA_PARENT = {

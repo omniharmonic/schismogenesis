@@ -3,7 +3,7 @@ name = "arena_map"
 version = "0.0.0"
 description = "Stance matrix, clustering, crosswalk, axes, placement, snapshots, lineage, live questions."
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = ["numpy>=2"]
 
 [build-system]
 requires = ["hatchling"]
