@@ -204,10 +204,16 @@ version = "0.0.0"
 source = { editable = "packages/arena_map" }
 dependencies = [
     { name = "numpy" },
+    { name = "scikit-learn" },
+    { name = "scipy" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "numpy", specifier = ">=2" }]
+requires-dist = [
+    { name = "numpy", specifier = ">=2" },
+    { name = "scikit-learn", specifier = ">=1.5" },
+    { name = "scipy", specifier = ">=1.13" },
+]
 
 [[package]]
 name = "arena-market"

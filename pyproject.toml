@@ -28,7 +28,12 @@ ignore = ["B008"] # typer declares options as argument defaults
 
 [tool.pyright]
 include = ["packages", "services", "scripts", "evals/harness"]
-exclude = ["**/.venv", "**/__pycache__"]
+exclude = [
+    "**/.venv", "**/__pycache__",
+    # Local-model scripts need the optional nli extra, which CI does not install.
+    "scripts/build_atlas.py", "scripts/densify_structure.py", "scripts/merge_structure.py",
+    "scripts/prepare_structure.py",
+]
 pythonVersion = "3.12"
 typeCheckingMode = "standard"
 extraPaths = ["packages/arena_core/tests"]

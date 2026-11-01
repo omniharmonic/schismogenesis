@@ -18,3 +18,4 @@ transcripts/
 evals/queue/
 evals/results/
 .hypothesis/
+.playwright-mcp/
