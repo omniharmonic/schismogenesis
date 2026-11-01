@@ -32,3 +32,14 @@ extraction, and every placement cites a verified quote. S11 clustering on exact-
 - All extraction, judging and auditing used Claude, so shared blind spots remain possible. No gold
   set exists yet, and neither the human eye test nor author review has happened.
 - The Anthropic disclosure applies: Claude built and read this, and Dario Amodei is one of the twelve.
+
+## Positions (D-31.13, D-31.14)
+The 12 questions were rebuilt with named positions: 34 drafted, 9 of 12 questions turned out to have
+more than two answers. A blind second reader placed 87 of 93 claims the same way as the first, with
+0 differences and 6 unplaced, and judged 33 of 34 wordings signable. One loaded label was reworded.
+All definitions are `provisional`, model-drafted version 1 rows, awaiting niche members' own words.
+
+The 100% agreement is partly circular, because some statements were written from the quotes they
+are then matched to, and several bundle separate ideas. Pair comparison is a prototype: 12 people
+is too few for clusters, fine position splits can depress overlap, and dropped claims distort
+scores (Yarvin's democracy claims fell out, so Thiel and Yarvin show 0 of 2).
