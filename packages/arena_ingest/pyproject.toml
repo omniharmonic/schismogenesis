@@ -3,7 +3,10 @@ name = "arena_ingest"
 version = "0.0.0"
 description = "Discovery crawl, entity resolution, episode selection, transcript fetch, ASR."
 requires-python = ">=3.12,<3.13"
-dependencies = ["arena_core"]
+dependencies = [
+    "arena_core",
+    "trafilatura>=2.3.1",
+]
 
 [build-system]
 requires = ["hatchling"]

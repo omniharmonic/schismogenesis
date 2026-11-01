@@ -1,0 +1,159 @@
+{
+ "note": "Pilot texts. Public URLs only: full text never goes in git. Dates checked against each page where shown; verify before any public use.",
+ "works": [
+  {
+   "key": "thiel-education",
+   "author": "peter-thiel",
+   "url": "https://www.cato-unbound.org/2009/04/13/peter-thiel/education-libertarian/",
+   "title": "The Education of a Libertarian",
+   "published": "2009-04-13",
+   "channel": "Cato Unbound",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "full essay"
+  },
+  {
+   "key": "thiel-addendum",
+   "author": "peter-thiel",
+   "url": "https://www.cato-unbound.org/2009/05/01/peter-thiel/suffrage-isnt-danger-other-rights-are",
+   "title": "Addendum on suffrage",
+   "published": "2009-05-01",
+   "channel": "Cato Unbound",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "full"
+  },
+  {
+   "key": "karp-s1",
+   "author": "alex-karp",
+   "url": "https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm",
+   "title": "Letter from the Chief Executive Officer (Palantir S-1)",
+   "published": "2020-08-25",
+   "channel": "SEC EDGAR",
+   "format": "letter",
+   "authorship": "corporate",
+   "excerpt": "full letter"
+  },
+  {
+   "key": "altman-intelligence-age",
+   "author": "sam-altman",
+   "url": "https://ia.samaltman.com/",
+   "title": "The Intelligence Age",
+   "published": "2024-09-23",
+   "channel": "Sam Altman",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "full"
+  },
+  {
+   "key": "altman-moores-law",
+   "author": "sam-altman",
+   "url": "https://moores.samaltman.com/",
+   "title": "Moore's Law for Everything",
+   "published": "2021-03-16",
+   "channel": "Sam Altman",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "full"
+  },
+  {
+   "key": "amodei-loving-grace",
+   "author": "dario-amodei",
+   "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+   "title": "Machines of Loving Grace",
+   "published": "2024-10-11",
+   "channel": "Dario Amodei",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "introduction, Peace and governance, Taking stock"
+  },
+  {
+   "key": "andreessen-manifesto",
+   "author": "marc-andreessen",
+   "url": "https://a16z.com/the-techno-optimist-manifesto/",
+   "title": "The Techno-Optimist Manifesto",
+   "published": "2023-10-16",
+   "channel": "a16z",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "first 3,000 words"
+  },
+  {
+   "key": "yarvin-formalist",
+   "author": "curtis-yarvin",
+   "url": "https://www.unqualified-reservations.org/2007/04/formalist-manifesto-originally-posted/",
+   "title": "A Formalist Manifesto",
+   "published": "2007-04-23",
+   "channel": "Unqualified Reservations",
+   "format": "blog_post",
+   "authorship": "pseudonymous",
+   "excerpt": "full; written as Mencius Moldbug"
+  },
+  {
+   "key": "land-dark-enlightenment",
+   "author": "nick-land",
+   "url": "https://www.thedarkenlightenment.com/the-dark-enlightenment-by-nick-land/",
+   "title": "The Dark Enlightenment, Part 1",
+   "published": "2012-03-02",
+   "channel": "The Dark Enlightenment",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "first 2,600 words"
+  },
+  {
+   "key": "balaji-network-state",
+   "author": "balaji-srinivasan",
+   "url": "https://thenetworkstate.com/the-network-state-in-one-essay",
+   "title": "The Network State in One Essay",
+   "published": "2022-07-04",
+   "channel": "The Network State",
+   "format": "book_chapter",
+   "authorship": "own_name",
+   "excerpt": "full chapter"
+  },
+  {
+   "key": "musk-master-plan",
+   "author": "elon-musk",
+   "url": "https://www.tesla.com/blog/secret-tesla-motors-master-plan-just-between-you-and-me",
+   "title": "The Secret Tesla Motors Master Plan",
+   "published": "2006-08-02",
+   "channel": "Tesla",
+   "format": "blog_post",
+   "authorship": "own_name",
+   "excerpt": "full"
+  },
+  {
+   "key": "vance-munich",
+   "author": "jd-vance",
+   "url": "https://rollcall.com/factbase/trump/transcript/donald-trump-remarks-jd-vance-munich-germany-munich-security-conference-february-14-2025/",
+   "title": "Remarks at the Munich Security Conference",
+   "published": "2025-02-14",
+   "channel": "Roll Call Factba.se",
+   "format": "lecture",
+   "authorship": "own_name",
+   "excerpt": "full transcript, spoken"
+  },
+  {
+   "key": "buterin-techno-optimism",
+   "author": "vitalik-buterin",
+   "url": "https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html",
+   "title": "My techno-optimism",
+   "published": "2023-11-27",
+   "channel": "Vitalik Buterin",
+   "format": "blog_post",
+   "authorship": "own_name",
+   "excerpt": "first 3,100 words; counterweight"
+  },
+  {
+   "key": "yudkowsky-agi-ruin",
+   "author": "eliezer-yudkowsky",
+   "url": "https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities",
+   "title": "AGI Ruin: A List of Lethalities",
+   "published": "2022-06-05",
+   "channel": "LessWrong",
+   "format": "blog_post",
+   "authorship": "own_name",
+   "excerpt": "first 3,000 words; counterweight"
+  }
+ ]
+}

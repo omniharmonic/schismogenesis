@@ -5,7 +5,8 @@ import json
 import pytest
 from arena_core.storage import FileSourceStore
 from arena_extract.anchor import locate
-from arena_extract.schema import ExtractClaimsOutput
+from arena_extract.schema import ClaimItem, ExtractClaimsOutput
+from arena_extract.validators import issues, strength_cap
 from arena_extract.written import (
     PROMPT_DIR,
     PROMPT_ID,
@@ -14,6 +15,7 @@ from arena_extract.written import (
     decide,
     extract_source,
     gate_source,
+    hypothesis,
     plan_chunks,
 )
 from arena_harness.metrics import quote_invariant
@@ -53,6 +55,36 @@ def test_gate_decisions():
     assert decide("contradiction", "stated")[0] == "rejected"
     assert decide("neutral", "stated")[0] == "escalated"
     assert decide("entailment", "inferred")[0] == "escalated"
+
+
+def test_belief_reports_become_author_statements():
+    quote = "I no longer believe that freedom and democracy are compatible."
+    assert hypothesis("Freedom and democracy are compatible.", "rejects", quote) == (
+        "The author does not believe that freedom and democracy are compatible."
+    )
+    assert hypothesis("Rockets are slow.", "rejects", "Rockets are not slow at all") == (
+        "It is not the case that Rockets are slow."
+    )
+    assert hypothesis("Rockets are slow.", "accepts", "Rockets are slow") == "Rockets are slow."
+
+
+def claim_item(**overrides):
+    return ClaimItem.model_validate(item("x" * 25, **overrides))
+
+
+def test_validators_match_topology_live_codes():
+    assert issues(claim_item(proposed_canonical="Taxes rose 40%."), "Taxes rose a lot.") == [
+        "new_number"
+    ]
+    assert "new_entity" in issues(
+        claim_item(proposed_canonical="The firm helped Google."), "It helped."
+    )
+    assert issues(claim_item(quantifier="generic"), "Some labs are reckless.") == ["scope_widened"]
+    assert issues(claim_item(quantifier="some"), "Some labs are reckless.") == []
+    assert "non_attributable_stance" in issues(claim_item(speech_act="attribute"), "They said so.")
+    assert issues(claim_item(speech_act="attribute", source="inferred"), "They said so.") == []
+    assert strength_cap("You might say it is so.") == "certain"
+    assert strength_cap("I think it might be so.") == "tentative"
 
 
 def test_paid_backend_refuses():
@@ -110,7 +142,7 @@ def test_pipeline_keeps_real_quotes_and_discards_invented_ones(engine, tmp_path)
             item("The bridge held for ten years without any repairs"),
             item("The bridge collapsed in the very first winter storm"),
             item("I think budgets decide it.", seq=1, proposed_canonical="Budgets decide it."),
-            item("The bridge held for ten years", speech_act="attribute"),
+            item("The bridge held for ten years", speech_act="attribute", attitude="accepts"),
         ]
     }
     assert extract_source(engine, Always(output), episode)["claims"] == 4
@@ -120,7 +152,7 @@ def test_pipeline_keeps_real_quotes_and_discards_invented_ones(engine, tmp_path)
 
     rows = claims(engine)
     assert sorted(r.gate_status for r in rows) == ["anchored", "anchored", "rejected", "rejected"]
-    assert {r.reject_reason for r in rows} == {None, "no_anchor", "non_committing_stance"}
+    assert {r.reject_reason for r in rows} == {None, "no_anchor", "non_attributable_stance"}
     assert next(r for r in rows if r.quote_full and "budgets" in r.quote_full).strength == "leaning"
     kept = [(r.quote_full, r.text) for r in rows if r.quote_full]
     assert quote_invariant(kept) == 1.0  # M6b

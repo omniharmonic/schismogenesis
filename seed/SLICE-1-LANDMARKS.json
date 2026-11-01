@@ -2,7 +2,7 @@
   "meta": {
     "source": "SEED-v4.json",
     "created": "2026-10-31",
-    "note": "Slice 1 per Build Spec v1 \u00a72. Core = niches named in the spec; adjacent = contrast niches, approved by Benjamin 2026-10-31 (D-31.9).",
+    "note": "Slice 1 per Build Spec v1 §2. Core = niches named in the spec; adjacent = contrast niches, approved by Benjamin 2026-10-31 (D-31.9).",
     "approved": "2026-10-31"
   },
   "niches": [
@@ -2661,6 +2661,172 @@
       "slice_tier": "core",
       "slice_niche": "effective-accelerationism",
       "added": "2026-10-31 (D-31.9)"
+    },
+    {
+      "landmark_id": "elon-musk",
+      "name": "Elon Musk",
+      "primary_niche": "space-mars-expansionists",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "SpaceX founder and the main promoter of a multiplanetary future; also a leading figure of the tech right.",
+      "platforms": {
+        "podcast": "Frequent long-form guest (Rogan, Lex Fridman, All-In); X Spaces",
+        "x": "@elonmusk",
+        "other": "https://www.spacex.com"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: hardtech)"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "worldview_core",
+      "slice_niche": "space-mars-expansionists",
+      "added_to_slice": "2026-10-31 (D-31.12)"
+    },
+    {
+      "landmark_id": "jd-vance",
+      "name": "JD Vance",
+      "primary_niche": "national-conservatives",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d1-right",
+      "role": "bridger",
+      "why": "Vice president; the movement's politician, bridging NatCon intellectuals, the tech right and MAGA",
+      "platforms": {
+        "x": "@JDVance"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": "https://www.audible.com/es_US/pd/B0GNZZ87HH",
+      "evidence_date": "2026 ('Vice President JD Vance & The Road To The Midterms')",
+      "last_checked": "2026-10-31",
+      "verification_source": "verify/batch-A.json",
+      "verification_batches": [
+        "A"
+      ],
+      "verification_notes": "Sitting VP; many long interviews.",
+      "verification_v1": "UNVERIFIED",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/JD_Vance",
+        "https://www.audible.com/es_US/pd/B0GNZZ87HH"
+      ],
+      "source_domains": [
+        "d1-right"
+      ],
+      "slice_tier": "worldview_core",
+      "slice_niche": "national-conservatives",
+      "added_to_slice": "2026-10-31 (D-31.12)"
+    },
+    {
+      "landmark_id": "balaji-srinivasan",
+      "name": "Balaji Srinivasan",
+      "primary_niche": "network-state-charter-cities",
+      "secondary_niches": [],
+      "secondary_roles": {},
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Author of The Network State. He hosts its podcast and runs the Network School.",
+      "platforms": {
+        "youtube": "https://www.youtube.com/@balajis",
+        "podcast": "The Network State Podcast",
+        "x": "@balajis",
+        "other": "https://thenetworkstate.com"
+      },
+      "longform_output": "high",
+      "active_2025_2026": true,
+      "verification": "verified-active",
+      "evidence_url": null,
+      "evidence_date": null,
+      "last_checked": "2026-10-31",
+      "verification_source": "SEED-v1 (verified by domain agent or QA during the v1 build; not re-checked in batches A-D)",
+      "verification_batches": [],
+      "verification_notes": null,
+      "verification_v1": "verified",
+      "longform_v1": null,
+      "us_focus_flag": false,
+      "us_focus_note": null,
+      "open_checks": [],
+      "record_type": "person",
+      "converted_from": null,
+      "replaces": null,
+      "replaced_by": null,
+      "gender": "male",
+      "flag_for_benjamin": null,
+      "flag_type": null,
+      "sources": [
+        "https://daily-ontological-map.vercel.app/ (Atlas figures: netstate)",
+        "https://thenetworkstate.com"
+      ],
+      "source_domains": [
+        "d3-tech-futures"
+      ],
+      "slice_tier": "worldview_core",
+      "slice_niche": "network-state-charter-cities",
+      "added_to_slice": "2026-10-31 (D-31.12)"
+    },
+    {
+      "landmark_id": "alex-karp",
+      "name": "Alex Karp",
+      "primary_niche": "techno-optimists-american-dynamism",
+      "secondary_niches": [
+        "tech-right"
+      ],
+      "secondary_roles": {
+        "tech-right": "bridger"
+      },
+      "domain": "d3-tech-futures",
+      "role": "core",
+      "why": "Palantir CEO and co-founder; author of The Technological Republic; trained in social theory at Frankfurt. Added by Benjamin 2026-10-31 under the worldview core.",
+      "platforms": {
+        "other": "Palantir shareholder letters; The Technological Republic"
+      },
+      "longform_output": "medium",
+      "active_2025_2026": true,
+      "verification": "pending",
+      "record_type": "person",
+      "flag_for_benjamin": null,
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1321655/000119312520230013/d904406ds1.htm"
+      ],
+      "slice_tier": "worldview_core",
+      "slice_niche": "techno-optimists-american-dynamism",
+      "added": "2026-10-31 (D-31.12)"
     }
   ],
   "priority_encounters": [
@@ -2670,8 +2836,21 @@
         "effective-accelerationism",
         "dacc-pluralist-tech"
       ],
-      "description": "e/acc \u00d7 d/acc \u2014 above all any recorded conversation between Guillaume Verdon (Beff Jezos) and Vitalik Buterin, then other e/acc \u2194 d/acc exchanges. Discovery crawl searches for these first; strongest candidate for the first event map (OD-23).",
+      "description": "e/acc × d/acc — above all any recorded conversation between Guillaume Verdon (Beff Jezos) and Vitalik Buterin, then other e/acc ↔ d/acc exchanges. Discovery crawl searches for these first; strongest candidate for the first event map (OD-23).",
       "decided": "2026-10-31 (D-31.9)"
     }
+  ],
+  "worldview_core": [
+    "peter-thiel",
+    "alex-karp",
+    "curtis-yarvin",
+    "nick-land",
+    "sam-altman",
+    "dario-amodei",
+    "marc-andreessen",
+    "david-sacks",
+    "elon-musk",
+    "jd-vance",
+    "balaji-srinivasan"
   ]
 }

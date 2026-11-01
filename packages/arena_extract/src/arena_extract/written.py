@@ -6,6 +6,7 @@ Each step is re-runnable. Finished chunks are recorded in stage_item and skipped
 import hashlib
 import json
 import pathlib
+import re
 from collections.abc import Callable
 from typing import Any
 
@@ -235,7 +236,7 @@ def _store_claim(
     if found:
         segment, anchor = found
         stored = segment.text[anchor.char_start : anchor.char_end]
-        problems = validators.issues(item, stored)
+        problems = validators.issues(item, stored, segment.text)
         row |= {
             "seg": segment.segment_id, "cs": anchor.char_start, "ce": anchor.char_end,
             "am": anchor.match, "score": anchor.score, "qf": stored,
@@ -261,8 +262,23 @@ def _store_claim(
     )
 
 
-def hypothesis(canonical: str, attitude: str) -> str:
-    return f"It is not the case that {canonical}" if attitude == "rejects" else canonical
+BELIEF_REPORT = re.compile(
+    r"\b(i|we)\s+(?:\w+\s+){0,2}(believe|think|suspect|hope|fear|doubt|expect|see|hold)\b",
+    re.IGNORECASE,
+)
+
+
+def hypothesis(canonical: str, attitude: str, quote: str = "") -> str:
+    """The speaker-committed form of a claim (08 §4.8), reworded for first-person belief reports.
+
+    "I no longer believe X" entails that the author rejects X, not that X is false (ADR-031).
+    """
+    bare = canonical.rstrip(".")
+    if BELIEF_REPORT.search(quote):
+        lowered = bare[0].lower() + bare[1:]
+        verb = "does not believe that" if attitude == "rejects" else "believes that"
+        return f"The author {verb} {lowered}."
+    return f"It is not the case that {bare}." if attitude == "rejects" else canonical
 
 
 def decide(label: str, source: str) -> tuple[str, str | None]:
@@ -292,7 +308,7 @@ def gate_source(engine: Engine, score: Scorer, model_name: str, episode_id: str)
         pairs = [
             (
                 f"{previous_sentence(c.text, c.anchor_char_start)} {c.quote_full}".strip(),
-                hypothesis(c.proposed_canonical, c.tl_attitude),
+                hypothesis(c.proposed_canonical, c.tl_attitude, c.quote_full),
             )
             for c in claims
         ]

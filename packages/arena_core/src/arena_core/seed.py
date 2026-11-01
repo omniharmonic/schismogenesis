@@ -14,16 +14,18 @@ from sqlalchemy import Connection, Engine, text
 
 from arena_core.provenance import code_ref, inputs_hash, log_events
 
-# Gate G0.3, with the D-31.9 addition: bayeslord is in the slice but not in SEED-v4, so the plan's
-# 817 / 53 are 818 / 54. These stay literal so verify checks the data against the decision instead
+# Gate G0.3 plus later decisions. D-31.9 added bayeslord and D-31.12 added Alex Karp, neither in
+# SEED-v4, so 817 becomes 819. D-31.12 also moved three seed landmarks in, so 53 slice landmarks
+# becomes 58. These stay literal so verify checks the data against the decision instead
 # of against itself.
 EXPECTED = {
     "niches": 234,
-    "landmarks": 818,
+    "landmarks": 819,
     "slice niches": 15,
     "slice core niches": 8,
     "slice adjacent niches": 7,
-    "slice landmarks": 54,
+    "slice landmarks": 58,
+    "worldview core landmarks": 11,
     "landmarks hidden from public surfaces": 20,
     "flagged landmarks visible on public surfaces": 0,
     "landmarks without exactly one primary niche": 0,
@@ -104,6 +106,11 @@ def merge_inputs(seed: dict[str, Any], slice_: dict[str, Any]) -> list[dict[str,
         else:
             raise SeedError(f"slice landmark not in seed and not marked added: {landmark_id}")
 
+    for landmark_id in slice_.get("worldview_core", []):
+        if landmarks.get(landmark_id, {}).get("in_slice") != "slice-1":
+            raise SeedError(f"worldview core landmark not in slice: {landmark_id}")
+        landmarks[landmark_id]["worldview_core"] = True
+
     # Read both flag sources and take the union: a flag in either one hides the landmark.
     for flag in seed["flags_for_benjamin"]["landmarks"]:
         if flag["landmark_id"] not in landmarks:
@@ -148,6 +155,7 @@ def _landmark_row(record: dict[str, Any], version: str) -> dict[str, Any]:
         "longform_output": record["longform_output"],
         "verification": record["verification"],
         "in_slice": record.get("in_slice"),
+        "worldview_core": record.get("worldview_core", False),
         "flag_type": record.get("flag_type"),
         "public_surface_allowed": not flagged,
         # OD-30 default: verified-active, unflagged landmarks form the core panel.
@@ -214,15 +222,16 @@ UPSERT_PERSON = text("""
 # a takedown or a re-flag survives. Sign-offs (OD-01, OD-02) are applied after loading.
 UPSERT_LANDMARK = text("""
     INSERT INTO landmark (landmark_id, name, primary_niche_id, role, platforms, longform_output,
-      verification, in_slice, flag_type, public_surface_allowed, panel_status, gender,
-      seed_version, raw)
+      verification, in_slice, worldview_core, flag_type, public_surface_allowed, panel_status,
+      gender, seed_version, raw)
     VALUES (:landmark_id, :name, :primary_niche_id, :role, CAST(:platforms AS jsonb),
-      :longform_output, :verification, :in_slice, :flag_type, :public_surface_allowed,
-      :panel_status, :gender, :seed_version, CAST(:raw AS jsonb))
+      :longform_output, :verification, :in_slice, :worldview_core, :flag_type,
+      :public_surface_allowed, :panel_status, :gender, :seed_version, CAST(:raw AS jsonb))
     ON CONFLICT (landmark_id) DO UPDATE SET name = EXCLUDED.name,
       primary_niche_id = EXCLUDED.primary_niche_id, role = EXCLUDED.role,
       platforms = EXCLUDED.platforms, longform_output = EXCLUDED.longform_output,
       verification = EXCLUDED.verification, in_slice = EXCLUDED.in_slice,
+      worldview_core = EXCLUDED.worldview_core,
       flag_type = EXCLUDED.flag_type,
       public_surface_allowed = landmark.public_surface_allowed AND EXCLUDED.public_surface_allowed,
       panel_status = EXCLUDED.panel_status, gender = EXCLUDED.gender,
@@ -356,6 +365,7 @@ VERIFY_QUERIES = {
     "slice core niches": "SELECT count(*) FROM niche WHERE slice_tier = 'core'",
     "slice adjacent niches": "SELECT count(*) FROM niche WHERE slice_tier = 'adjacent'",
     "slice landmarks": "SELECT count(*) FROM landmark WHERE in_slice = 'slice-1'",
+    "worldview core landmarks": "SELECT count(*) FROM landmark WHERE worldview_core",
     "landmarks hidden from public surfaces": (
         "SELECT count(*) FROM landmark WHERE NOT public_surface_allowed"
     ),

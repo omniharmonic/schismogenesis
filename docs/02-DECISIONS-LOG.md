@@ -99,6 +99,13 @@ Benjamin, 2026-10-31.
 - **Neon Postgres** (project `schismogenesis`, free plan, `us-west-2`, Postgres 16) is the cloud database and system of record. Computing and inference stay local, and everything is pushed to the cloud. The spec's §9 is amended to match.
 - The extraction rules in ADR-030 (voice, esoteric writing, co-authors, time, volume, language, lawful copies) are approved.
 
+### D-31.12 Keep and add: a written-first worldview core (OD-35)
+Benjamin, 2026-10-31.
+- The 15 slice niches and existing landmarks stay. A **worldview core** of 11 goes first, written work first: Peter Thiel, Alex Karp, Curtis Yarvin, Nick Land, Sam Altman, Dario Amodei, Marc Andreessen, David Sacks, Elon Musk, JD Vance, Balaji Srinivasan.
+- **Added to the slice:** Karp (new; not in SEED-v4, verification pending), Musk, Vance, Balaji. Counts are now 819 landmarks and 58 slice landmarks. Their primary niches (space, national conservatives, network states) stay outside the 15 slice niches.
+- Deceased thinkers enter as lineage rather than placed landmarks. Critics and rival camps stay, since meta-consensus needs them.
+- The Anthropic disclosure in D-31.9 applies with more force: Claude extracts claims from Anthropic's CEO.
+
 ## Earlier decided (2026-10-30 design dialogue; full detail in `03-DESIGN-MEMO-2026-10-30.md` and synthesis §2)
 - **Gradient:** how accurately each cluster can describe every other, in terms the described cluster would sign. Success is meta-consensus, not convergence.
 - **The map is built from landmark content,** not the follow graph. Follows measure attention, not belief.

@@ -1,5 +1,6 @@
 """The arena command-line tool."""
 
+import json
 import pathlib
 
 import typer
@@ -13,6 +14,7 @@ from arena_ingest.written import WrittenWork, ingest_written
 from arena_llm import AnthropicApi, BackendDisabled, ClaudeCodeBatch
 from rich.console import Console
 from rich.table import Table
+from sqlalchemy import text
 
 from arena_cli import redline as redline_checks
 
@@ -111,6 +113,57 @@ def written_ingest(
         get_engine(), FileSourceStore(load_settings().source_dir), work, file
     )
     console.print(f"Episode {episode_id}; {chunk_source(get_engine(), episode_id)} chunks.")
+
+
+@written_app.command("ingest-list")
+def written_ingest_list(
+    sources: pathlib.Path = typer.Option(pathlib.Path("seed/WORLDVIEW-CORE-SOURCES.json")),
+    texts: pathlib.Path = typer.Option(pathlib.Path("data/texts")),
+) -> None:
+    """Ingest every work in a source list. Each needs a cleaned <key>.txt in the texts folder."""
+    engine = get_engine()
+    store = FileSourceStore(load_settings().source_dir)
+    for work in json.loads(sources.read_text())["works"]:
+        item = WrittenWork(
+            work["url"], work["title"], work["author"], work["published"], work["channel"],
+            format=work["format"], authorship=work["authorship"],
+        )  # fmt: skip
+        episode_id = ingest_written(engine, store, item, texts / f"{work['key']}.txt")
+        console.print(f"{work['key']}: {episode_id}, {chunk_source(engine, episode_id)} chunks")
+
+
+@written_app.command("extract-all")
+def written_extract_all(batch: str = typer.Option(...)) -> None:
+    """Queue or collect extraction for every written work."""
+    engine = get_engine()
+    total: dict[str, int] = {}
+    with engine.connect() as connection:
+        rows = connection.execute(
+            text("SELECT DISTINCT episode_id FROM chunk ORDER BY episode_id")
+        ).scalars()
+        episodes = [str(row) for row in rows]
+    for episode_id in episodes:
+        for key, count in extract_source(
+            engine, ClaudeCodeBatch(batch, "gold"), episode_id
+        ).items():
+            total[key] = total.get(key, 0) + count
+    console.print(total)
+
+
+@written_app.command("gate-all")
+def written_gate_all() -> None:
+    """Run the entailment gate on every anchored claim."""
+    from arena_extract.nli import NLIGate
+
+    engine = get_engine()
+    with engine.connect() as connection:
+        rows = connection.execute(
+            text("SELECT DISTINCT episode_id FROM claim WHERE gate_status = 'anchored'")
+        ).scalars()
+        episodes = [str(row) for row in rows]
+    nli = NLIGate()
+    for episode_id in episodes:
+        console.print(episode_id, gate_source(engine, nli.score, nli.MODEL, episode_id))
 
 
 @written_app.command("extract")
