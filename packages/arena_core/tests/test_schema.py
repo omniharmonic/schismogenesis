@@ -22,6 +22,10 @@ DERIVED = {
     "statement",
     "cluster_snapshot",
     "live_question",
+    "position",
+    "position_holding",
+    "position",
+    "position_holding",
 }
 # Carry provenance through a parent run or snapshot, as designed in 08a.
 DERIVED_VIA_PARENT = {
@@ -220,4 +224,39 @@ def test_spoken_segment_still_valid_with_timestamps_only(engine):
                 "VALUES (:t, 0, 0, 10, 'x')"
             ),
             {"t": transcript},
+        )
+
+
+POSITION_ROWS = """
+WITH run AS (
+  INSERT INTO pipeline_run (stage, job_name, trigger, code_ref)
+  VALUES ('S11', 't', 'manual', 't') RETURNING run_id
+), q AS (
+  INSERT INTO live_question (text, run_id, model_name, model_version, inputs_hash)
+  SELECT 'A question?', run_id, 'm', 'v', '\\\\x00' FROM run RETURNING live_question_id, run_id
+)
+INSERT INTO position (live_question_id, key, run_id, model_name, model_version, inputs_hash)
+SELECT live_question_id, 'p1', run_id, 'm', 'v', '\\\\x00' FROM q RETURNING position_id
+"""
+DEFINITION = (
+    "INSERT INTO position_definition (position_id, version, label, statement, author_kind,"
+    " author_model, ratified_at) VALUES (:p, :v, 'A label', 'A neutral statement.', :kind,"
+    " :model, :ratified)"
+)
+
+
+@pytest.mark.db
+def test_model_definitions_can_never_be_ratified_and_history_is_kept(engine):
+    with engine.begin() as connection:
+        position = connection.execute(text(POSITION_ROWS)).scalar_one()
+        draft = {"p": position, "v": 1, "kind": "model", "model": "m", "ratified": None}
+        connection.execute(text(DEFINITION), draft)
+        connection.execute(text("DELETE FROM position_definition"))
+        count = text("SELECT count(*) FROM position_definition")
+        assert connection.execute(count).scalar_one() == 1
+    with pytest.raises(DBAPIError, match="check"), engine.begin() as connection:
+        connection.execute(text(DEFINITION), {**draft, "v": 2, "ratified": "2027-01-01"})
+    with pytest.raises(DBAPIError, match="check"), engine.begin() as connection:
+        connection.execute(
+            text(DEFINITION), {**draft, "v": 2, "kind": "niche_member", "model": None}
         )
