@@ -17,11 +17,11 @@ results are in Neon. Full texts stay out of git.
 | Placements | 216 drafted, 144 agreed, 93 published; 94% agreement where both readers placed a claim |
 
 ## Main finding
-Claim-first extraction alone gives almost no overlap. Nobody said the same sentence, and no pair
-flatly contradicted. A map needs a shared frame, so live questions drawn from the claims become the
-comparison layer. This differs from the rejected question-first design: questions come after
-extraction, and every placement cites a verified quote. This needs Benjamin's review before P3,
-because S11 clustering on the stance matrix alone would have nothing to work with.
+Exact claim matching finds almost no overlap: nobody made a claim with identical truth conditions,
+and no pair flatly contradicted. That test is strict and the sample is thin, so this does not show
+the authors disagree. Positions do align at the level of shared questions. A map needs that shared
+frame (D-31.13). This differs from the rejected question-first design: questions come after
+extraction, and every placement cites a verified quote. S11 clustering on exact-match stances alone would have too little to work with.
 
 ## Known weaknesses
 - The audit's main fault is lost scope: a limit stated elsewhere in the paragraph is dropped. The

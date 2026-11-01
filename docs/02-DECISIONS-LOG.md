@@ -106,6 +106,13 @@ Benjamin, 2026-10-31.
 - Deceased thinkers enter as lineage rather than placed landmarks. Critics and rival camps stay, since meta-consensus needs them.
 - The Anthropic disclosure in D-31.9 applies with more force: Claude extracts claims from Anthropic's CEO.
 
+### D-31.13 Compare through questions and positions (working direction)
+Benjamin, 2026-11-01: "Probably a hybrid of positions and questions." Provisional until the first Slice 1 map tests it.
+- **Claims** remain the verified evidence layer. Claim-first extraction (D-31.4) is unchanged.
+- **Questions** are drawn from the claims after extraction and give authors a shared frame.
+- **Positions** are shared, named answers to a question, each backed by quoted claims. A question can hold more than two. People can share a position for different reasons, and those reasons stay visible as separate claims.
+- Clustering works from people's positions, not from exact claim matches. This extends SPINE §2 and S11, and the schema change follows once the design is tested.
+
 ## Earlier decided (2026-10-30 design dialogue; full detail in `03-DESIGN-MEMO-2026-10-30.md` and synthesis §2)
 - **Gradient:** how accurately each cluster can describe every other, in terms the described cluster would sign. Success is meta-consensus, not convergence.
 - **The map is built from landmark content,** not the follow graph. Follows measure attention, not belief.
