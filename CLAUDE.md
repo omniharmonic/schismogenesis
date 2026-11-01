@@ -11,13 +11,13 @@ Internet-native democratic infrastructure. It has three layers:
 Success is *meta-consensus*: clusters able to describe each other in terms the described side would sign. It is not convergence.
 
 ## Repo layout right now
-All handoff docs live in `docs/` (start with `docs/00-README.md`); seed data in `seed/`. Nothing else exists yet — Phase P0 creates the code layout defined in `docs/design-spine/SPINE.md` §3 (packages/, services/, apps/, contracts/, evals/, infra/). The repo/project name is **schismogenesis**; the product name in the docs is **Dialogos Arena**.
+All handoff docs live in `docs/` (start with `docs/00-README.md`); seed data in `seed/`. The code follows the layout in `docs/design-spine/SPINE.md` §3 (packages/, services/, apps/, contracts/, evals/, infra/). See `docs/adr/ADR-029` and `ADR-030` for where it differs from the docs. The repo/project name is **schismogenesis**; the product name in the docs is **Dialogos Arena**.
 
 ## Read first (in this order)
 1. `docs/01-BUILD-SPEC-v1-SLICE-1.md`: **the authoritative spec for what to build now.**
 2. `docs/02-DECISIONS-LOG.md`: the latest decisions.
 3. `docs/design-spine/SPINE.md`: the canonical names, phases (P0–P7), jobs (S1–S14), interfaces and non-negotiables; §10 holds the adopted extensions (tables, fields, enums, CLI, backends, leaderboard safeguards).
-4. `docs/10-OPEN-DECISIONS.md`: every decision still waiting on Benjamin (OD-01 … OD-34), with the default to use until he decides.
+4. `docs/10-OPEN-DECISIONS.md`: every decision still waiting on Benjamin (OD-01 … OD-35), with the default to use until he decides.
 5. `docs/07-PRD.md`: what to build and why: features, acceptance criteria, safety tests, launch criteria.
 6. `docs/08-TECHNICAL-ARCHITECTURE.md`: how to build it: schema, pipeline, scorer, API, web, infrastructure. Its appendix `docs/08a-APPENDIX-DDL-and-SCORER.md` holds the full DDL and scorer code.
 7. `docs/09-IMPLEMENTATION-PLAN.md`: in what order: phases, tasks, gates, the build-swarm operating model, runbooks.
@@ -53,7 +53,7 @@ Background: `docs/03-DESIGN-MEMO-2026-10-30.md`, `docs/05-DATA-MODEL-and-ENCOUNT
   - Never store content from Benjamin's private vaults in the dataset.
   - Respect the 15 flagged landmarks pending his review: keep them out of anything public.
 - **Platform terms:** YouTube caption fetching is a known terms-of-service gray area. Pace it, log it, and never redistribute full transcripts. Follow X automation rules for any agent work.
-- **Git:** use the `clawmniharmonic` GitHub account (`gh auth switch --user clawmniharmonic` if needed). Commit in small, descriptive steps.
+- **Git:** use the `omniharmonic` GitHub account (`gh auth switch --user omniharmonic` if needed; repo `omniharmonic/schismogenesis`, private). Commit in small, descriptive steps.
 
 ## Knowledge base
 Benjamin's Parachute vault holds the full research record under `vault/research/dialogos-arena/` (32+ notes). It is the long-term home for reports: write human-readable summaries back there, never raw data.

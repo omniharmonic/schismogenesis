@@ -1,6 +1,6 @@
 # Dialogos Arena: Open Decisions (consolidated)
 
-*Benjamin Life (@omniharmonic) · consolidated 2026-10-31 · status: 34 open decisions*
+*Benjamin Life (@omniharmonic) · consolidated 2026-10-31 · status: 35 open decisions*
 
 This is the **single list** of decisions waiting on Benjamin. It merges and deduplicates the pending items in `02-DECISIONS-LOG.md`, `07-PRD.md` (D1–D8, OQ-1–OQ-12), `08-TECHNICAL-ARCHITECTURE.md` (decisions deferred in the text and ADRs) and `09-IMPLEMENTATION-PLAN.md` (PD-1–PD-15 and the data model's OPEN items it uses). Every other doc now refers to these by **OD-ID**.
 
@@ -15,6 +15,7 @@ This is the **single list** of decisions waiting on Benjamin. It merges and dedu
 | OD-05 | Confirm the 7 adjacent Slice 1 niches | ✅ **DECIDED 2026-10-31** (D-31.9) |
 | OD-11 | Pre-box ingest host (home Mac Mini) | **2026-11-03** |
 | OD-12 | Create the free API keys and accounts | **2026-11-03** |
+| OD-35 | Tilt the pilot toward worldview-shaping thinkers | Before P1 discovery starts |
 | OD-04 | Bridger rule | 2026-11-17 |
 | OD-18 | Hardware purchases (UPS, optional SSD) | 2026-11-23 |
 | OD-02 | Conflict-of-interest sign-off | Brad Carson 2026-11-28; others before P7 |
@@ -327,6 +328,14 @@ This is the **single list** of decisions waiting on Benjamin. It merges and dedu
 - **Blocks.** P1 discovery recall (G1.2); Plan §6 budget.
 - **Needed by.** After the P1 discovery check (≈ 2026-11-21).
 - **Was.** Architecture §4.1 ("decision after P1"); 05 Q9.
+
+### OD-35 · Tilt the pilot toward the thinkers directing technology and society
+- **Question.** Should Slice 1 centre the people whose worldviews most directly steer technology and society, drawing on their written work and intellectual lineages (Thiel-Karp genealogy, Parachute vault), so that those worldviews become visible rather than operating unseen?
+- **Options.** (a) Keep Slice 1 and add a written-first worldview core: add Alex Karp and a few others, and pull their written corpora first. (b) Replace Slice 1 with that core. (c) No change.
+- **Recommendation.** (a). Four of the central figures are already in the slice. Living figures are placed on the map; deceased thinkers (Girard, Strauss, Schmitt and others) enter as lineage, not as placed landmarks, because they cannot dispute a placement or ratify a description. Influence links use the genealogy's four evidence types.
+- **Blocks.** P1 discovery scope; slice counts in `arena seed verify`; P2 gold strata; a spec §2 amendment if adopted.
+- **Needed by.** Before P1 discovery starts.
+- **Was.** New (Benjamin, 2026-10-31).
 
 ---
 

@@ -86,6 +86,14 @@ The winner, or a combination, becomes production.
 - **Priority encounter PE-01 · e/acc × d/acc:** the P1 discovery crawl searches first for any recorded Beff Jezos × Vitalik Buterin conversation, then other e/acc ↔ d/acc exchanges. PE-01 is the leading candidate for the first event map (OD-23).
 - **Disclosure:** Dario Amodei (Anthropic CEO) and Brad Carson (group reportedly Anthropic-funded) are on the map. Claude helped build it, so this relationship must be disclosed publicly alongside the collaborator COI disclosures (OD-02).
 
+### D-31.10 Cloud-first until batch scale; light source storage; written works are first-class
+Benjamin, 2026-10-31.
+- **Infrastructure:** assume basic cloud infrastructure, operated by hand through Claude Code, until the larger batch operations move to self-hosted infrastructure. This changes the sequencing of spec §9 and D-31.7, and the spec itself still needs amending. "No spend without asking" still applies.
+- **Source storage:** strict private handling of transcripts is more than needed, since these are public conversations. Raw sources sit on plain disk behind a small interface, with no object-store service (ADR-030). MinIO is dropped: it stopped distributing free images. **Unchanged:** full texts are not republished; public output stays as short quotes and links.
+- **Written works** (books, essays, blogs, letters, dissertations) are sources alongside spoken episodes, with the same claim, quote-anchor and entailment gates (ADR-030). This extends SPINE §1 and §2, which say "spoken" and "timestamped".
+- **GitHub:** the repo is `omniharmonic/schismogenesis`, private, under the `omniharmonic` account. This replaces the `clawmniharmonic` instruction in Plan §2.4.
+- **Open:** tilting the pilot toward the worldview-shaping thinkers is **OD-35**.
+
 ## Earlier decided (2026-10-30 design dialogue; full detail in `03-DESIGN-MEMO-2026-10-30.md` and synthesis §2)
 - **Gradient:** how accurately each cluster can describe every other, in terms the described cluster would sign. Success is meta-consensus, not convergence.
 - **The map is built from landmark content,** not the follow graph. Follows measure attention, not belief.
@@ -100,7 +108,7 @@ The winner, or a combination, becomes production.
 
 ## Pending decisions (Benjamin)
 
-**All pending decisions now live in [`10-OPEN-DECISIONS.md`](10-OPEN-DECISIONS.md)** (consolidated 2026-10-31): 34 items, OD-01 … OD-34, each with options, a recommendation, what it blocks and a needed-by date. That file merges this list with the open questions in the PRD, the Architecture and the Implementation Plan. When Benjamin decides one, record it here as a new D-entry and mark it decided there.
+**All pending decisions now live in [`10-OPEN-DECISIONS.md`](10-OPEN-DECISIONS.md)** (consolidated 2026-10-31): 35 items, OD-01 … OD-35, each with options, a recommendation, what it blocks and a needed-by date. That file merges this list with the open questions in the PRD, the Architecture and the Implementation Plan. When Benjamin decides one, record it here as a new D-entry and mark it decided there.
 
 This log's earlier pending list maps as follows:
 
