@@ -19,7 +19,7 @@ from arena_extract.anchor import locate, previous_sentence, public_quote
 from arena_extract.schema import ClaimItem, ExtractClaimsOutput
 
 PROMPT_ID = "extract_claims_written"
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2"
 TARGET_WORDS = 350
 PROMPT_DIR = pathlib.Path(__file__).parent / "prompts"
 SKIPS_NLI = {"inferred"}
@@ -178,10 +178,17 @@ def extract_source(engine: Engine, llm: LLMClient, episode_id: str) -> dict[str,
                 prompt_version=PROMPT_VERSION,
             )  # fmt: skip
             core = segments[chunk.core_from_seq : chunk.core_to_seq + 1]
+            surroundings = " ".join(
+                [episode.title, name]
+                + [
+                    s.text
+                    for s in segments[max(chunk.core_from_seq - 1, 0) : chunk.core_to_seq + 2]
+                ]
+            )
             items = ExtractClaimsOutput.model_validate(outputs[0]).items
             for item in items:
                 _store_claim(connection, item, chunk.chunk_id, episode_id, episode.url, author,
-                             core, run_id, model, digest)  # fmt: skip
+                             core, run_id, model, digest, surroundings)  # fmt: skip
             connection.execute(
                 text(
                     "INSERT INTO stage_item (item_type, item_id, stage, model_version,"
@@ -222,7 +229,7 @@ def _find_anchor(item: ClaimItem, core: list[Any]) -> tuple[Any, Any] | None:
 
 def _store_claim(
     connection: Connection, item: ClaimItem, chunk_id: Any, episode_id: str, url: str, author: str,
-    core: list[Any], run_id: Any, model: str, digest: bytes,
+    core: list[Any], run_id: Any, model: str, digest: bytes, surroundings: str,
 ) -> None:  # fmt: skip
     found = _find_anchor(item, core)
     row: dict[str, Any] = {
@@ -237,7 +244,7 @@ def _store_claim(
     if found:
         segment, anchor = found
         stored = segment.text[anchor.char_start : anchor.char_end]
-        problems = validators.issues(item, stored, segment.text)
+        problems = validators.issues(item, stored, surroundings)
         row |= {
             "seg": segment.segment_id, "cs": anchor.char_start, "ce": anchor.char_end,
             "am": anchor.match, "score": anchor.score, "qf": stored,

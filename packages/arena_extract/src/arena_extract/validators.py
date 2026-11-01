@@ -2,9 +2,9 @@
 
 Python port of Topology Live's validate.ts and lexicons.ts (omniharmonic/antidebate-live,
 packages/ontology), same codes and word lists. `attribution_pending` is omitted: written sources
-have a known author. Sources for names and numbers are the quote plus its paragraph, the "resolved
-antecedents" of the original, because a written claim often says "the technology" for a name given
-earlier in the paragraph.
+have a known author. Sources for names and numbers are the quote plus its chunk, title and
+author, the "resolved antecedents" of the original, because written claims resolve references
+such as "this country" from their surroundings.
 """
 
 import re
@@ -86,12 +86,27 @@ def narrowest_quantifier(quote: str) -> str | None:
     return found
 
 
+def _with_aliases(source: str) -> str:
+    """Different names for one thing are not new content."""
+    if re.search(r"\b(us|u\.s\.|america|american|americans|united states)\b", source):
+        source += " united states us america american"
+    if re.search(r"\b(ai|artificial intelligence|agi)\b", source):
+        source += " ai artificial intelligence"
+    return source
+
+
+def new_entities(canonical: str, source: str) -> list[str]:
+    known = _with_aliases(_norm(source))
+    return [m for m in ENTITY.findall(canonical) if _norm(m) not in known]
+
+
 def issues(item: ClaimItem, quote: str, paragraph: str = "") -> list[str]:
+    """`paragraph` is the resolved context: quote's chunk, work title and author name."""
     source = _norm(f"{quote} {paragraph}")
     found = []
     if any(_norm(m) not in source for m in NUMBER.findall(item.proposed_canonical)):
         found.append("new_number")
-    if any(_norm(m) not in source for m in ENTITY.findall(item.proposed_canonical)):
+    if new_entities(item.proposed_canonical, source):
         found.append("new_entity")
     span_quantifier = narrowest_quantifier(quote)
     if (

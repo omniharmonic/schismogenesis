@@ -134,12 +134,15 @@ def written_ingest_list(
 
 @written_app.command("extract-all")
 def written_extract_all(batch: str = typer.Option(...)) -> None:
-    """Queue or collect extraction for every written work."""
+    """Queue or collect extraction for works with no claims yet."""
     engine = get_engine()
     total: dict[str, int] = {}
     with engine.connect() as connection:
         rows = connection.execute(
-            text("SELECT DISTINCT episode_id FROM chunk ORDER BY episode_id")
+            text(
+                "SELECT DISTINCT c.episode_id FROM chunk c WHERE NOT EXISTS "
+                "(SELECT 1 FROM claim WHERE claim.episode_id = c.episode_id) ORDER BY 1"
+            )
         ).scalars()
         episodes = [str(row) for row in rows]
     for episode_id in episodes:

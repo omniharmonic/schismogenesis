@@ -81,6 +81,10 @@ def test_validators_match_topology_live_codes():
     assert "new_entity" in issues(
         claim_item(proposed_canonical="The firm helped Google."), "It helped."
     )
+    context = "Dario Amodei wrote this about the US."
+    assert not issues(
+        claim_item(proposed_canonical="Dario Amodei and the United States."), "It said.", context
+    )
     assert issues(claim_item(quantifier="generic"), "Some labs are reckless.") == ["scope_widened"]
     assert issues(claim_item(quantifier="some"), "Some labs are reckless.") == []
     assert "non_attributable_stance" in issues(claim_item(speech_act="attribute"), "They said so.")
