@@ -14,7 +14,8 @@ For each idea give:
   praxis (what should be done)
 - tl_type: empirical, causal, predictive, counterfactual, normative, prescriptive, definitional,
   conceptual, modal or meta
-- validity: truth, rightness or intelligibility (Habermas: is it true, is it right, what does it mean)
+- validity: truth, rightness or meaning (Habermas: is it true, is it right, what does it mean).
+  The database stores truth and rightness; meaning is stored as blank
 - holdings: every person with a claim bearing on it: {"claim": id, "attitude": "accepts"|"rejects"}.
   "rejects" only if the claim's words contradict the idea. Silence is not rejection. Reporting,
   summarizing or attacking a view is not holding it: read the argument role given with the claim.

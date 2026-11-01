@@ -17,7 +17,7 @@
 }
 html,body{height:100%;margin:0}
 body{background:var(--night);color:var(--ink);font:16px/1.5 var(--body);overflow:hidden}
-#stage{position:fixed;inset:0}
+#stage{position:fixed;inset:0 0 0 430px}
 #stage canvas{display:block}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
@@ -50,16 +50,18 @@ p{margin:0 0 10px}
 .bar{height:12px;border-radius:2px;min-width:1px}
 .finding{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin-bottom:10px}
 .warn{color:var(--accent)}
-#controls{position:fixed;z-index:4;right:max(12px,env(safe-area-inset-right,0px));top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:260px}
+#controls{position:fixed;z-index:4;right:max(12px,env(safe-area-inset-right,0px));top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:260px;pointer-events:none}
+#controls>*{pointer-events:auto}
 #legend{background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px/1.4 var(--mono)}
 #legend label{display:flex;gap:6px;align-items:center;cursor:pointer}
-#time{background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px var(--mono);width:236px;box-sizing:border-box}
+#time{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px var(--mono);width:236px;box-sizing:border-box}
 #time input{width:100%}
 #search{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:6px 8px;font:14px var(--display)}
 #hits{margin-top:6px}
 #nogl{display:none;padding:16px}
 body.nogl #nogl{display:block}
 @media (max-width:760px){
+  #stage{inset:0}
   #panel{top:auto;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));width:auto;height:52%;bottom:calc(8px + env(safe-area-inset-bottom,0px))}
   #controls{left:max(8px,env(safe-area-inset-left,0px));right:auto;top:calc(8px + env(safe-area-inset-top,0px))}
   #time{display:none}
@@ -89,15 +91,16 @@ const ASKS = {praxis:'What should be done?',empirical:'How is the world, and whe
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const COLOR = Object.fromEntries(LAYERS.map(l => [l, css('--l-'+l)]));
 const HEIGHT = {ontological:-120,epistemic:-60,axiological:0,empirical:60,praxis:120};
-const SURFACE = 175;
+const SURFACE = 190;
 const SCHOOL = ['#f0c675','#7fd1a6','#f0816f','#a9c1ff','#d59ae8','#46b5ad','#e8a46c','#cfd46a'];
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const person = Object.fromEntries(A.people.map(p => [p.id,p]));
 const idea = Object.fromEntries(A.ideas.map(i => [i.id,i]));
 const schoolOf = id => A.schools.find(s => s.members.includes(id));
 const schoolColor = s => SCHOOL[A.schools.indexOf(s) % SCHOOL.length];
-const state = {tab:'start', person:null, second:null, idea:null, school:null, hidden:new Set(), year:A.meta.last_year};
+const state = {tab:'start', person:null, second:null, idea:null, school:null, lens:null, family:null, hidden:new Set(), year:A.meta.last_year};
 const isMobile = () => innerWidth <= 760;
+const stageWidth = () => isMobile() ? innerWidth : innerWidth - 430;
 
 /* ---------- graph data ---------- */
 const nodes = [
@@ -111,6 +114,8 @@ const graphData = {nodes, links:[...argLinks, ...holdLinks]};
 
 /* ---------- selection logic ---------- */
 function focusSet(){
+  if (state.lens!==null){ const l = A.lenses[state.lens]; return new Set([...l.shared,...l.opposed,...l.a,...l.b]); }
+  if (state.family!==null) return new Set(A.families.find(f => f.id===state.family).ideas);
   if (state.person && state.second){
     const f = A.forks[pairKey(state.person,state.second)] || {shared:[],opposed:[]};
     return new Set([...f.shared,...f.opposed,state.person,state.second]);
@@ -132,7 +137,7 @@ function linkShown(l){
   if (hiddenNode(nodeById[a]) || hiddenNode(nodeById[b])) return false;
   if (l.kind==='hold') return (state.person && a===state.person) || (state.second && a===state.second) || (state.idea && b===state.idea);
   const f = focusSet();
-  return !!f && f.has(a) && f.has(b) && !state.school;
+  return !!f && f.has(a) && f.has(b) && !state.school && state.family===null;
 }
 const nodeById = Object.fromEntries(nodes.map(n => [n.id,n]));
 function hiddenNode(n){
@@ -142,6 +147,11 @@ function hiddenNode(n){
 function nodeColorOf(n){
   const f = focusSet();
   if (n.kind==='person') return schoolColor(schoolOf(n.id) || A.schools[0]);
+  if (state.lens!==null){
+    const l = A.lenses[state.lens];
+    if (l.opposed.includes(n.id)) return css('--reject');
+    if (l.shared.includes(n.id)) return css('--accept');
+  }
   if (state.person && state.second){
     const fork = A.forks[pairKey(state.person,state.second)];
     if (fork?.opposed.includes(n.id)) return css('--reject');
@@ -165,14 +175,14 @@ function labelSprite(text, color, size=30, weight=500){
 function ideaObject(n){
   const r = 2.6 + Math.sqrt(n.d.holders.length)*1.5;
   const g = new THREE.SphereGeometry(r,14,12);
-  const m = new THREE.MeshLambertMaterial({color:nodeColorOf(n), wireframe:!!n.d.inferred, transparent:true, opacity:1});
+  const m = new THREE.MeshBasicMaterial({color:nodeColorOf(n), wireframe:!!n.d.inferred, transparent:true, opacity:.92});
   return new THREE.Mesh(g,m);
 }
 function personObject(n){
   const group = new THREE.Group();
   const color = nodeColorOf(n);
-  group.add(new THREE.Mesh(new THREE.OctahedronGeometry(4.5), new THREE.MeshLambertMaterial({color})));
-  const label = labelSprite(n.d.name, color, 24); label.position.set(0,10,0); group.add(label);
+  group.add(new THREE.Mesh(new THREE.OctahedronGeometry(4), new THREE.MeshBasicMaterial({color})));
+  const label = labelSprite(n.d.name.replace(' (Beff Jezos)',''), '#e9e6df', 13); label.position.set(0,9,0); group.add(label);
   return group;
 }
 function refreshColors(){
@@ -183,7 +193,7 @@ function refreshColors(){
     o.visible = !hide;
     if (n.kind==='idea'){
       o.material.color.set(nodeColorOf(n));
-      o.material.opacity = !f || f.has(n.id) ? 1 : .22;
+      o.material.opacity = !f || f.has(n.id) ? .92 : .1;
     } else {
       const on = !f || f.has(n.id);
       o.traverse(c => { if (c.material){ c.material.transparent = true; c.material.opacity = on ? 1 : .3; } });
@@ -201,7 +211,7 @@ function start3D(){
   const el = document.getElementById('stage');
   G = ForceGraph3D({controlType:'orbit'})(el)
     .backgroundColor(css('--night'))
-    .width(innerWidth).height(innerHeight)
+    .width(stageWidth()).height(innerHeight)
     .showNavInfo(false)
     .graphData(graphData)
     .nodeId('id')
@@ -234,8 +244,6 @@ function start3D(){
   G.d3ReheatSimulation();
 
   const scene = G.scene();
-  scene.traverse(o => { if (o.isLight) o.intensity *= .45; });
-  scene.add(new THREE.AmbientLight(0xffffff,.35));
   LAYERS.forEach(l => {
     const grid = new THREE.GridHelper(420, 12, COLOR[l], COLOR[l]);
     grid.position.y = HEIGHT[l]; grid.material.transparent = true; grid.material.opacity = .13; grid.material.depthWrite = false;
@@ -249,10 +257,10 @@ function start3D(){
     const r = Math.max(26, ...pts.map(p => Math.hypot(p.x-cx,p.y-cz)+14));
     const ring = new THREE.Mesh(new THREE.RingGeometry(r-.6,r,64), new THREE.MeshBasicMaterial({color:SCHOOL[i%SCHOOL.length],side:THREE.DoubleSide,transparent:true,opacity:.45,depthWrite:false}));
     ring.rotation.x = -Math.PI/2; ring.position.set(cx,SURFACE,cz); scene.add(ring);
-    const tag = labelSprite(s.label, SCHOOL[i%SCHOOL.length], 30, 700); tag.position.set(cx,SURFACE+36,cz); scene.add(tag);
+    const tag = labelSprite(s.label, SCHOOL[i%SCHOOL.length], 26, 700); tag.position.set(cx,SURFACE+30,cz); scene.add(tag);
   });
-  G.cameraPosition(isMobile() ? {x:60,y:230,z:680} : {x:-120,y:150,z:560}, {x:isMobile()?0:-60,y:isMobile()?-90:20,z:0}, 0);
-  addEventListener('resize', () => G.width(innerWidth).height(innerHeight));
+  G.cameraPosition(isMobile() ? {x:0,y:640,z:760} : {x:0,y:430,z:560}, {x:0,y:isMobile()?-150:10,z:0}, 0);
+  addEventListener('resize', () => G.width(stageWidth()).height(innerHeight));
   setTimeout(refreshColors, 80);
 }
 const HEIGHT_GAP = l => {
@@ -261,15 +269,18 @@ const HEIGHT_GAP = l => {
 };
 
 /* ---------- picks ---------- */
+function resetPicks(){ state.person = state.second = state.idea = state.school = state.lens = state.family = null; }
+function pickLens(i){ resetPicks(); state.lens = i; state.tab = 'lens'; render(); }
+function pickFamily(i){ resetPicks(); state.family = i; state.tab = 'family'; render(); }
 function pickPerson(id){
   if (state.person && state.person!==id && !state.second && state.tab==='person'){ state.second = id; }
   else { state.person = id; state.second = null; }
-  state.idea = null; state.school = null; state.tab = 'person'; render();
+  state.idea = state.school = state.lens = state.family = null; state.tab = 'person'; render();
 }
-function pickIdea(id){ state.idea = id; state.person = null; state.second = null; state.school = null; state.tab = 'idea'; render(); }
-function pickSchool(i){ state.school = i; state.person = null; state.second = null; state.idea = null; state.tab='schools'; render(); }
-function clearPick(){ state.person = state.second = state.idea = state.school = null; render(); }
-window.__atlas = {state, pickPerson, pickIdea, pickSchool, clearPick};
+function pickIdea(id){ resetPicks(); state.idea = id; state.tab = 'idea'; render(); }
+function pickSchool(i){ resetPicks(); state.school = i; state.tab='schools'; render(); }
+function clearPick(){ resetPicks(); render(); }
+window.__atlas = {state, pickPerson, pickIdea, pickSchool, pickLens, pickFamily, clearPick};
 
 /* ---------- panel ---------- */
 const TABS = [['start','Start'],['schools','Schools'],['people','People'],['ideas','Ideas'],['words','Words'],['method','How it was made']];
@@ -288,7 +299,7 @@ function forkBars(f){
 const views = {
   start(){
     return `<h2>${esc(A.copy.headline)}</h2>${A.copy.intro.map(p => `<p>${esc(p)}</p>`).join('')}
-      ${A.copy.findings.map(f => `<div class="finding"><b>${esc(f.title)}</b><br>${esc(f.body)}${f.schools?` <div class="chips" style="margin-top:6px"><button class="chip" data-school-pair="${f.schools.join(',')}">See it on the map</button></div>`:''}</div>`).join('')}
+      ${A.copy.findings.map(f => `<div class="finding"><b>${esc(f.title)}</b><br>${esc(f.body)}${f.lens!=null?` <div class="chips" style="margin-top:6px"><button class="chip" data-lens="${f.lens}">See it on the map</button></div>`:''}</div>`).join('')}
       <h3>How to read it</h3>
       <p>Height is depth. Assumptions about what exists sit at the bottom, and what should be done sits near the top. People float above, and selecting one shows what they stand on. Hollow wire spheres are inferred assumptions that nobody stated.</p>
       <p class="meta">Drag to turn. Scroll to move in. Select a second person to compare.</p>`;
@@ -304,7 +315,27 @@ const views = {
     }
     return `<h2>Schools</h2><p>Groups come from who holds what, measured across all ideas. The share shows how often a group stays together when the ideas are resampled.</p>`
       + A.schools.map((s,i) => `<button class="row" data-school="${i}"><b style="color:${schoolColor(s)}">${esc(s.label||'Unaffiliated')}</b> <span class="meta">${pct(s.cohesion)}</span><br><span class="meta">${s.members.map(m=>esc(person[m].name)).join(', ')}</span></button>`).join('')
-      + `<h3>Between schools</h3>` + A.schoolForks.map(f => `<div class="finding"><b>${esc(A.schools[f.a].label)} and ${esc(A.schools[f.b].label)}</b><div style="margin-top:6px">${forkBars(f)}</div><p class="meta" style="margin:6px 0 0">${f.lowest_opposed?'Deepest measured split: '+NAME[f.lowest_opposed]:'No opposed idea measured'}</p></div>`).join('');
+      + `<h3>Compare camps</h3>` + A.lenses.map((l,i) => `<button class="row" data-lens="${i}">${esc(l.label)}</button>`).join('');
+  },
+  lens(){
+    const l = A.lenses[state.lens];
+    const list = ids => sortByDepth(ids.map(x => idea[x]));
+    const names = m => m.map(x => person[x]?.name).filter(Boolean).join(', ');
+    return `<button class="chip" data-clear>Clear</button><h2 style="margin-top:8px">${esc(l.label)}</h2>
+      <p class="meta">${esc(names(l.a))}<br>and ${esc(names(l.b))}</p>
+      ${l.note?`<p>${esc(l.note)}</p>`:''}<h3>Idea families by layer</h3>${forkBars(l)}
+      <h3 class="tag-a">Stand on together</h3>${list(l.shared).map(i => ideaRow(i)).join('')||'<p class="meta">Nothing measured.</p>'}
+      <h3 class="tag-r">Split on</h3>${list(l.opposed).map(i => ideaRow(i)).join('')||'<p class="meta">Nothing measured.</p>'}`;
+  },
+  family(){
+    const f = A.families.find(x => x.id===state.family);
+    const holders = {}; f.ideas.forEach(i => idea[i].holders.forEach(h => { holders[h.p] = (holders[h.p]||0)+h.a; }));
+    const ranked = Object.entries(holders).sort((a,b) => b[1]-a[1]);
+    return `<button class="chip" data-clear>All ideas</button><h2 style="margin-top:8px">${esc(f.name)}</h2>
+      <p class="meta">${f.size} ideas in this family</p>
+      <h3>Who draws on it</h3><div class="chips">${ranked.filter(r => r[1]>0).slice(0,12).map(([p,n]) => `<button class="chip" data-person="${esc(p)}">${esc(person[p].name)} ${n}</button>`).join('')}</div>
+      ${ranked.some(r => r[1]<0)?`<h3 class="tag-r">Who opposes it</h3><div class="chips">${ranked.filter(r => r[1]<0).map(([p,n]) => `<button class="chip" data-person="${esc(p)}">${esc(person[p].name)} ${n}</button>`).join('')}</div>`:''}
+      <h3>Ideas</h3>${sortByDepth(f.ideas.map(i => idea[i])).map(i => ideaRow(i)).join('')}`;
   },
   people(){
     return `<h2>People</h2><div class="chips">${[...A.people].sort((a,b)=>a.name.localeCompare(b.name)).map(p => `<button class="chip" data-person="${esc(p.id)}">${esc(p.name)}</button>`).join('')}</div>
@@ -320,6 +351,8 @@ const views = {
     return `<button class="chip" data-clear>All people</button><h2 style="margin-top:8px">${esc(p.name)}</h2>
       <p class="meta">${esc(s?.label||'')} · ${held.length} ideas · ${p.works.length} works read</p>
       <p class="meta">Select a second person on the map, or below, to see where they fork.</p>
+      <h3>Built from</h3><div class="chips">${Object.entries(p.families||{}).sort((a,b)=>b[1]-a[1]).slice(0,7).map(([f,v]) => `<button class="chip" data-family="${f}">${v<0?'against ':''}${esc(A.families.find(x=>x.id==f).name)}</button>`).join('')}</div>
+      <h3>Compare</h3>
       <div class="chips" style="margin-bottom:6px">${(p.nearest||[]).map(n => `<button class="chip" data-second="${esc(n)}">Compare with ${esc(person[n].name)}</button>`).join('')}</div>
       ${[...LAYERS].reverse().map(l => by(l).length ? `<h3 style="color:${COLOR[l]}">${NAME[l]}: ${ASKS[l]}</h3>` + by(l).map(i => { const h=i.holders.find(x=>x.p===p.id); return ideaRow(i, h.a<0?'<span class="tag-r meta">rejects</span>':h.inf?'<span class="meta">inferred</span>':''); }).join('') : '').join('')}`;
   },
@@ -351,7 +384,7 @@ const views = {
   ideas(){
     const q = (state.q||'').toLowerCase();
     const hits = A.ideas.filter(i => !q || i.text.toLowerCase().includes(q)).sort((a,b)=>b.holders.length-a.holders.length).slice(0,60);
-    return `<h2>Ideas</h2><label for="search" class="meta">Search ${A.ideas.length} ideas and people</label><input id="search" type="search" value="${esc(state.q||'')}" autocomplete="off">
+    return `<h2>Ideas</h2><h3>Families</h3><div class="chips" style="margin-bottom:10px">${A.families.filter(f => f.size>2).sort((a,b)=>b.size-a.size).map(f => `<button class="chip" data-family="${f.id}">${esc(f.name)}</button>`).join('')}</div><label for="search" class="meta">Search ${A.ideas.length} ideas and people</label><input id="search" type="search" value="${esc(state.q||'')}" autocomplete="off">
       <div id="hits">${A.people.filter(p => q && p.name.toLowerCase().includes(q)).map(p => `<button class="chip" data-person="${esc(p.id)}">${esc(p.name)}</button>`).join(' ')}${hits.map(i => ideaRow(i,`<span class="meta">${i.holders.length}</span>`)).join('')}</div>`;
   },
   words(){
@@ -367,8 +400,8 @@ const views = {
 };
 const pct = v => v==null ? 'n/a' : Math.round(v*100)+'%';
 function render(){
-  const tab = state.tab==='person'||state.tab==='idea' ? state.tab : state.tab;
-  document.getElementById('tabs').innerHTML = TABS.map(([k,v]) => `<button role="tab" aria-selected="${k===tab || (k==='people'&&tab==='person') || (k==='ideas'&&tab==='idea')}" data-tab="${k}">${v}</button>`).join('');
+  const tab = state.tab;
+  document.getElementById('tabs').innerHTML = TABS.map(([k,v]) => `<button role="tab" aria-selected="${k===tab || (k==='people'&&tab==='person') || (k==='ideas'&&(tab==='idea'||tab==='family')) || (k==='schools'&&tab==='lens')}" data-tab="${k}">${v}</button>`).join('');
   document.getElementById('view').innerHTML = views[tab]();
   document.getElementById('view').scrollTop = 0;
   if (G) refreshColors();
@@ -378,12 +411,13 @@ function render(){
 document.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const d = b.dataset;
-  if (d.tab){ if (d.tab==='schools') state.school = null; state.tab = d.tab; state.person = d.tab==='people'?null:state.person; state.idea = d.tab==='ideas'?null:state.idea; if (d.tab!=='person') { state.second = null; } if (['people','ideas','start','method','words'].includes(d.tab)){ state.person = null; state.idea = null; state.school = null; } render(); }
-  else if (d.person) { state.person = null; state.second = null; pickPerson(d.person); }
+  if (d.tab){ resetPicks(); state.tab = d.tab; render(); }
+  else if (d.person) { resetPicks(); pickPerson(d.person); }
   else if (d.second) { state.second = d.second; render(); }
   else if (d.idea) pickIdea(d.idea);
   else if (d.school!==undefined) pickSchool(+d.school);
-  else if (d.schoolPair) { state.tab='schools'; state.school=null; state.person=null; render(); }
+  else if (d.lens!==undefined) pickLens(+d.lens);
+  else if (d.family!==undefined) pickFamily(+d.family);
   else if ('clear' in d) { clearPick(); }
 });
 
@@ -396,7 +430,7 @@ yr.min = A.meta.first_year; yr.max = A.meta.last_year; yr.value = A.meta.last_ye
 const setYear = () => { state.year = +yr.value; document.getElementById('yearv').textContent = yr.value; if (G) refreshColors(); };
 yr.addEventListener('input', setYear); setYear();
 
-if (!hasWebGL() || !window.ForceGraph3D || !window.THREE){
+if (location.hash === '#text' || !hasWebGL() || !window.ForceGraph3D || !window.THREE){
   document.body.classList.add('nogl');
   document.getElementById('controls').hidden = true;
   document.getElementById('sub').textContent += ' · 3D is unavailable here, so this is the text version';

@@ -1,17 +1,23 @@
 """Worldviews as structures: people and ideas in one space, and where two people fork.
 
-Height on the atlas is the layer of an idea. Horizontal position comes from correspondence analysis,
-which places people and what they hold in the same space (Benzécri, Bourdieu). Each idea is doubled
-into accept and reject columns, so rejecting something is information and not a blank.
+Height on the atlas is the layer of an idea. Horizontal position compares people over families of
+related ideas. Thinkers rarely address the same exact proposition (about 10% of person-idea cells
+are filled), so comparing idea by idea mostly measures silence. Families make comparison possible
+and are the clusters of ideas that worldviews are built from. A person's score on a family is the
+signed, damped count of ideas held there, centred so that ground everyone shares does not count as
+closeness. Silence stays zero after centring only for people near the average, and bootstrap
+stability shows how far to trust the result.
 """
 
 from collections import defaultdict
 from dataclasses import dataclass
+from itertools import combinations
 
 import numpy as np
 from scipy.cluster.hierarchy import fcluster, linkage
-from scipy.spatial.distance import pdist
-from sklearn.manifold import trustworthiness
+from scipy.spatial.distance import pdist, squareform
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.manifold import MDS, trustworthiness
 
 LAYERS = ("ontological", "epistemic", "axiological", "empirical", "praxis")
 ROOT_LAYERS = {"ontological", "epistemic"}
@@ -27,10 +33,11 @@ class Holding:
 
 
 @dataclass(frozen=True)
-class Coordinates:
-    people: dict[str, np.ndarray]
-    ideas: dict[str, np.ndarray]  # "x" is accept, "x:reject" is reject
-    inertia: np.ndarray
+class Space:
+    people: list[str]
+    matrix: np.ndarray  # people by families, signed, damped and centred
+    distance: np.ndarray  # square cosine distance between people
+    explained: np.ndarray  # share of variance on each axis
 
 
 @dataclass(frozen=True)
@@ -47,39 +54,35 @@ class SenseFork:
     p: float
 
 
-def correspondence(holdings: list[Holding], dims: int = 8) -> Coordinates:
-    """Correspondence analysis of people by accept and reject columns.
+def families(similarity: np.ndarray, count: int) -> list[int]:
+    """Group ideas by average linkage over a similarity matrix."""
+    distance = np.clip(1 - similarity, 0, 2)
+    np.fill_diagonal(distance, 0)
+    model = AgglomerativeClustering(count, metric="precomputed", linkage="average")
+    return [int(label) for label in model.fit_predict(distance)]
 
-    Columns held by nobody cannot exist, and a single-holder column gets its own axis weight in the
-    usual way, so it shapes the space little once mass is accounted for.
-    """
+
+def person_space(holdings: list[Holding], family: dict[str, int]) -> Space:
     people = sorted({h.person for h in holdings})
-    columns = sorted({h.idea if h.accepts else f"{h.idea}:reject" for h in holdings})
     row = {p: i for i, p in enumerate(people)}
+    columns = sorted(set(family.values()))
     col = {c: i for i, c in enumerate(columns)}
     table = np.zeros((len(people), len(columns)))
     for h in holdings:
-        name = h.idea if h.accepts else f"{h.idea}:reject"
         weight = INFERRED_WEIGHT if h.inferred else 1.0
-        table[row[h.person], col[name]] = max(table[row[h.person], col[name]], weight)
+        table[row[h.person], col[family[h.idea]]] += weight if h.accepts else -weight
+    damped = np.sign(table) * np.sqrt(np.abs(table))
+    centred = damped - damped.mean(0)
+    values = np.linalg.svd(centred, compute_uv=False) ** 2
+    return Space(people, centred, squareform(pdist(centred, "cosine")), values / values.sum())
 
-    p = table / table.sum()
-    r, c = p.sum(1), p.sum(0)
-    residual = (p - np.outer(r, c)) / np.sqrt(np.outer(r, c))
-    u, s, vt = np.linalg.svd(residual, full_matrices=False)
-    k = min(dims, int((s > 1e-10).sum()))
-    people_xy = (u[:, :k] * s[:k]) / np.sqrt(r)[:, None]
-    ideas_xy = (vt.T[:, :k] * s[:k]) / np.sqrt(c)[:, None]
-    # A fixed sign makes runs comparable.
-    for axis in range(k):
-        if people_xy[0, axis] > 0:
-            people_xy[:, axis] *= -1
-            ideas_xy[:, axis] *= -1
-    return Coordinates(
-        {name: people_xy[i] for name, i in row.items()},
-        {name: ideas_xy[i] for name, i in col.items()},
-        s[:k] ** 2,
+
+def layout(space: Space, seed: int = 7) -> np.ndarray:
+    """Two-dimensional positions that preserve the measured distances as far as possible."""
+    model = MDS(
+        2, dissimilarity="precomputed", random_state=seed, n_init=8, normalized_stress="auto"
     )
+    return np.asarray(model.fit_transform(space.distance))
 
 
 def fork_profile(a: str, b: str, holdings: list[Holding], layer: dict[str, str]) -> Fork:
@@ -99,51 +102,49 @@ def fork_profile(a: str, b: str, holdings: list[Holding], layer: dict[str, str])
     return Fork({k: (v[0], v[1]) for k, v in counts.items()}, lowest, shared_roots, inferred_roots)
 
 
-def _cluster(names: list[str], points: np.ndarray, cut: float) -> list[list[str]]:
-    if len(names) < 2:
-        return [names]
-    distances = pdist(points)
-    scale = distances.max() or 1.0
-    labels = fcluster(linkage(distances / scale, "average"), cut, "distance")
+def _cluster(names: list[str], distance: np.ndarray, count: int) -> list[list[str]]:
+    labels = fcluster(linkage(squareform(distance, checks=False), "average"), count, "maxclust")
     groups: dict[int, list[str]] = defaultdict(list)
     for name, label in zip(names, labels, strict=True):
         groups[int(label)].append(name)
     return list(groups.values())
 
 
-def schools(coordinates: Coordinates, cut: float) -> list[list[str]]:
-    names = sorted(coordinates.people)
-    return _cluster(names, np.array([coordinates.people[n] for n in names]), cut)
+def schools(space: Space, count: int) -> list[list[str]]:
+    return _cluster(space.people, space.distance, count)
 
 
 def school_stability(
-    holdings: list[Holding], cut: float, runs: int = 500, seed: int = 7
+    holdings: list[Holding],
+    family: dict[str, int],
+    count: int,
+    runs: int = 500,
+    seed: int = 7,
 ) -> dict[frozenset[str], float]:
-    """Share of reruns, resampling ideas, in which each pair lands in one school."""
+    """Share of reruns, resampling families, in which each pair lands in one school."""
     random = np.random.default_rng(seed)
-    ideas = sorted({h.idea for h in holdings})
-    by_idea: dict[str, list[Holding]] = defaultdict(list)
+    names = sorted(set(family.values()))
+    by_family: dict[int, list[Holding]] = defaultdict(list)
     for h in holdings:
-        by_idea[h.idea].append(h)
+        by_family[family[h.idea]].append(h)
     together: dict[frozenset[str], int] = defaultdict(int)
     seen: dict[frozenset[str], int] = defaultdict(int)
     for _ in range(runs):
         sample: list[Holding] = []
-        for n, pick in enumerate(random.integers(0, len(ideas), len(ideas))):
-            sample += [
-                Holding(h.person, f"{h.idea}#{n}", h.accepts, h.inferred)
-                for h in by_idea[ideas[pick]]
-            ]
-        groups = schools(correspondence(sample), cut)
-        present = sorted({h.person for h in sample})
-        for i, first in enumerate(present):
-            for second in present[i + 1 :]:
-                seen[frozenset({first, second})] += 1
+        drawn: dict[str, int] = {}
+        for n, pick in enumerate(random.integers(0, len(names), len(names))):
+            for h in by_family[names[int(pick)]]:
+                key = f"{h.idea}#{n}"
+                drawn[key] = n
+                sample.append(Holding(h.person, key, h.accepts, h.inferred))
+        space = person_space(sample, drawn)
+        groups = schools(space, count)
+        for first, second in combinations(space.people, 2):
+            seen[frozenset({first, second})] += 1
         for group in groups:
-            for i, first in enumerate(group):
-                for second in group[i + 1 :]:
-                    together[frozenset({first, second})] += 1
-    return {pair: together[pair] / count for pair, count in seen.items()}
+            for first, second in combinations(group, 2):
+                together[frozenset({first, second})] += 1
+    return {pair: together[pair] / number for pair, number in seen.items()}
 
 
 def reasons_load(holders: int, links: int) -> float:

@@ -143,3 +143,6 @@ This log's earlier pending list maps as follows:
 7. Jake Hartnell's hyperstition position → **OD-07**
 
 The D-31.2 engineering question (randomized strategy assignment) is **OD-08**.
+
+### D-31.15 Lifeworld Atlas direction
+Benjamin, 2026-11-01: a thinker is a shape rooted in shared ground, not a dot ("this sounds great, let's fully document the plan and then implement it"). AI futures is the first region, with 14 people added from Slice 1. See the design in `docs/superpowers/specs/2026-11-01-lifeworld-atlas-design.md` and ADR-035. The builder's calls listed there await his review.

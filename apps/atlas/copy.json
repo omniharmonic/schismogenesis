@@ -1,0 +1,238 @@
+{
+ "headline": "Where worldviews share ground and where they split",
+ "intro": [
+  "Each sphere is an idea, drawn from the public writing and talks of 27 people on AI and society. Each diamond is a person. Select someone and the structure they stand on lights up.",
+  "Habermas called the background we reason from the lifeworld: it mostly goes unseen until something brings a piece of it into question. This map tries to do that on purpose, so that people can reason about the ground they stand on, and test whether they would sign how they are described."
+ ],
+ "schools": [
+  {
+   "members": [
+    "sam-altman",
+    "dario-amodei",
+    "marc-andreessen",
+    "elon-musk",
+    "guillaume-verdon",
+    "jd-vance"
+   ],
+   "label": "Builders"
+  },
+  {
+   "members": [
+    "emily-m-bender",
+    "timnit-gebru",
+    "karen-hao",
+    "josh-hawley"
+   ],
+   "label": "Human-first critics",
+   "note": "This group crosses the usual left and right. Hawley writes from a religious and national starting point, and the others from labor and language. They land together on AI's present harms to people."
+  },
+  {
+   "members": [
+    "curtis-yarvin",
+    "david-sacks",
+    "nick-land"
+   ],
+   "label": "Power realists"
+  },
+  {
+   "members": [
+    "daniel-kokotajlo",
+    "eliezer-yudkowsky",
+    "scott-alexander"
+   ],
+   "label": "AI risk rationalists"
+  },
+  {
+   "members": [
+    "jason-crawford",
+    "robin-hanson",
+    "tyler-cowen"
+   ],
+   "label": "Progress pragmatists"
+  },
+  {
+   "members": [
+    "max-tegmark",
+    "vitalik-buterin",
+    "william-macaskill"
+   ],
+   "label": "Long-term stewards"
+  },
+  {
+   "members": [
+    "audrey-tang",
+    "e-glen-weyl"
+   ],
+   "label": "Pluralists"
+  },
+  {
+   "members": [
+    "balaji-srinivasan",
+    "peter-thiel"
+   ],
+   "label": "Exit founders"
+  }
+ ],
+ "lenses": [
+  {
+   "label": "Accelerationism and AI safety",
+   "a": [
+    "guillaume-verdon",
+    "nick-land",
+    "marc-andreessen"
+   ],
+   "b": [
+    "eliezer-yudkowsky",
+    "daniel-kokotajlo",
+    "scott-alexander",
+    "max-tegmark",
+    "william-macaskill"
+   ],
+   "note": "These camps were chosen by name, and the people in them sit in several measured schools."
+  },
+  {
+   "label": "AI safety and AI critics",
+   "a": [
+    "eliezer-yudkowsky",
+    "daniel-kokotajlo",
+    "scott-alexander",
+    "max-tegmark",
+    "william-macaskill"
+   ],
+   "b": [
+    "emily-m-bender",
+    "timnit-gebru",
+    "karen-hao"
+   ]
+  },
+  {
+   "label": "Builders and human-first critics",
+   "a": [
+    "sam-altman",
+    "dario-amodei",
+    "marc-andreessen",
+    "elon-musk",
+    "guillaume-verdon",
+    "jd-vance"
+   ],
+   "b": [
+    "emily-m-bender",
+    "timnit-gebru",
+    "karen-hao",
+    "josh-hawley"
+   ]
+  },
+  {
+   "label": "Sovereignty and pluralism",
+   "a": [
+    "peter-thiel",
+    "curtis-yarvin",
+    "balaji-srinivasan",
+    "nick-land",
+    "david-sacks"
+   ],
+   "b": [
+    "audrey-tang",
+    "e-glen-weyl",
+    "vitalik-buterin"
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "title": "Accelerationism and AI safety share a picture of AI, and split on what to do",
+   "body": "Both sides hold that intelligence can run on silicon and that capable AI has no built-in reason to care for us. The split sharpens upward: at the action layer they oppose each other on 4 of 5 shared idea families. They also split at the roots, over whether collective choice can steer technology and whether intelligence can pair with any goal. E/acc does not form its own school here.",
+   "lens": 0
+  },
+  {
+   "title": "The AI safety and AI ethics feud sits at the very bottom",
+   "body": "AI safety people and AI critics agree on all 6 shared families about knowing and all 8 about the world, and on 6 of 7 about action. They split on what language models are. If they could settle that one question, or set it aside, much of their conflict has less to stand on.",
+   "lens": 1
+  },
+  {
+   "title": "Some alliances cross the usual lines",
+   "body": "Hawley sits with Bender, Gebru and Hao in 65% to 70% of reruns: Hawley and Bender share 18 ideas and oppose on none measured. Thiel and Karp share 5 ideas with no opposition yet rarely group together (7%), because most of what they write is about different things.",
+   "lens": 2
+  },
+  {
+   "title": "Popular links can vanish, as Yarvin and Vance do",
+   "body": "They share one idea in what they argue and land in the same school in 2% of reruns. This sample can't rule out influence, and it shows no shared structure.",
+   "lens": null
+  }
+ ],
+ "words": "The same word can carry a different world. This compares the sentences each group builds around a word. A larger gap means the surroundings differ more. It catches a change of subject as well as a change of meaning, so read the examples before trusting a gap.",
+ "belonging": "Habermas held that we cohere by giving reasons. Karp's dissertation argued that jargon binds groups by licensing aggression. These widely held ideas have the fewest argument links. That could mean they mostly mark membership, or that our link readers missed their reasons, so this is a lead to test.",
+ "method": [
+  {
+   "h": "From works to claims",
+   "p": [
+    "We read 93 public works by 27 people. Each claim needs an exact quote, then passes code checks and a local entailment model. 2,158 claims passed."
+   ]
+  },
+  {
+   "h": "From claims to ideas",
+   "p": [
+    "Readers merged claims into shared ideas, each placed in a layer: being, knowing, values, world or action. Every holding then got a blind second reading, and we kept only what both readings agreed on. Saying nothing about an idea counts as missing, never as disagreement."
+   ]
+  },
+  {
+   "h": "Layers come from existing work",
+   "p": [
+    "The layers draw on Apostel and Aerts's worldview components, Bourdieu's doxa and Habermas's lifeworld. Links use argument theory: Toulmin, Walton and ASPIC+. These are proposals, and the framing itself is open to dispute."
+   ]
+  },
+  {
+   "h": "Position",
+   "p": [
+    "Thinkers rarely address the same exact claim. Only about a tenth of person and idea pairs have a recorded stance. So people are compared over 40 families of related ideas, with shared ground removed. Height is the layer and is fixed. Links pull supporting ideas together and push opposed ones apart, around measured positions."
+   ]
+  },
+  {
+   "h": "What this cannot tell you",
+   "p": [
+    "Nobody placed here has seen this or agreed to it. All of it is provisional machine reading, and no person has ratified it. Each person is read from about three works, so dates mean first appearance in this sample and cannot show change over time. Twenty-seven hand-picked people show a pattern, not a population. School names are working labels, and the people named should replace them."
+   ]
+  }
+ ],
+ "checks": [
+  {
+   "name": "Two readers",
+   "template": "{review[agreed]} stated holdings agreed. {review[second_reader_neither]} were dropped as too stretched. None reversed."
+  },
+  {
+   "name": "Extra search",
+   "template": "Code proposed {review[dense_candidates]} missed holdings, and {review[dense_agreed]} survived blind reading."
+  },
+  {
+   "name": "Inferred assumptions",
+   "template": "{review[root_kept]} of {review[root_total]} person links to unstated assumptions were judged truly required. The rest were removed."
+  },
+  {
+   "name": "Links",
+   "template": "{review[links_valid]} of {review[links_checked]} links passed a blind reader. {review[links_after]} remain after removing those attached to dropped ideas."
+  },
+  {
+   "name": "Does it beat plain text embeddings?",
+   "template": "Yes. Agreement with curated niches scores {structure_silhouette} here and {embedding_silhouette} for text embeddings. Both are modest."
+  },
+  {
+   "name": "Do inferred assumptions shape the schools?",
+   "template": "No. Removing them gives the same schools (agreement {stated_only_rand:.0%})."
+  },
+  {
+   "name": "Layout",
+   "template": "Three axes hold {three_axes_share:.0%} of the differences, and the flat layout keeps {layout_fidelity:.0%} of neighbourhood structure. Some distances you see are compromises."
+  },
+  {
+   "name": "Number of schools",
+   "template": "{count} schools, the top of the range tested, so finer groups may exist. Coverage is {fill:.0%} of person and idea pairs."
+  }
+ ],
+ "self": [
+  "Worldviews have layers, and some assumptions sit deeper than others.",
+  "People's public words are fair evidence of what they hold.",
+  "Seeing a shared root can help people who disagree.",
+  "Describing a view in terms its holders would sign is a good, and agreement is not required.",
+  "Disagreement between camps deserves to be mapped, and the middle has no special standing."
+ ]
+}

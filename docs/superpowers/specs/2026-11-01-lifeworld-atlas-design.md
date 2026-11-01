@@ -127,3 +127,9 @@ the page says so.
    the page says no person has ratified it. Agents never ratify.
 4. **Time.** Two or three works per person cannot show drift. Dates mean "first appearance in this
    sample", and the page says so.
+
+## Change during the build (builder's call, for Benjamin to review)
+Correspondence analysis of people by single ideas failed: coverage is about 10% of person and idea
+pairs, so it measured silence and put 26 of 27 people in one group. Horizontal position now comes
+from 40 families of related ideas, centred and compared by cosine distance, then laid out in two
+dimensions. See ADR-035. A model-proposed search for missed holdings added 80 of 734 candidates.

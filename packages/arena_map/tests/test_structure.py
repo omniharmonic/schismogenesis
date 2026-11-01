@@ -1,9 +1,11 @@
 import numpy as np
 from arena_map.structure import (
     Holding,
-    correspondence,
+    families,
     fidelity,
     fork_profile,
+    layout,
+    person_space,
     reasons_load,
     school_stability,
     schools,
@@ -19,35 +21,45 @@ def camps() -> list[Holding]:
     for person in ("b1", "b2", "b3"):
         rows += [Holding(person, "x", False, False), Holding(person, "y", False, False)]
         rows += [Holding(person, "z", True, False)]
+    rows += [Holding("a1", "w", True, False), Holding("b1", "v", True, False)]
     return rows
 
 
-def test_opposing_camps_separate_on_the_first_axis():
-    space = correspondence(camps())
-    a = [space.people[p][0] for p in ("a1", "a2", "a3")]
-    b = [space.people[p][0] for p in ("b1", "b2", "b3")]
-    assert max(a) < min(b) or max(b) < min(a)
+FAMILY = {"x": 0, "y": 1, "z": 2, "w": 3, "v": 4}
 
 
-def test_people_and_their_ideas_fall_on_the_same_side():
-    space = correspondence(camps())
-    assert np.sign(space.ideas["x"][0]) == np.sign(space.people["a1"][0])
-    assert np.sign(space.ideas["z"][0]) == np.sign(space.people["b1"][0])
+def test_families_group_similar_ideas():
+    similarity = np.array([[1, 0.9, 0.1], [0.9, 1, 0.1], [0.1, 0.1, 1]])
+    labels = families(similarity, 2)
+    assert labels[0] == labels[1] != labels[2]
 
 
-def test_rejecting_an_idea_pulls_away_from_it():
-    space = correspondence(camps())
-    assert np.sign(space.ideas["x:reject"][0]) == np.sign(space.people["b1"][0])
+def test_opposing_camps_are_far_apart():
+    space = person_space(camps(), FAMILY)
+    at = {p: i for i, p in enumerate(space.people)}
+    assert space.distance[at["a2"], at["a3"]] < space.distance[at["a2"], at["b2"]]
+
+
+def test_a_shared_idea_does_not_create_closeness():
+    rows = camps() + [Holding(p, "all", True, False) for p in ("a1", "a2", "a3", "b1", "b2", "b3")]
+    space = person_space(rows, {**FAMILY, "all": 5})
+    assert np.allclose(space.matrix[:, -1], 0)
 
 
 def test_inferred_stances_weigh_less_than_stated():
     base = camps()
-    stated = base + [Holding("a1", "w", True, False), Holding("b1", "w", True, False)]
-    inferred = base + [Holding("a1", "w", True, True), Holding("b1", "w", True, True)]
-    gap = lambda rows: abs(  # noqa: E731
-        correspondence(rows).people["a1"][0] - correspondence(rows).people["b1"][0]
-    )
-    assert gap(inferred) > gap(stated)
+    stated = person_space(base + [Holding("a1", "q", True, False)], {**FAMILY, "q": 5})
+    inferred = person_space(base + [Holding("a1", "q", True, True)], {**FAMILY, "q": 5})
+    assert abs(inferred.matrix[0, -1]) < abs(stated.matrix[0, -1])
+
+
+def test_layout_keeps_neighbours_close():
+    space = person_space(camps(), FAMILY)
+    points = layout(space)
+    at = {p: i for i, p in enumerate(space.people)}
+    within = np.linalg.norm(points[at["a2"]] - points[at["a3"]])
+    across = np.linalg.norm(points[at["a2"]] - points[at["b2"]])
+    assert within < across
 
 
 LAYER = {"root": "ontological", "value": "axiological", "act": "praxis"}
@@ -88,10 +100,10 @@ def test_inferred_only_shared_root_is_kept_apart():
 
 def test_schools_and_their_stability():
     rows = camps()
-    found = schools(correspondence(rows), cut=0.5)
+    found = schools(person_space(rows, FAMILY), 2)
     assert sorted(sorted(group) for group in found) == [["a1", "a2", "a3"], ["b1", "b2", "b3"]]
-    stable = school_stability(rows, cut=0.5, runs=20)
-    assert stable[frozenset({"a1", "a2"})] > 0.9
+    stable = school_stability(rows, FAMILY, 2, runs=20)
+    assert stable[frozenset({"a2", "a3"})] > 0.8
 
 
 def test_reasons_load():
