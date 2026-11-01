@@ -1,0 +1,405 @@
+<title>Lifeworld Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a full-bleed cross-section of ground and air, with a reading panel laid over one side.
+   A single committed look: night over strata. Roots are mineral colours, action is sky. */
+:root{
+  color-scheme:dark;
+  --night:#11131c; --panel:#191c28; --panel2:#222636; --line:#343a4f;
+  --ink:#e9e6df; --dim:#a4a7b5; --accent:#f0c675;
+  --l-ontological:#d0663a; --l-epistemic:#d9a33c; --l-axiological:#8fb65c; --l-empirical:#46b5ad; --l-praxis:#a9c1ff;
+  --accept:#7fd1a6; --reject:#f0816f;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+html,body{height:100%;margin:0}
+body{background:var(--night);color:var(--ink);font:16px/1.5 var(--body);overflow:hidden}
+#stage{position:fixed;inset:0}
+#stage canvas{display:block}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#panel{position:fixed;z-index:5;top:calc(12px + env(safe-area-inset-top,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));left:max(12px,env(safe-area-inset-left,0px));width:min(410px,calc(100vw - 24px));
+  display:flex;flex-direction:column;background:color-mix(in srgb,var(--panel) 92%,transparent);border:1px solid var(--line);border-radius:6px;backdrop-filter:blur(8px)}
+header{padding:14px 16px 8px}
+h1{font:700 26px/1.05 var(--display);margin:0;letter-spacing:-.01em}
+.sub{font:12px/1.4 var(--mono);color:var(--dim);margin-top:5px}
+nav{display:flex;gap:2px;padding:0 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+nav button{background:none;border:0;border-bottom:2px solid transparent;padding:7px 8px;font:500 13px var(--display);color:var(--dim)}
+nav button[aria-selected=true]{color:var(--ink);border-color:var(--accent)}
+#view{flex:1;overflow:auto;padding:12px 16px 16px;min-height:0}
+h2{font:700 20px/1.2 var(--display);margin:0 0 6px;text-wrap:balance}
+h3{font:500 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--dim);margin:16px 0 6px}
+p{margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:3px 7px;font:13px/1.3 var(--display);text-align:left}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed=true]{background:var(--accent);color:#1a1a1a;border-color:var(--accent)}
+.row{display:block;width:100%;background:none;border:0;border-top:1px solid var(--line);padding:7px 0;text-align:left;font:15px/1.35 var(--body)}
+.row:hover{color:var(--accent)}
+.meta{font:11.5px/1.4 var(--mono);color:var(--dim)}
+.layerdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.hollow{background:none!important;border:2px solid}
+.q{border-left:2px solid var(--line);padding-left:10px;margin:8px 0;font-size:15px}
+.q a{color:var(--dim);font:11.5px var(--mono)}
+.tag-a{color:var(--accept)}.tag-r{color:var(--reject)}
+.stack{display:grid;grid-template-columns:96px 1fr 1fr;gap:3px 8px;font:12px var(--mono);align-items:center}
+.bar{height:12px;border-radius:2px;min-width:1px}
+.finding{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:10px 12px;margin-bottom:10px}
+.warn{color:var(--accent)}
+#controls{position:fixed;z-index:4;right:max(12px,env(safe-area-inset-right,0px));top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:260px}
+#legend{background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px/1.4 var(--mono)}
+#legend label{display:flex;gap:6px;align-items:center;cursor:pointer}
+#time{background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px var(--mono);width:236px;box-sizing:border-box}
+#time input{width:100%}
+#search{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:6px 8px;font:14px var(--display)}
+#hits{margin-top:6px}
+#nogl{display:none;padding:16px}
+body.nogl #nogl{display:block}
+@media (max-width:760px){
+  #panel{top:auto;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));width:auto;height:52%;bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+  #controls{left:max(8px,env(safe-area-inset-left,0px));right:auto;top:calc(8px + env(safe-area-inset-top,0px))}
+  #time{display:none}
+  body.nogl #panel{height:auto;top:8px}
+}
+</style>
+
+<div id="stage" role="img" aria-label="Three-dimensional atlas of ideas and thinkers. The panel holds the same content as text."></div>
+<aside id="panel">
+  <header><h1>Lifeworld Atlas</h1><div class="sub" id="sub"></div></header>
+  <nav role="tablist" id="tabs"></nav>
+  <div id="view"></div>
+</aside>
+<div id="controls">
+  <div id="legend" aria-label="Layers"></div>
+  <div id="time"><label for="year">Ideas seen by <b id="yearv"></b></label><input id="year" type="range"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js"></script>
+<script id="data" type="application/json">/*ATLAS*/</script>
+<script>
+const A = JSON.parse(document.getElementById('data').textContent);
+const LAYERS = ['praxis','empirical','axiological','epistemic','ontological'];
+const NAME = {praxis:'Action',empirical:'World',axiological:'Values',epistemic:'Knowing',ontological:'Being'};
+const ASKS = {praxis:'What should be done?',empirical:'How is the world, and where is it going?',axiological:'What matters?',epistemic:'How do we know?',ontological:'What exists?'};
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const COLOR = Object.fromEntries(LAYERS.map(l => [l, css('--l-'+l)]));
+const HEIGHT = {ontological:-120,epistemic:-60,axiological:0,empirical:60,praxis:120};
+const SURFACE = 175;
+const SCHOOL = ['#f0c675','#7fd1a6','#f0816f','#a9c1ff','#d59ae8','#46b5ad','#e8a46c','#cfd46a'];
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const person = Object.fromEntries(A.people.map(p => [p.id,p]));
+const idea = Object.fromEntries(A.ideas.map(i => [i.id,i]));
+const schoolOf = id => A.schools.find(s => s.members.includes(id));
+const schoolColor = s => SCHOOL[A.schools.indexOf(s) % SCHOOL.length];
+const state = {tab:'start', person:null, second:null, idea:null, school:null, hidden:new Set(), year:A.meta.last_year};
+const isMobile = () => innerWidth <= 760;
+
+/* ---------- graph data ---------- */
+const nodes = [
+  ...A.ideas.map(i => ({id:i.id, kind:'idea', fy:HEIGHT[i.layer], ax:i.x, az:i.y, x:i.x, z:i.y, y:HEIGHT[i.layer], d:i})),
+  ...A.people.map(p => ({id:p.id, kind:'person', fy:SURFACE, ax:p.x, az:p.y, x:p.x, z:p.y, y:SURFACE, d:p})),
+];
+const argLinks = A.links.map(l => ({source:l.s, target:l.t, kind:'arg', d:l}));
+const holdLinks = A.ideas.flatMap(i => i.holders.map(h => ({source:h.p, target:i.id, kind:'hold', d:h})));
+const LINK = {supports:'#7fd1a6',rebuts:'#f0816f',undercuts:'#f0816f',undermines:'#f0816f',qualifies:'#d9a33c',presupposes:'#a9c1ff',exemplifies:'#8f93a5',defines:'#8f93a5'};
+const graphData = {nodes, links:[...argLinks, ...holdLinks]};
+
+/* ---------- selection logic ---------- */
+function focusSet(){
+  if (state.person && state.second){
+    const f = A.forks[pairKey(state.person,state.second)] || {shared:[],opposed:[]};
+    return new Set([...f.shared,...f.opposed,state.person,state.second]);
+  }
+  if (state.person) return new Set([state.person, ...A.ideas.filter(i => i.holders.some(h => h.p===state.person)).map(i => i.id)]);
+  if (state.idea){
+    const near = A.links.flatMap(l => l.s===state.idea?[l.t]:l.t===state.idea?[l.s]:[]);
+    return new Set([state.idea, ...near, ...idea[state.idea].holders.map(h => h.p)]);
+  }
+  if (state.school){
+    const s = A.schools[state.school];
+    return new Set([...s.members, ...A.ideas.filter(i => i.holders.some(h => s.members.includes(h.p))).map(i => i.id)]);
+  }
+  return null;
+}
+const pairKey = (a,b) => [a,b].sort().join('|');
+function linkShown(l){
+  const a = l.source.id ?? l.source, b = l.target.id ?? l.target;
+  if (hiddenNode(nodeById[a]) || hiddenNode(nodeById[b])) return false;
+  if (l.kind==='hold') return (state.person && a===state.person) || (state.second && a===state.second) || (state.idea && b===state.idea);
+  const f = focusSet();
+  return !!f && f.has(a) && f.has(b) && !state.school;
+}
+const nodeById = Object.fromEntries(nodes.map(n => [n.id,n]));
+function hiddenNode(n){
+  if (n.kind==='person') return false;
+  return state.hidden.has(n.d.layer) || (n.d.year && n.d.year > state.year);
+}
+function nodeColorOf(n){
+  const f = focusSet();
+  if (n.kind==='person') return schoolColor(schoolOf(n.id) || A.schools[0]);
+  if (state.person && state.second){
+    const fork = A.forks[pairKey(state.person,state.second)];
+    if (fork?.opposed.includes(n.id)) return css('--reject');
+    if (fork?.shared.includes(n.id)) return css('--accept');
+  }
+  const base = COLOR[n.d.layer];
+  return !f || f.has(n.id) ? base : '#3a3f52';
+}
+
+/* ---------- labels and scene furniture ---------- */
+function labelSprite(text, color, size=30, weight=500){
+  const cv = document.createElement('canvas'), ctx = cv.getContext('2d');
+  const font = `${weight} ${size*2}px "Bricolage Grotesque", system-ui, sans-serif`;
+  ctx.font = font; const w = Math.ceil(ctx.measureText(text).width)+16, h = size*3;
+  cv.width = w; cv.height = h; ctx.font = font; ctx.textBaseline = 'middle';
+  ctx.fillStyle = color; ctx.shadowColor = '#0a0b12'; ctx.shadowBlur = 8; ctx.fillText(text,8,h/2);
+  const tex = new THREE.CanvasTexture(cv);
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false}));
+  sp.scale.set(w/6,h/6,1); return sp;
+}
+function ideaObject(n){
+  const r = 2.6 + Math.sqrt(n.d.holders.length)*1.5;
+  const g = new THREE.SphereGeometry(r,14,12);
+  const m = new THREE.MeshLambertMaterial({color:nodeColorOf(n), wireframe:!!n.d.inferred, transparent:true, opacity:1});
+  return new THREE.Mesh(g,m);
+}
+function personObject(n){
+  const group = new THREE.Group();
+  const color = nodeColorOf(n);
+  group.add(new THREE.Mesh(new THREE.OctahedronGeometry(4.5), new THREE.MeshLambertMaterial({color})));
+  const label = labelSprite(n.d.name, color, 24); label.position.set(0,10,0); group.add(label);
+  return group;
+}
+function refreshColors(){
+  const f = focusSet();
+  nodes.forEach(n => {
+    const o = n.__threeObj; if (!o) return;
+    const hide = hiddenNode(n);
+    o.visible = !hide;
+    if (n.kind==='idea'){
+      o.material.color.set(nodeColorOf(n));
+      o.material.opacity = !f || f.has(n.id) ? 1 : .22;
+    } else {
+      const on = !f || f.has(n.id);
+      o.traverse(c => { if (c.material){ c.material.transparent = true; c.material.opacity = on ? 1 : .3; } });
+    }
+  });
+  G.linkVisibility(linkShown);
+}
+
+/* ---------- 3D scene ---------- */
+let G = null;
+function hasWebGL(){
+  try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2')||c.getContext('webgl')); } catch { return false; }
+}
+function start3D(){
+  const el = document.getElementById('stage');
+  G = ForceGraph3D({controlType:'orbit'})(el)
+    .backgroundColor(css('--night'))
+    .width(innerWidth).height(innerHeight)
+    .showNavInfo(false)
+    .graphData(graphData)
+    .nodeId('id')
+    .nodeLabel(n => `<div style="max-width:280px;font:13px/1.35 var(--display);background:#191c28;padding:6px 8px;border:1px solid #343a4f">${esc(n.kind==='idea'?n.d.text:n.d.name)}</div>`)
+    .nodeThreeObject(n => n.kind==='person' ? personObject(n) : ideaObject(n))
+    .linkVisibility(linkShown)
+    .linkColor(l => l.kind==='hold' ? (l.d.a>0 ? '#7fd1a6' : '#f0816f') : (LINK[l.d.type]||'#8f93a5'))
+    .linkOpacity(.55)
+    .linkWidth(l => l.kind==='arg' ? .9 : .35)
+    .linkDirectionalArrowLength(l => l.kind==='arg' ? 3.5 : 0)
+    .linkDirectionalArrowRelPos(.92)
+    .enableNodeDrag(false)
+    .warmupTicks(260).cooldownTicks(0)
+    .onNodeClick(n => n.kind==='person' ? pickPerson(n.id) : pickIdea(n.id))
+    .onBackgroundClick(clearPick);
+
+  const anchor = alpha => { nodes.forEach(n => { n.vx += (n.ax-n.x)*.14*alpha; n.vz += (n.az-n.z)*.14*alpha; }); };
+  G.d3Force('anchor', anchor);
+  G.d3Force('charge').strength(-14);
+  G.d3Force('link').strength(l => l.kind==='hold' ? 0 : (l.d.type==='supports' ? .1 : l.d.type==='presupposes' ? .06 : 0))
+    .distance(l => HEIGHT_GAP(l));
+  G.d3Force('rebut', alpha => {
+    A.links.forEach(l => {
+      if (!['rebuts','undercuts','undermines'].includes(l.type)) return;
+      const a = nodeById[l.s], b = nodeById[l.t];
+      const dx = a.x-b.x, dz = a.z-b.z, d = Math.hypot(dx,dz)||1, f = alpha*.8/d;
+      a.vx += dx*f; a.vz += dz*f; b.vx -= dx*f; b.vz -= dz*f;
+    });
+  });
+  G.d3ReheatSimulation();
+
+  const scene = G.scene();
+  scene.traverse(o => { if (o.isLight) o.intensity *= .45; });
+  scene.add(new THREE.AmbientLight(0xffffff,.35));
+  LAYERS.forEach(l => {
+    const grid = new THREE.GridHelper(420, 12, COLOR[l], COLOR[l]);
+    grid.position.y = HEIGHT[l]; grid.material.transparent = true; grid.material.opacity = .13; grid.material.depthWrite = false;
+    scene.add(grid);
+    const tag = labelSprite(NAME[l], COLOR[l], 22); tag.position.set(236,HEIGHT[l],0); scene.add(tag);
+  });
+  A.schools.forEach((s,i) => {
+    if (s.members.length < 2 || !s.label) return;
+    const pts = s.members.map(m => person[m]);
+    const cx = pts.reduce((a,p) => a+p.x,0)/pts.length, cz = pts.reduce((a,p) => a+p.y,0)/pts.length;
+    const r = Math.max(26, ...pts.map(p => Math.hypot(p.x-cx,p.y-cz)+14));
+    const ring = new THREE.Mesh(new THREE.RingGeometry(r-.6,r,64), new THREE.MeshBasicMaterial({color:SCHOOL[i%SCHOOL.length],side:THREE.DoubleSide,transparent:true,opacity:.45,depthWrite:false}));
+    ring.rotation.x = -Math.PI/2; ring.position.set(cx,SURFACE,cz); scene.add(ring);
+    const tag = labelSprite(s.label, SCHOOL[i%SCHOOL.length], 30, 700); tag.position.set(cx,SURFACE+36,cz); scene.add(tag);
+  });
+  G.cameraPosition(isMobile() ? {x:60,y:230,z:680} : {x:-120,y:150,z:560}, {x:isMobile()?0:-60,y:isMobile()?-90:20,z:0}, 0);
+  addEventListener('resize', () => G.width(innerWidth).height(innerHeight));
+  setTimeout(refreshColors, 80);
+}
+const HEIGHT_GAP = l => {
+  const a = nodeById[l.source.id ?? l.source], b = nodeById[l.target.id ?? l.target];
+  return Math.max(24, Math.abs(a.fy-b.fy));
+};
+
+/* ---------- picks ---------- */
+function pickPerson(id){
+  if (state.person && state.person!==id && !state.second && state.tab==='person'){ state.second = id; }
+  else { state.person = id; state.second = null; }
+  state.idea = null; state.school = null; state.tab = 'person'; render();
+}
+function pickIdea(id){ state.idea = id; state.person = null; state.second = null; state.school = null; state.tab = 'idea'; render(); }
+function pickSchool(i){ state.school = i; state.person = null; state.second = null; state.idea = null; state.tab='schools'; render(); }
+function clearPick(){ state.person = state.second = state.idea = state.school = null; render(); }
+window.__atlas = {state, pickPerson, pickIdea, pickSchool, clearPick};
+
+/* ---------- panel ---------- */
+const TABS = [['start','Start'],['schools','Schools'],['people','People'],['ideas','Ideas'],['words','Words'],['method','How it was made']];
+function dot(i){ return `<span class="layerdot ${i.inferred?'hollow':''}" style="background:${COLOR[i.layer]};border-color:${COLOR[i.layer]}"></span>`; }
+function ideaRow(i, extra=''){ return `<button class="row" data-idea="${esc(i.id)}">${dot(i)}${esc(i.text)} ${extra}</button>`; }
+function sortByDepth(list){ return [...list].sort((a,b) => LAYERS.indexOf(b.layer)-LAYERS.indexOf(a.layer)); }
+function forkBars(f){
+  const max = Math.max(1,...LAYERS.map(l => Math.max(...f.by_layer[l])));
+  return `<div class="stack"><span></span><span>shared</span><span>opposed</span>` + LAYERS.map(l => {
+    const [s,o] = f.by_layer[l];
+    return `<span style="color:${COLOR[l]}">${NAME[l]}</span>
+      <span><span class="bar" style="display:inline-block;width:${s/max*80}%;background:var(--accept)"></span> ${s}</span>
+      <span><span class="bar" style="display:inline-block;width:${o/max*80}%;background:var(--reject)"></span> ${o}</span>`;
+  }).join('') + `</div>`;
+}
+const views = {
+  start(){
+    return `<h2>${esc(A.copy.headline)}</h2>${A.copy.intro.map(p => `<p>${esc(p)}</p>`).join('')}
+      ${A.copy.findings.map(f => `<div class="finding"><b>${esc(f.title)}</b><br>${esc(f.body)}${f.schools?` <div class="chips" style="margin-top:6px"><button class="chip" data-school-pair="${f.schools.join(',')}">See it on the map</button></div>`:''}</div>`).join('')}
+      <h3>How to read it</h3>
+      <p>Height is depth. Assumptions about what exists sit at the bottom, and what should be done sits near the top. People float above, and selecting one shows what they stand on. Hollow wire spheres are inferred assumptions that nobody stated.</p>
+      <p class="meta">Drag to turn. Scroll to move in. Select a second person to compare.</p>`;
+  },
+  schools(){
+    if (state.school!==null){
+      const s = A.schools[state.school];
+      const held = A.ideas.map(i => ({i, n:i.holders.filter(h => s.members.includes(h.p) && h.a>0).length})).filter(x => x.n>1).sort((a,b) => b.n-a.n);
+      return `<button class="chip" data-clear>All schools</button><h2 style="margin-top:8px">${esc(s.label||s.members.map(m=>person[m].name).join(', '))}</h2>
+        <p class="meta">Held together in ${pct(s.cohesion)} of reruns.</p>${s.note?`<p>${esc(s.note)}</p>`:''}
+        <div class="chips">${s.members.map(m => `<button class="chip" data-person="${esc(m)}">${esc(person[m].name)}</button>`).join('')}</div>
+        <h3>Ideas more than one member holds</h3>${held.slice(0,24).map(x => ideaRow(x.i,`<span class="meta">${x.n}</span>`)).join('')||'<p class="meta">None measured.</p>'}`;
+    }
+    return `<h2>Schools</h2><p>Groups come from who holds what, measured across all ideas. The share shows how often a group stays together when the ideas are resampled.</p>`
+      + A.schools.map((s,i) => `<button class="row" data-school="${i}"><b style="color:${schoolColor(s)}">${esc(s.label||'Unaffiliated')}</b> <span class="meta">${pct(s.cohesion)}</span><br><span class="meta">${s.members.map(m=>esc(person[m].name)).join(', ')}</span></button>`).join('')
+      + `<h3>Between schools</h3>` + A.schoolForks.map(f => `<div class="finding"><b>${esc(A.schools[f.a].label)} and ${esc(A.schools[f.b].label)}</b><div style="margin-top:6px">${forkBars(f)}</div><p class="meta" style="margin:6px 0 0">${f.lowest_opposed?'Deepest measured split: '+NAME[f.lowest_opposed]:'No opposed idea measured'}</p></div>`).join('');
+  },
+  people(){
+    return `<h2>People</h2><div class="chips">${[...A.people].sort((a,b)=>a.name.localeCompare(b.name)).map(p => `<button class="chip" data-person="${esc(p.id)}">${esc(p.name)}</button>`).join('')}</div>
+      ${A.dropped.length?`<h3>Not placed</h3><p class="meta">${A.dropped.map(esc).join(', ')}: no claim in this region passed the gates.</p>`:''}`;
+  },
+  person(){
+    if (!state.person) return views.people();
+    const p = person[state.person];
+    if (state.second) return views.fork();
+    const held = A.ideas.filter(i => i.holders.some(h => h.p===p.id));
+    const by = l => sortByDepth(held.filter(i => i.layer===l));
+    const s = schoolOf(p.id);
+    return `<button class="chip" data-clear>All people</button><h2 style="margin-top:8px">${esc(p.name)}</h2>
+      <p class="meta">${esc(s?.label||'')} · ${held.length} ideas · ${p.works.length} works read</p>
+      <p class="meta">Select a second person on the map, or below, to see where they fork.</p>
+      <div class="chips" style="margin-bottom:6px">${(p.nearest||[]).map(n => `<button class="chip" data-second="${esc(n)}">Compare with ${esc(person[n].name)}</button>`).join('')}</div>
+      ${[...LAYERS].reverse().map(l => by(l).length ? `<h3 style="color:${COLOR[l]}">${NAME[l]}: ${ASKS[l]}</h3>` + by(l).map(i => { const h=i.holders.find(x=>x.p===p.id); return ideaRow(i, h.a<0?'<span class="tag-r meta">rejects</span>':h.inf?'<span class="meta">inferred</span>':''); }).join('') : '').join('')}`;
+  },
+  fork(){
+    const a = person[state.person], b = person[state.second];
+    const f = A.forks[pairKey(a.id,b.id)];
+    if (!f) return `<h2>${esc(a.name)} and ${esc(b.name)}</h2><p>No shared ground measured.</p>`;
+    const list = ids => sortByDepth(ids.map(x => idea[x]));
+    return `<button class="chip" data-person="${esc(a.id)}">Back to ${esc(a.name)}</button>
+      <h2 style="margin-top:8px">${esc(a.name)} and ${esc(b.name)}</h2>
+      <p class="meta">${f.lowest_opposed ? 'Deepest split: '+NAME[f.lowest_opposed] : (f.shared.length?'No opposed idea measured':'No shared ground measured')}${f.stable!=null?` · same school in ${pct(f.stable)} of reruns`:''}</p>
+      ${forkBars(f)}
+      <h3 class="tag-a">Stand on together</h3>${list(f.shared).map(i => ideaRow(i)).join('')||'<p class="meta">Nothing measured.</p>'}
+      <h3 class="tag-r">Split on</h3>${list(f.opposed).map(i => ideaRow(i)).join('')||'<p class="meta">Nothing measured.</p>'}`;
+  },
+  idea(){
+    if (!state.idea) return views.ideas();
+    const i = idea[state.idea];
+    const out = A.links.filter(l => l.s===i.id), inn = A.links.filter(l => l.t===i.id);
+    const linkRow = (l,other,word) => `<button class="row" data-idea="${esc(other)}"><span class="meta" style="color:${LINK[l.type]}">${word}${l.source==='inferred'?' · inferred':''}</span><br>${esc(idea[other].text)}</button>`;
+    const WORD = {supports:['supports','supported by'],rebuts:['rebuts','rebutted by'],undercuts:['undercuts','undercut by'],undermines:['undermines','undermined by'],qualifies:['qualifies','qualified by'],presupposes:['presupposes','presupposed by'],exemplifies:['exemplifies','exemplified by'],defines:['defines','defined by']};
+    return `<button class="chip" data-clear>All ideas</button><h2 style="margin-top:8px">${esc(i.text)}</h2>
+      <p class="meta"><span style="color:${COLOR[i.layer]}">${NAME[i.layer]}</span> · ${esc(i.kind)} · validity: ${esc(i.validity)} · first seen in this sample ${i.year||'unknown'}</p>
+      <p class="meta">${i.holders.length} people · ${i.link_count} links · reasons per holder ${i.reasons.toFixed(2)}${i.carries?` · carries mostly ${i.carries}`:''}</p>
+      ${i.inferred?`<p class="warn">Inferred assumption. No one stated this. A blind reader agreed these claims need it. People who hold it may reject it.</p>`:''}
+      ${out.map(l => linkRow(l,l.t,WORD[l.type][0])).join('')}${inn.map(l => linkRow(l,l.s,WORD[l.type][1])).join('')}
+      <h3>Who holds it</h3>${i.holders.map(h => `<div class="q"><button class="chip" data-person="${esc(h.p)}">${esc(person[h.p].name)}</button> <span class="meta ${h.a>0?'tag-a':'tag-r'}">${h.a>0?'accepts':'rejects'}${h.inf?' · inferred':''}</span><br>${h.q?`“${esc(h.q)}” <a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.work)}, ${h.year||''}</a>`:`<span class="meta">${esc(h.why||'')}</span>`}</div>`).join('')}`;
+  },
+  ideas(){
+    const q = (state.q||'').toLowerCase();
+    const hits = A.ideas.filter(i => !q || i.text.toLowerCase().includes(q)).sort((a,b)=>b.holders.length-a.holders.length).slice(0,60);
+    return `<h2>Ideas</h2><label for="search" class="meta">Search ${A.ideas.length} ideas and people</label><input id="search" type="search" value="${esc(state.q||'')}" autocomplete="off">
+      <div id="hits">${A.people.filter(p => q && p.name.toLowerCase().includes(q)).map(p => `<button class="chip" data-person="${esc(p.id)}">${esc(p.name)}</button>`).join(' ')}${hits.map(i => ideaRow(i,`<span class="meta">${i.holders.length}</span>`)).join('')}</div>`;
+  },
+  words(){
+    return `<h2>One word, different worlds</h2><p>${esc(A.copy.words)}</p>` + A.senses.map(s => `<div class="finding"><b>${esc(s.term)}</b> <span class="meta">${s.fork?`gap ${s.distance.toFixed(3)}, p ${s.p.toFixed(3)}`:'no measurable difference'}</span>
+      <div class="meta">${esc(s.a_label)}</div><div class="q">“${esc(s.a_example)}”</div><div class="meta">${esc(s.b_label)}</div><div class="q">“${esc(s.b_example)}”</div></div>`).join('')
+      + `<h3>Reasons and belonging</h3><p>${esc(A.copy.belonging)}</p>${A.belonging.map(i => ideaRow(idea[i],`<span class="meta">${idea[i].holders.length} holders, ${idea[i].link_count} links</span>`)).join('')}`;
+  },
+  method(){
+    return A.copy.method.map(s => `<h3>${esc(s.h)}</h3>${s.p.map(x => `<p>${esc(x)}</p>`).join('')}`).join('')
+      + `<h3>Checks</h3>` + A.checks.map(c => `<p><b>${esc(c.name)}:</b> ${esc(c.result)}</p>`).join('')
+      + `<h3>This map's own assumptions</h3><p>The map rests on these. They can be disputed like any other idea.</p>${A.copy.self.map(x => `<p>${esc(x)}</p>`).join('')}`;
+  },
+};
+const pct = v => v==null ? 'n/a' : Math.round(v*100)+'%';
+function render(){
+  const tab = state.tab==='person'||state.tab==='idea' ? state.tab : state.tab;
+  document.getElementById('tabs').innerHTML = TABS.map(([k,v]) => `<button role="tab" aria-selected="${k===tab || (k==='people'&&tab==='person') || (k==='ideas'&&tab==='idea')}" data-tab="${k}">${v}</button>`).join('');
+  document.getElementById('view').innerHTML = views[tab]();
+  document.getElementById('view').scrollTop = 0;
+  if (G) refreshColors();
+  const s = document.getElementById('search');
+  if (s) s.addEventListener('input', e => { state.q = e.target.value; const pos = e.target.selectionStart; render(); const n = document.getElementById('search'); n.focus(); n.setSelectionRange(pos,pos); });
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const d = b.dataset;
+  if (d.tab){ if (d.tab==='schools') state.school = null; state.tab = d.tab; state.person = d.tab==='people'?null:state.person; state.idea = d.tab==='ideas'?null:state.idea; if (d.tab!=='person') { state.second = null; } if (['people','ideas','start','method','words'].includes(d.tab)){ state.person = null; state.idea = null; state.school = null; } render(); }
+  else if (d.person) { state.person = null; state.second = null; pickPerson(d.person); }
+  else if (d.second) { state.second = d.second; render(); }
+  else if (d.idea) pickIdea(d.idea);
+  else if (d.school!==undefined) pickSchool(+d.school);
+  else if (d.schoolPair) { state.tab='schools'; state.school=null; state.person=null; render(); }
+  else if ('clear' in d) { clearPick(); }
+});
+
+/* ---------- controls ---------- */
+document.getElementById('sub').textContent = `${A.people.length} people · ${A.ideas.length} ideas · ${A.links.length} links · provisional, no person has ratified this`;
+document.getElementById('legend').innerHTML = LAYERS.map(l => `<label><input type="checkbox" checked data-layer="${l}"><span class="layerdot" style="background:${COLOR[l]};margin:0"></span>${NAME[l]}</label>`).join('');
+document.getElementById('legend').addEventListener('change', e => { const l = e.target.dataset.layer; e.target.checked ? state.hidden.delete(l) : state.hidden.add(l); if (G) refreshColors(); });
+const yr = document.getElementById('year');
+yr.min = A.meta.first_year; yr.max = A.meta.last_year; yr.value = A.meta.last_year;
+const setYear = () => { state.year = +yr.value; document.getElementById('yearv').textContent = yr.value; if (G) refreshColors(); };
+yr.addEventListener('input', setYear); setYear();
+
+if (!hasWebGL() || !window.ForceGraph3D || !window.THREE){
+  document.body.classList.add('nogl');
+  document.getElementById('controls').hidden = true;
+  document.getElementById('sub').textContent += ' · 3D is unavailable here, so this is the text version';
+} else start3D();
+render();
+</script>
