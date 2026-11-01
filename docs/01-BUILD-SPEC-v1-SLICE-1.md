@@ -1,6 +1,6 @@
 # Dialogos Arena — Build Spec v1 (Slice 1)
 
-Author: Benjamin Life (@omniharmonic). Locked 2026-10-31. Supersedes earlier drafts where they conflict.
+Author: Benjamin Life (@omniharmonic). Locked 2026-10-31; §3 and §9 amended the same day (D-31.10, D-31.11). Supersedes earlier drafts where they conflict.
 
 ## 1. Purpose
 
@@ -20,7 +20,7 @@ Start narrow and granular, verify the whole system works, then expand.
 Decision: full claim extraction and connection, not question-first scoring. The small slice lets us afford accuracy.
 
 1. **Discovery:** per-landmark crawl of own-show episodes and guest appearances; build the encounter graph.
-2. **Transcripts:** existing captions/publisher transcripts first; local ASR + diarization for the rest; speakers named via accumulated voiceprints.
+2. **Transcripts and texts:** existing captions/publisher transcripts first; local ASR + diarization for the rest; speakers named via accumulated voiceprints. Written works (books, essays, blogs, letters, dissertations) are sources on equal footing, located by page or paragraph instead of timestamp. (Amended 2026-10-31, D-31.10.)
 3. **Claim extraction:** narrow steps on short chunks. Each claim must carry an exact supporting quote, verified in code; an entailment check confirms the quote supports the claim; unsupported claims are discarded.
 4. **Normalization:** each claim rewritten as a neutral, speaker-independent proposition and merged into a shared proposition bank (embedding candidates + model-confirmed merges).
 5. **Connection:** per-person stances on propositions; relations between propositions (supports, contradicts, depends on, reframes); layer tags (ontological, epistemic, axiological, empirical, praxis); every item links to its source clip.
@@ -79,8 +79,8 @@ One score, adapted from Community Notes, made explicit and visible as the game i
 
 ## 9. Infrastructure
 
-- Runs on Benjamin's 128 GB Blackwell box: Postgres + pgvector + job queue; vLLM-served open models; local ASR.
-- Deterministic pipeline; Hermes-based operator agent monitors, triages and reports.
+- **Compute is local, data lives in the cloud.** Inference and heavy processing run on local machines: Benjamin's laptop now, and his 128 GB Blackwell box for batch work (vLLM-served open models, local ASR). Results are pushed to the cloud database, Neon Postgres + pgvector, as the system of record. (Amended 2026-10-31, D-31.11.)
+- Until batch scale, Benjamin operates the pipeline by hand through Claude Code. The job queue and the Hermes-based operator agent that monitors, triages and reports arrive with batch operations. The pipeline stays deterministic throughout.
 - Static snapshots published off-box.
 - Claude used for gold labels, prompt design, audits and the weekly question battery.
 

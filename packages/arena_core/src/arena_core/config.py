@@ -10,13 +10,14 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="ARENA_", env_file=".env", extra="ignore")
 
     database_url: str
+    test_database_url: str | None = None  # a disposable server; tests never use database_url
     profile: str = "cloud-dev"
     source_dir: pathlib.Path = pathlib.Path("data/sources")
 
-    @field_validator("database_url")
+    @field_validator("database_url", "test_database_url")
     @classmethod
-    def use_psycopg_driver(cls, value: str) -> str:
-        return value.replace("postgresql://", "postgresql+psycopg://", 1)
+    def use_psycopg_driver(cls, value: str | None) -> str | None:
+        return value and value.replace("postgresql://", "postgresql+psycopg://", 1)
 
 
 def load_settings() -> Settings:

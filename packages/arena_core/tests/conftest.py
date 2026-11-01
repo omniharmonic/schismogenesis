@@ -24,7 +24,11 @@ def alembic_config(url: str) -> Config:
 
 @pytest.fixture
 def db_url():
-    base = make_url(load_settings().database_url)
+    test_url = load_settings().test_database_url
+    if not test_url:
+        message = "ARENA_TEST_DATABASE_URL is not set; tests never touch ARENA_DATABASE_URL"
+        pytest.fail(message) if os.environ.get("CI") else pytest.skip(message)
+    base = make_url(test_url)
     admin = create_engine(base, isolation_level="AUTOCOMMIT")
     try:
         with admin.connect() as connection:

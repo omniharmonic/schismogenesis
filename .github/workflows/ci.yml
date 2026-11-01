@@ -21,6 +21,7 @@ jobs:
           --health-interval 5s --health-timeout 3s --health-retries 20
     env:
       ARENA_DATABASE_URL: postgresql+psycopg://arena:arena-ci-only@localhost:5432/arena
+      ARENA_TEST_DATABASE_URL: postgresql+psycopg://arena:arena-ci-only@localhost:5432/arena
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
