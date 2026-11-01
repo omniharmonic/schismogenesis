@@ -1,0 +1,40 @@
+# Dialogos Arena data plane. Doc 08 §10.1 is the target; app, GPU, vLLM, operator and
+# observability services arrive with the tasks that build them.
+#
+# Differences from the §10.1 listing, all deliberate:
+# - Host port defaults to 5433: the dev Mac already runs its own Postgres on 5432.
+# - shared_buffers comes from PG_SHARED_BUFFERS (512MB default; the box profile sets 4GB).
+# - WAL archiving is off until P4: the pgvector image has no pgbackrest, so enabling
+#   archive_command here would only pile up failed archive attempts.
+name: dialogos-arena
+
+services:
+  postgres:
+    image: pgvector/pgvector@sha256:a132765ec351c65111b5b675928a3a0515a466a40f97277329db8b8209ad8bc9 # pgvector/pgvector:0.8.0-pg16
+    profiles: [cloud-dev, box]
+    environment:
+      POSTGRES_USER: arena
+      POSTGRES_PASSWORD: ${PG_PASSWORD:?set PG_PASSWORD in .env}
+      POSTGRES_DB: arena
+    command: ["postgres", "-c", "shared_buffers=${PG_SHARED_BUFFERS:-512MB}", "-c", "max_connections=200"]
+    ports: ["127.0.0.1:${ARENA_PG_PORT:-5433}:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U arena -d arena"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  minio:
+    image:  # minio/minio:RELEASE.2025-09-07T16-13-09Z
+    profiles: [cloud-dev, box]
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: arena
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD:?set MINIO_PASSWORD in .env}
+    ports: ["127.0.0.1:9000:9000", "127.0.0.1:9001:9001"]
+    volumes: [minio:/data]
+
+volumes:
+  pgdata: {}
+  minio: {}

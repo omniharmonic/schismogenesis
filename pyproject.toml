@@ -1,0 +1,37 @@
+[project]
+name = "dialogos-arena"
+version = "0.0.0"
+description = "Dialogos Arena: Benjamin Life (@omniharmonic)"
+requires-python = ">=3.12,<3.13"
+dependencies = ["arena_cli"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+arena_cli = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/*", "services/*", "scripts", "evals/harness"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6", "pyright>=1.1.380", "hypothesis>=3"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = ["docs/", "seed/scripts/"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pyright]
+include = ["packages", "services", "scripts", "evals/harness"]
+exclude = ["**/.venv", "**/__pycache__"]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "evals/harness/tests", "scripts/tests"]
+addopts = "--import-mode=importlib -ra"
+markers = ["db: needs a Postgres + pgvector server"]
