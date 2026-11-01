@@ -24,8 +24,6 @@ DERIVED = {
     "live_question",
     "position",
     "position_holding",
-    "position",
-    "position_holding",
 }
 # Carry provenance through a parent run or snapshot, as designed in 08a.
 DERIVED_VIA_PARENT = {
@@ -64,6 +62,7 @@ NOT_DERIVED = {
     "rate_bucket",
     "gpu_window",
     "admin_approval",
+    "position_definition",
     "alembic_version",
 }
 PROVENANCE = {
