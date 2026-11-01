@@ -115,3 +115,15 @@ checks above are reported.
 ## Hypothesis under test
 Accelerationists and AI safety people share roots and fork at values. If the data does not show that,
 the page says so.
+
+## Decisions from the builder check (builder's calls, for Benjamin to review)
+1. **Merging test.** An idea is looser than exact equivalence, which found nothing in the pilot (0 of
+   1,188 pairs). The test: would someone who holds claim A accept this idea as a fair statement of
+   part of their view, with no added content? Ideas stay specific enough that a thoughtful person
+   could reject them. Topic labels are not ideas. The stated-only ablation guards against over-merging.
+2. **Rejection and silence.** A person rejects an idea only when a quoted claim of theirs contradicts
+   it. Silence is missing data, never rejection or a zero. Inferred stances exist only for roots.
+3. **Readers.** Blind readers are separate Claude agents. Everything they produce is provisional, and
+   the page says no person has ratified it. Agents never ratify.
+4. **Time.** Two or three works per person cannot show drift. Dates mean "first appearance in this
+   sample", and the page says so.
