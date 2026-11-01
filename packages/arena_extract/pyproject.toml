@@ -3,7 +3,7 @@ name = "arena_extract"
 version = "0.0.0"
 description = "Chunking, claim extraction, quote anchoring, NLI gate, normalization, relations, layers."
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = ["arena_core", "arena_llm", "rapidfuzz>=3", "pydantic>=2"]
 
 [build-system]
 requires = ["hatchling"]
@@ -11,3 +11,10 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/arena_extract"]
+
+[project.optional-dependencies]
+nli = ["torch>=2.4", "transformers>=4.44", "sentencepiece>=0.2", "protobuf>=4"]
+
+[tool.uv.sources]
+arena_core = { workspace = true }
+arena_llm = { workspace = true }

@@ -3,7 +3,7 @@ name = "arena_llm"
 version = "0.0.0"
 description = "LLMClient interface and backends."
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = ["jsonschema>=4"]
 
 [build-system]
 requires = ["hatchling"]
