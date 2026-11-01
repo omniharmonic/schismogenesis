@@ -1,5 +1,7 @@
 """Settings, read from the environment and .env."""
 
+import pathlib
+
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -9,6 +11,7 @@ class Settings(BaseSettings):
 
     database_url: str
     profile: str = "cloud-dev"
+    source_dir: pathlib.Path = pathlib.Path("data/sources")
 
     @field_validator("database_url")
     @classmethod

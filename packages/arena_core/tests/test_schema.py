@@ -170,3 +170,54 @@ def test_reconcile_fixes(engine):
             assert "NULLS NOT DISTINCT" in definition
         assert connection.execute(text("SELECT take_token('k', 1, 0)")).scalar_one() is True
         assert connection.execute(text("SELECT take_token('k', 1, 0)")).scalar_one() is False
+
+
+WRITTEN_ROWS = """
+WITH run AS (
+  INSERT INTO pipeline_run (stage, job_name, trigger, code_ref)
+  VALUES ('S1', 't', 'manual', 't') RETURNING run_id
+), ch AS (
+  INSERT INTO channel (platform, title, run_id, model_version, inputs_hash)
+  SELECT 'blog', 'A blog', run_id, 'code', '\\x00' FROM run RETURNING channel_id, run_id
+), ep AS (
+  INSERT INTO episode (channel_id, platform, external_id, url, title, format, authorship,
+    run_id, model_version, inputs_hash)
+  SELECT channel_id, 'blog', 'post-1', 'https://example.org/post', 'Post', 'blog_post',
+    'pseudonymous', run_id, 'code', '\\x00' FROM ch RETURNING episode_id, run_id
+)
+INSERT INTO transcript (episode_id, route, has_diarization, has_word_timestamps, storage_ref,
+  rights_basis, stage, model_name, model_version, run_id, inputs_hash)
+SELECT episode_id, 'written_source', false, false, 'file:ab/abc', 'public_web', 'S4', 'code',
+  'code', run_id, '\\x00' FROM ep RETURNING transcript_id
+"""
+
+
+@pytest.mark.db
+def test_written_source_needs_a_locator_but_no_timestamps(engine):
+    with engine.begin() as connection:
+        transcript = connection.execute(text(WRITTEN_ROWS)).scalar_one()
+        connection.execute(
+            text(
+                "INSERT INTO private.segment (transcript_id, seq, text, locator) "
+                "VALUES (:t, 0, 'A sentence.', '{\"paragraph\": 1}')"
+            ),
+            {"t": transcript},
+        )
+    with pytest.raises(DBAPIError, match="segment_located"), engine.begin() as connection:
+        connection.execute(
+            text("INSERT INTO private.segment (transcript_id, seq, text) VALUES (:t, 1, 'x')"),
+            {"t": transcript},
+        )
+
+
+@pytest.mark.db
+def test_spoken_segment_still_valid_with_timestamps_only(engine):
+    with engine.begin() as connection:
+        transcript = connection.execute(text(WRITTEN_ROWS)).scalar_one()
+        connection.execute(
+            text(
+                "INSERT INTO private.segment (transcript_id, seq, start_ms, end_ms, text) "
+                "VALUES (:t, 0, 0, 10, 'x')"
+            ),
+            {"t": transcript},
+        )

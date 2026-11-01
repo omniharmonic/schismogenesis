@@ -6,8 +6,7 @@
 # - shared_buffers comes from PG_SHARED_BUFFERS (512MB default; the box profile sets 4GB).
 # - WAL archiving is off until P4: the pgvector image has no pgbackrest, so enabling
 #   archive_command here would only pile up failed archive attempts.
-# - MinIO is absent: the pinned image is no longer pullable from Docker Hub or quay.io
-#   (checked 2026-10-31). Choosing a replacement is an open decision; nothing in P0 uses it.
+# - No object store service: raw sources live on disk (ADR-030), and MinIO's images are gone.
 name: dialogos-arena
 
 services:

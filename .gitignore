@@ -8,7 +8,7 @@ node_modules/
 .next/
 dist/
 build/
-data/private/
+data/
 transcripts/
 *.log
 !.env.example

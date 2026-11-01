@@ -6,7 +6,7 @@ import subprocess
 
 PUBLIC_DIRS = ("apps/web/public", "dist", "bundles")
 PUBLIC_SUFFIXES = {".json", ".html", ".txt", ".md", ".js", ".csv", ".xml"}
-FORBIDDEN_TRACKED_PREFIXES = ("transcripts/", "data/private/", "evals/queue/", "evals/results/")
+FORBIDDEN_TRACKED_PREFIXES = ("transcripts/", "data/", "evals/queue/", "evals/results/")
 
 
 def tracked_files(root: pathlib.Path) -> list[str]:
