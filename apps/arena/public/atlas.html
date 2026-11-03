@@ -107,8 +107,10 @@ const nodes = [
   ...A.ideas.map(i => ({id:i.id, kind:'idea', fy:HEIGHT[i.layer], ax:i.x, az:i.y, x:i.x, z:i.y, y:HEIGHT[i.layer], d:i})),
   ...A.people.map(p => ({id:p.id, kind:'person', fy:SURFACE, ax:p.x, az:p.y, x:p.x, z:p.y, y:SURFACE, d:p})),
 ];
-const argLinks = A.links.map(l => ({source:l.s, target:l.t, kind:'arg', d:l}));
-const holdLinks = A.ideas.flatMap(i => i.holders.map(h => ({source:h.p, target:i.id, kind:'hold', d:h})));
+const known = new Set(nodes.map(n => n.id));
+/* a link to someone not on the map would stop the whole layout, so drop it */
+const argLinks = A.links.filter(l => known.has(l.s) && known.has(l.t)).map(l => ({source:l.s, target:l.t, kind:'arg', d:l}));
+const holdLinks = A.ideas.flatMap(i => i.holders.filter(h => known.has(h.p)).map(h => ({source:h.p, target:i.id, kind:'hold', d:h})));
 const LINK = {supports:'#7fd1a6',rebuts:'#f0816f',undercuts:'#f0816f',undermines:'#f0816f',qualifies:'#d9a33c',presupposes:'#a9c1ff',exemplifies:'#8f93a5',defines:'#8f93a5'};
 const graphData = {nodes, links:[...argLinks, ...holdLinks]};
 
@@ -141,6 +143,7 @@ function linkShown(l){
 }
 const nodeById = Object.fromEntries(nodes.map(n => [n.id,n]));
 function hiddenNode(n){
+  if (!n) return true;
   if (n.kind==='person') return false;
   return state.hidden.has(n.d.layer) || (n.d.year && n.d.year > state.year);
 }

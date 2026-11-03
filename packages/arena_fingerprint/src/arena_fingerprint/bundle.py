@@ -42,6 +42,25 @@ class BundleError(ValueError):
     pass
 
 
+QUOTE_MARKS = "\"'“”‘’ "
+
+
+def display_quote(text: str) -> str:
+    """The quote as shown: the page adds its own quote marks, so drop the source's outer ones and
+    any markdown emphasis left from the text extraction. The stored quote stays exact."""
+    text = text.replace("**", "").strip()
+    text = text.strip("*").strip()
+    if text[:1] in '"“' and text[-1:] in '"”' and text.count(text[0]) + text.count("”") <= 2:
+        text = text[1:-1].strip()
+    return text
+
+
+def display_work(title: str, year: str | None = None) -> str:
+    if title.lower().startswith("untitled"):
+        return "Untitled blog post" + (f", {year}" if year else "")
+    return title
+
+
 def initials(name: str) -> str:
     parts = [p for p in name.replace(".", " ").split() if p[0].isalpha()]
     return (parts[0][0] + parts[-1][0]).upper() if len(parts) > 1 else name[:2].upper()
@@ -166,7 +185,9 @@ def build_bundle(
             if quote:
                 if len(quote["q"]) > MAX_QUOTE:
                     raise BundleError(f"quote over {MAX_QUOTE} characters: {idea['id']}/{person}")
-                item |= {"q": quote["q"], "url": quote["url"], "work": quote["work"]}
+                year = str(quote["year"]) if quote.get("year") else None
+                item |= {"q": display_quote(quote["q"]), "url": quote["url"],
+                         "work": display_work(quote["work"], year)}  # fmt: skip
             entry[person] = item
         stances[idea["id"]] = entry
     placed = place_newcomers(stances, people, school_of, newcomers, log)

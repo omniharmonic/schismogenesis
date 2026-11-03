@@ -2,20 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>People: AI Futures Fingerprint</title>
+<title>Thinkers and people: AI Futures Fingerprint</title>
 <meta name="description" content="Verified people who published their AI futures fingerprint, placed among the thinkers.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <main>
-  <header class="masthead"><a class="brand" href="/" style="color:inherit;text-decoration:none">Dialogos</a><a class="small" href="/">Take the fingerprint</a></header>
-  <h1>People</h1>
-  <p class="muted">Verified people who chose to list their fingerprint. The numbers on the map count how many listed people are nearest to each thinker.</p>
-  <div class="mapbox" id="people-map"></div>
+  <header class="masthead"><a class="brand" href="/">Dialogos</a><nav class="site-nav" aria-label="Site"><a href="/">Take it</a><a href="/people" aria-current="page">Thinkers</a><a href="/results">Results</a><a href="/atlas">3D atlas</a></nav></header>
+  <h1>The thinkers</h1>
+  <p class="muted">Who stands where on AI's future, in their own words. Select anyone on the map, or a school below.</p>
+  <section class="explore" aria-label="Map of thinkers">
+    <div class="explore-grid">
+      <div class="mapbox" id="people-map"></div>
+      <aside class="panel" id="people-panel" aria-live="polite"></aside>
+    </div>
+    <h2 class="grid-title">The schools</h2>
+    <div id="people-schools"></div>
+  </section>
+  <h2>People who listed their fingerprint</h2>
+  <p class="muted">Verified people who chose to be listed. The numbers on the map count how many of them sit nearest each thinker.</p>
   <ul class="people-grid" id="people-list" style="margin-top:24px"></ul>
-  <p id="empty" class="muted" hidden>No one is listed yet. Publish yours from your result, with a verified account, and tick “list me”.</p>
-  <footer class="site-foot"><a href="/results">Results</a><a href="/">Take the fingerprint</a><a href="/about.html">About and method</a><a href="/privacy.html">Privacy</a></footer>
+  <p id="empty" class="muted" hidden>No one is listed yet. Publish yours from your result with a verified account, and tick “list me”.</p>
+  <footer class="site-foot"><a href="/">Take the fingerprint</a><a href="/people">Thinkers and people</a><a href="/results">Results</a><a href="/atlas">The 3D atlas</a><a href="/about.html">About and method</a><a href="/privacy.html">Privacy</a></footer>
 </main>
 <script type="module" src="/people.js"></script>
 </body>

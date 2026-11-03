@@ -63,8 +63,15 @@ button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visib
 .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
 /* Landing */
-.masthead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-.brand { font-weight: 600; letter-spacing: 0.01em; }
+.masthead { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+.brand { font-weight: 600; letter-spacing: 0.01em; color: inherit; text-decoration: none; font-size: 1.05rem; }
+.site-nav { display: flex; gap: 2px; flex-wrap: wrap; }
+.site-nav a {
+  color: var(--muted); text-decoration: none; font-size: 0.95rem; padding: 6px 10px; border-radius: 999px;
+}
+.site-nav a:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.site-nav a[aria-current="page"] { color: var(--ink); background: var(--sheet); box-shadow: inset 0 0 0 1px var(--line); }
+@media (max-width: 420px) { .site-nav a { padding: 6px 7px; font-size: 0.9rem; } }
 .hero-print { width: min(300px, 70vw); height: auto; display: block; margin: 8px 0 24px -8px; }
 .camps { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; padding: 0; list-style: none; }
 .camps li { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 0.92rem; }
@@ -101,6 +108,13 @@ kbd { font: 0.82rem var(--sans); border: 1px solid var(--line); border-radius: 4
 @media (max-width: 560px) { .reveal-head { grid-template-columns: 1fr; } .reveal-head svg { width: 150px; height: 150px; } }
 .thinkers { list-style: none; padding: 0; margin: 0; }
 .thinkers li { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.thinkers li:has(> .thinker-row) { display: block; padding: 0; }
+.thinker-row {
+  display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; width: 100%;
+  border: 0; border-radius: 10px; padding: 10px 8px; margin: 0 -8px; width: calc(100% + 16px);
+  text-align: left; font-weight: 400; min-height: 0;
+}
+.thinker-row:hover { background: color-mix(in srgb, var(--ridge) 7%, transparent); }
 .badge {
   width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
   font-weight: 600; font-size: 0.9rem; border: 1.5px solid var(--ridge); color: var(--ridge);
@@ -114,13 +128,96 @@ kbd { font: 0.82rem var(--sans); border: 1px solid var(--line); border-radius: 4
 .signature .serif { font-size: 1.2rem; line-height: 1.35; }
 .mapbox { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 8px; }
 .mapbox svg { width: 100%; height: auto; display: block; }
-.map-school { fill: var(--ridge); fill-opacity: 0.06; stroke: var(--ridge); stroke-opacity: 0.25; }
-.map-school-label { fill: var(--muted); font: 600 11px var(--sans); }
-.map-thinker circle { stroke: var(--ridge); stroke-width: 1.4; }
+/* schools: a thick round stroke over the hull draws a padded, rounded region */
+.map-region {
+  fill: var(--ridge); fill-opacity: 0.07; stroke: var(--ridge); stroke-opacity: 0.07;
+  stroke-linejoin: round; stroke-linecap: round; cursor: pointer; transition: fill-opacity .15s, stroke-opacity .15s;
+}
+.map-region:hover, .map-region.is-selected { fill-opacity: 0.16; stroke-opacity: 0.16; }
+.map-school-label { cursor: pointer; }
+.map-school-label text {
+  font: 600 12px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--sheet);
+  stroke-width: 4px; stroke-linejoin: round;
+}
+.map-school-label:hover text, .map-school-label.is-selected text { fill: var(--ridge); text-decoration: underline; }
+.map-thinker { cursor: pointer; outline: none; }
+.map-thinker .hit { fill: transparent; }
+.map-thinker .dot { stroke: var(--ridge); stroke-width: 1.4; transition: stroke-width .12s; }
 .map-thinker text { font: 600 10px var(--sans); fill: var(--ink); pointer-events: none; }
-.map-name { font: 500 11px var(--sans); fill: var(--ink); }
+.map-thinker.is-dark text:not(.map-name) { fill: var(--sheet); }
+.map-thinker:hover .dot, .map-thinker:focus-visible .dot { stroke-width: 3; }
+.map-thinker.is-selected .dot { stroke: var(--ink); stroke-width: 3.5; }
+.map-thinker:focus-visible .hit { stroke: var(--focus); stroke-width: 2.5; }
+.map-name {
+  font: 600 11px var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--sheet);
+  stroke-width: 3.5px; stroke-linejoin: round;
+}
 .map-you { fill: var(--ink); }
+.map-you-mark { pointer-events: none; }
+.map-tether { stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 1.2; pointer-events: none; }
 .map-group { stroke: var(--sheet); stroke-width: 1; }
+.map-key { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 6px 8px 2px; }
+.map-key span { display: inline-flex; align-items: center; gap: 6px; }
+.map-key i { width: 13px; height: 13px; border-radius: 50%; border: 1.4px solid var(--ridge); display: inline-block; }
+.map-key .k-dark { background: var(--ridge); }
+.map-key .k-dash { border-style: dashed; }
+.map-key .k-dot { border-style: dotted; }
+
+/* Explore: the map beside a card for whatever you select */
+.explore-hint { margin-bottom: 16px; }
+.explore-grid { display: grid; gap: 16px; }
+.panel {
+  background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px;
+  scroll-margin-top: 12px;
+}
+.panel h3 { font-size: 1.35rem; margin: 0 0 4px; }
+.panel h3:focus { outline: none; }
+.panel > h3 + .thinkers { margin-bottom: 18px; }
+.panel h4 { font: 600 0.95rem var(--sans); color: var(--muted); margin: 22px 0 4px; }
+.panel-bar { display: flex; justify-content: space-between; margin: -6px 0 10px; }
+.panel-bar .link-button { padding: 4px 0; min-height: 32px; }
+.card-head { display: flex; gap: 14px; align-items: center; }
+.card-head p { margin: 0; }
+.card-head .link-button { min-height: 0; padding: 0; display: inline; font-size: inherit; line-height: inherit; text-decoration: underline; }
+.badge.big { width: 56px; height: 56px; flex: none; font-size: 1.05rem; }
+.card-score { margin: 14px 0 0; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--ridge) 8%, transparent); }
+.positions { list-style: none; padding: 0; margin: 0; }
+.positions li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.positions li:last-child { border-bottom: 0; }
+.positions .serif { font-size: 1.08rem; line-height: 1.35; margin: 0 0 6px; }
+.sides { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin: 0; }
+.sides a { margin-left: auto; }
+.chip.split { color: var(--muted); }
+blockquote.voice { font-size: 0.98rem; line-height: 1.4; margin: 10px 0 0; }
+blockquote.voice cite { display: block; font: 0.82rem var(--sans); font-style: normal; margin-top: 4px; }
+.people-chips { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.person {
+  font-weight: 500; font-size: 0.92rem; min-height: 36px; padding: 3px 12px 3px 3px; gap: 8px;
+  border: 1px solid var(--line); background: var(--paper);
+}
+.person .badge { width: 28px; height: 28px; font-size: 0.7rem; }
+.person.is-new { border-style: dashed; }
+.person:hover { border-color: var(--ridge); }
+.grid-title { margin: 28px 0 10px; }
+.school-grid { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.school-card {
+  width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+  text-align: left; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet);
+  padding: 14px 16px; font-weight: 400;
+}
+.school-card:hover { border-color: var(--ridge); }
+.school-card .school-name { font-weight: 600; font-size: 1.08rem; }
+.school-card .tag { font-size: 0.78rem; font-weight: 600; color: var(--paper); background: var(--ridge); border-radius: 999px; padding: 1px 8px; }
+.school-card .faces { display: flex; }
+.school-card .faces .badge { width: 30px; height: 30px; font-size: 0.68rem; background: var(--sheet); margin-right: -6px; }
+.school-card .faces .more { font-size: 0.8rem; color: var(--muted); align-self: center; margin-left: 12px; }
+@media (min-width: 900px) {
+  /* the explore section breaks out of the reading column */
+  .explore { width: min(1180px, 100vw - 48px); margin-left: 50%; transform: translateX(-50%); }
+  .explore-grid { grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); align-items: start; }
+  .explore-grid .mapbox { position: sticky; top: 16px; }
+  .panel { max-height: calc(100vh - 32px); overflow-y: auto; position: sticky; top: 16px; }
+}
 .camps-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .camps-table th, .camps-table td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
 .camps-table th { font-weight: 600; }
@@ -176,7 +273,9 @@ textarea { min-height: 88px; resize: vertical; font-family: var(--serif); font-s
 .story-top button { color: inherit; border-color: color-mix(in srgb, currentColor 45%, transparent); min-height: 40px; padding: 8px 16px; font-size: 0.92rem; }
 .story-stage { flex: 1; position: relative; overflow: hidden; }
 .slide {
-  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  /* "safe" keeps tall slides from pushing their title above the top edge */
+  justify-content: safe center; overflow-y: auto; overscroll-behavior: contain;
   padding: 24px max(24px, calc((100vw - 620px) / 2)) 120px; gap: 14px;
 }
 .slide .eyebrow { font-size: 1.05rem; opacity: 0.8; margin: 0; }
@@ -191,7 +290,8 @@ textarea { min-height: 88px; resize: vertical; font-family: var(--serif); font-s
 .slide .rows li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent); font-size: 1.2rem; }
 .slide .rows li b { font-weight: 600; }
 .slide .mini-map { width: 100%; max-width: 560px; }
-.slide .mini-map svg { width: 100%; height: auto; }
+/* the map gives way to the title and the buttons, whatever the screen height */
+.slide .mini-map svg { width: 100%; height: auto; max-height: calc(100dvh - 380px); min-height: 220px; }
 .story-actions { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; gap: 10px; padding: 16px 16px max(20px, env(safe-area-inset-bottom)); flex-wrap: wrap; }
 .story-actions button { background: var(--slide-fg, #f7f9fb); color: var(--slide-bg, #2f4bd9); border-color: transparent; }
 .story-actions button.ghost { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 50%, transparent); }

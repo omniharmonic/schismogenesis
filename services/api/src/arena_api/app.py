@@ -13,6 +13,7 @@ import pathlib
 import re
 import secrets
 import time
+import urllib.parse
 from dataclasses import dataclass
 
 from arena_rounds.report import Analysis, analyse, personal_view
@@ -36,6 +37,42 @@ from arena_api.profiles import (
 )
 from arena_api.store import Store, key_hash
 from arena_api.text_rules import check_statement
+
+GATE_PATH = "/__preview"
+GATE_COOKIE = "dialogos_preview"
+
+
+def gate_page(target: str, wrong: bool = False) -> HTMLResponse:
+    """The pre-launch password page. Plain HTML so it works in any browser, scripts or not."""
+    note = '<p class="no">That password didn\'t match. Try again.</p>' if wrong else ""
+    body = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Dialogos preview</title>
+<style>
+body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#f3f1ec;
+color:#1d1f24;font:17px/1.5 Georgia,serif}}
+@media (prefers-color-scheme:dark){{body{{background:#14161c;color:#e9e6df}}
+input{{background:#1d2029;color:#e9e6df;border-color:#3a3f52}}}}
+form{{width:min(360px,calc(100vw - 32px))}}
+h1{{font:600 24px/1.2 system-ui,sans-serif;margin:0 0 6px}}
+p{{margin:0 0 18px;opacity:.8}} .no{{color:#c2412d;opacity:1}}
+label{{display:block;font:14px system-ui,sans-serif;margin-bottom:6px}}
+input{{box-sizing:border-box;width:100%;font:16px system-ui,sans-serif;padding:11px 12px;
+border:1px solid #c9c4b8;border-radius:6px;margin-bottom:12px}}
+button{{width:100%;font:600 16px system-ui,sans-serif;padding:11px;border:0;border-radius:6px;
+background:#2f5bd3;color:#fff;cursor:pointer}}
+button:focus-visible,input:focus-visible{{outline:3px solid #8fb0ff;outline-offset:2px}}
+</style></head><body>
+<form method="post" action="{GATE_PATH}">
+<h1>Dialogos is in preview</h1>
+<p>Enter the preview password to continue.</p>{note}
+<label for="pw">Password</label>
+<input id="pw" name="password" type="password" autocomplete="current-password" autofocus required>
+<input type="hidden" name="next" value="{html.escape(target, quote=True)}">
+<button type="submit">Open the preview</button>
+</form></body></html>"""
+    return HTMLResponse(body, status_code=401, headers={"Cache-Control": "no-store"})
+
 
 _HERE = pathlib.Path(__file__).resolve()
 # in the repo this is the root; in a flat deploy folder (build/vercel) paths come from the env
@@ -193,21 +230,43 @@ def create_app(
 
     @app.middleware("http")
     async def launch_gate(request: Request, call_next):
-        """Until launch, the whole site sits behind one shared password (HTTP basic auth)."""
-        if config.site_password and request.url.path != "/api/health":
-            supplied = ""
-            header = request.headers.get("authorization", "")
-            if header.startswith("Basic "):
-                try:
-                    supplied = base64.b64decode(header[6:]).decode().split(":", 1)[-1]
-                except (ValueError, UnicodeDecodeError):
-                    supplied = ""
-            if not secrets.compare_digest(supplied, config.site_password):
-                return Response(
-                    "This site isn't open yet.", status_code=401,
-                    headers={"WWW-Authenticate": 'Basic realm="Dialogos preview"'},
+        """Until launch, the whole site sits behind one shared password.
+
+        People get a small password page that sets a cookie, which works in every browser (some,
+        like Dia, never show the built-in basic-auth prompt). Basic auth still works for scripts.
+        """
+        if not config.site_password or request.url.path == "/api/health":
+            return await call_next(request)
+        token = hashlib.sha256(f"dialogos-gate:{config.site_password}".encode()).hexdigest()
+        if request.url.path == GATE_PATH and request.method == "POST":
+            form = urllib.parse.parse_qs((await request.body()).decode(errors="replace"))
+            supplied = form.get("password", [""])[0]
+            target = form.get("next", ["/"])[0]
+            if not target.startswith("/") or target.startswith("//"):
+                target = "/"
+            if secrets.compare_digest(supplied, config.site_password):
+                response = Response(status_code=303, headers={"Location": target})
+                response.set_cookie(
+                    GATE_COOKIE, token, max_age=30 * 86400, httponly=True,
+                    secure=request.url.scheme == "https", samesite="lax",
                 )  # fmt: skip
-        return await call_next(request)
+                return response
+            return gate_page(target, wrong=True)
+        if secrets.compare_digest(request.cookies.get(GATE_COOKIE, ""), token):
+            return await call_next(request)
+        supplied = ""
+        header = request.headers.get("authorization", "")
+        if header.startswith("Basic "):
+            try:
+                supplied = base64.b64decode(header[6:]).decode().split(":", 1)[-1]
+            except (ValueError, UnicodeDecodeError):
+                supplied = ""
+        if secrets.compare_digest(supplied, config.site_password):
+            return await call_next(request)
+        if request.url.path.startswith("/api/"):
+            return JSONResponse({"error": "This site isn't open yet."}, status_code=401)
+        path = request.url.path + (f"?{request.url.query}" if request.url.query else "")
+        return gate_page(path)
 
     @app.middleware("http")
     async def guard(request: Request, call_next):
@@ -241,6 +300,12 @@ def create_app(
             response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
         if request.url.path.startswith("/api/"):
             response.headers.setdefault("Cache-Control", "no-store")
+        elif request.url.path.startswith("/fonts/"):
+            response.headers.setdefault("Cache-Control", "public, max-age=31536000, immutable")
+        else:
+            # pages, scripts and data change together on each deploy: always revalidate (cheap,
+            # the ETag answers 304), so no browser mixes a new page with an old cached module
+            response.headers.setdefault("Cache-Control", "no-cache")
         return response
 
     def client(request: Request) -> str:

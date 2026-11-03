@@ -3,6 +3,7 @@
 import { fingerprint, teaser } from "./fingerprint.js";
 import { glyphSVG, glyphValues } from "./glyph.js";
 import { esc, mapSVG } from "./map.js";
+import { explorer, schoolGrid } from "./explore.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
 import { protectedFetch } from "./turnstile.js";
 
@@ -100,12 +101,13 @@ async function finish({ story = true } = {}) {
 }
 
 // ---------- the reveal ----------
-export const mapSize = () => (innerWidth < 600 ? { width: 440, height: 520 } : { width: 720, height: 520 });
+// phones get a taller, narrower map so circles stay big enough to tap
+export const mapSize = () => (innerWidth < 600 ? { width: 400, height: 600 } : { width: 720, height: 540 });
 
 function thinkerRow(t) {
-  return `<li><span class="badge" aria-hidden="true">${esc(t.initials)}</span>
+  return `<li><button class="thinker-row" data-thinker="${esc(t.id)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>
     <span><b>${esc(t.name)}</b><br><span class="small muted">${esc(t.school || "No school")}${bundle.thinkers.find((x) => x.id === t.id)?.provisional ? ", new voice" : ""}</span></span>
-    <span class="score"><b>${t.k} of ${t.n}</b><br><span class="small muted">statements agree</span></span></li>`;
+    <span class="score"><b>${t.k} of ${t.n}</b><br><span class="small muted">agree</span></span></button></li>`;
 }
 
 function signatureHTML(r) {
@@ -177,19 +179,22 @@ function renderReveal() {
       </div>
     </div>
 
-    <h2>Your nearest thinkers</h2>
-    <div class="cols">
-      <div><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul></div>
-      <div><p class="muted" style="margin:0 0 4px">Furthest from you</p><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul></div>
-    </div>
+    <section class="explore" aria-labelledby="sit-title">
+      <h2 id="sit-title">Where you sit</h2>
+      <p class="muted explore-hint">Select any thinker or school to see where they stand, statement by statement, beside your answers.</p>
+      <div class="explore-grid">
+        <div class="mapbox" id="reveal-map">${mapSVG(bundle, { result: r, ...mapSize() })}
+          <p class="map-key small muted"><span><i class="k-dark"></i>agrees with you more</span><span><i class="k-dash"></i>too few shared statements</span><span><i class="k-dot"></i>new voice</span></p>
+        </div>
+        <aside class="panel" id="reveal-panel" aria-live="polite"></aside>
+      </div>
+      <h3 class="grid-title">The schools</h3>
+      <div id="reveal-schools">${schoolGrid(bundle, r)}</div>
+      <p class="small"><a href="/atlas">Explore the full 3D atlas of ideas</a></p>
+    </section>
 
     <h2>Where you break from your neighbours</h2>
     ${signatureHTML(r)}
-
-    <h2>Where you sit</h2>
-    <p class="small muted">Approximate. You're placed among the three thinkers you agree with most, pulled hardest toward the closest. Darker circles agree with you more; dashed circles share too few statements to compare; dotted circles are new voices, placed from the statements only.</p>
-    <div class="mapbox">${mapSVG(bundle, { result: r, ...mapSize() })}</div>
-    <p class="small"><a href="/atlas">Explore the full 3D atlas of ideas</a></p>
 
     <h2>You and the camps</h2>
     ${campsHTML(r)}
@@ -230,6 +235,13 @@ function renderReveal() {
     <ul class="notes small">${bundle.notes.map((n) => `<li>${esc(n)}</li>`).join("")}
       ${r.unranked.length ? `<li>Not enough shared statements to compare you with: ${r.unranked.map((t) => esc(t.name)).join(", ")}.</li>` : ""}</ul>
     <div class="row"><button class="link-button" id="redo">Change my answers</button></div>`;
+
+  explorer({
+    bundle, answers, mapEl: $("reveal-map"), panelEl: $("reveal-panel"), gridEl: $("reveal-schools"),
+    intro: `<h3>Your nearest thinkers</h3><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul>
+      <h3>Furthest from you</h3><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul>
+      <p class="small muted">Select anyone here or on the map to compare, statement by statement.</p>`,
+  });
 
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
   const values = glyphValues(bundle, answers);

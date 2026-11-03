@@ -136,3 +136,26 @@ def test_launch_gate(engine):
     assert client.get("/api/health").status_code == 200
     assert client.get("/", auth=("anyone", "letmein")).status_code == 200
     assert client.get("/", auth=("anyone", "wrong")).status_code == 401
+
+
+@pytest.mark.db
+def test_launch_gate_password_page(engine):
+    """Browsers that never show the basic-auth prompt (Dia) get a page and a cookie instead."""
+    client = TestClient(
+        create_app(engine, config=Config(site_password="letmein")), base_url="https://testserver"
+    )
+    page = client.get("/atlas")
+    assert page.status_code == 401 and 'name="password"' in page.text
+    assert client.get("/api/results/ai-futures").status_code == 401
+    wrong = client.post("/__preview", data={"password": "nope", "next": "/atlas"})
+    assert wrong.status_code == 401 and "didn't match" in wrong.text
+    ok = client.post(
+        "/__preview", data={"password": "letmein", "next": "/atlas"}, follow_redirects=False
+    )
+    assert ok.status_code == 303 and ok.headers["location"] == "/atlas"
+    assert client.get("/").status_code == 200  # the cookie now opens every page
+    away = TestClient(create_app(engine, config=Config(site_password="letmein")))
+    sent = away.post(
+        "/__preview", data={"password": "letmein", "next": "//evil.example"}, follow_redirects=False
+    )
+    assert sent.headers["location"] == "/"
