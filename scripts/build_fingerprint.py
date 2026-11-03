@@ -41,12 +41,15 @@ def main(*args: str) -> None:
         if expansion.exists()
         else {}
     )
+    voices_path = REPO / "seed/thinker-voices.json"
+    voices = json.loads(voices_path.read_text()) if voices_path.exists() else {}
     bundle = build_bundle(
         atlas,
         flagged_ids(),
         season=season,
         atlas_version=atlas_version,
         newcomers=newcomers,
+        voices=voices,
         **extra,
     )
     target = REPO / out

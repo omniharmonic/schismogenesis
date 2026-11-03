@@ -76,6 +76,7 @@ def test_committed_bundle_is_current():
     committed = json.loads((HERE.parents[2] / "apps/arena/public/fingerprint.json").read_text())
     source = HERE.parents[2] / "apps/arena/source" / f"{committed['atlas_version']}.json"
     atlas = json.loads(source.read_text())
+    voices = HERE.parents[2] / "seed/thinker-voices.json"
     rebuilt = build_bundle(
         atlas,
         flagged=set(),
@@ -88,6 +89,7 @@ def test_committed_bundle_is_current():
                 "people"
             ]
         },
+        voices=json.loads(voices.read_text()) if voices.exists() else {},
     )
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
 

@@ -165,3 +165,20 @@ Benjamin, 2026-11-03: "deeper on the statements. voices approved. keep widening.
 - Hosting is Vercel with Neon.
 - Cloudflare Turnstile is on for bot protection.
 - A blind slant review of the 24 statements comes before launch.
+
+### D-31.19 Iron-clad stances: a full-text audit, and schools decided by outlook
+Benjamin, 2026-11-03: "we need the stances to be iron clad. please use a swarm to validate all of the claims and make sure the atlas is fully documented with rich, high quality statements from all of the figures. Kingsnorth is OBVIOUSLY not a builder. We may need some additional categories but this is an obvious mismatch."
+- **Every stance on the 24 statements is re-read from the full source texts** (protocol `stance_audit_v1`). Two blind readers per thinker cover all 54. A stance is published only if two independent readings support it: both blind readers, or one reader plus a third who checks the passage in context (`stance_adjudicate_v1`). Code checks every quote verbatim against the source. The audited set (`seed/season-1-stances.json`) replaces all older stances on the statements.
+- **Each thinker gets signature positions in their own words** (`seed/thinker-voices.json`). They are shown first on the thinker's card.
+- **Why Kingsnorth landed among the Builders:**
+  - one lament ("the Machine… will consume and colonise everything") was read as three positions, including technological fatalism;
+  - his agreement with Altman was all forecasts (AI is transformative, unstoppable, risky), while on values they disagree;
+  - the atlas had no school for a religious and ecological critique of technology.
+- **Fixes:**
+  - forecasts count half in placement;
+  - a neighbour can only bring a voice into a school if they share at least two positions on values, action or what AI is;
+  - a voice with no such neighbour is shown as "not yet grouped", not forced into a school.
+  New schools may come from that group in season 2.
+- **Sources found not to be the person's own words are excluded at the root** (seed `exclude`). The first two:
+  - Andy Hall's guest essay filed under Jason Crawford (32 claims);
+  - a third-party summary filed under Balaji Srinivasan.

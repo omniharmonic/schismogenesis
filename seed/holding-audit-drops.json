@@ -1,0 +1,1103 @@
+{
+ "protocol": "holding_audit_v1",
+ "dropped": [
+  {
+   "person": "peter-thiel",
+   "idea": "west-lost-confidence",
+   "ruling": "not_supported",
+   "reason": "Thiel says the West lost faith but that this loss liberated enormous commercial and creative forces, which contradicts a lost will to build."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "accepting-holdings-reduces-violence",
+   "ruling": "not_supported",
+   "reason": "The quote only defines violence as breaking a clear rule; it says nothing about accepting current holdings versus reopening their acquisition."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "central-control-underperforms",
+   "ruling": "not_supported",
+   "reason": "A 'definite chain of control' means clear ownership, not top-down central control versus decentralized competition; Yarvin even floats spinning cities off."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "conflict-turns-on-information-gaps",
+   "ruling": "not_supported",
+   "reason": "Yarvin says violence, not conflict, depends on uncertainty, and explicitly says conflict will exist regardless; the uncertainty is about rules, not mutual knowledge."
+  },
+  {
+   "person": "ed-zitron",
+   "idea": "human-misuse-major-danger",
+   "ruling": "not_supported",
+   "reason": "Zitron's danger is reckless, negligent operation of software by companies, not groups using AI to seize or entrench power."
+  },
+  {
+   "person": "mark-zuckerberg",
+   "idea": "ai-can-provide-for-everyone",
+   "ruling": "not_supported",
+   "reason": "The quote describes abundance of creative tools and economic benefits, not wealth sufficient to meet everyone's material needs."
+  },
+  {
+   "person": "jack-clark",
+   "idea": "wait-for-concrete-problems",
+   "ruling": "not_supported",
+   "reason": "The quote urges planning for societal change from AI success, not starting work on controlling AI before control problems are observed."
+  },
+  {
+   "person": "mark-zuckerberg",
+   "idea": "defense-can-deter-ai-attack",
+   "ruling": "not_supported",
+   "reason": "He claims only that weaker-AI hacks 'succeed less' in software security and immediately says not everything (e.g. bioweapons) is like that; much narrower than catastrophic attacks likely failing."
+  },
+  {
+   "person": "pope-leo-xiv",
+   "idea": "care-depends-on-systems",
+   "ruling": "not_supported",
+   "reason": "The passage says the family needs support amid economic change; it makes no claim that care at scale depends on systems rather than instinct."
+  },
+  {
+   "person": "holly-elmore",
+   "idea": "is-cannot-yield-ought",
+   "ruling": "not_supported",
+   "reason": "She says governance questions lack objective answers an AI could discover, a claim about governance disputes, not the general is/ought gap."
+  },
+  {
+   "person": "ed-zitron",
+   "idea": "regulation-blocks-nuclear-power",
+   "ruling": "not_supported",
+   "reason": "Passing aside within an argument about slow grid expansion; does not argue regulation is a major obstacle to nuclear power."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "llm-scaling-route",
+   "ruling": "not_supported",
+   "reason": "Hedged aside about chain-of-thought interpretability, not a claim that scaling language models is the route to AGI."
+  },
+  {
+   "person": "anton-korinek",
+   "idea": "comparative-advantage-protects-employment",
+   "ruling": "not_supported",
+   "reason": "A conditional model scenario about wages (the same abstract gives a scenario where wages rise forever), not a stated rejection of the employment claim."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "comparative-advantage-protects-employment",
+   "ruling": "not_supported",
+   "reason": "Describes AGI's capability to replace remote workers; does not address comparative advantage or whether humans stay employed."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "progress-future-can-be-vastly-better",
+   "ruling": "not_supported",
+   "reason": "A forecast of compressed progress, used in context to argue for a decisive military advantage, not a claim that the future will be better."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "technology-diffuses-slowly-enough-to-react",
+   "ruling": "not_supported",
+   "reason": "A conditional about how fast alignment stakes rise during an intelligence explosion, not about how slowly AI spreads through society."
+  },
+  {
+   "person": "mustafa-suleyman",
+   "idea": "wait-for-concrete-problems",
+   "ruling": "not_supported",
+   "reason": "The dangerous development needing attention is people believing AIs are conscious and pushing for AI rights, not work on controlling AI."
+  },
+  {
+   "person": "william-macaskill",
+   "idea": "destructive-capacity-spreads",
+   "ruling": "not_supported",
+   "reason": "Says explosive progress raises humanity's destructive power, not that the ability to cause catastrophe becomes easier to obtain."
+  },
+  {
+   "person": "arvind-narayanan",
+   "idea": "plural-thinking",
+   "ruling": "not_supported",
+   "reason": "Argues that human-plus-tool intelligence can't be ranked against AI on one spectrum; says nothing about the plurality of human thought or knowledge."
+  },
+  {
+   "person": "arvind-narayanan",
+   "idea": "selection-can-erase-human-goods",
+   "ruling": "not_supported",
+   "reason": "A narrow point that human-in-the-loop control gets outcompeted, made to argue for other oversight models, not a general claim about selection erasing human values."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "us-ai-lead-leaks-to-rivals",
+   "ruling": "not_supported",
+   "reason": "Footnote anecdote about how one employee evaded Google's security; on its own it does not state that export controls and lab security fail to stop advances reaching rivals."
+  },
+  {
+   "person": "elon-musk",
+   "idea": "technology-diffuses-slowly-enough-to-react",
+   "ruling": "not_supported",
+   "reason": "A timeline forecast (under 10 years) that says nothing about whether society will have time to react."
+  },
+  {
+   "person": "leopold-aschenbrenner",
+   "idea": "world-ending-capability-is-coming",
+   "ruling": "not_supported",
+   "reason": "Conditional on the 'open-source everything' scenario; elsewhere he argues a government project and nonproliferation regime can keep the capability contained."
+  },
+  {
+   "person": "yoshua-bengio",
+   "idea": "bounded-local-ai",
+   "ruling": "not_supported",
+   "reason": "He argues for limiting agency, not for narrow scope or limited generality; he favours a non-agentic AI with broad scientific understanding."
+  },
+  {
+   "person": "yoshua-bengio",
+   "idea": "moral-agency-stays-human",
+   "ruling": "not_supported",
+   "reason": "A specific normative point that humanity should make choices about balancing AI risks; much narrower than a claim that moral responsibility stays human whatever machines do."
+  },
+  {
+   "person": "venkatesh-rao",
+   "idea": "halt-superintelligence-race",
+   "ruling": "not_supported",
+   "reason": "The passage argues against any faction holding a moral monopoly over AI governance; it does not address whether the push to build AGI should be halted."
+  },
+  {
+   "person": "yoshua-bengio",
+   "idea": "risk-testing-cannot-prove-safety",
+   "ruling": "not_supported",
+   "reason": "The 'no silver bullet / defense in depth' line is about governance tools such as hardware-enabled treaty verification, not about testing being unable to establish safety."
+  },
+  {
+   "person": "arvind-narayanan",
+   "idea": "danger-without-consciousness",
+   "ruling": "not_supported",
+   "reason": "He calls a hypothetical future of AI-run companies dystopian whether or not it is aligned; that is a point about a deployment choice, not about AI being dangerous regardless of consciousness or malice."
+  },
+  {
+   "person": "venkatesh-rao",
+   "idea": "secular-ideas-carry-religious-patterns",
+   "ruling": "not_supported",
+   "reason": "The quote says AGI and alignment concern borders on the theological, a much narrower claim than the general thesis that modern secular ideals carry inherited religious patterns."
+  },
+  {
+   "person": "paul-kingsnorth",
+   "idea": "humans-stay-in-charge",
+   "ruling": "not_supported",
+   "reason": "He is relaying what Harris and Raskin's presentation shows about current young AI; it does not address whether humans can control AI far beyond human intelligence."
+  },
+  {
+   "person": "arvind-narayanan",
+   "idea": "long-run-reasoning-is-unreliable",
+   "ruling": "not_supported",
+   "reason": "The claim is specifically about AI x-risk probability forecasts used in policy; the essay endorses forecasting AI milestones, so it does not support the general claim about long-run reasoning."
+  },
+  {
+   "person": "daron-acemoglu",
+   "idea": "tech-brings-democracy-peace",
+   "ruling": "not_supported",
+   "reason": "The quote is about productivity gains deepening poverty and inequality; it does not address whether development brings democracy, peace or moral progress."
+  },
+  {
+   "person": "daniel-kokotajlo",
+   "idea": "llms-lack-understanding",
+   "ruling": "not_supported",
+   "reason": "The line is about AIs' situational awareness of being monitored and evaluated, not about whether language models understand what their outputs mean."
+  },
+  {
+   "person": "daniel-kokotajlo",
+   "idea": "llms-think",
+   "ruling": "not_supported",
+   "reason": "Saying AIs are becoming situationally aware is a point about evaluation reliability, not a claim that language models think and have intelligence of their own."
+  },
+  {
+   "person": "timnit-gebru",
+   "idea": "intelligence-discourse-inherits-racial-hierarchy",
+   "ruling": "not_supported",
+   "reason": "Quote traces the AGI goal to eugenics via transhumanism; it does not show a claim about racial hierarchy in AI and intelligence discourse generally."
+  },
+  {
+   "person": "karen-hao",
+   "idea": "markets-positive-sum",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes the AI industry's profit incentives specifically, much narrower than a rejection of markets as positive-sum in general."
+  },
+  {
+   "person": "e-glen-weyl",
+   "idea": "markets-generative-not-exploitative",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes the 'oppression of capitalism and the nation-state'; it makes no claim that markets per se are exploitative rather than generative."
+  },
+  {
+   "person": "e-glen-weyl",
+   "idea": "markets-positive-sum",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes the 'oppression of capitalism and the nation-state'; it makes no claim that markets per se are exploitative rather than positive-sum."
+  },
+  {
+   "person": "meredith-whittaker",
+   "idea": "institutional-claims-need-scrutiny",
+   "ruling": "not_supported",
+   "reason": "Quote is about taking back from companies the authority to create data about and define people (consent), not about scrutinizing institutional claims."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "peace-depends-on-deterrent-power",
+   "ruling": "not_supported",
+   "reason": "Passage presents arms races as a wasteful multipolar trap (the best solution being no armies), not an endorsement that peace depends on deterrence."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "safety-achievable",
+   "ruling": "not_supported",
+   "reason": "Quote is one of several 'maybe' scenarios in a list of possibilities, not a stated claim that alignment is technically achievable."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "testing-cannot-prove-safety",
+   "ruling": "not_supported",
+   "reason": "Quote is a hypothetical in an interlude relaying the doomers' sleeper-agent framing, not his own claim that testing cannot establish safety."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "visions-of-the-good-conflict",
+   "ruling": "not_supported",
+   "reason": "Quote is about humans having slightly different wants yet cooperating economically, not about reasonable people holding conflicting visions of a good future."
+  },
+  {
+   "person": "jack-clark",
+   "idea": "bottlenecks-limit-ai-impact",
+   "ruling": "not_supported",
+   "reason": "Quote forecasts a general speed-up of progress but does not address bottlenecks; elsewhere he stresses capacity constraints (compute, power, lab equipment) that must be built out."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "new-tech-brings-real-harms",
+   "ruling": "not_supported",
+   "reason": "Quote is a single example (early electricity fire risk), much narrower than the general claim about many technologies."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "tech-alone-is-not-progress",
+   "ruling": "not_supported",
+   "reason": "Quote is about the speed of new drug introductions without safety testing, not a general claim that technological advance alone is not progress."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "technology-solves-major-problems",
+   "ruling": "not_supported",
+   "reason": "He rejects that all problems have technological solutions, not that major problems are solved mainly by technology; the essay stresses the unsung technical work."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "concentrated-corporate-power-needs-checks",
+   "ruling": "not_supported",
+   "reason": "Passage is about decentralizing computing power, not about corporate economic power needing public checks."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "values-teaching-misframe",
+   "ruling": "not_supported",
+   "reason": "She endorses training caring AI but never addresses whether 'teaching values' is a misframing."
+  },
+  {
+   "person": "tyler-cowen",
+   "idea": "ai-discourse-is-saturated-with-hype",
+   "ruling": "not_supported",
+   "reason": "Quote says economists underrate AI's promise; in context he also says AI people are wrong on diffusion, so it doesn't show he rejects the hype claim."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "ai-amplifies-humans",
+   "ruling": "not_supported",
+   "reason": "Quote describes his career pivot toward machine augmentation; it says nothing about AI's main role or people directing the work."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "ai-can-merit-moral-standing",
+   "ruling": "not_supported",
+   "reason": "He argues for LLM free speech mainly because their points may help us; that is much narrower than moral standing comparable to humans."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "diversity-is-societal-strength",
+   "ruling": "not_supported",
+   "reason": "'Variance' here means market and organizational dynamism in the AI-openness argument, not variety of groups, identities and ways of living."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "is-cannot-yield-ought",
+   "ruling": "not_supported",
+   "reason": "He never addresses the is-ought question; reading a physics-based forecast as rejecting it is an inference."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "risk-ai-amplifies-humans",
+   "ruling": "not_supported",
+   "reason": "Quote is about his personal career path, not a claim about AI's main effect versus replacing people."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "speaking-out-on-ai-is-costly",
+   "ruling": "not_supported",
+   "reason": "Quote is about his own doxxing; it does not generalize to people on any side of AI."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "tech-strength-underwrites-security",
+   "ruling": "not_supported",
+   "reason": "Quote says degrowth ideologies serve adversaries; it doesn't claim technological strength is a precondition of Western security."
+  },
+  {
+   "person": "e-glen-weyl",
+   "idea": "no-peaceful-universal-convergence",
+   "ruling": "not_supported",
+   "reason": "Quote is a historical observation about faiths only; the idea forecasts the same for languages and polities."
+  },
+  {
+   "person": "e-glen-weyl",
+   "idea": "uniformity-arrives-by-coercion",
+   "ruling": "not_supported",
+   "reason": "Quote is specifically about linguistic unification, narrower than a general claim about uniformity across a society."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "balance-among-many-ai-actors",
+   "ruling": "not_supported",
+   "reason": "'The future of AI is a decentralised network' is her normative vision against what she calls the default trajectory; reading it as a forecast is wrong."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "common-knowledge-empowers-publics",
+   "ruling": "not_supported",
+   "reason": "Passage is about resolving conflicts through common knowledge; nothing about weakening those who rule by division."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "cross-group-assent-earns-credence",
+   "ruling": "not_supported",
+   "reason": "Quote is about bridging algorithms giving smaller clusters a bigger bonus, not about cross-group assent deserving more credence."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "expert-rule-undermines-self-government",
+   "ruling": "not_supported",
+   "reason": "Quote is a metaethical claim about where moral norms come from, not that expert governance undermines self-government and fails."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "humans-lose-control",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes consequentialist oversight under speed asymmetry; the talk then argues for a framework where humans keep steering."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "humans-stay-in-charge",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes consequentialist ethics; her talk proposes bounded Kami so humans keep steering, so it doesn't show rejection."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "many-strong-ais",
+   "ruling": "not_supported",
+   "reason": "Normative vision for AI read as a forecast; she calls a top-down 'gardener' AI the default trajectory."
+  },
+  {
+   "person": "audrey-tang",
+   "idea": "trial-and-error-unsafe-for-powerful-tech",
+   "ruling": "not_supported",
+   "reason": "Quote is about the limits of consequentialist ethics; she elsewhere builds on correction and public repair loops after deployment."
+  },
+  {
+   "person": "daniel-kokotajlo",
+   "idea": "aggregate-statistics-inadequate",
+   "ruling": "not_supported",
+   "reason": "He says GDP is overrated specifically as a metric for AI timelines and takeoff, not that aggregate statistics are inadequate for major decisions."
+  },
+  {
+   "person": "daniel-kokotajlo",
+   "idea": "human-misuse-major-danger",
+   "ruling": "not_supported",
+   "reason": "One brainstormed scenario about a dismissive organization winning an argument; he rates more sinister power-seizure scenarios as less likely."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "human-nature-is-stable",
+   "ruling": "not_supported",
+   "reason": "He defends the 'permanent things' as a duty and warns AI could dissolve them; this is not a forecast that they will stay the same."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "minds-are-physical-machines",
+   "ruling": "not_supported",
+   "reason": "'A man is not a machine' is a claim about labor dignity in the Gompers context, not a position on the philosophy of mind."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "present-possession-grounds-claim",
+   "ruling": "not_supported",
+   "reason": "'Might does not make right' is about strength, not about present possession versus how power was acquired."
+  },
+  {
+   "person": "alondra-nelson",
+   "idea": "moral-agency-stays-human",
+   "ruling": "not_supported",
+   "reason": "Quote assigns designers a duty to prevent algorithmic discrimination; it says nothing about moral judgment staying human whatever machines do. It is also in OSTP's institutional voice."
+  },
+  {
+   "person": "alondra-nelson",
+   "idea": "people-should-control-their-data",
+   "ruling": "wrong_speaker",
+   "reason": "The Blueprint is an official White House OSTP document in institutional voice, not Nelson speaking in her own voice."
+  },
+  {
+   "person": "william-macaskill",
+   "idea": "future-generations-weigh-heavily",
+   "ruling": "not_supported",
+   "reason": "Quote is about investment strategy conditional on being a longtermist, not an assertion that future generations weigh heavily."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "bottlenecks-limit-ai-impact",
+   "ruling": "not_supported",
+   "reason": "Quote only says robotics lags virtual AI; he expects intelligence automation within decades and a fast-paced world, not a substantial slowdown."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "intelligence-over-human-form",
+   "ruling": "not_supported",
+   "reason": "Board-of-directors line is an economic forecast, not a value judgment about intelligence versus humanity's form."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "llms-think",
+   "ruling": "not_supported",
+   "reason": "Calling AI a tool in an economic-modeling argument does not address whether LLMs think."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "moral-agency-stays-human",
+   "ruling": "not_supported",
+   "reason": "Forecast of humans' governance role as owners, not a claim about moral judgment or responsibility."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "technology-creates-work",
+   "ruling": "not_supported",
+   "reason": "Explains historical job creation; he expects less total work and more leisure under AI, so 'at least as much demand' is not shown."
+  },
+  {
+   "person": "paul-kingsnorth",
+   "idea": "ai-development-unstoppable",
+   "ruling": "not_supported",
+   "reason": "A lament inside an essay launching resistance; he says AI can be resisted and 'nothing is off limits now - unless we place limits around it'."
+  },
+  {
+   "person": "paul-kingsnorth",
+   "idea": "technological-advance-unstoppable",
+   "ruling": "not_supported",
+   "reason": "Lament, not a settled thesis; the essay insists we are not powerless and can place limits on the Machine."
+  },
+  {
+   "person": "mustafa-suleyman",
+   "idea": "slowdown-not-durable",
+   "ruling": "not_supported",
+   "reason": "Says progress requires technology, not that slowing it is non-durable; he urges boundaries and stepping back from dangerous capabilities."
+  },
+  {
+   "person": "venkatesh-rao",
+   "idea": "altruistic-tech-claims-are-suspect",
+   "ruling": "not_supported",
+   "reason": "Hedged claim that CEO safety posturing can be mercantilist; it does not address taking stated altruism at face value."
+  },
+  {
+   "person": "emily-m-bender",
+   "idea": "ai-can-merit-moral-standing",
+   "ruling": "not_supported",
+   "reason": "Passage criticizes an argument for its dehumanizing use of disabled people; it does not address AI's moral standing."
+  },
+  {
+   "person": "emily-m-bender",
+   "idea": "deployers-are-liable",
+   "ruling": "not_supported",
+   "reason": "Advocates accountability held by people for outputs, not specifically legal liability of deployers or suppliers."
+  },
+  {
+   "person": "emily-m-bender",
+   "idea": "human-judgment-in-critical-decisions",
+   "ruling": "not_supported",
+   "reason": "Her argument is that machines decide badly (hegemonic, inflexible); the 'even if AI decides well' clause is not shown."
+  },
+  {
+   "person": "emily-m-bender",
+   "idea": "moral-agency-stays-human",
+   "ruling": "not_supported",
+   "reason": "Quote criticizes research priorities and resource use; it does not state that moral judgment and responsibility remain human."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "technology-outruns-politics",
+   "ruling": "not_supported",
+   "reason": "A Hayekian argument against heavy-handed regulation about society's churn generally, not a claim that technology has outpaced political institutions."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "ai-path-set-by-present-choice",
+   "ruling": "not_supported",
+   "reason": "Narrower: only AI's democratic tilt needs a fight; he says basic AI development is inevitable and driven by market forces."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "flourishing-comparable-priority",
+   "ruling": "not_supported",
+   "reason": "He wants a positive vision but says he focuses on risks for leverage since benefits are largely inevitable; comparable priority is not shown."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "informed-public-is-prerequisite",
+   "ruling": "not_supported",
+   "reason": "Says an informed citizenry would strengthen democracy, not that it is a prerequisite for sound governance."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "rulers-control-shared-knowledge",
+   "ruling": "not_supported",
+   "reason": "Narrower: the claim is about repressive governments, not ruling establishments in general."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "tech-brings-democracy-peace",
+   "ruling": "not_supported",
+   "reason": "The sentence stresses the trend is very loose with frequent backsliding, and he sees no strong reason AI will structurally advance democracy."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "technological-advance-unstoppable",
+   "ruling": "not_supported",
+   "reason": "Narrower: says basic AI development 'seems inevitable', not a general claim about powerful technology and collective decisions."
+  },
+  {
+   "person": "jd-vance",
+   "idea": "us-not-global-security-guarantor",
+   "ruling": "not_supported",
+   "reason": "Supports burden sharing only; he says America will focus on other dangerous regions, not that its military is just for its own safety."
+  },
+  {
+   "person": "dean-ball",
+   "idea": "full-automation-achievable",
+   "ruling": "not_supported",
+   "reason": "He forecasts machines doing most thinking and doing, but explicitly doubts full automation and expects durable human roles; 'little or no human labor' is broader."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "coordination-traps-bind-rivals",
+   "ruling": "not_supported",
+   "reason": "The passage is about competitive selection favoring AI-led civilizations, not actors locked into an outcome none wants because no one can stop alone."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "humans-stay-in-charge",
+   "ruling": "not_supported",
+   "reason": "The quote presupposes an AI-dominated world (the Culture); it does not address whether humans can remain in charge, which he argues separately in the Star Trek passage."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "llms-think",
+   "ruling": "not_supported",
+   "reason": "He describes AI generally as a new type of mind gaining intelligence and possibly overtaking humans, a forward-looking claim, not that today's language models think."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "present-era-pivotal",
+   "ruling": "not_supported",
+   "reason": "The quote says technology is likely the most important social issue of this century, a narrower claim than this period being unusually pivotal in human history."
+  },
+  {
+   "person": "eliezer-yudkowsky",
+   "idea": "coordination-traps-bind-rivals",
+   "ruling": "not_supported",
+   "reason": "The passage says there is no option of retreating to weak problems because others will build AGI; it is not about rivals locked into an unwanted outcome since none can stop alone."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "excess-regulation-slows-progress",
+   "ruling": "not_supported",
+   "reason": "The quote is only about bad ideas outlawing fission and fusion, much narrower than regulation slowing technological and economic progress in general."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "heavy-regulation-stalls-technology",
+   "ruling": "not_supported",
+   "reason": "The quote concerns nuclear power specifically and does not mention regulation; much narrower than the general claim."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "human-nature-is-stable",
+   "ruling": "not_supported",
+   "reason": "A rhetorical line about a 'far superior way of living, and of being' does not address whether human nature or core goods will change."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "more-children-are-good",
+   "ruling": "not_supported",
+   "reason": "The line says more energy allows more people; it does not say having more people or children is good for a society."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "progress-future-can-be-vastly-better",
+   "ruling": "not_supported",
+   "reason": "The quote is about machines augmenting humans, not a claim that the future can be vastly better than the present."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "technological-advance-unstoppable",
+   "ruling": "not_supported",
+   "reason": "He says the techno-capital spiral never ends, but elsewhere warns it can be stopped ('if we let it', 'we should not let them'), so he does not hold that collective decisions cannot stop it."
+  },
+  {
+   "person": "yann-lecun",
+   "idea": "fluent-output-is-not-intelligence",
+   "ruling": "not_supported",
+   "reason": "The essay says language-only training cannot reach human intelligence, while explicitly declining to deny LLMs are intelligent ('semantic gatekeeping'); not that fluent output is no evidence of intelligence."
+  },
+  {
+   "person": "yann-lecun",
+   "idea": "ai-development-unstoppable",
+   "ruling": "not_supported",
+   "reason": "The quote is about being unable to keep bad actors from accessing technology, not about AI development being unstoppable."
+  },
+  {
+   "person": "yann-lecun",
+   "idea": "values-teaching-misframe",
+   "ruling": "not_supported",
+   "reason": "He says AI will not share human motivations because builders design them; he says nothing about 'teaching values' being a misframing."
+  },
+  {
+   "person": "timnit-gebru",
+   "idea": "ai-gains-are-concentrating",
+   "ruling": "not_supported",
+   "reason": "The quote is about researchers advancing careers on crowdworkers' labor, much narrower than AI gains and power flowing to a narrow few."
+  },
+  {
+   "person": "timnit-gebru",
+   "idea": "intelligence-language-misleads",
+   "ruling": "not_supported",
+   "reason": "The quote targets narratives of fully autonomous machines with human-like agency, not the use of words like 'intelligent' or 'learns'."
+  },
+  {
+   "person": "timnit-gebru",
+   "idea": "people-accountable-for-machine-outputs",
+   "ruling": "not_supported",
+   "reason": "The quote is about holding corporations accountable for exploitative labor practices, not responsibility for what automated systems do."
+  },
+  {
+   "person": "noah-smith",
+   "idea": "credentialed-people-are-confidently-wrong",
+   "ruling": "not_supported",
+   "reason": "The claim is narrowly that domain experts underestimate AI progress in their field, not a general claim that credentialed people are often confidently wrong."
+  },
+  {
+   "person": "noah-smith",
+   "idea": "llms-grasp-meaning",
+   "ruling": "not_supported",
+   "reason": "An offhand remark that AI 'can just do' natural language (modelling it, where researchers failed) is a capability claim, not that LLMs access meaning."
+  },
+  {
+   "person": "noah-smith",
+   "idea": "llms-lack-understanding",
+   "ruling": "not_supported",
+   "reason": "The offhand capability remark about natural language does not take a position on whether LLMs genuinely understand meaning."
+  },
+  {
+   "person": "noah-smith",
+   "idea": "technology-outruns-politics",
+   "ruling": "not_supported",
+   "reason": "The quote says the CCP leadership has not realized a specific vulnerability, not that technology outpaces institutions' capacity to govern it."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "deployers-are-liable",
+   "ruling": "not_supported",
+   "reason": "He calls for letting people sue those who take their rights (data/copyright), narrower than liability for whatever an AI system does."
+  },
+  {
+   "person": "josh-hawley",
+   "idea": "distribute-ai-control",
+   "ruling": "not_supported",
+   "reason": "Holding concentrated economic power to account with guardrails is not a call to distribute control over AI widely."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "gradual-capability-growth",
+   "ruling": "not_supported",
+   "reason": "The quote is about economic growth becoming rapid, not about how AI capabilities progress across generations."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "inherent-upward-trajectory",
+   "ruling": "not_supported",
+   "reason": "The quote says this AI revolution is unstoppable and accelerating, narrower than an inherent upward trajectory of technological civilization."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "recursive-self-improvement",
+   "ruling": "not_supported",
+   "reason": "He says machines will help us make smarter machines and speed the revolution, weaker than AI research outpacing human-led research by far."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "technology-creates-work",
+   "ruling": "not_supported",
+   "reason": "He expects new jobs but also that AI will do most work and many jobs will create little value; he does not claim tech creates at least as much work as it removes."
+  },
+  {
+   "person": "geoffrey-hinton",
+   "idea": "risk-ai-amplifies-humans",
+   "ruling": "not_supported",
+   "reason": "The assistants line is one near-term benefit; the speech goes on to warn of digital beings more intelligent than us that may take control, so 'main effect is amplification' is not his position."
+  },
+  {
+   "person": "divya-siddarth",
+   "idea": "markets-positive-sum",
+   "ruling": "not_supported",
+   "reason": "The passage criticizes markets for flattening values while crediting them as useful CI systems; it does not call them exploitative or zero-sum."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "ai-amplifies-humans",
+   "ruling": "not_supported",
+   "reason": "A conditional forecast about post-AGI research speed, not a rejection of AI as human amplification; his closing goal is to be empowered by technology."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "capability-rests-on-infrastructure",
+   "ruling": "not_supported",
+   "reason": "A playful remark about medical implants making us 'Life 2.1', much narrower than capability resting on technology and social infrastructure."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "mind-attribution-error",
+   "ruling": "not_supported",
+   "reason": "A rhetorical question about hypothetical future AI successors, not a claim that people over-attribute minds to fluent output."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "technological-advance-unstoppable",
+   "ruling": "not_supported",
+   "reason": "Steering technology's direction is not a claim that its advance can be stopped."
+  },
+  {
+   "person": "holly-elmore",
+   "idea": "mind-attribution-error",
+   "ruling": "not_supported",
+   "reason": "A parenthetical that AI passes Turing tests in practice; she treats AI capabilities as real, not as merely fluent output that misleads people."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "ai-will-displace-humans",
+   "ruling": "not_supported",
+   "reason": "A hedged remark about sharing the planet with minds that care less about us, not about AI displacing humans from their roles."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "llm-scaling-route",
+   "ruling": "not_supported",
+   "reason": "He rejects LLM scaling as the fastest path from AGI to superintelligence, not as the route to human-level AI."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "technology-diffuses-slowly-enough-to-react",
+   "ruling": "not_supported",
+   "reason": "A cited prediction-market forecast about AGI-to-superintelligence takeoff time, not a claim about how fast AI spreads through society."
+  },
+  {
+   "person": "robin-hanson",
+   "idea": "tech-growth-net-good",
+   "ruling": "not_supported",
+   "reason": "The sentence is part of his statement of a 'related fear' (the case for stopping change), not his own endorsement."
+  },
+  {
+   "person": "robin-hanson",
+   "idea": "violence-persists-in-human-life",
+   "ruling": "not_supported",
+   "reason": "He says recent change was mostly peaceful but also that grabby revolutions 'remain possible'; he does not say history is outgrowing violence."
+  },
+  {
+   "person": "helen-toner",
+   "idea": "decentralized-control-safer",
+   "ruling": "not_supported",
+   "reason": "She says concentrating power would not count as success for dynamism, a normative point; she does not claim decentralization is more robust or safer."
+  },
+  {
+   "person": "e-glen-weyl",
+   "idea": "ai-race-raises-risk",
+   "ruling": "not_supported",
+   "reason": "The harm named is centralization of power and stifled innovation, not a heightened risk of catastrophe."
+  },
+  {
+   "person": "samuel-hammond",
+   "idea": "danger-without-consciousness",
+   "ruling": "not_supported",
+   "reason": "The thesis says superintelligence is dangerous regardless of alignment difficulty; it says nothing about consciousness or malice."
+  },
+  {
+   "person": "samuel-hammond",
+   "idea": "physics-favors-complexity-growth",
+   "ruling": "not_supported",
+   "reason": "A hedged 'may' raised as a caveat that growth does not preclude futures of unconscious replicators, not an endorsement."
+  },
+  {
+   "person": "balaji-srinivasan",
+   "idea": "official-accounts-of-conflict-unreliable",
+   "ruling": "not_supported",
+   "reason": "He urges listening critically and explicitly warns against being 'too cynical'; that is not strong skepticism."
+  },
+  {
+   "person": "balaji-srinivasan",
+   "idea": "politics-inherently-divides-into-camps",
+   "ruling": "not_supported",
+   "reason": "The line is about state force needing justification, and he calls the friend/enemy lens only partial ('a little parched')."
+  },
+  {
+   "person": "helen-toner",
+   "idea": "ai-can-embody-democracy",
+   "ruling": "not_supported",
+   "reason": "The quoted line is an explicit hypothetical about lifting access restrictions, not a statement about how AI can be built to embody democratic values."
+  },
+  {
+   "person": "balaji-srinivasan",
+   "idea": "ideology-reaches-people-by-contagion",
+   "ruling": "not_supported",
+   "reason": "A passing remark that background culture shapes AI-risk imagery; it does not claim people mostly acquire ideologies by contagion rather than by reasoning."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "humans-stay-in-charge",
+   "ruling": "not_supported",
+   "reason": "The claim is limited to a fast-takeoff scenario he says he is skeptical of; elsewhere he entertains a singularity that 'remains aligned'."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "many-strong-ais",
+   "ruling": "not_supported",
+   "reason": "He says only that the few-company crossover in RL reasoning models is temporary; he doesn't predict one dominant system."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "ai-quasi-religious",
+   "ruling": "not_supported",
+   "reason": "He faults some of the loudest risk voices for quasi-religious thinking and says many others are analytic and sober; he doesn't say much AI conviction is quasi-religious."
+  },
+  {
+   "person": "dario-amodei",
+   "idea": "apocalypse-forecasts-echo-older-myth",
+   "ruling": "not_supported",
+   "reason": "A warning against quasi-religious doomerism, not a claim that technical forecasts have taken over the role of religious apocalypse."
+  },
+  {
+   "person": "elon-musk",
+   "idea": "heavy-regulation-stalls-technology",
+   "ruling": "not_supported",
+   "reason": "He mentions regulatory approval as Starship's current bottleneck while arguing for AI oversight; he isn't claiming heavy regulation stalls beneficial technology."
+  },
+  {
+   "person": "elon-musk",
+   "idea": "open-forkable-systems",
+   "ruling": "not_supported",
+   "reason": "He states a general bias toward open sourcing but gives no public-trust or forkability rationale."
+  },
+  {
+   "person": "elon-musk",
+   "idea": "ai-lacks-care-by-default",
+   "ruling": "not_supported",
+   "reason": "The line describes what an AI that keeps a truth-seeking mission would want, and he says the AI may not keep that mission; it isn't a claim about care by default."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "ai-discourse-is-saturated-with-hype",
+   "ruling": "not_supported",
+   "reason": "He says anthropomorphic words make us misestimate impact, and he also says LLMs will change the world more than we imagine; that isn't a claim of hype inflation."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "llms-grasp-meaning",
+   "ruling": "not_supported",
+   "reason": "He says the latent space holds ideas but that the model only associates and does not reason or think; that doesn't show access to meaning."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "llms-lack-understanding",
+   "ruling": "not_supported",
+   "reason": "The quote is about thinking and reasoning versus intuition, and he also says LLMs string ideas together; it doesn't show a lack of understanding of meaning."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "safety-achievable",
+   "ruling": "not_supported",
+   "reason": "He calls alignment a category error for LLMs, which he treats as tools; he isn't ruling on whether superhuman AI can be made safe."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "scaling-keeps-working",
+   "ruling": "not_supported",
+   "reason": "He says GPT-5 and GPT-6 will be better, with diminishing returns; that is a qualified view, not a rejection that scaling keeps improving systems."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "substrate-independent-intelligence",
+   "ruling": "not_supported",
+   "reason": "He says brains are natural machines but doesn't claim intelligence is information processing that can run on silicon; his context stresses that LLM intelligence is unlike human intelligence."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "concentrated-corporate-power-needs-checks",
+   "ruling": "not_supported",
+   "reason": "He urges the right to fight oligopolies by enabling competition and new builders, not public checks on concentrated corporate power."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "growth-main-source-of-welfare",
+   "ruling": "not_supported",
+   "reason": "He says tech and growth have been massively good, not that growth is the main source of welfare gains."
+  },
+  {
+   "person": "curtis-yarvin",
+   "idea": "bottlenecks-limit-ai-impact",
+   "ruling": "not_supported",
+   "reason": "The line is about how hard it is to build a self-sustaining doomsday machine, not about bottlenecks slowing AI's overall effect on the world."
+  },
+  {
+   "person": "peter-thiel",
+   "idea": "workers-not-machine-parts",
+   "ruling": "not_supported",
+   "reason": "The 'cogs' line is about intellectual hyper-specialization and the loss of big-picture thinking, not about how workers are treated."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "ai-needs-human-direction",
+   "ruling": "not_supported",
+   "reason": "He reports a task-length trend inside a conditional extrapolation and says his own timelines are longer; he makes no claim that today's AI works end to end without humans."
+  },
+  {
+   "person": "vitalik-buterin",
+   "idea": "bootstrap-physical-power",
+   "ruling": "not_supported",
+   "reason": "He argues that defenses would deny the AI a sudden clean victory, not that an AI could not bootstrap physical capabilities."
+  },
+  {
+   "person": "alex-karp",
+   "idea": "ai-gains-are-concentrating",
+   "ruling": "not_supported",
+   "reason": "He describes a split between adopters and laggards among institutions and nations, not gains flowing to a narrow few."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "advancing-tech-is-a-moral-duty",
+   "ruling": "not_supported",
+   "reason": "The quote calls AI specifically a moral obligation, a much narrower claim than advancing science and technology in general."
+  },
+  {
+   "person": "marc-andreessen",
+   "idea": "future-generations-weigh-heavily",
+   "ruling": "not_supported",
+   "reason": "'Our children and our future' is a rhetorical flourish within a pro-AI claim, not a stated position on how much future generations should weigh in priorities."
+  },
+  {
+   "person": "jd-vance",
+   "idea": "public-institutions-have-weakened",
+   "ruling": "not_supported",
+   "reason": "He says leadership failed to serve workers; he doesn't claim public institutions are failing at their functions."
+  },
+  {
+   "person": "jason-crawford",
+   "idea": "safety-achievable",
+   "ruling": "not_supported",
+   "reason": "He says safety mechanisms will be part of AI progress in general and doesn't address making superhuman AI safe."
+  },
+  {
+   "person": "william-macaskill",
+   "idea": "positive-vision-needed",
+   "ruling": "not_supported",
+   "reason": "Quote says avoiding catastrophe isn't enough; he explicitly warns against committing to any particular vision of the future (viatopia instead)."
+  },
+  {
+   "person": "max-tegmark",
+   "idea": "testing-cannot-prove-safety",
+   "ruling": "not_supported",
+   "reason": "Supports that evals can't prove absence of risk, but nothing about concealed misbehavior, which is the idea's stated reason."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "good-future-is-not-default",
+   "ruling": "not_supported",
+   "reason": "Altman says the upside case is not the default because the default is danger; he doesn't claim a non-catastrophic future falls short."
+  },
+  {
+   "person": "peter-thiel",
+   "idea": "tech-alone-is-not-progress",
+   "ruling": "not_supported",
+   "reason": "Passage is about technology's future not being predetermined and politics mattering, not about tech advance failing to count as progress."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "gains-need-deliberate-distribution",
+   "ruling": "not_supported",
+   "reason": "Quote is about letting markets find a technology's uses, not about how its gains are distributed."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "uniformity-arrives-by-coercion",
+   "ruling": "not_supported",
+   "reason": "Says top-down control tries to suppress variance; does not claim that uniformity usually comes from imposition rather than free convergence."
+  },
+  {
+   "person": "holly-elmore",
+   "idea": "humans-as-pets",
+   "ruling": "not_supported",
+   "reason": "Passage is narrowly about humans dropping out of the alignment training loop, not about humans lacking agency or roles in an AI-dominated world."
+  },
+  {
+   "person": "scott-alexander",
+   "idea": "near-human-level-ai",
+   "ruling": "not_supported",
+   "reason": "Summarizes the team's scenario (Daniel's modal case); Alexander says his own median is later and calls it an ~80th-percentile fast scenario."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "flourishing-comparable-priority",
+   "ruling": "not_supported",
+   "reason": "Says the upside justifies navigating the risks; doesn't weigh improving the future's quality against avoiding catastrophe."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "wait-for-concrete-problems",
+   "ruling": "not_supported",
+   "reason": "'Start working now' refers to AI harms broadly (e.g. labor markets), not to work on controlling AI."
+  },
+  {
+   "person": "sam-altman",
+   "idea": "tech-alarm-usually-overblown",
+   "ruling": "not_supported",
+   "reason": "Says fear about AI specifically is justified; doesn't address whether alarm about new technologies in general is usually overblown."
+  },
+  {
+   "person": "karen-hao",
+   "idea": "ai-gains-are-concentrating",
+   "ruling": "not_supported",
+   "reason": "Quote reports what a new generation of scholars champions; it doesn't itself claim that AI's gains are flowing to a narrow few."
+  },
+  {
+   "person": "timnit-gebru",
+   "idea": "gains-need-deliberate-distribution",
+   "ruling": "not_supported",
+   "reason": "Quote is about funding communities to build their own technology (who sets the agenda), not about distributing technology's gains."
+  },
+  {
+   "person": "guillaume-verdon",
+   "idea": "intelligence-over-human-form",
+   "ruling": "not_supported",
+   "reason": "States e/acc's goal of maximizing the singularity and the flourishing of consciousness, with no comparison to keeping humanity in its present form or control."
+  },
+  {
+   "person": "peter-thiel",
+   "idea": "state-authority-rests-on-force",
+   "ruling": "not_supported",
+   "reason": "Says politics interferes in lives without consent; makes no claim that state authority rests at bottom on force."
+  }
+ ]
+}

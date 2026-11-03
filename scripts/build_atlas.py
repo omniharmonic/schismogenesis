@@ -9,6 +9,7 @@ import pathlib
 import re
 import sys
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 
 import numpy as np
 from arena_core.db import get_engine
@@ -48,7 +49,7 @@ MIN_PLACED = 4
 TERMS = ["safety", "intelligence", "progress", "freedom", "democracy", "alignment", "power",
          "open", "human", "truth", "risk", "accelerat"]  # fmt: skip
 SEEDS = ["seed/WORLDVIEW-CORE-SOURCES.json", "seed/AI-FUTURES-SOURCES.json",
-         "seed/AI-FUTURES-SOURCES-v2.json"]  # fmt: skip
+         "seed/AI-FUTURES-SOURCES-v2.json", "seed/AI-FUTURES-SOURCES-v3.json"]  # fmt: skip
 
 
 def majority(rows: list[dict]) -> dict:
@@ -105,40 +106,88 @@ def choose_count(holdings: list[Holding], family: dict[str, int]) -> tuple[int, 
 
 
 PLACE_SHARPNESS = 14  # the fingerprint's weighting (packages/arena_fingerprint, fingerprint.js)
+FORECAST_WEIGHT = 0.5  # forecasts count half as much as values, action and what AI is
+
+
+@dataclass
+class Placement:
+    xy: np.ndarray
+    top: list[tuple[str, float]]  # nearest three by agreement, with weights: sets the position
 
 
 def place_by_agreement(
-    person: str, stated: dict[tuple[str, str], int], core: list[str], place: dict[str, np.ndarray]
-) -> tuple[np.ndarray, list[tuple[str, float]]] | None:
+    person: str,
+    stated: dict[tuple[str, str], int],
+    core: list[str],
+    place: dict[str, np.ndarray],
+    layer: dict[str, str],
+) -> Placement | None:
     """Place a voice outside the core the way the fingerprint places a visitor.
 
     Agreement with each core voice is (same + 1) / (shared + 2) over stated ideas both hold,
-    counted only when they share three or more. The position is the sharply weighted mean of the
-    top three. Returns the position and the top three with weights, nearest first, or None.
+    with forecasts weighted at half, counted when they share three or more. The position is the
+    sharply weighted mean of the top three. The school is decided separately (school_fit), on
+    distinctive positions only: a critic and a builder can both expect AI to be unstoppable, and
+    agreement like that alone once put Kingsnorth among the Builders.
     """
     mine = {idea: a for (idea, p), a in stated.items() if p == person}
     scored = []
     for other in core:
         shared = [i for i in mine if (i, other) in stated]
-        if len(shared) >= 3:
-            same = sum(1 for i in shared if mine[i] == stated[(i, other)])
-            scored.append(((same + 1) / (len(shared) + 2), len(shared), other))
+        if len(shared) < 3:
+            continue
+        weight = {i: FORECAST_WEIGHT if layer.get(i) == "empirical" else 1.0 for i in shared}
+        same = sum(weight[i] for i in shared if mine[i] == stated[(i, other)])
+        score = (same + 1) / (sum(weight.values()) + 2)
+        scored.append((score, len(shared), other))
     top = sorted(scored, reverse=True)[:3]
     if not top:
         return None
-    weights = np.array([np.exp(PLACE_SHARPNESS * (s - 0.5)) for s, _, _ in top])
-    xy = sum(w * place[o] for w, (_, _, o) in zip(weights, top, strict=True)) / weights.sum()
-    return xy, [(o, float(w)) for w, (_, _, o) in zip(weights, top, strict=True)]
+
+    def weighted(rows: list[tuple[float, int, str]]) -> list[tuple[str, float]]:
+        return [(o, float(np.exp(PLACE_SHARPNESS * (s - 0.5)))) for s, _, o in rows]
+
+    near = weighted(top)
+    total = sum(w for _, w in near)
+    xy = sum(w * place[o] for o, w in near) / total
+    return Placement(xy, near)
 
 
-def school_vote(top: list[tuple[str, float]], groups: list[list[str]]) -> int | None:
-    """The school holding most of the placement weight: steadier than the single nearest voice."""
-    votes: Counter[int] = Counter()
-    for other, weight in top:
-        for n, group in enumerate(groups):
-            if other in group:
-                votes[n] += weight
-    return votes.most_common(1)[0][0] if votes else None
+GROUP_EVIDENCE = 2.5  # distinctive agreement a voice needs before it joins a school
+GROUP_MARGIN = 0.6  # the runner-up school must be at most this share of the best
+
+
+def school_fit(
+    person: str, stated: dict[tuple[str, str], int], groups: list[list[str]], layer: dict[str, str]
+) -> dict:
+    """How far a voice holds the positions that set each school apart.
+
+    For each school and idea, distinctiveness is how far the school's members lean away from the
+    core as a whole (forecasts at half weight). A voice's fit to a school sums its own stance times
+    that lean. Positions nearly everyone holds count for nothing, and contrary positions count
+    against: agreeing that AI should serve people says nothing about which school you are in.
+    Returns {"school": index or None, "between": [index, index] or [], "fits": [(fit, index)]}.
+    """
+    core = [m for g in groups for m in g]
+    mine = {i: a for (i, p), a in stated.items() if p == person}
+    fits = []
+    for n, group in enumerate(groups):
+        fit = 0.0
+        for idea, a in mine.items():
+            everyone = [stated[(idea, m)] for m in core if (idea, m) in stated]
+            members = [stated[(idea, m)] for m in group if (idea, m) in stated]
+            if not members or (len(members) < 2 and len(group) > 2):
+                continue
+            lean = sum(members) / len(members) - sum(everyone) / len(everyone)
+            fit += a * lean * (FORECAST_WEIGHT if layer.get(idea) == "empirical" else 1.0)
+        fits.append((round(fit, 3), n))
+    fits.sort(reverse=True)
+    (best, top), (second, runner) = fits[0], fits[1]
+    if best < GROUP_EVIDENCE:
+        return {"school": None, "between": [], "fits": fits}
+    if second > GROUP_MARGIN * best:
+        return {"school": None, "between": [top, runner], "fits": fits}
+    return {"school": top, "between": [], "fits": fits}
 
 
 def school_stance(members: list[str], table: dict[str, dict[str, int]]) -> dict[str, int]:
@@ -181,16 +230,27 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
                 " JOIN niche n ON n.niche_id = l.primary_niche_id"
             )
         ).all()
+    # sources found not to be the person's own words (seed "exclude") never count for anyone
+    excluded = {w["url"] for seed in SEEDS if pathlib.Path(seed).exists()
+                for w in json.loads(pathlib.Path(seed).read_text())["works"]
+                if w.get("exclude")}  # fmt: skip
+    rows = [r for r in rows if r[4] not in excluded]
     claims = {r[0]: r for r in rows}
     niche = {r[0]: r[1] for r in niche_rows}
     names = {r[1]: r[2] for r in rows}
+    # people known only from the audited stances (no extracted claims yet) still need a name
+    with get_engine().connect() as connection:
+        for pid, name in connection.execute(text("SELECT person_id, display_name FROM person")):
+            names.setdefault(pid, name)
 
     per: dict[tuple[str, str], list[dict]] = defaultdict(list)
     meta = {}
     for idea in data["ideas"]:
         meta[idea["key"]] = idea
         for h in idea["holdings"]:
-            claim = claims[h["claim"]]
+            claim = claims.get(h["claim"])
+            if claim is None:
+                continue
             if claim[1] not in allowed:
                 continue
             per[(idea["key"], claim[1])].append(
@@ -199,6 +259,26 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
                  "url": claim[4], "work": claim[5], "year": claim[6],
                  "why": h.get("necessity")}
             )  # fmt: skip
+    if "--stances" in options:
+        # the audited stances (two blind readers of the full texts, quotes checked in code) are
+        # the only source for the season statements: they replace every older holding there
+        audited = json.loads(pathlib.Path(options[options.index("--stances") + 1]).read_text())
+        for statement, entry in audited["stances"].items():
+            for pair in [k for k in per if k[0] == statement]:
+                del per[pair]
+            for person, s in entry.items():
+                if person in allowed:
+                    per[(statement, person)].append(
+                        {"p": person, "a": s["a"], "inf": False, "q": s["q"], "url": s["url"],
+                         "work": s["work"], "year": int(s["year"]) if s.get("year") else None,
+                         "why": s.get("why")}
+                    )  # fmt: skip
+    if "--drop-holdings" in options:
+        # holdings a validator, reading the source around the quote, found not to be the person's
+        # own view (seed/holding-audit-drops.json, from scripts/holding_audit.py)
+        drops = json.loads(pathlib.Path(options[options.index("--drop-holdings") + 1]).read_text())
+        for d in drops["dropped"]:
+            per.pop((d["idea"], d["person"]), None)
     chosen = {pair: majority(items) for pair, items in per.items()}
     count = Counter(pair[1] for pair in chosen)
     core_ids = (
@@ -256,11 +336,11 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     stated = {(idea, p): h["a"] for (idea, p), h in chosen.items() if not h["inf"]}
     placed_by: dict[str, list[tuple[str, float]]] = {}
     for person in sorted(keep - core):
-        result = place_by_agreement(person, stated, people, place)
+        result = place_by_agreement(person, stated, people, place, layer)
         if result is None:
             dropped.append(names[person])
             continue
-        place[person], placed_by[person] = result
+        place[person], placed_by[person] = result.xy, result.top
     dropped.sort()
     chosen = {pair: h for pair, h in chosen.items() if pair[1] in place}
     everyone = people + sorted(placed_by)
@@ -304,7 +384,10 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
                 h["q"] = h["q"][:277] + "..."
 
     label_map = {tuple(sorted(s["members"])): s for s in copy.get("schools", [])}
-    voted = {p: school_vote(top, groups) for p, top in placed_by.items()}
+    # a voice joins a school only on clear, distinctive evidence; otherwise it is shown as between
+    # two schools, or as not yet grouped
+    fitted = {p: school_fit(p, stated, groups, layer) for p in placed_by}
+    voted = {p: f["school"] for p, f in fitted.items()}
     schools_out = []
     for n, group in enumerate(groups):
         pairs = [stability.get(frozenset(p), 0) for p in itertools.combinations(group, 2)]
@@ -398,6 +481,8 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     # Sense forks between the two largest named schools that use a term.
     bodies: dict[str, str] = defaultdict(str)
     for seed in SEEDS:
+        if not pathlib.Path(seed).exists():
+            continue
         for work in json.loads(pathlib.Path(seed).read_text())["works"]:
             path = pathlib.Path(f"data/texts/{work['key']}.txt")
             if work["author"] in people and path.exists():
@@ -459,11 +544,14 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
         }
         for p in everyone
     }
+    groups_label = [s["label"] for s in schools_out]
     people_out = [
         {"id": p, "name": names[p], "niche": niche.get(p, ""),
          "x": round(float(place[p][0]), 1), "y": round(float(place[p][1]), 1),
          "families": family_scores[p], "works": sorted(works[p]), "nearest": nearest[p],
-         **({"provisional": True} if p in placed_by else {})}
+         **({"provisional": True} if p in placed_by else {}),
+         **({"between": [groups_label[n] for n in fitted[p]["between"]]}
+            if p in fitted and fitted[p]["between"] else {})}
         for p in everyone
     ]  # fmt: skip
     years = [i["year"] for i in ideas_out if i["year"]]

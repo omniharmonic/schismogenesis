@@ -1,6 +1,7 @@
 """Fetch and clean the texts for a source list into data/texts/<key>.txt (never committed).
 
-Usage: uv run --with trafilatura python scripts/fetch_texts.py <sources.json> [--only-missing]
+Usage: uv run --with trafilatura --with pypdf python scripts/fetch_texts.py <sources.json>
+       [--only-missing]
 Extraction is deterministic (trafilatura), so quotes can be checked against the text exactly.
 Pages over MAX_WORDS keep their most AI-relevant paragraphs, in their original order.
 Polite: one request every two seconds, an honest user agent, and failures are logged, not retried.
@@ -46,10 +47,32 @@ def trim(text: str) -> str:
     return "\n\n".join(paragraphs[i] for i in sorted(keep))
 
 
+def readable(url: str) -> str:
+    """LessWrong pages are built by script in the browser; its static mirror has the same text."""
+    for host in ("https://www.lesswrong.com/", "https://lesswrong.com/"):
+        if url.startswith(host):
+            return "https://www.greaterwrong.com/" + url[len(host) :]
+    return url
+
+
+def pdf_text(data: bytes) -> str:
+    """Text of a PDF, page by page in order (deterministic, like the HTML extraction)."""
+    import io
+
+    from pypdf import PdfReader
+
+    pages = [page.extract_text() or "" for page in PdfReader(io.BytesIO(data)).pages]
+    # rejoin lines a PDF breaks mid-sentence, keep blank-line paragraph breaks
+    text = "\n\n".join(pages)
+    return "\n\n".join(" ".join(p.split()) for p in text.split("\n\n") if p.strip())
+
+
 def fetch(url: str) -> str | None:
-    request = urllib.request.Request(url, headers={"User-Agent": AGENT})
+    request = urllib.request.Request(readable(url), headers={"User-Agent": AGENT})
     with urllib.request.urlopen(request, timeout=30) as response:  # noqa: S310 (listed sources)
         kind = response.headers.get("Content-Type", "")
+        if "pdf" in kind:
+            return pdf_text(response.read())
         if "html" not in kind and "text" not in kind:
             raise ValueError(f"not a web page ({kind})")
         html = response.read().decode("utf-8", errors="replace")

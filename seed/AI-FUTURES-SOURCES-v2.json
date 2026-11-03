@@ -516,7 +516,8 @@
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "deepen",
-   "note": "Byline not checked; the newsletter sometimes runs guest posts."
+   "note": "Byline not checked; the newsletter sometimes runs guest posts.",
+   "exclude": "Written by Andy Hall (Stanford), a guest author in the Roots of Progress Intelligence Age series, not by Jason Crawford. Found in the 2026-11-03 stance audit; none of its claims count as Crawford's."
   },
   {
    "key": "macaskill-preparing-for-the-intelligence-explosion",
@@ -1839,7 +1840,8 @@
    "authorship": "own_name",
    "replaces": "srinivasan-balaji-srinivasan-how-ai-will-change-politics-wa",
    "verified_text": true,
-   "note": "Same episode. Transcript is machine-generated from captions, with no speaker labels."
+   "note": "Same episode. Transcript is machine-generated from captions, with no speaker labels.",
+   "exclude": "The fetched page is a third-party summary of the podcast, not a transcript of Srinivasan's own words. Found in the 2026-11-03 stance audit."
   },
   {
    "key": "tang-ai-is-assistive-intelligence-can-lead-to-better-r",

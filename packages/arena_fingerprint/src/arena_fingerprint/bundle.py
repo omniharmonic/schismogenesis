@@ -135,6 +135,7 @@ def build_bundle(
     version: str = VERSION,
     atlas_version: str = "atlas-v1",
     newcomers: dict[str, str] | None = None,
+    voices: dict[str, list[dict]] | None = None,
 ) -> dict:
     """Build the browser bundle. With `season`, keep those statements instead of reselecting.
 
@@ -220,6 +221,7 @@ def build_bundle(
                 "x": p["x"],
                 "y": p["y"],
                 **({"provisional": True} if p.get("provisional") else {}),
+                **({"between": p["between"]} if p.get("between") else {}),
             }
             for p in sorted(people.values(), key=lambda p: p["id"])
         ]
@@ -229,6 +231,12 @@ def build_bundle(
         ],
         "camps": CAMPS,
         "stances": stances,
+        # signature positions in each thinker's own words (seed/thinker-voices.json, checked)
+        "voices": {
+            p: [{**v, "quote": display_quote(v["quote"])} for v in vs[:6]]
+            for p, vs in sorted((voices or {}).items())
+            if p in shown and p not in flagged
+        },
         "selection_log": log,
         "notes": NOTES,
     }
