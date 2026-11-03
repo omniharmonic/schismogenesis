@@ -1,0 +1,53 @@
+{
+  "reviewer": "M6",
+  "pairs": [
+    {
+      "id": "human-end-of-ai",
+      "equivalent": true,
+      "slant": "none",
+      "reason": "Same claim reordered; 'humanity' for 'human beings' changes nothing a respondent would act on.",
+      "fix": null
+    },
+    {
+      "id": "past-technology-is-valid-reference-class",
+      "equivalent": true,
+      "slant": "none",
+      "reason": "Only spells out 'be received' as 'how people will receive it'; scope and claim unchanged.",
+      "fix": null
+    },
+    {
+      "id": "popular-self-government-worth-keeping",
+      "equivalent": true,
+      "slant": "none",
+      "reason": "Dropping 'remain' removes a mild presupposition that authority already rests on self-government, but agree/disagree sets stay the same.",
+      "fix": null
+    },
+    {
+      "id": "ai-promises-inflated",
+      "equivalent": false,
+      "slant": "none",
+      "reason": "'Greatly exaggerated' sets a higher bar than 'inflated', and 'what AI will achieve' narrows scope to capability promises (leaving out safety or benefit-sharing promises), so someone who sees the promises as moderately inflated could agree with the original and disagree with the rewrite; dropping 'hype' also softens the implied motive.",
+      "fix": "Most public promises about advanced AI are exaggerated hype."
+    }
+  ],
+  "new": [
+    {
+      "id": "ai-fear-exceeds-evidence",
+      "slant": "slight",
+      "favours": "e/acc and progress economists",
+      "clarity": "medium",
+      "true_by_definition": false,
+      "problems": "'Fear' frames concern as emotional, not reasoned; it does not say fear of which harms (job loss, misuse, extinction) or which evidence; different camps will read it as being about different risks.",
+      "rewrite": "Public concern about the risks of AI is greater than the current evidence justifies."
+    },
+    {
+      "id": "plan-control-early",
+      "slant": "slight",
+      "favours": "safety and EA",
+      "clarity": "medium",
+      "true_by_definition": false,
+      "problems": "'Serious' and 'well before' make it sound like common prudence, so it is close to obvious; the real disagreement (control work done in advance versus alongside deployment) is hidden. 'Such systems' is also vague.",
+      "rewrite": "Most work on controlling advanced AI should be done before such systems are built, rather than alongside their development."
+    }
+  ]
+}

@@ -54,11 +54,14 @@ def frozen_anchors(ideas: list[dict], season: list[dict], camps: dict) -> list[d
     by_id = {i["id"]: i for i in ideas}
     if missing := [a["id"] for a in season if a["id"] not in by_id]:
         raise BundleError(f"season statements missing from the atlas: {missing}")
-    return [
-        {**by_id[a["id"]], "set": a["set"],
-         "split_score": split_score(stated_stances(by_id[a["id"]]), camps)}
-        for a in season
-    ]  # fmt: skip
+    out = []
+    for a in season:
+        idea = by_id[a["id"]]
+        # reviewed display wording (seed/season-1.json), or the wording a built bundle carries
+        display = a.get("display") or (a.get("text") if a.get("text") != idea["text"] else None)
+        out.append({**idea, "set": a["set"], "display": display,
+                    "split_score": split_score(stated_stances(idea), camps)})  # fmt: skip
+    return out
 
 
 def build_bundle(
@@ -119,7 +122,8 @@ def build_bundle(
                 "id": i["id"],
                 "set": i["set"],
                 "layer": i["layer"],
-                "text": i["text"],
+                "text": i.get("display") or i["text"],
+                **({"proposition": i["text"]} if i.get("display") else {}),
                 "family": i["family"],
                 "split_score": i["split_score"],
             }

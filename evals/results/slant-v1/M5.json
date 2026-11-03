@@ -1,0 +1,13 @@
+{
+  "reviewer": "M5",
+  "pairs": [
+    {"id": "human-end-of-ai", "equivalent": true, "slant": "none", "reason": "Same claim reordered; only the mild 'remain' presupposition is dropped, which does not change who agrees or disagrees.", "fix": null},
+    {"id": "past-technology-is-valid-reference-class", "equivalent": true, "slant": "none", "reason": "Passive 'be received' is just made explicit as 'how people will receive it'; scope and threshold are unchanged.", "fix": null},
+    {"id": "popular-self-government-worth-keeping", "equivalent": true, "slant": "none", "reason": "Same normative claim and same contrast set; dropping 'remain' removes a presupposition but no one's answer should flip.", "fix": null},
+    {"id": "ai-promises-inflated", "equivalent": false, "slant": "slight", "reason": "'Greatly exaggerated' raises the threshold above 'inflated', and 'what advanced AI will achieve' narrows scope to capability promises, so moderate sceptics who agree with the original may disagree with the rewrite.", "fix": "Most public promises about advanced AI are exaggerated."}
+  ],
+  "new": [
+    {"id": "ai-fear-exceeds-evidence", "slant": "slight", "favours": "e/acc and progress economists", "clarity": "medium", "true_by_definition": false, "problems": ["'fear' frames concern as emotional rather than reasoned", "unclear which fears (jobs, misuse, extinction) and which evidence"], "rewrite": "Public concern about AI is greater than the current evidence justifies."},
+    {"id": "plan-control-early", "slant": "slight", "favours": "safety and EA", "clarity": "medium", "true_by_definition": false, "problems": ["'serious work ... well before' sounds like near-universal common sense, so it may not separate camps", "no stated trade-off against iterative, learn-by-deploying approaches", "'well before' is vague"], "rewrite": "Most work on controlling advanced AI should be done before such systems are built, rather than while they are being deployed."}
+  ]
+}

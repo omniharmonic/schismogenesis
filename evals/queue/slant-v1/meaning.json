@@ -1,0 +1,89 @@
+{
+ "pairs": [
+  {
+   "id": "ai-new-kind-of-mind",
+   "original": "AI is best understood as a new kind of mind, more than a tool or artifact.",
+   "rewrite": "AI is better understood as a new kind of mind than as a tool or artifact."
+  },
+  {
+   "id": "direction-of-technology-is-chosen",
+   "original": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
+   "rewrite": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development."
+  },
+  {
+   "id": "productivity-benefits-workers-unaided",
+   "original": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
+   "rewrite": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is."
+  },
+  {
+   "id": "ai-promises-inflated",
+   "original": "Public promises about advanced AI are mostly inflated hype.",
+   "rewrite": "Most public claims about what advanced AI will achieve are overstated."
+  },
+  {
+   "id": "liberal-ideals-carry-their-own-force",
+   "original": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
+   "rewrite": "Liberal and humane ideals are strong enough in themselves to win out in long contests between societies."
+  },
+  {
+   "id": "human-end-of-ai",
+   "original": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
+   "rewrite": "AI should exist to serve human beings, rather than to bring about beings meant to succeed humanity."
+  },
+  {
+   "id": "deployment-harms-over-superintelligence",
+   "original": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
+   "rewrite": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents."
+  },
+  {
+   "id": "past-technology-is-valid-reference-class",
+   "original": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
+   "rewrite": "The history of earlier general-purpose technologies is a good guide to how AI will behave and how people will receive it."
+  },
+  {
+   "id": "modesty-is-a-sound-default",
+   "original": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
+   "rewrite": "On hard questions, base rates or the average of informed opinion should by default outweigh one's own reasoning."
+  },
+  {
+   "id": "popular-self-government-worth-keeping",
+   "original": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
+   "rewrite": "Political authority should rest on popular self-government rather than on experts, executives or other unelected bodies."
+  },
+  {
+   "id": "market-tech-serves-humans",
+   "original": "Market-driven technological development serves human beings on balance.",
+   "rewrite": "On balance, market-driven technological development is good for people."
+  },
+  {
+   "id": "regulation-does-more-harm",
+   "original": "Stringent AI regulation now would do more harm than good by deterring innovation.",
+   "rewrite": "Strict AI regulation now would do more harm than good, because it would deter innovation."
+  },
+  {
+   "id": "ai-separate-from-state",
+   "original": "AI development should remain separate from state direction and control.",
+   "rewrite": "AI development should not be directed or controlled by the state."
+  },
+  {
+   "id": "plurality-over-singularity",
+   "original": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
+   "rewrite": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity."
+  },
+  {
+   "id": "china-rivalry-justifies-tech-push",
+   "original": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
+   "rewrite": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead."
+  }
+ ],
+ "new_statements": [
+  {
+   "id": "risk-testing-cannot-prove-safety",
+   "text": "Testing alone cannot establish that a general-purpose AI system is safe."
+  },
+  {
+   "id": "trial-and-error-unsafe-for-powerful-tech",
+   "text": "For sufficiently powerful technology, learning from mistakes after deployment is not a workable strategy."
+  }
+ ]
+}

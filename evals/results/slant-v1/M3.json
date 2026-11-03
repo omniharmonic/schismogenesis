@@ -1,0 +1,24 @@
+{
+ "reviewer": "M3",
+ "pairs": [
+  {"id": "ai-new-kind-of-mind", "equivalent": true, "reason": "Same comparative claim (mind over tool/artifact), only rephrased.", "fix": null},
+  {"id": "direction-of-technology-is-chosen", "equivalent": true, "reason": "'Fixed course of development' carries the same contrast as 'inevitable process'; collective choice is kept.", "fix": null},
+  {"id": "productivity-benefits-workers-unaided", "equivalent": true, "reason": "'Even if policy stays as it is' keeps the same no-policy-change condition.", "fix": null},
+  {"id": "ai-promises-inflated", "equivalent": true, "reason": "'Claims about what AI will achieve' matches 'promises', and 'overstated' matches 'inflated hype' without the loaded word.", "fix": null},
+  {"id": "liberal-ideals-carry-their-own-force", "equivalent": true, "reason": "'Strong enough in themselves to win out' matches 'enough inherent force to prevail'.", "fix": null},
+  {"id": "human-end-of-ai", "equivalent": false, "reason": "The original rejects treating humans as any stage to surpass, which includes transhumanist self-enhancement; the rewrite rejects only AI creating successor beings, so an enhancement advocate could disagree with the original but agree with the rewrite.", "fix": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed."},
+  {"id": "deployment-harms-over-superintelligence", "equivalent": true, "reason": "Same contrast and the same present time frame.", "fix": null},
+  {"id": "past-technology-is-valid-reference-class", "equivalent": false, "reason": "'Good guide' sets a higher bar than 'valid guide': someone who thinks history is a legitimate but rough reference class agrees with the original but may reject the rewrite.", "fix": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it."},
+  {"id": "modesty-is-a-sound-default", "equivalent": true, "reason": "'Should by default outweigh one's own reasoning' keeps the default-deference claim; the change in wording is minor.", "fix": null},
+  {"id": "popular-self-government-worth-keeping", "equivalent": false, "reason": "'Unelected bodies' is narrower than 'unelected powers': it can leave out rule by corporations or AI systems, which matters on an AI quiz.", "fix": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers."},
+  {"id": "market-tech-serves-humans", "equivalent": true, "reason": "'Good for people on balance' matches 'serves human beings on balance'.", "fix": null},
+  {"id": "regulation-does-more-harm", "equivalent": true, "reason": "Same threshold, the same time frame and the same causal mechanism.", "fix": null},
+  {"id": "ai-separate-from-state", "equivalent": true, "reason": "'Not directed or controlled by the state' matches 'separate from state direction and control'; dropping 'remain' removes only a presupposition.", "fix": null},
+  {"id": "plurality-over-singularity", "equivalent": true, "reason": "Same contrast; 'technological singularity' resolves the intended sense of 'singularity' without changing the scope.", "fix": null},
+  {"id": "china-rivalry-justifies-tech-push", "equivalent": true, "reason": "Only synonyms change (sound/good, press/push, protect/keep).", "fix": null}
+ ],
+ "new": [
+  {"id": "risk-testing-cannot-prove-safety", "slant": "slight", "favours": "AI-safety / precautionary camp", "clarity": "ambiguous", "problems": "'Safe' has no stated standard (fully safe, or safe enough to deploy?), so people may answer different questions; the claim is otherwise plainly phrased.", "rewrite": null},
+  {"id": "trial-and-error-unsafe-for-powerful-tech", "slant": "slight", "favours": "AI-safety / precautionary camp", "clarity": "ambiguous", "problems": "'Sufficiently powerful' leaves the threshold open, so the statement is close to true by definition and both camps may agree while picturing different thresholds.", "rewrite": null}
+ ]
+}

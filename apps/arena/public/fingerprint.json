@@ -1,5 +1,5 @@
 {
- "version": "fp-2026-11-03.1",
+ "version": "fp-2026-11-03.2",
  "season": "season-1",
  "atlas_version": "atlas-v1.1",
  "sets": [
@@ -39,7 +39,8 @@
    "id": "ai-new-kind-of-mind",
    "set": "being",
    "layer": "ontological",
-   "text": "AI is best understood as a new kind of mind, more than a tool or artifact.",
+   "text": "AI is better understood as a new kind of mind than as a tool or artifact.",
+   "proposition": "AI is best understood as a new kind of mind, more than a tool or artifact.",
    "family": 18,
    "split_score": 24
   },
@@ -55,7 +56,8 @@
    "id": "direction-of-technology-is-chosen",
    "set": "being",
    "layer": "ontological",
-   "text": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
+   "text": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development.",
+   "proposition": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
    "family": 6,
    "split_score": 23
   },
@@ -63,7 +65,8 @@
    "id": "productivity-benefits-workers-unaided",
    "set": "being",
    "layer": "empirical",
-   "text": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
+   "text": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is.",
+   "proposition": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
    "family": 26,
    "split_score": 8
   },
@@ -87,7 +90,8 @@
    "id": "liberal-ideals-carry-their-own-force",
    "set": "being",
    "layer": "empirical",
-   "text": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
+   "text": "Liberal and humane ideals are strong enough in themselves to win out in long contests between societies.",
+   "proposition": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
    "family": 13,
    "split_score": 2
   },
@@ -103,23 +107,25 @@
    "id": "human-end-of-ai",
    "set": "values",
    "layer": "axiological",
-   "text": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
+   "text": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed.",
+   "proposition": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
    "family": 6,
    "split_score": 8
   },
   {
-   "id": "ai-discourse-is-saturated-with-hype",
+   "id": "ai-fear-exceeds-evidence",
    "set": "values",
    "layer": "epistemic",
-   "text": "Public discussion of AI is inflated by hype that outruns what the technology has shown.",
-   "family": 5,
-   "split_score": 8
+   "text": "Public fear of AI exceeds what the evidence supports.",
+   "family": 19,
+   "split_score": 2
   },
   {
    "id": "deployment-harms-over-superintelligence",
    "set": "values",
    "layer": "axiological",
-   "text": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
+   "text": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents.",
+   "proposition": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
    "family": 17,
    "split_score": 12
   },
@@ -135,7 +141,8 @@
    "id": "past-technology-is-valid-reference-class",
    "set": "values",
    "layer": "epistemic",
-   "text": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
+   "text": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it.",
+   "proposition": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
    "family": 30,
    "split_score": 3
   },
@@ -143,7 +150,8 @@
    "id": "modesty-is-a-sound-default",
    "set": "values",
    "layer": "epistemic",
-   "text": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
+   "text": "On hard questions, base rates or the average of informed opinion should by default outweigh one's own reasoning.",
+   "proposition": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
    "family": 29,
    "split_score": 4
   },
@@ -151,7 +159,8 @@
    "id": "popular-self-government-worth-keeping",
    "set": "values",
    "layer": "axiological",
-   "text": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
+   "text": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers.",
+   "proposition": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
    "family": 16,
    "split_score": 10
   },
@@ -159,7 +168,8 @@
    "id": "market-tech-serves-humans",
    "set": "values",
    "layer": "axiological",
-   "text": "Market-driven technological development serves human beings on balance.",
+   "text": "On balance, market-driven technological development is good for people.",
+   "proposition": "Market-driven technological development serves human beings on balance.",
    "family": 4,
    "split_score": 9
   },
@@ -175,7 +185,8 @@
    "id": "regulation-does-more-harm",
    "set": "action",
    "layer": "praxis",
-   "text": "Stringent AI regulation now would do more harm than good by deterring innovation.",
+   "text": "Strict AI regulation now would do more harm than good, because it would deter innovation.",
+   "proposition": "Stringent AI regulation now would do more harm than good by deterring innovation.",
    "family": 8,
    "split_score": 11
   },
@@ -183,7 +194,8 @@
    "id": "ai-separate-from-state",
    "set": "action",
    "layer": "praxis",
-   "text": "AI development should remain separate from state direction and control.",
+   "text": "AI development should not be directed or controlled by the state.",
+   "proposition": "AI development should remain separate from state direction and control.",
    "family": 25,
    "split_score": 6
   },
@@ -191,7 +203,8 @@
    "id": "plurality-over-singularity",
    "set": "action",
    "layer": "praxis",
-   "text": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
+   "text": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity.",
+   "proposition": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
    "family": 21,
    "split_score": 4
   },
@@ -199,7 +212,8 @@
    "id": "china-rivalry-justifies-tech-push",
    "set": "action",
    "layer": "praxis",
-   "text": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
+   "text": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead.",
+   "proposition": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
    "family": 24,
    "split_score": 3
   },
@@ -220,12 +234,12 @@
    "split_score": 22
   },
   {
-   "id": "ai-can-be-given-good-values",
+   "id": "plan-control-early",
    "set": "action",
    "layer": "praxis",
-   "text": "AI systems can and should be given values that lead to good outcomes.",
-   "family": 18,
-   "split_score": 6
+   "text": "Serious work on controlling advanced AI should happen well before such systems exist.",
+   "family": 17,
+   "split_score": 3
   }
  ],
  "thinkers": [
@@ -912,42 +926,24 @@
     "work": "Will-to-Think"
    }
   },
-  "ai-discourse-is-saturated-with-hype": {
-   "alex-karp": {
-    "a": 1,
-    "q": "The jargon and posturing in the technology industry, the breathless anticipation of the arrival of artificial general intelligence, has today reached new heights.",
-    "url": "https://www.palantir.com/q4-2025-letter/en/",
-    "work": "Q4 2025 Letter to Shareholders"
-   },
-   "curtis-yarvin": {
-    "a": 1,
-    "q": "Using words like “intelligent” triggers a subtle and pernicious anthropomorphism which makes us wildly misestimate the impact of these systems.",
-    "url": "https://graymirror.substack.com/p/gpt-4-invalidates-the-turing-test",
-    "work": "GPT-4 invalidates the Turing test"
-   },
+  "ai-fear-exceeds-evidence": {
    "dario-amodei": {
     "a": -1,
     "q": "I think that most people are underestimating just how radical the upside of AI could be, just as I think most people are underestimating how bad the risks could be.",
     "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
     "work": "Machines of Loving Grace"
    },
-   "emily-m-bender": {
+   "marc-andreessen": {
     "a": 1,
-    "q": "Just noting off hand that people are looking into it again supports OpenAI’s (and others’) AI hype.",
-    "url": "https://medium.com/@emilymenonbender/on-nyt-magazine-on-ai-resist-the-urge-to-be-impressed-3d92fd9a0edd",
-    "work": "On NYT Magazine on AI: Resist the Urge to be Impressed"
+    "q": "This moral panic is already being used as a motivating force by a variety of actors to demand policy action – new AI restrictions, regulations, and laws.",
+    "url": "https://a16z.com/ai-will-save-the-world/",
+    "work": "Why AI Will Save the World"
    },
-   "timnit-gebru": {
+   "robin-hanson": {
     "a": 1,
-    "q": "Startups are even hiring people to impersonate AI systems like chatbots, due to the pressure by venture capitalists to incorporate so-called AI into their products.",
-    "url": "https://www.noemamag.com/the-exploited-labor-behind-artificial-intelligence/",
-    "work": "The Exploited Labor Behind Artificial Intelligence"
-   },
-   "tyler-cowen": {
-    "a": -1,
-    "q": "Economists, social scientists, most of them are blind and asleep to the promise of strong AI.",
-    "url": "https://www.dwarkesh.com/p/tyler-cowen-4",
-    "work": "Tyler Cowen — The #1 bottleneck to AI progress is humans"
+    "q": "Many of these fears, however, are either unfounded or overblown.",
+    "url": "https://quillette.com/2023/04/14/what-are-reasonable-ai-fears/",
+    "work": "What Are Reasonable AI Fears?"
    }
   },
   "deployment-harms-over-superintelligence": {
@@ -1414,36 +1410,30 @@
     "work": "Existential risk, AI, and the inevitable turn in human history"
    }
   },
-  "ai-can-be-given-good-values": {
-   "audrey-tang": {
-    "a": 1,
-    "q": "train AI systems that are more careful, more caring, and not careless",
-    "url": "https://archive.tw/2026-01-20-doom-debate",
-    "work": "2026-01-20 Doom Debate (Doom Debates, with Liron Shapira)"
-   },
+  "plan-control-early": {
    "eliezer-yudkowsky": {
     "a": 1,
-    "q": "That kind of caring is something that could in principle be imbued into an AI but we are not ready and do not currently know how.",
+    "q": "It’s not that you can’t, in principle, survive creating something much smarter than you; it’s that it would require precision and preparation and new scientific insights, and probably not having AI systems composed of giant inscrutable arrays of fractional numbers.",
     "url": "https://web.archive.org/web/20261023152506/https://time.com/6266923/ai-eliezer-yudkowsky-open-letter-not-enough/",
     "work": "The Only Way to Deal With the Threat From AI? Shut It Down"
    },
-   "elon-musk": {
+   "max-tegmark": {
     "a": 1,
-    "q": "I think what we can do is make sure that AI has values that cause intelligence to be propagated into the universe.",
-    "url": "https://www.dwarkesh.com/p/elon-musk",
-    "work": "Elon Musk: \"In 36 months, the cheapest place to put AI will be space\""
+    "q": "I’m part of a a growing AI safety research community that’s working hard to figure out how to make superintelligence aligned, even before it exists",
+    "url": "https://web.archive.org/web/20240111204352/https://time.com/6273743/thinking-that-could-doom-us-with-ai/",
+    "work": "The 'Don't Look Up' Thinking That Could Doom Us With AI"
    },
-   "nick-land": {
+   "robin-hanson": {
     "a": -1,
-    "q": "Intelligences do their own thing, in direct proportion to their intelligence, and if we can’t live with that, it’s true that we probably can’t live at all. Sadness isn’t an argument.",
-    "url": "https://web.archive.org/web/20150102074815/http://www.xenosystems.net:80/against-orthogonality/",
-    "work": "Against Orthogonality"
+    "q": "Furthermore, I don’t see why its worth putting much effort into planning how to control AIs far in advance of seeing much detail about how AIs actually do concrete tasks where loss of control matters.",
+    "url": "https://www.overcomingbias.com/p/why-not-wait-on-ai-riskhtml",
+    "work": "Why Not Wait On AI Risk?"
    },
-   "william-macaskill": {
+   "sam-altman": {
     "a": 1,
-    "q": "Some promising areas include: reducing the risk of human concentration of power; ensuring that advanced AI is not merely corrigible but also loaded with good, reflective values; and improving the quality of decisions that structure the post-AGI world, including around space",
-    "url": "https://www.forethought.org/research/introducing-better-futures",
-    "work": "Introducing Better Futures"
+    "q": "we need to start working now to maximize AI’s benefits while minimizing its harms.",
+    "url": "https://ia.samaltman.com/",
+    "work": "The Intelligence Age"
    }
   }
  },
@@ -1451,7 +1441,9 @@
   "statements frozen for the season",
   "coverage: david-sacks has 0 stated stances among the anchors",
   "coverage: e-glen-weyl has 2 stated stances among the anchors",
-  "coverage: scott-alexander has 2 stated stances among the anchors"
+  "coverage: elon-musk has 2 stated stances among the anchors",
+  "coverage: scott-alexander has 2 stated stances among the anchors",
+  "coverage: william-macaskill has 2 stated stances among the anchors"
  ],
  "notes": [
   "Thinkers are read by machine from about three public works each. None of them has reviewed this.",

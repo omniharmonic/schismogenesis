@@ -22,7 +22,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 
-from arena_api import identity
+from arena_api import identity, turnstile
 from arena_api.cards import profile_card
 from arena_api.profiles import (
     Summary,
@@ -37,7 +37,7 @@ from arena_api.store import Store, key_hash
 from arena_api.text_rules import check_statement
 
 REPO = pathlib.Path(__file__).resolve().parents[4]
-PUBLIC = REPO / "apps/arena/public"
+PUBLIC = pathlib.Path(os.environ.get("ARENA_PUBLIC_DIR") or REPO / "apps/arena/public")
 CONSENT_VERSION = "room-v1"
 STATEMENTS_PER_DAY = 5
 REPORT_MAX_AGE = 60  # seconds a stale report may be served while votes arrive
@@ -62,7 +62,8 @@ ATLAS_SCRIPTS = (
     "https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js"
 )
 CSP = (
-    "default-src 'self'; script-src 'self'; "
+    "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; "
+    "frame-src https://challenges.cloudflare.com; "
     "style-src 'self' 'unsafe-inline'; font-src 'self'; "
     "img-src 'self' data: blob: https://cdn.bsky.app https://pbs.twimg.com; "
     "connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
@@ -79,6 +80,9 @@ class Config:
     proxy_hops: int = 1  # proxies we control in front of the app
     client_ip_header: str | None = None  # e.g. Fly-Client-IP or CF-Connecting-IP
     production: bool = False
+    rate_salt: str | None = None  # shared by every instance, so rate limits hold across them
+    turnstile_site_key: str | None = None
+    turnstile_secret: str | None = None
 
     @classmethod
     def from_env(cls) -> "Config":
@@ -92,9 +96,14 @@ class Config:
             proxy_hops=int(env("ARENA_PROXY_HOPS") or "1"),
             client_ip_header=env("ARENA_CLIENT_IP_HEADER") or None,
             production=env("ARENA_ENV") == "production",
+            rate_salt=env("ARENA_RATE_SALT") or None,
+            turnstile_site_key=env("ARENA_TURNSTILE_SITE_KEY") or None,
+            turnstile_secret=env("ARENA_TURNSTILE_SECRET") or None,
         )
         if config.production and (not config.admin_token or len(config.admin_token) < 24):
             raise RuntimeError("ARENA_ADMIN_TOKEN of 24+ characters is required in production")
+        if config.production and not config.rate_salt:
+            raise RuntimeError("ARENA_RATE_SALT is required in production")
         return config
 
 
@@ -165,6 +174,7 @@ def create_app(
     public: pathlib.Path = PUBLIC,
     config: Config | None = None,
     fetch: identity.Fetch = identity.fetch_json,
+    human: turnstile.Verifier = turnstile.verify,
 ) -> FastAPI:
     config = config or Config(admin_token=admin_token)
     bundle = json.loads((public / "fingerprint.json").read_text())
@@ -172,7 +182,8 @@ def create_app(
     thinker_ids = set(names)
     anchor_ids = {a["id"] for a in bundle["anchors"]}
     store = Store(engine)
-    salt = secrets.token_hex(16)  # rate-limit buckets hold hashed addresses, never raw ones
+    # rate-limit buckets hold hashed addresses, never raw ones
+    salt = config.rate_salt or secrets.token_hex(16)
     app = FastAPI(title="Dialogos: AI Futures Fingerprint", docs_url=None, redoc_url=None)
 
     @app.middleware("http")
@@ -194,7 +205,7 @@ def create_app(
         # libraries from CDNs. No other page may load outside scripts.
         atlas = request.url.path == "/atlas"
         response.headers["Content-Security-Policy"] = (
-            CSP.replace("script-src 'self'", ATLAS_SCRIPTS)
+            CSP.replace("script-src 'self' https://challenges.cloudflare.com", ATLAS_SCRIPTS)
             .replace("style-src 'self'", "style-src 'self' https://fonts.googleapis.com")
             .replace("font-src 'self'", "font-src 'self' https://fonts.gstatic.com")
             if atlas
@@ -224,6 +235,15 @@ def create_app(
             if len(hops) >= config.proxy_hops:
                 address = hops[-config.proxy_hops]
         return hashlib.sha256(f"{salt}:{address}".encode()).hexdigest()[:24]
+
+    def require_human(request: Request) -> None:
+        """Bot protection on actions that write: a Turnstile token, when Turnstile is on."""
+        if not config.turnstile_secret:
+            return
+        token = request.headers.get("x-turnstile", "")
+        address = request.client.host if request.client else None
+        if not human(config.turnstile_secret, token, address):
+            raise HTTPException(403, "The bot check didn't pass. Reload the page and try again.")
 
     def limit(bucket: str, count: int, window: int = 3600) -> None:
         if not store.hit(bucket, count, window):
@@ -267,6 +287,12 @@ def create_app(
 
     # ---------- rooms ----------
 
+    @app.get("/api/config")
+    def public_config():
+        return {
+            "turnstile_site_key": config.turnstile_site_key if config.turnstile_secret else None
+        }
+
     @app.get("/api/health")
     def health():
         with engine.connect():
@@ -288,6 +314,7 @@ def create_app(
     @app.post("/api/rooms/{slug}/join")
     def join(slug: str, body: Join, request: Request):
         limit(f"join:{client(request)}", 30)
+        require_human(request)
         room = get_room(slug)
         if room["status"] != "open":
             raise HTTPException(409, "This room is closed.")
@@ -319,8 +346,9 @@ def create_app(
         return {"ok": True}
 
     @app.post("/api/rooms/{slug}/statements")
-    def write(body: NewStatement, who: tuple = Depends(participant)):
+    def write(body: NewStatement, request: Request, who: tuple = Depends(participant)):
         room, pid = who
+        require_human(request)
         if store.statements_today(pid) >= STATEMENTS_PER_DAY:
             raise HTTPException(429, f"You can add {STATEMENTS_PER_DAY} statements a day.")
         text_ = " ".join(body.text.split())
@@ -344,6 +372,7 @@ def create_app(
     @app.post("/api/disputes")
     def dispute(body: Dispute, request: Request):
         limit(f"dispute:{client(request)}", 20)
+        require_human(request)
         if body.person_id not in thinker_ids:
             raise HTTPException(400, "Unknown thinker.")
         if body.anchor_id and body.anchor_id not in anchor_ids:
@@ -373,6 +402,7 @@ def create_app(
     @app.post("/api/verify/bsky/start")
     def bsky_start(body: BskyStart, request: Request):
         limit(f"verify:{client(request)}", 20)
+        require_human(request)
         handle = identity.normalise_bsky(body.handle)
         if handle is None:
             raise HTTPException(422, "That doesn't look like a Bluesky handle.")
@@ -484,6 +514,7 @@ def create_app(
     @app.post("/api/profiles")
     def publish(body: Publish, request: Request):
         limit(f"publish:{client(request)}", 10)
+        require_human(request)
         try:
             summary = clean_summary(body.summary, bundle)
             glyph = clean_glyph(body.glyph, bundle)

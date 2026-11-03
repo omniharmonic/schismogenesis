@@ -1,0 +1,272 @@
+{
+ "reviewer": "R2",
+ "reviews": [
+  {
+   "id": "ai-new-kind-of-mind",
+   "slant": "none",
+   "favours": null,
+   "clarity": "ambiguous",
+   "problems": [
+    "'more than' can read as 'rather than' or 'in addition to'"
+   ],
+   "rewrite": "AI is better understood as a new kind of mind than as a tool or artifact."
+  },
+  {
+   "id": "ai-extinction-risk",
+   "slant": "slight",
+   "favours": "ai-safety/ea",
+   "clarity": "ambiguous",
+   "problems": [
+    "'real' sets no threshold, so a tiny risk counts and agreeing is easy",
+    "'real' implies disagreeing means calling it imaginary"
+   ],
+   "rewrite": "Advanced AI poses a non-negligible risk of human extinction."
+  },
+  {
+   "id": "direction-of-technology-is-chosen",
+   "slant": "slight",
+   "favours": "ai-ethics-labour",
+   "clarity": "clear",
+   "problems": [
+    "'collective choice' is warm while 'inevitable process' reads as fatalism",
+    "false binary: no room for mixed causes"
+   ],
+   "rewrite": "Collective choices, not a process that runs its own course, decide how technology reshapes work and society."
+  },
+  {
+   "id": "productivity-benefits-workers-unaided",
+   "slant": "slight",
+   "favours": "ai-ethics-labour",
+   "clarity": "ambiguous",
+   "problems": [
+    "'without any change' makes agreeing sound extreme",
+    "no timeframe for 'better off'"
+   ],
+   "rewrite": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is."
+  },
+  {
+   "id": "freedom-compatible-with-democracy",
+   "slant": "slight",
+   "favours": "d/acc-pluralist",
+   "clarity": "ambiguous",
+   "problems": [
+    "near-truism: disagreeing feels disreputable",
+    "unclear whether 'compatible' means in principle or in practice today",
+    "cannot be clarified without picking one meaning"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "ai-promises-inflated",
+   "slant": "clear",
+   "favours": "ai-ethics-labour",
+   "clarity": "ambiguous",
+   "problems": [
+    "'hype' is already pejorative and 'inflated hype' doubles it",
+    "'public promises' does not say whose promises"
+   ],
+   "rewrite": "Most public claims about what advanced AI will do overstate what it will actually deliver."
+  },
+  {
+   "id": "liberal-ideals-carry-their-own-force",
+   "slant": "slight",
+   "favours": "d/acc-pluralist",
+   "clarity": "double-barrelled",
+   "problems": [
+    "'humane' is an applause word: disagreeing sounds anti-humane",
+    "'liberal and humane' joins two sets of ideals",
+    "'inherent force' is vague"
+   ],
+   "rewrite": "Liberal, humane ideals are strong enough on their own merits to prevail in long contests between societies."
+  },
+  {
+   "id": "competition-limits-harm",
+   "slant": "slight",
+   "favours": "e/acc",
+   "clarity": "ambiguous",
+   "problems": [
+    "'limits' has no degree: any limiting effect makes it true, so agreeing is easy",
+    "fixing the degree would change the meaning"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "human-end-of-ai",
+   "slant": "clear",
+   "favours": "populist-religious",
+   "clarity": "ambiguous",
+   "problems": [
+    "'stage to surpass' frames the opposing view as treating humans as disposable",
+    "'the end that AI serves' is philosophical jargon",
+    "agreeing reads as simply pro-human"
+   ],
+   "rewrite": "AI should exist to serve human beings, rather than to bring about beings meant to succeed humanity."
+  },
+  {
+   "id": "ai-discourse-is-saturated-with-hype",
+   "slant": "clear",
+   "favours": "ai-ethics-labour",
+   "clarity": "clear",
+   "problems": [
+    "'inflated by hype' is loaded and redundant",
+    "presupposes hype is present",
+    "near-duplicate of ai-promises-inflated"
+   ],
+   "rewrite": "Public discussion of AI generally claims more than the technology has so far shown it can do."
+  },
+  {
+   "id": "deployment-harms-over-superintelligence",
+   "slant": "slight",
+   "favours": "ai-ethics-labour",
+   "clarity": "clear",
+   "problems": [
+    "'present' vs unstated future makes the second option sound speculative",
+    "either/or excludes 'both equally'"
+   ],
+   "rewrite": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents."
+  },
+  {
+   "id": "ai-moral-status",
+   "slant": "slight",
+   "favours": "ai-safety/ea",
+   "clarity": "double-barrelled",
+   "problems": [
+    "'may come to' is a very low bar, so agreeing costs little",
+    "'rights' is a far stronger claim than 'moral consideration'",
+    "needs splitting, which changes the item"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "past-technology-is-valid-reference-class",
+   "slant": "none",
+   "favours": null,
+   "clarity": "double-barrelled",
+   "problems": [
+    "'behave and be received' joins how AI develops with how society reacts",
+    "'valid guide' has no degree"
+   ],
+   "rewrite": "Earlier general-purpose technologies are a reliable guide to how AI will develop and how society will respond to it."
+  },
+  {
+   "id": "modesty-is-a-sound-default",
+   "slant": "slight",
+   "favours": "progress-studies",
+   "clarity": "double-barrelled",
+   "problems": [
+    "'deferring' sounds passive vs the more dignified 'one's own reasoning'",
+    "'base rates' and 'average of informed opinion' are different things"
+   ],
+   "rewrite": "On hard questions, base rates or the average of informed opinion are usually a better default than one's own reasoning."
+  },
+  {
+   "id": "popular-self-government-worth-keeping",
+   "slant": "clear",
+   "favours": "populist-religious",
+   "clarity": "ambiguous",
+   "problems": [
+    "'rule by' and 'unelected powers' are pejorative",
+    "'executives' could mean CEOs or elected heads of government",
+    "agreeing feels like simply backing democracy"
+   ],
+   "rewrite": "Political authority should continue to rest on popular self-government rather than on experts, corporate executives or other unelected bodies."
+  },
+  {
+   "id": "market-tech-serves-humans",
+   "slant": "none",
+   "favours": null,
+   "clarity": "clear",
+   "problems": [],
+   "rewrite": null
+  },
+  {
+   "id": "binding-rules-for-frontier-ai",
+   "slant": "none",
+   "favours": null,
+   "clarity": "clear",
+   "problems": [
+    "'binding rules' is unspecified, so mild and strict regulators both agree"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "regulation-does-more-harm",
+   "slant": "slight",
+   "favours": "e/acc",
+   "clarity": "double-barrelled",
+   "problems": [
+    "joins a verdict (more harm than good) with a cause (deterring innovation)",
+    "'stringent' leans negative"
+   ],
+   "rewrite": "Strict AI regulation now would do more harm than good, because it would deter innovation."
+  },
+  {
+   "id": "ai-separate-from-state",
+   "slant": "slight",
+   "favours": "e/acc",
+   "clarity": "ambiguous",
+   "problems": [
+    "'remain' presupposes AI is now separate from the state",
+    "unclear if it covers funding, procurement or only control"
+   ],
+   "rewrite": "AI development should not be directed or controlled by the state."
+  },
+  {
+   "id": "plurality-over-singularity",
+   "slant": "clear",
+   "favours": "d/acc-pluralist",
+   "clarity": "ambiguous",
+   "problems": [
+    "'cooperation across diverse groups' is warm while 'convergence on a singularity' sounds cold and sci-fi",
+    "'singularity' is jargon with several meanings"
+   ],
+   "rewrite": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity."
+  },
+  {
+   "id": "china-rivalry-justifies-tech-push",
+   "slant": "slight",
+   "favours": "e/acc",
+   "clarity": "double-barrelled",
+   "problems": [
+    "presupposes the US has a lead",
+    "'press ahead' and 'protect its lead' are two policies",
+    "presupposition cannot be removed without changing meaning"
+   ],
+   "rewrite": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead."
+  },
+  {
+   "id": "direct-distribution-of-wealth-sound",
+   "slant": "none",
+   "favours": null,
+   "clarity": "double-barrelled",
+   "problems": [
+    "'wealth or ownership' joins cash payments with equity stakes",
+    "'a sound way' (one of many) is a low bar"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "slow-or-stop-frontier-ai",
+   "slant": "none",
+   "favours": null,
+   "clarity": "double-barrelled",
+   "problems": [
+    "'slowed or stopped' lets 'slow only' and 'stop' voters both agree",
+    "splitting would change the item"
+   ],
+   "rewrite": null
+  },
+  {
+   "id": "ai-can-be-given-good-values",
+   "slant": "slight",
+   "favours": "ai-safety/ea",
+   "clarity": "double-barrelled",
+   "problems": [
+    "'can and should' joins feasibility with desirability; almost no one rejects 'should'",
+    "'good outcomes' is an applause phrase",
+    "needs splitting into 'can', which changes the item"
+   ],
+   "rewrite": null
+  }
+ ]
+}

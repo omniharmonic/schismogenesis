@@ -5,12 +5,16 @@ The ridge pattern mirrors apps/arena/public/glyph.js: each value bends the ridge
 
 import io
 import math
+import os
 import pathlib
 from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFont
 
-FONTS = pathlib.Path(__file__).resolve().parents[4] / "apps/arena/fonts"
+FONTS = pathlib.Path(
+    os.environ.get("ARENA_FONTS_DIR")
+    or pathlib.Path(__file__).resolve().parents[4] / "apps/arena/fonts"
+)
 RINGS = 15
 PAPER, INK, MUTED, RIDGE = (233, 237, 242), (27, 36, 48), (93, 104, 119), (47, 75, 217)
 WIDTH, HEIGHT = 1200, 630

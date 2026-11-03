@@ -1,7 +1,7 @@
 """Build the fingerprint bundle and the atlas page for the arena app.
 
 Usage: build_fingerprint.py [atlas.json] [out_dir] [--season] [--version fp-...]
-  --season keeps the statements in the current bundle (docs/fingerprint/05-ATLAS-EXPANSION.md).
+  --season takes the statements and their reviewed wording from seed/season-1.json.
 """
 
 import json
@@ -27,7 +27,10 @@ def main(*args: str) -> None:
     out = paths[1] if len(paths) > 1 else "apps/arena/public"
     current = REPO / out / "fingerprint.json"
     previous = json.loads(current.read_text()) if current.exists() else None
-    season = previous["anchors"] if season_mode and previous else None
+    # the reviewed season file decides the statements and their wording
+    season = (
+        json.loads((REPO / "seed/season-1.json").read_text())["statements"] if season_mode else None
+    )
     version = version or (previous["version"] if previous else None)
     atlas = json.loads((REPO / atlas_path).read_text())
     extra = {"version": version} if version else {}

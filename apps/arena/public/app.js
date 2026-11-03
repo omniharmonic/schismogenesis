@@ -4,6 +4,7 @@ import { fingerprint, teaser } from "./fingerprint.js";
 import { glyphSVG, glyphValues } from "./glyph.js";
 import { esc, mapSVG } from "./map.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
+import { protectedFetch } from "./turnstile.js";
 
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name }) }).catch(() => {});
@@ -252,8 +253,9 @@ function renderReveal() {
       const bytes = crypto.getRandomValues(new Uint8Array(32));
       const key = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
       const clean = Object.fromEntries(Object.entries(answers).filter(([, v]) => [1, -1, 0].includes(v)));
-      const res = await fetch("/api/rooms/ai-futures/join", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key, consent_version: "room-v1", answers: clean }) });
+      let res;
+      try { res = await protectedFetch("/api/rooms/ai-futures/join", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key, consent_version: "room-v1", answers: clean }) }); } catch (e) { $("contribute").disabled = false; toast(e.message); return; }
       if (!res.ok) { $("contribute").disabled = false; toast("That didn't go through. Try again."); return; }
       store.set("fp.room.ai-futures", { participant_id: (await res.json()).participant_id, key });
       $("contribute-card").querySelector("p").textContent = "Added. Results refresh every few minutes.";
@@ -291,7 +293,7 @@ function disputeForm(button, anchorId) {
   form.onsubmit = async (e) => {
     e.preventDefault();
     const f = new FormData(form);
-    const res = await fetch("/api/disputes", { method: "POST", headers: { "Content-Type": "application/json" },
+    const res = await protectedFetch("/api/disputes", { method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ person_id: f.get("person"), anchor_id: anchorId, body: f.get("body"), contact: f.get("contact") || null }) });
     form.outerHTML = res.ok ? `<p>Report sent. Benjamin's team reviews every one.</p>` : `<p class="error">That didn't send. Try again in a moment.</p>`;
   };

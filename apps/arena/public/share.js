@@ -4,6 +4,7 @@ import { canvasBlob, drawCard, shareText } from "./card.js";
 import { highlights, profileSummary } from "./fingerprint.js";
 import { glyphValues, scrambled } from "./glyph.js";
 import { esc } from "./map.js";
+import { humanToken } from "./turnstile.js";
 
 const KEY = "fp.profile";
 const PENDING = "fp.pending-share";
@@ -15,8 +16,15 @@ const local = {
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name }) }).catch(() => {});
 
+const PROTECTED = new Set(["/api/profiles", "/api/verify/bsky/start"]);
+
 async function api(path, opts = {}) {
-  const res = await fetch(path, { ...opts, headers: { "Content-Type": "application/json", ...(opts.headers || {}) } });
+  const extra = {};
+  if (opts.method === "POST" && PROTECTED.has(path)) {
+    const token = await humanToken();
+    if (token) extra["X-Turnstile"] = token;
+  }
+  const res = await fetch(path, { ...opts, headers: { "Content-Type": "application/json", ...extra, ...(opts.headers || {}) } });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
   return data;

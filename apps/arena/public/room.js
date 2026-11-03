@@ -1,5 +1,6 @@
 // The live room. Loaded only after the person chooses "Add my answers to the live room".
 import { esc, mapSVG } from "./map.js";
+import { humanToken } from "./turnstile.js";
 
 const params = new URLSearchParams(location.search);
 const SLUG = /^[a-z0-9-]{2,40}$/.test(params.get("room") || "") ? params.get("room") : "ai-futures";
@@ -17,6 +18,10 @@ const write = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } cat
 async function api(path, { method = "GET", body } = {}) {
   const headers = { "Content-Type": "application/json" };
   if (me) { headers["X-Participant"] = me.participant_id; headers["X-Key"] = me.key; }
+  if (method === "POST" && (path === "/join" || path === "/statements")) {
+    const token = await humanToken();
+    if (token) headers["X-Turnstile"] = token;
+  }
   const res = await fetch(`/api/rooms/${SLUG}${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw Object.assign(new Error(data.error || `Request failed (${res.status})`), { status: res.status });

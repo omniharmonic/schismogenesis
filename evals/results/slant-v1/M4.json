@@ -1,0 +1,22 @@
+{"reviewer": "M4",
+"pairs": [
+{"id": "ai-new-kind-of-mind", "equivalent": true, "reason": "'Best understood as a mind, more than a tool' and 'better understood as a mind than as a tool' state the same comparative judgement.", "fix": null},
+{"id": "direction-of-technology-is-chosen", "equivalent": true, "reason": "'A fixed course of development' renders 'an inevitable process' faithfully, and 'set by collective choices' matches 'decided by collective choice'.", "fix": null},
+{"id": "productivity-benefits-workers-unaided", "equivalent": true, "reason": "'Even if public policy stays as it is' carries the same no-policy-change condition as 'without any change in public policy'.", "fix": null},
+{"id": "ai-promises-inflated", "equivalent": false, "reason": "Softening 'mostly inflated hype' to 'overstated' lowers the bar: someone who thinks AI claims are mildly optimistic but not hype would agree with the rewrite and reject the original.", "fix": "Most public promises about what advanced AI will achieve are greatly exaggerated."},
+{"id": "liberal-ideals-carry-their-own-force", "equivalent": true, "reason": "'Strong enough in themselves to win out' matches 'enough inherent force to prevail'.", "fix": null},
+{"id": "human-end-of-ai", "equivalent": false, "reason": "The original rejects treating humans as any stage to surpass, including through human enhancement, while the rewrite narrows this to AI creating successor beings, so a transhumanist who wants AI to serve humans could agree with the rewrite but not the original.", "fix": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed."},
+{"id": "deployment-harms-over-superintelligence", "equivalent": true, "reason": "Same contrast, same time frame and same scope.", "fix": null},
+{"id": "past-technology-is-valid-reference-class", "equivalent": true, "reason": "'A good guide' and 'a valid guide' mean the same here, and both outcomes (behaviour and reception) are kept.", "fix": null},
+{"id": "modesty-is-a-sound-default", "equivalent": true, "reason": "'Should by default outweigh one's own reasoning' expresses the same default deference as 'a sound default over one's own reasoning'.", "fix": null},
+{"id": "popular-self-government-worth-keeping", "equivalent": true, "reason": "Same normative claim; dropping 'remain' removes only a mild presupposition about the status quo and does not change who agrees.", "fix": null},
+{"id": "market-tech-serves-humans", "equivalent": true, "reason": "'Good for people on balance' matches 'serves human beings on balance'.", "fix": null},
+{"id": "regulation-does-more-harm", "equivalent": true, "reason": "The same claim with the same causal mechanism (deterring innovation) and the same time frame (now).", "fix": null},
+{"id": "ai-separate-from-state", "equivalent": true, "reason": "'Not directed or controlled by the state' matches 'separate from state direction and control'.", "fix": null},
+{"id": "plurality-over-singularity", "equivalent": true, "reason": "Same contrast; 'reach a technological singularity' is a fair plain rendering of 'convergence on a singularity'.", "fix": null},
+{"id": "china-rivalry-justifies-tech-push", "equivalent": true, "reason": "Only near-synonyms are swapped ('good' for 'sound', 'push' for 'press', 'keep' for 'protect').", "fix": null}
+],
+"new": [
+{"id": "risk-testing-cannot-prove-safety", "slant": "slight", "favours": "AI-safety and precautionary camp", "clarity": "clear", "problems": "'Establish' could be read as proving safety with certainty, which almost everyone concedes, or as giving adequate assurance, which is contested, so agreement rates may hinge on that reading.", "rewrite": "Testing alone cannot give adequate assurance that a general-purpose AI system is safe."},
+{"id": "trial-and-error-unsafe-for-powerful-tech", "slant": "slight", "favours": "precautionary / AI-risk camp (against iterative-deployment optimists)", "clarity": "ambiguous", "problems": "'Sufficiently powerful' is an open threshold that makes the claim close to true by definition, since anyone can agree by picturing a powerful enough technology; it also does not say whether it applies to current AI.", "rewrite": "For the most powerful technologies, such as advanced AI, learning from mistakes after deployment is not a workable strategy."}
+]}

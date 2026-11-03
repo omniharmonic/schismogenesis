@@ -1,0 +1,172 @@
+{
+ "season": "season-1",
+ "status": "reviewed: blind slant review (R1, R2), meaning checks (M3, M4; M5, M6). Adopted 2026-11-03.",
+ "rule": "display text may differ from the proposition only when two blind reviewers judge them equivalent",
+ "statements": [
+  {
+   "id": "ai-new-kind-of-mind",
+   "set": "being",
+   "proposition": "AI is best understood as a new kind of mind, more than a tool or artifact.",
+   "display": "AI is better understood as a new kind of mind than as a tool or artifact.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-extinction-risk",
+   "set": "being",
+   "proposition": "Advanced AI poses a real risk of human extinction.",
+   "review": "kept as written"
+  },
+  {
+   "id": "direction-of-technology-is-chosen",
+   "set": "being",
+   "proposition": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
+   "display": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "productivity-benefits-workers-unaided",
+   "set": "being",
+   "proposition": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
+   "display": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "freedom-compatible-with-democracy",
+   "set": "being",
+   "proposition": "Individual freedom and democracy are compatible.",
+   "review": "kept as written"
+  },
+  {
+   "id": "ai-promises-inflated",
+   "set": "being",
+   "proposition": "Public promises about advanced AI are mostly inflated hype.",
+   "review": "kept as written"
+  },
+  {
+   "id": "liberal-ideals-carry-their-own-force",
+   "set": "being",
+   "proposition": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
+   "display": "Liberal and humane ideals are strong enough in themselves to win out in long contests between societies.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "competition-limits-harm",
+   "set": "being",
+   "proposition": "Market competition limits the harm that economic actors can do.",
+   "review": "kept as written"
+  },
+  {
+   "id": "human-end-of-ai",
+   "set": "values",
+   "proposition": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
+   "display": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "ai-fear-exceeds-evidence",
+   "set": "values",
+   "proposition": "Public fear of AI exceeds what the evidence supports.",
+   "replaces": "ai-discourse-is-saturated-with-hype",
+   "review": "kept as written"
+  },
+  {
+   "id": "deployment-harms-over-superintelligence",
+   "set": "values",
+   "proposition": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
+   "display": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-moral-status",
+   "set": "values",
+   "proposition": "AI systems may come to merit rights or moral consideration.",
+   "review": "kept as written"
+  },
+  {
+   "id": "past-technology-is-valid-reference-class",
+   "set": "values",
+   "proposition": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
+   "display": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "modesty-is-a-sound-default",
+   "set": "values",
+   "proposition": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
+   "display": "On hard questions, base rates or the average of informed opinion should by default outweigh one's own reasoning.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "popular-self-government-worth-keeping",
+   "set": "values",
+   "proposition": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
+   "display": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "market-tech-serves-humans",
+   "set": "values",
+   "proposition": "Market-driven technological development serves human beings on balance.",
+   "display": "On balance, market-driven technological development is good for people.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "binding-rules-for-frontier-ai",
+   "set": "action",
+   "proposition": "Governments should impose binding rules on frontier AI developers.",
+   "review": "kept as written"
+  },
+  {
+   "id": "regulation-does-more-harm",
+   "set": "action",
+   "proposition": "Stringent AI regulation now would do more harm than good by deterring innovation.",
+   "display": "Strict AI regulation now would do more harm than good, because it would deter innovation.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-separate-from-state",
+   "set": "action",
+   "proposition": "AI development should remain separate from state direction and control.",
+   "display": "AI development should not be directed or controlled by the state.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "plurality-over-singularity",
+   "set": "action",
+   "proposition": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
+   "display": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "china-rivalry-justifies-tech-push",
+   "set": "action",
+   "proposition": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
+   "display": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "direct-distribution-of-wealth-sound",
+   "set": "action",
+   "proposition": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
+   "review": "kept as written"
+  },
+  {
+   "id": "slow-or-stop-frontier-ai",
+   "set": "action",
+   "proposition": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
+   "review": "kept as written"
+  },
+  {
+   "id": "plan-control-early",
+   "set": "action",
+   "proposition": "Serious work on controlling advanced AI should happen well before such systems exist.",
+   "replaces": "ai-can-be-given-good-values",
+   "review": "kept as written"
+  }
+ ],
+ "notes": [
+  "ai-promises-inflated keeps its original wording: no rewrite passed both meaning checks. It is deliberately mirrored by ai-fear-exceeds-evidence, which leans the other way.",
+  "ai-fear-exceeds-evidence and plan-control-early were rated slightly slanted in opposite directions; rewrites that fixed this changed their meaning, so both keep their wording.",
+  "Replaced before launch: ai-discourse-is-saturated-with-hype (a near-duplicate of ai-promises-inflated) and ai-can-be-given-good-values (asked two questions at once: can and should)."
+ ]
+}

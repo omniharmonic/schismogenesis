@@ -237,3 +237,5 @@ dialog.sheet::backdrop { background: rgb(10 14 20 / 0.55); }
 .people-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
 .people-grid a { display: flex; gap: 12px; align-items: center; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: var(--sheet); }
 .people-grid .small { color: var(--muted); }
+
+.turnstile-box { position: fixed; z-index: 70; left: 50%; bottom: 24px; transform: translateX(-50%); }

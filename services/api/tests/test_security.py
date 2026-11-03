@@ -101,3 +101,29 @@ def test_bsky_code_is_long_and_old_posts_do_not_count():
 
     assert check_bsky("victim.bsky.social", code, fetch, after=now) is None
     assert check_bsky("victim.bsky.social", code, fetch, after=now - datetime.timedelta(days=3))
+
+
+@pytest.mark.db
+def test_turnstile_guards_writes_when_switched_on(engine):
+    Store(engine).ensure_room("ai-futures", "AI futures", BUNDLE)
+    seen = []
+
+    def human(secret, token, address):
+        seen.append(token)
+        return token == "good-token"
+
+    on = Config(turnstile_site_key="site", turnstile_secret="secret")
+    client = TestClient(create_app(engine, config=on, human=human))
+    assert client.get("/api/config").json() == {"turnstile_site_key": "site"}
+    body = {"key": "k" * 40, "consent_version": "room-v1", "answers": {}}
+    assert client.post("/api/rooms/ai-futures/join", json=body).status_code == 403
+    ok = client.post("/api/rooms/ai-futures/join", json=body, headers={"X-Turnstile": "good-token"})
+    assert ok.status_code == 200
+    dispute = {"person_id": "vitalik-buterin", "body": "Misread this view"}
+    assert client.post("/api/disputes", json=dispute).status_code == 403
+    assert (
+        client.post("/api/fairness", json={"rating": 3}).status_code == 200
+    )  # low-stakes stays open
+    off = TestClient(create_app(engine, config=Config(), human=human))
+    assert off.get("/api/config").json() == {"turnstile_site_key": None}
+    assert off.post("/api/rooms/ai-futures/join", json=body).status_code == 200

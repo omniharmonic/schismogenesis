@@ -157,3 +157,11 @@ Benjamin, 2026-11-02: "make it even more robust to prep for a real launch… a s
 - one live profile per verified account;
 - a bridge now also needs its bootstrapped lower bound of 0.65 or more.
 Deployment waits on his choice of host and domain.
+
+### D-31.18 Atlas expansion: voices approved, Vercel and Neon, bot protection, slant review
+Benjamin, 2026-11-03: "deeper on the statements. voices approved. keep widening. vercel and neon. bot protection is good. blind slant review is needed. keep digging deeper. let's make this robust."
+- The 29 candidate voices in `seed/drafts/ATLAS-EXPANSION-CANDIDATES.md` are approved. 18 are new to the seed and 11 were already seed landmarks.
+- Conflicts of interest stay disclosed in each record's `conflict_note` and on the About page: Jack Clark (Anthropic co-founder), and possible ones for Divya Siddarth and Anton Korinek.
+- Hosting is Vercel with Neon.
+- Cloudflare Turnstile is on for bot protection.
+- A blind slant review of the 24 statements comes before launch.
