@@ -1,6 +1,8 @@
 """Write reader tasks: one thinker's accepted claims against the season's fingerprint statements.
 
-Usage: prepare_anchor_stances.py <batch> <person-id> [<person-id> ...]
+Usage: prepare_anchor_stances.py <batch> [--top N] <person-id> [<person-id> ...]
+With --top N, each task keeps the N claims closest in meaning to any statement (bge-large, local),
+so readers see the evidence that matters; quotes are still checked in code.
 Tasks go to evals/queue/<batch>/<person>.json; readers answer with prompt anchor_stance_v1 into
 evals/results/<batch>/<reader>-<person>.json (docs/fingerprint/05-ATLAS-EXPANSION.md step E6).
 """
@@ -15,7 +17,31 @@ from sqlalchemy import text
 BUNDLE = pathlib.Path("apps/arena/public/fingerprint.json")
 
 
-def main(batch: str, *people: str) -> None:
+_MODEL = []
+
+
+def _model():
+    if not _MODEL:
+        from sentence_transformers import SentenceTransformer
+
+        _MODEL.append(SentenceTransformer("BAAI/bge-large-en-v1.5"))
+    return _MODEL[0]
+
+
+def shortlist(claims: list[dict], statements: list[dict], top: int) -> list[dict]:
+    if len(claims) <= top:
+        return claims
+    model = _model()
+    c = model.encode([x["text"] for x in claims], normalize_embeddings=True)
+    s = model.encode([x["text"] for x in statements], normalize_embeddings=True)
+    best = (c @ s.T).max(1)
+    keep = sorted(range(len(claims)), key=lambda i: -best[i])[:top]
+    return [claims[i] for i in sorted(keep)]
+
+
+def main(batch: str, *args: str) -> None:
+    top = int(args[args.index("--top") + 1]) if "--top" in args else 0
+    people = [a for a in args if not a.startswith("--") and not a.isdigit()]
     bundle = json.loads(BUNDLE.read_text())
     statements = [{"id": a["id"], "text": a["text"]} for a in bundle["anchors"]]
     queue = pathlib.Path("evals/queue") / batch
@@ -34,6 +60,8 @@ def main(batch: str, *people: str) -> None:
                 for r in rows
                 if r[2]
             ]
+            if top:
+                claims = shortlist(claims, statements, top)
             task = {"person": person, "prompt": "anchor_stance_v1", "statements": statements,
                     "claims": claims}  # fmt: skip
             (queue / f"{person}.json").write_text(json.dumps(task, ensure_ascii=False, indent=1))

@@ -1,60 +1,61 @@
-# Deploying the AI Futures Fingerprint
+# Deploying the AI Futures Fingerprint (Vercel and Neon)
 
-For Benjamin, or whoever runs the launch. Nothing here has been done yet. Each step that makes something public, or that costs money, needs Benjamin's yes first.
+Benjamin chose Vercel and Neon on 2026-11-03 (D-31.18). This is what is live, and how to change it.
 
-## What runs in production
-- **One web container** (`infra/arena/Dockerfile`, about 800 MB). It serves the pages, the API and the share images. No GPU and no paid API.
-- **One Postgres database.** Neon's free tier works. Use a **separate production branch or project**, not the dev database, which holds the synthetic demo voters.
+## What's live
+- **Site:** https://dialogos-fingerprint.vercel.app, from the Vercel project `dialogos-fingerprint` on the team "omniharmonic's projects".
+  - A Python function (FastAPI) serves the pages, API and share images.
+  - It's pinned to the `iad1` region, next to the database.
+- **Database:** Neon project `dialogos-fingerprint` (id `super-haze-94320885`, region aws-us-east-1), reached through the pooled connection.
+  - It holds only real data; the dev project `schismogenesis` holds the synthetic demo voters.
+  - Migrations are at `0010_profiles`, and the room `ai-futures` is set up with the 24 season-1 statements.
+- **Launch gate:** while `ARENA_SITE_PASSWORD` is set, every page asks for that password. `/api/health` stays open for monitoring. The password is in `.env.production` on Benjamin's machine.
 
-## 1. Choose a host (Benjamin)
-Any container host works. Prices change, so check current pricing before choosing.
-- **Fly.io, Render or Railway:** an always-on small container, usually a few dollars a month. This is the simplest choice.
-- **Google Cloud Run:** scales to zero and has a free tier, but needs a Google Cloud billing account.
-- **Vercel:** possible in principle (Python functions), but this app's scientific libraries are large. Check Vercel's current function size limit before choosing it.
+## Secrets
+They're kept in `.env.production`, which is git-ignored and never committed. They're also set in Vercel for production and preview.
 
-Claude's recommendation: Fly.io or Render, with Neon for the database.
-
-## 2. Create the production database
-1. In Neon, create a project or branch called `fingerprint-prod`, and copy its connection string.
-2. Apply the schema from your machine:
-   ```
-   ARENA_DATABASE_URL='postgresql://…prod…' make migrate
-   ARENA_DATABASE_URL='postgresql://…prod…' uv run python scripts/rooms.py ensure
-   ```
-   Never run `scripts/rooms.py demo` against production. The demo room's fake voters belong only in dev.
-
-## 3. Set the secrets on the host
-
-| Variable | Value |
+| Variable | Purpose |
 |---|---|
-| `ARENA_DATABASE_URL` | the production connection string |
-| `ARENA_ADMIN_TOKEN` | a random string of 32+ characters (`python -c "import secrets; print(secrets.token_urlsafe(32))"`); keep it in a password manager |
-| `ARENA_PUBLIC_URL` | `https://your-domain` (used in share links and preview cards) |
-| `ARENA_X_CLIENT_ID`, `ARENA_X_CLIENT_SECRET` | only if X sign-in is on (step 5) |
-| `ARENA_CLIENT_IP_HEADER` | the header your host sets to the visitor's real address: `Fly-Client-IP` on Fly.io, `CF-Connecting-IP` behind Cloudflare. Without it, the app counts one proxy hop from the right of `X-Forwarded-For`; set `ARENA_PROXY_HOPS` if there are more. Rate limits depend on this being right. |
+| `ARENA_DATABASE_URL` | Neon pooled connection string |
+| `ARENA_ADMIN_TOKEN` | admin page token (`/admin.html`) |
+| `ARENA_RATE_SALT` | shared secret, so rate limits hold across instances |
+| `ARENA_PUBLIC_URL` | `https://dialogos-fingerprint.vercel.app`, or the custom domain once set |
+| `ARENA_SITE_PASSWORD` | the pre-launch gate; **delete this variable to launch** |
+| `ARENA_TURNSTILE_SITE_KEY`, `ARENA_TURNSTILE_SECRET` | bot protection, which switches on when both are set (step below) |
+| `ARENA_X_CLIENT_ID`, `ARENA_X_CLIENT_SECRET` | optional "Sign in with X" |
 
-Also cap request bodies at 64 KB at the host or proxy if it allows (the app enforces this too).
+## Redeploy after changes
+```
+uv run python scripts/build_vercel.py          # assembles build/vercel (web app only)
+cd build/vercel && vercel deploy --prod --yes --scope omniharmonics-projects
+```
+`build/vercel` keeps its `.vercel` link between builds. Schema changes come first: run `ARENA_DATABASE_URL=… make migrate` against production, then deploy.
 
-The image already sets `ARENA_ENV=production`, `ARENA_TRUST_PROXY=1` and port 8080. In production the app refuses to start without a strong admin token.
+## Switch on bot protection (Cloudflare Turnstile): about 2 minutes, Benjamin
+1. In a Cloudflare account of your choice, go to Turnstile → Add widget.
+   - Name: Dialogos.
+   - Hostnames: `dialogos-fingerprint.vercel.app`, plus the custom domain when you have one.
+   - Mode: "Managed".
+2. Copy the site key and the secret key.
+3. In the project folder:
+   ```
+   cd build/vercel
+   vercel env add ARENA_TURNSTILE_SITE_KEY production   # paste the site key
+   vercel env add ARENA_TURNSTILE_SECRET production     # paste the secret
+   vercel deploy --prod --yes --scope omniharmonics-projects
+   ```
+   Joining, publishing, verifying, writing statements and reporting misreadings then need a passing check. Most people never see it.
 
-## 4. Deploy and check
-1. Build and push with the host's own tool, for example `fly deploy --dockerfile infra/arena/Dockerfile`.
-2. Open `https://your-domain/api/health`. It should return `{"ok": true, …}`.
-3. Take the fingerprint once on a phone, publish an anonymous link, and paste it into X's and Bluesky's composers to see the preview card. Then delete the link.
-4. Open `/admin.html`, load it with the admin token, and check the daily counts appear.
-
-## 5. X sign-in (optional)
-1. At developer.x.com, create a project and app, and switch on OAuth 2.0 as a "Web App".
-2. Callback URL: `https://your-domain/auth/x/callback`. Website: `https://your-domain`.
-3. Scopes are read-only (`users.read tweet.read`); we only read name, handle and picture.
-4. Put the client ID and secret into the host's secrets and redeploy. The X option then appears in the share sheet.
-5. Confirm the X API tier you're on allows "Sign in with X" before announcing it.
-
-## 6. Domain
-Point the domain at the host (each host documents its DNS records), then set `ARENA_PUBLIC_URL` to match.
+## Launch
+1. Set the custom domain in Vercel, update `ARENA_PUBLIC_URL`, and add the domain to the Turnstile widget.
+2. Remove the gate: `vercel env rm ARENA_SITE_PASSWORD production`, then redeploy.
+3. Check from a phone:
+   - take it once;
+   - publish an anonymous link and paste it into X's composer to see the preview card;
+   - delete the link.
 
 ## Day to day
-- **Moderation:** `/admin.html`. Approve or reject room statements, read misreading reports, and hide profiles.
-- **Counts:** the admin page shows daily totals for starts, finishes, shares and publishes.
-- **Load:** `make load-test` checks a 10,000-person room locally (about 9 seconds on an idle laptop). Reports are cached and recomputed at most once a minute per room.
-- **Rolling back:** redeploy the previous image. Migrations only add tables, so older images keep working.
+- **Admin:** `/admin.html` with `ARENA_ADMIN_TOKEN`. Moderation, misreading reports, profiles and daily counts.
+- **Errors:** Vercel → project → Logs, or the Vercel MCP `get_runtime_errors`.
+- **Rolling back:** in Vercel, promote the previous deployment. Migrations only add tables, so older deployments keep working.
+- **Container alternative:** `infra/arena/Dockerfile` still builds the same app for any container host.
