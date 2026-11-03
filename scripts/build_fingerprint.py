@@ -1,6 +1,7 @@
 """Build the fingerprint bundle and the atlas page for the arena app.
 
-Usage: build_fingerprint.py [atlas.json] [out_dir]
+Usage: build_fingerprint.py [atlas.json] [out_dir] [--season] [--version fp-...]
+  --season keeps the statements in the current bundle (docs/fingerprint/05-ATLAS-EXPANSION.md).
 """
 
 import json
@@ -18,11 +19,19 @@ def flagged_ids() -> set[str]:
     return {f["landmark_id"] for f in seed["flags_for_benjamin"]["landmarks"]}
 
 
-def main(
-    atlas_path: str = "apps/arena/source/atlas-v1.json", out: str = "apps/arena/public"
-) -> None:
+def main(*args: str) -> None:
+    season_mode = "--season" in args
+    version = args[args.index("--version") + 1] if "--version" in args else None
+    paths = [a for a in args if not a.startswith("--") and a != version]
+    atlas_path = paths[0] if paths else "apps/arena/source/atlas-v1.json"
+    out = paths[1] if len(paths) > 1 else "apps/arena/public"
+    current = REPO / out / "fingerprint.json"
+    previous = json.loads(current.read_text()) if current.exists() else None
+    season = previous["anchors"] if season_mode and previous else None
+    version = version or (previous["version"] if previous else None)
     atlas = json.loads((REPO / atlas_path).read_text())
-    bundle = build_bundle(atlas, flagged_ids())
+    extra = {"version": version} if version else {}
+    bundle = build_bundle(atlas, flagged_ids(), season=season, **extra)
     target = REPO / out
     (target / "fingerprint.json").write_text(json.dumps(bundle, ensure_ascii=False, indent=1))
     subprocess.run(
@@ -38,6 +47,14 @@ def main(
     print(f"{len(bundle['anchors'])} anchors -> {target / 'fingerprint.json'}")
     for line in bundle["selection_log"]:
         print("  note:", line)
+
+
+def _option(args: tuple[str, ...], name: str) -> str | None:
+    return args[args.index(name) + 1] if name in args and args.index(name) + 1 < len(args) else None
+
+
+def _values(args: tuple[str, ...]) -> set[str]:
+    return {v for v in [_option(args, "--version")] if v}
 
 
 if __name__ == "__main__":

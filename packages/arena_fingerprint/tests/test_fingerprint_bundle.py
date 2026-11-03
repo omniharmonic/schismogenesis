@@ -71,8 +71,20 @@ def test_bundle_stated_quotes_and_guards(atlas):
         build_bundle(atlas, flagged={"vitalik-buterin"})
 
 
-def test_committed_bundle_is_current(atlas):
+def test_committed_bundle_is_current():
+    """The committed bundle is what the committed atlas gives, with the season's statements."""
     committed = json.loads((HERE.parents[2] / "apps/arena/public/fingerprint.json").read_text())
-    assert committed == json.loads(
-        json.dumps(build_bundle(atlas, flagged=set()), ensure_ascii=False)
+    source = HERE.parents[2] / "apps/arena/source" / f"{committed['atlas_version']}.json"
+    atlas = json.loads(source.read_text())
+    rebuilt = build_bundle(
+        atlas, flagged=set(), season=committed["anchors"], version=committed["version"]
     )
+    assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
+
+
+def test_season_keeps_statements_and_order(atlas):
+    first = build_bundle(atlas, flagged=set())
+    again = build_bundle(atlas, flagged=set(), season=first["anchors"], version="fp-x")
+    assert [a["id"] for a in again["anchors"]] == [a["id"] for a in first["anchors"]]
+    assert [a["set"] for a in again["anchors"]] == [a["set"] for a in first["anchors"]]
+    assert again["stances"] == first["stances"] and again["version"] == "fp-x"

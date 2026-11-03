@@ -46,7 +46,24 @@ def initials(name: str) -> str:
     return (parts[0][0] + parts[-1][0]).upper() if len(parts) > 1 else name[:2].upper()
 
 
-def build_bundle(atlas: dict, flagged: set[str]) -> dict:
+def frozen_anchors(ideas: list[dict], season: list[dict], camps: dict) -> list[dict]:
+    """Season anchors: the same statements in the same order, with today's holders."""
+    from arena_fingerprint.anchors import split_score
+
+    by_id = {i["id"]: i for i in ideas}
+    if missing := [a["id"] for a in season if a["id"] not in by_id]:
+        raise BundleError(f"season statements missing from the atlas: {missing}")
+    return [
+        {**by_id[a["id"]], "set": a["set"],
+         "split_score": split_score(stated_stances(by_id[a["id"]]), camps)}
+        for a in season
+    ]  # fmt: skip
+
+
+def build_bundle(
+    atlas: dict, flagged: set[str], season: list[dict] | None = None, version: str = VERSION
+) -> dict:
+    """Build the browser bundle. With `season`, keep those statements instead of reselecting."""
     people = {p["id"]: p for p in atlas["people"]}
     if bad := flagged & set(people):
         raise BundleError(f"flagged landmarks must not appear: {sorted(bad)}")
@@ -55,7 +72,13 @@ def build_bundle(atlas: dict, flagged: set[str]) -> dict:
     for camp in CAMPS:
         if missing := set(camp["members"]) - set(people):
             raise BundleError(f"camp {camp['id']} names unknown thinkers: {sorted(missing)}")
-    anchors, log = select_anchors(atlas["ideas"], camps)
+    if season:
+        anchors, log = (
+            frozen_anchors(atlas["ideas"], season, camps),
+            ["statements frozen for the season"],
+        )
+    else:
+        anchors, log = select_anchors(atlas["ideas"], camps)
     for person in sorted(people):
         count = sum(1 for i in anchors if person in stated_stances(i))
         if count < COVER_TARGET:
@@ -81,7 +104,7 @@ def build_bundle(atlas: dict, flagged: set[str]) -> dict:
             entry[person] = item
         stances[idea["id"]] = entry
     return {
-        "version": VERSION,
+        "version": version,
         "atlas_version": "atlas-v1",
         "sets": SETS,
         "layers": LAYERS,
