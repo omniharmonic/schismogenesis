@@ -29,7 +29,7 @@ function drawPrint(c, values, x, y, size, color) {
 
 export const twistLine = (s) => `…but sides with the ${s.ally} ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
 
-export function drawCard(canvas, values, result, { dark = false } = {}) {
+export function drawCard(canvas, values, result, { dark = false, thinkers = null } = {}) {
   const W = 1200, H = 675;
   canvas.width = W; canvas.height = H;
   const c = canvas.getContext("2d");
@@ -56,7 +56,7 @@ export function drawCard(canvas, values, result, { dark = false } = {}) {
     wrap(c, twistLine(result.signature[0]), 540).slice(0, 4).forEach((l, i) => c.fillText(l, left, y + i * 36));
   }
   c.fillStyle = muted; c.font = `500 22px ${SANS}`;
-  c.fillText(`Names hidden while answering. 27 thinkers, read from their public work. ${location.host}`, 50, H - 36);
+  c.fillText(`Names hidden while answering. ${thinkers ? `${thinkers} thinkers` : "Thinkers"}, read from their public work. ${location.host}`, 50, H - 36);
   return canvas;
 }
 

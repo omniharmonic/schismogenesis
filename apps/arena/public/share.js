@@ -79,7 +79,7 @@ export async function openShare({ bundle, answers, result, toast, verified = nul
     $("#post-x").onclick = () => { window.open(`https://x.com/intent/post?text=${encodeURIComponent(shareText(result))}&url=${encodeURIComponent(url)}`, "_blank", "noopener"); event("share_x"); };
     $("#post-bsky").onclick = () => { window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`, "_blank", "noopener"); event("share_bsky"); };
     $("#card").onclick = async () => {
-      const blob = await canvasBlob(drawCard(document.createElement("canvas"), values, result));
+      const blob = await canvasBlob(drawCard(document.createElement("canvas"), values, result, { thinkers: bundle.thinkers.length }));
       const a = document.createElement("a"); a.download = "ai-futures-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
       event("save_card");
     };

@@ -72,7 +72,7 @@ function render(r) {
   });
   el.innerHTML = `${tiles}
     <h2>Statement by statement</h2>
-    <div class="legend"><span><i class="key" style="background:var(--yes)"></i>Agree</span><span><i class="key" style="background:var(--mid)"></i>Unsure</span><span><i class="key" style="background:var(--no)"></i>Disagree</span><span><i class="key" style="background:var(--ink);width:3px"></i>How the 27 thinkers split</span></div>
+    <div class="legend"><span><i class="key" style="background:var(--yes)"></i>Agree</span><span><i class="key" style="background:var(--mid)"></i>Unsure</span><span><i class="key" style="background:var(--no)"></i>Disagree</span><span><i class="key" style="background:var(--ink);width:3px"></i>How the thinkers split</span></div>
     <div class="sortbar" role="group" aria-label="Sort statements">
       <button data-sort="split" aria-pressed="${sort === "split"}">Most divided first</button>
       <button data-sort="gap" aria-pressed="${sort === "gap"}">Furthest from the thinkers</button>

@@ -54,7 +54,7 @@ async function main() {
     <table class="camps-table"><tr><th scope="col">Camp</th><th scope="col">With</th><th scope="col">Against</th><th scope="col">Deepest split</th></tr>
       ${s.camps.map((c) => `<tr><th scope="row">${esc(c.label)}</th><td class="cell-agree">${c.agreed}</td><td class="cell-split">${c.opposed}</td><td>${c.deepest ? LAYER[c.deepest] : "none"}</td></tr>`).join("")}</table>
     ${answersHTML}
-    <div class="room-card"><h2 style="margin-top:0">Where do you sit?</h2><p>Answer 24 statements with the names hidden, then see which of 27 thinkers you agree with.</p>
+    <div class="room-card"><h2 style="margin-top:0">Where do you sit?</h2><p>Answer 24 statements with the names hidden, then see which of ${bundle.thinkers.length} thinkers you agree with.</p>
       <a class="button primary" href="/">Take the fingerprint</a></div>
     ${isOwner ? `<p class="small muted">This is your page. <button class="link-button" id="delete">Delete it</button></p>` : ""}
     <p class="small muted">Result as computed in the publisher's browser. Thinkers are read by machine from their public work and haven't reviewed this.</p>`;

@@ -44,7 +44,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   const pos = Object.fromEntries(bundle.thinkers.map((t) => [t.id, [X(t.x), Y(t.y)]]));
   const scoreOf = Object.fromEntries((result?.ranked || []).map((r) => [r.id, r]));
   const near = new Set((result?.nearest || []).map((r) => r.id));
-  let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Map of 27 thinkers grouped into schools${result ? ", with your approximate position" : ""}">`;
+  let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Map of ${bundle.thinkers.length} thinkers grouped into schools${result ? ", with your approximate position" : ""}">`;
   for (const s of bundle.schools) {
     const pts = s.members.map((m) => pos[m]).filter(Boolean);
     const [lx, ly] = [Math.min(...pts.map((p) => p[0])), Math.min(...pts.map((p) => p[1]))];

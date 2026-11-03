@@ -26,7 +26,7 @@ function slides(bundle, answers, r) {
   const out = [];
   out.push({ ...T.ultramarine, print: true,
     eyebrow: "This is your fingerprint.",
-    title: `${r.answered} statements. 27 thinkers. One print.`,
+    title: `${r.answered} statements. ${bundle.thinkers.length} thinkers. One print.`,
     lede: "Every ridge bends with one of your answers. No one else's looks quite like it." });
   out.push({ ...T.ink, eyebrow: "Your neighbourhood",
     title: `The ${r.schools[0].label}`,

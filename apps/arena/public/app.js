@@ -233,8 +233,9 @@ function renderReveal() {
 
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
   const values = glyphValues(bundle, answers);
-  drawCard($("card"), values, r, { dark });
-  document.fonts?.ready.then(() => drawCard($("card"), values, r, { dark }));
+  const thinkers = bundle.thinkers.length;
+  drawCard($("card"), values, r, { dark, thinkers });
+  document.fonts?.ready.then(() => drawCard($("card"), values, r, { dark, thinkers }));
   $("download").onclick = async () => {
     const blob = await canvasBlob($("card"));
     const a = document.createElement("a");
@@ -314,6 +315,7 @@ async function boot() {
   }
   $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
   $("hero-print").firstElementChild.classList.add("hero-print");
+  $("thinker-count").textContent = String(bundle.thinkers.length);
   $("adult").onchange = () => { $("start").disabled = !$("adult").checked; };
   $("start").onclick = () => { if (index >= bundle.anchors.length) index = 0; event("start"); startQuiz(); };
   if (Object.keys(answers).length && index >= bundle.anchors.length) {
