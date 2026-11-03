@@ -9,6 +9,7 @@ members = [
     "arena-cli",
     "arena-core",
     "arena-extract",
+    "arena-fingerprint",
     "arena-harness",
     "arena-ingest",
     "arena-llm",
@@ -16,6 +17,7 @@ members = [
     "arena-market",
     "arena-operator",
     "arena-reputation",
+    "arena-rounds",
     "arena-worker",
     "dialogos-arena",
 ]
@@ -74,28 +76,54 @@ source = { editable = "packages/arena_agents" }
 name = "arena-api"
 version = "0.0.0"
 source = { editable = "services/api" }
+dependencies = [
+    { name = "arena-core" },
+    { name = "arena-fingerprint" },
+    { name = "arena-rounds" },
+    { name = "fastapi" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "sqlalchemy" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "arena-core", editable = "packages/arena_core" },
+    { name = "arena-fingerprint", editable = "packages/arena_fingerprint" },
+    { name = "arena-rounds", editable = "packages/arena_rounds" },
+    { name = "fastapi", specifier = ">=0.115" },
+    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
+    { name = "sqlalchemy", specifier = ">=2" },
+    { name = "uvicorn", specifier = ">=0.30" },
+]
 
 [[package]]
 name = "arena-cli"
 version = "0.0.0"
 source = { editable = "scripts" }
 dependencies = [
+    { name = "arena-api" },
     { name = "arena-core" },
     { name = "arena-extract" },
+    { name = "arena-fingerprint" },
     { name = "arena-harness" },
     { name = "arena-ingest" },
     { name = "arena-llm" },
+    { name = "arena-rounds" },
     { name = "rich" },
     { name = "typer" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "arena-api", editable = "services/api" },
     { name = "arena-core", editable = "packages/arena_core" },
     { name = "arena-extract", editable = "packages/arena_extract" },
+    { name = "arena-fingerprint", editable = "packages/arena_fingerprint" },
     { name = "arena-harness", editable = "evals/harness" },
     { name = "arena-ingest", editable = "packages/arena_ingest" },
     { name = "arena-llm", editable = "packages/arena_llm" },
+    { name = "arena-rounds", editable = "packages/arena_rounds" },
     { name = "rich", specifier = ">=13" },
     { name = "typer", specifier = ">=0.12" },
 ]
@@ -156,6 +184,11 @@ requires-dist = [
     { name = "transformers", marker = "extra == 'nli'", specifier = ">=4.44" },
 ]
 provides-extras = ["nli"]
+
+[[package]]
+name = "arena-fingerprint"
+version = "0.0.0"
+source = { editable = "packages/arena_fingerprint" }
 
 [[package]]
 name = "arena-harness"
@@ -229,6 +262,23 @@ source = { editable = "services/operator" }
 name = "arena-reputation"
 version = "0.0.0"
 source = { editable = "packages/arena_reputation" }
+
+[[package]]
+name = "arena-rounds"
+version = "0.0.0"
+source = { editable = "packages/arena_rounds" }
+dependencies = [
+    { name = "arena-fingerprint" },
+    { name = "numpy" },
+    { name = "scikit-learn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "arena-fingerprint", editable = "packages/arena_fingerprint" },
+    { name = "numpy", specifier = ">=2" },
+    { name = "scikit-learn", specifier = ">=1.5" },
+]
 
 [[package]]
 name = "arena-worker"
@@ -435,6 +485,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "httpx2" },
     { name = "hypothesis" },
     { name = "numpy" },
     { name = "pyright" },
@@ -447,11 +498,29 @@ requires-dist = [{ name = "arena-cli", editable = "scripts" }]
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "httpx2", specifier = ">=2.16.0" },
     { name = "hypothesis", specifier = ">=3" },
     { name = "numpy", specifier = ">=2" },
     { name = "pyright", specifier = ">=1.1.380" },
     { name = "pytest", specifier = ">=8" },
     { name = "ruff", specifier = ">=0.6" },
+]
+
+[[package]]
+name = "fastapi"
+version = "0.162.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "annotated-doc" },
+    { name = "opentelemetry-api" },
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
+    { name = "typing-inspection" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e9/eb/2cf8c80abf09b2800aef0a83b41066fbfda8ee5495b7a08b9d1af40f7046/fastapi-0.162.0.tar.gz", hash = "sha256:6a22c1e2e6e32e0633ee7e170f00009a29b8228b16feb219ee42f32fd8d88a8f", size = 527867, upload-time = "2026-10-23T18:47:33.264Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b4/4f/3f2c25c9b43970b5e9a08beb5e04776247edea684ddc0930f4f02f0bb6cb/fastapi-0.162.0-py3-none-any.whl", hash = "sha256:3785963de305dd09912426cb81f2d230fce98ab3521cdfe97265c8d14983128c", size = 148912, upload-time = "2026-10-23T18:47:31.734Z" },
 ]
 
 [[package]]
@@ -1022,6 +1091,18 @@ wheels = [
 ]
 
 [[package]]
+name = "opentelemetry-api"
+version = "1.45.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/19/14/cf3a6b6448849656e1e5f4e2101f3988dc6789724050096aba1bc5ccf592/opentelemetry_api-1.45.2.tar.gz", hash = "sha256:d7b0008e21e5fd61cbe7a7f34ca3b6905a78ab677d9bc395e299359c75cda6b4", size = 73277, upload-time = "2026-10-29T17:29:37.888Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a9/2d/610db864d7513158cebb8f36cc88e67e73bd6c7aa1905ef18d89e1281c81/opentelemetry_api-1.45.2-py3-none-any.whl", hash = "sha256:2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34", size = 60335, upload-time = "2026-10-29T17:29:06.955Z" },
+]
+
+[[package]]
 name = "packaging"
 version = "26.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1540,6 +1621,19 @@ wheels = [
 ]
 
 [[package]]
+name = "starlette"
+version = "1.10.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/48/bb/3d8757f21e9a53d9035c9eb039a777047139a16bfdbedfc7a58241c3d914/starlette-1.10.0.tar.gz", hash = "sha256:b8399098d4c1e3522734f7235dc79b1fc967f96cf139c81e0fa30479e0685f9b", size = 2734356, upload-time = "2026-10-24T15:04:12.342Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/88/2e/947cfe02def9371c07cd5bf5b6b61c829e9aecb9904db02a66cfafbc1eec/starlette-1.10.0-py3-none-any.whl", hash = "sha256:478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4", size = 80571, upload-time = "2026-10-24T15:04:10.371Z" },
+]
+
+[[package]]
 name = "sympy"
 version = "1.14.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1755,4 +1849,17 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz", hash = "sha256:63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63", size = 458972, upload-time = "2026-09-15T19:29:36.253Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl", hash = "sha256:0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3", size = 135717, upload-time = "2026-09-15T19:29:34.577Z" },
+]
+
+[[package]]
+name = "uvicorn"
+version = "0.54.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "h11" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/da/34/30e9280707135d2cfc589dfff3cb796bd07a3aeb1a3e415ba09dd89d7bb4/uvicorn-0.54.0.tar.gz", hash = "sha256:a2e33cbfaa0306f8e6b0c13e0cb89d7d7a2da3e62b90c66e18c33d9807b28620", size = 112283, upload-time = "2026-09-25T06:52:37.601Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/38/0c/b54a4fdd7f90a3af8b02ebc9ce6712c2c208b7926a2f7bad95c33ebbe943/uvicorn-0.54.0-py3-none-any.whl", hash = "sha256:505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf", size = 87427, upload-time = "2026-09-25T06:52:35.829Z" },
 ]

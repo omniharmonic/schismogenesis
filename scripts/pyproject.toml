@@ -3,7 +3,7 @@ name = "arena_cli"
 version = "0.0.0"
 description = "The arena command-line tool."
 requires-python = ">=3.12,<3.13"
-dependencies = ["typer>=0.12", "rich>=13", "arena_core", "arena_harness", "arena_ingest", "arena_extract", "arena_llm"]
+dependencies = ["typer>=0.12", "rich>=13", "arena_core", "arena_harness", "arena_ingest", "arena_extract", "arena_llm", "arena_fingerprint", "arena_rounds", "arena_api"]
 
 [build-system]
 requires = ["hatchling"]
@@ -21,3 +21,6 @@ arena_harness = { workspace = true }
 arena_ingest = { workspace = true }
 arena_extract = { workspace = true }
 arena_llm = { workspace = true }
+arena_fingerprint = { workspace = true }
+arena_rounds = { workspace = true }
+arena_api = { workspace = true }

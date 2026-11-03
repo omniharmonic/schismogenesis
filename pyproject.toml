@@ -15,7 +15,14 @@ arena_cli = { workspace = true }
 members = ["packages/*", "services/*", "scripts", "evals/harness"]
 
 [dependency-groups]
-dev = ["pytest>=8", "ruff>=0.6", "pyright>=1.1.380", "hypothesis>=3", "numpy>=2"]
+dev = [
+    "pytest>=8",
+ "ruff>=0.6",
+ "pyright>=1.1.380",
+ "hypothesis>=3",
+ "numpy>=2",
+ "httpx2>=2.16.0",
+]
 
 [tool.ruff]
 line-length = 100
@@ -25,6 +32,10 @@ exclude = ["docs/", "seed/scripts/"]
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
 ignore = ["B008"] # typer declares options as argument defaults
+
+[tool.ruff.lint.per-file-ignores]
+# SQL text reads better unwrapped
+"services/api/src/arena_api/store.py" = ["E501"]
 
 [tool.pyright]
 include = ["packages", "services", "scripts", "evals/harness"]
@@ -39,7 +50,7 @@ typeCheckingMode = "standard"
 extraPaths = ["packages/arena_core/tests"]
 
 [tool.pytest.ini_options]
-testpaths = ["packages", "evals/harness/tests", "scripts/tests"]
+testpaths = ["packages", "services/api/tests", "evals/harness/tests", "scripts/tests"]
 addopts = "--import-mode=importlib -ra"
 pythonpath = ["packages/arena_core/tests"]
 markers = ["db: needs a Postgres + pgvector server"]
