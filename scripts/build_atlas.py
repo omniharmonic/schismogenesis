@@ -44,9 +44,11 @@ SUPPORT = {
     "qualifies": 0.3,
 }
 MIN_HOLDINGS = 8
+MIN_PLACED = 4
 TERMS = ["safety", "intelligence", "progress", "freedom", "democracy", "alignment", "power",
          "open", "human", "truth", "risk", "accelerat"]  # fmt: skip
-SEEDS = ["seed/WORLDVIEW-CORE-SOURCES.json", "seed/AI-FUTURES-SOURCES.json"]
+SEEDS = ["seed/WORLDVIEW-CORE-SOURCES.json", "seed/AI-FUTURES-SOURCES.json",
+         "seed/AI-FUTURES-SOURCES-v2.json"]  # fmt: skip
 
 
 def majority(rows: list[dict]) -> dict:
@@ -102,6 +104,43 @@ def choose_count(holdings: list[Holding], family: dict[str, int]) -> tuple[int, 
     return best, {"count": best, "separation": round(best_score, 3), "by_count": table}
 
 
+PLACE_SHARPNESS = 14  # the fingerprint's weighting (packages/arena_fingerprint, fingerprint.js)
+
+
+def place_by_agreement(
+    person: str, stated: dict[tuple[str, str], int], core: list[str], place: dict[str, np.ndarray]
+) -> tuple[np.ndarray, list[tuple[str, float]]] | None:
+    """Place a voice outside the core the way the fingerprint places a visitor.
+
+    Agreement with each core voice is (same + 1) / (shared + 2) over stated ideas both hold,
+    counted only when they share three or more. The position is the sharply weighted mean of the
+    top three. Returns the position and the top three with weights, nearest first, or None.
+    """
+    mine = {idea: a for (idea, p), a in stated.items() if p == person}
+    scored = []
+    for other in core:
+        shared = [i for i in mine if (i, other) in stated]
+        if len(shared) >= 3:
+            same = sum(1 for i in shared if mine[i] == stated[(i, other)])
+            scored.append(((same + 1) / (len(shared) + 2), len(shared), other))
+    top = sorted(scored, reverse=True)[:3]
+    if not top:
+        return None
+    weights = np.array([np.exp(PLACE_SHARPNESS * (s - 0.5)) for s, _, _ in top])
+    xy = sum(w * place[o] for w, (_, _, o) in zip(weights, top, strict=True)) / weights.sum()
+    return xy, [(o, float(w)) for w, (_, _, o) in zip(weights, top, strict=True)]
+
+
+def school_vote(top: list[tuple[str, float]], groups: list[list[str]]) -> int | None:
+    """The school holding most of the placement weight: steadier than the single nearest voice."""
+    votes: Counter[int] = Counter()
+    for other, weight in top:
+        for n, group in enumerate(groups):
+            if other in group:
+                votes[n] += weight
+    return votes.most_common(1)[0][0] if votes else None
+
+
 def school_stance(members: list[str], table: dict[str, dict[str, int]]) -> dict[str, int]:
     out = {}
     for idea, row in table.items():
@@ -116,7 +155,8 @@ def sentences(body: str, term: str) -> list[str]:
     return [p for p in parts if re.search(rf"\b{term}", p, re.I) and 40 <= len(p) <= 260]
 
 
-def main(structure: str, copy_path: str, output: str) -> None:
+def main(structure: str, copy_path: str, output: str, *options: str) -> None:
+    core_path = options[options.index("--core") + 1] if "--core" in options else None
     data = json.loads(pathlib.Path(structure).read_text())
     copy = json.loads(pathlib.Path(copy_path).read_text())
     names_path = pathlib.Path("evals/results/structure-v1/family-names.json")
@@ -161,7 +201,17 @@ def main(structure: str, copy_path: str, output: str) -> None:
             )  # fmt: skip
     chosen = {pair: majority(items) for pair, items in per.items()}
     count = Counter(pair[1] for pair in chosen)
-    keep = {p for p, n in count.items() if n >= MIN_HOLDINGS}
+    core_ids = (
+        {p["id"] for p in json.loads(pathlib.Path(core_path).read_text())["people"]}
+        if core_path
+        else None
+    )
+    # core voices draw the schools and need more evidence; others are only placed by agreement
+    keep = {
+        p
+        for p, n in count.items()
+        if n >= MIN_HOLDINGS or (core_ids is not None and p not in core_ids and n >= MIN_PLACED)
+    }
     dropped = sorted(names[p] for p in names if p in {*count} and p not in keep)
     chosen = {pair: h for pair, h in chosen.items() if pair[1] in keep}
 
@@ -171,6 +221,12 @@ def main(structure: str, copy_path: str, output: str) -> None:
     model = SentenceTransformer(MODEL)
     labels = families(similarity([meta[i] for i in idea_ids], data["links"], model), FAMILIES)
     family = dict(zip(idea_ids, labels, strict=True))
+    # Schools and the layout come from the core: voices read deeply enough that silence isn't
+    # mistaken for a view. Centring turns silence into "minus the average", so thinly read voices
+    # look alike and would form a school of their own. Everyone else is placed by agreement.
+    core = core_ids & keep if core_ids is not None else set(keep)
+    all_holdings = holdings
+    holdings = [h for h in all_holdings if h.person in core]
     space = person_space(holdings, family)
     people = space.people
     count, count_info = choose_count(holdings, family)
@@ -180,6 +236,35 @@ def main(structure: str, copy_path: str, output: str) -> None:
     points = points - points.mean(0)
     k = SPREAD / max(float(np.percentile(np.abs(points), 92)), 1e-9)
     place = {p: points[i] * k for i, p in enumerate(people)}
+    regroup = None
+    if core_path and "--freeze-schools" in options:
+        # Schools are fixed for the season, like the statements: keep the core atlas's members and
+        # positions, and report how far the new evidence alone would regroup them.
+        old = json.loads(pathlib.Path(core_path).read_text())
+        frozen = [[m for m in s["members"] if m in place] for s in old["schools"]]
+        frozen = sorted((g for g in frozen if g), key=len, reverse=True)
+        now = schools(space, count)
+        regroup = round(
+            float(adjusted_rand_score(partition(frozen, people), partition(now, people))), 3
+        )
+        groups, count = frozen, len(frozen)
+        stability = school_stability(holdings, family, count, runs=500)
+        place = {
+            p["id"]: np.array([p["x"], p["y"]], float) for p in old["people"] if p["id"] in place
+        }
+        points = np.array([place[p] for p in people])
+    stated = {(idea, p): h["a"] for (idea, p), h in chosen.items() if not h["inf"]}
+    placed_by: dict[str, list[tuple[str, float]]] = {}
+    for person in sorted(keep - core):
+        result = place_by_agreement(person, stated, people, place)
+        if result is None:
+            dropped.append(names[person])
+            continue
+        place[person], placed_by[person] = result
+    dropped.sort()
+    chosen = {pair: h for pair, h in chosen.items() if pair[1] in place}
+    everyone = people + sorted(placed_by)
+    full_space = person_space([h for h in all_holdings if h.person in place], family)
 
     def idea_xy(key: str) -> np.ndarray:
         held = [h for (idea, _), h in chosen.items() if idea == key]
@@ -219,8 +304,9 @@ def main(structure: str, copy_path: str, output: str) -> None:
                 h["q"] = h["q"][:277] + "..."
 
     label_map = {tuple(sorted(s["members"])): s for s in copy.get("schools", [])}
+    voted = {p: school_vote(top, groups) for p, top in placed_by.items()}
     schools_out = []
-    for group in groups:
+    for n, group in enumerate(groups):
         pairs = [stability.get(frozenset(p), 0) for p in itertools.combinations(group, 2)]
         known = next(
             (
@@ -234,6 +320,7 @@ def main(structure: str, copy_path: str, output: str) -> None:
         fallback = Counter(niche.get(p, "") for p in group).most_common(1)[0][0]
         schools_out.append(
             {"members": group,
+             "provisional_members": sorted(p for p, v in voted.items() if v == n),
              "label": (known or {}).get("label", fallback if len(group) > 1 else ""),
              "note": (known or {}).get("note", ""),
              "cohesion": round(float(np.mean(pairs)), 3) if pairs else None}
@@ -244,10 +331,13 @@ def main(structure: str, copy_path: str, output: str) -> None:
         if not h["inf"]:
             table[idea][person] = h["a"]
     forks = {}
-    for a, b in itertools.combinations(people, 2):
-        fork = fork_profile(a, b, holdings, layer)
-        mine = {h.idea: h for h in holdings if h.person == a}
-        yours = {h.idea: h for h in holdings if h.person == b}
+    shown = [h for h in all_holdings if h.person in place]
+    by_person: dict[str, dict[str, Holding]] = defaultdict(dict)
+    for h in shown:
+        by_person[h.person][h.idea] = h
+    for a, b in itertools.combinations(everyone, 2):
+        fork = fork_profile(a, b, shown, layer)
+        mine, yours = by_person[a], by_person[b]
         overlap = mine.keys() & yours.keys()
         forks["|".join(sorted((a, b)))] = {
             "by_layer": fork.by_layer, "lowest_opposed": fork.lowest_opposed,
@@ -353,26 +443,28 @@ def main(structure: str, copy_path: str, output: str) -> None:
     works = defaultdict(set)
     for h in chosen.values():
         works[h["p"]].add(h["work"])
-    nearest = {}
+    nearest = {p: [o for o, _ in top] for p, top in placed_by.items()}
     for p in people:
         scored = sorted(
             ((forks["|".join(sorted((p, o)))]["stable"], o) for o in people if o != p), reverse=True
         )
         nearest[p] = [o for _, o in scored[:3]]
     columns = sorted(set(labels))
+    row = {p: i for i, p in enumerate(full_space.people)}
     family_scores = {
         p: {
-            str(f): round(float(space.matrix[i, n]), 2)
+            str(f): round(float(full_space.matrix[row[p], n]), 2)
             for n, f in enumerate(columns)
-            if abs(space.matrix[i, n]) > 0.8
+            if abs(full_space.matrix[row[p], n]) > 0.8
         }
-        for i, p in enumerate(people)
+        for p in everyone
     }
     people_out = [
         {"id": p, "name": names[p], "niche": niche.get(p, ""),
          "x": round(float(place[p][0]), 1), "y": round(float(place[p][1]), 1),
-         "families": family_scores[p], "works": sorted(works[p]), "nearest": nearest[p]}
-        for p in people
+         "families": family_scores[p], "works": sorted(works[p]), "nearest": nearest[p],
+         **({"provisional": True} if p in placed_by else {})}
+        for p in everyone
     ]  # fmt: skip
     years = [i["year"] for i in ideas_out if i["year"]]
     fid = fidelity(space.matrix, points, neighbours=4)
@@ -383,7 +475,9 @@ def main(structure: str, copy_path: str, output: str) -> None:
         "embedding_silhouette": round(embed_sil, 3), "structure_silhouette": round(struct_sil, 3),
         "embedding_school_rand": round(embed_ari, 3), "inferred_roots": len(inferred_roots),
         "root_ideas": len(root_ideas),
-        "fill": round(len(chosen) / (len(people) * len(idea_ids)), 3),
+        "fill": round(len(chosen) / (len(everyone) * len(idea_ids)), 3),
+        "core_voices": len(people), "placed_by_agreement": len(placed_by),
+        **({"schools_frozen": True, "regroup_rand": regroup} if regroup is not None else {}),
         "review": {**data.get("review", {}), "root_total":
                    data["review"]["root_kept"] + data["review"]["root_dropped"]},
     }  # fmt: skip
@@ -416,7 +510,8 @@ def main(structure: str, copy_path: str, output: str) -> None:
     pathlib.Path(output).write_text(json.dumps(atlas, ensure_ascii=False, indent=0))
     print(json.dumps(checks, indent=1))
     for s in schools_out:
-        print(s["label"], s["cohesion"], [names[m] for m in s["members"]])
+        print(s["label"], s["cohesion"], [names[m] for m in s["members"]],
+              "+", [names[m] for m in s["provisional_members"]])  # fmt: skip
     for lens in lenses:
         print(lens["label"], lens["by_layer"], lens["lowest_opposed"])
 

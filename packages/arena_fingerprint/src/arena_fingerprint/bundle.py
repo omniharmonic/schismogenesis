@@ -128,7 +128,12 @@ def build_bundle(
     people = {p["id"]: p for p in atlas["people"]}
     if bad := flagged & set(people):
         raise BundleError(f"flagged landmarks must not appear: {sorted(bad)}")
-    school_of = {m: s["label"] for s in atlas["schools"] if s["label"] for m in s["members"]}
+    school_of = {
+        m: s["label"]
+        for s in atlas["schools"]
+        if s["label"]
+        for m in s["members"] + s.get("provisional_members", [])
+    }
     camps = {c["id"]: c["members"] for c in CAMPS}
     for camp in CAMPS:
         if missing := set(camp["members"]) - set(people):
@@ -193,6 +198,7 @@ def build_bundle(
                 "school": school_of.get(p["id"]),
                 "x": p["x"],
                 "y": p["y"],
+                **({"provisional": True} if p.get("provisional") else {}),
             }
             for p in sorted(people.values(), key=lambda p: p["id"])
         ]

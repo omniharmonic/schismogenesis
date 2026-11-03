@@ -43,7 +43,7 @@ exclude = [
     "**/.venv", "**/__pycache__",
     # Local-model scripts need the optional nli extra, which CI does not install.
     "scripts/build_atlas.py", "scripts/densify_structure.py", "scripts/merge_structure.py",
-    "scripts/fetch_texts.py", "scripts/prepare_anchor_stances.py",
+    "scripts/fetch_texts.py", "scripts/prepare_anchor_stances.py", "scripts/extend_structure.py", "scripts/novel_ideas.py",
     "scripts/prepare_structure.py",
 ]
 pythonVersion = "3.12"

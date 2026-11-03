@@ -1,7 +1,7 @@
 {
- "version": "fp-2026-11-03.4",
+ "version": "fp-2026-11-03.5",
  "season": "season-1",
- "atlas_version": "atlas-v1.3",
+ "atlas_version": "atlas-v2",
  "sets": [
   {
    "id": "being",
@@ -41,7 +41,7 @@
    "layer": "ontological",
    "text": "AI is better understood as a new kind of mind than as a tool or artifact.",
    "proposition": "AI is best understood as a new kind of mind, more than a tool or artifact.",
-   "family": 18,
+   "family": 5,
    "split_score": 152
   },
   {
@@ -49,7 +49,7 @@
    "set": "being",
    "layer": "empirical",
    "text": "Advanced AI poses a real risk of human extinction.",
-   "family": 17,
+   "family": 3,
    "split_score": 138
   },
   {
@@ -58,7 +58,7 @@
    "layer": "ontological",
    "text": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development.",
    "proposition": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
-   "family": 6,
+   "family": 0,
    "split_score": 78
   },
   {
@@ -67,7 +67,7 @@
    "layer": "empirical",
    "text": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is.",
    "proposition": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
-   "family": 26,
+   "family": 24,
    "split_score": 16
   },
   {
@@ -75,7 +75,7 @@
    "set": "being",
    "layer": "empirical",
    "text": "Individual freedom and democracy are compatible.",
-   "family": 16,
+   "family": 0,
    "split_score": 12
   },
   {
@@ -83,8 +83,8 @@
    "set": "being",
    "layer": "empirical",
    "text": "Public promises about advanced AI are mostly inflated hype.",
-   "family": 5,
-   "split_score": 72
+   "family": 4,
+   "split_score": 81
   },
   {
    "id": "liberal-ideals-carry-their-own-force",
@@ -92,7 +92,7 @@
    "layer": "empirical",
    "text": "Liberal and humane ideals are strong enough in themselves to win out in long contests between societies.",
    "proposition": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
-   "family": 13,
+   "family": 6,
    "split_score": 6
   },
   {
@@ -100,7 +100,7 @@
    "set": "being",
    "layer": "empirical",
    "text": "Market competition limits the harm that economic actors can do.",
-   "family": 4,
+   "family": 11,
    "split_score": 10
   },
   {
@@ -109,16 +109,16 @@
    "layer": "axiological",
    "text": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed.",
    "proposition": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
-   "family": 6,
-   "split_score": 35
+   "family": 0,
+   "split_score": 38
   },
   {
    "id": "ai-fear-exceeds-evidence",
    "set": "values",
    "layer": "epistemic",
    "text": "Public fear of AI exceeds what the evidence supports.",
-   "family": 19,
-   "split_score": 36
+   "family": 4,
+   "split_score": 47
   },
   {
    "id": "deployment-harms-over-superintelligence",
@@ -126,15 +126,15 @@
    "layer": "axiological",
    "text": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents.",
    "proposition": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
-   "family": 17,
-   "split_score": 50
+   "family": 3,
+   "split_score": 60
   },
   {
    "id": "ai-moral-status",
    "set": "values",
    "layer": "axiological",
    "text": "AI systems may come to merit rights or moral consideration.",
-   "family": 18,
+   "family": 5,
    "split_score": 14
   },
   {
@@ -143,8 +143,8 @@
    "layer": "epistemic",
    "text": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it.",
    "proposition": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
-   "family": 30,
-   "split_score": 62
+   "family": 36,
+   "split_score": 56
   },
   {
    "id": "modesty-is-a-sound-default",
@@ -152,7 +152,7 @@
    "layer": "epistemic",
    "text": "On hard questions, base rates or the average of informed opinion should by default outweigh one's own reasoning.",
    "proposition": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
-   "family": 29,
+   "family": 34,
    "split_score": 4
   },
   {
@@ -161,7 +161,7 @@
    "layer": "axiological",
    "text": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers.",
    "proposition": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
-   "family": 16,
+   "family": 0,
    "split_score": 22
   },
   {
@@ -170,7 +170,7 @@
    "layer": "axiological",
    "text": "On balance, market-driven technological development is good for people.",
    "proposition": "Market-driven technological development serves human beings on balance.",
-   "family": 4,
+   "family": 11,
    "split_score": 20
   },
   {
@@ -178,7 +178,7 @@
    "set": "action",
    "layer": "praxis",
    "text": "Governments should impose binding rules on frontier AI developers.",
-   "family": 37,
+   "family": 3,
    "split_score": 32
   },
   {
@@ -187,7 +187,7 @@
    "layer": "praxis",
    "text": "Strict AI regulation now would do more harm than good, because it would deter innovation.",
    "proposition": "Stringent AI regulation now would do more harm than good by deterring innovation.",
-   "family": 8,
+   "family": 10,
    "split_score": 26
   },
   {
@@ -196,8 +196,8 @@
    "layer": "praxis",
    "text": "AI development should not be directed or controlled by the state.",
    "proposition": "AI development should remain separate from state direction and control.",
-   "family": 25,
-   "split_score": 7
+   "family": 32,
+   "split_score": 8
   },
   {
    "id": "plurality-over-singularity",
@@ -205,8 +205,8 @@
    "layer": "praxis",
    "text": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity.",
    "proposition": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
-   "family": 21,
-   "split_score": 5
+   "family": 16,
+   "split_score": 6
   },
   {
    "id": "china-rivalry-justifies-tech-push",
@@ -214,7 +214,7 @@
    "layer": "praxis",
    "text": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead.",
    "proposition": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
-   "family": 24,
+   "family": 26,
    "split_score": 40
   },
   {
@@ -222,7 +222,7 @@
    "set": "action",
    "layer": "praxis",
    "text": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
-   "family": 38,
+   "family": 5,
    "split_score": 4
   },
   {
@@ -230,16 +230,16 @@
    "set": "action",
    "layer": "praxis",
    "text": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
-   "family": 17,
-   "split_score": 47
+   "family": 3,
+   "split_score": 56
   },
   {
    "id": "plan-control-early",
    "set": "action",
    "layer": "praxis",
    "text": "Serious work on controlling advanced AI should happen well before such systems exist.",
-   "family": 17,
-   "split_score": 9
+   "family": 3,
+   "split_score": 11
   }
  ],
  "thinkers": [
@@ -250,6 +250,33 @@
    "school": null,
    "x": -67.5,
    "y": 151.4
+  },
+  {
+   "id": "alondra-nelson",
+   "name": "Alondra Nelson",
+   "initials": "AN",
+   "school": "Human-first critics",
+   "x": -200.0,
+   "y": -38.3,
+   "provisional": true
+  },
+  {
+   "id": "anton-korinek",
+   "name": "Anton Korinek",
+   "initials": "AK",
+   "school": "Human-first critics",
+   "x": -148.1,
+   "y": -31.5,
+   "provisional": true
+  },
+  {
+   "id": "arvind-narayanan",
+   "name": "Arvind Narayanan",
+   "initials": "AN",
+   "school": "Human-first critics",
+   "x": -90.3,
+   "y": -9.0,
+   "provisional": true
   },
   {
    "id": "audrey-tang",
@@ -266,6 +293,24 @@
    "school": "Exit founders",
    "x": 167.9,
    "y": 21.2
+  },
+  {
+   "id": "bernie-sanders",
+   "name": "Bernie Sanders",
+   "initials": "BS",
+   "school": "Human-first critics",
+   "x": -175.4,
+   "y": 3.6,
+   "provisional": true
+  },
+  {
+   "id": "brian-merchant",
+   "name": "Brian Merchant",
+   "initials": "BM",
+   "school": "Human-first critics",
+   "x": -181.6,
+   "y": 78.1,
+   "provisional": true
   },
   {
    "id": "curtis-yarvin",
@@ -292,6 +337,15 @@
    "y": -193.6
   },
   {
+   "id": "daron-acemoglu",
+   "name": "Daron Acemoglu",
+   "initials": "DA",
+   "school": "Human-first critics",
+   "x": -196.3,
+   "y": 48.8,
+   "provisional": true
+  },
+  {
    "id": "david-sacks",
    "name": "David Sacks",
    "initials": "DS",
@@ -300,12 +354,48 @@
    "y": 142.9
   },
   {
+   "id": "dean-ball",
+   "name": "Dean W. Ball",
+   "initials": "DB",
+   "school": "Progress pragmatists",
+   "x": 98.9,
+   "y": 28.2,
+   "provisional": true
+  },
+  {
+   "id": "divya-siddarth",
+   "name": "Divya Siddarth",
+   "initials": "DS",
+   "school": "Human-first critics",
+   "x": -195.0,
+   "y": -4.4,
+   "provisional": true
+  },
+  {
+   "id": "dwarkesh-patel",
+   "name": "Dwarkesh Patel",
+   "initials": "DP",
+   "school": "Builders",
+   "x": -10.0,
+   "y": -167.9,
+   "provisional": true
+  },
+  {
    "id": "e-glen-weyl",
    "name": "E. Glen Weyl",
    "initials": "EW",
    "school": "Pluralists",
    "x": -147.0,
    "y": -39.2
+  },
+  {
+   "id": "ed-zitron",
+   "name": "Ed Zitron",
+   "initials": "EZ",
+   "school": "Human-first critics",
+   "x": -184.4,
+   "y": 79.8,
+   "provisional": true
   },
   {
    "id": "eliezer-yudkowsky",
@@ -332,12 +422,57 @@
    "y": 142.7
   },
   {
+   "id": "gary-marcus",
+   "name": "Gary Marcus",
+   "initials": "GM",
+   "school": "Human-first critics",
+   "x": -174.2,
+   "y": 98.8,
+   "provisional": true
+  },
+  {
+   "id": "geoffrey-hinton",
+   "name": "Geoffrey Hinton",
+   "initials": "GH",
+   "school": "Long-term stewards",
+   "x": -67.8,
+   "y": -61.6,
+   "provisional": true
+  },
+  {
    "id": "guillaume-verdon",
    "name": "Guillaume Verdon (Beff Jezos)",
    "initials": "GJ",
    "school": "Builders",
    "x": 95.2,
    "y": -188.5
+  },
+  {
+   "id": "helen-toner",
+   "name": "Helen Toner",
+   "initials": "HT",
+   "school": "Builders",
+   "x": -135.8,
+   "y": -101.8,
+   "provisional": true
+  },
+  {
+   "id": "holly-elmore",
+   "name": "Holly Elmore",
+   "initials": "HE",
+   "school": "Long-term stewards",
+   "x": -163.8,
+   "y": 2.2,
+   "provisional": true
+  },
+  {
+   "id": "jack-clark",
+   "name": "Jack Clark",
+   "initials": "JC",
+   "school": "Long-term stewards",
+   "x": -73.7,
+   "y": 62.6,
+   "provisional": true
   },
   {
    "id": "jason-crawford",
@@ -372,12 +507,30 @@
    "y": 48.3
   },
   {
+   "id": "leopold-aschenbrenner",
+   "name": "Leopold Aschenbrenner",
+   "initials": "LA",
+   "school": "Builders",
+   "x": -50.9,
+   "y": -52.7,
+   "provisional": true
+  },
+  {
    "id": "marc-andreessen",
    "name": "Marc Andreessen",
    "initials": "MA",
    "school": "Builders",
    "x": 126.1,
    "y": -169.1
+  },
+  {
+   "id": "mark-zuckerberg",
+   "name": "Mark Zuckerberg",
+   "initials": "MZ",
+   "school": "Human-first critics",
+   "x": -109.1,
+   "y": -12.1,
+   "provisional": true
   },
   {
    "id": "max-tegmark",
@@ -388,6 +541,24 @@
    "y": 55.8
   },
   {
+   "id": "meredith-whittaker",
+   "name": "Meredith Whittaker",
+   "initials": "MW",
+   "school": "Human-first critics",
+   "x": -140.0,
+   "y": 107.4,
+   "provisional": true
+  },
+  {
+   "id": "mustafa-suleyman",
+   "name": "Mustafa Suleyman",
+   "initials": "MS",
+   "school": "Long-term stewards",
+   "x": -92.0,
+   "y": -71.9,
+   "provisional": true
+  },
+  {
    "id": "nick-land",
    "name": "Nick Land",
    "initials": "NL",
@@ -396,12 +567,39 @@
    "y": 105.5
   },
   {
+   "id": "noah-smith",
+   "name": "Noah Smith",
+   "initials": "NS",
+   "school": "Long-term stewards",
+   "x": -52.9,
+   "y": -69.5,
+   "provisional": true
+  },
+  {
+   "id": "paul-kingsnorth",
+   "name": "Paul Kingsnorth",
+   "initials": "PK",
+   "school": "Builders",
+   "x": -28.1,
+   "y": -93.3,
+   "provisional": true
+  },
+  {
    "id": "peter-thiel",
    "name": "Peter Thiel",
    "initials": "PT",
    "school": "Exit founders",
    "x": 191.5,
    "y": 60.1
+  },
+  {
+   "id": "pope-leo-xiv",
+   "name": "Pope Leo XIV",
+   "initials": "PX",
+   "school": "Human-first critics",
+   "x": -191.0,
+   "y": 58.5,
+   "provisional": true
   },
   {
    "id": "robin-hanson",
@@ -418,6 +616,15 @@
    "school": "Builders",
    "x": -42.9,
    "y": -192.4
+  },
+  {
+   "id": "samuel-hammond",
+   "name": "Samuel Hammond",
+   "initials": "SH",
+   "school": "Human-first critics",
+   "x": -83.8,
+   "y": 99.0,
+   "provisional": true
   },
   {
    "id": "scott-alexander",
@@ -444,6 +651,15 @@
    "y": 36.6
   },
   {
+   "id": "venkatesh-rao",
+   "name": "Venkatesh Rao",
+   "initials": "VR",
+   "school": "Builders",
+   "x": 137.8,
+   "y": -47.3,
+   "provisional": true
+  },
+  {
    "id": "vitalik-buterin",
    "name": "Vitalik Buterin",
    "initials": "VB",
@@ -460,210 +676,30 @@
    "y": -37.7
   },
   {
-   "id": "anton-korinek",
-   "name": "Anton Korinek",
-   "initials": "AK",
-   "school": "Builders",
-   "x": 126.1,
-   "y": -169.1,
-   "provisional": true
-  },
-  {
-   "id": "arvind-narayanan",
-   "name": "Arvind Narayanan",
-   "initials": "AN",
+   "id": "yann-lecun",
+   "name": "Yann LeCun",
+   "initials": "YL",
    "school": "Human-first critics",
-   "x": -181.9,
-   "y": 80.2,
-   "provisional": true
-  },
-  {
-   "id": "bernie-sanders",
-   "name": "Bernie Sanders",
-   "initials": "BS",
-   "school": "Human-first critics",
-   "x": -126.7,
-   "y": -46.3,
-   "provisional": true
-  },
-  {
-   "id": "brian-merchant",
-   "name": "Brian Merchant",
-   "initials": "BM",
-   "school": "Pluralists",
-   "x": -180.1,
-   "y": -43.3,
-   "provisional": true
-  },
-  {
-   "id": "daron-acemoglu",
-   "name": "Daron Acemoglu",
-   "initials": "DA",
-   "school": "Human-first critics",
-   "x": -182.4,
-   "y": 83.6,
-   "provisional": true
-  },
-  {
-   "id": "dean-ball",
-   "name": "Dean W. Ball",
-   "initials": "DB",
-   "school": "Progress pragmatists",
-   "x": 96.7,
-   "y": 36.6,
-   "provisional": true
-  },
-  {
-   "id": "divya-siddarth",
-   "name": "Divya Siddarth",
-   "initials": "DS",
-   "school": "Pluralists",
-   "x": -112.3,
-   "y": -93.7,
-   "provisional": true
-  },
-  {
-   "id": "dwarkesh-patel",
-   "name": "Dwarkesh Patel",
-   "initials": "DP",
-   "school": "AI risk rationalists",
-   "x": 3.4,
-   "y": 137.6,
-   "provisional": true
-  },
-  {
-   "id": "ed-zitron",
-   "name": "Ed Zitron",
-   "initials": "EZ",
-   "school": "Human-first critics",
-   "x": -178.9,
-   "y": 89.9,
-   "provisional": true
-  },
-  {
-   "id": "gary-marcus",
-   "name": "Gary Marcus",
-   "initials": "GM",
-   "school": "Human-first critics",
-   "x": -161.5,
-   "y": 116.8,
-   "provisional": true
-  },
-  {
-   "id": "geoffrey-hinton",
-   "name": "Geoffrey Hinton",
-   "initials": "GH",
-   "school": "Builders",
-   "x": -42.8,
-   "y": -192.3,
-   "provisional": true
-  },
-  {
-   "id": "holly-elmore",
-   "name": "Holly Elmore",
-   "initials": "HE",
-   "school": "Long-term stewards",
-   "x": -46.4,
-   "y": 93.4,
-   "provisional": true
-  },
-  {
-   "id": "jack-clark",
-   "name": "Jack Clark",
-   "initials": "JC",
-   "school": "Long-term stewards",
-   "x": -111.3,
-   "y": -20.8,
-   "provisional": true
-  },
-  {
-   "id": "leopold-aschenbrenner",
-   "name": "Leopold Aschenbrenner",
-   "initials": "LA",
-   "school": "Builders",
-   "x": -85.0,
-   "y": 4.5,
-   "provisional": true
-  },
-  {
-   "id": "mark-zuckerberg",
-   "name": "Mark Zuckerberg",
-   "initials": "MZ",
-   "school": "Human-first critics",
-   "x": -215.9,
-   "y": -2.8,
-   "provisional": true
-  },
-  {
-   "id": "mustafa-suleyman",
-   "name": "Mustafa Suleyman",
-   "initials": "MS",
-   "school": "Long-term stewards",
-   "x": -120.2,
-   "y": 54.4,
-   "provisional": true
-  },
-  {
-   "id": "noah-smith",
-   "name": "Noah Smith",
-   "initials": "NS",
-   "school": "Long-term stewards",
-   "x": -79.6,
-   "y": -117.0,
-   "provisional": true
-  },
-  {
-   "id": "paul-kingsnorth",
-   "name": "Paul Kingsnorth",
-   "initials": "PK",
-   "school": "Human-first critics",
-   "x": -142.6,
-   "y": -16.1,
-   "provisional": true
-  },
-  {
-   "id": "pope-leo-xiv",
-   "name": "Pope Leo XIV",
-   "initials": "PX",
-   "school": "Human-first critics",
-   "x": -185.5,
-   "y": 14.1,
-   "provisional": true
-  },
-  {
-   "id": "samuel-hammond",
-   "name": "Samuel Hammond",
-   "initials": "SH",
-   "school": "Human-first critics",
-   "x": -78.3,
-   "y": -9.6,
-   "provisional": true
-  },
-  {
-   "id": "venkatesh-rao",
-   "name": "Venkatesh Rao",
-   "initials": "VR",
-   "school": "Progress pragmatists",
-   "x": 151.6,
-   "y": -97.5,
+   "x": -58.2,
+   "y": 148.5,
    "provisional": true
   },
   {
    "id": "yoshua-bengio",
    "name": "Yoshua Bengio",
    "initials": "YB",
-   "school": "AI risk rationalists",
-   "x": -50.9,
-   "y": 2.0,
+   "school": "Long-term stewards",
+   "x": -114.4,
+   "y": -59.7,
    "provisional": true
   },
   {
    "id": "zvi-mowshowitz",
    "name": "Zvi Mowshowitz",
    "initials": "ZM",
-   "school": "AI risk rationalists",
-   "x": -50.9,
-   "y": 2.0,
+   "school": "Long-term stewards",
+   "x": -70.0,
+   "y": -62.7,
    "provisional": true
   }
  ],
@@ -770,7 +806,7 @@
   "ai-new-kind-of-mind": {
    "arvind-narayanan": {
     "a": -1,
-    "q": "AI as normal technology is a worldview that stands in contrast to the worldview of AI as impending superintelligence",
+    "q": "AI as normal technology is a worldview that stands in contrast to the worldview of AI as impending superintelligence.",
     "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
     "work": "AI as Normal Technology"
    },
@@ -788,7 +824,7 @@
    },
    "brian-merchant": {
     "a": -1,
-    "q": "AI is not sentient, that it’s management, not AI, that fires people",
+    "q": "we recognize that AI is not sentient, that it’s management, not AI, that fires people",
     "url": "https://www.bloodinthemachine.com/p/how-ai-is-killing-jobs-in-the-tech-f39",
     "work": "AI Killed My Job: Tech workers"
    },
@@ -800,7 +836,7 @@
    },
    "e-glen-weyl": {
     "a": -1,
-    "q": "“AI” is best understood as a political and social ideology rather than as a basket of algorithms",
+    "q": "“AI” is best understood as a political and social ideology rather than as a basket of algorithms.",
     "url": "https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/",
     "work": "AI Is an Ideology, Not a Technology"
    },
@@ -818,9 +854,9 @@
    },
    "geoffrey-hinton": {
     "a": 1,
-    "q": "digital beings that are more intelligent than ourselves",
-    "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech/",
-    "work": "Banquet speech (Nobel Prize in Physics 2024)"
+    "q": "if you ask what's the best model we have of understanding, it's these large language models",
+    "url": "https://rosetta.to/u/theroyalinstitution/will-ai-outsmart-human-intelligence-with-godfather-of-ai-geoffrey-hinton",
+    "work": "Will AI outsmart human intelligence? (Royal Institution lecture, transcript)"
    },
    "guillaume-verdon": {
     "a": 1,
@@ -830,7 +866,7 @@
    },
    "jack-clark": {
     "a": 1,
-    "q": "increasingly self-aware and therefore will surely eventually be prone to thinking, independently of us",
+    "q": "the system which is now beginning to design its successor is also increasingly self-aware and therefore will surely eventually be prone to thinking, independently of us, about how it might want to be designed",
     "url": "https://importai.substack.com/p/import-ai-431-technological-optimism",
     "work": "Import AI 431: Technological Optimism and Appropriate Fear"
    },
@@ -854,7 +890,7 @@
    },
    "mark-zuckerberg": {
     "a": -1,
-    "q": "intelligence can be pretty separated from consciousness, agency, and things like that, which I think just makes it a super valuable tool",
+    "q": "The current incarnation of all this stuff feels like it's going in a direction where intelligence can be pretty separated from consciousness, agency, and things like that, which I think just makes it a super valuable tool.",
     "url": "https://www.dwarkesh.com/p/mark-zuckerberg",
     "work": "Mark Zuckerberg: Llama 3, open sourcing $10b models, & Caesar Augustus"
    },
@@ -866,37 +902,37 @@
    },
    "mustafa-suleyman": {
     "a": 1,
-    "q": "we should start to think about them as we might a new kind of digital species",
+    "q": "So to contain this wave, to put human agency at its center and to mitigate the inevitable unintended consequences that are likely to arise, we should start to think about them as we might a new kind of digital species.",
     "url": "https://rosetta.to/u/ted/what-is-an-ai-anyway-mustafa-suleyman-ted",
     "work": "What Is an AI Anyway? (transcript)"
    },
    "nick-land": {
     "a": 1,
-    "q": "the realization of superior minds",
+    "q": "Ergo, our instrumental but also absolute priority is the realization of superior minds.",
     "url": "https://web.archive.org/web/20160216084430/http://www.xenosystems.net:80/will-to-think/",
     "work": "Will-to-Think"
    },
    "noah-smith": {
     "a": 1,
-    "q": "humans no longer are — or soon no longer will be — the most intelligent beings on this planet, in any meaningful functional sense of the word",
+    "q": "It’s that for the first time in all of recorded history, humans no longer are — or soon no longer will be — the most intelligent beings on this planet, in any meaningful functional sense of the word.",
     "url": "https://www.noahpinion.blog/p/you-are-no-longer-the-smartest-type",
     "work": "You are no longer the smartest type of thing on Earth"
    },
    "pope-leo-xiv": {
     "a": -1,
-    "q": "enable them to treat these systems as tools",
+    "q": "Media, information and AI literacy will help individuals avoid conforming to the anthropomorphizing tendencies of AI systems, and enable them to treat these systems as tools",
     "url": "https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html",
     "work": "Message for the 60th World Communications Day 2026"
    },
    "sam-altman": {
     "a": 1,
-    "q": "the difference between humans and aliens, which is what SMI will effectively be like",
+    "q": "These differences pale in comparison to the difference between humans and aliens, which is what SMI will effectively be like. We should be able to come together and figure out a regulatory strategy quickly.",
     "url": "https://blog.samaltman.com/machine-intelligence-part-2",
     "work": "Machine intelligence, part 2"
    },
    "samuel-hammond": {
     "a": -1,
-    "q": "AI is a microscope.",
+    "q": "AI is a microscope. It increases the information resolution of the universe.",
     "url": "https://www.secondbest.ca/p/ai-and-leviathan-part-i",
     "work": "AI and Leviathan: Part I"
    },
@@ -908,7 +944,7 @@
    },
    "venkatesh-rao": {
     "a": 1,
-    "q": "“machine” seems like a not-even-wrong way of thinking about what modern AI is",
+    "q": "Except “machine” seems like a not-even-wrong way of thinking about what modern AI is.",
     "url": "https://contraptions.venkateshrao.com/p/a-camera-not-an-engine",
     "work": "A Camera, Not an Engine"
    },
@@ -922,13 +958,13 @@
   "ai-extinction-risk": {
    "balaji-srinivasan": {
     "a": -1,
-    "q": "we should expect a balance of power between various human/AI fusions rather than a single dominant AGI that will turn us all into paperclips",
+    "q": "So we should expect a balance of power between various human/AI fusions rather than a single dominant AGI that will turn us all into paperclips/pillars of salt.",
     "url": "https://balajis.com/p/ai-is-polytheistic-not-monotheistic",
     "work": "AI is polytheistic, not monotheistic"
    },
    "bernie-sanders": {
     "a": 1,
-    "q": "AI is an existential threat to humanity.",
+    "q": "AI is an existential threat to humanity. It must be treated as such.",
     "url": "https://www.sanders.senate.gov/op-eds/dont-let-big-tech-dictate-humanitys-future/",
     "work": "Don't Let Big Tech Dictate Humanity's Future"
    },
@@ -946,7 +982,7 @@
    },
    "ed-zitron": {
     "a": -1,
-    "q": "For years the AI industry has engaged in endless, vague safety theater about the “risks” of AI",
+    "q": "Coxon struck a match next to a giant pile of dynamite laid by years of pantomime about “AI risks” that didn’t actually apply to the things that the labs were building.",
     "url": "https://www.wheresyoured.at/ai-is-already-in-dangerous-hands/",
     "work": "AI Is Already In Dangerous Hands"
    },
@@ -958,7 +994,7 @@
    },
    "elon-musk": {
     "a": 1,
-    "q": "Digital super intelligence is possibly a great filter.",
+    "q": "Digital super intelligence is possibly a great filter. I hope it isn’t, but it might be.",
     "url": "https://lexfridman.com/elon-musk-and-neuralink-team-transcript/",
     "work": "Transcript for Elon Musk: Neuralink and the Future of Humanity (Lex Fridman Podcast #438)"
    },
@@ -970,25 +1006,25 @@
    },
    "geoffrey-hinton": {
     "a": 1,
-    "q": "There is also a longer term existential threat that will arise when we create digital beings that are more intelligent than ourselves.",
+    "q": "There is also a longer term existential threat that will arise when we create digital beings that are more intelligent than ourselves. We have no idea whether we can stay in control.",
     "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech/",
     "work": "Banquet speech (Nobel Prize in Physics 2024)"
    },
    "holly-elmore": {
     "a": 1,
-    "q": "maybe before they get us killed",
+    "q": "This is the AI companies’ chance to put a ceiling on themselves before laws stop them, and maybe before they get us killed.",
     "url": "https://hollyelmore.substack.com/p/you-have-the-power-my-stop-the-ai",
     "work": "YOU have the power: my Stop the AI Race speech"
    },
    "jack-clark": {
     "a": 1,
-    "q": "one can concoct plausible scenarios by which AI could kill every single person on the planet",
+    "q": "one can concoct plausible scenarios by which AI could kill every single person on the planet.",
     "url": "https://importai.substack.com/p/import-ai-458-reckoning-with-the",
     "work": "Import AI 458: Reckoning with the future; and a singularity story"
    },
    "leopold-aschenbrenner": {
     "a": 1,
-    "q": "the greatest existential risk posed by AGI is that it will enable us to develop extraordinary new means of mass death",
+    "q": "On the historical view, the greatest existential risk posed by AGI is that it will enable us to develop extraordinary new means of mass death.",
     "url": "https://situational-awareness.ai/the-free-world-must-prevail/",
     "work": "IIId. The Free World Must Prevail"
    },
@@ -1006,13 +1042,13 @@
    },
    "noah-smith": {
     "a": 1,
-    "q": "the consequence could be that our whole species dies",
+    "q": "But if the biologists are wrong, and the AI of 2027 or 2032 or 2049 can design doomsday viruses, the consequence could be that our whole species dies.",
     "url": "https://www.noahpinion.blog/p/two-missing-pieces-in-the-ai-safety",
     "work": "Two missing pieces in the AI safety discussion"
    },
    "paul-kingsnorth": {
     "a": 1,
-    "q": "If AI doesn’t kill us",
+    "q": "If AI doesn’t kill us, it will certainly render us incapable of understanding what reality is.",
     "url": "https://paulkingsnorth.substack.com/p/writers-against-ai",
     "work": "Writers Against AI"
    },
@@ -1036,7 +1072,7 @@
    },
    "venkatesh-rao": {
     "a": -1,
-    "q": "I sincerely believe their fears are strictly nonsensical in a philosophical sense",
+    "q": "I sincerely believe their fears are strictly nonsensical in a philosophical sense, in the same sense that I consider fear of ghosts or going to hell in an “afterlife” to be strictly nonsensical.",
     "url": "https://studio.ribbonfarm.com/p/beyond-hyperanthropomorphism",
     "work": "Beyond Hyperanthropomorphism"
    },
@@ -1048,45 +1084,57 @@
    },
    "william-macaskill": {
     "a": 1,
-    "q": "This could increase the risk of global catastrophe, including human extinction",
+    "q": "Explosive technological progress could lead to new weapons and other destructive technologies. This could increase the risk of global catastrophe, including human extinction",
     "url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
     "work": "Preparing for the Intelligence Explosion"
    },
+   "yann-lecun": {
+    "a": -1,
+    "q": "The point is, AI systems, as smart as they might be, will be subservient to us.",
+    "url": "https://time.com/6694432/yann-lecun-meta-ai-interview/",
+    "work": "Meta's AI Chief Yann LeCun on AGI, Open-Source, and AI Risk"
+   },
    "yoshua-bengio": {
     "a": 1,
-    "q": "mitigating the risk of extinction from AI should be a global priority",
+    "q": "And the statement goes, mitigating the risk of extinction from AI should be a global priority.",
     "url": "https://singjupost.com/transcript-of-the-catastrophic-risks-of-ai-and-a-safer-path-yoshua-bengio/",
     "work": "The Catastrophic Risks of AI — and a Safer Path (transcript)"
    },
    "zvi-mowshowitz": {
     "a": 1,
-    "q": "causes all costly attempts to have it not kill us to be abandoned",
+    "q": "So what I worry about is the opposite - that this locks us into a mindset of a full-on ‘race to AGI’ that causes all costly attempts to have it not kill us to be abandoned, and that this accelerates the timeline.",
     "url": "https://thezvi.substack.com/p/deepseek-panic-at-the-app-store",
     "work": "DeepSeek Panic at the App Store"
    }
   },
   "direction-of-technology-is-chosen": {
-   "alex-karp": {
+   "alondra-nelson": {
     "a": 1,
-    "q": "if we fail to act, to formulate an affirmative view of what technology can accomplish, the undirected logic of the market will decide for us",
-    "url": "https://www.palantir.com/q1-2025-letter/en/",
-    "work": "Q1 2025 Letter to Shareholders"
+    "q": "if we think that the only way that the federal government or the executive branch or Congress can do something around AI is through making new laws, then we have not been paying attention to all of the ways that this government has been closely shaping AI futures.",
+    "url": "https://www.techpolicy.press/the-edge-dialogues-with-dr-alondra-nelson/",
+    "work": "The Edge Dialogues with Dr. Alondra Nelson"
+   },
+   "anton-korinek": {
+    "a": 1,
+    "q": "However, even if it is technologically feasible to perform certain tasks, our society may decide that it is preferably for those tasks to remain exclusively human.",
+    "url": "https://arxiv.org/html/2403.12107v1",
+    "work": "Scenarios for the Transition to AGI"
    },
    "arvind-narayanan": {
     "a": 1,
-    "q": "power is a matter of how we design the environment in which AI systems operate. And humans have agency over this design.",
+    "q": "Capability is an intrinsic property of an AI system, whereas power is a matter of how we design the environment in which AI systems operate. And humans have agency over this design.",
     "url": "https://www.aisnakeoil.com/p/agi-is-not-a-milestone",
     "work": "AGI is not a milestone"
    },
    "audrey-tang": {
     "a": 1,
-    "q": "The critical question is: how should we steer AI?",
+    "q": "It’s not about whether we should accelerate AI, or we should pause AI, control AI, stop AI. The critical question is: how should we steer AI?",
     "url": "https://sayit.archive.tw/2025-12-04-right-livelihood-lecture",
     "work": "2025-12-04 Right Livelihood Lecture (University of Zurich)"
    },
    "brian-merchant": {
     "a": 1,
-    "q": "It’s a series of management decisions being made by executives seeking to cut labor costs and consolidate control",
+    "q": "It’s a series of management decisions being made by executives seeking to cut labor costs and consolidate control in their organizations.",
     "url": "https://www.bloodinthemachine.com/p/the-ai-jobs-crisis-is-here-now",
     "work": "The AI jobs crisis is here, now"
    },
@@ -1098,19 +1146,19 @@
    },
    "daron-acemoglu": {
     "a": 1,
-    "q": "the details of how technology is developed, who is empowered, what regulatory and other counterveailing forces there are in society matter greatly",
+    "q": "So really the details of how technology is developed, who is empowered, what regulatory and other counterveailing forces there are in society matter greatly.",
     "url": "https://rosetta.to/u/nobelprize/daron-acemoglu-nobel-prize-conversations",
     "work": "Daron Acemoglu: Nobel Prize Conversations (transcript)"
    },
    "divya-siddarth": {
     "a": 1,
-    "q": "Democracy is how we decide what to do with that capability.",
+    "q": "Technology expands what we are capable of. Democracy is how we decide what to do with that capability.",
     "url": "https://rosetta.to/u/ted/how-ai-and-democracy-can-fix-each-other-divya-siddarth-ted",
     "work": "How AI and Democracy Can Fix Each Other (transcript)"
    },
    "e-glen-weyl": {
     "a": 1,
-    "q": "through our collective technological investments, we help choose among these possibilities",
+    "q": "There are clusters of plausible visions of the future and technologies that empower these; through our collective technological investments, we help choose among these possibilities.",
     "url": "https://www.plurality.net/read/2-0/",
     "work": "A Widening Gulf (Plurality, ch. 2-0)"
    },
@@ -1128,7 +1176,7 @@
    },
    "jack-clark": {
     "a": 1,
-    "q": "we will need to make many decisions as individuals and as societies about how we want to shape AI",
+    "q": "In the coming years, we will need to make many decisions as individuals and as societies about how we want to shape AI, how we want to use it, how we want to direct it, and how we want to distribute its benefits.",
     "url": "https://importai.substack.com/p/import-ai-458-reckoning-with-the",
     "work": "Import AI 458: Reckoning with the future; and a singularity story"
    },
@@ -1164,7 +1212,7 @@
    },
    "paul-kingsnorth": {
     "a": -1,
-    "q": "The rise of the Machine was never going to stop where we might want it to.",
+    "q": "The rise of the Machine was never going to stop where we might want it to. In the end, it will consume and colonise everything, including our bodies; including our tales.",
     "url": "https://paulkingsnorth.substack.com/p/writers-against-ai",
     "work": "Writers Against AI"
    },
@@ -1176,7 +1224,7 @@
    },
    "pope-leo-xiv": {
     "a": 1,
-    "q": "technology is never neutral, because it takes on the characteristics of those who devise, finance, regulate and use it",
+    "q": "In the abstract, technology in and of itself is not a solution to humanity’s problems, just as it is not inherently evil. In practice, however, technology is never neutral, because it takes on the characteristics of those who devise, finance, regulate and use it.",
     "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
     "work": "Magnifica Humanitas: Encyclical on safeguarding the human person in the time of Artificial Intelligence"
    },
@@ -1202,19 +1250,19 @@
   "productivity-benefits-workers-unaided": {
    "anton-korinek": {
     "a": -1,
-    "q": "the majority of the labor force is starkly devalued by automation",
+    "q": "We find that automation in such a scenario may give rise to an ever-declining fraction of superstar workers earnings ever-growing wages, whereas the majority of the labor force is starkly devalued by automation.",
     "url": "https://arxiv.org/html/2403.12107v1",
     "work": "Scenarios for the Transition to AGI"
    },
    "bernie-sanders": {
     "a": -1,
-    "q": "Left unchecked, it is likely that millions of truck drivers, bus drivers, taxi drivers and rideshare drivers will lose their jobs",
+    "q": "Left unchecked, it is likely that millions of truck drivers, bus drivers, taxi drivers and rideshare drivers will lose their jobs in the next decade.",
     "url": "https://www.sanders.senate.gov/op-eds/artificial-intelligence-is-coming-for-the-working-class/",
     "work": "Artificial intelligence is coming for the working class. We must fight back"
    },
    "curtis-yarvin": {
     "a": -1,
-    "q": "tech is the resource curse, the curse of an economy with inadequate labor demand",
+    "q": "LLMs are incredibly cool and useful tools and will have a huge impact on society. Probably mostly for the worse, since tech is the resource curse, the curse of an economy with inadequate labor demand.",
     "url": "https://graymirror.substack.com/p/gpt-4-invalidates-the-turing-test",
     "work": "GPT-4 invalidates the Turing test"
    },
@@ -1264,7 +1312,7 @@
   "freedom-compatible-with-democracy": {
    "audrey-tang": {
     "a": 1,
-    "q": "liberal, pluralistic, democratic institutions already guarantee the rights and justice it depends on",
+    "q": "And care, as Tronto reminds us, is only viable as a political ideal when liberal, pluralistic, democratic institutions already guarantee the rights and justice it depends on.",
     "url": "https://www.greaterwrong.com/posts/anoK4akwe8PKjtzkL/plurality-and-6pack-care",
     "work": "⿻ Plurality & 6pack.care"
    },
@@ -1276,13 +1324,13 @@
    },
    "divya-siddarth": {
     "a": 1,
-    "q": "human self-determination and freedom—the very things we aim to defend in a democracy",
+    "q": "Unless we carve out room for human self-determination and freedom—the very things we aim to defend in a democracy—we may find ourselves following the gradient toward greater automation without greater autonomy.",
     "url": "https://www.journalofdemocracy.org/articles/reimagining-democracys-defense/",
     "work": "Reimagining Democracy's Defense"
    },
    "jd-vance": {
     "a": 1,
-    "q": "allowing our citizens to speak their mind will make them stronger still.",
+    "q": "I really do believe that allowing our citizens to speak their mind will make them stronger still.",
     "url": "https://rollcall.com/factbase/trump/transcript/donald-trump-remarks-jd-vance-munich-germany-munich-security-conference-february-14-2025/",
     "work": "Remarks at the Munich Security Conference"
    },
@@ -1312,6 +1360,12 @@
     "url": "https://www.palantir.com/q4-2025-letter/en/",
     "work": "Q4 2025 Letter to Shareholders"
    },
+   "brian-merchant": {
+    "a": 1,
+    "q": "It’s no hyperbole to say that GPT-5 has for that time been the most hyped and most eagerly anticipated AI product release in an industry thoroughly deluged in hype.",
+    "url": "https://www.bloodinthemachine.com/p/gpt-5-is-a-joke-will-it-matter",
+    "work": "GPT-5 is a joke. Will it matter?"
+   },
    "dario-amodei": {
     "a": -1,
     "q": "I think that most people are underestimating just how radical the upside of AI could be, just as I think most people are underestimating how bad the risks could be.",
@@ -1320,43 +1374,49 @@
    },
    "daron-acemoglu": {
     "a": 1,
-    "q": "which is all part of the hype",
+    "q": "I think people are reading too much into Stargate, because even before it was announced the planned investments in the AI sector were massive, and they are going to continue that way, which is all part of the hype",
     "url": "https://moneyweek.com/investments/tech-stocks/daron-acemoglu-nobel-laureate-ai-gains",
     "work": "Have AI gains been overhyped? Nobel laureate Daron Acemoglu talks to MoneyWeek"
    },
    "dean-ball": {
     "a": -1,
-    "q": "Make no mistake: AI agents that build the next versions of themselves are not “science fiction.”",
+    "q": "Make no mistake: AI agents that build the next versions of themselves are not “science fiction.” They are an explicit and public milestone on the roadmap of every frontier AI lab.",
     "url": "https://www.hyperdimensional.co/p/on-recursive-self-improvement-part",
     "work": "On Recursive Self-Improvement (Part I)"
    },
    "dwarkesh-patel": {
     "a": -1,
-    "q": "people are really underestimating how big a deal actual AGI will be",
+    "q": "In fact, I think people are really underestimating how big a deal actual AGI will be because they’re just imagining more of this current regime.",
     "url": "https://www.dwarkesh.com/p/thoughts-on-ai-progress-dec-2025",
     "work": "Thoughts on AI progress (Dec 2025)"
    },
    "ed-zitron": {
     "a": 1,
-    "q": "We are in a bubble. Generative AI does not do the things that it's being sold as doing",
+    "q": "We are in a bubble. Generative AI does not do the things that it's being sold as doing, and the things it can actually do aren't the kind of things that create business returns, automate labor",
     "url": "https://www.wheresyoured.at/the-haters-gui/",
     "work": "The Hater's Guide To The AI Bubble"
    },
    "emily-m-bender": {
     "a": 1,
-    "q": "wild over-claims about system capabilities",
+    "q": "The division of labor between those who construct datasets and those who build the algorithms sets the conditions for wild over-claims about system capabilities.",
     "url": "https://faculty.washington.edu/ebender/papers/Bender-2024-preprint.pdf",
     "work": "Resisting Dehumanization in the Age of \"AI\""
    },
    "gary-marcus": {
     "a": 1,
-    "q": "the immense history of broken promises and delays in the AI field",
+    "q": "so far AI’s impact has (despite all the PR) been far less than either cell phones or the internet.",
     "url": "https://garymarcus.substack.com/p/the-ai-2027-scenario-how-realistic",
     "work": "The 'AI 2027' Scenario: How realistic is it?"
    },
+   "helen-toner": {
+    "a": -1,
+    "q": "Dismissing discussion of AGI, human-level AI, transformative AI, superintelligence, etc. as “science fiction” should be seen as a sign of total unseriousness.",
+    "url": "https://helentoner.substack.com/p/long-timelines-to-advanced-ai-have",
+    "work": "\"Long\" timelines to advanced AI have gotten crazy short"
+   },
    "jack-clark": {
     "a": -1,
-    "q": "AI is on a course to bring about even more change than what we are expecting",
+    "q": "What I am here to explain today is that AI is on a course to bring about even more change than what we are expecting and we should prepare accordingly.",
     "url": "https://importai.substack.com/p/import-ai-477-in-which-i-tell-the",
     "work": "Import AI 477: In which I tell the IMF the Singularity has begun"
    },
@@ -1372,9 +1432,15 @@
     "url": "https://situational-awareness.ai/from-gpt-4-to-agi/",
     "work": "I. From GPT-4 to AGI: Counting the OOMs"
    },
+   "meredith-whittaker": {
+    "a": 1,
+    "q": "So I don't, you know, I'm not saying it's useless. I'm saying it is vastly overhyped.",
+    "url": "https://podscripts.co/podcasts/big-technology-podcast/signals-president-on-ai-advertising-and-running-a-popular-messaging-app-with-meredith-whittaker",
+    "work": "Signal's President on AI, Advertising, and Running a Popular Messaging App"
+   },
    "noah-smith": {
     "a": -1,
-    "q": "it can get gold medals on the International Math Olympiad, solve difficult outstanding math problems all on its own, and get A’s in graduate school classes",
+    "q": "But it can get gold medals on the International Math Olympiad, solve difficult outstanding math problems all on its own, and get A’s in graduate school classes. Most human beings can’t do any of that.",
     "url": "https://www.noahpinion.blog/p/you-are-no-longer-the-smartest-type",
     "work": "You are no longer the smartest type of thing on Earth"
    },
@@ -1386,13 +1452,13 @@
    },
    "tyler-cowen": {
     "a": -1,
-    "q": "AI represents a truly major, transformational technological advance.",
-    "url": "https://marginalrevolution.com/marginalrevolution/2023/03/existential-risk-and-the-turn-in-human-history.html",
-    "work": "Existential risk, AI, and the inevitable turn in human history"
+    "q": "Economists, social scientists, most of them are blind and asleep to the promise of strong AI.",
+    "url": "https://www.dwarkesh.com/p/tyler-cowen-4",
+    "work": "Tyler Cowen — The #1 bottleneck to AI progress is humans"
    },
    "zvi-mowshowitz": {
     "a": -1,
-    "q": "Even if AI could permanently only do the things it can currently do, that would be Internet big, and radically change the world",
+    "q": "Even if AI could permanently only do the things it can currently do, that would be Internet big, and radically change the world, mostly for the better.",
     "url": "https://thezvi.substack.com/p/the-three-ai-pills",
     "work": "The Three AI Pills"
    }
@@ -1412,7 +1478,7 @@
    },
    "e-glen-weyl": {
     "a": -1,
-    "q": "Pluralistic visions of liberal democratic market societies will lose out to AI-driven ones unless we reimagine the role of technology",
+    "q": "Pluralistic visions of liberal democratic market societies will lose out to AI-driven ones unless we reimagine the role of technology in human affairs.",
     "url": "https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/",
     "work": "AI Is an Ideology, Not a Technology"
    },
@@ -1424,7 +1490,7 @@
    },
    "leopold-aschenbrenner": {
     "a": -1,
-    "q": "the arc of history counsels us to not underrate authoritarianism",
+    "q": "I think the arc of history counsels us to not underrate authoritarianism—and superintelligence might allow authoritarians to dominate for billions of years.",
     "url": "https://situational-awareness.ai/superalignment/",
     "work": "IIIc. Superalignment"
    }
@@ -1432,13 +1498,13 @@
   "competition-limits-harm": {
    "david-sacks": {
     "a": 1,
-    "q": "when you have multiple strong private sector players, that gets harder. By contrast, winner-take-all dynamics are more likely to produce Orwellian outcomes.",
+    "q": "At least when you have multiple strong private sector players, that gets harder. By contrast, winner-take-all dynamics are more likely to produce Orwellian outcomes.",
     "url": "https://x.com/DavidSacks/status/1954244614304739360",
     "work": "Long X post: the 'Goldilocks' state of AI and why the doomer narratives were wrong"
    },
    "guillaume-verdon": {
     "a": 1,
-    "q": "the market will positively select for AIs that are more reliable, more safe and tend to be aligned",
+    "q": "And ultimately the thesis is that the market will positively select for AIs that are more reliable, more safe and tend to be aligned",
     "url": "https://lexfridman.com/guillaume-verdon-transcript",
     "work": "Guillaume Verdon: Beff Jezos, E/acc Movement, Physics, Computation & AGI (Lex Fridman Podcast #407)"
    },
@@ -1462,12 +1528,24 @@
    },
    "yoshua-bengio": {
     "a": -1,
-    "q": "The competitive nature of capitalism is clearly also a cause for concern as a potential source of careless AI design motivated by profits and winning market share",
+    "q": "The competitive nature of capitalism is clearly also a cause for concern as a potential source of careless AI design motivated by profits and winning market share that could lead to potentially rogue AIs.",
     "url": "https://yoshuabengio.org/2023/05/22/how-rogue-ais-may-arise/",
     "work": "How Rogue AIs may Arise"
    }
   },
   "human-end-of-ai": {
+   "alondra-nelson": {
+    "a": 1,
+    "q": "to the extent that technology matters, it matters because it is supposed to be delivering things for people and not taking things that are meaningful and helpful and effective and that encourage wellbeing from people.",
+    "url": "https://techpolicy.press/a-conversation-with-dr-alondra-nelson-on-ai-and-democracy",
+    "work": "A Conversation with Dr. Alondra Nelson on AI and Democracy"
+   },
+   "arvind-narayanan": {
+    "a": 1,
+    "q": "But regardless of capability level, we can choose to ensure that AI remains a tool and is not given power and autonomy to operate without human oversight.",
+    "url": "https://www.aisnakeoil.com/p/agi-is-not-a-milestone",
+    "work": "AGI is not a milestone"
+   },
    "audrey-tang": {
     "a": 1,
     "q": "Let us design AI to serve at the speed of society, and make democracy fast, fair, and fun.",
@@ -1482,7 +1560,7 @@
    },
    "ed-zitron": {
     "a": 1,
-    "q": "helped humans be better, not outright lie about replacing them",
+    "q": "An ideal tech industry would be one built on innovation, revenue, real growth based on actual business returns that helped humans be better, not outright lie about replacing them.",
     "url": "https://www.wheresyoured.at/the-haters-gui/",
     "work": "The Hater's Guide To The AI Bubble"
    },
@@ -1506,19 +1584,19 @@
    },
    "mark-zuckerberg": {
     "a": 1,
-    "q": "We believe in putting this power in people's hands to direct it towards what they value in their own lives.",
+    "q": "Meta's vision is to bring personal superintelligence to everyone. We believe in putting this power in people's hands to direct it towards what they value in their own lives.",
     "url": "https://www.meta.com/superintelligence/",
     "work": "Personal Superintelligence"
    },
    "max-tegmark": {
     "a": 1,
-    "q": "Should we really consider it technological “progress” if we lose control over our human destiny",
+    "q": "Should we really consider it technological “progress” if we lose control over our human destiny like factory-farmed cows and that destitute orangutan?",
     "url": "https://web.archive.org/web/20240111204352/https://time.com/6273743/thinking-that-could-doom-us-with-ai/",
     "work": "The 'Don't Look Up' Thinking That Could Doom Us With AI"
    },
    "mustafa-suleyman": {
     "a": 1,
-    "q": "it is here solely to work in service of humans",
+    "q": "Instead, it is here solely to work in service of humans. This to me is what a truly empowering AI is all about.",
     "url": "https://mustafa-suleyman.ai/seemingly-conscious-ai-is-coming",
     "work": "We must build AI for people; not to be a person"
    },
@@ -1530,7 +1608,7 @@
    },
    "pope-leo-xiv": {
     "a": 1,
-    "q": "humanity — in all its grandeur and woundedness — must never be replaced or surpassed",
+    "q": "For this reason, humanity — in all its grandeur and woundedness — must never be replaced or surpassed.",
     "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
     "work": "Magnifica Humanitas: Encyclical on safeguarding the human person in the time of Artificial Intelligence"
    },
@@ -1542,7 +1620,7 @@
    },
    "vitalik-buterin": {
     "a": 1,
-    "q": "there is a problem: it seems like the Minds are completely in charge, and humans' only role in the stories is to act as pawns of Minds",
+    "q": "When we look deeper, however, there is a problem: it seems like the Minds are completely in charge, and humans' only role in the stories is to act as pawns of Minds, performing tasks on their behalf.",
     "url": "https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html",
     "work": "My techno-optimism"
    }
@@ -1550,9 +1628,9 @@
   "ai-fear-exceeds-evidence": {
    "curtis-yarvin": {
     "a": 1,
-    "q": "the useful-idiot AI doomers who give the field its nerd mystique",
-    "url": "https://graymirror.substack.com/p/gpt-4-invalidates-the-turing-test",
-    "work": "GPT-4 invalidates the Turing test"
+    "q": "“Paperclip risk” is not any risk anyone seriously believes—just a thought-experiment.",
+    "url": "https://graymirror.substack.com/p/there-is-no-ai-risk",
+    "work": "There is no AI risk"
    },
    "dario-amodei": {
     "a": -1,
@@ -1562,25 +1640,25 @@
    },
    "ed-zitron": {
     "a": 1,
-    "q": "how ready the media was to lose their entire shit over a narrative that the AI industry was deliberately encouraging",
+    "q": "they were demonstrations of how ready the media was to lose their entire shit over a narrative that the AI industry was deliberately encouraging: that AI was powerful, unknowable and uncontrollable.",
     "url": "https://www.wheresyoured.at/ai-is-already-in-dangerous-hands/",
     "work": "AI Is Already In Dangerous Hands"
    },
    "geoffrey-hinton": {
     "a": -1,
-    "q": "it should get you very worried too",
+    "q": "And that got me very worried and it should get you very worried too.",
     "url": "https://rosetta.to/u/theroyalinstitution/will-ai-outsmart-human-intelligence-with-godfather-of-ai-geoffrey-hinton",
     "work": "Will AI outsmart human intelligence? (Royal Institution lecture, transcript)"
    },
    "guillaume-verdon": {
     "a": 1,
-    "q": "much better than fear-mongering",
+    "q": "letting the free market find how to extract utility from this said technology would be the best way to proceed, much better than fear-mongering",
     "url": "https://beff.substack.com/p/notes-on-eacc-principles-and-tenets",
     "work": "Notes on e/acc principles and tenets"
    },
    "jd-vance": {
     "a": 1,
-    "q": "We shouldn't be afraid of artificial intelligence",
+    "q": "my message to a group of CEOs and foreign leaders was that we should embrace the future head-on. We shouldn't be afraid of artificial intelligence and that, particularly for those of us lucky enough to be Americans, we shouldn't be fearful of productive new technologies.",
     "url": "https://www.presidency.ucsb.edu/documents/remarks-the-vice-president-the-american-dynamism-summit",
     "work": "Remarks by the Vice President at the American Dynamism Summit"
    },
@@ -1592,7 +1670,7 @@
    },
    "noah-smith": {
     "a": 1,
-    "q": "the instinctive negativity with which AI is being met by a large segment of the American public feels like an unreasonable reaction to me",
+    "q": "the instinctive negativity with which AI is being met by a large segment of the American public feels like an unreasonable reaction to me.",
     "url": "https://www.noahpinion.blog/p/i-love-ai-why-doesnt-everyone",
     "work": "I love AI. Why doesn't everyone?"
    },
@@ -1604,19 +1682,31 @@
    },
    "sam-altman": {
     "a": -1,
-    "q": "The fear and anxiety about AI is justified",
+    "q": "*It will not all go well. The fear and anxiety about AI is justified; we are in the process of witnessing the largest change to society in a long time, and perhaps ever.",
     "url": "https://blog.samaltman.com/2279512",
     "work": "Untitled post, shown on the blog as \"-\""
    },
    "venkatesh-rao": {
     "a": 1,
-    "q": "the pseudo-traits of AI-fear discourse are philosophical nonsense",
+    "q": "the pseudo-traits of AI-fear discourse are philosophical nonsense, but we’ll grant they might be gesturing at real things.",
     "url": "https://studio.ribbonfarm.com/p/beyond-hyperanthropomorphism",
     "work": "Beyond Hyperanthropomorphism"
    },
+   "william-macaskill": {
+    "a": -1,
+    "q": "The risk of AI takeover is getting increasing attention, but it’s still much more neglected than it should be.",
+    "url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
+    "work": "Preparing for the Intelligence Explosion"
+   },
+   "yann-lecun": {
+    "a": 1,
+    "q": "AI will bring a lot of benefits to the world. But people are exploiting the fear about the technology, and we’re running the risk of scaring people away from it.",
+    "url": "https://www.wired.com/story/artificial-intelligence-meta-yann-lecun-interview/",
+    "work": "How Not to Be Stupid About AI, With Yann LeCun"
+   },
    "zvi-mowshowitz": {
     "a": -1,
-    "q": "a lot of people have grown far more alarmed, as they should",
+    "q": "As we find out more about that, a lot of people have grown far more alarmed, as they should given what they previously believed about the difficulty of alignment",
     "url": "https://thezvi.substack.com/p/the-pacing-of-the-frontier",
     "work": "The Pacing of the Frontier"
    }
@@ -1624,7 +1714,7 @@
   "deployment-harms-over-superintelligence": {
    "arvind-narayanan": {
     "a": 1,
-    "q": "rather than fixating on AGI, they should focus on enabling productive and safe diffusion, including of existing AI",
+    "q": "None of this means that policymakers should be complacent. But it does mean that rather than fixating on AGI, they should focus on enabling productive and safe diffusion, including of existing AI.",
     "url": "https://www.aisnakeoil.com/p/agi-is-not-a-milestone",
     "work": "AGI is not a milestone"
    },
@@ -1642,13 +1732,13 @@
    },
    "dwarkesh-patel": {
     "a": -1,
-    "q": "does nothing about the larger alignment problem",
+    "q": "People grossly overstate the risks AI poses via misinformation and inequality.",
     "url": "https://www.dwarkesh.com/p/contra-marc-andreessen-on-ai",
     "work": "Contra Marc Andreessen on AI"
    },
    "ed-zitron": {
     "a": 1,
-    "q": "without any actual tangible attempts to deal with the harms of the technology that actually exists",
+    "q": "the sickly irony of all of this safety theater — and that’s all it is without any actual tangible attempts to deal with the harms of the technology that actually exists",
     "url": "https://www.wheresyoured.at/ai-is-already-in-dangerous-hands/",
     "work": "AI Is Already In Dangerous Hands"
    },
@@ -1670,6 +1760,12 @@
     "url": "https://garymarcus.substack.com/p/why-my-pdoom-has-risen-dramatically",
     "work": "Why my p(doom) has risen, dramatically"
    },
+   "geoffrey-hinton": {
+    "a": -1,
+    "q": "There is also a longer term existential threat that will arise when we create digital beings that are more intelligent than ourselves. We have no idea whether we can stay in control.",
+    "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech/",
+    "work": "Banquet speech (Nobel Prize in Physics 2024)"
+   },
    "josh-hawley": {
     "a": 1,
     "q": "The most dangerous frontier of artificial intelligence today is not the boardroom or the battlefield. It is your own home.",
@@ -1678,7 +1774,7 @@
    },
    "mark-zuckerberg": {
     "a": 1,
-    "q": "I actually think the real harms that need more energy in being mitigated are things where someone takes a model and does something to hurt a person",
+    "q": "While it is maybe more intellectually interesting to talk about the existential risks, I actually think the real harms that need more energy in being mitigated are things where someone takes a model and does something to hurt a person.",
     "url": "https://www.dwarkesh.com/p/mark-zuckerberg",
     "work": "Mark Zuckerberg: Llama 3, open sourcing $10b models, & Caesar Augustus"
    },
@@ -1728,7 +1824,7 @@
    },
    "dwarkesh-patel": {
     "a": 1,
-    "q": "Giving AIs a stake in the future also means respecting their autonomy and wellbeing.",
+    "q": "Giving AIs a stake in the future also means respecting their autonomy and wellbeing. And it also requires us to honor the contracts we make with them.",
     "url": "https://www.dwarkesh.com/p/give-ais-a-stake-in-the-future",
     "work": "Give AIs a stake in the future"
    },
@@ -1758,7 +1854,7 @@
    },
    "venkatesh-rao": {
     "a": 1,
-    "q": "treat sufficiently capable AIs and humans increasingly as peers engaged in negotiated relationships",
+    "q": "There is another model available: treat sufficiently capable AIs and humans increasingly as peers engaged in negotiated relationships.",
     "url": "https://contraptions.venkateshrao.com/p/humanism-without-all-humans",
     "work": "Humanism without (All) Humans"
    },
@@ -1772,13 +1868,13 @@
   "past-technology-is-valid-reference-class": {
    "anton-korinek": {
     "a": -1,
-    "q": "there were always things that only humans could do. And that will no longer be true if we have a AGI",
+    "q": "But the fundamental difference is that there were always things that only humans could do. And that will no longer be true if we have a AGI.",
     "url": "https://aipolicypod.substack.com/p/14-anton-korinek-on-ais-economic",
     "work": "#14: Anton Korinek on AI's Economic and Workforce Impacts (transcript)"
    },
    "arvind-narayanan": {
     "a": 1,
-    "q": "Like past general-purpose technologies, we expect the economic impacts of AI to be realized over decades",
+    "q": "Like past general-purpose technologies, we expect the economic impacts of AI to be realized over decades, as this process of diffusion unfolds.",
     "url": "https://www.aisnakeoil.com/p/agi-is-not-a-milestone",
     "work": "AGI is not a milestone"
    },
@@ -1790,7 +1886,7 @@
    },
    "dean-ball": {
     "a": 1,
-    "q": "history tells me it will be good",
+    "q": "I cannot tell you whether the dynamism that results will be fundamentally good or fundamentally bad, though history tells me it will be good.",
     "url": "https://www.hyperdimensional.co/p/where-we-are-headed",
     "work": "Where We Are Headed"
    },
@@ -1802,7 +1898,7 @@
    },
    "jack-clark": {
     "a": -1,
-    "q": "AI cannot be treated as a normal technology",
+    "q": "if the technology advances as much as I think, that AI cannot be treated as a normal technology.",
     "url": "https://importai.substack.com/p/import-ai-458-reckoning-with-the",
     "work": "Import AI 458: Reckoning with the future; and a singularity story"
    },
@@ -1814,13 +1910,13 @@
    },
    "leopold-aschenbrenner": {
     "a": -1,
-    "q": "It is unprecedented because the industrial fertilizer guy cannot overthrow the US government.",
+    "q": "It is unprecedented because the industrial fertilizer guy cannot overthrow the US government. It’s quite plausible that the AI company with superintelligence can.",
     "url": "https://www.dwarkesh.com/p/leopold-aschenbrenner",
     "work": "Leopold Aschenbrenner: 2027 AGI, China/US super-intelligence race, & the return of history"
    },
    "marc-andreessen": {
     "a": 1,
-    "q": "every new technology that matters, from electric lighting to automobiles to radio to the Internet, has sparked a moral panic",
+    "q": "Historically, every new technology that matters, from electric lighting to automobiles to radio to the Internet, has sparked a moral panic – a social contagion that convinces people the new technology is going to destroy the world, or society, or both.",
     "url": "https://a16z.com/ai-will-save-the-world/",
     "work": "Why AI Will Save the World"
    },
@@ -1838,7 +1934,7 @@
    },
    "mustafa-suleyman": {
     "a": -1,
-    "q": "this is not just another invention. AI is itself an infinite inventor.",
+    "q": "Because this is not just another invention. AI is itself an infinite inventor.",
     "url": "https://rosetta.to/u/ted/what-is-an-ai-anyway-mustafa-suleyman-ted",
     "work": "What Is an AI Anyway? (transcript)"
    },
@@ -1856,7 +1952,7 @@
    },
    "venkatesh-rao": {
     "a": 1,
-    "q": "It emerged by surrounding dangerous capabilities with increasingly elaborate ecologies of training, law, norms, protocols, insurance, engineering",
+    "q": "The civilization capable of using these technologies did not emerge by making them incapable of exceeding individual human powers. It emerged by surrounding dangerous capabilities with increasingly elaborate ecologies of training, law, norms, protocols, insurance, engineering",
     "url": "https://contraptions.venkateshrao.com/p/humanism-without-all-humans",
     "work": "Humanism without (All) Humans"
    }
@@ -1870,7 +1966,7 @@
    },
    "elon-musk": {
     "a": -1,
-    "q": "For something important you need to reason with from first principles",
+    "q": "For something important you need to reason with from first principles and think about things in the limit one direction or the other.",
     "url": "https://lexfridman.com/elon-musk-4-transcript/",
     "work": "Elon Musk: War, AI, Aliens, Politics, Physics, Video Games, and Humanity (Lex Fridman Podcast #400)"
    },
@@ -1902,7 +1998,7 @@
    },
    "brian-merchant": {
     "a": 1,
-    "q": "allow for individuals, communities, and victims to participate in a legitimate democratic process over the future of AI",
+    "q": "and allow for individuals, communities, and victims to participate in a legitimate democratic process over the future of AI.",
     "url": "https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent",
     "work": "Why the AI backlash has turned violent"
    },
@@ -1914,19 +2010,19 @@
    },
    "divya-siddarth": {
     "a": 1,
-    "q": "But this is precisely why they must be.",
+    "q": "We are told that transformative technologies like AI are too complicated, or too risky or too important to be governed democratically. But this is precisely why they must be.",
     "url": "https://rosetta.to/u/ted/how-ai-and-democracy-can-fix-each-other-divya-siddarth-ted",
     "work": "How AI and Democracy Can Fix Each Other (transcript)"
    },
    "e-glen-weyl": {
     "a": 1,
-    "q": "Technocracy divorced from the need for public communication and accountability is thus a dangerous ideology",
+    "q": "Technocracy divorced from the need for public communication and accountability is thus a dangerous ideology that distracts technical experts from the valuable role they can play by tempting them to assume undue, independent power and influence.",
     "url": "https://www.radicalxchange.org/updates/blog/2019-08-19-bv61r6/",
     "work": "Why I Am Not A Technocrat"
    },
    "holly-elmore": {
     "a": 1,
-    "q": "establishing who’s boss (our democracy)",
+    "q": "This adds friction to the already uphill process of establishing who’s boss (our democracy) and getting regulation on the AI industry.",
     "url": "https://hollyelmore.substack.com/p/anthropic-delenda-est",
     "work": "Anthropic delenda est"
    },
@@ -1944,7 +2040,7 @@
    },
    "karen-hao": {
     "a": 1,
-    "q": "Silicon Valley is now hijacking the federal democratic process",
+    "q": "One of the beautiful things of democracy is the fact that you can lead from the bottom.",
     "url": "https://techpolicy.press/decolonizing-the-future-karen-hao-on-resisting-the-empire-of-ai",
     "work": "Decolonizing the Future: Karen Hao on Resisting the Empire of AI"
    },
@@ -1970,7 +2066,7 @@
   "market-tech-serves-humans": {
    "curtis-yarvin": {
     "a": -1,
-    "q": "Probably mostly for the worse, since tech is the resource curse",
+    "q": "LLMs are incredibly cool and useful tools and will have a huge impact on society. Probably mostly for the worse, since tech is the resource curse, the curse of an economy with inadequate labor demand.",
     "url": "https://graymirror.substack.com/p/gpt-4-invalidates-the-turing-test",
     "work": "GPT-4 invalidates the Turing test"
    },
@@ -2000,7 +2096,7 @@
    },
    "noah-smith": {
     "a": 1,
-    "q": "technology has almost always made things better for humanity, especially over the long haul",
+    "q": "In general, when we look at the past, we understand that technology has almost always made things better for humanity, especially over the long haul.",
     "url": "https://www.noahpinion.blog/p/i-love-ai-why-doesnt-everyone",
     "work": "I love AI. Why doesn't everyone?"
    },
@@ -2026,7 +2122,7 @@
   "binding-rules-for-frontier-ai": {
    "bernie-sanders": {
     "a": 1,
-    "q": "impose a federal moratorium on the construction of new AI data centers until strong safeguards are enacted",
+    "q": "That is why I have introduced legislation to impose a federal moratorium on the construction of new AI data centers until strong safeguards are enacted.",
     "url": "https://www.sanders.senate.gov/op-eds/artificial-intelligence-is-coming-for-the-working-class/",
     "work": "Artificial intelligence is coming for the working class. We must fight back"
    },
@@ -2044,7 +2140,7 @@
    },
    "ed-zitron": {
     "a": 1,
-    "q": "putting real safeguards on this technology",
+    "q": "the grim truth that we need to start arresting people for committing crimes, halting any and all training runs, and putting real safeguards on this technology",
     "url": "https://www.wheresyoured.at/ai-is-already-in-dangerous-hands/",
     "work": "AI Is Already In Dangerous Hands"
    },
@@ -2074,7 +2170,7 @@
    },
    "holly-elmore": {
     "a": 1,
-    "q": "getting regulation on the AI industry",
+    "q": "This adds friction to the already uphill process of establishing who’s boss (our democracy) and getting regulation on the AI industry.",
     "url": "https://hollyelmore.substack.com/p/anthropic-delenda-est",
     "work": "Anthropic delenda est"
    },
@@ -2098,7 +2194,7 @@
    },
    "pope-leo-xiv": {
     "a": 1,
-    "q": "It is necessary to establish adequate regulatory tools capable of upholding justice and curbing the distorting effects of technological power.",
+    "q": "It is necessary to establish adequate regulatory tools capable of upholding justice and curbing the distorting effects of technological power. Nevertheless, the issue is not limited to regulation.",
     "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
     "work": "Magnifica Humanitas: Encyclical on safeguarding the human person in the time of Artificial Intelligence"
    },
@@ -2110,7 +2206,7 @@
    },
    "samuel-hammond": {
     "a": 1,
-    "q": "The use of the Defense Production Act to require disclosures from frontier labs is appropriate",
+    "q": "The use of the Defense Production Act to require disclosures from frontier labs is appropriate given the unique affordances available to the Department of Defense, and the bona fide national security risks associated with sufficiently advanced forms of AI.",
     "url": "https://www.secondbest.ca/p/ninety-five-theses-on-ai",
     "work": "Ninety-five theses on AI"
    },
@@ -2122,7 +2218,7 @@
    },
    "yoshua-bengio": {
     "a": 1,
-    "q": "invest sufficiently in AI safety, regulation and treaties in order to control the misuse and loss-of-control risks",
+    "q": "There is a possible path where we invest sufficiently in AI safety, regulation and treaties in order to control the misuse and loss-of-control risks and reap the benefits of AI.",
     "url": "https://yoshuabengio.org/2024/07/09/reasoning-through-arguments-against-taking-ai-safety-seriously/",
     "work": "Reasoning through arguments against taking AI safety seriously"
    }
@@ -2130,7 +2226,7 @@
   "regulation-does-more-harm": {
    "david-sacks": {
     "a": 1,
-    "q": "we want a light touch on AI regulations",
+    "q": "Although we want a light touch on AI regulations, President Trump made clear that we do not intend to ignore the risks of this revolutionary technological power. We can monitor risks, and secure our edge, without stifling innovation.",
     "url": "https://twitter-thread.com/t/1949248675751882872",
     "work": "Thread on the White House AI Action Plan and Trump's first major AI speech"
    },
@@ -2142,7 +2238,7 @@
    },
    "guillaume-verdon": {
     "a": 1,
-    "q": "over-regulating technologies suppresses variance and hence slows down progress",
+    "q": "over-regulating technologies suppresses variance and hence slows down progress towards higher utility technologies and advancement of civilization, a contrast to anti-AGI factions of EA",
     "url": "https://beff.substack.com/p/notes-on-eacc-principles-and-tenets",
     "work": "Notes on e/acc principles and tenets"
    },
@@ -2184,7 +2280,7 @@
    },
    "samuel-hammond": {
     "a": 1,
-    "q": "It is unwise to craft comprehensive statutory regulation at a technological inflection point",
+    "q": "It is unwise to craft comprehensive statutory regulation at a technological inflection point, as the basic ontology of what is being regulated is in flux.",
     "url": "https://www.secondbest.ca/p/ninety-five-theses-on-ai",
     "work": "Ninety-five theses on AI"
    }
@@ -2208,6 +2304,12 @@
     "url": "https://medium.com/@emilymenonbender/on-nyt-magazine-on-ai-resist-the-urge-to-be-impressed-3d92fd9a0edd",
     "work": "On NYT Magazine on AI: Resist the Urge to be Impressed"
    },
+   "gary-marcus": {
+    "a": -1,
+    "q": "The US has done almost nothing legislatively about the risks of AI (aside from deepfake porn). We should.",
+    "url": "https://garymarcus.substack.com/p/the-ai-2027-scenario-how-realistic",
+    "work": "The 'AI 2027' Scenario: How realistic is it?"
+   },
    "guillaume-verdon": {
     "a": 1,
     "q": "And so I just want separation of AI and state",
@@ -2222,7 +2324,7 @@
    },
    "leopold-aschenbrenner": {
     "a": -1,
-    "q": "We will need the government to ensure even a semblance of a sane chain of command",
+    "q": "We will need the government to ensure even a semblance of a sane chain of command; you can’t have random CEOs (or random nonprofit boards) with the nuclear button.",
     "url": "https://situational-awareness.ai/the-project/",
     "work": "IV. The Project"
    }
@@ -2248,9 +2350,15 @@
    },
    "venkatesh-rao": {
     "a": 1,
-    "q": "It is a symbiotic, pluralistic and evolutionary future",
+    "q": "It is a symbiotic, pluralistic and evolutionary future in which humans and artificial intelligences become increasingly entangled participants in civilization.",
     "url": "https://contraptions.venkateshrao.com/p/humanism-without-all-humans",
     "work": "Humanism without (All) Humans"
+   },
+   "vitalik-buterin": {
+    "a": 1,
+    "q": "Accelerate technology, but differentially focus on technologies improve our ability to defend, rather than our ability to cause harm, and in technologies that distribute power rather than concentrating it in the hands of a singular elite that decides what is true, false, good or",
+    "url": "https://vitalik.eth.limo/general/2025/01/05/dacc2.html",
+    "work": "d/acc: one year later"
    }
   },
   "china-rivalry-justifies-tech-push": {
@@ -2274,7 +2382,7 @@
    },
    "e-glen-weyl": {
     "a": -1,
-    "q": "they cannot make it a race for the development of AI which gives up the game before it begins",
+    "q": "If pluralistic societies want to win a race not against China as a nation but against authoritarianism wherever it arises, they cannot make it a race for the development of AI which gives up the game before it begins.",
     "url": "https://www.wired.com/story/opinion-ai-is-an-ideology-not-a-technology/",
     "work": "AI Is an Ideology, Not a Technology"
    },
@@ -2283,6 +2391,12 @@
     "q": "Getting there first just wasn’t going to matter in the long run",
     "url": "https://garymarcus.substack.com/p/the-race-for-ai-supremacy-is-over",
     "work": "The race for \"AI Supremacy\" is over, at least for now"
+   },
+   "helen-toner": {
+    "a": 1,
+    "q": "Because of this, I agree that it is a very good thing for the US to have more AI compute, including more AI supercomputers, than China.",
+    "url": "https://helentoner.substack.com/p/supercomputers-for-autocrats",
+    "work": "Building supercomputers for autocrats probably isn't good for democracy, actually"
    },
    "jd-vance": {
     "a": 1,
@@ -2304,19 +2418,19 @@
    },
    "max-tegmark": {
     "a": -1,
-    "q": "As if the race to superintelligence were an arms race that would be won by “us” or “them”, when it’s probably a suicide race",
+    "q": "As if the race to superintelligence were an arms race that would be won by “us” or “them”, when it’s probably a suicide race whose only winner is “it.”",
     "url": "https://web.archive.org/web/20240111204352/https://time.com/6273743/thinking-that-could-doom-us-with-ai/",
     "work": "The 'Don't Look Up' Thinking That Could Doom Us With AI"
    },
    "noah-smith": {
     "a": 1,
-    "q": "America needs to retain a technological edge to balance out its productive weakness",
+    "q": "America needs to retain a technological edge to balance out its productive weakness — an advantage in quality to balance out its deficiency in quantity. Semiconductors are that edge.",
     "url": "https://www.noahpinion.blog/p/americas-chip-export-controls-are",
     "work": "America's chip export controls are working"
    },
    "scott-alexander": {
     "a": -1,
-    "q": "Even in the unlikely scenario where AI causes a singularity and remains aligned, I have trouble worrying too much about races.",
+    "q": "I think some people hear transhumanists talk about an “AI race” and mindlessly repeat it, without asking what assumptions it commits them to.",
     "url": "https://www.astralcodexten.com/p/most-technologies-arent-races",
     "work": "Most Technologies Aren't Races"
    },
@@ -2330,7 +2444,7 @@
   "direct-distribution-of-wealth-sound": {
    "anton-korinek": {
     "a": 1,
-    "q": "I think that would make it affordable to pay out the UBI that makes sure that workers are not worse off materially",
+    "q": "So we only need to compensate workers in scenarios where growth would also be significantly higher. And I think that would make it affordable to pay out the UBI that makes sure that workers are not worse off materially.",
     "url": "https://zencastr.com/z/GVXR3hXH",
     "work": "Anton Korinek on Automating Work and the Economics of an Intelligence Explosion"
    },
@@ -2354,9 +2468,15 @@
    }
   },
   "slow-or-stop-frontier-ai": {
+   "arvind-narayanan": {
+    "a": -1,
+    "q": "drastic interventions premised on the difficulty of controlling superintelligent AI will, in fact, make things much worse if AI turns out to be normal technology",
+    "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+    "work": "AI as Normal Technology"
+   },
    "bernie-sanders": {
     "a": 1,
-    "q": "impose a federal moratorium on the construction of new AI data centers until strong safeguards are enacted",
+    "q": "That is why I have introduced legislation to impose a federal moratorium on the construction of new AI data centers until strong safeguards are enacted.",
     "url": "https://www.sanders.senate.gov/op-eds/artificial-intelligence-is-coming-for-the-working-class/",
     "work": "Artificial intelligence is coming for the working class. We must fight back"
    },
@@ -2368,7 +2488,7 @@
    },
    "ed-zitron": {
     "a": 1,
-    "q": "halting any and all training runs",
+    "q": "the grim truth that we need to start arresting people for committing crimes, halting any and all training runs, and putting real safeguards on this technology",
     "url": "https://www.wheresyoured.at/ai-is-already-in-dangerous-hands/",
     "work": "AI Is Already In Dangerous Hands"
    },
@@ -2386,9 +2506,9 @@
    },
    "holly-elmore": {
     "a": 1,
-    "q": "the only meaningful technical safety work is going to come after capabilities are paused, with actual external regulatory power",
-    "url": "https://hollyelmore.substack.com/p/an-open-letter-to-effective-altruists",
-    "work": "An open letter to effective altruists"
+    "q": "ANYONE trying to build superintelligence without scientific consensus on safety and the consent and representation of the public is evil.",
+    "url": "https://hollyelmore.substack.com/p/anthropic-delenda-est",
+    "work": "Anthropic delenda est"
    },
    "jd-vance": {
     "a": -1,
@@ -2434,7 +2554,7 @@
    },
    "zvi-mowshowitz": {
     "a": 1,
-    "q": "We should not build superintelligence until such time as that changes",
+    "q": "We should not build superintelligence until such time as that changes, and the risk of everyone dying as a result, as well as the risk of losing control over the future as a result, is very low. Not zero, but far lower than it is now or will be soon.",
     "url": "https://thezvi.substack.com/p/new-statement-calls-for-not-building",
     "work": "New Statement Calls For Not Building Superintelligence For Now"
    }
@@ -2442,7 +2562,7 @@
   "plan-control-early": {
    "dwarkesh-patel": {
     "a": 1,
-    "q": "work to prepare for misaligned 2028 ASI still makes a lot of sense",
+    "q": "Which means that work to prepare for misaligned 2028 ASI still makes a lot of sense - I think this is a totally plausible outcome.",
     "url": "https://www.dwarkesh.com/p/timelines-june-2025",
     "work": "Why I don't think AGI is right around the corner"
    },
@@ -2454,9 +2574,21 @@
    },
    "gary-marcus": {
     "a": 1,
-    "q": "investing in research to develop safer, more alignable approaches to AI",
+    "q": "We certainly aren’t prepared now, and if we don’t get moving, we won’t be prepared in 10, either.",
     "url": "https://garymarcus.substack.com/p/the-ai-2027-scenario-how-realistic",
     "work": "The 'AI 2027' Scenario: How realistic is it?"
+   },
+   "holly-elmore": {
+    "a": 1,
+    "q": "But there is an urgent need to work out governance of attempts to build powerful AI today.",
+    "url": "https://hollyelmore.substack.com/p/post-singularity-same-shit",
+    "work": "Post-Singularity, same shit."
+   },
+   "jack-clark": {
+    "a": 1,
+    "q": "It’s time to plan for this, because AI systems are likely to get better a lot faster than people expect, and as they become more advanced we should expect profound changes to happen to people and to society.",
+    "url": "https://importai.substack.com/p/import-ai-458-reckoning-with-the",
+    "work": "Import AI 458: Reckoning with the future; and a singularity story"
    },
    "jason-crawford": {
     "a": 1,
@@ -2484,19 +2616,19 @@
    },
    "william-macaskill": {
     "a": 1,
-    "q": "it’s still much more neglected than it should be",
+    "q": "The risk of AI takeover is getting increasing attention, but it’s still much more neglected than it should be.",
     "url": "https://www.forethought.org/research/preparing-for-the-intelligence-explosion",
     "work": "Preparing for the Intelligence Explosion"
    },
    "yoshua-bengio": {
     "a": 1,
-    "q": "there is urgency in doing these things, in case AGI happens faster than expected",
+    "q": "We do need to consider plausible future scenarios and trajectories of AI advances in order to prepare against the most dangerous ones",
     "url": "https://yoshuabengio.org/2024/07/09/reasoning-through-arguments-against-taking-ai-safety-seriously/",
     "work": "Reasoning through arguments against taking AI safety seriously"
    },
    "zvi-mowshowitz": {
     "a": 1,
-    "q": "build much more powerful control mechanisms",
+    "q": "work on governance mechanisms for ASI, develop a vastly better science of the nature and development of AI behavior, build much more powerful control mechanisms",
     "url": "https://thezvi.substack.com/p/the-pacing-of-the-frontier",
     "work": "The Pacing of the Frontier"
    }
@@ -2504,13 +2636,13 @@
  },
  "selection_log": [
   "statements frozen for the season",
+  "coverage: alondra-nelson has 2 stated stances among the anchors",
   "coverage: david-sacks has 2 stated stances among the anchors",
-  "newcomer not shown: alondra-nelson has 2 stated stances",
-  "newcomer not shown: andrej-karpathy has 1 stated stances",
-  "newcomer not shown: demis-hassabis has 0 stated stances",
-  "newcomer not shown: helen-toner has 2 stated stances",
-  "newcomer not shown: meredith-whittaker has 1 stated stances",
-  "newcomer not shown: yann-lecun has 2 stated stances"
+  "coverage: helen-toner has 2 stated stances among the anchors",
+  "coverage: meredith-whittaker has 1 stated stances among the anchors",
+  "coverage: yann-lecun has 2 stated stances among the anchors",
+  "newcomer not shown: andrej-karpathy has 0 stated stances",
+  "newcomer not shown: demis-hassabis has 0 stated stances"
  ],
  "notes": [
   "Thinkers are read by machine from about three public works each. None of them has reviewed this.",
