@@ -35,6 +35,7 @@ __all__ = ["app"]
 '''
 VERCEL_JSON = """{
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["iad1"],
   "functions": {
     "main.py": { "maxDuration": 60, "excludeFiles": "{**/__pycache__/**,**/tests/**}" }
   }

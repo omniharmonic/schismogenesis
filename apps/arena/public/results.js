@@ -21,7 +21,7 @@ function statementRow(s) {
   const [a, u, d] = [s.agree / total, s.unsure / total, s.disagree / total];
   const marker = s.agree_share === null ? "" : `<span class="marker" style="left:calc(${s.thinkers_agree_share * 100}% - 1px)" data-tip="Thinkers we read: ${pct(s.thinkers_agree_share)} agree (${s.thinkers} with a stated view)"></span>`;
   return `<div class="srow">
-    <div><span class="serif">${esc(s.text)}</span><br><span class="small muted">${LAYER[s.layer]}</span></div>
+    <div><a class="serif" style="color:inherit" href="/s/${esc(s.id)}">${esc(s.text)}</a><br><span class="small muted">${LAYER[s.layer]}</span></div>
     <div><div class="bar" role="img" aria-label="${pct(a)} agree, ${pct(u)} unsure, ${pct(d)} disagree; thinkers ${pct(s.thinkers_agree_share)} agree">
       <i style="width:${a * 100}%;background:var(--yes)" data-tip="Agree: ${s.agree} (${pct(a)})"></i>
       <i style="width:${u * 100}%;background:var(--mid)" data-tip="Unsure: ${s.unsure} (${pct(u)})"></i>

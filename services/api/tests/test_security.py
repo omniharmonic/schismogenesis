@@ -127,3 +127,12 @@ def test_turnstile_guards_writes_when_switched_on(engine):
     off = TestClient(create_app(engine, config=Config(), human=human))
     assert off.get("/api/config").json() == {"turnstile_site_key": None}
     assert off.post("/api/rooms/ai-futures/join", json=body).status_code == 200
+
+
+@pytest.mark.db
+def test_launch_gate(engine):
+    client = TestClient(create_app(engine, config=Config(site_password="letmein")))
+    assert client.get("/").status_code == 401
+    assert client.get("/api/health").status_code == 200
+    assert client.get("/", auth=("anyone", "letmein")).status_code == 200
+    assert client.get("/", auth=("anyone", "wrong")).status_code == 401

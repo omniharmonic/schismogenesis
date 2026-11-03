@@ -325,7 +325,7 @@
    "author": "e-glen-weyl",
    "url": "https://www.plurality.net/",
    "title": "Plurality: The Future of Collaborative Technology and Democracy",
-   "published": "2024",
+   "published": "2024-01-01",
    "channel": "plurality.net (open-access book)",
    "format": "book_chapter",
    "authorship": "co_authored",
@@ -335,7 +335,7 @@
    "coauthors": [
     "audrey-tang"
    ],
-   "note": "Open book co-written with Audrey Tang and contributors; pick the AI-related chapters. Exact release date not verified."
+   "note": "Open book co-written with Audrey Tang and contributors; pick the AI-related chapters. Exact release date not verified. Date known only to year."
   },
   {
    "key": "weyl-ai-is-an-ideology-not-a-technology",
@@ -995,14 +995,14 @@
    "author": "alondra-nelson",
    "url": "https://fordschool.umich.edu/video/2024/alondra-nelson-ai-bill-rights-and-future-technology-policy-deans-symposium",
    "title": "Alondra Nelson: The AI Bill of Rights and the future of technology policy (Dean's Symposium)",
-   "published": "2024",
+   "published": "2024-01-01",
    "channel": "University of Michigan Ford School",
    "format": "lecture",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": false,
    "deliverable": "widen",
-   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. Video; needs captions. A stronger own-byline essay was not found in this pass."
+   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. Video; needs captions. A stronger own-byline essay was not found in this pass. Date known only to year."
   },
   {
    "key": "sanders-artificial-intelligence-is-coming-for-the-workin",
@@ -1051,7 +1051,7 @@
    "author": "divya-siddarth",
    "url": "https://www.cip.org/whitepaper",
    "title": "The Collective Intelligence Project whitepaper",
-   "published": "2023",
+   "published": "2023-01-01",
    "channel": "Collective Intelligence Project",
    "format": "essay",
    "authorship": "co_authored",
@@ -1061,7 +1061,7 @@
    "coauthors": [
     "saffron-huang"
    ],
-   "note": "Co-written with Saffron Huang; exact date not verified."
+   "note": "Co-written with Saffron Huang; exact date not verified. Date known only to year."
   },
   {
    "key": "siddarth-how-ai-and-democracy-can-fix-each-other",
@@ -1272,14 +1272,14 @@
    "author": "meredith-whittaker",
    "url": "https://interactions.acm.org/archive/view/november-december-2021/the-steep-cost-of-capture",
    "title": "The Steep Cost of Capture",
-   "published": "2021-11",
+   "published": "2021-11-01",
    "channel": "ACM Interactions",
    "format": "essay",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": false,
    "deliverable": "widen",
-   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened."
+   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. Date known only to month."
   },
   {
    "key": "whittaker-the-story-ask-lots-of-questions-w-meredith-whitt",
@@ -1379,14 +1379,14 @@
    "author": "daron-acemoglu",
    "url": "https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf",
    "title": "The Simple Macroeconomics of AI",
-   "published": "2024-04",
+   "published": "2024-04-01",
    "channel": "MIT Economics (working paper PDF)",
    "format": "essay",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "widen",
-   "note": "PDF opened (HTTP 200); title from memory, not read from the PDF. Academic paper; introduction and conclusion carry the position."
+   "note": "PDF opened (HTTP 200); title from memory, not read from the PDF. Academic paper; introduction and conclusion carry the position. Date known only to month."
   },
   {
    "key": "acemoglu-don-t-believe-the-ai-hype",
@@ -1407,21 +1407,21 @@
    "author": "daron-acemoglu",
    "url": "https://www.bostonreview.net/forum/redesigning-ai/",
    "title": "Redesigning AI",
-   "published": "2021-05",
+   "published": "2021-05-01",
    "channel": "Boston Review",
    "format": "essay",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": false,
    "deliverable": "widen",
-   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. Date from memory."
+   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. Date from memory. Date known only to month."
   },
   {
    "key": "korinek-scenarios-for-the-transition-to-agi",
    "author": "anton-korinek",
    "url": "https://www.nber.org/papers/w32255",
    "title": "Scenarios for the Transition to AGI",
-   "published": "2024-03",
+   "published": "2024-03-01",
    "channel": "NBER Working Paper 32255",
    "format": "essay",
    "authorship": "co_authored",
@@ -1431,35 +1431,35 @@
    "coauthors": [
     "donghyun-suh"
    ],
-   "note": "Co-written with Donghyun Suh; month from memory. NBER full text may need a free account."
+   "note": "Co-written with Donghyun Suh; month from memory. NBER full text may need a free account. Date known only to month."
   },
   {
    "key": "korinek-economic-policy-challenges-for-the-age-of-ai",
    "author": "anton-korinek",
    "url": "https://www.nber.org/papers/w32980",
    "title": "Economic Policy Challenges for the Age of AI",
-   "published": "2024-09",
+   "published": "2024-09-01",
    "channel": "NBER Working Paper 32980",
    "format": "essay",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "widen",
-   "note": "Month from memory."
+   "note": "Month from memory. Date known only to month."
   },
   {
    "key": "korinek-scenario-planning-for-an-a-g-i-future",
    "author": "anton-korinek",
    "url": "https://www.imf.org/en/Publications/fandd/issues/2023/12/Scenario-Planning-for-an-AGI-future-Anton-korinek",
    "title": "Scenario Planning for an A(G)I Future",
-   "published": "2023-12",
+   "published": "2023-12-01",
    "channel": "IMF Finance & Development",
    "format": "essay",
    "authorship": "own_name",
    "excerpt": "",
    "verified_reachable": false,
    "deliverable": "widen",
-   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. URL and title from memory."
+   "note": "Automated check was blocked (HTTP 403); the page is listed by web search but was not opened. URL and title from memory. Date known only to month."
   },
   {
    "key": "xiv-magnifica-humanitas-encyclical-on-safeguarding-t",

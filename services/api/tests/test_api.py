@@ -176,3 +176,29 @@ def test_report_aggregates_only_and_disputes(client):
 def test_static_and_atlas(client):
     assert client.get("/fingerprint.json").json()["version"] == BUNDLE["version"]
     assert client.get("/api/rooms/demo").json()["demo"] is True
+
+
+@pytest.mark.db
+def test_retired_statements_stop_being_served(engine):
+    store = Store(engine)
+    store.ensure_room("ai-futures", "AI futures", BUNDLE)
+    smaller = {**BUNDLE, "anchors": BUNDLE["anchors"][1:]}
+    store.ensure_room("ai-futures", "AI futures", smaller)
+    room = store.room("ai-futures")
+    assert room is not None
+    served = store.approved_statements(room["room_id"])
+    anchors = {s["anchor_id"] for s in served.values()}
+    assert BUNDLE["anchors"][0]["id"] not in anchors and len(anchors) == len(BUNDLE["anchors"]) - 1
+
+
+@pytest.mark.db
+def test_statement_pages(client):
+    anchor = BUNDLE["anchors"][0]
+    page = client.get(f"/s/{anchor['id']}")
+    assert (
+        page.status_code == 200
+        and "og:image" in page.text
+        and f"/s/{anchor['id']}/card.png" in page.text
+    )
+    assert client.get(f"/s/{anchor['id']}/card.png").headers["content-type"] == "image/png"
+    assert client.get("/s/not-a-statement").status_code == 404

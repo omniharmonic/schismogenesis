@@ -150,7 +150,8 @@ function mirrorHTML() {
       <span class="chip ${ANSWER_CLASS[v]}">${ANSWER_LABEL[v]}</span></summary>
       <p class="small muted" style="margin-top:8px">${v === 0 ? `${entries.length} thinkers took a side.` : `${withYou} of ${entries.length} thinkers we read are with you.`}</p>
       ${quotes}
-      <button class="link-button small" data-dispute="${esc(a.id)}">Report a misreading on this statement</button>
+      <div class="row"><a class="small" href="/s/${esc(a.id)}">Open this statement</a>
+      <button class="link-button small" data-dispute="${esc(a.id)}">Report a misreading on this statement</button></div>
     </details>`;
   }).join("");
 }

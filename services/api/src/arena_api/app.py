@@ -3,6 +3,7 @@
 See docs/fingerprint/02-ARCHITECTURE.md and 04-LAUNCH.md.
 """
 
+import base64
 import datetime
 import hashlib
 import html
@@ -23,7 +24,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 
 from arena_api import identity, turnstile
-from arena_api.cards import profile_card
+from arena_api.cards import profile_card, statement_card
 from arena_api.profiles import (
     Summary,
     SummaryError,
@@ -36,7 +37,9 @@ from arena_api.profiles import (
 from arena_api.store import Store, key_hash
 from arena_api.text_rules import check_statement
 
-REPO = pathlib.Path(__file__).resolve().parents[4]
+_HERE = pathlib.Path(__file__).resolve()
+# in the repo this is the root; in a flat deploy folder (build/vercel) paths come from the env
+REPO = _HERE.parents[4] if len(_HERE.parents) > 4 else _HERE.parent
 PUBLIC = pathlib.Path(os.environ.get("ARENA_PUBLIC_DIR") or REPO / "apps/arena/public")
 CONSENT_VERSION = "room-v1"
 STATEMENTS_PER_DAY = 5
@@ -80,6 +83,7 @@ class Config:
     proxy_hops: int = 1  # proxies we control in front of the app
     client_ip_header: str | None = None  # e.g. Fly-Client-IP or CF-Connecting-IP
     production: bool = False
+    site_password: str | None = None  # pre-launch gate: every page asks for it while set
     rate_salt: str | None = None  # shared by every instance, so rate limits hold across them
     turnstile_site_key: str | None = None
     turnstile_secret: str | None = None
@@ -97,6 +101,7 @@ class Config:
             client_ip_header=env("ARENA_CLIENT_IP_HEADER") or None,
             production=env("ARENA_ENV") == "production",
             rate_salt=env("ARENA_RATE_SALT") or None,
+            site_password=env("ARENA_SITE_PASSWORD") or None,
             turnstile_site_key=env("ARENA_TURNSTILE_SITE_KEY") or None,
             turnstile_secret=env("ARENA_TURNSTILE_SECRET") or None,
         )
@@ -185,6 +190,24 @@ def create_app(
     # rate-limit buckets hold hashed addresses, never raw ones
     salt = config.rate_salt or secrets.token_hex(16)
     app = FastAPI(title="Dialogos: AI Futures Fingerprint", docs_url=None, redoc_url=None)
+
+    @app.middleware("http")
+    async def launch_gate(request: Request, call_next):
+        """Until launch, the whole site sits behind one shared password (HTTP basic auth)."""
+        if config.site_password and request.url.path != "/api/health":
+            supplied = ""
+            header = request.headers.get("authorization", "")
+            if header.startswith("Basic "):
+                try:
+                    supplied = base64.b64decode(header[6:]).decode().split(":", 1)[-1]
+                except (ValueError, UnicodeDecodeError):
+                    supplied = ""
+            if not secrets.compare_digest(supplied, config.site_password):
+                return Response(
+                    "This site isn't open yet.", status_code=401,
+                    headers={"WWW-Authenticate": 'Basic realm="Dialogos preview"'},
+                )  # fmt: skip
+        return await call_next(request)
 
     @app.middleware("http")
     async def guard(request: Request, call_next):
@@ -654,6 +677,45 @@ def create_app(
             "DATA": safe_json,
         }
         # one pass, so text from a profile can never introduce a placeholder of its own
+        return HTMLResponse(re.sub(r"\{\{(\w+)\}\}", lambda m: fills[m[1]], page))
+
+    layer_names = {"ontological": "What AI is", "epistemic": "How we know",
+                   "axiological": "What matters", "empirical": "What will happen",
+                   "praxis": "What to do"}  # fmt: skip
+    anchors_by_id = {a["id"]: a for a in bundle["anchors"]}
+    statement_cards: dict[str, bytes] = {}
+
+    def anchor_or_404(anchor_id: str) -> dict:
+        anchor = anchors_by_id.get(anchor_id)
+        if anchor is None:
+            raise HTTPException(404, "No such statement.")
+        return anchor
+
+    @app.get("/s/{anchor_id}/card.png")
+    def statement_image(anchor_id: str):
+        anchor = anchor_or_404(anchor_id)
+        if anchor_id not in statement_cards:
+            sides = [v["a"] for v in bundle["stances"][anchor_id].values()]
+            statement_cards[anchor_id] = statement_card(
+                anchor["text"], sides.count(1), sides.count(-1), layer_names[anchor["layer"]]
+            )
+        return Response(statement_cards[anchor_id], media_type="image/png",
+                        headers={"Cache-Control": "public, max-age=86400"})  # fmt: skip
+
+    @app.get("/s/{anchor_id}")
+    def statement_page(anchor_id: str):
+        anchor = anchor_or_404(anchor_id)
+        page = (public / "statement.html").read_text()
+        url = f"{config.public_url}/s/{anchor_id}"
+        fills = {
+            "TITLE": html.escape(f"Where do you stand? “{anchor['text']}”"),
+            "DESCRIPTION": html.escape(
+                "See which of the thinkers agree, in their own words, and how everyone answers."
+            ),
+            "URL": html.escape(url),
+            "IMAGE": html.escape(f"{url}/card.png"),
+            "ID": html.escape(anchor_id),
+        }
         return HTMLResponse(re.sub(r"\{\{(\w+)\}\}", lambda m: fills[m[1]], page))
 
     @app.get("/people")

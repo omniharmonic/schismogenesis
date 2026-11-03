@@ -37,6 +37,15 @@ class Store:
                     ),
                     {"r": room, "t": anchor["text"], "a": anchor["id"]},
                 )
+            # statements dropped from the season stop being served; their votes stay on record
+            c.execute(
+                text(
+                    "UPDATE room_statement SET status = 'rejected', moderated_at = now(), "
+                    "reject_reason = 'retired from the season' WHERE room_id = :r "
+                    "AND origin = 'anchor' AND status = 'approved' AND NOT (anchor_id = ANY(:ids))"
+                ),
+                {"r": room, "ids": [a["id"] for a in bundle["anchors"]]},
+            )
         return str(room)
 
     def room(self, slug: str) -> dict | None:

@@ -11,9 +11,10 @@ from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFont
 
+_HERE = pathlib.Path(__file__).resolve()
 FONTS = pathlib.Path(
     os.environ.get("ARENA_FONTS_DIR")
-    or pathlib.Path(__file__).resolve().parents[4] / "apps/arena/fonts"
+    or (_HERE.parents[4] / "apps/arena/fonts" if len(_HERE.parents) > 4 else _HERE.parent)
 )
 RINGS = 15
 PAPER, INK, MUTED, RIDGE = (233, 237, 242), (27, 36, 48), (93, 104, 119), (47, 75, 217)
@@ -118,6 +119,40 @@ def profile_card(profile: dict, names: dict[str, str]) -> bytes:
             y += 36
     foot = "AI Futures Fingerprint, by Dialogos. Answer 24 statements and see where you sit."
     draw.text((40, HEIGHT - 52), foot, font=font("IBMPlexSansCondensed-Medium.ttf", 22), fill=MUTED)
+    out = io.BytesIO()
+    img.save(out, "PNG", optimize=True)
+    return out.getvalue()
+
+
+def statement_card(text: str, agree: int, disagree: int, layer: str) -> bytes:
+    """1200x630 preview for a statement page: the statement and how the thinkers split."""
+    img = Image.new("RGB", (WIDTH, HEIGHT), PAPER)
+    draw = ImageDraw.Draw(img)
+    left, right = 70, WIDTH - 70
+    draw.text(
+        (left, 60),
+        "Where do you stand?",
+        font=font("IBMPlexSansCondensed-Medium.ttf", 32),
+        fill=MUTED,
+    )
+    serif = font("Newsreader.ttf", 54)
+    y = 130
+    for line in wrap(draw, f"“{text}”", serif, right - left)[:5]:
+        draw.text((left, y), line, font=serif, fill=INK)
+        y += 66
+    total = max(agree + disagree, 1)
+    bar_y, width = HEIGHT - 150, right - left
+    split = int(width * agree / total)
+    draw.rounded_rectangle((left, bar_y, left + split - 2, bar_y + 22), 6, fill=(47, 95, 208))
+    draw.rounded_rectangle((left + split + 2, bar_y, right, bar_y + 22), 6, fill=(196, 87, 15))
+    body = font("IBMPlexSansCondensed-Medium.ttf", 28)
+    draw.text((left, bar_y + 34), f"{agree} thinkers agree", font=body, fill=INK)
+    label = f"{disagree} disagree"
+    draw.text((right - draw.textlength(label, font=body), bar_y + 34), label, font=body, fill=INK)
+    foot = f"AI Futures Fingerprint, by Dialogos. {layer}. Answer it and see who's with you."
+    draw.text(
+        (left, HEIGHT - 52), foot, font=font("IBMPlexSansCondensed-Medium.ttf", 22), fill=MUTED
+    )
     out = io.BytesIO()
     img.save(out, "PNG", optimize=True)
     return out.getvalue()
