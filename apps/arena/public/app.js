@@ -1,0 +1,282 @@
+// Flow: landing → three sets of statements → reveal → (opt-in) room.
+// Before the person joins the room, the only request this page makes is for fingerprint.json.
+import { fingerprint, teaser } from "./fingerprint.js";
+import { glyphSVG } from "./glyph.js";
+import { esc, mapSVG } from "./map.js";
+import { cardText, drawCard } from "./card.js";
+
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
+  set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode */ } },
+};
+const ANSWER_LABEL = { 1: "Agree", "-1": "Disagree", 0: "Unsure" };
+const ANSWER_CLASS = { 1: "agree", "-1": "disagree", 0: "unsure" };
+const LAYER_NAME = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
+  empirical: "What will happen", praxis: "What to do" };
+
+let bundle;
+let answers = {};
+let index = 0;
+
+function show(id) {
+  for (const s of ["landing", "quiz", "interlude", "reveal", "room"]) $(s).hidden = s !== id;
+  window.scrollTo(0, 0);
+}
+
+function toast(text) {
+  const t = document.createElement("div");
+  t.className = "toast"; t.setAttribute("role", "status"); t.textContent = text;
+  document.body.append(t); setTimeout(() => t.remove(), 2200);
+}
+
+function save() { store.set("fp.answers", { version: bundle.version, answers, index }); }
+
+// ---------- answering ----------
+function renderCard() {
+  const a = bundle.anchors[index];
+  const set = bundle.sets.find((s) => s.id === a.set);
+  const setNo = bundle.sets.indexOf(set) + 1;
+  $("set-title").textContent = `Part ${setNo} of 3. ${set.title}`;
+  $("count").textContent = `Statement ${index + 1} of ${bundle.anchors.length}`;
+  $("bar").style.width = `${(index / bundle.anchors.length) * 100}%`;
+  $("statement").textContent = a.text;
+  for (const b of document.querySelectorAll(".answers button")) {
+    const v = b.dataset.v === "skip" ? undefined : Number(b.dataset.v);
+    b.setAttribute("aria-pressed", String(answers[a.id] === v && v !== undefined));
+  }
+  $("back").disabled = index === 0;
+}
+
+function answer(raw) {
+  const a = bundle.anchors[index];
+  if (raw === "skip") delete answers[a.id]; else answers[a.id] = Number(raw);
+  const next = bundle.anchors[index + 1];
+  index += 1;
+  save();
+  if (!next) return finish();
+  if (next.set !== a.set) return interlude(a.set);
+  renderCard();
+}
+
+function interlude(doneSet) {
+  const setNo = bundle.sets.findIndex((s) => s.id === doneSet) + 1;
+  const t = teaser(bundle, answers);
+  $("interlude-step").textContent = `Part ${setNo} of 3 done.`;
+  $("interlude-text").textContent = t
+    ? `So far you're closer to the ${t.closer} than to the ${t.further}.`
+    : "Not enough answers yet to say who you're closer to. Keep going.";
+  show("interlude");
+  $("continue").focus();
+}
+
+function startQuiz() {
+  show("quiz");
+  index = Math.min(index, bundle.anchors.length - 1);
+  renderCard();
+}
+
+function finish() {
+  save();
+  renderReveal();
+  show("reveal");
+}
+
+// ---------- the reveal ----------
+export const mapSize = () => (innerWidth < 600 ? { width: 440, height: 520 } : { width: 720, height: 520 });
+
+function thinkerRow(t) {
+  return `<li><span class="badge" aria-hidden="true">${esc(t.initials)}</span>
+    <span><b>${esc(t.name)}</b><br><span class="small muted">${esc(t.school || "No school")}</span></span>
+    <span class="score"><b>${t.k} of ${t.n}</b><br><span class="small muted">statements agree</span></span></li>`;
+}
+
+function signatureHTML(r) {
+  if (!r.signature.length) {
+    const weakest = r.nearest.at(-1);
+    return `<p>You're consistent with the ${esc(r.schools[0].label)} on every statement we could check.
+      Your weakest close match is ${esc(weakest.name)}, at ${weakest.k} of ${weakest.n}.</p>`;
+  }
+  const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
+  return `<ul class="signature">${r.signature.map((s) => `<li>
+      <span class="serif">You ${s.answer === 1 ? "agree" : "disagree"}: “${esc(s.text)}”</span>
+      <p class="small muted" style="margin-top:6px">Most of the ${esc(s.home)} we read take the other side. The ${esc(s.ally)} are with you: ${s.allies.map((a) => esc(names[a])).join(", ")}.</p>
+    </li>`).join("")}</ul>`;
+}
+
+function campsHTML(r) {
+  const layers = bundle.layers.filter((l) => r.camps.some((c) => c.byLayer[l][0] + c.byLayer[l][1]));
+  const head = `<tr><th scope="col">Camp</th>${layers.map((l) => `<th scope="col">${LAYER_NAME[l]}</th>`).join("")}<th scope="col">Deepest split</th></tr>`;
+  const rows = r.camps.map((c) => `<tr><th scope="row">${esc(c.label)}</th>${layers.map((l) => {
+    const [a, o] = c.byLayer[l];
+    if (!a && !o) return `<td class="muted">none</td>`;
+    return `<td><span class="cell-agree">${a}</span> / <span class="cell-split">${o}</span></td>`;
+  }).join("")}<td>${c.deepest ? LAYER_NAME[c.deepest] : "none"}</td></tr>`).join("");
+  return `<div style="overflow-x:auto"><table class="camps-table">${head}${rows}</table></div>
+    <p class="small muted">Each cell is <span class="cell-agree">with you</span> / <span class="cell-split">against you</span>: statements where the camp's thinkers lean one way and you answered. Layers run from roots to action, so a split low down runs deeper.</p>`;
+}
+
+function mirrorHTML() {
+  const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
+  return bundle.anchors.filter((a) => answers[a.id] !== undefined).map((a) => {
+    const v = answers[a.id];
+    const entries = Object.entries(bundle.stances[a.id]);
+    const quotes = entries.map(([id, item]) => {
+      const side = item.a === 1 ? "agree" : "disagree";
+      const body = item.q
+        ? `“${esc(item.q)}”<cite>${esc(names[id])}, <a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.work)}</a>. Read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`
+        : `<cite>${esc(names[id])}: read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`;
+      return `<blockquote class="${side}">${body}</blockquote>`;
+    }).join("");
+    const withYou = v === 0 ? 0 : entries.filter(([, i]) => i.a === v).length;
+    return `<details class="mirror"><summary><span class="serif">${esc(a.text)}</span>
+      <span class="chip ${ANSWER_CLASS[v]}">${ANSWER_LABEL[v]}</span></summary>
+      <p class="small muted" style="margin-top:8px">${v === 0 ? `${entries.length} thinkers took a side.` : `${withYou} of ${entries.length} thinkers we read are with you.`}</p>
+      ${quotes}
+      <button class="link-button small" data-dispute="${esc(a.id)}">Report a misreading on this statement</button>
+    </details>`;
+  }).join("");
+}
+
+function renderReveal() {
+  const r = fingerprint(bundle, answers);
+  const el = $("reveal");
+  if (r.status !== "ok") {
+    el.innerHTML = `<h1>Not enough to place you yet</h1>
+      <p>You've taken a side on ${r.answered} statements. We need at least ${r.needed}, with enough of them shared with the thinkers, before comparing you with anyone.</p>
+      <button class="primary" id="more">Answer more</button>`;
+    $("more").onclick = () => { index = bundle.anchors.findIndex((a) => answers[a.id] === undefined || answers[a.id] === 0); if (index < 0) index = 0; startQuiz(); };
+    return;
+  }
+  const home = r.schools[0];
+  el.innerHTML = `
+    <div class="reveal-head">
+      ${glyphSVG(bundle, answers, { label: "Your fingerprint, drawn from your answers" })}
+      <div>
+        <p class="muted">Your fingerprint</p>
+        <h1 style="max-width:18ch">Closest to the ${esc(home.label)}</h1>
+        <p>From ${r.answered} statements you took a side on.</p>
+      </div>
+    </div>
+
+    <h2>Your nearest thinkers</h2>
+    <div class="cols">
+      <div><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul></div>
+      <div><p class="muted" style="margin:0 0 4px">Furthest from you</p><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul></div>
+    </div>
+
+    <h2>Where you break from your neighbours</h2>
+    ${signatureHTML(r)}
+
+    <h2>Where you sit</h2>
+    <p class="small muted">Approximate. You're placed among the three thinkers you agree with most, pulled hardest toward the closest. Darker circles agree with you more; dashed circles share too few statements to compare.</p>
+    <div class="mapbox">${mapSVG(bundle, { result: r, ...mapSize() })}</div>
+    <p class="small"><a href="/atlas">Explore the full 3D atlas of ideas</a></p>
+
+    <h2>You and the camps</h2>
+    ${campsHTML(r)}
+
+    <h2>Quote mirror</h2>
+    <p class="muted">For each statement you answered, the thinkers' own words. Quotes are short and link to the source.</p>
+    ${mirrorHTML()}
+
+    <h2>Share it</h2>
+    <canvas id="card" class="card-preview" aria-label="Share card preview"></canvas>
+    <div class="row">
+      <button class="primary" id="download">Save image</button>
+      <button id="copy">Copy text</button>
+    </div>
+    <p class="small muted">The image shows your top three, your school and one line about where you differ. The ridge pattern is drawn from your answers.</p>
+
+    <div class="room-card">
+      <h2 style="margin-top:0">Join the live room</h2>
+      <p>Vote on more statements, including ones other people write, and see the room's own groups and the statements that bridge them.</p>
+      <p class="small muted">Joining sends your answers above to the room under a random ID. No name or email. You can add a handle if you like.</p>
+      <label class="small" for="handle">Handle (optional)</label>
+      <input type="text" id="handle" maxlength="40" autocomplete="off" placeholder="How you'd like to appear, or leave blank">
+      <div class="row" style="margin-top:12px"><button class="primary" id="join">Add my answers to the live room</button></div>
+    </div>
+
+    <h2>Was this fair to you?</h2>
+    <div class="stars" role="group" aria-label="Rate fairness from 1 to 5">${[1, 2, 3, 4, 5].map((n) => `<button data-rate="${n}">${n}</button>`).join("")}</div>
+    <p class="small muted">1 is unfair, 5 is fair. Sends only the number.</p>
+
+    <ul class="notes small">${bundle.notes.map((n) => `<li>${esc(n)}</li>`).join("")}
+      ${r.unranked.length ? `<li>Not enough shared statements to compare you with: ${r.unranked.map((t) => esc(t.name)).join(", ")}.</li>` : ""}</ul>
+    <div class="row"><button class="link-button" id="redo">Change my answers</button></div>`;
+
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  drawCard($("card"), bundle, answers, r, { dark });
+  document.fonts?.ready.then(() => drawCard($("card"), bundle, answers, r, { dark }));
+  $("download").onclick = () => {
+    const a = document.createElement("a");
+    a.download = "ai-futures-fingerprint.png"; a.href = $("card").toDataURL("image/png"); a.click();
+  };
+  $("copy").onclick = async () => {
+    try { await navigator.clipboard.writeText(cardText(r)); toast("Copied"); } catch { toast("Copy failed. Select the text manually."); }
+  };
+  $("redo").onclick = () => { index = 0; startQuiz(); };
+  for (const b of el.querySelectorAll("[data-rate]")) {
+    b.onclick = async () => {
+      await fetch("/api/fairness", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rating: Number(b.dataset.rate) }) });
+      el.querySelector(".stars").outerHTML = `<p>Thanks. Your rating is recorded.</p>`;
+    };
+  }
+  for (const b of el.querySelectorAll("[data-dispute]")) b.onclick = () => disputeForm(b, b.dataset.dispute);
+  $("join").onclick = async () => {
+    const { joinRoom } = await import("./room.js");  // the room code loads only on opt-in
+    joinRoom({ bundle, answers, handle: $("handle").value, show, toast });
+  };
+}
+
+function disputeForm(button, anchorId) {
+  const ids = Object.keys(bundle.stances[anchorId]);
+  const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
+  const form = document.createElement("form");
+  form.innerHTML = `<label class="small">Whose position is misread?
+      <select name="person" style="display:block;margin:6px 0;min-height:44px">${ids.map((i) => `<option value="${i}">${esc(names[i])}</option>`).join("")}</select></label>
+    <label class="small">What's wrong, and where they said otherwise<textarea name="body" required minlength="5" maxlength="2000"></textarea></label>
+    <label class="small">Contact, if you'd like a reply (optional)<input type="text" name="contact" maxlength="200"></label>
+    <div class="row" style="margin-top:8px"><button class="primary" type="submit">Send report</button></div>`;
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+    const f = new FormData(form);
+    const res = await fetch("/api/disputes", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person_id: f.get("person"), anchor_id: anchorId, body: f.get("body"), contact: f.get("contact") || null }) });
+    form.outerHTML = res.ok ? `<p>Report sent. Benjamin's team reviews every one.</p>` : `<p class="error">That didn't send. Try again in a moment.</p>`;
+  };
+  button.replaceWith(form);
+}
+
+// ---------- start ----------
+async function boot() {
+  bundle = await (await fetch("fingerprint.json")).json();
+  const saved = store.get("fp.answers", null);
+  if (saved && saved.version === bundle.version) { answers = saved.answers; index = saved.index || 0; }
+  $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
+  $("hero-print").firstElementChild.classList.add("hero-print");
+  $("adult").onchange = () => { $("start").disabled = !$("adult").checked; };
+  $("start").onclick = () => { if (index >= bundle.anchors.length) index = 0; startQuiz(); };
+  if (Object.keys(answers).length && index >= bundle.anchors.length) {
+    $("resume").hidden = false;
+    $("resume").onclick = finish;
+    $("start").textContent = "Start again";
+  }
+  $("back").onclick = () => { if (index > 0) { index -= 1; renderCard(); } };
+  $("finish-early").onclick = finish;
+  $("continue").onclick = () => { show("quiz"); renderCard(); };
+  for (const b of document.querySelectorAll(".answers button")) b.onclick = () => answer(b.dataset.v);
+  document.addEventListener("keydown", (e) => {
+    if ($("quiz").hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+    const key = { a: "1", d: "-1", u: "0", s: "skip" }[e.key.toLowerCase()];
+    if (key) { e.preventDefault(); answer(key); }
+    if (e.key === "ArrowLeft") $("back").click();
+  });
+  if (location.hash === "#room") {
+    const { openRoom } = await import("./room.js");
+    return openRoom({ bundle, show, toast });
+  }
+  show("landing");
+}
+
+boot();
