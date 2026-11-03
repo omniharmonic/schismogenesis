@@ -1,9 +1,12 @@
 // Flow: landing → three sets of statements → reveal → (opt-in) room.
 // Before the person joins the room, the only request this page makes is for fingerprint.json.
 import { fingerprint, teaser } from "./fingerprint.js";
-import { glyphSVG } from "./glyph.js";
+import { glyphSVG, glyphValues } from "./glyph.js";
 import { esc, mapSVG } from "./map.js";
-import { cardText, drawCard } from "./card.js";
+import { canvasBlob, drawCard, shareText } from "./card.js";
+
+const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name }) }).catch(() => {});
 
 const $ = (id) => document.getElementById(id);
 const store = {
@@ -76,10 +79,23 @@ function startQuiz() {
   renderCard();
 }
 
-function finish() {
+async function share(verified = null) {
+  const r = fingerprint(bundle, answers);
+  if (r.status !== "ok") return;
+  const { openShare } = await import("./share.js");
+  openShare({ bundle, answers, result: r, toast, verified });
+}
+
+async function finish({ story = true } = {}) {
   save();
   renderReveal();
   show("reveal");
+  const r = fingerprint(bundle, answers);
+  if (story && r.status === "ok") {
+    event("finish");
+    const { playStory } = await import("./story.js");
+    playStory({ bundle, answers, result: r, onShare: () => share(), onDone: () => window.scrollTo(0, 0) });
+  }
 }
 
 // ---------- the reveal ----------
@@ -183,10 +199,12 @@ function renderReveal() {
     <h2>Share it</h2>
     <canvas id="card" class="card-preview" aria-label="Share card preview"></canvas>
     <div class="row">
-      <button class="primary" id="download">Save image</button>
+      <button class="primary" id="get-link">Get my share link</button>
+      <button id="replay">Play my story again</button>
+      <button id="download">Save image</button>
       <button id="copy">Copy text</button>
     </div>
-    <p class="small muted">The image shows your top three, your school and one line about where you differ. The ridge pattern is drawn from your answers.</p>
+    <p class="small muted">A share link makes a page with a preview card for X and Bluesky. You choose what it shows and can delete it any time. Images are made in your browser.</p>
 
     <div class="room-card">
       <h2 style="margin-top:0">Join the live room</h2>
@@ -206,14 +224,22 @@ function renderReveal() {
     <div class="row"><button class="link-button" id="redo">Change my answers</button></div>`;
 
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
-  drawCard($("card"), bundle, answers, r, { dark });
-  document.fonts?.ready.then(() => drawCard($("card"), bundle, answers, r, { dark }));
-  $("download").onclick = () => {
+  const values = glyphValues(bundle, answers);
+  drawCard($("card"), values, r, { dark });
+  document.fonts?.ready.then(() => drawCard($("card"), values, r, { dark }));
+  $("download").onclick = async () => {
+    const blob = await canvasBlob($("card"));
     const a = document.createElement("a");
-    a.download = "ai-futures-fingerprint.png"; a.href = $("card").toDataURL("image/png"); a.click();
+    a.download = "ai-futures-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
+    event("save_card");
   };
   $("copy").onclick = async () => {
-    try { await navigator.clipboard.writeText(cardText(r)); toast("Copied"); } catch { toast("Copy failed. Select the text manually."); }
+    try { await navigator.clipboard.writeText(shareText(r, location.origin)); toast("Copied"); event("copy_text"); } catch { toast("Copy failed. Select the text manually."); }
+  };
+  $("get-link").onclick = () => share();
+  $("replay").onclick = async () => {
+    const { playStory } = await import("./story.js");
+    playStory({ bundle, answers, result: r, onShare: () => share(), onDone: () => {} });
   };
   $("redo").onclick = () => { index = 0; startQuiz(); };
   for (const b of el.querySelectorAll("[data-rate]")) {
@@ -256,14 +282,14 @@ async function boot() {
   $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
   $("hero-print").firstElementChild.classList.add("hero-print");
   $("adult").onchange = () => { $("start").disabled = !$("adult").checked; };
-  $("start").onclick = () => { if (index >= bundle.anchors.length) index = 0; startQuiz(); };
+  $("start").onclick = () => { if (index >= bundle.anchors.length) index = 0; event("start"); startQuiz(); };
   if (Object.keys(answers).length && index >= bundle.anchors.length) {
     $("resume").hidden = false;
-    $("resume").onclick = finish;
+    $("resume").onclick = () => finish({ story: false });
     $("start").textContent = "Start again";
   }
   $("back").onclick = () => { if (index > 0) { index -= 1; renderCard(); } };
-  $("finish-early").onclick = finish;
+  $("finish-early").onclick = () => finish();
   $("continue").onclick = () => { show("quiz"); renderCard(); };
   for (const b of document.querySelectorAll(".answers button")) b.onclick = () => answer(b.dataset.v);
   document.addEventListener("keydown", (e) => {
@@ -272,6 +298,22 @@ async function boot() {
     if (key) { e.preventDefault(); answer(key); }
     if (e.key === "ArrowLeft") $("back").click();
   });
+  // returning from "Sign in with X"
+  const verify = location.hash.match(/^#verify=(.+)$/);
+  if (verify) {
+    history.replaceState(null, "", location.pathname + location.search);
+    if (verify[1] === "failed") toast("X didn't confirm the account. Try again, or share anonymously.");
+    else if (Object.keys(answers).length) {
+      try {
+        const res = await fetch(`/api/verify/${encodeURIComponent(verify[1])}`);
+        if (res.ok) {
+          finish({ story: false });
+          return share({ ...(await res.json()), check_id: verify[1] });
+        }
+      } catch { /* fall through */ }
+      toast("That sign-in has expired. Try again.");
+    }
+  }
   if (location.hash === "#room") {
     const { openRoom } = await import("./room.js");
     return openRoom({ bundle, show, toast });

@@ -133,3 +133,28 @@ test("balance: well-covered schools top random sheets within 0.5x to 2x of fair 
     assert.ok(r.ratio >= 0.5 && r.ratio <= 2, `${r.school} ratio ${r.ratio}`);
   }
 });
+
+import { highlights, profileSummary } from "../public/fingerprint.js";
+
+test("highlights pick a real agreeing quote, a disagreeing one, and the rarest take", () => {
+  const stances = plainStances(bundle);
+  const random = rng(21);
+  const answers = Object.fromEntries(bundle.anchors.map((a) => [a.id, random() < 0.5 ? 1 : -1]));
+  const r = fingerprint(bundle, answers);
+  const h = highlights(bundle, answers, r);
+  if (h.topQuote) {
+    assert.equal(h.topQuote.thinker, r.nearest[0].id);
+    assert.equal(stances[h.topQuote.anchor][h.topQuote.thinker], answers[h.topQuote.anchor]);
+    assert.ok(h.topQuote.q.length <= 280 && h.topQuote.url);
+  }
+  if (h.farQuote) assert.notEqual(stances[h.farQuote.anchor][h.farQuote.thinker], answers[h.farQuote.anchor]);
+  assert.ok(h.rarest && h.rarest.with <= h.rarest.of && h.rarest.of >= 3);
+  for (const a of bundle.anchors) {
+    const v = answers[a.id];
+    const e = Object.values(bundle.stances[a.id]);
+    if (e.length >= 3) assert.ok(e.filter((x) => x.a === v).length / e.length >= h.rarest.share - 1e-9);
+  }
+  const s = profileSummary(r, h.rarest);
+  assert.equal(s.home, r.schools[0].label);
+  assert.deepEqual(Object.keys(s.nearest[0]).sort(), ["id", "k", "n"]);
+});

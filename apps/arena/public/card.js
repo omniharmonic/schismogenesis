@@ -1,11 +1,15 @@
-// The share card, drawn on a canvas in the browser and saved as a PNG. Nothing is uploaded.
-import { glyphPaths } from "./glyph.js";
+// Share images, drawn on a canvas in the browser and saved as PNG. Nothing is uploaded.
+//   drawCard: the 1200x675 landscape card for posts.
+//   drawStory: a 1080x1920 story image for one Wrapped slide.
+import { pathsFromValues } from "./glyph.js";
+
+const SANS = "'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif";
+const SERIF = "Newsreader, Georgia, serif";
 
 function wrap(ctx, text, maxWidth) {
-  const words = text.split(" ");
   const lines = [];
   let line = "";
-  for (const w of words) {
+  for (const w of String(text).split(" ")) {
     const test = line ? `${line} ${w}` : w;
     if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w; } else line = test;
   }
@@ -13,49 +17,98 @@ function wrap(ctx, text, maxWidth) {
   return lines;
 }
 
-export function drawCard(canvas, bundle, answers, result, { dark = false } = {}) {
+function drawPrint(c, values, x, y, size, color) {
+  c.save();
+  c.translate(x, y); c.scale(size / 200, size / 200);
+  for (const p of pathsFromValues(values, 200)) {
+    c.strokeStyle = color; c.globalAlpha = 1 - p.ring * 0.035; c.lineWidth = 1.7 - p.ring * 0.05;
+    c.stroke(new Path2D(p.d));
+  }
+  c.restore(); c.globalAlpha = 1;
+}
+
+export const twistLine = (s) => `…but sides with the ${s.ally} ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
+
+export function drawCard(canvas, values, result, { dark = false } = {}) {
   const W = 1200, H = 675;
   canvas.width = W; canvas.height = H;
   const c = canvas.getContext("2d");
   const ink = dark ? "#e3e8ef" : "#1b2430", paper = dark ? "#10151c" : "#e9edf2";
   const ridge = dark ? "#8197ff" : "#2f4bd9", muted = dark ? "#9aa5b4" : "#5d6877";
   c.fillStyle = paper; c.fillRect(0, 0, W, H);
-  c.save();
-  c.translate(70, 117); c.scale(2.2, 2.2);
-  glyphPaths(bundle, answers, 200).forEach((p) => {
-    c.strokeStyle = ridge; c.globalAlpha = 1 - p.ring * 0.035; c.lineWidth = 1.7 - p.ring * 0.05;
-    c.stroke(new Path2D(p.d));
-  });
-  c.restore(); c.globalAlpha = 1;
+  drawPrint(c, values, 50, 95, 470, ridge);
   const left = 600;
-  c.fillStyle = muted; c.font = "500 26px 'IBM Plex Sans Condensed', sans-serif";
+  c.fillStyle = muted; c.font = `500 26px ${SANS}`;
   c.fillText("My AI futures fingerprint", left, 92);
-  c.fillStyle = ink; c.font = "600 50px 'IBM Plex Sans Condensed', sans-serif";
-  const home = result.schools[0]?.label || "";
-  wrap(c, `Closest to the ${home}`, 540).forEach((l, i) => c.fillText(l, left, 152 + i * 56));
-  let y = 152 + Math.min(2, wrap(c, `Closest to the ${home}`, 540).length) * 56 + 18;
-  c.font = "500 30px 'IBM Plex Sans Condensed', sans-serif";
+  c.fillStyle = ink; c.font = `600 54px ${SANS}`;
+  const head = wrap(c, `Closest to the ${result.schools[0]?.label || ""}`, 540).slice(0, 2);
+  head.forEach((l, i) => c.fillText(l, left, 156 + i * 60));
+  let y = 156 + head.length * 60 + 16;
+  c.font = `500 30px ${SANS}`;
   for (const t of result.nearest) {
     c.fillStyle = ink; c.fillText(t.name, left, y);
-    c.fillStyle = muted; c.fillText(`${t.k} of ${t.n}`, left + 420, y);
+    c.fillStyle = muted; const s = `${t.k} of ${t.n}`; c.fillText(s, W - 60 - c.measureText(s).width, y);
     y += 44;
   }
   if (result.signature[0]) {
-    const s = result.signature[0];
-    y += 18;
-    c.fillStyle = ink; c.font = "italic 400 28px Newsreader, Georgia, serif";
-    const line = `…but sides with the ${s.ally} ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
-    wrap(c, line, 540).slice(0, 4).forEach((l, i) => c.fillText(l, left, y + i * 36));
+    y += 14;
+    c.fillStyle = ink; c.font = `italic 400 28px ${SERIF}`;
+    wrap(c, twistLine(result.signature[0]), 540).slice(0, 4).forEach((l, i) => c.fillText(l, left, y + i * 36));
   }
-  c.fillStyle = muted; c.font = "500 22px 'IBM Plex Sans Condensed', sans-serif";
-  c.fillText("Made with Dialogos. Names were hidden while answering. 27 thinkers, read from their public work.", 70, H - 40);
+  c.fillStyle = muted; c.font = `500 22px ${SANS}`;
+  c.fillText(`Names hidden while answering. 27 thinkers, read from their public work. ${location.host}`, 50, H - 36);
   return canvas;
 }
 
-export function cardText(result) {
+/** spec: {bg, fg, eyebrow, title, lede, quote, cite, rows: [[left, right]], big, print} */
+export function drawStory(canvas, spec, values) {
+  const W = 1080, H = 1920, pad = 96, width = W - pad * 2;
+  canvas.width = W; canvas.height = H;
+  const c = canvas.getContext("2d");
+  // lay out first, then draw the block centred between the header and the footer
+  const ops = [];
+  let y = 0;
+  const text = (str, font, size, gap, alpha = 1, max = 8) => {
+    c.font = font;
+    for (const l of wrap(c, str, width).slice(0, max)) { y += size; ops.push({ t: "text", l, font, y, alpha }); }
+    y += gap;
+  };
+  if (spec.print) { ops.push({ t: "print", y }); y += 640; }
+  if (spec.big) { y += 230; ops.push({ t: "text", l: spec.big, font: `600 300px ${SANS}`, y, alpha: 1 }); y += 60; }
+  if (spec.eyebrow) text(spec.eyebrow, `500 40px ${SANS}`, 52, 24, 0.8, 3);
+  if (spec.title) text(spec.title, `600 104px ${SANS}`, 104, 40, 1, 4);
+  if (spec.lede) text(spec.lede, `500 46px ${SANS}`, 60, 30, 1, 6);
+  if (spec.quote) text(`“${spec.quote}”`, `italic 400 52px ${SERIF}`, 66, 26, 1, 8);
+  if (spec.cite) text(spec.cite, `500 36px ${SANS}`, 48, 20, 0.8, 5);
+  for (const [a, b] of spec.rows || []) { y += 82; ops.push({ t: "row", a, b, y }); }
+  const top = 220, bottom = H - 200;
+  const offset = top + Math.max(0, (bottom - top - y) / 2);
+  c.fillStyle = spec.bg; c.fillRect(0, 0, W, H);
+  c.fillStyle = spec.fg; c.globalAlpha = 0.75; c.font = `500 34px ${SANS}`;
+  c.fillText("AI Futures Fingerprint", pad, 140);
+  c.fillText(`Find yours: ${location.host}`, pad, H - 110);
+  c.globalAlpha = 1;
+  for (const op of ops) {
+    if (op.t === "print") drawPrint(c, values, pad - 20, offset + op.y - 20, 620, spec.fg);
+    if (op.t === "text") { c.globalAlpha = op.alpha; c.font = op.font; c.fillText(op.l, pad, offset + op.y); c.globalAlpha = 1; }
+    if (op.t === "row") {
+      c.font = `500 46px ${SANS}`; c.fillText(op.a, pad, offset + op.y);
+      c.font = `600 46px ${SANS}`; c.fillText(op.b, W - pad - c.measureText(op.b).width, offset + op.y);
+      c.globalAlpha = 0.3; c.fillRect(pad, offset + op.y + 26, width, 2); c.globalAlpha = 1;
+    }
+  }
+  return canvas;
+}
+
+export function shareText(result, url) {
   const lines = [`My AI futures fingerprint: closest to the ${result.schools[0]?.label}.`];
-  lines.push(result.nearest.map((t) => `${t.name} (${t.k}/${t.n})`).join(", "));
+  lines.push(`Nearest: ${result.nearest.map((t) => `${t.name} (${t.k}/${t.n})`).join(", ")}`);
   const s = result.signature[0];
-  if (s) lines.push(`But I side with the ${s.ally} ${s.answer === 1 ? "that" : "against"} "${s.text}"`);
+  if (s) lines.push(`Plot twist: I side with the ${s.ally} ${s.answer === 1 ? "that" : "against"} "${s.text}"`);
+  if (url) lines.push(url);
   return lines.join("\n");
+}
+
+export function canvasBlob(canvas) {
+  return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
 }

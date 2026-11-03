@@ -144,6 +144,40 @@ function list(items, extra = () => "") {
 }
 
 const pct = (x) => `${Math.round(x * 100)}%`;
+const GROUP_COLOUR = ["#2f4bd9", "#b4235a", "#17806a", "#b7791f", "#6b46c1"];
+
+function youHTML(me) {
+  const parts = [];
+  if (me.group) parts.push(`<p>You're in group <b>${esc(me.group)}</b>. The group you agree with most is ${esc(me.nearest_group)}, and least is ${esc(me.furthest_group)}.</p>`);
+  if (me.rarity_percentile !== undefined) {
+    parts.push(`<p>Your votes are rarer than <b>${me.rarity_percentile}%</b> of the room's. ${me.rarity_percentile >= 80 ? "You often stand where few others do." : me.rarity_percentile <= 20 ? "You often stand with the room's majority." : ""}</p>`);
+  }
+  if (me.rarest_take) {
+    parts.push(`<p class="small muted" style="margin-bottom:4px">Your rarest take in the room: only ${pct(me.rarest_take.share_with_you)} voted like you.</p>
+      <p class="serif" style="font-size:1.15rem">${me.rarest_take.vote === 1 ? "You agreed" : "You disagreed"}: “${esc(me.rarest_take.text)}”</p>`);
+  }
+  if (me.backed_bridges?.length) parts.push(`<p>You backed ${me.backed_bridges.length} of the room's bridges.</p>`);
+  return parts.length ? `<div class="room-card"><h3 style="margin-top:0">You in the room</h3>${parts.join("")}</div>` : "";
+}
+
+function roomSVG(groups, bundle) {
+  const pts = groups.points, th = groups.thinkers || [];
+  const all = pts.map((p) => [p[0], p[1]]).concat(th.map((t) => [t.x, t.y]));
+  const xs = all.map((p) => p[0]), ys = all.map((p) => p[1]);
+  const W = innerWidth < 600 ? 440 : 720, H = innerWidth < 600 ? 440 : 480, pad = 30;
+  const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+  const X = (x) => pad + ((x - minX) / (maxX - minX || 1)) * (W - pad * 2);
+  const Y = (y) => pad + ((y - minY) / (maxY - minY || 1)) * (H - pad * 2);
+  const initials = Object.fromEntries(bundle.thinkers.map((t) => [t.id, [t.initials, t.name]]));
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Participants by group, with thinkers placed among them">`;
+  for (const [x, y, g] of pts) svg += `<circle cx="${X(x).toFixed(1)}" cy="${Y(y).toFixed(1)}" r="3.2" fill="${GROUP_COLOUR[g % 5]}" fill-opacity="0.45"/>`;
+  for (const t of th) {
+    const [ini, name] = initials[t.id];
+    svg += `<g><title>${esc(name)}</title><circle cx="${X(t.x).toFixed(1)}" cy="${Y(t.y).toFixed(1)}" r="13" fill="var(--sheet)" stroke="var(--ink)" stroke-width="1.4"/><text x="${X(t.x).toFixed(1)}" y="${(Y(t.y) + 3.5).toFixed(1)}" text-anchor="middle" font-size="9.5" font-weight="600" fill="var(--ink)">${esc(ini)}</text></g>`;
+  }
+  svg += groups.list.map((g, i) => `<text x="${pad + i * 90}" y="${H - 8}" font-size="12" font-weight="600" fill="${GROUP_COLOUR[i % 5]}">● Group ${esc(g.name)}</text>`).join("");
+  return svg + "</svg>";
+}
 
 async function renderReport() {
   const el = document.getElementById("report");
@@ -155,7 +189,7 @@ async function renderReport() {
   const bundle = ctx.bundle;
   const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
   let html = `<h2>What the room shows</h2>`;
-  if (mine?.group) html += `<p>You're in group <b>${esc(mine.group)}</b>.${mine.backed_bridges.length ? ` You backed ${mine.backed_bridges.length} of the room's bridges.` : ""}</p>`;
+  if (mine) html += youHTML(mine);
   html += `<h3 style="margin-top:28px">Bridges</h3>
     <p class="small muted">Statements that people on both sides of the room's main split agree with, scored the way Community Notes scores notes.</p>`;
   if (r.bridges) {
@@ -172,8 +206,11 @@ async function renderReport() {
       near: g.thinkers.map((t) => t.id), label: g.name,
       title: `Group ${g.name} (${g.size} people) votes most like this thinker`,
     }));
+    html += `<h3 style="margin-top:28px">The room, with the thinkers placed inside it</h3>
+      <p class="small muted">Each dot is a participant, coloured by group, laid out by how they vote. Thinkers are placed by their own positions on the fingerprint statements, without changing the layout.</p>
+      <div class="mapbox">${roomSVG(r.groups, bundle)}</div>`;
     html += `<h3 style="margin-top:28px">Opinion groups</h3>
-      <p class="small muted">People who vote alike, found the way Polis finds them. ${r.groups.k} groups, separation ${r.groups.silhouette}.</p>
+      <p class="small muted">People who vote alike, found the way Polis finds them. ${r.groups.k} groups, separation ${r.groups.silhouette}${r.groups.stability !== null ? `, and they come back ${pct(r.groups.stability)} of the time when statements are resampled (${esc(r.groups.stability_label)})` : ""}.</p>
       <div class="groups">${r.groups.list.map((g) => `<div class="group"><b>Group ${esc(g.name)}</b> <span class="small muted">${g.size} people</span>
         ${g.thinkers.length ? `<p class="small">Votes most like ${g.thinkers.map((t) => esc(names[t.id])).join(", ")}.</p>` : ""}
         ${g.representative.length ? `<p class="small muted" style="margin-bottom:4px">Sets them apart:</p><ul class="small" style="padding-left:18px;margin:0">${g.representative.slice(0, 3).map((s) => `<li>${s.direction === "agree" ? "Agree" : "Disagree"} (${pct(s.p)}): ${esc(s.text)}</li>`).join("")}</ul>` : ""}

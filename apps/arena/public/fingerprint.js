@@ -168,3 +168,49 @@ export function teaser(bundle, answers) {
   if (schools.length < 2) return null;
   return { closer: schools[0].label, further: schools[schools.length - 1].label };
 }
+
+/** Story material: a quote from your top match, one from your furthest, and your rarest take. */
+export function highlights(bundle, answers, result) {
+  const textOf = Object.fromEntries(bundle.anchors.map((a) => [a.id, a]));
+  const order = [...bundle.anchors].sort((a, b) => b.split_score - a.split_score);
+  const quoteFor = (thinker, agree) => {
+    for (const a of order) {
+      const v = answers[a.id];
+      const item = bundle.stances[a.id][thinker];
+      if ((v !== 1 && v !== -1) || !item || !item.q) continue;
+      if ((item.a === v) === agree) return { thinker, anchor: a.id, text: a.text, answer: v, ...item };
+    }
+    return null;
+  };
+  let rarest = null;
+  for (const a of bundle.anchors) {
+    const v = answers[a.id];
+    if (v !== 1 && v !== -1) continue;
+    const entries = Object.values(bundle.stances[a.id]);
+    if (entries.length < 3) continue;
+    const withYou = entries.filter((e) => e.a === v).length;
+    const share = withYou / entries.length;
+    if (!rarest || share < rarest.share || (share === rarest.share && entries.length > rarest.of)) {
+      rarest = { anchor: a.id, text: textOf[a.id].text, answer: v, with: withYou, of: entries.length, share };
+    }
+  }
+  return {
+    topQuote: result.nearest[0] ? quoteFor(result.nearest[0].id, true) : null,
+    farQuote: result.furthest[0] ? quoteFor(result.furthest[0].id, false) : null,
+    rarest,
+  };
+}
+
+/** The summary a published profile carries (checked and rebuilt by the server). */
+export function profileSummary(result, rarest) {
+  const pick = (t) => ({ id: t.id, k: t.k, n: t.n });
+  return {
+    home: result.schools[0].label,
+    answered: result.answered,
+    nearest: result.nearest.map(pick),
+    furthest: result.furthest.map(pick),
+    signature: result.signature.map((s) => ({ anchor: s.anchor, answer: s.answer, ally: s.ally })),
+    camps: result.camps.map((c) => ({ id: c.id, agreed: c.agreed, opposed: c.opposed, deepest: c.deepest })),
+    rarest: rarest ? { anchor: rarest.anchor, answer: rarest.answer } : null,
+  };
+}
