@@ -2601,6 +2601,18 @@
    "format": "blog_post",
    "authorship": "own_name",
    "verified_text": true
+  },
+  {
+   "key": "whittaker-velvet-glove-coup-agents-joined",
+   "author": "meredith-whittaker",
+   "url": "https://youtube-library.pages.dev/transcripts/velvet-glove-coup-ai-agents-threaten-operating.html#joined-text",
+   "title": "Velvet Glove Coup: AI agents threaten operating systems (CCC talk transcript)",
+   "published": "2025-12-28",
+   "channel": "media.ccc.de via youtube-library transcript",
+   "format": "lecture",
+   "authorship": "co_authored",
+   "verified_text": true,
+   "note": "Co-presented with Udbhav Tiwari; date guessed from 39C3 (late Dec 2025); transcript truncated near the end. Caption lines joined into paragraphs so quotes can span them."
   }
  ]
 }
