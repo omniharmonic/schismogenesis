@@ -60,6 +60,12 @@ NOT_DERIVED = {
     "room_vote_event",
     "placement_dispute",
     "fairness_rating",
+    # launch round: what people publish, and operational tables (04-LAUNCH.md)
+    "identity_check",
+    "profile",
+    "report_cache",
+    "rate_hit",
+    "daily_counter",
     "agent",
     "agent_action",
     "strategy",

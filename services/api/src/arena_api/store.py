@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import secrets
 import uuid
 
 from sqlalchemy import Engine, text
@@ -349,3 +350,262 @@ class Store:
         with self.engine.connect() as c:
             n, mean = c.execute(text("SELECT count(*), avg(rating) FROM fairness_rating")).one()
         return {"count": int(n), "mean": None if mean is None else round(float(mean), 2)}
+
+    # ---------- launch round: profiles, identity, cache, limits, counters ----------
+
+    def add_check(
+        self, kind: str, handle: str | None, challenge: str, verifier: str | None = None
+    ) -> str:
+        with self.engine.begin() as c:
+            return str(
+                c.execute(
+                    text(
+                        "INSERT INTO identity_check (kind, handle, challenge, code_verifier) "
+                        "VALUES (:k, :h, :c, :v) RETURNING check_id"
+                    ),
+                    {"k": kind, "h": handle, "c": challenge, "v": verifier},
+                ).scalar()
+            )
+
+    def get_check(self, check_id: str) -> dict | None:
+        try:
+            uuid.UUID(check_id)
+        except ValueError:
+            return None
+        with self.engine.connect() as c:
+            row = (
+                c.execute(
+                    text(
+                        "SELECT * FROM identity_check WHERE check_id = :i "
+                        "AND created_at > now() - interval '1 hour'"
+                    ),
+                    {"i": check_id},
+                )
+                .mappings()
+                .first()
+            )
+        return dict(row) if row else None
+
+    def check_by_state(self, state: str) -> dict | None:
+        with self.engine.connect() as c:
+            row = (
+                c.execute(
+                    text(
+                        "SELECT * FROM identity_check WHERE kind = 'x' AND challenge = :s "
+                        "AND verified_at IS NULL AND created_at > now() - interval '15 minutes'"
+                    ),
+                    {"s": state},
+                )
+                .mappings()
+                .first()
+            )
+        return dict(row) if row else None
+
+    def verify_check(
+        self, check_id, handle: str, account_id: str, name: str, avatar: str | None
+    ) -> None:
+        with self.engine.begin() as c:
+            c.execute(
+                text(
+                    "UPDATE identity_check SET verified_at = now(), handle = :h, account_id = :a, "
+                    "display_name = :n, avatar_url = :av, code_verifier = NULL WHERE check_id = :i"
+                ),
+                {"i": check_id, "h": handle, "a": account_id, "n": name, "av": avatar},
+            )
+
+    def create_profile(self, row: dict) -> None:
+        with self.engine.begin() as c:
+            if row.get("check_id"):
+                used = c.execute(
+                    text(
+                        "UPDATE identity_check SET used_at = now() WHERE check_id = :i "
+                        "AND verified_at IS NOT NULL AND used_at IS NULL RETURNING check_id"
+                    ),
+                    {"i": row["check_id"]},
+                ).first()
+                if used is None:
+                    raise ValueError("That verification has expired or was already used.")
+                # one live profile per verified account: publishing again replaces the old one
+                c.execute(
+                    text("DELETE FROM profile WHERE identity = :k AND account_id = :a"),
+                    {"k": row["identity"], "a": row["account_id"]},
+                )
+            c.execute(
+                text("""INSERT INTO profile (code, edit_hash, identity, handle, display_name, avatar_url,
+                          account_id, check_id, listed, include_answers, summary, answers, glyph,
+                          bundle_version)
+                        VALUES (:code, :edit_hash, :identity, :handle, :display_name, :avatar_url,
+                          :account_id, :check_id, :listed, :include_answers, CAST(:summary AS jsonb),
+                          CAST(:answers AS jsonb), CAST(:glyph AS jsonb), :bundle_version)"""),
+                {
+                    **row,
+                    "summary": json.dumps(row["summary"]),
+                    "glyph": json.dumps(row["glyph"]),
+                    "answers": None if row["answers"] is None else json.dumps(row["answers"]),
+                },
+            )
+
+    def profile(self, code: str) -> dict | None:
+        with self.engine.connect() as c:
+            row = (
+                c.execute(
+                    text(
+                        "SELECT code, edit_hash, identity, handle, display_name, avatar_url, listed, "
+                        "include_answers, summary, answers, glyph, bundle_version, created_at, hidden_at "
+                        "FROM profile WHERE code = :c"
+                    ),
+                    {"c": code},
+                )
+                .mappings()
+                .first()
+            )
+        return dict(row) if row else None
+
+    def update_profile(self, code: str, edit_key: str, listed: bool) -> bool:
+        with self.engine.begin() as c:
+            done = c.execute(
+                text(
+                    "UPDATE profile SET listed = :l, updated_at = now() "
+                    "WHERE code = :c AND edit_hash = :h"
+                ),
+                {"l": listed, "c": code, "h": key_hash(edit_key)},
+            )
+        return done.rowcount == 1
+
+    def delete_profile(self, code: str, edit_key: str) -> bool:
+        with self.engine.begin() as c:
+            done = c.execute(
+                text("DELETE FROM profile WHERE code = :c AND edit_hash = :h"),
+                {"c": code, "h": key_hash(edit_key)},
+            )
+        return done.rowcount == 1
+
+    def hide_profile(self, code: str, hidden: bool) -> bool:
+        with self.engine.begin() as c:
+            done = c.execute(
+                text(
+                    "UPDATE profile SET hidden_at = CASE WHEN :h THEN now() ELSE NULL END "
+                    "WHERE code = :c"
+                ),
+                {"h": hidden, "c": code},
+            )
+        return done.rowcount == 1
+
+    def listed_profiles(self, limit: int = 200) -> list[dict]:
+        with self.engine.connect() as c:
+            rows = (
+                c.execute(
+                    text(
+                        "SELECT code, identity, handle, display_name, avatar_url, summary, created_at "
+                        "FROM profile WHERE listed AND hidden_at IS NULL AND identity <> 'anon' "
+                        "ORDER BY created_at DESC LIMIT :n"
+                    ),
+                    {"n": limit},
+                )
+                .mappings()
+                .all()
+            )
+        return [{**dict(r), "created_at": r["created_at"].isoformat()} for r in rows]
+
+    def recent_profiles(self, limit: int = 50) -> list[dict]:
+        with self.engine.connect() as c:
+            rows = (
+                c.execute(
+                    text(
+                        "SELECT code, identity, handle, display_name, listed, hidden_at, created_at "
+                        "FROM profile ORDER BY created_at DESC LIMIT :n"
+                    ),
+                    {"n": limit},
+                )
+                .mappings()
+                .all()
+            )
+        return [
+            {
+                **dict(r),
+                "created_at": r["created_at"].isoformat(),
+                "hidden_at": r["hidden_at"] and r["hidden_at"].isoformat(),
+            }
+            for r in rows
+        ]
+
+    def cached_report(self, room_id) -> dict | None:
+        with self.engine.connect() as c:
+            row = (
+                c.execute(
+                    text(
+                        "SELECT version, report, personal, "
+                        "extract(epoch FROM now() - computed_at) AS age FROM report_cache "
+                        "WHERE room_id = :r"
+                    ),
+                    {"r": room_id},
+                )
+                .mappings()
+                .first()
+            )
+        return dict(row) if row else None
+
+    def save_report(self, room_id, version: str, report: dict, personal: dict) -> None:
+        with self.engine.begin() as c:
+            c.execute(
+                text("""INSERT INTO report_cache (room_id, version, report, personal, computed_at)
+                        VALUES (:r, :v, CAST(:rep AS jsonb), CAST(:per AS jsonb), now())
+                        ON CONFLICT (room_id) DO UPDATE SET version = EXCLUDED.version,
+                          report = EXCLUDED.report, personal = EXCLUDED.personal,
+                          computed_at = now()"""),
+                {
+                    "r": room_id,
+                    "v": version,
+                    "rep": json.dumps(report),
+                    "per": json.dumps(personal),
+                },
+            )
+
+    def try_report_lock(self, connection, room_id) -> bool:
+        """A transaction-scoped advisory lock, so only one instance recomputes a room at a time."""
+        key = int.from_bytes(hashlib.sha256(str(room_id).encode()).digest()[:8], "big", signed=True)
+        return bool(
+            connection.execute(text("SELECT pg_try_advisory_xact_lock(:k)"), {"k": key}).scalar()
+        )
+
+    def hit(self, bucket: str, limit: int, window_seconds: int) -> bool:
+        """Record a hit; False when the bucket is over its limit for the window."""
+        with self.engine.begin() as c:
+            count = c.execute(
+                text(
+                    "SELECT count(*) FROM rate_hit WHERE bucket = :b "
+                    "AND at > now() - make_interval(secs => :w)"
+                ),
+                {"b": bucket, "w": window_seconds},
+            ).scalar()
+            if (count or 0) >= limit:
+                return False
+            c.execute(text("INSERT INTO rate_hit (bucket) VALUES (:b)"), {"b": bucket})
+            if secrets.randbelow(20) == 0:  # occasional cleanup of old hits
+                c.execute(text("DELETE FROM rate_hit WHERE at < now() - interval '1 day'"))
+        return True
+
+    def count(self, name: str) -> None:
+        with self.engine.begin() as c:
+            c.execute(
+                text(
+                    "INSERT INTO daily_counter (name, n) VALUES (:n, 1) "
+                    "ON CONFLICT (day, name) DO UPDATE SET n = daily_counter.n + 1"
+                ),
+                {"n": name},
+            )
+
+    def counters(self, days: int = 14) -> list[dict]:
+        with self.engine.connect() as c:
+            rows = (
+                c.execute(
+                    text(
+                        "SELECT day, name, n FROM daily_counter WHERE day > current_date - :d "
+                        "ORDER BY day DESC, name"
+                    ),
+                    {"d": days},
+                )
+                .mappings()
+                .all()
+            )
+        return [{"day": r["day"].isoformat(), "name": r["name"], "n": int(r["n"])} for r in rows]

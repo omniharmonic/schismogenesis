@@ -2,10 +2,12 @@
 room, personal measures, and speed (docs/fingerprint/04-LAUNCH.md section 2)."""
 
 import json
+import os
 import pathlib
 import time
 
 import numpy as np
+import pytest
 from arena_rounds.bridging import bridges, fit_bridging
 from arena_rounds.matrix import VoteMatrix
 from arena_rounds.polis import cluster, polis_groups, stability_label
@@ -112,9 +114,8 @@ def test_personal_measures():
     assert "synthetic-000" not in blob
 
 
-def test_large_room_reports_quickly():
+def _big_room(people: int, statements: int = 200):
     random = np.random.default_rng(5)
-    people, statements = 10_000, 200
     base = random.choice([-1, 1], size=(4, statements))
     group = random.integers(0, 4, people)
     seen = random.random((people, statements)) < 0.15
@@ -122,11 +123,25 @@ def test_large_room_reports_quickly():
     values = np.where(flip, -base[group], base[group])
     p_idx, s_idx = np.nonzero(seen)
     rows = [(f"p{p}", f"s{s}", int(values[p, s]), False) for p, s in zip(p_idx, s_idx, strict=True)]
-    meta = {f"s{s}": {"text": f"s{s}", "origin": "participant", "anchor_id": None}
-            for s in range(statements)}  # fmt: skip
+    meta = {
+        f"s{s}": {"text": f"s{s}", "origin": "participant", "anchor_id": None}
+        for s in range(statements)
+    }
+    return rows, meta
+
+
+def test_medium_room_finds_groups():
+    rows, meta = _big_room(2000)
+    assert analyse(rows, meta, BUNDLE, demo=False).report["groups"]["k"] >= 2
+
+
+@pytest.mark.skipif(os.environ.get("ARENA_LOAD_TEST") != "1", reason="run with make load-test")
+def test_large_room_reports_quickly():
+    """10,000 people by 200 statements: about 9 s on an idle M-series laptop."""
+    rows, meta = _big_room(10_000)
     start = time.perf_counter()
     analysis = analyse(rows, meta, BUNDLE, demo=False)
     elapsed = time.perf_counter() - start
     print(f"10,000 x 200 report in {elapsed:.1f}s")
     assert analysis.report["groups"]["k"] >= 2
-    assert elapsed < 20  # about 9 s on an M-series laptop
+    assert elapsed < 20

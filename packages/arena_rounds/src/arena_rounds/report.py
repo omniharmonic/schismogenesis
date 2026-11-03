@@ -270,7 +270,7 @@ def analyse(
                     int(polis.labels[i]),
                 ]
                 for i in sorted(sample.tolist())
-            ],  # fmt: skip
+            ],
             "thinkers": _thinkers_in_room(polis, m, anchor_of, bundle),
             "consensus": named([c for c in consensus(stats) if c["all_agree"]][:5])
             if clear

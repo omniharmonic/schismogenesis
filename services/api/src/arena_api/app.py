@@ -1,45 +1,89 @@
-"""The arena web app: static fingerprint pages plus the room API.
+"""The arena web app: static fingerprint pages, rooms, published profiles and share images.
 
-See docs/fingerprint/02-ARCHITECTURE.md.
+See docs/fingerprint/02-ARCHITECTURE.md and 04-LAUNCH.md.
 """
 
+import datetime
+import hashlib
+import html
 import json
 import os
 import pathlib
 import secrets
-import time
-from collections import defaultdict, deque
+from dataclasses import dataclass
 
-from arena_rounds.report import participant_view, room_report
+from arena_rounds.report import Analysis, analyse, personal_view
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 
-from arena_api.store import Store
+from arena_api import identity
+from arena_api.cards import profile_card
+from arena_api.profiles import (
+    Summary,
+    SummaryError,
+    anon_name,
+    clean_answers,
+    clean_glyph,
+    clean_summary,
+    new_code,
+)
+from arena_api.store import Store, key_hash
 from arena_api.text_rules import check_statement
 
 REPO = pathlib.Path(__file__).resolve().parents[4]
 PUBLIC = REPO / "apps/arena/public"
 CONSENT_VERSION = "room-v1"
 STATEMENTS_PER_DAY = 5
+REPORT_MAX_AGE = 60  # seconds a stale report may be served while votes arrive
+MAX_BODY = 64 * 1024
+EVENTS = {
+    "start",
+    "finish",
+    "story_done",
+    "save_story",
+    "save_card",
+    "share_native",
+    "share_x",
+    "share_bsky",
+    "copy_text",
+    "copy_link",
+    "join",
+    "publish",
+}
+CSP = (
+    "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; "
+    "style-src 'self' 'unsafe-inline'; font-src 'self'; "
+    "img-src 'self' data: blob: https://cdn.bsky.app https://pbs.twimg.com; "
+    "connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+)
 
 
-class RateLimit:
-    """In-memory sliding window. Enough for a one-process private beta (architecture §8)."""
+@dataclass(frozen=True)
+class Config:
+    admin_token: str | None = None
+    public_url: str = "http://localhost:8800"
+    x_client_id: str | None = None
+    x_client_secret: str | None = None
+    trust_proxy: bool = False
+    production: bool = False
 
-    def __init__(self) -> None:
-        self.hits: dict[str, deque] = defaultdict(deque)
-
-    def check(self, key: str, limit: int, window: float = 3600.0) -> None:
-        now = time.monotonic()
-        q = self.hits[key]
-        while q and now - q[0] > window:
-            q.popleft()
-        if len(q) >= limit:
-            raise HTTPException(429, "Too many requests. Try again later.")
-        q.append(now)
+    @classmethod
+    def from_env(cls) -> "Config":
+        env = os.environ.get
+        config = cls(
+            admin_token=env("ARENA_ADMIN_TOKEN") or None,
+            public_url=(env("ARENA_PUBLIC_URL") or "http://localhost:8800").rstrip("/"),
+            x_client_id=env("ARENA_X_CLIENT_ID") or None,
+            x_client_secret=env("ARENA_X_CLIENT_SECRET") or None,
+            trust_proxy=env("ARENA_TRUST_PROXY") == "1",
+            production=env("ARENA_ENV") == "production",
+        )
+        if config.production and (not config.admin_token or len(config.admin_token) < 24):
+            raise RuntimeError("ARENA_ADMIN_TOKEN of 24+ characters is required in production")
+        return config
 
 
 class Join(BaseModel):
@@ -74,19 +118,81 @@ class Moderation(BaseModel):
     reason: str | None = Field(default=None, max_length=200)
 
 
+class Publish(BaseModel):
+    summary: Summary
+    glyph: list[int | None]
+    answers: dict[str, int] | None = None
+    identity: str = Field(pattern="^(anon|bsky|x)$")
+    check_id: str | None = None
+    listed: bool = False
+
+
+class ProfileEdit(BaseModel):
+    listed: bool
+
+
+class BskyStart(BaseModel):
+    handle: str = Field(max_length=260)
+
+
+class CheckId(BaseModel):
+    check_id: str
+
+
+class Event(BaseModel):
+    name: str
+
+
+class Hide(BaseModel):
+    hidden: bool
+
+
 def create_app(
-    engine: Engine, admin_token: str | None = None, public: pathlib.Path = PUBLIC
+    engine: Engine,
+    admin_token: str | None = None,
+    public: pathlib.Path = PUBLIC,
+    config: Config | None = None,
+    fetch: identity.Fetch = identity.fetch_json,
 ) -> FastAPI:
+    config = config or Config(admin_token=admin_token)
     bundle = json.loads((public / "fingerprint.json").read_text())
-    thinker_ids = {t["id"] for t in bundle["thinkers"]}
+    names = {t["id"]: t["name"] for t in bundle["thinkers"]}
+    thinker_ids = set(names)
     anchor_ids = {a["id"] for a in bundle["anchors"]}
     store = Store(engine)
-    limits = RateLimit()
-    cache: dict[tuple, dict] = {}
+    salt = secrets.token_hex(16)  # rate-limit buckets hold hashed addresses, never raw ones
     app = FastAPI(title="Dialogos: AI Futures Fingerprint", docs_url=None, redoc_url=None)
 
+    @app.middleware("http")
+    async def guard(request: Request, call_next):
+        length = request.headers.get("content-length")
+        if length and length.isdigit() and int(length) > MAX_BODY:
+            return JSONResponse({"error": "Request too large."}, status_code=413)
+        response = await call_next(request)
+        # the 3D atlas page is a single self-contained file with an inline script
+        atlas = request.url.path == "/atlas"
+        response.headers["Content-Security-Policy"] = (
+            CSP.replace("script-src 'self'", "script-src 'self' 'unsafe-inline'") if atlas else CSP
+        )
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
+        if config.production:
+            response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        if request.url.path.startswith("/api/"):
+            response.headers.setdefault("Cache-Control", "no-store")
+        return response
+
     def client(request: Request) -> str:
-        return request.client.host if request.client else "unknown"
+        address = request.client.host if request.client else "unknown"
+        if config.trust_proxy:
+            forwarded = request.headers.get("x-forwarded-for", "")
+            address = forwarded.split(",")[0].strip() or address
+        return hashlib.sha256(f"{salt}:{address}".encode()).hexdigest()[:24]
+
+    def limit(bucket: str, count: int, window: int = 3600) -> None:
+        if not store.hit(bucket, count, window):
+            raise HTTPException(429, "Too many requests. Try again later.")
 
     def get_room(slug: str) -> dict:
         room = store.room(slug)
@@ -103,21 +209,34 @@ def create_app(
         return room, x_participant
 
     def admin(authorization: str | None = Header(default=None)) -> None:
-        if not admin_token:
+        if not config.admin_token:
             raise HTTPException(404, "Admin is disabled.")
         supplied = (authorization or "").removeprefix("Bearer ").strip()
-        if not secrets.compare_digest(supplied, admin_token):
+        if not secrets.compare_digest(supplied, config.admin_token):
             raise HTTPException(401, "Wrong admin token.")
 
-    def report_for(room: dict) -> tuple[dict, list, dict, bool]:
-        demo = bool(room["config"].get("demo"))
-        version = (str(room["room_id"]), *store.vote_version(room["room_id"]))
-        rows = store.vote_rows(room["room_id"])
-        statements = store.approved_statements(room["room_id"])
-        if version not in cache:
-            cache.clear()
-            cache[version] = room_report(rows, statements, bundle, demo)
-        return cache[version], rows, statements, demo
+    def analysis_for(room: dict) -> Analysis:
+        """Serve the cached report when current, or when fresh enough during a burst of votes."""
+        version = json.dumps(store.vote_version(room["room_id"]), default=str)
+        cached = store.cached_report(room["room_id"])
+        if cached and (cached["version"] == version or cached["age"] < REPORT_MAX_AGE):
+            return Analysis(cached["report"], cached["personal"])
+        with engine.begin() as connection:
+            if not store.try_report_lock(connection, room["room_id"]) and cached:
+                return Analysis(cached["report"], cached["personal"])  # another worker is on it
+            demo = bool(room["config"].get("demo"))
+            rows = store.vote_rows(room["room_id"])
+            result = analyse(rows, store.approved_statements(room["room_id"]), bundle, demo)
+            store.save_report(room["room_id"], version, result.report, result.personal)
+        return result
+
+    # ---------- rooms ----------
+
+    @app.get("/api/health")
+    def health():
+        with engine.connect():
+            pass
+        return {"ok": True, "bundle": bundle["version"]}
 
     @app.get("/api/rooms/{slug}")
     def room_info(slug: str):
@@ -133,7 +252,7 @@ def create_app(
 
     @app.post("/api/rooms/{slug}/join")
     def join(slug: str, body: Join, request: Request):
-        limits.check(f"join:{client(request)}", 30)
+        limit(f"join:{client(request)}", 30)
         room = get_room(slug)
         if room["status"] != "open":
             raise HTTPException(409, "This room is closed.")
@@ -147,6 +266,7 @@ def create_app(
         pid = store.join(room["room_id"], body.key, handle, body.consent_version)
         ids = store.anchor_statements(room["room_id"])
         store.votes_bulk([(pid, ids[a], v) for a, v in body.answers.items() if a in ids])
+        store.count("join")
         return {"participant_id": pid}
 
     @app.get("/api/rooms/{slug}/next")
@@ -157,7 +277,7 @@ def create_app(
     @app.post("/api/rooms/{slug}/votes")
     def vote(body: Vote, who: tuple = Depends(participant)):
         room, pid = who
-        limits.check(f"vote:{pid}", 600)
+        limit(f"vote:{pid}", 600)
         if not store.statement_in_room(room["room_id"], body.statement_id):
             raise HTTPException(404, "No such statement in this room.")
         store.vote(pid, body.statement_id, body.vote)
@@ -179,17 +299,16 @@ def create_app(
 
     @app.get("/api/rooms/{slug}/report")
     def report(slug: str):
-        return report_for(get_room(slug))[0]
+        return analysis_for(get_room(slug)).report
 
     @app.get("/api/rooms/{slug}/me")
     def me(who: tuple = Depends(participant)):
         room, pid = who
-        _, rows, statements, demo = report_for(room)
-        return participant_view(rows, statements, bundle, demo, pid)
+        return personal_view(analysis_for(room), pid)
 
     @app.post("/api/disputes")
     def dispute(body: Dispute, request: Request):
-        limits.check(f"dispute:{client(request)}", 20)
+        limit(f"dispute:{client(request)}", 20)
         if body.person_id not in thinker_ids:
             raise HTTPException(400, "Unknown thinker.")
         if body.anchor_id and body.anchor_id not in anchor_ids:
@@ -199,9 +318,243 @@ def create_app(
 
     @app.post("/api/fairness")
     def fairness(body: Fairness, request: Request):
-        limits.check(f"fair:{client(request)}", 20)
+        limit(f"fair:{client(request)}", 20)
         store.add_fairness(bundle["version"], body.rating)
         return {"ok": True}
+
+    @app.post("/api/event")
+    def event(body: Event, request: Request):
+        if body.name in EVENTS:
+            limit(f"event:{client(request)}", 300)
+            store.count(body.name)
+        return {"ok": True}
+
+    # ---------- identity ----------
+
+    @app.get("/api/verify/options")
+    def verify_options():
+        return {"bsky": True, "x": bool(config.x_client_id)}
+
+    @app.post("/api/verify/bsky/start")
+    def bsky_start(body: BskyStart, request: Request):
+        limit(f"verify:{client(request)}", 20)
+        handle = identity.normalise_bsky(body.handle)
+        if handle is None:
+            raise HTTPException(422, "That doesn't look like a Bluesky handle.")
+        code = identity.challenge_code()
+        check = store.add_check("bsky", handle, code)
+        return {"check_id": check, "handle": handle, "code": code}
+
+    @app.post("/api/verify/bsky/check")
+    def bsky_check(body: CheckId, request: Request):
+        limit(f"verify-check:{client(request)}", 60)
+        check = store.get_check(body.check_id)
+        if check is None or check["kind"] != "bsky":
+            raise HTTPException(404, "That verification has expired. Start again.")
+        if check["verified_at"] is None:
+            try:
+                found = identity.check_bsky(check["handle"], check["challenge"], fetch)
+            except Exception as exc:  # network trouble is the person's to retry, not a 500
+                raise HTTPException(502, "Couldn't reach Bluesky. Try again in a moment.") from exc
+            if found is None:
+                return {"verified": False}
+            store.verify_check(
+                check["check_id"],
+                found.handle,
+                found.account_id,
+                found.display_name,
+                found.avatar_url,
+            )
+            check = store.get_check(body.check_id) or check
+        return {
+            "verified": True,
+            "handle": check["handle"],
+            "display_name": check["display_name"],
+            "avatar_url": check["avatar_url"],
+        }
+
+    @app.get("/auth/x/start")
+    def x_start(request: Request):
+        if not config.x_client_id:
+            raise HTTPException(404, "Sign in with X isn't switched on.")
+        limit(f"verify:{client(request)}", 20)
+        verifier, challenge = identity.pkce_pair()
+        state = secrets.token_urlsafe(24)
+        store.add_check("x", None, state, verifier)
+        url = identity.x_authorize_url(
+            config.x_client_id, f"{config.public_url}/auth/x/callback", state, challenge
+        )
+        return RedirectResponse(url, status_code=302)
+
+    @app.get("/auth/x/callback")
+    def x_callback(state: str = "", code: str = "", error: str = ""):
+        check = store.check_by_state(state) if state else None
+        if error or not code or check is None or not config.x_client_id:
+            return RedirectResponse("/#verify=failed", status_code=302)
+        try:
+            found = identity.x_exchange(
+                code,
+                check["code_verifier"],
+                config.x_client_id,
+                config.x_client_secret,
+                f"{config.public_url}/auth/x/callback",
+            )
+        except Exception:
+            found = None
+        if found is None:
+            return RedirectResponse("/#verify=failed", status_code=302)
+        store.verify_check(
+            check["check_id"], found.handle, found.account_id, found.display_name, found.avatar_url
+        )
+        return RedirectResponse(f"/#verify={check['check_id']}", status_code=302)
+
+    @app.get("/api/verify/{check_id}")
+    def verify_status(check_id: str):
+        check = store.get_check(check_id)
+        if check is None or check["verified_at"] is None or check["used_at"] is not None:
+            raise HTTPException(404, "No verified account here. Start again.")
+        return {
+            "kind": check["kind"],
+            "handle": check["handle"],
+            "display_name": check["display_name"],
+            "avatar_url": check["avatar_url"],
+        }
+
+    # ---------- profiles ----------
+
+    def public_profile(row: dict) -> dict:
+        return {
+            "code": row["code"],
+            "identity": row["identity"],
+            "handle": row["handle"],
+            "display_name": row["display_name"],
+            "avatar_url": row["avatar_url"],
+            "listed": row["listed"],
+            "summary": row["summary"],
+            "answers": row["answers"] if row["include_answers"] else None,
+            "glyph": row["glyph"],
+            "bundle_version": row["bundle_version"],
+            "created_at": row["created_at"].isoformat(),
+        }
+
+    def live_profile(code: str) -> dict:
+        row = store.profile(code) if code.isalnum() and len(code) <= 12 else None
+        if row is None or row["hidden_at"] is not None:
+            raise HTTPException(404, "No profile here. It may have been deleted.")
+        return row
+
+    @app.post("/api/profiles")
+    def publish(body: Publish, request: Request):
+        limit(f"publish:{client(request)}", 10)
+        try:
+            summary = clean_summary(body.summary, bundle)
+            glyph = clean_glyph(body.glyph, bundle)
+            answers = clean_answers(body.answers, bundle) if body.answers is not None else None
+        except SummaryError as exc:
+            raise HTTPException(422, str(exc)) from exc
+        row: dict = {
+            "code": new_code(),
+            "identity": body.identity,
+            "handle": None,
+            "display_name": anon_name(),
+            "avatar_url": None,
+            "account_id": None,
+            "check_id": None,
+            "listed": body.listed and body.identity != "anon",
+            "include_answers": answers is not None,
+            "summary": summary,
+            "answers": answers,
+            "glyph": glyph,
+            "bundle_version": bundle["version"],
+        }
+        if body.identity != "anon":
+            check = store.get_check(body.check_id or "")
+            if (
+                check is None
+                or check["kind"] != body.identity
+                or check["verified_at"] is None
+                or check["used_at"] is not None
+            ):
+                raise HTTPException(403, "Verify your account first, then publish.")
+            row |= {
+                "handle": check["handle"],
+                "display_name": check["display_name"] or check["handle"],
+                "avatar_url": check["avatar_url"],
+                "account_id": check["account_id"],
+                "check_id": check["check_id"],
+            }
+        edit_key = secrets.token_urlsafe(32)
+        row["edit_hash"] = key_hash(edit_key)
+        try:
+            store.create_profile(row)
+        except ValueError as exc:
+            raise HTTPException(409, str(exc)) from exc
+        store.count("publish")
+        return {
+            "code": row["code"],
+            "edit_key": edit_key,
+            "url": f"{config.public_url}/p/{row['code']}",
+        }
+
+    @app.get("/api/profiles/{code}")
+    def get_profile(code: str):
+        return public_profile(live_profile(code))
+
+    @app.patch("/api/profiles/{code}")
+    def edit_profile(code: str, body: ProfileEdit, x_edit_key: str = Header(...)):
+        row = store.profile(code)
+        if row is None or (body.listed and row["identity"] == "anon"):
+            raise HTTPException(
+                404 if row is None else 422, "Only verified profiles can be listed."
+            )
+        if not store.update_profile(code, x_edit_key, body.listed):
+            raise HTTPException(403, "This browser can't edit that profile.")
+        return {"ok": True}
+
+    @app.delete("/api/profiles/{code}")
+    def delete_profile(code: str, x_edit_key: str = Header(...)):
+        if not store.delete_profile(code, x_edit_key):
+            raise HTTPException(403, "This browser can't delete that profile.")
+        return {"ok": True}
+
+    @app.get("/api/people")
+    def people():
+        return {"people": store.listed_profiles()}
+
+    @app.get("/p/{code}/card.png")
+    def card(code: str):
+        row = live_profile(code)
+        image = profile_card(public_profile(row), names)
+        return Response(
+            image, media_type="image/png", headers={"Cache-Control": "public, max-age=3600"}
+        )
+
+    @app.get("/p/{code}")
+    def profile_page(code: str):
+        row = live_profile(code)
+        data = public_profile(row)
+        who = data["display_name"] + (f" (@{data['handle']})" if data["handle"] else "")
+        title = f"{who}: closest to the {data['summary']['home']}"
+        nearest = ", ".join(names[m["id"]] for m in data["summary"]["nearest"])
+        description = f"Nearest thinkers: {nearest}. Answer 24 statements and see where you sit."
+        page = (public / "profile.html").read_text()
+        url = f"{config.public_url}/p/{code}"
+        replacements = {
+            "{{TITLE}}": html.escape(title),
+            "{{DESCRIPTION}}": html.escape(description),
+            "{{URL}}": html.escape(url),
+            "{{IMAGE}}": html.escape(f"{url}/card.png"),
+            "{{DATA}}": json.dumps(data).replace("</", "<\\/"),
+        }
+        for key, value in replacements.items():
+            page = page.replace(key, value)
+        return HTMLResponse(page)
+
+    @app.get("/people")
+    def people_page():
+        return FileResponse(public / "people.html")
+
+    # ---------- admin ----------
 
     @app.get("/api/admin/{slug}/pending", dependencies=[Depends(admin)])
     def pending(slug: str):
@@ -209,6 +562,8 @@ def create_app(
             "pending": store.pending(get_room(slug)["room_id"]),
             "disputes": store.disputes(),
             "fairness": store.fairness(),
+            "profiles": store.recent_profiles(),
+            "counters": store.counters(),
         }
 
     @app.post("/api/admin/{slug}/statements/{statement_id}", dependencies=[Depends(admin)])
@@ -217,15 +572,26 @@ def create_app(
             raise HTTPException(404, "No pending statement with that id.")
         return {"ok": True}
 
+    @app.post("/api/admin/profiles/{code}", dependencies=[Depends(admin)])
+    def hide(code: str, body: Hide):
+        if not store.hide_profile(code, body.hidden):
+            raise HTTPException(404, "No such profile.")
+        return {"ok": True}
+
     @app.exception_handler(HTTPException)
     def error(_: Request, exc: HTTPException):
-        return JSONResponse({"error": exc.detail}, status_code=exc.status_code)
+        return JSONResponse(
+            {"error": exc.detail},
+            status_code=exc.status_code,
+            headers=getattr(exc, "headers", None),
+        )
 
     @app.get("/atlas")
     def atlas():
         return FileResponse(public / "atlas.html")
 
     app.mount("/", StaticFiles(directory=public, html=True), name="public")
+    app.state.started = datetime.datetime.now(datetime.UTC).isoformat()
     return app
 
 
@@ -233,9 +599,10 @@ def main() -> None:
     import uvicorn
     from arena_core.db import get_engine
 
+    config = Config.from_env()
     port = int(os.environ.get("ARENA_APP_PORT", "8800"))
-    app = create_app(get_engine(), admin_token=os.environ.get("ARENA_ADMIN_TOKEN"))
-    uvicorn.run(app, host="127.0.0.1", port=port)
+    host = os.environ.get("ARENA_APP_HOST", "127.0.0.1")
+    uvicorn.run(create_app(get_engine(), config=config), host=host, port=port)
 
 
 if __name__ == "__main__":
