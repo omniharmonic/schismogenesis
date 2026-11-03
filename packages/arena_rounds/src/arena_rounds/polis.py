@@ -8,14 +8,35 @@ from dataclasses import dataclass
 
 import numpy as np
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import adjusted_rand_score, silhouette_score
 
 from arena_rounds.matrix import VoteMatrix
 
 MIN_VOTES = 7
 MAX_GROUPS = 5
+MAX_BASE = 100
 MIN_SILHOUETTE = 0.15
 Z_90 = 1.2816
+STABILITY_RUNS = 20
+STABILITY_SAMPLE = 1000
+CLEAR = 0.8
+TENTATIVE = 0.5
+
+
+@dataclass(frozen=True)
+class Space:
+    """The room's opinion space: column means and two components, so others can be projected."""
+
+    means: np.ndarray
+    components: np.ndarray  # 2 by statements
+
+    def place(self, values: np.ndarray) -> np.ndarray:
+        """Project vote rows (nan for unseen) without refitting, with Polis sparsity scaling."""
+        seen = ~np.isnan(values)
+        centred = np.where(seen, values - self.means, 0.0)
+        counts = np.maximum(seen.sum(1), 1)
+        scaled = centred * np.sqrt(values.shape[1] / counts)[:, None]
+        return scaled @ self.components.T
 
 
 @dataclass(frozen=True)
@@ -26,10 +47,11 @@ class PolisResult:
     k: int
     silhouette: float | None
     pc1: dict[str, float]  # standardised first component, used to seed the bridging fit
+    space: Space
+    stability: float | None = None  # mean adjusted Rand index over statement bootstraps
 
 
-def project(m: VoteMatrix) -> tuple[np.ndarray, np.ndarray]:
-    """Mean-impute after centring, scale sparse voters up as Polis does, keep two components."""
+def fit_space(m: VoteMatrix) -> Space:
     values = m.values
     seen = ~np.isnan(values)
     means = np.where(seen.any(0), np.nansum(values, 0) / np.maximum(seen.sum(0), 1), 0.0)
@@ -40,35 +62,101 @@ def project(m: VoteMatrix) -> tuple[np.ndarray, np.ndarray]:
     components = vt[:2]
     if components.shape[0] < 2:
         components = np.vstack([components, np.zeros((2 - components.shape[0], values.shape[1]))])
-    return scaled @ components.T, components
+    # fix each component's sign so the heavier tail of loadings is positive (stable between runs)
+    for i in range(2):
+        if components[i][np.argmax(np.abs(components[i]))] < 0:
+            components[i] = -components[i]
+    return Space(means, components)
 
 
-def polis_groups(m: VoteMatrix, min_votes: int = MIN_VOTES, seed: int = 7) -> PolisResult | None:
-    keep = m.votes_per_participant() >= min_votes
+def project(m: VoteMatrix) -> tuple[np.ndarray, np.ndarray]:
+    """Mean-impute after centring, scale sparse voters up as Polis does, keep two components."""
+    space = fit_space(m)
+    return space.place(m.values), space.components
+
+
+def _kmeans(
+    points: np.ndarray, k: int, seed: int, weights: np.ndarray | None = None, n_init: int = 10
+) -> np.ndarray:
+    model = KMeans(k, n_init=n_init, random_state=seed)  # pyright: ignore[reportArgumentType]
+    return np.asarray(model.fit_predict(points, sample_weight=weights))
+
+
+def cluster(projection: np.ndarray, seed: int = 7) -> tuple[np.ndarray, int, float | None]:
+    """Polis two-stage clustering: up to 100 base clusters, then 2 to 5 groups by silhouette.
+
+    Returns per-participant labels, the number of groups (1 if none is clear) and the silhouette.
+    """
+    n = len(projection)
+    if n > MAX_BASE:
+        base = _kmeans(projection, MAX_BASE, seed, n_init=2)
+        centres = np.array([projection[base == b].mean(0) for b in range(MAX_BASE)])
+        weights = np.bincount(base, minlength=MAX_BASE).astype(float)
+    else:
+        base = np.arange(n)
+        centres = projection
+        weights = np.ones(n)
+    best: tuple[float, int, np.ndarray] | None = None
+    for k in range(2, min(MAX_GROUPS, n // 5) + 1):
+        if k >= len(centres):
+            break
+        grouped = _kmeans(centres, k, seed, weights)
+        if len(set(grouped)) < 2:
+            continue
+        labels = grouped[base]
+        sample = slice(None) if n <= 1500 else np.random.default_rng(seed).choice(n, 1500, False)
+        sil = float(silhouette_score(projection[sample], labels[sample]))
+        if best is None or sil > best[0] + 1e-9:
+            best = (sil, k, labels)
+    if best is None or best[0] < MIN_SILHOUETTE:
+        return np.zeros(n, int), 1, None if best is None else best[0]
+    sil, k, labels = best
+    return _relabel(labels, projection), k, sil
+
+
+def polis_groups(
+    m: VoteMatrix, min_votes: int = MIN_VOTES, seed: int = 7, stability: bool = False
+) -> PolisResult | None:
+    threshold = min(min_votes, len(m.statements))
+    keep = m.votes_per_participant() >= threshold
     if keep.sum() < 2:
         return None
     sub = m.subset(keep)
-    projection, _ = project(sub)
+    space = fit_space(sub)
+    projection = space.place(sub.values)
     pc1 = projection[:, 0]
     spread = pc1.std() or 1.0
     pc1_map = {
         p: float(v) for p, v in zip(sub.participants, (pc1 - pc1.mean()) / spread, strict=True)
     }
-    n = len(sub.participants)
-    best: tuple[float, int, np.ndarray] | None = None
-    for k in range(2, min(MAX_GROUPS, n // 5) + 1):
-        model = KMeans(k, n_init=10, random_state=seed)  # pyright: ignore[reportArgumentType]
-        labels = np.asarray(model.fit_predict(projection))
-        if len(set(labels)) < 2:
-            continue
-        sil = float(silhouette_score(projection, labels))
-        if best is None or sil > best[0] + 1e-9:
-            best = (sil, k, labels)
-    if best is None or best[0] < MIN_SILHOUETTE:
-        silhouette = None if best is None else best[0]
-        return PolisResult(sub.participants, projection, np.zeros(n, int), 1, silhouette, pc1_map)
-    sil, k, labels = best
-    return PolisResult(sub.participants, projection, _relabel(labels, projection), k, sil, pc1_map)
+    labels, k, sil = cluster(projection, seed)
+    stable = group_stability(sub, labels, k, seed) if stability and k > 1 else None
+    return PolisResult(sub.participants, projection, labels, k, sil, pc1_map, space, stable)
+
+
+def group_stability(m: VoteMatrix, labels: np.ndarray, k: int, seed: int = 7) -> float:
+    """Resample statements with replacement, refit, and measure agreement with the original groups.
+
+    Large rooms are measured on a fixed random sample of STABILITY_SAMPLE participants.
+    """
+    random = np.random.default_rng(seed)
+    if len(m.participants) > STABILITY_SAMPLE:
+        keep = np.zeros(len(m.participants), bool)
+        keep[random.choice(len(m.participants), STABILITY_SAMPLE, replace=False)] = True
+        m, labels = m.subset(keep), labels[keep]
+    scores = []
+    for _ in range(STABILITY_RUNS):
+        cols = random.integers(0, len(m.statements), len(m.statements))
+        boot = VoteMatrix(m.participants, [m.statements[c] for c in cols], m.values[:, cols])
+        again, k2, _ = cluster(fit_space(boot).place(boot.values), seed)
+        scores.append(adjusted_rand_score(labels, again) if k2 > 1 else 0.0)
+    return float(np.mean(scores))
+
+
+def stability_label(score: float | None) -> str | None:
+    if score is None:
+        return None
+    return "clear" if score >= CLEAR else "tentative" if score >= TENTATIVE else "unstable"
 
 
 def _relabel(labels: np.ndarray, projection: np.ndarray) -> np.ndarray:
@@ -100,13 +188,14 @@ def group_stats(
     out: dict[int, dict[str, StatementStats]] = {}
     for group, people in members.items():
         rows = m.values[[index[p] for p in people]]
-        out[group] = {}
-        for j, statement in enumerate(m.statements):
-            column = rows[:, j]
-            column = column[~np.isnan(column)]
-            out[group][statement] = StatementStats(
-                int((column > 0).sum()), int((column < 0).sum()), int(column.size)
-            )
+        with np.errstate(invalid="ignore"):
+            agree = (rows > 0).sum(0)
+            disagree = (rows < 0).sum(0)
+        seen = (~np.isnan(rows)).sum(0)
+        out[group] = {
+            statement: StatementStats(int(agree[j]), int(disagree[j]), int(seen[j]))
+            for j, statement in enumerate(m.statements)
+        }
     return out
 
 

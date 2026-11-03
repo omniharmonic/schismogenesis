@@ -18,6 +18,7 @@ from arena_rounds.matrix import VoteMatrix
 MIN_RATERS = 5
 MIN_RATINGS = 3
 NEUTRAL_AGREE = 0.75
+NEUTRAL_LOW = 0.65
 MAX_FACTOR = 0.50
 MIN_PER_SIDE = 2
 
@@ -32,6 +33,7 @@ class BridgeFit:
     b_s: np.ndarray
     f_s: np.ndarray
     ratings: np.ndarray  # participants by statements, 1 agree, 0 disagree, nan otherwise
+    neutral_low: np.ndarray | None = None  # 10th percentile of μ + b_s over participant bootstraps
 
 
 def _ratings(m: VoteMatrix) -> VoteMatrix:
@@ -50,8 +52,29 @@ def _ratings(m: VoteMatrix) -> VoteMatrix:
             return VoteMatrix(participants, statements, r)
 
 
-def _ridge(x: np.ndarray, y: np.ndarray, penalty: np.ndarray) -> np.ndarray:
-    return np.linalg.solve(x.T @ x + np.diag(penalty), x.T @ y)
+def _solve(n, sf, sff, sy, sfy, lambda_i: float, lambda_f: float):
+    """Vectorised 2x2 ridge solves for many rows at once: intercept and factor."""
+    a, b, d = n + lambda_i, sf, sff + lambda_f
+    det = a * d - b * b
+    return (d * sy - b * sfy) / det, (a * sfy - b * sy) / det
+
+
+def _als(r, seen, f_u, lambda_i, lambda_f, sweeps):
+    w = seen.astype(float)
+    filled = np.where(seen, r, 0.0)
+    n_u, n_s = r.shape
+    b_u, b_s, f_s = np.zeros(n_u), np.zeros(n_s), np.zeros(n_s)
+    mu = float(filled.sum() / max(w.sum(), 1))
+    for _ in range(sweeps):
+        y = (filled - mu - b_u[:, None]) * w
+        b_s, f_s = _solve(
+            w.sum(0), w.T @ f_u, w.T @ f_u**2, y.sum(0), y.T @ f_u, lambda_i, lambda_f
+        )
+        y = (filled - mu - b_s[None, :]) * w
+        b_u, f_u = _solve(w.sum(1), w @ f_s, w @ f_s**2, y.sum(1), y @ f_s, lambda_i, lambda_f)
+        prediction = b_u[:, None] + b_s[None, :] + np.outer(f_u, f_s)
+        mu = float(((filled - prediction) * w).sum() / max(w.sum(), 1))
+    return mu, b_u, f_u, b_s, f_s
 
 
 def fit_bridging(
@@ -60,37 +83,38 @@ def fit_bridging(
     lambda_i: float = 0.15,
     lambda_f: float = 0.03,
     sweeps: int = 60,
+    bootstrap: int = 0,
+    seed: int = 7,
 ) -> BridgeFit | None:
     rated = _ratings(m)
     r = rated.values
     if r.size == 0 or r.shape[0] < 2:
         return None
-    n_u, n_s = r.shape
+    n_u = r.shape[0]
     seen = ~np.isnan(r)
     init = init or {}
-    f_u = np.array([init.get(p, 0.0) for p in rated.participants])
+    f_u = np.array([init.get(p, 0.0) for p in rated.participants], dtype=float)
     if not np.any(f_u):
         f_u = np.linspace(-1, 1, n_u)
     reference = f_u.copy()
-    b_u = np.zeros(n_u)
-    b_s = np.zeros(n_s)
-    f_s = np.zeros(n_s)
-    mu = float(np.nanmean(r))
-    pen = np.array([lambda_i, lambda_f])
-    for _ in range(sweeps):
-        for j in range(n_s):
-            rows = seen[:, j]
-            x = np.column_stack([np.ones(rows.sum()), f_u[rows]])
-            b_s[j], f_s[j] = _ridge(x, r[rows, j] - mu - b_u[rows], pen)
-        for i in range(n_u):
-            cols = seen[i]
-            x = np.column_stack([np.ones(cols.sum()), f_s[cols]])
-            b_u[i], f_u[i] = _ridge(x, r[i, cols] - mu - b_s[cols], pen)
-        prediction = b_u[:, None] + b_s[None, :] + np.outer(f_u, f_s)
-        mu = float(np.mean((r - prediction)[seen]))
+    mu, b_u, f_u, b_s, f_s = _als(r, seen, f_u, lambda_i, lambda_f, sweeps)
     if reference.std() and f_u.std() and np.corrcoef(f_u, reference)[0, 1] < 0:
         f_u, f_s = -f_u, -f_s  # keep the sign of the Polis first component
-    return BridgeFit(mu, rated.participants, rated.statements, b_u, f_u, b_s, f_s, r)
+    low = None
+    if bootstrap:
+        # Resample participants; the 10th percentile of neutral agreement guards against
+        # statements that pass only because of a few raters, like Community Notes'
+        # uncertainty checks.
+        random = np.random.default_rng(seed)
+        draws = []
+        for _ in range(bootstrap):
+            rows = random.integers(0, n_u, n_u)
+            mu_b, _, _, b_s_b, _ = _als(
+                r[rows], seen[rows], f_u[rows].copy(), lambda_i, lambda_f, 25
+            )
+            draws.append(mu_b + b_s_b)
+        low = np.percentile(np.array(draws), 10, axis=0)
+    return BridgeFit(mu, rated.participants, rated.statements, b_u, f_u, b_s, f_s, r, low)
 
 
 def bridges(
@@ -108,6 +132,9 @@ def bridges(
                 "statement": statement,
                 "intercept": round(float(fit.b_s[j]), 3),
                 "neutral_agree": round(float(fit.mu + fit.b_s[j]), 3),
+                "neutral_low": None
+                if fit.neutral_low is None
+                else round(float(fit.neutral_low[j]), 3),
                 "factor": round(float(fit.f_s[j]), 3),
                 "raters": int(raters.sum()),
                 "sides": [int(neg.sum()), int(pos.sum())],
@@ -128,6 +155,7 @@ def bridges(
         r
         for r in rows
         if r["neutral_agree"] >= bar
+        and (r["neutral_low"] is None or r["neutral_low"] >= NEUTRAL_LOW)
         and abs(r["factor"]) < max_factor
         and both_sides(r)
         and majority_each_side(r)
