@@ -1,0 +1,13 @@
+.git
+.venv
+**/__pycache__
+data
+transcripts
+evals/queue
+evals/results
+reports
+research_notes
+.playwright-mcp
+.env
+.env.*
+node_modules

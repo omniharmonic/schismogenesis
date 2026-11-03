@@ -5,6 +5,29 @@ Owner: Benjamin Life. Drafted by Claude, 2026-11-02, from Benjamin's direction o
 
 This extends `01-PRD.md`, `02-ARCHITECTURE.md` and `03-IMPLEMENTATION-PLAN.md`. Where they conflict, this file wins for the launch.
 
+## Status (2026-11-03)
+L1 to L5 are built and pass `make ci`. Deployment (L6) waits on Benjamin's decisions in section 5.
+- Done:
+  - the Wrapped story, with savable story images;
+  - share links with server-drawn preview cards;
+  - anonymous and verified Bluesky profiles;
+  - X sign-in, built but off until an X app exists;
+  - the `/people` directory;
+  - the analysis upgrades;
+  - "You in the room";
+  - thinkers placed in the room;
+  - the Postgres report cache and rate limits;
+  - security headers;
+  - self-hosted fonts;
+  - About and Privacy pages;
+  - counters;
+  - a production container image, built and smoke-tested;
+  - the deploy runbook (`docs/runbooks/fingerprint-deploy.md`).
+- Not done:
+  - Cloudflare Turnstile. It isn't wired in; add it if bots show up.
+  - The blind slant review of the 24 statements.
+- Changed from the plan: the 10,000-person speed check runs with `make load-test`, not in CI, because a timed test fails whenever the machine is busy.
+
 ## 1. Product: what changes
 
 ### 1.1 The reveal becomes "Wrapped"

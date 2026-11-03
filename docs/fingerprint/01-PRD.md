@@ -92,7 +92,7 @@ In this order:
 ### Must have (beta)
 - R1. Statement set: 24 anchors chosen by code from the atlas ideas where thinkers stand on both sides. It's balanced across the three layer sets and across the camps (rule in architecture §4). The selection is recorded and reproducible.
 - R2. Neutral wording: each anchor's text is the atlas's neutral proposition. Any edit for readability is reviewed blind by two readers for slant (eval E-F1).
-- R3. All scoring for the fingerprint runs in the browser. Without opt-in, the server receives nothing beyond page loads.
+- R3. All scoring for the fingerprint runs in the browser. Without opt-in, the server receives no answers. Since the launch round it also receives anonymous daily counts (such as "started" or "shared"), with no IDs and no cookies (04-LAUNCH.md section 3).
 - R4. Agreement with a thinker counts only statements where that thinker has a stated (not inferred) position. Results show the count, and a thinker needs at least 3 shared statements to be ranked.
 - R5. The reveal includes splits and at least one cross-cutting line whenever the data supports one. A user is never shown as a pure member of one camp without showing where they depart from it.
 - R6. Quotes are 280 characters or fewer, each with a link. No full texts.

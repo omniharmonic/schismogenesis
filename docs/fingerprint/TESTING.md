@@ -5,37 +5,39 @@ For Benjamin. Everything runs on your machine. Nothing is public.
 ## Start it
 
 ```
-make app
+ARENA_ADMIN_TOKEN=pick-a-long-secret-of-24-characters make app
 ```
 
-Then open http://localhost:8800. Stop it with Ctrl+C.
+Then open http://localhost:8800. Stop it with Ctrl+C. The admin page is http://localhost:8800/admin.html; use the same token there.
 
-- To moderate statements, start it with a token: `ARENA_ADMIN_TOKEN=pick-something make app`, then open http://localhost:8800/admin.html and paste the same token.
-- The demo room already holds 120 labelled synthetic voters. To recreate it on a fresh database, run `make demo-room`.
+## What to try (about 20 minutes)
 
-## What to try (about 15 minutes)
-
-1. **Take it for real** at http://localhost:8800. Answer as yourself.
-   - Afterwards ask: did "Closest to the …" feel fair? Was the "Where you break from your neighbours" section the interesting part? Would you share the card?
-2. **Try to break it.**
-   - Answer everything "Unsure". You should get "Not enough to place you yet".
-   - Answer only five statements, then press "See result now". You should get the same.
-3. **Read the quote mirror.** Open a few statements and check the quotes against their links. If something is misread, use "Report a misreading". Your report lands in the admin page.
-4. **Join a room.**
-   - The demo room is at http://localhost:8800/?room=demo. Take the fingerprint there and press "Add my answers to the live room". Most voters there are fake (a banner says so), so the report is full: groups, bridges, common ground and splits.
-   - The real room is plain http://localhost:8800. It will say "Groups appear after 10 people…" until real people join. That is correct behaviour.
-5. **Write a statement** in the room.
-   - Try one with an @handle or a link; it should be refused with a reason.
-   - In the real room, a good one waits for moderation. Approve it from the admin page.
-6. **Check privacy yourself (optional).** In your browser's developer tools, open the Network tab. Until you press "Add my answers to the live room", the page only loads its own files and fonts.
+1. **The full run, on your phone if you can** (or a narrow browser window). Answer as yourself.
+   - When you finish, the story plays: your print, your neighbourhood, your top match in their own words, the plot twist, your furthest, the camps, your rarest take, the map, and a share slide. Tap the right side to go on and the left to go back.
+   - On any slide, try "Save this slide". On a phone it opens the share sheet with the image.
+2. **Get a share link.**
+   - Choose Anonymous and "Create my link". Open "View my page".
+   - Copy the link and paste it into a new post on X or Bluesky, without posting. Locally the preview card won't load, because those sites can't reach your laptop. It will once the site is live.
+   - Go back and try "Make a new link" and "Delete this link".
+3. **Bluesky verification (real).** In the share sheet choose "My Bluesky account", enter your handle, post the code, and press "I've posted it". Then publish with "list me" ticked and open http://localhost:8800/people. Afterwards, delete the page from the share sheet and delete your Bluesky post.
+4. **The room.** Open http://localhost:8800/?room=demo and join from the end of your result.
+   - The report now shows:
+     - "You in the room": your group, how rare your votes are, and your rarest take;
+     - a picture of the room with the 27 thinkers placed inside it;
+     - how stable the groups are;
+     - bridges that must clear an uncertainty check.
+   - The demo room's voters are fake, and a banner says so.
+5. **Try to break it.**
+   - Answer everything "Unsure". It should refuse to place you.
+   - Write a room statement with an @handle or a link. It should be refused with a reason.
 
 ## What to look for and tell me
-- Any statement whose wording feels slanted toward one camp. This matters most; a blind slant review is the next step before anyone else sees it.
-- Any thinker who seems misplaced on a statement.
-- Whether 24 statements feels too long or too short.
+- Does the story make you want to share it? Which slide would you post?
+- Any statement whose wording leans toward one camp. This matters most before launch.
+- Any thinker who seems misread.
 - Whether the name "AI Futures Fingerprint" works.
 
-## Known limits in this build
-- Six thinkers can't be compared yet, because the atlas has too few of their stated positions on these statements: Sacks, Weyl, Balaji, Musk, Scott Alexander, and (depending on answers) Crawford. The reveal names them. Reading more of their work fixes this.
-- Room identity is a random key in your browser. Clearing it lets someone vote again. That's fine for a private test and not for a public launch.
-- The demo and real rooms live in the dev database on Neon (free tier). The demo room's synthetic voters are flagged and never counted outside the demo room.
+## Known limits
+- Six thinkers can't be compared yet, because there are too few of their stated positions on these statements: Sacks, Weyl, Balaji, Musk, Scott Alexander, and sometimes Crawford.
+- X sign-in is built but switched off until there's an X developer app (see `docs/runbooks/fingerprint-deploy.md`).
+- Room identity is a random key in your browser, so clearing it lets someone vote again.

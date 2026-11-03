@@ -149,3 +149,11 @@ Benjamin, 2026-11-01: a thinker is a shape rooted in shared ground, not a dot ("
 
 ### D-31.16 AI Futures Fingerprint for the TPOT conversation
 Benjamin, 2026-11-02: "let's produce a scoped implementation plan… scope it to appeal to the EA / e/acc / d/acc TPOT subcultures who will be our early adopters… nail the fingerprint… best in class meme map, real polis-style community note infra… let's not do full citizen assembly scale public deliberation to start." Design and plan: `docs/fingerprint/` and ADR-036. The builder's calls (anchor rule, thresholds, on-device scoring, new room tables) await his review.
+
+### D-31.17 Launch round: Wrapped story, public profiles, production readiness
+Benjamin, 2026-11-02: "make it even more robust to prep for a real launch… a serious thinkers version of spotify wrapped… allow someone to publish their profile to the site if they want? anonymous or with their twitter/bsky handle / pfp?… get ready to ship it to production." Plan and builder's calls: `docs/fingerprint/04-LAUNCH.md`. Calls awaiting his review:
+- unverified handles are never shown;
+- result-only profiles get a scrambled print;
+- one live profile per verified account;
+- a bridge now also needs its bootstrapped lower bound of 0.65 or more.
+Deployment waits on his choice of host and domain.
