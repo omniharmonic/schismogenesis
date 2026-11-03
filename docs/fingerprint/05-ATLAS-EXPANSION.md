@@ -2,6 +2,16 @@
 
 Owner: Benjamin Life. Drafted by Claude, 2026-11-03, from Benjamin's direction of the same day: "make sure we also do a widening and deepening of the lifeworld atlas. there are plenty of important voices we are missing and many we need more from."
 
+## Status (2026-11-03)
+- **Done.** Steps E1–E6, plus E8, have run:
+  - all 29 voices approved (D-31.18) and added to the seed;
+  - 131 works fetched by a deterministic extractor, including 20 readable replacements for pages that failed;
+  - 807 extraction tasks done by agents, giving 5,589 claims (every quote checked in code), then quote anchoring and the local entailment gate;
+  - two blind readers per person on the 24 statements, for all 56 people. 206 stances were agreed, 101 of them new. There were no opposite calls and no contradictions with the atlas.
+- **On the map.** 37 thinkers, of whom 10 are new voices placed provisionally from the statements alone (dotted on the map). Every school is now well enough covered to be checked by the balance test, and all eight are within the fair-share band.
+- **Still thin.** 20 voices have fewer than 3 statements in common with the existing thinkers, so they aren't shown yet: Zvi Mowshowitz, Helen Toner, Leopold Aschenbrenner, Holly Elmore, Jack Clark, Alondra Nelson, Demis Hassabis, Mark Zuckerberg, Yann LeCun, Meredith Whittaker, Brian Merchant, Ed Zitron, Anton Korinek, Arvind Narayanan, Gary Marcus, Andrej Karpathy, Dwarkesh Patel, Venkatesh Rao, Noah Smith and David Sacks. Their first works talked around these statements, so round 2 looks for works where they take sides.
+- **Not yet done.** E7, the structure pass that gives new voices real atlas positions and schools.
+
 ## 1. What's wrong now
 - **Too few voices.** There are 27 thinkers. Many people the TPOT scene argues with or about are missing: lab leaders, forecasters, AI-ethics and labour voices, policy people, economists, "normal technology" sceptics, and the posters at the centre of the conversation on X.
 - **Too thin on some.** Six thinkers have fewer than three stated positions on the 24 statements, so the fingerprint can't compare anyone with them: Sacks (0), Weyl (1), Balaji, Musk and Scott Alexander (2 each), and Crawford (3). The fix is reading more of their work. MacAskill and Tang are borderline.
