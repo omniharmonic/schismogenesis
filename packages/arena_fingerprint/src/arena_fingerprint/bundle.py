@@ -3,6 +3,7 @@
 from arena_fingerprint.anchors import COVER_TARGET, SETS, select_anchors, stated_stances
 
 VERSION = "fp-2026-11-02.1"
+SEASON = "season-1"  # the statements; answers stay valid across bundle versions in a season
 MAX_QUOTE = 280
 LAYERS = ["ontological", "epistemic", "axiological", "empirical", "praxis"]
 CAMPS = [
@@ -61,7 +62,11 @@ def frozen_anchors(ideas: list[dict], season: list[dict], camps: dict) -> list[d
 
 
 def build_bundle(
-    atlas: dict, flagged: set[str], season: list[dict] | None = None, version: str = VERSION
+    atlas: dict,
+    flagged: set[str],
+    season: list[dict] | None = None,
+    version: str = VERSION,
+    atlas_version: str = "atlas-v1",
 ) -> dict:
     """Build the browser bundle. With `season`, keep those statements instead of reselecting."""
     people = {p["id"]: p for p in atlas["people"]}
@@ -105,7 +110,8 @@ def build_bundle(
         stances[idea["id"]] = entry
     return {
         "version": version,
-        "atlas_version": "atlas-v1",
+        "season": SEASON,
+        "atlas_version": atlas_version,
         "sets": SETS,
         "layers": LAYERS,
         "anchors": [

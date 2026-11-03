@@ -31,7 +31,8 @@ def main(*args: str) -> None:
     version = version or (previous["version"] if previous else None)
     atlas = json.loads((REPO / atlas_path).read_text())
     extra = {"version": version} if version else {}
-    bundle = build_bundle(atlas, flagged_ids(), season=season, **extra)
+    atlas_version = pathlib.Path(atlas_path).stem
+    bundle = build_bundle(atlas, flagged_ids(), season=season, atlas_version=atlas_version, **extra)
     target = REPO / out
     (target / "fingerprint.json").write_text(json.dumps(bundle, ensure_ascii=False, indent=1))
     subprocess.run(

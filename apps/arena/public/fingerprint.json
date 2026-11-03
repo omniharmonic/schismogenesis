@@ -1,6 +1,7 @@
 {
- "version": "fp-2026-11-02.1",
- "atlas_version": "atlas-v1",
+ "version": "fp-2026-11-03.1",
+ "season": "season-1",
+ "atlas_version": "atlas-v1.1",
  "sets": [
   {
    "id": "being",
@@ -48,7 +49,7 @@
    "layer": "empirical",
    "text": "Advanced AI poses a real risk of human extinction.",
    "family": 17,
-   "split_score": 26
+   "split_score": 32
   },
   {
    "id": "direction-of-technology-is-chosen",
@@ -72,7 +73,7 @@
    "layer": "empirical",
    "text": "Individual freedom and democracy are compatible.",
    "family": 16,
-   "split_score": 4
+   "split_score": 8
   },
   {
    "id": "ai-promises-inflated",
@@ -144,7 +145,7 @@
    "layer": "epistemic",
    "text": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
    "family": 29,
-   "split_score": 2
+   "split_score": 4
   },
   {
    "id": "popular-self-government-worth-keeping",
@@ -152,7 +153,7 @@
    "layer": "axiological",
    "text": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
    "family": 16,
-   "split_score": 6
+   "split_score": 10
   },
   {
    "id": "market-tech-serves-humans",
@@ -224,7 +225,7 @@
    "layer": "praxis",
    "text": "AI systems can and should be given values that lead to good outcomes.",
    "family": 18,
-   "split_score": 5
+   "split_score": 6
   }
  ],
  "thinkers": [
@@ -614,6 +615,12 @@
    }
   },
   "ai-extinction-risk": {
+   "balaji-srinivasan": {
+    "a": -1,
+    "q": "we should expect a balance of power between various human/AI fusions rather than a single dominant AGI that will turn us all into paperclips",
+    "url": "https://balajis.com/p/ai-is-polytheistic-not-monotheistic",
+    "work": "AI is polytheistic, not monotheistic"
+   },
    "curtis-yarvin": {
     "a": -1,
     "q": "The narrative of AI disaster is a golem myth—a form of folktale not unique to the shtetl.",
@@ -776,6 +783,12 @@
    }
   },
   "freedom-compatible-with-democracy": {
+   "audrey-tang": {
+    "a": 1,
+    "q": "liberal, pluralistic, democratic institutions already guarantee the rights and justice it depends on",
+    "url": "https://www.greaterwrong.com/posts/anoK4akwe8PKjtzkL/plurality-and-6pack-care",
+    "work": "⿻ Plurality & 6pack.care"
+   },
    "dario-amodei": {
     "a": 1,
     "q": "A 21st century, AI-enabled polity could be both a stronger protector of individual freedom, and a beacon of hope that helps make liberal democracy the form of government that the whole world wants to adopt.",
@@ -1046,6 +1059,12 @@
     "url": "https://www.lesswrong.com/posts/x5ASTMPKPowLKpLpZ/moloch-s-toolbox-1-2",
     "work": "Moloch's Toolbox (1/2)"
    },
+   "elon-musk": {
+    "a": -1,
+    "q": "For something important you need to reason with from first principles",
+    "url": "https://lexfridman.com/elon-musk-4-transcript/",
+    "work": "Elon Musk: War, AI, Aliens, Politics, Physics, Video Games, and Humanity (Lex Fridman Podcast #400)"
+   },
    "tyler-cowen": {
     "a": 1,
     "q": "on the tech per se I have an optimism that corresponds to the weighted average of what I hear.",
@@ -1060,11 +1079,23 @@
    }
   },
   "popular-self-government-worth-keeping": {
+   "audrey-tang": {
+    "a": 1,
+    "q": "moral norms emerge from democratic encounter, not from expert decree",
+    "url": "https://www.greaterwrong.com/posts/anoK4akwe8PKjtzkL/plurality-and-6pack-care",
+    "work": "⿻ Plurality & 6pack.care"
+   },
    "curtis-yarvin": {
     "a": -1,
     "q": "surely the comparison of Iraq to Dubai makes a fine case for formalism over democracy.",
     "url": "https://www.unqualified-reservations.org/2007/04/formalist-manifesto-originally-posted/",
     "work": "A Formalist Manifesto"
+   },
+   "e-glen-weyl": {
+    "a": 1,
+    "q": "Technocracy divorced from the need for public communication and accountability is thus a dangerous ideology",
+    "url": "https://www.radicalxchange.org/updates/blog/2019-08-19-bv61r6/",
+    "work": "Why I Am Not A Technocrat"
    },
    "josh-hawley": {
     "a": 1,
@@ -1384,6 +1415,12 @@
    }
   },
   "ai-can-be-given-good-values": {
+   "audrey-tang": {
+    "a": 1,
+    "q": "train AI systems that are more careful, more caring, and not careless",
+    "url": "https://archive.tw/2026-01-20-doom-debate",
+    "work": "2026-01-20 Doom Debate (Doom Debates, with Liron Shapira)"
+   },
    "eliezer-yudkowsky": {
     "a": 1,
     "q": "That kind of caring is something that could in principle be imbued into an AI but we are not ready and do not currently know how.",
@@ -1412,10 +1449,8 @@
  },
  "selection_log": [
   "statements frozen for the season",
-  "coverage: balaji-srinivasan has 2 stated stances among the anchors",
   "coverage: david-sacks has 0 stated stances among the anchors",
-  "coverage: e-glen-weyl has 1 stated stances among the anchors",
-  "coverage: elon-musk has 2 stated stances among the anchors",
+  "coverage: e-glen-weyl has 2 stated stances among the anchors",
   "coverage: scott-alexander has 2 stated stances among the anchors"
  ],
  "notes": [

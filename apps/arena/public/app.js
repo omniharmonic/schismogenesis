@@ -33,7 +33,7 @@ function toast(text) {
   document.body.append(t); setTimeout(() => t.remove(), 2200);
 }
 
-function save() { store.set("fp.answers", { version: bundle.version, answers, index }); }
+function save() { store.set("fp.answers", { version: bundle.version, season: bundle.season, answers, index }); }
 
 // ---------- answering ----------
 function renderCard() {
@@ -302,7 +302,13 @@ function disputeForm(button, anchorId) {
 async function boot() {
   bundle = await (await fetch("fingerprint.json")).json();
   const saved = store.get("fp.answers", null);
-  if (saved && saved.version === bundle.version) { answers = saved.answers; index = saved.index || 0; }
+  // answers stay valid while the statements stay the same (one season), across bundle rebuilds
+  const sameSeason = saved && (saved.season ? saved.season === bundle.season : saved.version === "fp-2026-11-02.1");
+  if (saved && (saved.version === bundle.version || sameSeason)) {
+    const ids = new Set(bundle.anchors.map((a) => a.id));
+    answers = Object.fromEntries(Object.entries(saved.answers).filter(([id]) => ids.has(id)));
+    index = saved.index || 0;
+  }
   $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
   $("hero-print").firstElementChild.classList.add("hero-print");
   $("adult").onchange = () => { $("start").disabled = !$("adult").checked; };

@@ -77,7 +77,11 @@ def test_committed_bundle_is_current():
     source = HERE.parents[2] / "apps/arena/source" / f"{committed['atlas_version']}.json"
     atlas = json.loads(source.read_text())
     rebuilt = build_bundle(
-        atlas, flagged=set(), season=committed["anchors"], version=committed["version"]
+        atlas,
+        flagged=set(),
+        season=committed["anchors"],
+        version=committed["version"],
+        atlas_version=committed["atlas_version"],
     )
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
 
