@@ -141,7 +141,7 @@ export function playStory({ bundle, answers, result, onShare, onDone }) {
     root.querySelectorAll(".story-bars span").forEach((b, k) => { b.className = k < i ? "done" : k === i ? "now" : ""; });
     root.querySelector("#story-count").textContent = `${i + 1} of ${specs.length}`;
     actions.innerHTML = s.final
-      ? `<button id="share-link">Get my share link</button><button class="ghost" id="save-slide">Save this slide</button><button class="ghost" id="done">See full results</button>`
+      ? `<button id="share-link">Get my share link</button><button class="ghost" id="save-slide">Save this slide</button><button class="ghost" id="done">See my full results</button>`
       : `<button class="ghost" id="save-slide">Save this slide</button>`;
     actions.querySelector("#save-slide").onclick = saveSlide;
     if (s.final) {

@@ -206,6 +206,12 @@ function renderReveal() {
     </div>
     <p class="small muted">A share link makes a page with a preview card for X and Bluesky. You choose what it shows and can delete it any time. Images are made in your browser.</p>
 
+    <div class="room-card" id="contribute-card">
+      <h2 style="margin-top:0">Add your answers to the results</h2>
+      <p>See how everyone who took it answers, statement by statement, and where you fall among them. Your answers are counted without your name, and nothing about any group under ten people is shown.</p>
+      <div class="row"><button class="primary" id="contribute">Add my answers</button><a class="button" href="/results">See the results</a></div>
+    </div>
+
     <div class="room-card">
       <h2 style="margin-top:0">Join the live room</h2>
       <p>Vote on more statements, including ones other people write, and see the room's own groups and the statements that bridge them.</p>
@@ -237,6 +243,24 @@ function renderReveal() {
     try { await navigator.clipboard.writeText(shareText(r, location.origin)); toast("Copied"); event("copy_text"); } catch { toast("Copy failed. Select the text manually."); }
   };
   $("get-link").onclick = () => share();
+  if (store.get("fp.room.ai-futures", null)) {
+    $("contribute-card").querySelector("p").textContent = "Your answers are counted in the results. Thank you.";
+    $("contribute").remove();
+  } else {
+    $("contribute").onclick = async () => {
+      $("contribute").disabled = true;
+      const bytes = crypto.getRandomValues(new Uint8Array(32));
+      const key = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
+      const clean = Object.fromEntries(Object.entries(answers).filter(([, v]) => [1, -1, 0].includes(v)));
+      const res = await fetch("/api/rooms/ai-futures/join", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key, consent_version: "room-v1", answers: clean }) });
+      if (!res.ok) { $("contribute").disabled = false; toast("That didn't go through. Try again."); return; }
+      store.set("fp.room.ai-futures", { participant_id: (await res.json()).participant_id, key });
+      $("contribute-card").querySelector("p").textContent = "Added. Results refresh every few minutes.";
+      $("contribute").remove();
+      toast("Your answers are counted");
+    };
+  }
   $("replay").onclick = async () => {
     const { playStory } = await import("./story.js");
     playStory({ bundle, answers, result: r, onShare: () => share(), onDone: () => {} });

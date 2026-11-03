@@ -1,0 +1,33 @@
+:root { --yes: #2f5fd0; --no: #c4570f; --mid: #c9d1db; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --yes: #5f80ec; --no: #d9732c; --mid: #3a4555; } }
+:root[data-theme="dark"] { --yes: #5f80ec; --no: #d9732c; --mid: #3a4555; }
+main.wide { max-width: 1040px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 24px 0 8px; }
+.tile { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.tile b { display: block; font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tile span { color: var(--muted); font-size: 0.92rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--muted); margin: 8px 0 14px; }
+.key { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.srow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 720px) { .srow { grid-template-columns: 1fr; gap: 6px; } }
+.srow .serif { font-size: 1.04rem; line-height: 1.35; }
+.bar { position: relative; display: flex; height: 18px; gap: 2px; }
+.bar i { display: block; height: 100%; }
+.bar i:first-child { border-radius: 4px 0 0 4px; } .bar i:last-child { border-radius: 0 4px 4px 0; }
+.bar .marker { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); border-radius: 1px; }
+.barnote { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.hbars { list-style: none; padding: 0; margin: 0; }
+.hbars li { display: grid; grid-template-columns: minmax(120px, 210px) 1fr 52px; gap: 10px; align-items: center; padding: 6px 0; }
+.hbars .track { height: 14px; }
+.hbars .fill { height: 100%; background: var(--yes); border-radius: 0 4px 4px 0; min-width: 2px; }
+.hbars .num { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.92rem; }
+.heat { border-collapse: separate; border-spacing: 2px; width: 100%; font-size: 0.85rem; }
+.heat th { font-weight: 600; text-align: left; padding: 4px 6px; vertical-align: bottom; }
+.heat td { text-align: center; padding: 6px 4px; border-radius: 4px; font-variant-numeric: tabular-nums; color: var(--ink); }
+.heat td.empty { background: transparent; color: var(--muted); }
+.heat .stmt { max-width: 340px; font-family: var(--serif); font-size: 0.95rem; text-align: left; }
+.scroll { overflow-x: auto; }
+.tip { position: fixed; z-index: 60; pointer-events: none; background: var(--ink); color: var(--paper); padding: 8px 10px; border-radius: 8px; font-size: 0.85rem; max-width: 280px; }
+.sortbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
+.sortbar button { min-height: 36px; padding: 6px 14px; font-size: 0.9rem; }
+.sortbar button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }

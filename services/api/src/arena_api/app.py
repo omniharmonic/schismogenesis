@@ -11,9 +11,11 @@ import os
 import pathlib
 import re
 import secrets
+import time
 from dataclasses import dataclass
 
 from arena_rounds.report import Analysis, analyse, personal_view
+from arena_rounds.results import results as public_results
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -552,6 +554,33 @@ def create_app(
         if not store.delete_profile(code, x_edit_key):
             raise HTTPException(403, "This browser can't delete that profile.")
         return {"ok": True}
+
+    results_cache: dict[str, tuple[float, dict]] = {}
+    main_room = "ai-futures"
+    results_max_age = 300  # seconds
+
+    @app.get("/api/results")
+    def results(room: str = main_room):
+        now = time.monotonic()
+        cached = results_cache.get(room)
+        if cached and now - cached[0] < results_max_age:
+            return cached[1]
+        row = store.room(room)
+        if row is None:
+            raise HTTPException(404, "No such room.")
+        demo = bool(row["config"].get("demo"))
+        sheets = store.anchor_sheets(row["room_id"], include_synthetic=demo)
+        data = public_results(sheets, bundle, [] if demo else store.visible_profiles())
+        data["computed_at"] = datetime.datetime.now(datetime.UTC).isoformat()
+        data["demo"] = demo
+        if len(results_cache) > 20:
+            results_cache.clear()
+        results_cache[room] = (now, data)
+        return data
+
+    @app.get("/results")
+    def results_page():
+        return FileResponse(public / "results.html")
 
     @app.get("/api/people")
     def people():

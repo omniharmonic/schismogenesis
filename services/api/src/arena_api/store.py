@@ -609,3 +609,29 @@ class Store:
                 .all()
             )
         return [{"day": r["day"].isoformat(), "name": r["name"], "n": int(r["n"])} for r in rows]
+
+    def anchor_sheets(self, room_id, include_synthetic: bool = False) -> dict[str, dict[str, int]]:
+        """Each participant's votes on the anchor statements; synthetic voters only in demo rooms."""
+        with self.engine.connect() as c:
+            rows = c.execute(
+                text("""SELECT v.participant_id, s.anchor_id, v.vote
+                        FROM room_vote v
+                        JOIN room_statement s USING (statement_id)
+                        JOIN room_participant p USING (participant_id)
+                        WHERE s.room_id = :r AND s.anchor_id IS NOT NULL
+                          AND (:syn OR NOT p.is_synthetic)"""),
+                {"r": room_id, "syn": include_synthetic},
+            ).all()
+        sheets: dict[str, dict[str, int]] = {}
+        for participant, anchor, vote in rows:
+            sheets.setdefault(str(participant), {})[anchor] = int(vote)
+        return sheets
+
+    def visible_profiles(self) -> list[dict]:
+        with self.engine.connect() as c:
+            rows = (
+                c.execute(text("SELECT identity, summary FROM profile WHERE hidden_at IS NULL"))
+                .mappings()
+                .all()
+            )
+        return [dict(r) for r in rows]
