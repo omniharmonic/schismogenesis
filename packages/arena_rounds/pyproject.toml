@@ -1,0 +1,16 @@
+[project]
+name = "arena_rounds"
+version = "0.0.0"
+description = "Room analysis: Polis-style groups and Community Notes-style bridges."
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy>=2", "scikit-learn>=1.5", "arena_fingerprint"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arena_rounds"]
+
+[tool.uv.sources]
+arena_fingerprint = { workspace = true }
