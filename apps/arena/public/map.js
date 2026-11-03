@@ -55,7 +55,9 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     const r = scoreOf[t.id];
     const fill = r ? `color-mix(in srgb, var(--ridge) ${Math.round(Math.max(0, r.s - 0.3) * 140)}%, var(--sheet))` : "var(--sheet)";
     const title = !result ? `${t.name}, ${t.school || "no school"}` : r ? `${t.name}: you agree on ${r.k} of ${r.n}` : `${t.name}: not enough shared statements`;
-    svg += `<g class="map-thinker"><title>${esc(title)}</title><circle cx="${x}" cy="${y}" r="15" fill="${fill}" stroke-dasharray="${r || !result ? "" : "3 3"}"/>`;
+    const note = t.provisional ? " (new voice, placed from the statements only)" : "";
+    const dash = t.provisional ? "1 2.5" : r || !result ? "" : "3 3";
+    svg += `<g class="map-thinker"><title>${esc(title + note)}</title><circle cx="${x}" cy="${y}" r="15" fill="${fill}" stroke-dasharray="${dash}"/>`;
     svg += `<text x="${x}" y="${y + 3.5}" text-anchor="middle">${esc(t.initials)}</text>`;
     if (near.has(t.id)) svg += `<text class="map-name" x="${x}" y="${y + 30}" text-anchor="middle">${esc(t.name)}</text>`;
     svg += `</g>`;

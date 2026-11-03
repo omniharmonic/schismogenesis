@@ -64,14 +64,67 @@ def frozen_anchors(ideas: list[dict], season: list[dict], camps: dict) -> list[d
     return out
 
 
+PLACE_SHARPNESS = 14  # same weighting as the fingerprint uses to place a person
+
+
+def place_newcomers(
+    stances: dict[str, dict[str, dict]],
+    people: dict[str, dict],
+    school_of: dict[str, str],
+    newcomers: dict[str, str],
+    log: list[str],
+) -> list[dict]:
+    """Place approved voices that aren't in the full atlas yet, from the statements alone.
+
+    A newcomer is placed among the three atlas thinkers they agree with most (the same rule that
+    places a quiz taker) and takes the school of the closest. Marked provisional until the full
+    structure pass (docs/fingerprint/05-ATLAS-EXPANSION.md, step E7) gives them a real position.
+    """
+    import math
+
+    from arena_fingerprint.agreement import ranked
+
+    plain = {a: {p: v["a"] for p, v in e.items()} for a, e in stances.items()}
+    atlas_only = {a: {p: v for p, v in e.items() if p in people} for a, e in plain.items()}
+    placed = []
+    for person, name in sorted(newcomers.items()):
+        if person in people:
+            continue
+        answers = {a: e[person] for a, e in plain.items() if person in e}
+        if len(answers) < COVER_TARGET:
+            log.append(f"newcomer not shown: {person} has {len(answers)} stated stances")
+            continue
+        top = ranked(answers, atlas_only)[:3]
+        if not top:
+            log.append(f"newcomer not shown: {person} shares too few statements with the atlas")
+            continue
+        weights = [math.exp(PLACE_SHARPNESS * (s - 0.5)) for _, _, _, s in top]
+        x = sum(w * people[t]["x"] for w, (t, *_rest) in zip(weights, top, strict=True))
+        y = sum(w * people[t]["y"] for w, (t, *_rest) in zip(weights, top, strict=True))
+        school = next((school_of[t] for t, *_ in top if t in school_of), None)
+        placed.append({
+            "id": person, "name": name, "initials": initials(name), "school": school,
+            "x": round(x / sum(weights), 1), "y": round(y / sum(weights), 1), "provisional": True,
+        })  # fmt: skip
+    return placed
+
+
 def build_bundle(
     atlas: dict,
     flagged: set[str],
     season: list[dict] | None = None,
     version: str = VERSION,
     atlas_version: str = "atlas-v1",
+    newcomers: dict[str, str] | None = None,
 ) -> dict:
-    """Build the browser bundle. With `season`, keep those statements instead of reselecting."""
+    """Build the browser bundle. With `season`, keep those statements instead of reselecting.
+
+    `newcomers` (id -> name) are approved voices not yet in the full atlas. Those with enough
+    stated stances on the statements are placed provisionally (see `place_newcomers`).
+    """
+    newcomers = newcomers or {}
+    if bad := flagged & set(newcomers):
+        raise BundleError(f"flagged landmarks must not appear: {sorted(bad)}")
     people = {p["id"]: p for p in atlas["people"]}
     if bad := flagged & set(people):
         raise BundleError(f"flagged landmarks must not appear: {sorted(bad)}")
@@ -111,6 +164,9 @@ def build_bundle(
                 item |= {"q": quote["q"], "url": quote["url"], "work": quote["work"]}
             entry[person] = item
         stances[idea["id"]] = entry
+    placed = place_newcomers(stances, people, school_of, newcomers, log)
+    shown = set(people) | {p["id"] for p in placed}
+    stances = {a: {p: v for p, v in e.items() if p in shown} for a, e in stances.items()}
     return {
         "version": version,
         "season": SEASON,
@@ -139,7 +195,8 @@ def build_bundle(
                 "y": p["y"],
             }
             for p in sorted(people.values(), key=lambda p: p["id"])
-        ],
+        ]
+        + placed,
         "schools": [
             {"label": s["label"], "members": s["members"]} for s in atlas["schools"] if s["label"]
         ],

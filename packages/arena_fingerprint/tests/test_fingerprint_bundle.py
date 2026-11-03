@@ -82,6 +82,12 @@ def test_committed_bundle_is_current():
         season=committed["anchors"],
         version=committed["version"],
         atlas_version=committed["atlas_version"],
+        newcomers={
+            p["id"]: p["name"]
+            for p in json.loads((HERE.parents[2] / "seed/AI-FUTURES-SOURCES-v2.json").read_text())[
+                "people"
+            ]
+        },
     )
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
 
@@ -92,3 +98,35 @@ def test_season_keeps_statements_and_order(atlas):
     assert [a["id"] for a in again["anchors"]] == [a["id"] for a in first["anchors"]]
     assert [a["set"] for a in again["anchors"]] == [a["set"] for a in first["anchors"]]
     assert again["stances"] == first["stances"] and again["version"] == "fp-x"
+
+
+def test_newcomers_are_placed_provisionally_from_their_stances(atlas):
+    import copy
+
+    first = build_bundle(atlas, flagged=set())
+    grown = copy.deepcopy(atlas)
+    # a newcomer who answers exactly like Max Tegmark on his statements, and one with too few
+    tegmark = {a["id"]: first["stances"][a["id"]].get("max-tegmark") for a in first["anchors"]}
+    for idea in grown["ideas"]:
+        stance = tegmark.get(idea["id"])
+        if stance:
+            idea["holders"].append({"p": "new-voice", "a": stance["a"], "inf": False, "q": "x",
+                                    "url": "u", "work": "w"})  # fmt: skip
+    one = first["anchors"][0]["id"]
+    next(i for i in grown["ideas"] if i["id"] == one)["holders"].append(
+        {"p": "thin-voice", "a": 1, "inf": False, "q": "x", "url": "u", "work": "w"}
+    )
+    bundle = build_bundle(
+        grown, flagged=set(), season=first["anchors"],
+        newcomers={"new-voice": "New Voice", "thin-voice": "Thin Voice"},
+    )  # fmt: skip
+    placed = {t["id"]: t for t in bundle["thinkers"] if t.get("provisional")}
+    assert set(placed) == {"new-voice"}
+    tegmark_row = next(t for t in bundle["thinkers"] if t["id"] == "max-tegmark")
+    assert placed["new-voice"]["school"] == tegmark_row["school"]
+    assert any("thin-voice" in line for line in bundle["selection_log"])
+    assert all("thin-voice" not in e for e in bundle["stances"].values())
+    import pytest as _pytest
+
+    with _pytest.raises(BundleError):
+        build_bundle(grown, flagged={"new-voice"}, newcomers={"new-voice": "New Voice"})

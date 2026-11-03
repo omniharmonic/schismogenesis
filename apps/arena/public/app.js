@@ -104,7 +104,7 @@ export const mapSize = () => (innerWidth < 600 ? { width: 440, height: 520 } : {
 
 function thinkerRow(t) {
   return `<li><span class="badge" aria-hidden="true">${esc(t.initials)}</span>
-    <span><b>${esc(t.name)}</b><br><span class="small muted">${esc(t.school || "No school")}</span></span>
+    <span><b>${esc(t.name)}</b><br><span class="small muted">${esc(t.school || "No school")}${bundle.thinkers.find((x) => x.id === t.id)?.provisional ? ", new voice" : ""}</span></span>
     <span class="score"><b>${t.k} of ${t.n}</b><br><span class="small muted">statements agree</span></span></li>`;
 }
 
@@ -187,7 +187,7 @@ function renderReveal() {
     ${signatureHTML(r)}
 
     <h2>Where you sit</h2>
-    <p class="small muted">Approximate. You're placed among the three thinkers you agree with most, pulled hardest toward the closest. Darker circles agree with you more; dashed circles share too few statements to compare.</p>
+    <p class="small muted">Approximate. You're placed among the three thinkers you agree with most, pulled hardest toward the closest. Darker circles agree with you more; dashed circles share too few statements to compare; dotted circles are new voices, placed from the statements only.</p>
     <div class="mapbox">${mapSVG(bundle, { result: r, ...mapSize() })}</div>
     <p class="small"><a href="/atlas">Explore the full 3D atlas of ideas</a></p>
 
