@@ -291,7 +291,7 @@ textarea { min-height: 88px; resize: vertical; font-family: var(--serif); font-s
 .slide .rows li b { font-weight: 600; }
 .slide .mini-map { width: 100%; max-width: 560px; }
 /* the map gives way to the title and the buttons, whatever the screen height */
-.slide .mini-map svg { width: 100%; height: auto; max-height: calc(100dvh - 380px); min-height: 220px; }
+.slide .mini-map svg { width: 100%; height: auto; max-height: calc(100dvh - 460px); min-height: 220px; }
 .story-actions { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; gap: 10px; padding: 16px 16px max(20px, env(safe-area-inset-bottom)); flex-wrap: wrap; }
 .story-actions button { background: var(--slide-fg, #f7f9fb); color: var(--slide-bg, #2f4bd9); border-color: transparent; }
 .story-actions button.ghost { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 50%, transparent); }
