@@ -13,7 +13,12 @@ Owner: Benjamin Life. Drafted by Claude, 2026-11-03, from Benjamin's direction o
     - no opposite calls, and no contradictions with the atlas.
 - **On the map.** 50 thinkers: 27 from the original atlas and 23 new voices, placed provisionally from the statements (dotted on the map). All eight schools are well covered and inside the fair-share band.
 - **Still not shown.** Six voices whose public writing mostly doesn't take sides on these statements: Demis Hassabis, Helen Toner, Meredith Whittaker, Yann LeCun, Andrej Karpathy and Alondra Nelson. David Sacks has 2 stances.
-- **Not yet done.** E7, the structure pass that gives new voices real atlas positions and schools. Until then their schools come from their closest match on the statements, and a few look odd: Zuckerberg sits beside the human-first critics, Hinton and Korinek beside the builders.
+- **E7 done (atlas-v2, bundle fp-2026-11-03.5).**
+  - Two blind readers checked 1,648 proposed holdings (235 agreed) and 61 holdings on 22 candidate new ideas. 11 ideas were kept, each with two confirmed holders; the off-topic candidates all fell out.
+  - **Schools are frozen for season 1**, like the statements. Clustering everyone together made a false school out of thinly read voices: centring treats silence as a view. With the new evidence, even the core 27 would regroup a lot (agreement with the frozen schools, adjusted Rand 0.36), so schools are a season-2 question.
+  - The core 27 keep their schools and positions. The 27 other voices are placed by the fingerprint's own agreement rule, take their school by weighted vote of their three closest, and stay marked provisional.
+  - 54 thinkers are shown. Still too thin to show: Karpathy and Hassabis.
+  - **For Benjamin's review (E9):** placements that may draw objections are Zuckerberg and LeCun (Human-first critics), Kingsnorth and Toner (Builders), and Sacks, Toner, LeCun, Nelson and Whittaker, who have fewer than three stances on the statements.
 
 ## 1. What's wrong now
 - **Too few voices.** There are 27 thinkers. Many people the TPOT scene argues with or about are missing: lab leaders, forecasters, AI-ethics and labour voices, policy people, economists, "normal technology" sceptics, and the posters at the centre of the conversation on X.

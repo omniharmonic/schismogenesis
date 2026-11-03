@@ -9,7 +9,7 @@ Benjamin chose Vercel and Neon on 2026-11-03 (D-31.18). This is what is live, an
 - **Database:** Neon project `dialogos-fingerprint` (id `super-haze-94320885`, region aws-us-east-1), reached through the pooled connection.
   - It holds only real data; the dev project `schismogenesis` holds the synthetic demo voters.
   - Migrations are at `0010_profiles`, and the room `ai-futures` is set up with the 24 season-1 statements.
-- **Launch gate:** while `ARENA_SITE_PASSWORD` is set, every page asks for that password. `/api/health` stays open for monitoring. The password is in `.env.production` on Benjamin's machine.
+- **Launch gate:** while `ARENA_SITE_PASSWORD` is set, every page shows a small password page. A correct password sets a 30-day cookie; basic auth also still works for scripts. A password page is used because some browsers, such as Dia, never show the basic-auth prompt. `/api/health` stays open for monitoring. The password is in `.env.production` on Benjamin's machine.
 
 ## Secrets
 They're kept in `.env.production`, which is git-ignored and never committed. They're also set in Vercel for production and preview.
