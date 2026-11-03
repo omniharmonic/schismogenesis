@@ -2,15 +2,18 @@
 
 Owner: Benjamin Life. Drafted by Claude, 2026-11-03, from Benjamin's direction of the same day: "make sure we also do a widening and deepening of the lifeworld atlas. there are plenty of important voices we are missing and many we need more from."
 
-## Status (2026-11-03)
-- **Done.** Steps E1–E6, plus E8, have run:
-  - all 29 voices approved (D-31.18) and added to the seed;
-  - 131 works fetched by a deterministic extractor, including 20 readable replacements for pages that failed;
-  - 807 extraction tasks done by agents, giving 5,589 claims (every quote checked in code), then quote anchoring and the local entailment gate;
-  - two blind readers per person on the 24 statements, for all 56 people. 206 stances were agreed, 101 of them new. There were no opposite calls and no contradictions with the atlas.
-- **On the map.** 37 thinkers, of whom 10 are new voices placed provisionally from the statements alone (dotted on the map). Every school is now well enough covered to be checked by the balance test, and all eight are within the fair-share band.
-- **Still thin.** 20 voices have fewer than 3 statements in common with the existing thinkers, so they aren't shown yet: Zvi Mowshowitz, Helen Toner, Leopold Aschenbrenner, Holly Elmore, Jack Clark, Alondra Nelson, Demis Hassabis, Mark Zuckerberg, Yann LeCun, Meredith Whittaker, Brian Merchant, Ed Zitron, Anton Korinek, Arvind Narayanan, Gary Marcus, Andrej Karpathy, Dwarkesh Patel, Venkatesh Rao, Noah Smith and David Sacks. Their first works talked around these statements, so round 2 looks for works where they take sides.
-- **Not yet done.** E7, the structure pass that gives new voices real atlas positions and schools.
+## Status (2026-11-03, end of day)
+- **Done.** Steps E1–E6 and E8, in two rounds:
+  - **Fetched and extracted:**
+    - 179 works fetched by a deterministic extractor, with failures replaced;
+    - 1,197 extraction tasks done by agents, every quote checked in code;
+    - 6,316 accepted claims after quote anchoring and the local entailment gate.
+  - **Two-reader stance passes:**
+    - 281 stances agreed in total;
+    - no opposite calls, and no contradictions with the atlas.
+- **On the map.** 50 thinkers: 27 from the original atlas and 23 new voices, placed provisionally from the statements (dotted on the map). All eight schools are well covered and inside the fair-share band.
+- **Still not shown.** Six voices whose public writing mostly doesn't take sides on these statements: Demis Hassabis, Helen Toner, Meredith Whittaker, Yann LeCun, Andrej Karpathy and Alondra Nelson. David Sacks has 2 stances.
+- **Not yet done.** E7, the structure pass that gives new voices real atlas positions and schools. Until then their schools come from their closest match on the statements, and a few look odd: Zuckerberg sits beside the human-first critics, Hinton and Korinek beside the builders.
 
 ## 1. What's wrong now
 - **Too few voices.** There are 27 thinkers. Many people the TPOT scene argues with or about are missing: lab leaders, forecasters, AI-ethics and labour voices, policy people, economists, "normal technology" sceptics, and the posters at the centre of the conversation on X.
