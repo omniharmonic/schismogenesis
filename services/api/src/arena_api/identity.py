@@ -8,6 +8,7 @@ the option is off.
 """
 
 import base64
+import datetime
 import hashlib
 import json
 import re
@@ -41,7 +42,7 @@ def normalise_bsky(handle: str) -> str | None:
 
 
 def challenge_code() -> str:
-    return f"dialogos-{secrets.token_hex(3)}"
+    return f"dialogos-{secrets.token_hex(8)}"
 
 
 @dataclass(frozen=True)
@@ -52,8 +53,19 @@ class Verified:
     avatar_url: str | None
 
 
-def check_bsky(handle: str, code: str, fetch: Fetch = fetch_json) -> Verified | None:
-    """True when one of the account's 25 latest posts contains the code."""
+def _posted_at(post: dict) -> datetime.datetime | None:
+    stamp = post.get("record", {}).get("createdAt") or post.get("indexedAt")
+    try:
+        when = datetime.datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return when if when.tzinfo else when.replace(tzinfo=datetime.UTC)
+
+
+def check_bsky(
+    handle: str, code: str, fetch: Fetch = fetch_json, after: datetime.datetime | None = None
+) -> Verified | None:
+    """Found when one of the account's 25 latest posts, made after the code was issued, has it."""
     q = urllib.parse.quote
     profile = fetch(f"{BSKY_API}/app.bsky.actor.getProfile?actor={q(handle)}")
     did = profile.get("did")
@@ -66,6 +78,10 @@ def check_bsky(handle: str, code: str, fetch: Fetch = fetch_json) -> Verified | 
         post = item.get("post", {})
         if post.get("author", {}).get("did") != did:
             continue  # reposts of someone else's post don't count
+        posted = _posted_at(post)
+        # a small allowance for clock differences between Bluesky and us
+        if after is not None and (posted is None or posted < after - datetime.timedelta(minutes=2)):
+            continue
         if code in post.get("record", {}).get("text", ""):
             avatar = profile.get("avatar")
             return Verified(

@@ -57,7 +57,9 @@ export function valuesSVG(values, { size = 200, label = "Fingerprint", cls = "" 
   const paths = pathsFromValues(values, size)
     .map((p) => `<path d="${p.d}" fill="none" stroke="var(--ridge)" stroke-width="${(1.7 - p.ring * 0.05).toFixed(2)}" stroke-linecap="round" opacity="${(1 - p.ring * 0.035).toFixed(2)}"/>`)
     .join("");
-  return `<svg class="${cls}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${label}">${paths}</svg>`;
+  const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const safe = esc(label);
+  return `<svg class="${esc(cls)}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${safe}">${paths}</svg>`;
 }
 
 export function glyphSVG(bundle, answers, opts = {}) {

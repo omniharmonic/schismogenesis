@@ -1,5 +1,6 @@
 """Launch round: publishing, verification, share images, report cache, limits and counters."""
 
+import datetime
 import json
 import pathlib
 
@@ -26,6 +27,10 @@ SUMMARY = {
 GLYPH = [1, -1, 0, None] * 6
 
 
+def NOW() -> str:
+    return datetime.datetime.now(datetime.UTC).isoformat()
+
+
 class FakeBsky:
     def __init__(self, code_holder):
         self.code_holder = code_holder
@@ -39,14 +44,19 @@ class FakeBsky:
                 "avatar": "https://cdn.bsky.app/img/avatar/alice.jpg",
             }
         posts = [
-            {"post": {"author": {"did": "did:plc:other"}, "record": {"text": self.code_holder[0]}}}
+            {
+                "post": {
+                    "author": {"did": "did:plc:other"},
+                    "record": {"text": self.code_holder[0], "createdAt": NOW()},
+                }
+            }
         ]
         if self.code_holder[1]:
             posts.append(
                 {
                     "post": {
                         "author": {"did": "did:plc:abc"},
-                        "record": {"text": f"verifying {self.code_holder[0]}"},
+                        "record": {"text": f"verifying {self.code_holder[0]}", "createdAt": NOW()},
                     }
                 }
             )

@@ -9,6 +9,7 @@ import html
 import json
 import os
 import pathlib
+import re
 import secrets
 from dataclasses import dataclass
 
@@ -53,8 +54,13 @@ EVENTS = {
     "join",
     "publish",
 }
+ATLAS_SCRIPTS = (
+    "script-src 'self' 'unsafe-inline' "
+    "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js "
+    "https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js"
+)
 CSP = (
-    "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; "
+    "default-src 'self'; script-src 'self'; "
     "style-src 'self' 'unsafe-inline'; font-src 'self'; "
     "img-src 'self' data: blob: https://cdn.bsky.app https://pbs.twimg.com; "
     "connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
@@ -68,6 +74,8 @@ class Config:
     x_client_id: str | None = None
     x_client_secret: str | None = None
     trust_proxy: bool = False
+    proxy_hops: int = 1  # proxies we control in front of the app
+    client_ip_header: str | None = None  # e.g. Fly-Client-IP or CF-Connecting-IP
     production: bool = False
 
     @classmethod
@@ -79,6 +87,8 @@ class Config:
             x_client_id=env("ARENA_X_CLIENT_ID") or None,
             x_client_secret=env("ARENA_X_CLIENT_SECRET") or None,
             trust_proxy=env("ARENA_TRUST_PROXY") == "1",
+            proxy_hops=int(env("ARENA_PROXY_HOPS") or "1"),
+            client_ip_header=env("ARENA_CLIENT_IP_HEADER") or None,
             production=env("ARENA_ENV") == "production",
         )
         if config.production and (not config.admin_token or len(config.admin_token) < 24):
@@ -168,11 +178,25 @@ def create_app(
         length = request.headers.get("content-length")
         if length and length.isdigit() and int(length) > MAX_BODY:
             return JSONResponse({"error": "Request too large."}, status_code=413)
+        if request.method in ("POST", "PATCH", "PUT") and not length:
+            # chunked bodies have no declared length: read up to the cap before handling
+            body = b""
+            async for chunk in request.stream():
+                body += chunk
+                if len(body) > MAX_BODY:
+                    return JSONResponse({"error": "Request too large."}, status_code=413)
+            request._body = body  # starlette reuses this when the route reads the body
         response = await call_next(request)
         # the 3D atlas page is a single self-contained file with an inline script
+        # The 3D atlas page is one self-contained file with an inline script and two pinned
+        # libraries from CDNs. No other page may load outside scripts.
         atlas = request.url.path == "/atlas"
         response.headers["Content-Security-Policy"] = (
-            CSP.replace("script-src 'self'", "script-src 'self' 'unsafe-inline'") if atlas else CSP
+            CSP.replace("script-src 'self'", ATLAS_SCRIPTS)
+            .replace("style-src 'self'", "style-src 'self' https://fonts.googleapis.com")
+            .replace("font-src 'self'", "font-src 'self' https://fonts.gstatic.com")
+            if atlas
+            else CSP
         )
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
@@ -185,9 +209,18 @@ def create_app(
 
     def client(request: Request) -> str:
         address = request.client.host if request.client else "unknown"
-        if config.trust_proxy:
-            forwarded = request.headers.get("x-forwarded-for", "")
-            address = forwarded.split(",")[0].strip() or address
+        if config.client_ip_header:
+            address = request.headers.get(config.client_ip_header, "").strip() or address
+        elif config.trust_proxy:
+            # The leftmost entry is whatever the visitor sent; proxies append the real address,
+            # so count from the right past our own trusted proxies.
+            hops = [
+                h.strip()
+                for h in request.headers.get("x-forwarded-for", "").split(",")
+                if h.strip()
+            ]
+            if len(hops) >= config.proxy_hops:
+                address = hops[-config.proxy_hops]
         return hashlib.sha256(f"{salt}:{address}".encode()).hexdigest()[:24]
 
     def limit(bucket: str, count: int, window: int = 3600) -> None:
@@ -341,6 +374,7 @@ def create_app(
         handle = identity.normalise_bsky(body.handle)
         if handle is None:
             raise HTTPException(422, "That doesn't look like a Bluesky handle.")
+        limit(f"verify-handle:{handle}", 10)
         code = identity.challenge_code()
         check = store.add_check("bsky", handle, code)
         return {"check_id": check, "handle": handle, "code": code}
@@ -353,7 +387,9 @@ def create_app(
             raise HTTPException(404, "That verification has expired. Start again.")
         if check["verified_at"] is None:
             try:
-                found = identity.check_bsky(check["handle"], check["challenge"], fetch)
+                found = identity.check_bsky(
+                    check["handle"], check["challenge"], fetch, after=check["created_at"]
+                )
             except Exception as exc:  # network trouble is the person's to retry, not a 500
                 raise HTTPException(502, "Couldn't reach Bluesky. Try again in a moment.") from exc
             if found is None:
@@ -521,10 +557,18 @@ def create_app(
     def people():
         return {"people": store.listed_profiles()}
 
+    cards: dict[str, bytes] = {}
+
     @app.get("/p/{code}/card.png")
-    def card(code: str):
+    def card(code: str, request: Request):
         row = live_profile(code)
-        image = profile_card(public_profile(row), names)
+        image = cards.get(code)
+        if image is None:
+            limit(f"card:{client(request)}", 120)
+            image = profile_card(public_profile(row), names)
+            if len(cards) > 500:
+                cards.clear()
+            cards[code] = image
         return Response(
             image, media_type="image/png", headers={"Cache-Control": "public, max-age=3600"}
         )
@@ -539,16 +583,18 @@ def create_app(
         description = f"Nearest thinkers: {nearest}. Answer 24 statements and see where you sit."
         page = (public / "profile.html").read_text()
         url = f"{config.public_url}/p/{code}"
-        replacements = {
-            "{{TITLE}}": html.escape(title),
-            "{{DESCRIPTION}}": html.escape(description),
-            "{{URL}}": html.escape(url),
-            "{{IMAGE}}": html.escape(f"{url}/card.png"),
-            "{{DATA}}": json.dumps(data).replace("</", "<\\/"),
+        safe_json = (
+            json.dumps(data).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+        )
+        fills = {
+            "TITLE": html.escape(title),
+            "DESCRIPTION": html.escape(description),
+            "URL": html.escape(url),
+            "IMAGE": html.escape(f"{url}/card.png"),
+            "DATA": safe_json,
         }
-        for key, value in replacements.items():
-            page = page.replace(key, value)
-        return HTMLResponse(page)
+        # one pass, so text from a profile can never introduce a placeholder of its own
+        return HTMLResponse(re.sub(r"\{\{(\w+)\}\}", lambda m: fills[m[1]], page))
 
     @app.get("/people")
     def people_page():

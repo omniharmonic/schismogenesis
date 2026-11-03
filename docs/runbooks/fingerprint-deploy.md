@@ -31,6 +31,9 @@ Claude's recommendation: Fly.io or Render, with Neon for the database.
 | `ARENA_ADMIN_TOKEN` | a random string of 32+ characters (`python -c "import secrets; print(secrets.token_urlsafe(32))"`); keep it in a password manager |
 | `ARENA_PUBLIC_URL` | `https://your-domain` (used in share links and preview cards) |
 | `ARENA_X_CLIENT_ID`, `ARENA_X_CLIENT_SECRET` | only if X sign-in is on (step 5) |
+| `ARENA_CLIENT_IP_HEADER` | the header your host sets to the visitor's real address: `Fly-Client-IP` on Fly.io, `CF-Connecting-IP` behind Cloudflare. Without it, the app counts one proxy hop from the right of `X-Forwarded-For`; set `ARENA_PROXY_HOPS` if there are more. Rate limits depend on this being right. |
+
+Also cap request bodies at 64 KB at the host or proxy if it allows (the app enforces this too).
 
 The image already sets `ARENA_ENV=production`, `ARENA_TRUST_PROXY=1` and port 8080. In production the app refuses to start without a strong admin token.
 
