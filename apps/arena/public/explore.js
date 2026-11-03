@@ -34,14 +34,19 @@ export function thinkerCard(bundle, id, answers = {}) {
   const summary = asked.length
     ? `<p class="card-score">You agree on <b>${same} of ${asked.length}</b> statements you both took a side on.</p>`
     : "";
-  const school = t.school
-    ? `<button class="link-button" data-school="${esc(t.school)}">${esc(t.school)}</button>`
-    : "no school yet";
+  const link = (label) => `<button class="link-button" data-school="${esc(label)}">${esc(label)}</button>`;
+  // a voice whose distinctive positions fit two schools about equally is shown between them
+  const school = t.school ? link(t.school)
+    : t.between ? `between ${link(t.between[0])} and ${link(t.between[1])}`
+    : `<button class="link-button" data-school="">not yet grouped</button>`;
   return `<header class="card-head">
       <span class="badge big" aria-hidden="true">${esc(t.initials)}</span>
-      <div><h3 tabindex="-1">${esc(t.name)}</h3><p class="small muted">School: ${school}${t.provisional ? ". New voice, placed by agreement with the others; not yet used to draw the schools." : ""}</p></div>
+      <div><h3 tabindex="-1">${esc(t.name)}</h3><p class="small muted">School: ${school}${t.provisional ? ". A newer voice: placed by agreement with the others, and grouped only on the positions that set a school apart." : ""}</p></div>
     </header>
     ${summary}
+    ${(bundle.voices?.[id] || []).length ? `<h4>In their own words</h4><ul class="positions voices">${bundle.voices[id].map((v) => `<li>
+        <p class="voice-position">${esc(v.position)}</p>
+        <blockquote class="voice">“${esc(v.quote)}”<cite><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.work)}</a></cite></blockquote></li>`).join("")}</ul>` : ""}
     ${rows.length ? "" : `<p class="muted">We haven't found this person taking a clear side on any of the 24 statements yet.</p>`}
     ${groups.map(([title, list]) => `<h4>${title}</h4><ul class="positions">${list.map((r) => `<li>
         <p class="serif">${esc(r.a.text)}</p>
@@ -52,6 +57,12 @@ export function thinkerCard(bundle, id, answers = {}) {
 /** A school: members, what it holds together, where it argues, and how you compare. */
 export function schoolCard(bundle, label, answers = {}) {
   const ids = schoolMembers(bundle, label);
+  if (label === "") {
+    return `<header class="card-head"><div><h3 tabindex="-1">Not yet grouped</h3>
+      <p class="small muted">${ids.length} thinkers we don't place in a school yet. A voice joins a school only when it clearly holds the positions that set that school apart, not just views most people share. Some sit between two schools; for others we haven't read enough of their work. As we read more, some will join a school and some may start a new one.</p></div></header>
+      <ul class="positions">${ids.map((id) => { const t = bundle.thinkers.find((x) => x.id === id); return `<li><button class="person is-new" data-thinker="${esc(id)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>${esc(t.name)}</button>
+        <p class="small muted" style="margin:6px 0 0">${t.between ? `Between the ${esc(t.between[0])} and the ${esc(t.between[1])}.` : "Too little of their writing so far to tell."}</p></li>`; }).join("")}</ul>`;
+  }
   const core = new Set(bundle.schools.find((s) => s.label === label)?.members || []);
   const byId = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t]));
   const plain = plainStances(bundle);
@@ -93,6 +104,11 @@ export function schoolGrid(bundle, result = null) {
   });
   const byId = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t]));
   const rank = Object.fromEntries((result?.ranked || []).map((r) => [r.id, r]));
+  const loose = schoolMembers(bundle, "");
+  const looseCard = loose.length ? `<li><button class="school-card is-loose" data-school="">
+      <span class="school-name">Not yet grouped</span>
+      <span class="faces" aria-hidden="true">${loose.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${loose.length > 7 ? `<span class="more">+${loose.length - 7}</span>` : ""}</span>
+      <span class="small muted">${loose.length} thinkers whose outlook doesn't yet match a school</span></button></li>` : "";
   return `<ul class="school-grid">${schools.map((s) => {
     const ids = schoolMembers(bundle, s.label);
     const best = ids.map((id) => rank[id]).filter(Boolean).sort((a, b) => b.s - a.s)[0];
@@ -102,7 +118,7 @@ export function schoolGrid(bundle, result = null) {
       <span class="faces" aria-hidden="true">${ids.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${ids.length > 7 ? `<span class="more">+${ids.length - 7}</span>` : ""}</span>
       <span class="small muted">${ids.length} thinkers${best ? `. Closest to you: ${esc(best.name)}, ${best.k} of ${best.n}` : ""}</span>
     </button></li>`;
-  }).join("")}</ul>`;
+  }).join("")}${looseCard}</ul>`;
 }
 
 /**

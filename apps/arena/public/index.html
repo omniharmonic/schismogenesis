@@ -16,18 +16,24 @@
   <header class="masthead"><a class="brand" href="/">Dialogos</a><nav class="site-nav" aria-label="Site"><a href="/" aria-current="page">Take it</a><a href="/people">Thinkers</a><a href="/results">Results</a><a href="/atlas">3D atlas</a></nav></header>
 
   <section id="landing" hidden>
-    <h1>Where do you actually sit on AI's future?</h1>
-    <div id="hero-print" aria-hidden="true"></div>
-    <p class="serif" style="font-size:1.25rem">Answer 24 statements with the names hidden. Then see which of <span id="thinker-count">dozens of</span> public thinkers you agree with, quote by quote, and where you break from your own side.</p>
+    <div class="hero">
+      <div class="hero-copy">
+        <h1>Where do you actually sit on AI's future?</h1>
+        <p class="serif lede">Answer 24 statements with the names hidden. Then see which of <span id="thinker-count">dozens of</span> public thinkers you agree with, quote by quote, and where you break from your own side.</p>
+        <label class="gate"><input type="checkbox" id="adult"> <span>I'm 18 or older. My answers stay in this browser unless I choose to share them.</span></label>
+        <div class="row">
+          <button class="primary" id="start" disabled>Start</button>
+          <button id="resume" hidden>See my result</button>
+        </div>
+        <p class="small muted">About 4 minutes. Every statement has thinkers on both sides.</p>
+      </div>
+      <figure class="hero-preview" id="hero-preview" aria-live="off">
+        <div id="hero-print" aria-hidden="true"></div>
+      </figure>
+    </div>
     <ul class="camps" aria-label="Camps covered">
       <li>e/acc</li><li>AI safety and EA</li><li>d/acc</li><li>Pluralists</li><li>Progress studies</li><li>Human-first critics</li><li>Power realists</li>
     </ul>
-    <label class="gate"><input type="checkbox" id="adult"> <span>I'm 18 or older. My answers stay in this browser unless I choose to join the live room.</span></label>
-    <div class="row">
-      <button class="primary" id="start" disabled>Start</button>
-      <button id="resume" hidden>See my result</button>
-    </div>
-    <p class="small muted" style="margin-top:28px">About 4 minutes. Each statement comes from what at least one of the thinkers wrote or said, and thinkers stand on both sides of every one.</p>
   </section>
 
   <section id="quiz" hidden aria-live="polite">

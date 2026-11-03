@@ -54,6 +54,23 @@ function crosstab(r) {
   return `<div class="scroll"><table class="heat">${head}${rows}</table></div>`;
 }
 
+// How the public thinkers split on each statement, from the fingerprint bundle: no visitor data.
+async function thinkerSplit() {
+  const bundle = await (await fetch("/fingerprint.json")).json();
+  const rows = bundle.anchors.map((a) => {
+    const e = Object.values(bundle.stances[a.id] || {});
+    const up = e.filter((i) => i.a === 1).length, down = e.length - up;
+    return { a, up, down, n: e.length, split: e.length ? 1 - Math.abs(up - down) / e.length : 0 };
+  }).sort((x, y) => y.split - x.split || y.n - x.n);
+  document.getElementById("thinker-split").innerHTML = `<div class="legend"><span><i class="key" style="background:var(--yes)"></i>Thinkers who agree</span><span><i class="key" style="background:var(--no)"></i>Thinkers who disagree</span></div>
+    ${rows.map(({ a, up, down, n }) => `<div class="srow">
+      <div><a class="serif" style="color:inherit" href="/s/${esc(a.id)}">${esc(a.text)}</a><br><span class="small muted">${LAYER[a.layer]}</span></div>
+      <div><div class="bar" role="img" aria-label="${up} thinkers agree, ${down} disagree">
+        <i style="width:${n ? (up / n) * 100 : 0}%;background:var(--yes)" data-tip="Agree: ${up} thinkers"></i>
+        <i style="width:${n ? (down / n) * 100 : 0}%;background:var(--no)" data-tip="Disagree: ${down} thinkers"></i></div>
+        <div class="barnote"><span>${up} agree</span><span>${n} with a stated view</span><span>${down} disagree</span></div></div></div>`).join("")}`;
+}
+
 let sort = "split";
 
 function render(r) {
@@ -63,7 +80,20 @@ function render(r) {
     <div class="tile"><b>${r.contributors}</b><span>people added their answers</span></div>
     <div class="tile"><b>${r.profiles.published}</b><span>published a share link</span></div>
     <div class="tile"><b>${r.profiles.verified}</b><span>with a verified account</span></div></div>`;
-  if (!r.statements.length) { el.innerHTML = tiles + notes + `<p><a class="button primary" href="/">Take it, and add your answers</a></p>`; return; }
+  if (!r.statements.length) {
+    const need = r.min_cell || 10;
+    const rest = r.notes.filter((n) => !n.startsWith("Results appear"));
+    const notes = rest.length ? `<ul class="notes small">${rest.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
+    el.innerHTML = `${tiles}
+      <div class="waiting"><p><b>${r.contributors} of ${need}</b> people so far. Results appear at ${need}, so no one can be picked out.</p>
+        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${need}" aria-valuenow="${r.contributors}"><span style="width:${Math.min(100, (r.contributors / need) * 100)}%"></span></div>
+        <p><a class="button primary" href="/">Take it, and add your answers</a></p></div>
+      <h2>Meanwhile: how the thinkers split</h2>
+      <p class="muted">Each statement, with the public thinkers we read on each side. Most divided first. Select a statement to read their own words.</p>
+      <div id="thinker-split"><p class="muted">Loading…</p></div>${notes}`;
+    thinkerSplit();
+    return;
+  }
   const sorted = [...r.statements].sort((a, b) => {
     if (sort === "order") return 0;
     const key = sort === "split" ? "split" : "gap";

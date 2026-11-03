@@ -100,6 +100,41 @@ async function finish({ story = true } = {}) {
   }
 }
 
+// ---------- the landing preview: one real statement, a real voice on each side ----------
+function heroPreview() {
+  const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name.replace(/ \(.*\)/, "")]));
+  const short = (q) => q && q.length <= 170;
+  const pairs = bundle.anchors.map((a) => {
+    const e = Object.entries(bundle.stances[a.id] || {});
+    const yes = e.find(([, i]) => i.a === 1 && short(i.q));
+    const no = e.find(([, i]) => i.a === -1 && short(i.q));
+    return yes && no ? { a, yes, no, up: e.filter(([, i]) => i.a === 1).length, down: e.filter(([, i]) => i.a === -1).length } : null;
+  }).filter(Boolean);
+  if (!pairs.length) return;
+  let n = Math.floor(Math.random() * pairs.length);
+  const side = ([id, i], label, cls) => `<div class="side ${cls}"><span class="side-label">${label}</span>
+    <blockquote>“${esc(i.q)}”</blockquote><p class="who">${esc(names[id])}</p></div>`;
+  const card = document.createElement("div");
+  card.className = "preview-card";
+  $("hero-preview").append(card);
+  const draw = () => {
+    const p = pairs[n % pairs.length];
+    card.innerHTML = `<p class="preview-eyebrow">One of the 24 statements</p>
+      <p class="preview-statement serif">${esc(p.a.text)}</p>
+      <div class="preview-sides">${side(p.yes, `Agree, ${p.up} thinkers`, "agree")}${side(p.no, `Disagree, ${p.down} thinkers`, "disagree")}</div>
+      <button class="link-button small" id="preview-next">Show another</button>`;
+    $("preview-next").onclick = () => { n += 1; draw(); stop(); };
+  };
+  let timer = null;
+  const stop = () => { clearInterval(timer); timer = null; };
+  draw();
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    timer = setInterval(() => { n += 1; draw(); }, 7000);
+    card.addEventListener("pointerenter", stop);
+    $("start").addEventListener("click", stop);
+  }
+}
+
 // ---------- the reveal ----------
 // phones get a taller, narrower map so circles stay big enough to tap
 export const mapSize = () => (innerWidth < 600 ? { width: 400, height: 600 } : { width: 720, height: 540 });
@@ -137,14 +172,16 @@ function campsHTML(r) {
 
 function mirrorHTML() {
   const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
+  // each name opens that thinker's card beside the map
+  const who = (id) => `<button class="link-button inline" data-thinker="${esc(id)}">${esc(names[id])}</button>`;
   return bundle.anchors.filter((a) => answers[a.id] !== undefined).map((a) => {
     const v = answers[a.id];
     const entries = Object.entries(bundle.stances[a.id]);
     const quotes = entries.map(([id, item]) => {
       const side = item.a === 1 ? "agree" : "disagree";
       const body = item.q
-        ? `“${esc(item.q)}”<cite>${esc(names[id])}, <a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.work)}</a>. Read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`
-        : `<cite>${esc(names[id])}: read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`;
+        ? `“${esc(item.q)}”<cite>${who(id)}, <a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.work)}</a>. Read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`
+        : `<cite>${who(id)}: read as ${side === "agree" ? "agreeing" : "disagreeing"}.</cite>`;
       return `<blockquote class="${side}">${body}</blockquote>`;
     }).join("");
     const withYou = v === 0 ? 0 : entries.filter(([, i]) => i.a === v).length;
@@ -236,11 +273,18 @@ function renderReveal() {
       ${r.unranked.length ? `<li>Not enough shared statements to compare you with: ${r.unranked.map((t) => esc(t.name)).join(", ")}.</li>` : ""}</ul>
     <div class="row"><button class="link-button" id="redo">Change my answers</button></div>`;
 
-  explorer({
+  const ex = explorer({
     bundle, answers, mapEl: $("reveal-map"), panelEl: $("reveal-panel"), gridEl: $("reveal-schools"),
     intro: `<h3>Your nearest thinkers</h3><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul>
       <h3>Furthest from you</h3><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul>
       <p class="small muted">Select anyone here or on the map to compare, statement by statement.</p>`,
+  });
+
+  el.addEventListener("click", (e) => {
+    const t = e.target.closest("details.mirror [data-thinker]");
+    if (!t) return;
+    ex.open({ thinker: t.dataset.thinker });
+    $("reveal-panel").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
@@ -327,6 +371,7 @@ async function boot() {
   }
   $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
   $("hero-print").firstElementChild.classList.add("hero-print");
+  heroPreview();
   $("thinker-count").textContent = String(bundle.thinkers.length);
   $("adult").onchange = () => { $("start").disabled = !$("adult").checked; };
   $("start").onclick = () => { if (index >= bundle.anchors.length) index = 0; event("start"); startQuiz(); };

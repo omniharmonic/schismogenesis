@@ -31,3 +31,7 @@ main.wide { max-width: 1040px; }
 .sortbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
 .sortbar button { min-height: 36px; padding: 6px 14px; font-size: 0.9rem; }
 .sortbar button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.waiting { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 20px 0 8px; }
+.waiting p { margin: 0 0 10px; }
+.meter { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; margin-bottom: 16px; }
+.meter span { display: block; height: 100%; background: var(--ridge); }

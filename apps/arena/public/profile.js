@@ -19,8 +19,15 @@ async function main() {
     ? `<div class="who">${p.avatar_url ? `<img src="${esc(p.avatar_url)}" alt="" referrerpolicy="no-referrer">` : `<span class="avatar"></span>`}
         <div><b>${esc(p.display_name)}</b><br><span class="small muted">@${esc(p.handle)} on ${p.identity === "x" ? "X" : "Bluesky"}, verified</span></div></div>`
     : `<p class="muted">${esc(p.display_name)}, shared anonymously</p>`;
-  const row = (m) => `<li><span class="badge" aria-hidden="true">${esc(bundle.thinkers.find((t) => t.id === m.id).initials)}</span>
-    <span><b>${esc(names[m.id])}</b></span><span class="score"><b>${m.k} of ${m.n}</b><br><span class="small muted">agree</span></span></li>`;
+  // a profile keeps the bundle it was made with, so a thinker may no longer be on today's map
+  const row = (m) => {
+    const t = bundle.thinkers.find((x) => x.id === m.id);
+    const name = names[m.id] || m.name || m.id;
+    const initials = t?.initials || name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2);
+    const label = t ? `<a href="/people#${esc(m.id)}">${esc(name)}</a>` : esc(name);
+    return `<li><span class="badge" aria-hidden="true">${esc(initials)}</span>
+    <span><b>${label}</b></span><span class="score"><b>${m.k} of ${m.n}</b><br><span class="small muted">agree</span></span></li>`;
+  };
 
   let compare = "";
   if (mine && p.answers) {

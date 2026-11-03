@@ -52,7 +52,8 @@ function region(points) {
 
 /** Members of a school for display: its core members plus voices placed into it. */
 export function schoolMembers(bundle, label) {
-  return bundle.thinkers.filter((t) => t.school === label).map((t) => t.id);
+  // "" is the not-yet-grouped set: voices whose outlook no school shares on enough positions
+  return bundle.thinkers.filter((t) => (t.school || "") === label).map((t) => t.id);
 }
 
 export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null } = {}) {
