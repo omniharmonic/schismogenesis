@@ -375,3 +375,15 @@ dialog.sheet::backdrop { background: rgb(10 14 20 / 0.55); }
 .turnstile-box { position: fixed; z-index: 70; left: 50%; bottom: 24px; transform: translateX(-50%); }
 .school-card.is-loose { border-style: dashed; background: transparent; }
 .link-button.inline { display: inline; min-height: 0; padding: 0; font: inherit; color: var(--ridge); text-decoration: underline; border: 0; }
+
+/* Drill-down: camps open their schools, schools their branches, down to close circles */
+.map-thinker.is-faded { opacity: 0.22; }
+.map-thinker.is-faded:hover, .map-thinker.is-faded:focus-visible { opacity: 0.7; }
+.crumbs { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; }
+.crumb { font-size: 0.86rem; }
+.crumb-sep { color: var(--muted); padding: 0 2px; }
+.eyebrow-level { margin: 0 0 2px; }
+.subgroups { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.school-card.small { padding: 10px 12px; gap: 6px; }
+.school-card.small .school-name { font-size: 0.98rem; }
+.school-card .inside { color: var(--muted); line-height: 1.35; }

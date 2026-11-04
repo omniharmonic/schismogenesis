@@ -21,22 +21,27 @@ from collections import Counter
 
 import numpy as np
 from arena_fingerprint.instrument import (
+    Node,
     Table,
+    consensus,
     correlation_matrix,
     dimensions,
     distances,
-    draw_schools,
+    hierarchy,
     pair_agreement,
     phi,
     recovery,
     redundancy,
     smacof,
-    stability,
     statement_stats,
 )
 from scipy.stats import spearmanr
 
-MIN_CLUSTER = 12  # stances on the pool to help draw the schools
+MIN_CLUSTER = 10  # positions (pool statements plus atlas ideas) to help draw the groups
+MIN_IDEA_HOLDERS = 4  # an atlas idea counts as evidence when this many people take a side
+LEVELS = (0.25, 0.42, 0.6, 0.78)  # camp, school, branch, tight cluster: share of redrawings
+LEVEL_NAMES = ("camp", "school", "branch", "cluster")  # in which a pair lands together
+CONSENSUS_RUNS = 300
 MIN_PLACE = 5  # stances to be placed on the map at all
 ATTACH_LEAD = 0.05  # agreement lead over the runner-up school needed to attach
 ATTACH_FLOOR = 0.6  # mean agreement with the school's members needed to attach
@@ -85,7 +90,12 @@ def attach(
         mean = sum(a * k for a, k in rows) / shared if shared else 0.5
         scores.append((mean, shared))
     order = sorted(range(len(groups)), key=lambda n: -scores[n][0])
-    best, second = order[0], order[1]
+    means = [round(sc[0], 3) for sc in scores]
+    best = order[0]
+    if len(groups) == 1:  # a single subgroup: join it only on clear agreement
+        ok = scores[best][0] >= ATTACH_FLOOR + ATTACH_LEAD and scores[best][1] >= ATTACH_SHARED
+        return (best if ok else None), [], means
+    second = order[1]
     means = [round(s[0], 3) for s in scores]
     if scores[best][0] < ATTACH_FLOOR or scores[best][1] < ATTACH_SHARED:
         return None, [], means
@@ -120,8 +130,9 @@ def eta(table: Table, statement: str, school_of: dict[str, int]) -> float:
 
 
 def choose(
-    table: Table, pool: list[dict], school_of: dict[str, int], size: int
+    table: Table, pool: list[dict], levels: list[dict[str, int]], size: int
 ) -> tuple[list[str], list[str]]:
+    """`levels`: group membership at each level of the tree (camps, then the finest groups)."""
     stats = statement_stats(table, [s["id"] for s in pool])
     sets = {s["id"]: s["set"] for s in pool}
     usable = [
@@ -136,7 +147,8 @@ def choose(
         for s in pool
         if s["id"] not in usable
     ]
-    power = {s: eta(table, s, school_of) for s in usable}
+    # a statement earns its place by separating groups at every level, not only the finest
+    power = {s: float(np.mean([eta(table, s, lv) for lv in levels])) for s in usable}
     cap = {k: -(-size // 3) for k in ("being", "values", "action")}
     chosen: list[str] = []
     cover: Counter[str] = Counter()
@@ -162,56 +174,117 @@ def choose(
     return chosen, log
 
 
+def augment(table: Table, atlas_path: str | None) -> tuple[Table, list[dict]]:
+    """Clustering evidence beyond the survey pool: every idea in the audited atlas that at least
+    MIN_IDEA_HOLDERS people hold or reject in their own words, with both sides present. The
+    survey itself is chosen from the pool alone."""
+    full: Table = {p: dict(v) for p, v in table.items()}
+    extra: list[dict] = []
+    if not atlas_path:
+        return full, extra
+    seen = {s for row in table.values() for s in row}
+    for idea in json.loads(pathlib.Path(atlas_path).read_text())["ideas"]:
+        if idea["id"] in seen:
+            continue
+        held = {h["p"]: (1 if h["a"] > 0 else -1) for h in idea["holders"] if not h["inf"]}
+        if len(held) >= MIN_IDEA_HOLDERS and len(set(held.values())) == 2:
+            extra.append({"id": idea["id"], "layer": idea["layer"], "set": "atlas"})
+            for p, a in held.items():
+                full.setdefault(p, {})[idea["id"]] = a
+    return full, extra
+
+
+def lean(table: Table, group: list[str], base: list[str], ids: list[str]) -> list[dict]:
+    """Where a group leans furthest from the people around it (its parent group, or everyone)."""
+    rows = []
+    for s in ids:
+        votes = [table[p][s] for p in group if s in table[p]]
+        around = [table[p][s] for p in base if s in table[p]]
+        if len(votes) >= max(2, len(group) // 3) and around:
+            mean = float(np.mean(votes))
+            rows.append(
+                {
+                    "statement": s,
+                    "side": 1 if mean > 0 else -1,
+                    "mean": round(mean, 2),
+                    "lean": round(mean - float(np.mean(around)), 2),
+                    "n": len(votes),
+                }
+            )
+    # furthest from the people around it first; then what the group holds most firmly
+    return sorted(rows, key=lambda r: (-abs(r["lean"]), -abs(r["mean"]), -r["n"]))[:8]
+
+
 def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
     size = int(options[options.index("--size") + 1]) if "--size" in options else 30
-    min_cluster = (
-        int(options[options.index("--min-cluster") + 1])
-        if "--min-cluster" in options
-        else MIN_CLUSTER
-    )
+    atlas_path = options[options.index("--atlas") + 1] if "--atlas" in options else None
     table, pool = load(stances_path, pool_path)
-    weight = weights(pool, table)
     ids = [s["id"] for s in pool]
+    full, extra = augment(table, atlas_path)
+    full_ids = ids + [x["id"] for x in extra]
+    weight = weights(pool + extra, full)
     counts = {p: len(v) for p, v in table.items()}
-    core = sorted(p for p, n in counts.items() if n >= min_cluster)
-    drawing = draw_schools(table, core, ids, weight=weight, runs=100)
-    groups = [
-        [p for p, lab in zip(core, drawing.labels, strict=True) if lab == g]
-        for g in sorted(set(drawing.labels))
-    ]
-    groups.sort(key=len, reverse=True)
-    school_of = {p: n for n, g in enumerate(groups) for p in g}
-    _, together = stability(
-        table, core, ids, drawing.count, [school_of[p] for p in core], runs=300, weight=weight
+    evidence = {p: len(v) for p, v in full.items()}
+    core = sorted(
+        p for p, n in evidence.items() if n >= MIN_CLUSTER and counts.get(p, 0) >= MIN_PLACE
     )
+    together = consensus(full, core, full_ids, weight, runs=CONSENSUS_RUNS)
+    camps = hierarchy(together, core, levels=LEVELS)
+
+    nodes: dict[str, Node] = {}
+    path: dict[str, list[str]] = {p: [] for p in core}
+
+    def walk(level_nodes: list[Node]) -> None:
+        for node in level_nodes:
+            nodes[node.id] = node
+            for m in node.members:
+                path[m].append(node.id)
+            walk(node.children)
+
+    walk(camps)
     people: dict[str, dict] = {}
     for p in core:
-        people[p] = {"school": school_of[p], "between": [], "basis": "drew the schools"}
+        people[p] = {
+            "path": path[p],
+            "between": [],
+            "basis": "drew the schools" if path[p] else "not yet grouped",
+        }
+    # everyone else goes down the tree as far as the evidence clearly points
     for p in sorted(set(table) - set(core)):
         if counts[p] < MIN_PLACE:
             continue
-        school, between, means = attach(p, table, groups, weight)
+        level, route, between = camps, [], []
+        while level:
+            choice, close, _ = attach(p, full, [n.members for n in level], weight)
+            if choice is None:
+                between = [level[i].id for i in close]
+                break
+            route.append(level[choice].id)
+            level = level[choice].children
         people[p] = {
-            "school": school,
+            "path": route,
             "between": between,
-            "fit": means,
-            "basis": "attached"
-            if school is not None
-            else "between"
-            if between
-            else "not yet grouped",
+            "basis": "attached" if route else "between" if between else "not yet grouped",
         }
+    camp_index = {c.id: n for n, c in enumerate(camps)}
+    for v in people.values():
+        v["school"] = camp_index[v["path"][0]] if v["path"] else None
+        v["between_camps"] = [camp_index[b] for b in v["between"] if b in camp_index]
+
     placed = sorted(people)
-    d, shared = distances(table, placed, ids, weight)
-    # the flat map can't show five axes: pull schoolmates a little together (and push other
-    # schools a little apart) so a dot rarely sits in a region it doesn't belong to
-    school_at = [people[p]["school"] for p in placed]
+    d, shared = distances(full, placed, full_ids, weight)
+    # the flat map can't show many axes: pull members of the same camp together, more so the
+    # deeper the group they share, and push camps a little apart
+    routes = [people[p]["path"] for p in placed]
     laid = d.copy()
     for i in range(len(placed)):
         for j in range(i + 1, len(placed)):
-            if school_at[i] is not None and school_at[j] is not None:
-                f = 1 - LAYOUT_PULL if school_at[i] == school_at[j] else 1 + LAYOUT_PULL / 2
-                laid[i, j] = laid[j, i] = d[i, j] * f
+            a, b = routes[i], routes[j]
+            if not a or not b:
+                continue
+            depth = sum(1 for x, y in zip(a, b, strict=False) if x == y)
+            f = 1 - LAYOUT_PULL - 0.1 * max(depth - 1, 0) if depth else 1 + LAYOUT_PULL / 2
+            laid[i, j] = laid[j, i] = d[i, j] * f
     xy = smacof(laid, np.minimum(shared, 20) / 20 + 1e-3)
     gaps = np.sqrt(((xy[:, None] - xy[None]) ** 2).sum(-1))
     upper = np.triu_indices(len(placed), 1)
@@ -220,105 +293,138 @@ def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
     for p, (x, y) in zip(placed, xy, strict=True):
         people[p].update({"x": round(float(x), 1), "y": round(float(y), 1), "stances": counts[p]})
 
-    # distinctive positions: where a school leans furthest from everyone
-    overall = {s: np.mean([table[p][s] for p in core if s in table[p]] or [0]) for s in ids}
-    schools = []
-    for n, g in enumerate(groups):
-        lean = []
-        for s in ids:
-            votes = [table[p][s] for p in g if s in table[p]]
-            if len(votes) >= max(2, len(g) // 3):
-                mean = float(np.mean(votes))
-                lean.append(
-                    {
-                        "statement": s,
-                        "side": 1 if mean > 0 else -1,
-                        "mean": round(mean, 2),
-                        "lean": round(mean - overall[s], 2),
-                        "n": len(votes),
-                    }
-                )
-        lean.sort(key=lambda r: -abs(r["lean"]))
-        pairs = [together[core.index(a), core.index(b)] for a in g for b in g if a < b]
-        schools.append(
-            {
-                "id": n,
-                "members": g,
-                "attached": sorted(
-                    p for p, v in people.items() if v["school"] == n and v["basis"] == "attached"
-                ),
-                "cohesion": round(float(np.mean(pairs)), 3) if pairs else None,
-                "distinctive": lean[:8],
-            }
+    def node_out(node: Node, parent: list[str]) -> dict:
+        attached = sorted(
+            p for p, v in people.items() if v["basis"] == "attached" and node.id in v["path"]
         )
-
-    grouped = {p: v["school"] for p, v in people.items() if v["school"] is not None}
-    sizes = {}
-    for k in sorted({24, 27, 30, 33, 36, size}):
-        chosen_k, _ = choose(table, pool, school_of, k)
-        sizes[k] = {
-            **recovery(table, chosen_k, grouped),
-            "statements": len(chosen_k),
+        return {
+            "id": node.id,
+            "level": node.level,
+            "members": node.members,
+            "attached": attached,
+            "cohesion": node.cohesion,
+            "distinctive": lean(table, node.members, parent, ids),
+            "children": [node_out(c, node.members) for c in node.children],
         }
-    chosen, log = choose(table, pool, school_of, size)
+
+    tree = [node_out(c, core) for c in camps]
+    schools = [
+        {
+            "id": n,
+            "node": t["id"],
+            "members": t["members"],
+            "attached": t["attached"],
+            "cohesion": t["cohesion"],
+            "distinctive": t["distinctive"],
+        }
+        for n, t in enumerate(tree)
+    ]
+
+    # the survey should separate groups at the finest level the data supports
+    finest = {p: v["path"][-1] for p, v in people.items() if v["path"] and p in core}
+    finest_index = {nid: n for n, nid in enumerate(sorted(set(finest.values())))}
+    school_of = {p: finest_index[nid] for p, nid in finest.items()}
+    camp_level = {
+        p: v["school"] for p, v in people.items() if v["school"] is not None and p in core
+    }
+    levels_of = [camp_level, school_of]
+    by_level = {}
+    for level, name in enumerate(LEVEL_NAMES):
+        grouped = {p: v["path"][level] for p, v in people.items() if len(v["path"]) > level}
+        by_level[name] = {
+            "groups": sum(1 for n in nodes.values() if n.level == level),
+            "cohesion": round(
+                float(np.mean([n.cohesion for n in nodes.values() if n.level == level] or [0])), 3
+            ),
+            "people": len(grouped),
+        }
+    sizes = {}
+    chosen, log = choose(table, pool, levels_of, size)
+    for k in sorted({24, 27, 30, 33, size}):
+        chosen_k, _ = choose(table, pool, levels_of, k)
+        sizes[k] = {
+            lvl: recovery(
+                table, chosen_k, {p: v["path"][n] for p, v in people.items() if len(v["path"]) > n}
+            )
+            for n, lvl in enumerate(("camp", "school"))
+        }
     season1 = [s["id"] for s in pool if s.get("origin") == "season-1"]
+    camp_of = {p: v["path"][0] for p, v in people.items() if v["path"]}
+    school_level = {p: v["path"][1] for p, v in people.items() if len(v["path"]) > 1}
     checks = {
         "voices_with_stances": len(table),
+        "evidence_statements": len(full_ids),
+        "atlas_ideas_added": len(extra),
         "drew_schools": len(core),
         "placed": len(placed),
         "attached": sum(1 for v in people.values() if v["basis"] == "attached"),
         "between": sum(1 for v in people.values() if v["basis"] == "between"),
         "not_yet_grouped": sum(1 for v in people.values() if v["basis"] == "not yet grouped"),
-        "weights": {k: round(v, 3) for k, v in sorted(weight.items())},
+        "levels": dict(zip(LEVEL_NAMES, LEVELS, strict=True)),
+        "by_level": by_level,
+        "schools": len(camps),
+        "silhouette": by_level["camp"]["cohesion"],
+        "by_count": {},
         "layout_rank_fidelity": round(layout_fidelity, 3),
-        "schools": drawing.count,
-        "silhouette": drawing.silhouette,
-        "stability": drawing.stability,
-        "by_count": drawing.by_count,
+        "weights": {k: round(v, 3) for k, v in sorted(weight.items()) if k in set(ids)},
         "dimensions_pool": dimensions(table, ids, runs=100),
         "dimensions_instrument": dimensions(table, chosen, runs=100),
         "dimensions_season1": dimensions(table, season1, runs=100),
-        "recovery_pool": recovery(table, ids, grouped),
-        "recovery_season1": recovery(table, season1, grouped),
+        "recovery_instrument": {
+            "camp": recovery(table, chosen, camp_of),
+            "school": recovery(table, chosen, school_level),
+        },
+        "recovery_season1": {
+            "camp": recovery(table, season1, camp_of),
+            "school": recovery(table, season1, school_level),
+        },
         "recovery_by_size": sizes,
         "near_duplicates": [
             r for r in redundancy(table, ids) if abs(r["phi"]) * r["n"] / (r["n"] + 10) > MAX_PHI
         ],
     }
-    pathlib.Path(out).write_text(
+    doc = {
+        "pool": ids,
+        "instrument": chosen,
+        "tree": tree,
+        "schools": schools,
+        "people": people,
+        "together": {
+            f"{a}|{b}": round(float(together[i, j]), 3)
+            for i, a in enumerate(core)
+            for j, b in enumerate(core)
+            if i < j
+        },
+        "statements": {
+            s: {**v, "eta": round(eta(table, s, school_of), 3)}
+            for s, v in statement_stats(table, ids).items()
+        },
+        "checks": checks,
+        "log": log,
+    }
+    pathlib.Path(out).write_text(json.dumps(doc, indent=1, ensure_ascii=False))
+    print(
         json.dumps(
-            {
-                "pool": ids,
-                "instrument": chosen,
-                "schools": schools,
-                "people": people,
-                "together": {
-                    f"{a}|{b}": round(float(together[i, j]), 3)
-                    for i, a in enumerate(core)
-                    for j, b in enumerate(core)
-                    if i < j
-                },
-                "statements": {
-                    s: {**v, "eta": round(eta(table, s, school_of), 3)}
-                    for s, v in statement_stats(table, ids).items()
-                },
-                "checks": checks,
-                "log": log,
-            },
-            indent=1,
-            ensure_ascii=False,
+            {k: v for k, v in checks.items() if k not in ("near_duplicates", "weights")}, indent=1
         )
     )
-    print(json.dumps({k: v for k, v in checks.items() if k != "near_duplicates"}, indent=1))
-    print("near duplicates:", checks["near_duplicates"][:12])
-    for s in schools:
-        print(f"\nSCHOOL {s['id']} cohesion {s['cohesion']}: {s['members']} + {s['attached']}")
-        for r in s["distinctive"][:5]:
-            sign = "+" if r["side"] > 0 else "-"
-            print(f"   {sign} {r['statement']} (lean {r['lean']}, n {r['n']})")
+
+    def show(node: dict, depth: int = 0) -> None:
+        tops = ", ".join(
+            f"{'+' if r['side'] > 0 else '-'}{r['statement']}" for r in node["distinctive"][:4]
+        )
+        print(
+            "  " * depth + f"{node['id']} ({node['cohesion']}) {node['members']}"
+            f" + {node['attached']}\n" + "  " * depth + f"   {tops}"
+        )
+        for c in node["children"]:
+            show(c, depth + 1)
+
+    for t in tree:
+        show(t)
     for p, v in sorted(people.items()):
         if v["basis"] in ("between", "not yet grouped"):
-            print(f"  {v['basis']}: {p} {v.get('between')} fit {v.get('fit')} ({v['stances']})")
+            print(f"  {v['basis']}: {p} {v['between']} ({v['stances']})")
     print("\ninstrument:", chosen)
     for line in log:
         print(" ", line)

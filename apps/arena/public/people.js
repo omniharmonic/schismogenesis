@@ -32,8 +32,9 @@ async function main() {
   const ex = explorer({
     bundle, answers, mapEl, panelEl: document.getElementById("people-panel"),
     gridEl: document.getElementById("people-schools"),
-    intro: `<h3>${bundle.thinkers.length} thinkers, ${bundle.schools.length} schools</h3>
-      <p>Each circle is a public thinker, placed by what they've said on the ${bundle.anchors.length} statements and the wider atlas. Select one to read their positions in their own words, or a school to see what holds it together.</p>
+    mapOptions: { marks, result: ok, ...size },
+    intro: `<h3>${bundle.thinkers.length} thinkers, ${bundle.schools.length} camps</h3>
+      <p>Each circle is a public thinker, placed by what they've said on the ${bundle.anchors.length} statements and the wider atlas. Select a camp to open the schools inside it, and keep going down to the tightest circles of people who agree on almost everything. Select a person to read their positions in their own words.</p>
       ${ok ? `<p class="small muted">Your saved answers from this browser are shown beside theirs.</p>` : `<p><a class="button primary" href="/">Take the fingerprint</a></p><p class="small muted">Then you'll see your own answers beside theirs.</p>`}`,
   });
   // /people#<thinker-id> opens that thinker's card (linked from shared profiles)

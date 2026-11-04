@@ -1,4 +1,5 @@
-// The light 2D map: thinkers at their atlas positions, schools as soft regions, you among the
+// The light 2D map: thinkers at their atlas positions, camps (or, when one is in focus, the groups
+// inside it) as soft regions, you among the
 // thinkers you agree with most. Every thinker and school is a button (see wireMap). The full 3D
 // atlas lives at /atlas.
 
@@ -50,13 +51,28 @@ function region(points) {
   return `M${h.map((p) => p.map((v) => v.toFixed(1)).join(",")).join("L")}${h.length > 2 ? "Z" : ""}`;
 }
 
+/** Everyone in a group of the drill-down tree: those who drew it plus those placed into it. */
+export function nodeMembers(bundle, id) {
+  const n = bundle.tree?.nodes?.[id];
+  return n ? [...n.members, ...n.attached] : [];
+}
+
+/** The groups a map shows: the camps, or, when a group is in focus, the groups inside it. */
+export function regionsFor(bundle, focus = null) {
+  const tree = bundle.tree;
+  if (!tree?.roots?.length) return bundle.schools.map((s) => ({ id: null, label: s.label, members: s.members, school: s.label }));
+  const node = focus && tree.nodes[focus];
+  const ids = node ? (node.children.length ? node.children : [node.id]) : tree.roots;
+  return ids.map((id) => ({ id, label: tree.nodes[id].label, members: nodeMembers(bundle, id) }));
+}
+
 /** Members of a school for display: its core members plus voices placed into it. */
 export function schoolMembers(bundle, label) {
   // "" is the not-yet-grouped set: voices whose outlook no school shares on enough positions
   return bundle.thinkers.filter((t) => (t.school || "") === label).map((t) => t.id);
 }
 
-export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null } = {}) {
+export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null } = {}) {
   const xs = bundle.thinkers.map((t) => t.x), ys = bundle.thinkers.map((t) => t.y);
   const pad = 52;
   const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
@@ -72,14 +88,17 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   let svg = `<svg class="thinker-map" viewBox="0 0 ${width} ${height}" role="group" aria-label="${esc(label)}">`;
 
   const labels = [];
-  bundle.schools.forEach((s, n) => {
-    const pts = s.members.map((m) => pos[m]).filter(Boolean);
+  const regions = regionsFor(bundle, focus);
+  const inFocus = focus && bundle.tree?.nodes?.[focus] ? new Set(nodeMembers(bundle, focus)) : null;
+  regions.forEach((g, n) => {
+    const pts = g.members.map((m) => pos[m]).filter(Boolean);
     if (!pts.length) return;
-    const on = selected?.school === s.label ? " is-selected" : "";
-    svg += `<path class="map-region${on}" data-school="${esc(s.label)}" style="--i:${n}" d="${region(pts)}" stroke-width="${R * 2 + 26}"/>`;
+    const key = g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`;
+    const on = (g.id && selected?.node === g.id) || (!g.id && selected?.school === g.school) ? " is-selected" : "";
+    svg += `<path class="map-region${on}" ${key} style="--i:${n}" d="${region(pts)}" stroke-width="${R * 2 + (focus ? 16 : 26)}"/>`;
     const cx = pts.reduce((t, p) => t + p[0], 0) / pts.length;
     const top = Math.min(...pts.map((p) => p[1]));
-    labels.push({ s, x: cx, y: top - R - 18 });
+    labels.push({ s: g, key, x: cx, y: top - R - 18 });
   });
 
   if (result?.position) {
@@ -99,7 +118,8 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     const note = t.provisional ? ", new voice" : "";
     const dash = t.provisional ? "1.5 2.5" : r || !result ? "" : "3 3";
     const on = selected?.thinker === t.id ? " is-selected" : "";
-    svg += `<g class="map-thinker${on}${dark ? " is-dark" : ""}" data-thinker="${esc(t.id)}" tabindex="0" role="button" aria-label="${esc(`${t.name}, ${what}${note}`)}">`;
+    const faded = inFocus && !inFocus.has(t.id) ? " is-faded" : "";
+    svg += `<g class="map-thinker${on}${dark ? " is-dark" : ""}${faded}" data-thinker="${esc(t.id)}" tabindex="0" role="button" aria-label="${esc(`${t.name}, ${what}${note}`)}">`;
     svg += `<circle class="hit" cx="${x}" cy="${y}" r="${R + 5}"/><circle class="dot" cx="${x}" cy="${y}" r="${R}" fill="${fill}" stroke-dasharray="${dash}"/>`;
     svg += `<text x="${x}" y="${y + 3.6}" text-anchor="middle">${esc(t.initials)}</text>`;
     if (near.has(t.id)) svg += `<text class="map-name" x="${x}" y="${y + R + 15}" text-anchor="middle">${esc(t.name.replace(/ \(.*\)/, ""))}</text>`;
@@ -112,11 +132,11 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   }
 
   // school names last, with a halo, so they read over the circles
-  for (const { s, x, y } of labels) {
+  for (const { s, key, x, y } of labels) {
     const w = s.label.length * 6.6 + 12;
     const lx = Math.min(width - w / 2 - 4, Math.max(w / 2 + 4, x));
     const ly = Math.max(14, y);
-    svg += `<g class="map-school-label" data-school="${esc(s.label)}" tabindex="0" role="button" aria-label="${esc(`School: ${s.label}`)}"><text x="${lx}" y="${ly}" text-anchor="middle">${esc(s.label)}</text></g>`;
+    svg += `<g class="map-school-label" ${key} tabindex="0" role="button" aria-label="${esc(`Group: ${s.label}`)}"><text x="${lx}" y="${ly}" text-anchor="middle">${esc(s.label)}</text></g>`;
   }
 
   // marks tag thinkers with a letter, e.g. each room group on the thinkers it votes most like.
@@ -135,10 +155,12 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
 }
 
 /** Make a rendered map clickable: one listener for every thinker and school, mouse or keyboard. */
-export function wireMap(container, { onThinker, onSchool }) {
+export function wireMap(container, { onThinker, onSchool, onNode }) {
   const pick = (target) => {
     const t = target.closest("[data-thinker]");
     if (t) { onThinker?.(t.dataset.thinker); return true; }
+    const g = target.closest("[data-node]");
+    if (g) { onNode?.(g.dataset.node); return true; }
     const s = target.closest("[data-school]");
     if (s) { onSchool?.(s.dataset.school); return true; }
     return false;
@@ -150,8 +172,9 @@ export function wireMap(container, { onThinker, onSchool }) {
 }
 
 /** Mark the selection on an already drawn map without redrawing it. */
-export function markSelected(container, { thinker = null, school = null } = {}) {
+export function markSelected(container, { thinker = null, school = null, node = null } = {}) {
   container.querySelectorAll(".is-selected").forEach((n) => n.classList.remove("is-selected"));
+  if (node) container.querySelectorAll(`[data-node="${CSS.escape(node)}"]`).forEach((n) => n.classList.add("is-selected"));
   if (thinker) container.querySelector(`[data-thinker="${CSS.escape(thinker)}"]`)?.classList.add("is-selected");
   if (school) container.querySelectorAll(`[data-school="${CSS.escape(school)}"]`).forEach((n) => n.classList.add("is-selected"));
 }

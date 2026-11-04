@@ -190,3 +190,12 @@ Benjamin, 2026-11-03: "we need to make sure that the map is descriptive of not j
 - **Schools redrawn from the audited stances.** Agreement over shared statements only (silence is not a view), each statement weighted down by how much it overlaps the others, Ward groups in a weighted-MDS embedding, the count chosen by survival under resampling (floor 0.6). Result: four schools. Place on the map and school come from the same measure, which fixes dots sitting inside the wrong region.
 - **Checks reported with every build:** statement splits, redundancy, effective dimensions (against shuffled data), stability, and recovery (a grouped person answering as themselves finds their own school first 86% of the time, in their top three 94%).
 - Details: `docs/fingerprint/07-ROUND-4.md`.
+
+### D-31.21 Schools as a drill-down: camps, schools, branches, close circles
+Benjamin, 2026-11-03: "we vastly over-simplified the schools. its too homogenous now. we need to be able to drill down from wider camps into more and more specific clusters until we get to a new degree of really tight clusters."
+- The flat four schools of D-31.20 are replaced by a nested hierarchy read from consensus clustering: 300 redrawings over resampled statements and varying group counts, cut at four depths of how often pairs land together.
+- Clustering evidence now includes the audited atlas ideas, not only the survey pool, so finer groups can be told apart.
+- Every group reports its own cohesion. People read less fully go down the tree only on clear evidence.
+- The survey's 27 statements are chosen to separate groups at both the camp and the finest level.
+- On the site, every group is a card that opens the groups inside it, and the map redraws around it.
+- Details: `docs/fingerprint/07-ROUND-4.md`.

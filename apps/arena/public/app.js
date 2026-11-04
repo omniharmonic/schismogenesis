@@ -275,6 +275,7 @@ function renderReveal() {
 
   const ex = explorer({
     bundle, answers, mapEl: $("reveal-map"), panelEl: $("reveal-panel"), gridEl: $("reveal-schools"),
+    mapOptions: { result: r, ...mapSize() },
     intro: `<h3>Your nearest thinkers</h3><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul>
       <h3>Furthest from you</h3><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul>
       <p class="small muted">Select anyone here or on the map to compare, statement by statement.</p>`,

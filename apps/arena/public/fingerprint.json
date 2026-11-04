@@ -1,5 +1,5 @@
 {
- "version": "fp-2026-11-03.7",
+ "version": "fp-2026-11-04.1",
  "season": "season-2",
  "atlas_version": "atlas-v3",
  "sets": [
@@ -254,12 +254,12 @@
    "split_score": 20
   },
   {
-   "id": "no-autonomous-lethal-force",
+   "id": "open-weights-frontier-models",
    "set": "action",
    "layer": "praxis",
-   "text": "AI systems should never be allowed to decide on their own to use lethal force.",
-   "family": 1,
-   "split_score": 8
+   "text": "The most capable AI models should be released openly for anyone to use and modify.",
+   "family": 0,
+   "split_score": 52
   }
  ],
  "thinkers": [
@@ -267,143 +267,172 @@
    "id": "adam-thierer",
    "name": "Adam Thierer",
    "initials": "AT",
-   "school": "Free-market builders",
-   "x": 35.9,
-   "y": -222.2,
-   "provisional": true
+   "school": null,
+   "x": 155.8,
+   "y": -100.5,
+   "provisional": true,
+   "between": [
+    "Free-market builders",
+    "Skeptics of hype and of pausing"
+   ]
   },
   {
    "id": "alexandria-ocasio-cortez",
    "name": "Alexandria Ocasio-Cortez",
    "initials": "AO",
    "school": null,
-   "x": -79.3,
-   "y": 147.5,
-   "provisional": true,
-   "between": [
-    "Public-interest safety",
-    "Human-first critics"
-   ]
+   "x": -110.1,
+   "y": 147.6,
+   "provisional": true
   },
   {
    "id": "alondra-nelson",
    "name": "Alondra Nelson",
    "initials": "AN",
    "school": null,
-   "x": -42.2,
-   "y": 73.4,
+   "x": -58.8,
+   "y": 23.3,
    "provisional": true,
    "between": [
     "Human-first critics",
-    "Public-interest safety"
+    "AI as a new kind of risk"
    ]
   },
   {
    "id": "andrew-yang",
    "name": "Andrew Yang",
    "initials": "AY",
-   "school": null,
-   "x": 97.9,
-   "y": 61.8,
+   "school": "AI as a new kind of risk",
+   "x": 97.2,
+   "y": 168.3,
    "provisional": true,
-   "between": [
-    "Public-interest safety",
-    "AGI is near"
+   "path": [
+    "c1"
    ]
   },
   {
    "id": "anton-korinek",
    "name": "Anton Korinek",
    "initials": "AK",
-   "school": "AGI is near",
-   "x": 189.8,
-   "y": 4.0,
+   "school": null,
+   "x": 150.5,
+   "y": 3.3,
    "provisional": true
   },
   {
    "id": "arvind-narayanan",
    "name": "Arvind Narayanan",
    "initials": "AN",
-   "school": "Human-first critics",
-   "x": -172.3,
-   "y": -61.8,
-   "provisional": true
+   "school": "Skeptics of hype and of pausing",
+   "x": -145.8,
+   "y": -155.8,
+   "path": [
+    "c4"
+   ]
   },
   {
    "id": "audrey-tang",
    "name": "Audrey Tang",
    "initials": "AT",
    "school": "Human-first critics",
-   "x": -104.4,
-   "y": 60.1,
-   "provisional": true
+   "x": -114.9,
+   "y": 40.6,
+   "path": [
+    "c2",
+    "c2.1"
+   ]
   },
   {
    "id": "balaji-srinivasan",
    "name": "Balaji Srinivasan",
    "initials": "BS",
    "school": "Free-market builders",
-   "x": -59.5,
-   "y": -191.1,
-   "provisional": true
+   "x": -12.1,
+   "y": -205.6,
+   "path": [
+    "c3",
+    "c3.3"
+   ]
   },
   {
    "id": "barack-obama",
    "name": "Barack Obama",
    "initials": "BO",
    "school": "Human-first critics",
-   "x": -96.7,
-   "y": 20.4
+   "x": -121.4,
+   "y": 2.5,
+   "path": [
+    "c2",
+    "c2.1"
+   ]
   },
   {
    "id": "bernie-sanders",
    "name": "Bernie Sanders",
    "initials": "BS",
-   "school": "Public-interest safety",
-   "x": 1.2,
-   "y": 135.9
+   "school": "AI as a new kind of risk",
+   "x": -15.9,
+   "y": 134.7,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1"
+   ]
   },
   {
    "id": "brian-merchant",
    "name": "Brian Merchant",
    "initials": "BM",
    "school": "Human-first critics",
-   "x": -134.8,
-   "y": 39.2
+   "x": -155.1,
+   "y": 15.8,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "chris-murphy",
    "name": "Chris Murphy",
    "initials": "CM",
-   "school": "Public-interest safety",
-   "x": 8.0,
-   "y": 163.2
+   "school": "AI as a new kind of risk",
+   "x": -7.4,
+   "y": 156.6,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.2"
+   ]
   },
   {
    "id": "cory-doctorow",
    "name": "Cory Doctorow",
    "initials": "CD",
    "school": null,
-   "x": -110.4,
-   "y": -99.1,
+   "x": -77.4,
+   "y": -123.3,
    "provisional": true
   },
   {
    "id": "curtis-yarvin",
    "name": "Curtis Yarvin",
    "initials": "CY",
-   "school": null,
-   "x": -132.3,
-   "y": -147.5,
-   "provisional": true
+   "school": "Skeptics of hype and of pausing",
+   "x": -121.6,
+   "y": -226.3,
+   "path": [
+    "c4"
+   ]
   },
   {
    "id": "daniel-faggella",
    "name": "Daniel Faggella",
    "initials": "DF",
-   "school": "AGI is near",
-   "x": 219.0,
-   "y": -5.0,
+   "school": null,
+   "x": 183.0,
+   "y": -9.2,
    "provisional": true
   },
   {
@@ -411,88 +440,124 @@
    "name": "Daniel Jeffries",
    "initials": "DJ",
    "school": "Free-market builders",
-   "x": 48.9,
-   "y": -227.1,
-   "provisional": true
+   "x": 125.4,
+   "y": -197.5,
+   "provisional": true,
+   "path": [
+    "c3"
+   ]
   },
   {
    "id": "daniel-kokotajlo",
    "name": "Daniel Kokotajlo",
    "initials": "DK",
-   "school": "AGI is near",
-   "x": 127.5,
-   "y": 117.6
+   "school": "AI as a new kind of risk",
+   "x": 24.6,
+   "y": 164.0,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1",
+    "c1.1.1.1"
+   ]
   },
   {
    "id": "dario-amodei",
    "name": "Dario Amodei",
    "initials": "DA",
-   "school": "AGI is near",
-   "x": 172.5,
-   "y": -40.6,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 153.6,
+   "y": 68.6,
+   "path": [
+    "c1"
+   ]
   },
   {
    "id": "daron-acemoglu",
    "name": "Daron Acemoglu",
    "initials": "DA",
    "school": "Human-first critics",
-   "x": -111.0,
-   "y": 40.2
+   "x": -140.5,
+   "y": 26.6,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "david-autor",
    "name": "David Autor",
    "initials": "DA",
    "school": "Human-first critics",
-   "x": -134.0,
-   "y": -30.7,
-   "provisional": true
+   "x": -158.4,
+   "y": -55.9,
+   "provisional": true,
+   "path": [
+    "c2"
+   ]
   },
   {
    "id": "david-sacks",
    "name": "David Sacks",
    "initials": "DS",
    "school": "Free-market builders",
-   "x": 14.1,
-   "y": -247.1
+   "x": 74.3,
+   "y": -237.9,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.1"
+   ]
   },
   {
    "id": "dean-ball",
    "name": "Dean W. Ball",
    "initials": "DB",
    "school": "Free-market builders",
-   "x": 33.7,
-   "y": -169.6
+   "x": 83.2,
+   "y": -158.7,
+   "path": [
+    "c3",
+    "c3.1"
+   ]
   },
   {
    "id": "demis-hassabis",
    "name": "Demis Hassabis",
    "initials": "DH",
-   "school": "Public-interest safety",
-   "x": 62.9,
-   "y": 117.7
+   "school": "AI as a new kind of risk",
+   "x": 70.9,
+   "y": 102.7,
+   "path": [
+    "c1",
+    "c1.3"
+   ]
   },
   {
    "id": "divya-siddarth",
    "name": "Divya Siddarth",
    "initials": "DS",
-   "school": "Human-first critics",
-   "x": -132.7,
-   "y": 94.0,
-   "provisional": true
+   "school": null,
+   "x": -78.0,
+   "y": 107.8,
+   "provisional": true,
+   "between": [
+    "Human-first critics",
+    "AI as a new kind of risk"
+   ]
   },
   {
    "id": "dwarkesh-patel",
    "name": "Dwarkesh Patel",
    "initials": "DP",
-   "school": null,
-   "x": 153.8,
-   "y": -20.2,
+   "school": "AI as a new kind of risk",
+   "x": 171.3,
+   "y": 79.1,
    "provisional": true,
-   "between": [
-    "AGI is near",
-    "Public-interest safety"
+   "path": [
+    "c1"
    ]
   },
   {
@@ -500,63 +565,86 @@
    "name": "E. Glen Weyl",
    "initials": "EW",
    "school": "Human-first critics",
-   "x": -151.8,
-   "y": 76.2
+   "x": -165.1,
+   "y": 59.2,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "ed-zitron",
    "name": "Ed Zitron",
    "initials": "EZ",
    "school": "Human-first critics",
-   "x": -165.9,
-   "y": -7.1,
-   "provisional": true
+   "x": -175.9,
+   "y": -30.3,
+   "path": [
+    "c2",
+    "c2.2"
+   ]
   },
   {
    "id": "eliezer-yudkowsky",
    "name": "Eliezer Yudkowsky",
    "initials": "EY",
-   "school": "AGI is near",
-   "x": 159.2,
-   "y": 90.0
+   "school": "AI as a new kind of risk",
+   "x": 57.3,
+   "y": 154.5,
+   "path": [
+    "c1",
+    "c1.2",
+    "c1.2.1"
+   ]
   },
   {
    "id": "elizabeth-warren",
    "name": "Elizabeth Warren",
    "initials": "EW",
    "school": null,
-   "x": -12.4,
-   "y": 62.2,
+   "x": -54.4,
+   "y": 60.8,
    "provisional": true,
    "between": [
-    "Public-interest safety",
-    "Human-first critics"
+    "Human-first critics",
+    "AI as a new kind of risk"
    ]
   },
   {
    "id": "elon-musk",
    "name": "Elon Musk",
    "initials": "EM",
-   "school": "AGI is near",
-   "x": 192.2,
-   "y": 72.0
+   "school": "AI as a new kind of risk",
+   "x": 126.8,
+   "y": 143.3,
+   "path": [
+    "c1",
+    "c1.2",
+    "c1.2.1"
+   ]
   },
   {
    "id": "emily-m-bender",
    "name": "Emily M. Bender",
    "initials": "EB",
-   "school": "Human-first critics",
-   "x": -172.0,
-   "y": -27.1,
-   "provisional": true
+   "school": null,
+   "x": -115.2,
+   "y": -84.4,
+   "provisional": true,
+   "between": [
+    "Human-first critics",
+    "Skeptics of hype and of pausing"
+   ]
   },
   {
    "id": "erik-brynjolfsson",
    "name": "Erik Brynjolfsson",
    "initials": "EB",
    "school": null,
-   "x": 8.5,
-   "y": -61.5,
+   "x": 18.6,
+   "y": -76.5,
    "provisional": true
   },
   {
@@ -564,34 +652,33 @@
    "name": "Fei-Fei Li",
    "initials": "FL",
    "school": null,
-   "x": -57.4,
-   "y": -65.4,
+   "x": -33.8,
+   "y": -90.4,
    "provisional": true
   },
   {
    "id": "gary-marcus",
    "name": "Gary Marcus",
    "initials": "GM",
-   "school": null,
-   "x": -33.9,
-   "y": 26.7,
-   "provisional": true,
-   "between": [
-    "Human-first critics",
-    "Public-interest safety"
+   "school": "Human-first critics",
+   "x": -143.3,
+   "y": 58.0,
+   "path": [
+    "c2",
+    "c2.2"
    ]
   },
   {
    "id": "geoffrey-hinton",
    "name": "Geoffrey Hinton",
    "initials": "GH",
-   "school": null,
-   "x": 146.1,
-   "y": 70.9,
-   "provisional": true,
-   "between": [
-    "Public-interest safety",
-    "AGI is near"
+   "school": "AI as a new kind of risk",
+   "x": 114.9,
+   "y": 169.1,
+   "path": [
+    "c1",
+    "c1.2",
+    "c1.2.2"
    ]
   },
   {
@@ -599,67 +686,97 @@
    "name": "Guillaume Verdon (Beff Jezos)",
    "initials": "GJ",
    "school": "Free-market builders",
-   "x": 79.7,
-   "y": -214.4
+   "x": 128.7,
+   "y": -215.7,
+   "path": [
+    "c3",
+    "c3.2",
+    "c3.2.1"
+   ]
   },
   {
    "id": "helen-toner",
    "name": "Helen Toner",
    "initials": "HT",
-   "school": "Public-interest safety",
-   "x": 32.0,
-   "y": 91.7,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 58.4,
+   "y": 75.4,
+   "provisional": true,
+   "path": [
+    "c1",
+    "c1.6"
+   ]
   },
   {
    "id": "holly-elmore",
    "name": "Holly Elmore",
    "initials": "HE",
-   "school": "Public-interest safety",
-   "x": -5.8,
-   "y": 140.6
+   "school": "AI as a new kind of risk",
+   "x": 2.8,
+   "y": 139.7,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1"
+   ]
   },
   {
    "id": "jack-clark",
    "name": "Jack Clark",
    "initials": "JC",
-   "school": "Public-interest safety",
-   "x": 70.0,
-   "y": 134.4,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 112.1,
+   "y": 118.0,
+   "path": [
+    "c1",
+    "c1.4"
+   ]
   },
   {
    "id": "jaron-lanier",
    "name": "Jaron Lanier",
    "initials": "JL",
    "school": "Human-first critics",
-   "x": -190.0,
-   "y": 42.0
+   "x": -206.3,
+   "y": 8.8,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1"
+   ]
   },
   {
    "id": "jason-crawford",
    "name": "Jason Crawford",
    "initials": "JC",
-   "school": null,
-   "x": 73.8,
-   "y": -94.6,
-   "provisional": true
+   "school": "Free-market builders",
+   "x": 108.2,
+   "y": -151.4,
+   "path": [
+    "c3",
+    "c3.3"
+   ]
   },
   {
    "id": "jd-vance",
    "name": "JD Vance",
    "initials": "JV",
    "school": "Free-market builders",
-   "x": -4.8,
-   "y": -166.2
+   "x": 32.9,
+   "y": -184.4,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.2"
+   ]
   },
   {
    "id": "jensen-huang",
    "name": "Jensen Huang",
    "initials": "JH",
    "school": null,
-   "x": 28.9,
-   "y": -93.8,
+   "x": 67.9,
+   "y": -81.4,
    "provisional": true
   },
   {
@@ -667,12 +784,12 @@
    "name": "Jonathan Haidt",
    "initials": "JH",
    "school": null,
-   "x": -31.7,
-   "y": 52.0,
+   "x": -57.2,
+   "y": 59.7,
    "provisional": true,
    "between": [
     "Human-first critics",
-    "Public-interest safety"
+    "AI as a new kind of risk"
    ]
   },
   {
@@ -680,71 +797,98 @@
    "name": "Josh Hawley",
    "initials": "JH",
    "school": "Human-first critics",
-   "x": -117.4,
-   "y": 79.4
+   "x": -145.6,
+   "y": 61.7,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "joy-buolamwini",
    "name": "Joy Buolamwini",
    "initials": "JB",
    "school": null,
-   "x": 46.4,
-   "y": -2.6,
-   "provisional": true,
-   "between": [
-    "Human-first critics",
-    "Public-interest safety"
-   ]
+   "x": 59.8,
+   "y": -1.7,
+   "provisional": true
   },
   {
    "id": "karen-hao",
    "name": "Karen Hao",
    "initials": "KH",
    "school": "Human-first critics",
-   "x": -142.9,
-   "y": 68.5
+   "x": -164.6,
+   "y": 41.8,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "leopold-aschenbrenner",
    "name": "Leopold Aschenbrenner",
    "initials": "LA",
-   "school": "AGI is near",
-   "x": 129.5,
-   "y": 1.0
+   "school": "AI as a new kind of risk",
+   "x": 102.9,
+   "y": 61.2,
+   "path": [
+    "c1",
+    "c1.3"
+   ]
   },
   {
    "id": "liz-shuler",
    "name": "Liz Shuler",
    "initials": "LS",
    "school": "Human-first critics",
-   "x": -153.0,
-   "y": -1.8,
-   "provisional": true
+   "x": -172.9,
+   "y": -17.3,
+   "provisional": true,
+   "path": [
+    "c2",
+    "c2.1",
+    "c2.1.1",
+    "c2.1.1.1"
+   ]
   },
   {
    "id": "marc-andreessen",
    "name": "Marc Andreessen",
    "initials": "MA",
    "school": "Free-market builders",
-   "x": -40.0,
-   "y": -216.7
+   "x": 28.9,
+   "y": -239.4,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.1"
+   ]
   },
   {
    "id": "mark-zuckerberg",
    "name": "Mark Zuckerberg",
    "initials": "MZ",
    "school": "Free-market builders",
-   "x": -35.6,
-   "y": -152.0,
-   "provisional": true
+   "x": 3.4,
+   "y": -172.2,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.3"
+   ]
   },
   {
    "id": "marsha-blackburn",
    "name": "Marsha Blackburn",
    "initials": "MB",
    "school": null,
-   "x": -20.1,
-   "y": -56.2,
+   "x": -41.0,
+   "y": -77.3,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -755,110 +899,133 @@
    "id": "max-tegmark",
    "name": "Max Tegmark",
    "initials": "MT",
-   "school": "Public-interest safety",
-   "x": 69.9,
-   "y": 159.1
+   "school": "AI as a new kind of risk",
+   "x": 26.4,
+   "y": 175.2,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1"
+   ]
   },
   {
    "id": "meredith-whittaker",
    "name": "Meredith Whittaker",
    "initials": "MW",
    "school": "Human-first critics",
-   "x": -136.3,
-   "y": 54.3
+   "x": -167.5,
+   "y": 22.0,
+   "path": [
+    "c2",
+    "c2.2",
+    "c2.2.1"
+   ]
   },
   {
    "id": "michael-kratsios",
    "name": "Michael Kratsios",
    "initials": "MK",
    "school": "Free-market builders",
-   "x": -9.3,
-   "y": -179.3
+   "x": 47.5,
+   "y": -177.2,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.2"
+   ]
   },
   {
    "id": "miles-brundage",
    "name": "Miles Brundage",
    "initials": "MB",
-   "school": null,
-   "x": 100.3,
-   "y": 76.9,
+   "school": "AI as a new kind of risk",
+   "x": 79.7,
+   "y": 170.4,
    "provisional": true,
-   "between": [
-    "Public-interest safety",
-    "AGI is near"
+   "path": [
+    "c1"
    ]
   },
   {
    "id": "mustafa-suleyman",
    "name": "Mustafa Suleyman",
    "initials": "MS",
-   "school": "Public-interest safety",
-   "x": 75.6,
-   "y": 84.2,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 99.9,
+   "y": 72.1,
+   "path": [
+    "c1",
+    "c1.4"
+   ]
   },
   {
    "id": "nick-land",
    "name": "Nick Land",
    "initials": "NL",
    "school": null,
-   "x": 185.2,
-   "y": -99.8,
+   "x": 225.7,
+   "y": -79.2,
    "provisional": true
   },
   {
    "id": "noah-smith",
    "name": "Noah Smith",
    "initials": "NS",
-   "school": "AGI is near",
-   "x": 196.2,
-   "y": -46.5
+   "school": null,
+   "x": 163.7,
+   "y": -32.6,
+   "provisional": true
   },
   {
    "id": "paul-kingsnorth",
    "name": "Paul Kingsnorth",
    "initials": "PK",
    "school": "Human-first critics",
-   "x": -157.2,
-   "y": 144.5
+   "x": -190.0,
+   "y": 120.6,
+   "path": [
+    "c2"
+   ]
   },
   {
    "id": "pete-buttigieg",
    "name": "Pete Buttigieg",
    "initials": "PB",
    "school": null,
-   "x": 31.3,
-   "y": -7.9,
-   "provisional": true,
-   "between": [
-    "Public-interest safety",
-    "Human-first critics"
-   ]
+   "x": 51.9,
+   "y": -22.8,
+   "provisional": true
   },
   {
    "id": "peter-thiel",
    "name": "Peter Thiel",
    "initials": "PT",
-   "school": null,
-   "x": -79.8,
-   "y": -101.1,
-   "provisional": true
+   "school": "Skeptics of hype and of pausing",
+   "x": -140.3,
+   "y": -161.8,
+   "path": [
+    "c4"
+   ]
   },
   {
    "id": "pope-leo-xiv",
    "name": "Pope Leo XIV",
    "initials": "PX",
    "school": "Human-first critics",
-   "x": -125.1,
-   "y": 106.4
+   "x": -156.2,
+   "y": 98.0,
+   "path": [
+    "c2",
+    "c2.1"
+   ]
   },
   {
    "id": "reid-hoffman",
    "name": "Reid Hoffman",
    "initials": "RH",
-   "school": "Free-market builders",
-   "x": 21.9,
-   "y": -151.0,
+   "school": null,
+   "x": -5.9,
+   "y": -85.5,
    "provisional": true
   },
   {
@@ -866,232 +1033,346 @@
    "name": "Richard Blumenthal",
    "initials": "RB",
    "school": null,
-   "x": 41.2,
-   "y": 39.8,
+   "x": -10.3,
+   "y": 37.7,
    "provisional": true,
    "between": [
-    "Public-interest safety",
-    "AGI is near"
+    "AI as a new kind of risk",
+    "Human-first critics"
    ]
   },
   {
    "id": "ro-khanna",
    "name": "Ro Khanna",
    "initials": "RK",
-   "school": "Public-interest safety",
-   "x": -21.1,
-   "y": 180.6,
-   "provisional": true
+   "school": null,
+   "x": -24.0,
+   "y": 8.5,
+   "provisional": true,
+   "between": [
+    "AI as a new kind of risk",
+    "Human-first critics"
+   ]
   },
   {
    "id": "robin-hanson",
    "name": "Robin Hanson",
    "initials": "RH",
    "school": "Free-market builders",
-   "x": 98.8,
-   "y": -242.3
+   "x": 136.5,
+   "y": -239.9,
+   "path": [
+    "c3",
+    "c3.2",
+    "c3.2.2"
+   ]
   },
   {
    "id": "ruha-benjamin",
    "name": "Ruha Benjamin",
    "initials": "RB",
-   "school": "Human-first critics",
-   "x": -180.0,
-   "y": -10.1,
-   "provisional": true
+   "school": null,
+   "x": -89.1,
+   "y": -79.2,
+   "provisional": true,
+   "between": [
+    "Human-first critics",
+    "Skeptics of hype and of pausing"
+   ]
   },
   {
    "id": "rumman-chowdhury",
    "name": "Rumman Chowdhury",
    "initials": "RC",
    "school": "Human-first critics",
-   "x": -164.5,
-   "y": 14.4,
-   "provisional": true
+   "x": -194.8,
+   "y": -15.6,
+   "provisional": true,
+   "path": [
+    "c2"
+   ]
   },
   {
    "id": "safiya-noble",
    "name": "Safiya Umoja Noble",
    "initials": "SN",
-   "school": null,
-   "x": -139.1,
-   "y": -65.4,
+   "school": "Human-first critics",
+   "x": -197.9,
+   "y": -27.3,
    "provisional": true,
-   "between": [
-    "Human-first critics",
-    "Public-interest safety"
+   "path": [
+    "c2",
+    "c2.2"
    ]
   },
   {
    "id": "sam-altman",
    "name": "Sam Altman",
    "initials": "SA",
-   "school": "AGI is near",
-   "x": 143.4,
-   "y": 40.6
+   "school": "AI as a new kind of risk",
+   "x": 78.8,
+   "y": 117.9,
+   "path": [
+    "c1",
+    "c1.5"
+   ]
   },
   {
    "id": "samuel-hammond",
    "name": "Samuel Hammond",
    "initials": "SH",
-   "school": null,
-   "x": 91.1,
-   "y": -24.9,
-   "provisional": true,
-   "between": [
-    "AGI is near",
-    "Public-interest safety"
+   "school": "AI as a new kind of risk",
+   "x": 127.7,
+   "y": 78.1,
+   "path": [
+    "c1",
+    "c1.3"
    ]
   },
   {
    "id": "scott-alexander",
    "name": "Scott Alexander",
    "initials": "SA",
-   "school": "AGI is near",
-   "x": 210.5,
-   "y": 73.3
+   "school": "AI as a new kind of risk",
+   "x": 144.4,
+   "y": 145.6,
+   "path": [
+    "c1",
+    "c1.2",
+    "c1.2.1"
+   ]
   },
   {
    "id": "scott-wiener",
    "name": "Scott Wiener",
    "initials": "SW",
    "school": null,
-   "x": -24.0,
-   "y": -10.8,
+   "x": -44.2,
+   "y": -35.8,
    "provisional": true,
    "between": [
     "Human-first critics",
-    "Public-interest safety"
+    "AI as a new kind of risk"
    ]
   },
   {
    "id": "shoshana-zuboff",
    "name": "Shoshana Zuboff",
    "initials": "SZ",
-   "school": "Human-first critics",
-   "x": -113.4,
-   "y": 11.6,
-   "provisional": true
+   "school": null,
+   "x": 2.2,
+   "y": -32.1,
+   "provisional": true,
+   "between": [
+    "Human-first critics",
+    "AI as a new kind of risk"
+   ]
   },
   {
    "id": "stuart-russell",
    "name": "Stuart Russell",
    "initials": "SR",
-   "school": "Public-interest safety",
-   "x": 16.1,
-   "y": 181.1
+   "school": "AI as a new kind of risk",
+   "x": -2.3,
+   "y": 176.1,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1"
+   ]
   },
   {
    "id": "ted-cruz",
    "name": "Ted Cruz",
    "initials": "TC",
    "school": "Free-market builders",
-   "x": -6.3,
-   "y": -212.6
+   "x": 56.3,
+   "y": -209.0,
+   "path": [
+    "c3",
+    "c3.2",
+    "c3.2.1"
+   ]
   },
   {
    "id": "timnit-gebru",
    "name": "Timnit Gebru",
    "initials": "TG",
    "school": "Human-first critics",
-   "x": -159.8,
-   "y": 55.7
+   "x": -177.1,
+   "y": 54.2,
+   "path": [
+    "c2",
+    "c2.2",
+    "c2.2.1"
+   ]
   },
   {
    "id": "tristan-harris",
    "name": "Tristan Harris",
    "initials": "TH",
-   "school": "Public-interest safety",
-   "x": 11.2,
-   "y": 138.1
+   "school": "AI as a new kind of risk",
+   "x": -0.6,
+   "y": 128.0,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.2"
+   ]
   },
   {
    "id": "tyler-cowen",
    "name": "Tyler Cowen",
    "initials": "TC",
    "school": "Free-market builders",
-   "x": 75.0,
-   "y": -200.1,
-   "provisional": true
+   "x": 104.8,
+   "y": -198.5,
+   "path": [
+    "c3",
+    "c3.1"
+   ]
   },
   {
    "id": "venkatesh-rao",
    "name": "Venkatesh Rao",
    "initials": "VR",
-   "school": null,
-   "x": 124.9,
-   "y": -121.9,
-   "provisional": true
+   "school": "Free-market builders",
+   "x": 148.8,
+   "y": -176.0,
+   "path": [
+    "c3",
+    "c3.2",
+    "c3.2.2"
+   ]
   },
   {
    "id": "vitalik-buterin",
    "name": "Vitalik Buterin",
    "initials": "VB",
-   "school": "Public-interest safety",
-   "x": 94.2,
-   "y": 121.6,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 92.7,
+   "y": 124.3,
+   "path": [
+    "c1",
+    "c1.5"
+   ]
   },
   {
    "id": "william-macaskill",
    "name": "William MacAskill",
    "initials": "WM",
-   "school": "Public-interest safety",
-   "x": 74.0,
-   "y": 176.6,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 95.5,
+   "y": 142.6,
+   "path": [
+    "c1",
+    "c1.2",
+    "c1.2.2"
+   ]
   },
   {
    "id": "william-saunders",
    "name": "William Saunders",
    "initials": "WS",
-   "school": "Public-interest safety",
-   "x": 29.2,
-   "y": 81.0,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 40.9,
+   "y": 75.0,
+   "path": [
+    "c1",
+    "c1.6"
+   ]
   },
   {
    "id": "yann-lecun",
    "name": "Yann LeCun",
    "initials": "YL",
    "school": "Free-market builders",
-   "x": -22.0,
-   "y": -223.9
+   "x": 38.1,
+   "y": -225.4,
+   "path": [
+    "c3",
+    "c3.1",
+    "c3.1.3"
+   ]
   },
   {
    "id": "yoshua-bengio",
    "name": "Yoshua Bengio",
    "initials": "YB",
-   "school": "Public-interest safety",
-   "x": 29.4,
-   "y": 167.5
+   "school": "AI as a new kind of risk",
+   "x": 10.3,
+   "y": 167.0,
+   "path": [
+    "c1",
+    "c1.1",
+    "c1.1.1",
+    "c1.1.1.1"
+   ]
   },
   {
    "id": "yuval-noah-harari",
    "name": "Yuval Noah Harari",
    "initials": "YH",
-   "school": "Public-interest safety",
-   "x": 51.3,
-   "y": 185.3,
-   "provisional": true
+   "school": "AI as a new kind of risk",
+   "x": 50.2,
+   "y": 187.9,
+   "provisional": true,
+   "path": [
+    "c1"
+   ]
   },
   {
    "id": "zvi-mowshowitz",
    "name": "Zvi Mowshowitz",
    "initials": "ZM",
-   "school": "Public-interest safety",
-   "x": 79.8,
-   "y": 144.2
+   "school": "AI as a new kind of risk",
+   "x": 57.7,
+   "y": 137.3,
+   "path": [
+    "c1",
+    "c1.6"
+   ]
   }
  ],
  "schools": [
   {
+   "label": "AI as a new kind of risk",
+   "members": [
+    "bernie-sanders",
+    "chris-murphy",
+    "daniel-kokotajlo",
+    "dario-amodei",
+    "demis-hassabis",
+    "eliezer-yudkowsky",
+    "elon-musk",
+    "geoffrey-hinton",
+    "holly-elmore",
+    "jack-clark",
+    "leopold-aschenbrenner",
+    "max-tegmark",
+    "mustafa-suleyman",
+    "sam-altman",
+    "samuel-hammond",
+    "scott-alexander",
+    "stuart-russell",
+    "tristan-harris",
+    "vitalik-buterin",
+    "william-macaskill",
+    "william-saunders",
+    "yoshua-bengio",
+    "zvi-mowshowitz"
+   ]
+  },
+  {
    "label": "Human-first critics",
    "members": [
+    "audrey-tang",
     "barack-obama",
     "brian-merchant",
     "daron-acemoglu",
     "e-glen-weyl",
+    "ed-zitron",
+    "gary-marcus",
     "jaron-lanier",
     "josh-hawley",
     "karen-hao",
@@ -1104,44 +1385,576 @@
   {
    "label": "Free-market builders",
    "members": [
+    "balaji-srinivasan",
     "david-sacks",
     "dean-ball",
     "guillaume-verdon",
+    "jason-crawford",
     "jd-vance",
     "marc-andreessen",
+    "mark-zuckerberg",
     "michael-kratsios",
     "robin-hanson",
     "ted-cruz",
+    "tyler-cowen",
+    "venkatesh-rao",
     "yann-lecun"
    ]
   },
   {
-   "label": "Public-interest safety",
+   "label": "Skeptics of hype and of pausing",
    "members": [
-    "bernie-sanders",
-    "chris-murphy",
-    "demis-hassabis",
-    "holly-elmore",
-    "max-tegmark",
-    "stuart-russell",
-    "tristan-harris",
-    "yoshua-bengio",
-    "zvi-mowshowitz"
-   ]
-  },
-  {
-   "label": "AGI is near",
-   "members": [
-    "daniel-kokotajlo",
-    "eliezer-yudkowsky",
-    "elon-musk",
-    "leopold-aschenbrenner",
-    "noah-smith",
-    "sam-altman",
-    "scott-alexander"
+    "arvind-narayanan",
+    "curtis-yarvin",
+    "peter-thiel"
    ]
   }
  ],
+ "tree": {
+  "roots": [
+   "c1",
+   "c2",
+   "c3",
+   "c4"
+  ],
+  "nodes": {
+   "c1": {
+    "id": "c1",
+    "level": 0,
+    "label": "AI as a new kind of risk",
+    "note": "They see AI as a new kind of mind whose gravest dangers come from the systems themselves, not only from misuse, and they doubt that earlier technologies are a good guide.",
+    "cohesion": 0.363,
+    "parent": null,
+    "members": [
+     "bernie-sanders",
+     "chris-murphy",
+     "daniel-kokotajlo",
+     "dario-amodei",
+     "demis-hassabis",
+     "eliezer-yudkowsky",
+     "elon-musk",
+     "geoffrey-hinton",
+     "holly-elmore",
+     "jack-clark",
+     "leopold-aschenbrenner",
+     "max-tegmark",
+     "mustafa-suleyman",
+     "sam-altman",
+     "samuel-hammond",
+     "scott-alexander",
+     "stuart-russell",
+     "tristan-harris",
+     "vitalik-buterin",
+     "william-macaskill",
+     "william-saunders",
+     "yoshua-bengio",
+     "zvi-mowshowitz"
+    ],
+    "attached": [
+     "andrew-yang",
+     "dwarkesh-patel",
+     "helen-toner",
+     "miles-brundage",
+     "yuval-noah-harari"
+    ],
+    "children": [
+     "c1.1",
+     "c1.2",
+     "c1.3",
+     "c1.4",
+     "c1.5",
+     "c1.6"
+    ]
+   },
+   "c1.1": {
+    "id": "c1.1",
+    "level": 1,
+    "label": "Slow it down and govern it",
+    "note": "They want the most powerful AI slowed and governed in public, would never let AI decide on its own to kill, doubt AI leaders are being honest about the risks, and reject racing China.",
+    "cohesion": 0.64,
+    "parent": "c1",
+    "members": [
+     "bernie-sanders",
+     "chris-murphy",
+     "daniel-kokotajlo",
+     "holly-elmore",
+     "max-tegmark",
+     "stuart-russell",
+     "tristan-harris",
+     "yoshua-bengio"
+    ],
+    "attached": [],
+    "children": [
+     "c1.1.1",
+     "c1.1.2"
+    ]
+   },
+   "c1.1.1": {
+    "id": "c1.1.1",
+    "level": 2,
+    "label": "Stop and regulate",
+    "note": "They hold all three together: the risk of extinction is real, frontier developers need binding rules, and the most powerful systems should be slowed or stopped.",
+    "cohesion": 0.693,
+    "parent": "c1.1",
+    "members": [
+     "bernie-sanders",
+     "daniel-kokotajlo",
+     "holly-elmore",
+     "max-tegmark",
+     "stuart-russell",
+     "yoshua-bengio"
+    ],
+    "attached": [],
+    "children": [
+     "c1.1.1.1"
+    ]
+   },
+   "c1.1.1.1": {
+    "id": "c1.1.1.1",
+    "level": 3,
+    "label": "Kokotajlo and Bengio",
+    "note": "Loss of control and extinction come first for them, and authority over AI should stay with the public.",
+    "cohesion": 0.843,
+    "parent": "c1.1.1",
+    "members": [
+     "daniel-kokotajlo",
+     "yoshua-bengio"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.1.2": {
+    "id": "c1.1.2",
+    "level": 2,
+    "label": "Murphy and Harris",
+    "note": "The risk is real, the future is a choice, and productivity alone won't look after workers.",
+    "cohesion": 0.767,
+    "parent": "c1.1",
+    "members": [
+     "chris-murphy",
+     "tristan-harris"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.2": {
+    "id": "c1.2",
+    "level": 1,
+    "label": "Rationalists and long-termists",
+    "note": "They doubt collective choice can steer AI's course, think AI may come to deserve moral consideration, and want it slowed rather than raced against China.",
+    "cohesion": 0.529,
+    "parent": "c1",
+    "members": [
+     "eliezer-yudkowsky",
+     "elon-musk",
+     "geoffrey-hinton",
+     "scott-alexander",
+     "william-macaskill"
+    ],
+    "attached": [],
+    "children": [
+     "c1.2.1",
+     "c1.2.2"
+    ]
+   },
+   "c1.2.1": {
+    "id": "c1.2.1",
+    "level": 2,
+    "label": "Yudkowsky, Musk and Alexander",
+    "note": "They trust their own reasoning over the average of expert opinion, take extinction risk seriously, and don't think strict rules now would do more harm than good.",
+    "cohesion": 0.664,
+    "parent": "c1.2",
+    "members": [
+     "eliezer-yudkowsky",
+     "elon-musk",
+     "scott-alexander"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.2.2": {
+    "id": "c1.2.2",
+    "level": 2,
+    "label": "Hinton and MacAskill",
+    "note": "AI's promise is real and so is its risk: the danger to watch is the systems themselves, not only how people use them.",
+    "cohesion": 0.65,
+    "parent": "c1.2",
+    "members": [
+     "geoffrey-hinton",
+     "william-macaskill"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.3": {
+    "id": "c1.3",
+    "level": 1,
+    "label": "Security realists",
+    "note": "Liberal ideals won't win on their own, the most capable models should stay closed, and the risk of extinction is real.",
+    "cohesion": 0.511,
+    "parent": "c1",
+    "members": [
+     "demis-hassabis",
+     "leopold-aschenbrenner",
+     "samuel-hammond"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.4": {
+    "id": "c1.4",
+    "level": 1,
+    "label": "Lab stewards",
+    "note": "AI is a new kind of mind, unlike any earlier technology, and where it takes society is still ours to choose.",
+    "cohesion": 0.64,
+    "parent": "c1",
+    "members": [
+     "jack-clark",
+     "mustafa-suleyman"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.5": {
+    "id": "c1.5",
+    "level": 1,
+    "label": "Hopeful builders",
+    "note": "They take the risk of extinction seriously and still see market-driven technology as good for people.",
+    "cohesion": 0.477,
+    "parent": "c1",
+    "members": [
+     "sam-altman",
+     "vitalik-buterin"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c1.6": {
+    "id": "c1.6",
+    "level": 1,
+    "label": "Safety insiders",
+    "note": "Former and current lab insiders and critics: the risk is real, AI isn't hype, and the most capable models shouldn't be released openly.",
+    "cohesion": 0.517,
+    "parent": "c1",
+    "members": [
+     "william-saunders",
+     "zvi-mowshowitz"
+    ],
+    "attached": [
+     "helen-toner"
+    ],
+    "children": []
+   },
+   "c2": {
+    "id": "c2",
+    "level": 0,
+    "label": "Human-first critics",
+    "note": "Market-driven technology doesn't serve people by itself, AI's promises are overblown, and rivalry with China is no reason to push ahead. The camp crosses left and right.",
+    "cohesion": 0.493,
+    "parent": null,
+    "members": [
+     "audrey-tang",
+     "barack-obama",
+     "brian-merchant",
+     "daron-acemoglu",
+     "e-glen-weyl",
+     "ed-zitron",
+     "gary-marcus",
+     "jaron-lanier",
+     "josh-hawley",
+     "karen-hao",
+     "meredith-whittaker",
+     "paul-kingsnorth",
+     "pope-leo-xiv",
+     "timnit-gebru"
+    ],
+    "attached": [
+     "david-autor",
+     "liz-shuler",
+     "rumman-chowdhury",
+     "safiya-noble"
+    ],
+    "children": [
+     "c2.1",
+     "c2.2"
+    ]
+   },
+   "c2.1": {
+    "id": "c2.1",
+    "level": 1,
+    "label": "Democratic humanists",
+    "note": "AI is a tool, not a mind, and how it reshapes work and society is a democratic choice.",
+    "cohesion": 0.649,
+    "parent": "c2",
+    "members": [
+     "audrey-tang",
+     "barack-obama",
+     "brian-merchant",
+     "daron-acemoglu",
+     "e-glen-weyl",
+     "jaron-lanier",
+     "josh-hawley",
+     "karen-hao",
+     "pope-leo-xiv"
+    ],
+    "attached": [
+     "liz-shuler"
+    ],
+    "children": [
+     "c2.1.1"
+    ]
+   },
+   "c2.1.1": {
+    "id": "c2.1.1",
+    "level": 2,
+    "label": "Power and labour critics",
+    "note": "On its current course AI concentrates wealth and power, the people it trains on should be paid, and the hype runs ahead of the facts.",
+    "cohesion": 0.833,
+    "parent": "c2.1",
+    "members": [
+     "brian-merchant",
+     "daron-acemoglu",
+     "e-glen-weyl",
+     "jaron-lanier",
+     "josh-hawley",
+     "karen-hao"
+    ],
+    "attached": [
+     "liz-shuler"
+    ],
+    "children": [
+     "c2.1.1.1"
+    ]
+   },
+   "c2.1.1.1": {
+    "id": "c2.1.1.1",
+    "level": 3,
+    "label": "Merchant, Acemoglu, Weyl, Hawley and Hao",
+    "note": "Left and right together: the public, not executives or experts, should decide, and power is concentrating.",
+    "cohesion": 0.868,
+    "parent": "c2.1.1",
+    "members": [
+     "brian-merchant",
+     "daron-acemoglu",
+     "e-glen-weyl",
+     "josh-hawley",
+     "karen-hao"
+    ],
+    "attached": [
+     "liz-shuler"
+    ],
+    "children": []
+   },
+   "c2.2": {
+    "id": "c2.2",
+    "level": 1,
+    "label": "Hype and harms critics",
+    "note": "Talk of extinction distracts from the harms AI does now; AI isn't a mind, and the hype is the problem.",
+    "cohesion": 0.693,
+    "parent": "c2",
+    "members": [
+     "ed-zitron",
+     "gary-marcus",
+     "meredith-whittaker",
+     "timnit-gebru"
+    ],
+    "attached": [
+     "safiya-noble"
+    ],
+    "children": [
+     "c2.2.1"
+    ]
+   },
+   "c2.2.1": {
+    "id": "c2.2.1",
+    "level": 2,
+    "label": "Whittaker and Gebru",
+    "note": "They reject the extinction framing and the idea of AI as a mind; its direction is a choice people make.",
+    "cohesion": 0.853,
+    "parent": "c2.2",
+    "members": [
+     "meredith-whittaker",
+     "timnit-gebru"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3": {
+    "id": "c3",
+    "level": 0,
+    "label": "Free-market builders",
+    "note": "AI won't concentrate power, the risk of extinction is overblown, and the state should stay out of directing AI.",
+    "cohesion": 0.421,
+    "parent": null,
+    "members": [
+     "balaji-srinivasan",
+     "david-sacks",
+     "dean-ball",
+     "guillaume-verdon",
+     "jason-crawford",
+     "jd-vance",
+     "marc-andreessen",
+     "mark-zuckerberg",
+     "michael-kratsios",
+     "robin-hanson",
+     "ted-cruz",
+     "tyler-cowen",
+     "venkatesh-rao",
+     "yann-lecun"
+    ],
+    "attached": [
+     "daniel-jeffries"
+    ],
+    "children": [
+     "c3.1",
+     "c3.2",
+     "c3.3"
+    ]
+   },
+   "c3.1": {
+    "id": "c3.1",
+    "level": 1,
+    "label": "Human-centred builders",
+    "note": "AI is a tool that should serve people; work gives people dignity, and slowing AI down would be a mistake.",
+    "cohesion": 0.505,
+    "parent": "c3",
+    "members": [
+     "david-sacks",
+     "dean-ball",
+     "jd-vance",
+     "marc-andreessen",
+     "mark-zuckerberg",
+     "michael-kratsios",
+     "tyler-cowen",
+     "yann-lecun"
+    ],
+    "attached": [],
+    "children": [
+     "c3.1.1",
+     "c3.1.2",
+     "c3.1.3"
+    ]
+   },
+   "c3.1.1": {
+    "id": "c3.1.1",
+    "level": 2,
+    "label": "Sacks and Andreessen",
+    "note": "Competition limits harm, fear of AI outruns the evidence, and extinction risk isn't real.",
+    "cohesion": 0.64,
+    "parent": "c3.1",
+    "members": [
+     "david-sacks",
+     "marc-andreessen"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3.1.2": {
+    "id": "c3.1.2",
+    "level": 2,
+    "label": "Vance and Kratsios",
+    "note": "Technology's course is a choice for a free, self-governing people, and AI's promise is real.",
+    "cohesion": 0.783,
+    "parent": "c3.1",
+    "members": [
+     "jd-vance",
+     "michael-kratsios"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3.1.3": {
+    "id": "c3.1.3",
+    "level": 2,
+    "label": "Zuckerberg and LeCun",
+    "note": "AI should serve people, misuse is the real danger, earlier technologies are a good guide, and models should be open.",
+    "cohesion": 0.667,
+    "parent": "c3.1",
+    "members": [
+     "mark-zuckerberg",
+     "yann-lecun"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3.2": {
+    "id": "c3.2",
+    "level": 1,
+    "label": "Accelerationists",
+    "note": "AI is a new kind of mind that may deserve moral consideration, and humanity needn't be its final end.",
+    "cohesion": 0.578,
+    "parent": "c3",
+    "members": [
+     "guillaume-verdon",
+     "robin-hanson",
+     "ted-cruz",
+     "venkatesh-rao"
+    ],
+    "attached": [],
+    "children": [
+     "c3.2.1",
+     "c3.2.2"
+    ]
+   },
+   "c3.2.1": {
+    "id": "c3.2.1",
+    "level": 2,
+    "label": "Verdon and Cruz",
+    "note": "Fear outruns the evidence, markets serve people, and strict rules now would do more harm than good.",
+    "cohesion": 0.687,
+    "parent": "c3.2",
+    "members": [
+     "guillaume-verdon",
+     "ted-cruz"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3.2.2": {
+    "id": "c3.2.2",
+    "level": 2,
+    "label": "Hanson and Rao",
+    "note": "Don't slow AI down: extinction risk isn't real, and humanity needn't be AI's final end.",
+    "cohesion": 0.65,
+    "parent": "c3.2",
+    "members": [
+     "robin-hanson",
+     "venkatesh-rao"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c3.3": {
+    "id": "c3.3",
+    "level": 1,
+    "label": "Progress optimists",
+    "note": "AI is a tool, markets serve people, and AI won't concentrate power in a few companies.",
+    "cohesion": 0.557,
+    "parent": "c3",
+    "members": [
+     "balaji-srinivasan",
+     "jason-crawford"
+    ],
+    "attached": [],
+    "children": []
+   },
+   "c4": {
+    "id": "c4",
+    "level": 0,
+    "label": "Skeptics of hype and of pausing",
+    "note": "AI's promises are overblown and it isn't a new kind of mind, but slowing it down would be wrong too; the dangers are in how people use it.",
+    "cohesion": 0.424,
+    "parent": null,
+    "members": [
+     "arvind-narayanan",
+     "curtis-yarvin",
+     "peter-thiel"
+    ],
+    "attached": [],
+    "children": []
+   }
+  }
+ },
  "camps": [
   {
    "id": "eacc",
@@ -5144,42 +5957,108 @@
     "work": "Basic Income, Not Basic Jobs: Against Hijacking Utopia"
    }
   },
-  "no-autonomous-lethal-force": {
-   "dario-amodei": {
+  "open-weights-frontier-models": {
+   "arvind-narayanan": {
+    "a": 1,
+    "q": "Defending against this category of risk requires increasing resilience by preventing the concentration of power and resources (which often means making powerful AI more widely available).",
+    "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+    "work": "AI as Normal Technology"
+   },
+   "daniel-kokotajlo": {
     "a": -1,
-    "q": "Even fully autonomous weapons (those that take humans out of the loop entirely and automate selecting and engaging targets) may prove critical for our national defense.",
-    "url": "https://www.anthropic.com/news/statement-department-of-war",
-    "work": "Statement from Dario Amodei on our discussions with the Department of War"
+    "q": "the scientific community is able to do alignment research on the latest models and critique the safety case, and yet terrorists don’t have access to the weights.",
+    "url": "https://www.lesswrong.com/posts/FGqfdJmB8MSH5LKGc/training-agi-in-secret-would-be-unsafe-and-unethical-1",
+    "work": "Training AGI in Secret would be Unsafe and Unethical"
+   },
+   "demis-hassabis": {
+    "a": -1,
+    "q": "I don’t know what the answer is to that, but I haven’t heard a compelling, clear answer to that from proponents of just open sourcing everything. So I think there has to be some balance there.",
+    "url": "https://www.dwarkesh.com/p/demis-hassabis",
+    "work": "Demis Hassabis: Scaling, superhuman AIs, AlphaZero atop LLMs, AlphaFold"
+   },
+   "dwarkesh-patel": {
+    "a": -1,
+    "q": "At the end of the essay, Marc advocates for free proliferation of open source AI. If the real threat from AI is that China catches up to American companies, then surely this is a bad idea.",
+    "url": "https://www.dwarkesh.com/p/contra-marc-andreessen-on-ai",
+    "work": "Contra Marc Andreessen on AI"
+   },
+   "elon-musk": {
+    "a": 1,
+    "q": "I think I’m generally in favor of open sourcing, biased towards open sourcing.",
+    "url": "https://lexfridman.com/elon-musk-4-transcript/",
+    "work": "Elon Musk: War, AI, Aliens, Politics, Physics, Video Games, and Humanity (Lex Fridman Podcast #400)"
+   },
+   "helen-toner": {
+    "a": -1,
+    "q": "The current status quo—where new models that push the frontier are kept private, and openly available equivalents are only released after a lag of months or years—is valuable.",
+    "url": "https://helentoner.substack.com/p/nonproliferation-is-the-wrong-approach",
+    "work": "Nonproliferation is the wrong approach to AI misuse"
+   },
+   "jensen-huang": {
+    "a": -1,
+    "q": "Second, I think we rightfully recognize that on the one hand, we want world-class models as products, and they should be proprietary.",
+    "url": "https://lexfridman.com/jensen-huang-transcript/",
+    "work": "Transcript for Jensen Huang: NVIDIA, the $4 Trillion Company and the AI Revolution (Lex Fridman Podcast #494)"
    },
    "leopold-aschenbrenner": {
     "a": -1,
-    "q": "only deploying the specific technologies they invent (e.g., more limited autonomous weapons systems that we’re more confident we can trust)",
-    "url": "https://situational-awareness.ai/superalignment/",
-    "work": "IIIc. Superalignment"
+    "q": "The issue with simply open sourcing everything is that it’s not a happy world of a thousand flowers blooming in the US, but a world in which the CCP has free access to US-developed superintelligence",
+    "url": "https://situational-awareness.ai/the-project/",
+    "work": "IV. The Project"
    },
-   "max-tegmark": {
+   "mark-zuckerberg": {
     "a": 1,
-    "q": "One is that we should avoid an arms race and lethal autonomous weapons.",
-    "url": "https://www.ted.com/talks/max_tegmark_how_to_get_empowered_not_overpowered_by_ai/transcript",
-    "work": "How to get empowered, not overpowered, by AI"
+    "q": "I believe that open source is necessary for a positive AI future.",
+    "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+    "work": "Open Source AI Is the Path Forward"
    },
-   "pope-leo-xiv": {
-    "a": 1,
-    "q": "Therefore, it is not permissible to entrust lethal or otherwise irreversible decisions to artificial systems.",
-    "url": "https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html",
-    "work": "Magnifica Humanitas: Encyclical on safeguarding the human person in the time of Artificial Intelligence"
+   "miles-brundage": {
+    "a": -1,
+    "q": "sometimes society will just not yet be pandemic-proof and it will be irresponsible to \"democratize\" biological weapon creation right away.",
+    "url": "https://milesbrundage.substack.com/p/why-we-need-to-think-bigger-in-ai",
+    "work": "Why We Need to Think Bigger in AI Policy (Literally)"
+   },
+   "reid-hoffman": {
+    "a": -1,
+    "q": "OpenAI is not about open source development — the technology needs to be developed and shaped for the right outcomes and safety.",
+    "url": "https://www.linkedin.com/pulse/openai-ai-futures-reid-hoffman/",
+    "work": "OpenAI and AI Futures"
+   },
+   "samuel-hammond": {
+    "a": -1,
+    "q": "Within the next two years, frontier models will cross capability thresholds that even many open source advocates will agree are dangerous to open source ex ante.",
+    "url": "https://www.secondbest.ca/p/ninety-five-theses-on-ai",
+    "work": "Ninety-five theses on AI"
    },
    "stuart-russell": {
+    "a": -1,
+    "q": "These risks are all drama5cally increased by the availability of open-source LLMs,",
+    "url": "https://aima.eecs.berkeley.edu/~russell/papers/russell-senate23b-statement.pdf",
+    "work": "Written Statement for the U.S. Senate AI Forum on 'Risk, Alignment, & Guarding Against Doomsday Scenarios'"
+   },
+   "william-saunders": {
+    "a": -1,
+    "q": "Anything that enables competitors to replicate technology and catch up: Keep Secure",
+    "url": "https://williamrsaunders.substack.com/p/pragmatic-advice-on-ai-regulation",
+    "work": "Pragmatic Advice on AI Regulation"
+   },
+   "yann-lecun": {
     "a": 1,
-    "q": "In the view of many AI researchers, there should be a ban on algorithms that can decide to kill human beings.",
-    "url": "https://aima.eecs.berkeley.edu/~russell/papers/russell-senate23-written.pdf",
-    "work": "Written Testimony before the U.S. Senate Judiciary Subcommittee on Privacy, Technology, & the Law ('Oversight of A.I.: Principles for Regulation')"
+    "q": "So the future has to be open source, if nothing else, for reasons of cultural diversity, democracy, diversity.",
+    "url": "https://time.com/6694432/yann-lecun-meta-ai-interview/",
+    "work": "Meta's AI Chief Yann LeCun on AGI, Open-Source, and AI Risk"
    },
    "yoshua-bengio": {
-    "a": 1,
-    "q": "It goes without saying that lethal autonomous weapons (also known as killer robots) are absolutely[ to be banned (since from day 1 the AI system has autonomy and the ability to kill).",
-    "url": "https://yoshuabengio.org/2023/05/22/how-rogue-ais-may-arise/",
-    "work": "How Rogue AIs may Arise"
+    "a": -1,
+    "q": "If we had the DNA sequence of an extremely dangerous virus, would it be best to share it publicly or not? If the answer is obvious to you in this case, think twice about the case for AGI algorithms and parameters.",
+    "url": "https://yoshuabengio.org/2024/07/09/reasoning-through-arguments-against-taking-ai-safety-seriously/",
+    "work": "Reasoning through arguments against taking AI safety seriously"
+   },
+   "zvi-mowshowitz": {
+    "a": -1,
+    "q": "I won’t belabor why I think this would likely get us killed and is categorically insane.",
+    "url": "https://thezvi.substack.com/p/deepseek-panic-at-the-app-store",
+    "work": "DeepSeek Panic at the App Store"
    }
   }
  },

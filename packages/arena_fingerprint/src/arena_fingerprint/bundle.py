@@ -128,6 +128,26 @@ def place_newcomers(
     return placed
 
 
+def flat_tree(tree: list[dict], shown: set[str]) -> dict:
+    """Every group by id, with its parent and children, for the browser to walk."""
+    nodes: dict[str, dict] = {}
+
+    def add(node: dict, parent: str | None) -> None:
+        nodes[node["id"]] = {
+            "id": node["id"], "level": node["level"], "label": node["label"],
+            "note": node["note"], "cohesion": node["cohesion"], "parent": parent,
+            "members": [m for m in node["members"] if m in shown],
+            "attached": [m for m in node["attached"] if m in shown],
+            "children": [c["id"] for c in node["children"]],
+        }  # fmt: skip
+        for child in node["children"]:
+            add(child, node["id"])
+
+    for top in tree:
+        add(top, None)
+    return {"roots": [t["id"] for t in tree], "nodes": nodes}
+
+
 def build_bundle(
     atlas: dict,
     flagged: set[str],
@@ -223,6 +243,7 @@ def build_bundle(
                 "y": p["y"],
                 **({"provisional": True} if p.get("provisional") else {}),
                 **({"between": p["between"]} if p.get("between") else {}),
+                **({"path": p["path"]} if p.get("path") else {}),
             }
             for p in sorted(people.values(), key=lambda p: p["id"])
         ]
@@ -230,6 +251,8 @@ def build_bundle(
         "schools": [
             {"label": s["label"], "members": s["members"]} for s in atlas["schools"] if s["label"]
         ],
+        # the drill-down: camps, the schools inside them, and the tighter groups inside those
+        "tree": flat_tree(atlas.get("tree", []), set(people) - flagged),
         "camps": CAMPS,
         "stances": stances,
         # signature positions in each thinker's own words (seed/thinker-voices.json, checked)

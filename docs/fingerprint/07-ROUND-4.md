@@ -26,26 +26,49 @@ Owner: Benjamin Life. Run by Claude at Benjamin's direction (D-31.20): widen the
   - Liability, whistleblower protection, workers' say, antitrust and public AI were left out for the opposite reason: no one on the record yet takes the other side.
 - **Shown: 88 people, 659 stances on the 27 statements.** People with fewer than 5 audited stances are not shown yet (41, mostly from the gap round, plus Khan, DeSantis, Newsom, Haugen, Leike and Klein).
 
-## Schools (redrawn)
-Drawn among the 36 people with 12 or more stances (`scripts/draw_schools.py`, `seed/drafts/round4-instrument.json`). Method:
-- agreement over shared statements only;
-- each statement weighted by 1 / its total |correlation| with the others, so one axis asked five ways gets about one vote;
-- Ward groups in a 5-axis weighted MDS embedding;
-- the count chosen by survival when the statements are resampled.
+## Camps, schools and close circles (redrawn twice; D-31.21)
+Benjamin, after the first redraw: "we vastly over-simplified the schools. its too homogenous now. we need to be able to drill down from wider camps into more and more specific clusters until we get to a new degree of really tight clusters."
 
-Four is the largest count that stays above 0.6 (adjusted Rand 0.62; five falls to 0.54).
+The four flat schools were the most a single cut could support. A hierarchy reads more out of the same evidence.
+- **Evidence:** the survey pool plus every atlas idea at least 4 people took a side on, in their own words, with both sides present (80 statements). People with at least 10 positions draw the groups (56).
+- **Consensus clustering** (`consensus`, `hierarchy` in `arena_fingerprint/instrument.py`). The groups are redrawn 300 times. Each time the statements are resampled with replacement, weighted down by overlap, and the number of groups is drawn at random from 3 to 14. Ward groups are formed in a weighted-MDS embedding. Counting how often each pair lands together gives a consensus matrix. Average linkage on it is cut at four depths: camps 25%, schools 42%, branches 60%, close circles 78%. A level that doesn't split a group is skipped. Every group reports its own cohesion (the mean share of redrawings in which two members land together).
+- **Others** go down the tree only while they clearly agree with one group more than its siblings (`attach`). A person between two camps is shown between them.
+- **Survey statements** are scored by how well they separate groups at the camp level and at the finest level, so the survey covers both.
 
-| School | Drew it | Joined |
-|---|---|---|
-| Human-first critics | Obama, Merchant, Acemoglu, Weyl, Lanier, Hawley, Hao, Whittaker, Kingsnorth, Pope Leo XIV, Gebru | Narayanan, Tang, Autor, Siddarth, Zitron, Bender, Shuler, Benjamin, Chowdhury, Zuboff |
-| Free-market builders | Sacks, Ball, Verdon, Vance, Andreessen, Kratsios, Hanson, Cruz, LeCun | Thierer, Srinivasan, Jeffries, Zuckerberg, Hoffman, Cowen |
-| Public-interest safety | Sanders, Murphy, Hassabis, Elmore, Tegmark, Russell, Harris, Bengio, Mowshowitz | Toner, Clark, Suleyman, Khanna, Buterin, MacAskill, Saunders, Harari |
-| AGI is near | Kokotajlo, Yudkowsky, Musk, Aschenbrenner, Noah Smith, Altman, Scott Alexander | Korinek, Faggella, Amodei |
+- **AI as a new kind of risk** (36%): Bernie Sanders, Chris Murphy, Daniel Kokotajlo, Dario Amodei, Demis Hassabis, Eliezer Yudkowsky, Elon Musk, Geoffrey Hinton, Holly Elmore, Jack Clark, Leopold Aschenbrenner, Max Tegmark, Mustafa Suleyman, Sam Altman, Samuel Hammond, Scott Alexander, Stuart Russell, Tristan Harris, Vitalik Buterin, William Macaskill, William Saunders, Yoshua Bengio, Zvi Mowshowitz
+  - **Slow it down and govern it** (64%): Bernie Sanders, Chris Murphy, Daniel Kokotajlo, Holly Elmore, Max Tegmark, Stuart Russell, Tristan Harris, Yoshua Bengio
+    - **Stop and regulate** (69%): Bernie Sanders, Daniel Kokotajlo, Holly Elmore, Max Tegmark, Stuart Russell, Yoshua Bengio
+      - **Kokotajlo and Bengio** (84%): Daniel Kokotajlo, Yoshua Bengio
+    - **Murphy and Harris** (77%): Chris Murphy, Tristan Harris
+  - **Rationalists and long-termists** (53%): Eliezer Yudkowsky, Elon Musk, Geoffrey Hinton, Scott Alexander, William Macaskill
+    - **Yudkowsky, Musk and Alexander** (66%): Eliezer Yudkowsky, Elon Musk, Scott Alexander
+    - **Hinton and MacAskill** (65%): Geoffrey Hinton, William Macaskill
+  - **Security realists** (51%): Demis Hassabis, Leopold Aschenbrenner, Samuel Hammond
+  - **Lab stewards** (64%): Jack Clark, Mustafa Suleyman
+  - **Hopeful builders** (48%): Sam Altman, Vitalik Buterin
+  - **Safety insiders** (52%): William Saunders, Zvi Mowshowitz
+- **Human-first critics** (49%): Audrey Tang, Barack Obama, Brian Merchant, Daron Acemoglu, E Glen Weyl, Ed Zitron, Gary Marcus, Jaron Lanier, Josh Hawley, Karen Hao, Meredith Whittaker, Paul Kingsnorth, Pope Leo Xiv, Timnit Gebru
+  - **Democratic humanists** (65%): Audrey Tang, Barack Obama, Brian Merchant, Daron Acemoglu, E Glen Weyl, Jaron Lanier, Josh Hawley, Karen Hao, Pope Leo Xiv
+    - **Power and labour critics** (83%): Brian Merchant, Daron Acemoglu, E Glen Weyl, Jaron Lanier, Josh Hawley, Karen Hao
+      - **Merchant, Acemoglu, Weyl, Hawley and Hao** (87%): Brian Merchant, Daron Acemoglu, E Glen Weyl, Josh Hawley, Karen Hao
+  - **Hype and harms critics** (69%): Ed Zitron, Gary Marcus, Meredith Whittaker, Timnit Gebru
+    - **Whittaker and Gebru** (85%): Meredith Whittaker, Timnit Gebru
+- **Free-market builders** (42%): Balaji Srinivasan, David Sacks, Dean Ball, Guillaume Verdon, Jason Crawford, Jd Vance, Marc Andreessen, Mark Zuckerberg, Michael Kratsios, Robin Hanson, Ted Cruz, Tyler Cowen, Venkatesh Rao, Yann Lecun
+  - **Human-centred builders** (50%): David Sacks, Dean Ball, Jd Vance, Marc Andreessen, Mark Zuckerberg, Michael Kratsios, Tyler Cowen, Yann Lecun
+    - **Sacks and Andreessen** (64%): David Sacks, Marc Andreessen
+    - **Vance and Kratsios** (78%): Jd Vance, Michael Kratsios
+    - **Zuckerberg and LeCun** (67%): Mark Zuckerberg, Yann Lecun
+  - **Accelerationists** (58%): Guillaume Verdon, Robin Hanson, Ted Cruz, Venkatesh Rao
+    - **Verdon and Cruz** (69%): Guillaume Verdon, Ted Cruz
+    - **Hanson and Rao** (65%): Robin Hanson, Venkatesh Rao
+  - **Progress optimists** (56%): Balaji Srinivasan, Jason Crawford
+- **Skeptics of hype and of pausing** (42%): Arvind Narayanan, Curtis Yarvin, Peter Thiel
 
-- **Between two schools (16):** Ocasio-Cortez, Nelson, Yang, Patel, Warren, Marcus, Hinton, Haidt, Buolamwini, Blackburn, Brundage, Buttigieg, Blumenthal, Noble, Hammond, Wiener.
-- **Not yet grouped (9):** Doctorow, Yarvin, Brynjolfsson, Li, Crawford, Huang, Land, Thiel, Rao.
+Result: 4 camps, 11 schools, 11 branches, 2 close circles. 10 more people are placed into the tree, 12 sit between camps, and 12 are not yet grouped.
 
-**Why Sanders is no longer with Altman.** Unweighted, the strongest split is extinction risk, and Sanders, Harris, Altman and Yudkowsky agree on all of the 5 to 10 statements each pair shares. Weighting down the many overlapping risk statements lets the social-contract statements count, and the risk camp separates. Public-interest safety wants AI slowed and governed, and rejects racing China. AGI is near expects a new kind of mind to arrive regardless, trusts lab leaders on risk, and favours sharing wealth directly. Kingsnorth now sits with the human-first critics, as the faith-and-progressive overlap found in the last audit suggested.
+**Recovery.** A grouped person answering as themselves finds their own camp first 89% of the time (top three: 96%). They find their own school first 70% of the time (top three: 75%). The finer the group, the more statements it takes to tell it apart.
+
+**On the site.** The Thinkers page and your result open on the camps. Selecting a camp redraws the map with its schools as regions, and so on down to close circles. Every group card shows a breadcrumb, its note, its cohesion, the groups inside it, its members, and where they agree and argue. A person's card shows their full path.
 
 ## How the statements intersect (the checks)
 - **Effective dimensions:**

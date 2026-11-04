@@ -1,7 +1,7 @@
 {
  "season": "season-2",
  "status": "chosen 2026-11-03 by the instrument checks (scripts/draw_schools.py, D-31.20) from a pool of 51 statements; replaces season 1 before launch (no participants yet)",
- "rule": "each statement has figures on both sides in their own words (at least 3 each, 7 in all, the smaller side at least a tenth), separates the schools, adds figures not yet covered, and is not a near-duplicate of one already chosen; 9 per set",
+ "rule": "each statement has figures on both sides in their own words (at least 3 each, 7 in all, the smaller side at least a tenth), separates the groups at every level of the tree (camps and the finest groups), adds figures not yet covered, and is not a near-duplicate of one already chosen; 9 per set",
  "statements": [
   {
    "id": "ai-new-kind-of-mind",
@@ -212,16 +212,16 @@
    "review": "passed blind reviews R1/R2 as drafted"
   },
   {
-   "id": "no-autonomous-lethal-force",
+   "id": "open-weights-frontier-models",
    "set": "action",
    "layer": "praxis",
-   "proposition": "AI systems should never be allowed to decide on their own to use lethal force.",
-   "display": "AI systems should never be allowed to decide on their own to use lethal force.",
-   "review": "passed blind reviews R1/R2 as drafted"
+   "proposition": "The most capable AI models should be released openly for anyone to use and modify.",
+   "display": "The most capable AI models should be released openly for anyone to use and modify.",
+   "review": "missing dimension proposed by blind reviewer(s) R2"
   }
  ],
  "notes": [
-  "Kept from season 1: 17 statements. New: 10 on AI and the social contract: ai-cuts-more-jobs-than-it-creates, ai-concentrates-power, ai-threatens-shared-truth, ai-can-be-real-companion, work-gives-dignity, ai-leaders-honest-about-risks, creators-owed-for-training, states-set-own-ai-rules, income-not-tied-to-work, no-autonomous-lethal-force.",
+  "Kept from season 1: 17 statements. New: 10 on AI and the social contract: ai-cuts-more-jobs-than-it-creates, ai-concentrates-power, ai-threatens-shared-truth, ai-can-be-real-companion, work-gives-dignity, ai-leaders-honest-about-risks, creators-owed-for-training, states-set-own-ai-rules, income-not-tied-to-work, open-weights-frontier-models.",
   "Dropped from season 1: direction-of-technology-is-chosen, freedom-compatible-with-democracy, liberal-ideals-carry-their-own-force, modesty-is-a-sound-default, binding-rules-for-frontier-ai, plurality-over-singularity, plan-control-early. Each has too few figures on one side of the record (for example binding rules for frontier AI, 52 to 3, and planning control early, 31 to 1) or too few figures in all.",
   "income-not-tied-to-work and direct-distribution-of-wealth-sound were flagged as overlapping by both blind reviewers; the data shows they separate figures differently enough to keep both."
  ]

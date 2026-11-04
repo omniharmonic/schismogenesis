@@ -422,7 +422,8 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     # a voice joins a school only on clear, distinctive evidence; otherwise it is shown as between
     # two schools, or as not yet grouped
     fitted = (
-        {p: {"school": drawn["people"][p]["school"], "between": drawn["people"][p]["between"]}
+        {p: {"school": drawn["people"][p]["school"],
+             "between": drawn["people"][p].get("between_camps", [])}
          for p in placed_by}
         if drawn is not None
         else {p: school_fit(p, stated, groups, layer) for p in placed_by}
@@ -597,6 +598,24 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
             if p in fitted and fitted[p]["between"] else {})}
         for p in everyone
     ]  # fmt: skip
+    tree_out = []
+    if drawn is not None and drawn.get("tree"):
+        # the drill-down: camps, schools inside them, and tighter groups inside those
+        given = copy.get("tree", {})
+
+        def labelled(node: dict) -> dict:
+            name = given.get(node["id"], {})
+            if set(name.get("members", [])) != set(node["members"]):
+                name = {}  # the drawing moved: never put an old name on a different group
+            return {"id": node["id"], "level": node["level"], "label": name.get("label", ""),
+                    "note": name.get("note", ""), "cohesion": node["cohesion"],
+                    "members": [m for m in node["members"] if m in place],
+                    "attached": [m for m in node["attached"] if m in place],
+                    "children": [labelled(c) for c in node["children"]]}  # fmt: skip
+
+        tree_out = [labelled(t) for t in drawn["tree"]]
+        for row in people_out:
+            row["path"] = drawn["people"].get(row["id"], {}).get("path", [])
     years = [i["year"] for i in ideas_out if i["year"]]
     fid = fidelity(space.matrix, points, neighbours=4)
     three_share = float(space.explained[:3].sum())
@@ -629,7 +648,8 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
             {"s": lk["from"], "t": lk["to"], "type": lk["type"], "source": lk["source"],
              "conf": lk["confidence"]} for lk in links
         ],
-        "families": family_out, "schools": schools_out, "forks": forks, "lenses": lenses,
+        "families": family_out, "schools": schools_out, "tree": tree_out, "forks": forks,
+        "lenses": lenses,
         "senses": senses,
         "belonging": belonging, "dropped": dropped, "rawChecks": checks,
         "checks": [

@@ -271,3 +271,79 @@ def smacof(d: np.ndarray, w: np.ndarray, dims: int = 2, iters: int = 400, seed: 
         np.fill_diagonal(bz, -bz.sum(1))
         x = vplus @ bz @ x
     return x - x.mean(0)
+
+
+def consensus(
+    table: Table, people: list[str], statements: list[str], weight: dict[str, float] | None = None,
+    runs: int = 300, counts: tuple[int, int] = (3, 14), seed: int = 0,
+) -> np.ndarray:  # fmt: skip
+    """How often each pair lands in the same group across many redrawings: statements resampled
+    with replacement, and the number of groups drawn at random from `counts` each time. Groups
+    that hold at every scale come out as high values; the hierarchy is read off this matrix."""
+    rng = np.random.default_rng(seed)
+    together = np.zeros((len(people), len(people)))
+    for _ in range(runs):
+        pick = list(rng.choice(statements, size=len(statements), replace=True))
+        tally = {s: pick.count(s) for s in set(pick)}
+        w = {s: c * (weight or {}).get(s, 1.0) for s, c in tally.items()}
+        d, shared = distances(table, people, list(tally), w)
+        labels = np.array(cluster(d, int(rng.integers(counts[0], counts[1] + 1)), shared))
+        together += np.equal.outer(labels, labels)
+    return together / runs
+
+
+@dataclass
+class Node:
+    """One group in the hierarchy; `level` is its depth (0 = the widest camps)."""
+
+    id: str
+    level: int
+    members: list[str]
+    cohesion: float  # mean share of redrawings in which two members land together
+    children: list["Node"]
+
+
+def hierarchy(
+    together: np.ndarray, people: list[str], levels: tuple[float, ...] = (0.35, 0.5, 0.7),
+    min_size: int = 2, min_camp: int = 3,
+) -> list[Node]:  # fmt: skip
+    """Nested groups from the consensus matrix: average linkage on 1 - together, cut where pairs
+    stay together at least `levels[i]` of the time. Cuts of one tree are nested, so every school
+    sits inside one camp and every tight cluster inside one school. Groups smaller than
+    `min_size` (or a camp smaller than `min_camp`) are not reported: their people stay one level
+    up (in the camp but no school), or ungrouped."""
+    z = linkage(squareform(1 - together, checks=False), "average")
+    index = {p: i for i, p in enumerate(people)}
+    cuts = [fcluster(z, 1 - t, "distance") for t in levels]
+
+    def cohesion(group: list[str]) -> float:
+        pairs = [together[index[a], index[b]] for a, b in itertools.combinations(group, 2)]
+        return round(float(np.mean(pairs)), 3) if pairs else 1.0
+
+    def build(level: int, pool: list[str], prefix: str) -> list[Node]:
+        if level >= len(levels):
+            return []
+        labels = cuts[level]
+        groups: dict[int, list[str]] = {}
+        for p in pool:
+            groups.setdefault(int(labels[index[p]]), []).append(p)
+        nodes = []
+        floor = min_camp if level == 0 else min_size
+        ordered = sorted(groups.values(), key=lambda g: (-len(g), g))
+        for n, group in enumerate(g for g in ordered if len(g) >= floor):
+            nid = f"{prefix}{n + 1}" if prefix else f"c{n + 1}"
+            children = build(level + 1, group, nid + ".")
+            # a level that doesn't split this group adds nothing: show the next real split
+            while len(children) == 1 and children[0].members == sorted(group):
+                children = children[0].children
+            nodes.append(Node(nid, level, sorted(group), cohesion(group), children))  # fmt: skip
+        return nodes
+
+    def renumber(level_nodes: list[Node], depth: int, prefix: str) -> None:
+        for n, node in enumerate(level_nodes):
+            node.level, node.id = depth, f"{prefix}{n + 1}" if prefix else f"c{n + 1}"
+            renumber(node.children, depth + 1, node.id + ".")
+
+    top = build(0, sorted(people), "")
+    renumber(top, 0, "")
+    return top

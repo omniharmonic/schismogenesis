@@ -77,3 +77,31 @@ def test_recovery_and_layout():
     x = smacof(d, shared)
     centre = {s: x[[i for i, p in enumerate(people) if truth[p] == s]].mean(0) for s in "abc"}
     assert np.linalg.norm(centre["a"] - centre["c"]) > np.linalg.norm(centre["a"] - centre["b"])
+
+
+def test_hierarchy_nests_camps_schools_and_clusters():
+    """Two camps split on 24 statements; inside each, two schools split on 8 more."""
+    from arena_fingerprint.instrument import consensus, hierarchy
+
+    rng = np.random.default_rng(3)
+    statements = [f"t{i}" for i in range(32)]
+    table, truth = {}, {}
+    for camp in (1, -1):
+        for school in (1, -1):
+            for k in range(6):
+                person = f"{camp}{school}{k}"
+                truth[person] = (camp, school)
+                profile = [camp] * 24 + [school] * 8
+                table[person] = {s: v if rng.random() > 0.05 else -v
+                                 for s, v in zip(statements, profile, strict=True)
+                                 if rng.random() > 0.2}  # fmt: skip
+    people = sorted(table)
+    together = consensus(table, people, statements, runs=60, counts=(2, 6))
+    camps = hierarchy(together, people, levels=(0.3, 0.6, 0.9))
+    assert len(camps) == 2
+    for camp in camps:
+        assert len({truth[p][0] for p in camp.members}) == 1
+        assert len(camp.children) == 2
+        for school in camp.children:
+            assert len({truth[p] for p in school.members}) == 1
+            assert school.cohesion > camp.cohesion

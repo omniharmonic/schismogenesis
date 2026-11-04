@@ -1,7 +1,24 @@
 // Click into the map: a card for any thinker (their stated positions, quote by quote, beside
 // your answers) and for any school (who is in it, what it agrees on, where it argues inside).
 import { agreement, plainStances } from "./fingerprint.js";
-import { esc, markSelected, schoolMembers, wireMap } from "./map.js";
+import { esc, mapSVG, markSelected, nodeMembers, schoolMembers, wireMap } from "./map.js";
+
+const LEVEL = ["Camp", "School", "Branch", "Close circle"];
+
+/** The chain of groups from the widest camp down to this one. */
+function lineage(bundle, id) {
+  const out = [];
+  for (let n = bundle.tree?.nodes?.[id]; n; n = bundle.tree.nodes[n.parent]) out.unshift(n);
+  return out;
+}
+
+/** Clickable steps from a camp down to a group (or to where a person sits). */
+function crumbs(bundle, ids) {
+  return ids.map((id) => {
+    const n = bundle.tree.nodes[id];
+    return `<button class="link-button crumb" data-node="${esc(id)}">${esc(n.label)}</button>`;
+  }).join(`<span class="crumb-sep" aria-hidden="true">›</span>`);
+}
 
 const SIDE = { 1: "Agrees", "-1": "Disagrees" };
 const YOU = { 1: "You agree", "-1": "You disagree", 0: "You're unsure" };
@@ -34,14 +51,19 @@ export function thinkerCard(bundle, id, answers = {}) {
   const summary = asked.length
     ? `<p class="card-score">You agree on <b>${same} of ${asked.length}</b> statements you both took a side on.</p>`
     : "";
-  const link = (label) => `<button class="link-button" data-school="${esc(label)}">${esc(label)}</button>`;
-  // a voice whose distinctive positions fit two schools about equally is shown between them
-  const school = t.school ? link(t.school)
+  const link = (label) => {
+    const camp = bundle.tree?.roots?.find((r) => bundle.tree.nodes[r].label === label);
+    return camp ? `<button class="link-button" data-node="${esc(camp)}">${esc(label)}</button>`
+      : `<button class="link-button" data-school="${esc(label)}">${esc(label)}</button>`;
+  };
+  // where they sit: the chain of groups as deep as their evidence goes, or between two camps
+  const school = t.path?.length ? crumbs(bundle, t.path)
+    : t.school ? link(t.school)
     : t.between ? `between ${link(t.between[0])} and ${link(t.between[1])}`
     : `<button class="link-button" data-school="">not yet grouped</button>`;
   return `<header class="card-head">
       <span class="badge big" aria-hidden="true">${esc(t.initials)}</span>
-      <div><h3 tabindex="-1">${esc(t.name)}</h3><p class="small muted">School: ${school}${t.provisional ? ". A newer voice: placed by agreement with the others, and grouped only on the positions that set a school apart." : ""}</p></div>
+      <div><h3 tabindex="-1">${esc(t.name)}</h3><p class="small muted">${t.path?.length ? "" : "School: "}${school}${t.provisional ? ". A newer voice: placed by agreement with the others, and grouped only on the positions that set a school apart." : ""}</p></div>
     </header>
     ${summary}
     ${(bundle.voices?.[id] || []).length ? `<h4>In their own words</h4><ul class="positions voices">${bundle.voices[id].map((v) => `<li>
@@ -56,6 +78,8 @@ export function thinkerCard(bundle, id, answers = {}) {
 
 /** A school: members, what it holds together, where it argues, and how you compare. */
 export function schoolCard(bundle, label, answers = {}) {
+  const camp = label && bundle.tree?.roots?.find((r) => bundle.tree.nodes[r].label === label);
+  if (camp) return nodeCard(bundle, camp, answers);
   const ids = schoolMembers(bundle, label);
   if (label === "") {
     return `<header class="card-head"><div><h3 tabindex="-1">Not yet grouped</h3>
@@ -95,6 +119,68 @@ export function schoolCard(bundle, label, answers = {}) {
     ${argued.length ? `<h4>Where they argue among themselves</h4><ul class="positions">${argued.slice(0, 5).map((e) => row(e, true)).join("")}</ul>` : ""}`;
 }
 
+
+/** Where a group's members agree and where they split, on the survey's statements. */
+function positionsHTML(bundle, ids, answers) {
+  const plain = plainStances(bundle);
+  const leaning = [], argued = [];
+  for (const a of bundle.anchors) {
+    const sides = ids.map((m) => plain[a.id]?.[m]).filter((v) => v !== undefined);
+    if (sides.length < 2) continue;
+    const up = sides.filter((v) => v === 1).length;
+    const share = Math.max(up, sides.length - up) / sides.length;
+    const entry = { a, side: up * 2 >= sides.length ? 1 : -1, up, n: sides.length, you: answers[a.id] };
+    if (share >= LEAN) leaning.push(entry); else argued.push(entry);
+  }
+  leaning.sort((x, y) => y.n - x.n);
+  const yours = leaning.filter((e) => e.you === 1 || e.you === -1);
+  const withYou = yours.filter((e) => e.you === e.side).length;
+  const row = (e, argue) => `<li><p class="serif">${esc(e.a.text)}</p><p class="sides">${argue
+      ? `<span class="chip split">${e.up} agree, ${e.n - e.up} disagree</span>`
+      : `<span class="chip ${CLS[e.side]}">${e.side === 1 ? "Agree" : "Disagree"}, ${e.side === 1 ? e.up : e.n - e.up} of ${e.n}</span>`}${e.you !== undefined ? chip(e.you, YOU) : ""}</p></li>`;
+  return `${yours.length ? `<p class="card-score">You side with this group on <b>${withYou} of ${yours.length}</b> statements where it leans one way.</p>` : ""}
+    ${leaning.length ? `<h4>What they hold together</h4><ul class="positions">${leaning.slice(0, 8).map((e) => row(e, false)).join("")}</ul>` : ""}
+    ${argued.length ? `<h4>Where they argue among themselves</h4><ul class="positions">${argued.slice(0, 5).map((e) => row(e, true)).join("")}</ul>` : ""}`;
+}
+
+/** A group anywhere in the drill-down: where it sits, the groups inside it, who is in it. */
+export function nodeCard(bundle, id, answers = {}) {
+  const n = bundle.tree?.nodes?.[id];
+  if (!n) return `<p>That group isn't on this map.</p>`;
+  const byId = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t]));
+  const agree = agreement(answers, plainStances(bundle));
+  const ids = nodeMembers(bundle, id);
+  const drew = new Set(n.members);
+  const chain = lineage(bundle, id);
+  const person = (pid) => {
+    const t = byId[pid], r = agree[pid];
+    if (!t) return "";
+    const score = r && r.n >= 3 ? `<span class="small muted">${r.k}/${r.n}</span>` : "";
+    return `<li><button class="person${drew.has(pid) ? "" : " is-new"}" data-thinker="${esc(pid)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>${esc(t.name)}${score}</button></li>`;
+  };
+  const kids = n.children.map((c) => bundle.tree.nodes[c]);
+  const inKids = new Set(kids.flatMap((k) => nodeMembers(bundle, k.id)));
+  const loose = ids.filter((pid) => !inKids.has(pid));
+  const together = Math.round(n.cohesion * 100);
+  return `<header class="card-head"><div>
+      ${chain.length > 1 ? `<p class="crumbs small">${crumbs(bundle, chain.slice(0, -1).map((x) => x.id))}</p>` : ""}
+      <p class="eyebrow-level small muted">${LEVEL[Math.min(n.level, LEVEL.length - 1)]}${kids.length ? `, ${kids.length} groups inside` : ""}</p>
+      <h3 tabindex="-1">${esc(n.label)}</h3>
+      <p class="serif">${esc(n.note)}</p>
+      <p class="small muted">${ids.length} thinkers. When we redraw the groups hundreds of times from resampled evidence, two of them land together ${together}% of the time. A group is something the data finds, not a label they chose.</p></div></header>
+    ${kids.length ? `<h4>Groups inside</h4><ul class="subgroups">${kids.map((k) => {
+      const kidIds = nodeMembers(bundle, k.id);
+      return `<li><button class="school-card small" data-node="${esc(k.id)}">
+        <span class="school-name">${esc(k.label)}</span>
+        <span class="faces" aria-hidden="true">${kidIds.slice(0, 6).map((x) => `<span class="badge">${esc(byId[x]?.initials || "")}</span>`).join("")}${kidIds.length > 6 ? `<span class="more">+${kidIds.length - 6}</span>` : ""}</span>
+        <span class="small muted">${kidIds.length} thinkers, together ${Math.round(k.cohesion * 100)}% of the time</span></button></li>`;
+    }).join("")}</ul>` : ""}
+    <h4>${kids.length ? "Everyone in it" : "Who is in it"}</h4>
+    <ul class="people-chips">${ids.map(person).join("")}</ul>
+    ${kids.length && loose.length ? `<p class="small muted">${loose.map((x) => esc(byId[x]?.name || x)).join(", ")} ${loose.length === 1 ? "sits" : "sit"} in this ${LEVEL[Math.min(n.level, 3)].toLowerCase()} without a closer group yet.</p>` : ""}
+    ${positionsHTML(bundle, ids, answers)}`;
+}
+
 /** One card per school, ordered by how close you are (or by size before you've answered). */
 export function schoolGrid(bundle, result = null) {
   const order = result?.schools?.map((s) => s.label) || [];
@@ -109,14 +195,18 @@ export function schoolGrid(bundle, result = null) {
       <span class="school-name">Not yet grouped</span>
       <span class="faces" aria-hidden="true">${loose.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${loose.length > 7 ? `<span class="more">+${loose.length - 7}</span>` : ""}</span>
       <span class="small muted">${loose.length} thinkers whose outlook doesn't yet match a school</span></button></li>` : "";
+  const campOf = Object.fromEntries((bundle.tree?.roots || []).map((r) => [bundle.tree.nodes[r].label, r]));
   return `<ul class="school-grid">${schools.map((s) => {
-    const ids = schoolMembers(bundle, s.label);
+    const node = campOf[s.label];
+    const ids = node ? nodeMembers(bundle, node) : schoolMembers(bundle, s.label);
     const best = ids.map((id) => rank[id]).filter(Boolean).sort((a, b) => b.s - a.s)[0];
-    const near = order[0] === s.label ? `<span class="tag">Your school</span>` : "";
-    return `<li><button class="school-card" data-school="${esc(s.label)}">
+    const near = order[0] === s.label ? `<span class="tag">Your camp</span>` : "";
+    const inside = node ? bundle.tree.nodes[node].children.map((c) => bundle.tree.nodes[c].label) : [];
+    return `<li><button class="school-card" ${node ? `data-node="${esc(node)}"` : `data-school="${esc(s.label)}"`}>
       <span class="school-name">${esc(s.label)}</span>${near}
       <span class="faces" aria-hidden="true">${ids.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${ids.length > 7 ? `<span class="more">+${ids.length - 7}</span>` : ""}</span>
       <span class="small muted">${ids.length} thinkers${best ? `. Closest to you: ${esc(best.name)}, ${best.k} of ${best.n}` : ""}</span>
+      ${inside.length ? `<span class="small inside">Inside: ${inside.map(esc).join(" · ")}</span>` : ""}
     </button></li>`;
   }).join("")}${looseCard}</ul>`;
 }
@@ -125,15 +215,23 @@ export function schoolGrid(bundle, result = null) {
  * Wire a map, a panel and (optionally) a school grid together. Selecting anything fills the
  * panel; on narrow screens the panel is scrolled into view. Back returns to the previous card.
  */
-export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, intro = "" }) {
+export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, intro = "", mapOptions = null }) {
   const history = [];
   let current = null;
+  let drawnFocus = null, focusNow = null;
   const render = () => {
     const back = history.length ? `<button class="link-button back" data-back>Back</button>` : "";
     const close = current ? `<button class="link-button" data-close>Close</button>` : "";
     panelEl.innerHTML = current
-      ? `<div class="panel-bar">${back}${close}</div>${current.thinker ? thinkerCard(bundle, current.thinker, answers) : schoolCard(bundle, current.school, answers)}`
+      ? `<div class="panel-bar">${back}${close}</div>${current.thinker ? thinkerCard(bundle, current.thinker, answers)
+        : current.node ? nodeCard(bundle, current.node, answers) : schoolCard(bundle, current.school, answers)}`
       : intro;
+    // drilling into a group redraws the map around it: its inner groups become the regions
+    const focus = current?.node || (current?.thinker ? null : focusNow);
+    if (mapOptions && focus !== drawnFocus) {
+      mapEl.innerHTML = mapSVG(bundle, { ...mapOptions, focus });
+      drawnFocus = focus;
+    }
     markSelected(mapEl, current || {});
     if (!current) return;
     panelEl.querySelector("h3")?.focus({ preventScroll: true });
@@ -141,18 +239,28 @@ export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, 
     else panelEl.scrollTop = 0;
   };
   const open = (next) => {
-    if (current && (current.thinker !== next.thinker || current.school !== next.school)) history.push(current);
+    if (current && (current.thinker !== next.thinker || current.school !== next.school || current.node !== next.node)) history.push(current);
     current = next;
+    if (next.node) focusNow = next.node;
+    else if (next.school !== undefined) focusNow = null;
     render();
   };
-  const handlers = { onThinker: (id) => open({ thinker: id }), onSchool: (label) => open({ school: label }) };
+  const handlers = { onThinker: (id) => open({ thinker: id }), onSchool: (label) => open({ school: label }),
+    onNode: (id) => open({ node: id }) };
   wireMap(mapEl, handlers);
   if (gridEl) wireMap(gridEl, handlers);
   panelEl.addEventListener("click", (e) => {
-    if (e.target.closest("[data-back]")) { current = history.pop() || null; render(); return; }
-    if (e.target.closest("[data-close]")) { history.length = 0; current = null; render(); return; }
+    if (e.target.closest("[data-back]")) {
+      current = history.pop() || null;
+      focusNow = current?.node || (current?.thinker ? focusNow : null);
+      render();
+      return;
+    }
+    if (e.target.closest("[data-close]")) { history.length = 0; current = null; focusNow = null; render(); return; }
     const t = e.target.closest("[data-thinker]");
     if (t) return open({ thinker: t.dataset.thinker });
+    const g = e.target.closest("[data-node]");
+    if (g) return open({ node: g.dataset.node });
     const s = e.target.closest("[data-school]");
     if (s) open({ school: s.dataset.school });
   });
