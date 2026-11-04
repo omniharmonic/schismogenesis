@@ -225,7 +225,7 @@ function renderReveal() {
         </div>
         <aside class="panel" id="reveal-panel" aria-live="polite"></aside>
       </div>
-      <h3 class="grid-title">The schools</h3>
+      <h3 class="grid-title">The camps, and the schools inside them</h3>
       <div id="reveal-schools">${schoolGrid(bundle, r)}</div>
       <p class="small"><a href="/atlas">Explore the full 3D atlas of ideas</a></p>
     </section>
