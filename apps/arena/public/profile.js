@@ -1,6 +1,6 @@
 // A published profile. The data comes embedded in the page; the bundle supplies names and quotes.
 import { valuesSVG } from "./glyph.js";
-import { esc } from "./map.js";
+import { badge, esc } from "./map.js";
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
   empirical: "What will happen", praxis: "What to do" };
@@ -25,7 +25,7 @@ async function main() {
     const name = names[m.id] || m.name || m.id;
     const initials = t?.initials || name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2);
     const label = t ? `<a href="/people#${esc(m.id)}">${esc(name)}</a>` : esc(name);
-    return `<li><span class="badge" aria-hidden="true">${esc(initials)}</span>
+    return `<li>${badge(t || { initials })}
     <span><b>${label}</b></span><span class="score"><b>${m.k} of ${m.n}</b><br><span class="small muted">agree</span></span></li>`;
   };
 

@@ -68,12 +68,12 @@
    "review": "passed blind reviews R1/R2 as drafted"
   },
   {
-   "id": "ai-can-be-real-companion",
+   "id": "direction-of-technology-is-chosen",
    "set": "being",
    "layer": "ontological",
-   "proposition": "An AI can be a genuine friend to a person.",
-   "display": "An AI can be a genuine friend to a person.",
-   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+   "proposition": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
+   "display": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development.",
+   "review": "season-1 wording, reviewed then; swapped in 2026-11-04 when the final audit left 'AI can be a genuine friend' with one figure agreeing"
   },
   {
    "id": "human-end-of-ai",
@@ -223,6 +223,7 @@
  "notes": [
   "Kept from season 1: 17 statements. New: 10 on AI and the social contract: ai-cuts-more-jobs-than-it-creates, ai-concentrates-power, ai-threatens-shared-truth, ai-can-be-real-companion, work-gives-dignity, ai-leaders-honest-about-risks, creators-owed-for-training, states-set-own-ai-rules, income-not-tied-to-work, open-weights-frontier-models.",
   "Dropped from season 1: direction-of-technology-is-chosen, freedom-compatible-with-democracy, liberal-ideals-carry-their-own-force, modesty-is-a-sound-default, binding-rules-for-frontier-ai, plurality-over-singularity, plan-control-early. Each has too few figures on one side of the record (for example binding rules for frontier AI, 52 to 3, and planning control early, 31 to 1) or too few figures in all.",
-  "income-not-tied-to-work and direct-distribution-of-wealth-sound were flagged as overlapping by both blind reviewers; the data shows they separate figures differently enough to keep both."
+  "income-not-tied-to-work and direct-distribution-of-wealth-sound were flagged as overlapping by both blind reviewers; the data shows they separate figures differently enough to keep both.",
+  "2026-11-04 final audit: 'An AI can be a genuine friend' swapped for 'How technology reshapes work and society is set by collective choices', chosen by the same rule, after weak stances were dropped."
  ]
 }

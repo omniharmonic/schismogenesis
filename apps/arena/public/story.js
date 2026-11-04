@@ -1,6 +1,6 @@
 // The Wrapped story: one idea per full-screen slide, in order, each savable as a story image.
 import { drawStory, canvasBlob, twistLine } from "./card.js";
-import { highlights } from "./fingerprint.js";
+import { highlights } from "./placement.js";
 import { glyphValues, valuesSVG } from "./glyph.js";
 import { esc, mapSVG } from "./map.js";
 

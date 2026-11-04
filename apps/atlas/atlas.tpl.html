@@ -56,6 +56,14 @@ p{margin:0 0 10px}
 #legend label{display:flex;gap:6px;align-items:center;cursor:pointer}
 #time{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:12px var(--mono);width:236px;box-sizing:border-box}
 #time input{width:100%}
+.navbar{display:flex;flex-direction:column;gap:6px;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.back{align-self:flex-start;background:none;border:1px solid var(--line);border-radius:3px;padding:6px 10px;font:14px/1.2 var(--display);color:var(--accent)}
+.back:hover{border-color:var(--accent)}
+.trail{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.trail .meta{margin-right:4px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px 0;font:13px/1.4 var(--display);margin:2px 0 4px}
+.crumbs > *:not(:last-child)::after{content:"›";color:var(--dim);margin:0 6px}
+.crumb{background:none;border:0;padding:2px 0;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.crumbs [aria-current]{color:var(--ink)}
 #search{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:3px;padding:6px 8px;font:14px var(--display)}
 #hits{margin-top:6px}
 #nogl{display:none;padding:16px}
@@ -98,7 +106,12 @@ const person = Object.fromEntries(A.people.map(p => [p.id,p]));
 const idea = Object.fromEntries(A.ideas.map(i => [i.id,i]));
 const schoolOf = id => A.schools.find(s => s.members.includes(id));
 const schoolColor = s => SCHOOL[A.schools.indexOf(s) % SCHOOL.length];
-const state = {tab:'start', person:null, second:null, idea:null, school:null, lens:null, family:null, hidden:new Set(), year:A.meta.last_year};
+const state = {tab:'start', person:null, second:null, idea:null, school:null, node:null, lens:null, family:null, hidden:new Set(), year:A.meta.last_year};
+/* the drill-down tree: camps, schools inside them, then branches and close circles */
+const TREE = {}; (function index(list, parent){ (list||[]).forEach(n => { TREE[n.id] = {...n, parent}; index(n.children, n.id); }); })(A.tree, null);
+const LEVEL = ['Camp','School','Branch','Close circle'];
+const lineage = id => { const out = []; for (let n = TREE[id]; n; n = TREE[n.parent]) out.unshift(n); return out; };
+const everyone = n => [...n.members, ...(n.attached||[])];
 const isMobile = () => innerWidth <= 760;
 const stageWidth = () => isMobile() ? innerWidth : innerWidth - 430;
 
@@ -126,6 +139,10 @@ function focusSet(){
   if (state.idea){
     const near = A.links.flatMap(l => l.s===state.idea?[l.t]:l.t===state.idea?[l.s]:[]);
     return new Set([state.idea, ...near, ...idea[state.idea].holders.map(h => h.p)]);
+  }
+  if (state.node){
+    const m = everyone(TREE[state.node]);
+    return new Set([...m, ...A.ideas.filter(i => i.holders.some(h => m.includes(h.p))).map(i => i.id)]);
   }
   if (state.school){
     const s = A.schools[state.school];
@@ -271,19 +288,98 @@ const HEIGHT_GAP = l => {
   return Math.max(24, Math.abs(a.fy-b.fy));
 };
 
-/* ---------- picks ---------- */
-function resetPicks(){ state.person = state.second = state.idea = state.school = state.lens = state.family = null; }
-function pickLens(i){ resetPicks(); state.lens = i; state.tab = 'lens'; render(); }
-function pickFamily(i){ resetPicks(); state.family = i; state.tab = 'family'; render(); }
-function pickPerson(id){
-  if (state.person && state.person!==id && !state.second && state.tab==='person'){ state.second = id; }
-  else { state.person = id; state.second = null; }
-  state.idea = state.school = state.lens = state.family = null; state.tab = 'person'; render();
+/* ---------- picks and navigation ----------
+   Every selection is a step in the browser's history, so Back (the button, Esc, or the browser's
+   own) returns to exactly where you were, and each view has a link you can share. */
+const KEYS = ['tab','person','second','idea','school','node','lens','family'];
+const snapshot = () => Object.fromEntries(KEYS.map(k => [k, state[k]]));
+function resetPicks(){ state.person = state.second = state.idea = state.school = state.node = state.lens = state.family = null; }
+function title(v){
+  if (v.person && v.second) return `${person[v.person]?.name} and ${person[v.second]?.name}`;
+  if (v.person) return person[v.person]?.name || 'a person';
+  if (v.idea) { const t = idea[v.idea]?.text || 'an idea'; return t.length > 48 ? t.slice(0, 46) + '…' : t; }
+  if (v.node) return TREE[v.node]?.label || 'a group';
+  if (v.lens !== null && v.lens !== undefined) return A.lenses[v.lens]?.label || 'a comparison';
+  if (v.family !== null && v.family !== undefined) return A.families.find(f => f.id === v.family)?.name || 'a family';
+  return (TABS.find(t => t[0] === v.tab) || ['', 'Start'])[1];
 }
-function pickIdea(id){ resetPicks(); state.idea = id; state.tab = 'idea'; render(); }
-function pickSchool(i){ resetPicks(); state.school = i; state.tab='schools'; render(); }
-function clearPick(){ resetPicks(); render(); }
-window.__atlas = {state, pickPerson, pickIdea, pickSchool, pickLens, pickFamily, clearPick};
+function hashOf(v){
+  if (v.person && v.second) return `#compare=${v.person},${v.second}`;
+  if (v.person) return `#person=${v.person}`;
+  if (v.idea) return `#idea=${v.idea}`;
+  if (v.node) return `#group=${v.node}`;
+  if (v.lens !== null && v.lens !== undefined) return `#lens=${v.lens}`;
+  if (v.family !== null && v.family !== undefined) return `#family=${v.family}`;
+  return v.tab && v.tab !== 'start' ? `#${v.tab}` : '#';
+}
+function fromHash(h){
+  const v = {tab:'start', person:null, second:null, idea:null, school:null, node:null, lens:null, family:null};
+  const [k, val] = decodeURIComponent(h.replace(/^#/, '')).split('=');
+  if (k === 'compare') { const [a, b] = val.split(','); if (person[a] && person[b]) Object.assign(v, {tab:'person', person:a, second:b}); }
+  else if (k === 'person' && person[val]) Object.assign(v, {tab:'person', person:val});
+  else if (k === 'idea' && idea[val]) Object.assign(v, {tab:'idea', idea:val});
+  else if (k === 'group' && TREE[val]) Object.assign(v, {tab:'schools', node:val});
+  else if (k === 'lens' && A.lenses[+val]) Object.assign(v, {tab:'lens', lens:+val});
+  else if (k === 'family' && A.families.some(f => String(f.id) === val)) Object.assign(v, {tab:'family', family:A.families.find(f => String(f.id) === val).id});
+  else if (TABS.some(t => t[0] === k)) v.tab = k;
+  return v;
+}
+const nav = {depth:0, trail:[]};
+function go(change){
+  const before = snapshot();
+  change();
+  const after = snapshot();
+  if (JSON.stringify(before) === JSON.stringify(after)) { render(); return; }
+  nav.depth += 1;
+  remember(after);
+  history.pushState({view:after, depth:nav.depth, from:title(before)}, '', hashOf(after) === '#' ? location.pathname : hashOf(after));
+  render(); fly();
+}
+function remember(v){
+  if (v.tab === 'start' && !v.person && !v.idea && !v.node) return;
+  const key = hashOf(v);
+  nav.trail = [{key, view:v, label:title(v)}, ...nav.trail.filter(t => t.key !== key)].slice(0, 6);
+}
+function back(){ if (nav.depth > 0) history.back(); else go(() => { resetPicks(); state.tab = 'start'; }); }
+addEventListener('popstate', e => {
+  const v = e.state?.view || fromHash(location.hash);
+  Object.assign(state, v); nav.depth = e.state?.depth || 0;
+  render(); fly();
+});
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !e.target.matches('input, textarea')) { e.preventDefault(); back(); }
+});
+function pickLens(i){ go(() => { resetPicks(); state.lens = i; state.tab = 'lens'; }); }
+function pickFamily(i){ go(() => { resetPicks(); state.family = i; state.tab = 'family'; }); }
+function pickPerson(id, fresh=false){
+  go(() => {
+    if (fresh) resetPicks();
+    if (state.person && state.person!==id && !state.second && state.tab==='person'){ state.second = id; }
+    else { state.person = id; state.second = null; }
+    state.idea = state.school = state.node = state.lens = state.family = null; state.tab = 'person';
+  });
+}
+function pickIdea(id){ go(() => { resetPicks(); state.idea = id; state.tab = 'idea'; }); }
+function pickSchool(i){ go(() => { resetPicks(); state.school = i; state.tab='schools'; }); }
+function pickNode(id){ go(() => { resetPicks(); state.node = id; state.tab='schools'; }); }
+function clearPick(){ go(() => { const tab = state.tab; resetPicks(); state.tab = ['person'].includes(tab) ? 'people' : ['idea','family'].includes(tab) ? 'ideas' : tab === 'lens' ? 'schools' : tab; }); }
+window.__atlas = {state, pickPerson, pickIdea, pickSchool, pickNode, pickLens, pickFamily, clearPick, back};
+
+/* the camera follows the selection: a person or idea up close, a group from a little further */
+const HOME = () => isMobile() ? [{x:0,y:640,z:760}, {x:0,y:-150,z:0}] : [{x:0,y:430,z:560}, {x:0,y:10,z:0}];
+function fly(){
+  if (!G) return;
+  let pts = [];
+  if (state.person) pts = [state.person, state.second].filter(Boolean).map(id => nodeById[id]);
+  else if (state.idea) pts = [nodeById[state.idea]];
+  else if (state.node) pts = everyone(TREE[state.node]).map(id => nodeById[id]).filter(Boolean);
+  pts = pts.filter(n => n && Number.isFinite(n.x));
+  if (!pts.length) { const [pos, at] = HOME(); G.cameraPosition(pos, at, 900); return; }
+  const c = {x: pts.reduce((t, n) => t + n.x, 0) / pts.length, y: pts.reduce((t, n) => t + n.y, 0) / pts.length, z: pts.reduce((t, n) => t + n.z, 0) / pts.length};
+  const spread = Math.max(40, ...pts.map(n => Math.hypot(n.x - c.x, n.z - c.z)));
+  const d = Math.min(520, 150 + spread * 2.2);
+  G.cameraPosition({x: c.x, y: c.y + d * 0.55, z: c.z + d}, c, 900);
+}
 
 /* ---------- panel ---------- */
 const TABS = [['start','Start'],['schools','Schools'],['people','People'],['ideas','Ideas'],['words','Words'],['method','How it was made']];
@@ -308,17 +404,35 @@ const views = {
       <p class="meta">Drag to turn. Scroll to move in. Select a second person to compare.</p>`;
   },
   schools(){
+    if (state.node && TREE[state.node]) return views.group();
     if (state.school!==null){
       const s = A.schools[state.school];
       const held = A.ideas.map(i => ({i, n:i.holders.filter(h => s.members.includes(h.p) && h.a>0).length})).filter(x => x.n>1).sort((a,b) => b.n-a.n);
-      return `<button class="chip" data-clear>All schools</button><h2 style="margin-top:8px">${esc(s.label||s.members.map(m=>person[m].name).join(', '))}</h2>
+      return `<h2 style="margin-top:8px">${esc(s.label||s.members.map(m=>person[m].name).join(', '))}</h2>
         <p class="meta">Held together in ${pct(s.cohesion)} of reruns.</p>${s.note?`<p>${esc(s.note)}</p>`:''}
         <div class="chips">${s.members.map(m => `<button class="chip" data-person="${esc(m)}">${esc(person[m].name)}</button>`).join('')}</div>
         <h3>Ideas more than one member holds</h3>${held.slice(0,24).map(x => ideaRow(x.i,`<span class="meta">${x.n}</span>`)).join('')||'<p class="meta">None measured.</p>'}`;
     }
-    return `<h2>Schools</h2><p>Groups come from who holds what, measured across all ideas. The share shows how often a group stays together when the ideas are resampled.</p>`
-      + A.schools.map((s,i) => `<button class="row" data-school="${i}"><b style="color:${schoolColor(s)}">${esc(s.label||'Unaffiliated')}</b> <span class="meta">${pct(s.cohesion)}</span><br><span class="meta">${s.members.map(m=>esc(person[m].name)).join(', ')}</span></button>`).join('')
+    const roots = A.tree?.length ? A.tree : null;
+    if (!roots) return `<h2>Schools</h2>` + A.schools.map((s,i) => `<button class="row" data-school="${i}"><b style="color:${schoolColor(s)}">${esc(s.label||'Unaffiliated')}</b></button>`).join('');
+    return `<h2>Camps</h2><p>Groups come from who takes which side, redrawn many times over resampled statements. Open a camp to see the schools inside it, then the closer circles inside those. The share is how often a group's members land together.</p>`
+      + roots.map((n, i) => groupRow(n, SCHOOL[i % SCHOOL.length])).join('')
       + `<h3>Compare camps</h3>` + A.lenses.map((l,i) => `<button class="row" data-lens="${i}">${esc(l.label)}</button>`).join('');
+  },
+  group(){
+    const n = TREE[state.node];
+    const m = everyone(n);
+    const held = A.ideas.map(i => ({i, n:i.holders.filter(h => m.includes(h.p) && h.a>0).length})).filter(x => x.n>1).sort((a,b) => b.n-a.n);
+    const parent = n.parent && TREE[n.parent];
+    const siblings = parent ? parent.children.filter(c => c.id !== n.id) : (A.tree || []).filter(c => c.id !== n.id);
+    return `${crumbs(n.id)}<h2 style="margin-top:8px">${esc(n.label)}</h2>
+      <p class="meta">${LEVEL[n.level] || 'Group'} · ${m.length} people · members land together in ${pct(n.cohesion)} of redrawings</p>
+      ${n.note ? `<p>${esc(n.note)}</p>` : ''}
+      ${n.children?.length ? `<h3>Inside it</h3>${n.children.map(c => groupRow(c)).join('')}` : ''}
+      <h3>People</h3><div class="chips">${n.members.map(id => person[id] ? `<button class="chip" data-person="${esc(id)}">${esc(person[id].name)}</button>` : '').join('')}</div>
+      ${n.attached?.length ? `<p class="meta" style="margin-top:6px">Placed here afterwards, closest to this group:</p><div class="chips">${n.attached.map(id => person[id] ? `<button class="chip" data-person="${esc(id)}">${esc(person[id].name)}</button>` : '').join('')}</div>` : ''}
+      <h3>Ideas more than one of them holds</h3>${held.slice(0,24).map(x => ideaRow(x.i,`<span class="meta">${x.n}</span>`)).join('')||'<p class="meta">None measured.</p>'}
+      ${siblings.length ? `<h3>${parent ? 'Alongside it in ' + esc(parent.label) : 'The other camps'}</h3>${siblings.map(c => groupRow(c)).join('')}` : ''}`;
   },
   lens(){
     const l = A.lenses[state.lens];
@@ -350,9 +464,10 @@ const views = {
     if (state.second) return views.fork();
     const held = A.ideas.filter(i => i.holders.some(h => h.p===p.id));
     const by = l => sortByDepth(held.filter(i => i.layer===l));
-    const s = schoolOf(p.id);
-    return `<button class="chip" data-clear>All people</button><h2 style="margin-top:8px">${esc(p.name)}</h2>
-      <p class="meta">${esc(s?.label||'')} · ${held.length} ideas · ${p.works.length} works read</p>
+    const path = (p.path || []).filter(id => TREE[id]);
+    const where = path.length ? `<nav class="crumbs" aria-label="Their groups">${path.map(id => `<button class="crumb" data-node="${esc(id)}">${esc(TREE[id].label)}</button>`).join('')}</nav>` : `<p class="meta">Not in one group: their positions sit between camps.</p>`;
+    return `<h2 style="margin-top:8px">${esc(p.name)}</h2>${where}
+      <p class="meta">${held.length} ideas · ${p.works.length} works read</p>
       <p class="meta">Select a second person on the map, or below, to see where they fork.</p>
       <h3>Built from</h3><div class="chips">${Object.entries(p.families||{}).sort((a,b)=>b[1]-a[1]).slice(0,7).map(([f,v]) => `<button class="chip" data-family="${f}">${v<0?'against ':''}${esc(A.families.find(x=>x.id==f).name)}</button>`).join('')}</div>
       <h3>Compare</h3>
@@ -364,8 +479,7 @@ const views = {
     const f = A.forks[pairKey(a.id,b.id)];
     if (!f) return `<h2>${esc(a.name)} and ${esc(b.name)}</h2><p>No shared ground measured.</p>`;
     const list = ids => sortByDepth(ids.map(x => idea[x]));
-    return `<button class="chip" data-person="${esc(a.id)}">Back to ${esc(a.name)}</button>
-      <h2 style="margin-top:8px">${esc(a.name)} and ${esc(b.name)}</h2>
+    return `<h2 style="margin-top:8px">${esc(a.name)} and ${esc(b.name)}</h2>
       <p class="meta">${f.lowest_opposed ? 'Deepest split: '+NAME[f.lowest_opposed] : (f.shared.length?'No opposed idea measured':'No shared ground measured')}${f.stable!=null?` · same school in ${pct(f.stable)} of reruns`:''}</p>
       ${forkBars(f)}
       <h3 class="tag-a">Stand on together</h3>${list(f.shared).map(i => ideaRow(i)).join('')||'<p class="meta">Nothing measured.</p>'}
@@ -402,10 +516,29 @@ const views = {
   },
 };
 const pct = v => v==null ? 'n/a' : Math.round(v*100)+'%';
+function groupRow(n, color){
+  const names = everyone(n).map(id => person[id]?.name).filter(Boolean);
+  const more = n.children?.length ? ` · ${n.children.length} group${n.children.length > 1 ? 's' : ''} inside` : '';
+  return `<button class="row" data-node="${esc(n.id)}"><b${color ? ` style="color:${color}"` : ''}>${esc(n.label)}</b> <span class="meta">${pct(n.cohesion)}${more}</span><br><span class="meta">${esc(names.slice(0, 8).join(', '))}${names.length > 8 ? ` and ${names.length - 8} more` : ''}</span></button>`;
+}
+function navBar(){
+  const from = history.state?.from;
+  const backBtn = nav.depth > 0 ? `<button class="back" data-back>← Back${from ? ` to ${esc(from)}` : ''}</button>` : '';
+  const here = hashOf(snapshot());
+  const trail = nav.trail.filter(t => t.key !== here).slice(0, 4);
+  const trailHTML = trail.length ? `<div class="trail"><span class="meta">Recently viewed</span>${trail.map((t, i) => `<button class="chip" data-trail="${i}">${esc(t.label)}</button>`).join('')}</div>` : '';
+  return backBtn || trailHTML ? `<nav class="navbar" aria-label="Where you've been">${backBtn}${trailHTML}</nav>` : '';
+}
+function crumbs(id){
+  return `<nav class="crumbs" aria-label="Group path"><button class="crumb" data-tab="schools">All camps</button>${lineage(id).map(n => n.id === id
+    ? `<span aria-current="page">${esc(n.label)}</span>`
+    : `<button class="crumb" data-node="${esc(n.id)}">${esc(n.label)}</button>`).join('')}</nav>`;
+}
 function render(){
   const tab = state.tab;
   document.getElementById('tabs').innerHTML = TABS.map(([k,v]) => `<button role="tab" aria-selected="${k===tab || (k==='people'&&tab==='person') || (k==='ideas'&&(tab==='idea'||tab==='family')) || (k==='schools'&&tab==='lens')}" data-tab="${k}">${v}</button>`).join('');
-  document.getElementById('view').innerHTML = views[tab]();
+  document.getElementById('view').innerHTML = navBar() + views[tab]();
+  document.title = state.tab === 'start' && !state.person ? 'Lifeworld Atlas' : `${title(snapshot())} · Lifeworld Atlas`;
   document.getElementById('view').scrollTop = 0;
   if (G) refreshColors();
   const s = document.getElementById('search');
@@ -414,9 +547,12 @@ function render(){
 document.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const d = b.dataset;
-  if (d.tab){ resetPicks(); state.tab = d.tab; render(); }
-  else if (d.person) { resetPicks(); pickPerson(d.person); }
-  else if (d.second) { state.second = d.second; render(); }
+  if ('back' in d) back();
+  else if (d.trail !== undefined) { const t = nav.trail.filter(x => x.key !== hashOf(snapshot())).slice(0, 4)[+d.trail]; if (t) go(() => Object.assign(state, t.view)); }
+  else if (d.tab){ go(() => { resetPicks(); state.tab = d.tab; }); }
+  else if (d.person) pickPerson(d.person, true);
+  else if (d.second) { go(() => { state.second = d.second; }); }
+  else if (d.node) pickNode(d.node);
   else if (d.idea) pickIdea(d.idea);
   else if (d.school!==undefined) pickSchool(+d.school);
   else if (d.lens!==undefined) pickLens(+d.lens);
@@ -438,5 +574,10 @@ if (location.hash === '#text' || !hasWebGL() || !window.ForceGraph3D || !window.
   document.getElementById('controls').hidden = true;
   document.getElementById('sub').textContent += ' · 3D is unavailable here, so this is the text version';
 } else start3D();
+// open on the view named in the link, if any, and make it the first step of this page's history
+Object.assign(state, fromHash(location.hash === '#text' ? '' : location.hash));
+history.replaceState({view:snapshot(), depth:0}, '', location.href);
+remember(snapshot());
 render();
+if (G && (state.person || state.idea || state.node)) setTimeout(fly, 400);
 </script>

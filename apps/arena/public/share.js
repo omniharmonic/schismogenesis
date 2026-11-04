@@ -1,7 +1,7 @@
 // The share sheet: publish a profile link (anonymous, or verified Bluesky or X), then share it.
 // Nothing is sent until the person presses "Create my link" after seeing what it will show.
 import { canvasBlob, drawCard, shareText } from "./card.js";
-import { highlights, profileSummary } from "./fingerprint.js";
+import { highlights, profileSummary } from "./placement.js";
 import { glyphValues, scrambled } from "./glyph.js";
 import { esc } from "./map.js";
 import { humanToken } from "./turnstile.js";

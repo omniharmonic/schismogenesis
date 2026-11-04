@@ -14,7 +14,7 @@ from sqlalchemy import text
 PUBLIC = pathlib.Path(__file__).parents[3] / "apps/arena/public"
 BUNDLE = json.loads((PUBLIC / "fingerprint.json").read_text())
 SUMMARY = {
-    "home": "Long-term stewards",
+    "home": BUNDLE["schools"][0]["label"],
     "answered": 20,
     "nearest": [{"id": "vitalik-buterin", "k": 5, "n": 6}],
 }
@@ -159,3 +159,15 @@ def test_launch_gate_password_page(engine):
         "/__preview", data={"password": "letmein", "next": "//evil.example"}, follow_redirects=False
     )
     assert sent.headers["location"] == "/"
+
+
+def test_no_script_name_that_ad_blockers_drop():
+    """Dia, Brave and uBlock ship EasyPrivacy, which blocks any path ending /fingerprint.js
+    (and similar). A blocked module blanks every page that imports it (2026-11-04)."""
+    import re
+
+    blocked = re.compile(
+        r"^(fingerprint\d?|fingerprintjs\d?|analytics|tracking|tracker|ads?|beacon)(\.min)?\.js$"
+    )
+    names = [p.name for p in PUBLIC.rglob("*.js")]
+    assert names and not [n for n in names if blocked.match(n)]

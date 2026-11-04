@@ -1,6 +1,6 @@
 import { esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
-import { fingerprint } from "./fingerprint.js";
+import { fingerprint } from "./placement.js";
 
 // answers saved by this browser, if the visitor took it here; never sent anywhere from this page
 function savedAnswers(bundle) {
@@ -25,7 +25,7 @@ async function main() {
   const counts = {};
   for (const p of people) counts[p.summary.nearest[0].id] = (counts[p.summary.nearest[0].id] || 0) + 1;
   const marks = Object.entries(counts).map(([id, n]) => ({ near: [id], label: String(n), title: `${n} listed ${n === 1 ? "person is" : "people are"} nearest to ${names[id]}` }));
-  const size = innerWidth < 600 ? { width: 400, height: 600 } : { width: 720, height: 540 };
+  const size = innerWidth < 600 ? { width: 400, height: 640 } : { width: 800, height: 640 };
   const mapEl = document.getElementById("people-map");
   mapEl.innerHTML = mapSVG(bundle, { marks, result: ok, ...size });
   document.getElementById("people-schools").innerHTML = schoolGrid(bundle, ok);

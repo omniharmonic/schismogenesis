@@ -1,6 +1,6 @@
 """Agreement between an answer sheet and each thinker, over stated positions only.
 
-Mirrors apps/arena/public/fingerprint.js; both are checked against tests/vectors.json.
+Mirrors apps/arena/public/placement.js; both are checked against tests/vectors.json.
 """
 
 MIN_SHARED = 3

@@ -64,6 +64,17 @@ def main(*args: str) -> None:
         **extra,
     )
     target = REPO / out
+    # portraits from Wikimedia Commons (scripts/fetch_faces.py), each with its credit
+    credits_path = REPO / "seed/faces.json"
+    credits = json.loads(credits_path.read_text()) if credits_path.exists() else {}
+    bundle["faces"] = {}
+    for t in bundle["thinkers"]:
+        c = credits.get(t["id"])
+        if c and (target / "faces" / f"{t['id']}.jpg").exists():
+            t["face"] = f"/faces/{t['id']}.jpg"
+            bundle["faces"][t["id"]] = {
+                k: c[k] for k in ("artist", "license", "license_url", "source")
+            }
     (target / "fingerprint.json").write_text(json.dumps(bundle, ensure_ascii=False, indent=1))
     subprocess.run(
         [

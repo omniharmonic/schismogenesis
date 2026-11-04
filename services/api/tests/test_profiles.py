@@ -16,15 +16,15 @@ PUBLIC = pathlib.Path(__file__).parents[3] / "apps/arena/public"
 BUNDLE = json.loads((PUBLIC / "fingerprint.json").read_text())
 A = [a["id"] for a in BUNDLE["anchors"]]
 SUMMARY = {
-    "home": "Long-term stewards",
+    "home": BUNDLE["schools"][0]["label"],
     "answered": 20,
     "nearest": [{"id": "vitalik-buterin", "k": 5, "n": 6}, {"id": "max-tegmark", "k": 6, "n": 8}],
     "furthest": [{"id": "josh-hawley", "k": 3, "n": 11}],
-    "signature": [{"anchor": A[1], "answer": -1, "ally": "Human-first critics"}],
+    "signature": [{"anchor": A[1], "answer": -1, "ally": BUNDLE["schools"][1]["label"]}],
     "camps": [{"id": "eacc", "agreed": 3, "opposed": 5, "deepest": "ontological"}],
     "rarest": {"anchor": A[2], "answer": 1},
 }
-GLYPH = [1, -1, 0, None] * 6
+GLYPH = ([1, -1, 0, None] * 9)[: len(A)]
 
 
 def NOW() -> str:
@@ -96,7 +96,7 @@ def test_card_renders_png():
                 {
                     "anchor": A[1],
                     "answer": -1,
-                    "ally": "Human-first critics",
+                    "ally": BUNDLE["schools"][1]["label"],
                     "text": "Some statement",
                 }
             ],

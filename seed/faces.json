@@ -1,0 +1,641 @@
+{
+ "alexandria-ocasio-cortez": {
+  "qid": "Q55223040",
+  "description": "American politician (born 1989)",
+  "file": "Alexandria Ocasio-Cortez Official Portrait.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Alexandria_Ocasio-Cortez_Official_Portrait.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Franmarie Metzler; U.S. House Office of Photography"
+ },
+ "alondra-nelson": {
+  "qid": "Q4734363",
+  "description": "American academic and writer",
+  "file": "Alondra Nelson, OSTP Deputy Director.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Alondra_Nelson,_OSTP_Deputy_Director.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Executive Office of the President of the United States"
+ },
+ "andrew-yang": {
+  "qid": "Q28723576",
+  "description": "American entrepreneur, attorney and political candidate (born 1975)",
+  "file": "Andrew Yang by Gage Skidmore.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Andrew_Yang_by_Gage_Skidmore.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Gage Skidmore"
+ },
+ "anton-korinek": {
+  "qid": "Q41805533",
+  "description": "Austrian and American economist",
+  "file": "ASSA 2026 - Anton Korinek 02 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:ASSA_2026_-_Anton_Korinek_02_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Xuthoria"
+ },
+ "arvind-narayanan": {
+  "qid": "Q16442100",
+  "description": "associate professor of computer science",
+  "file": "Stanford's privacy guy - Arvind Narayana.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Stanford%27s_privacy_guy_-_Arvind_Narayana.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Robert Scoble"
+ },
+ "audrey-tang": {
+  "qid": "Q15025",
+  "description": "Taiwanese activist, politician and free software programmer",
+  "file": "AudreyTang060527.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:AudreyTang060527.jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "AudreyTang"
+ },
+ "balaji-srinivasan": {
+  "qid": "Q87684934",
+  "description": "American entrepreneur and investor",
+  "file": "Balaji Srinivasan (cropped).png",
+  "source": "https://commons.wikimedia.org/wiki/File:Balaji_Srinivasan_(cropped).png",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Kristyuhorton"
+ },
+ "barack-obama": {
+  "qid": "Q76",
+  "description": "44th President of the United States (2009–2017)",
+  "file": "President Barack Obama.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:President_Barack_Obama.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Official White House Photo by Pete Souza"
+ },
+ "bernie-sanders": {
+  "qid": "Q359442",
+  "description": "United States Senator from Vermont",
+  "file": "Bernie Sanders 2023.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Bernie_Sanders_2023.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Palácio do Planalto from Brasilia, Brasil"
+ },
+ "brian-merchant": {
+  "qid": "Q110472677",
+  "description": "American writer and technology journalist",
+  "file": "Brian Merchant portrait at WikiPortraits Studio at SXSW 2025 04.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Brian_Merchant_portrait_at_WikiPortraits_Studio_at_SXSW_2025_04.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Bea Phi"
+ },
+ "chris-murphy": {
+  "qid": "Q1077594",
+  "description": "American lawyer and politician (born 1973)",
+  "file": "Chris murphy official photo govtrends version cropped.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Chris_murphy_official_photo_govtrends_version_cropped.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Unknown authorUnknown author"
+ },
+ "cory-doctorow": {
+  "qid": "Q110436",
+  "description": "Canadian-British-American blogger, journalist, and science fiction author",
+  "file": "Cory Doctorow by Gage Skidmore.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Cory_Doctorow_by_Gage_Skidmore.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Gage Skidmore"
+ },
+ "curtis-yarvin": {
+  "qid": "Q21062238",
+  "description": "American far-right political theorist and computer scientist",
+  "file": "Curtis Yarvin on Philosophy of Art & Science.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Curtis_Yarvin_on_Philosophy_of_Art_%26_Science.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Philosophy of Art &amp; Science"
+ },
+ "dario-amodei": {
+  "qid": "Q103335665",
+  "description": "CEO and co-founder of Anthropic",
+  "file": "Dario Amodei at TechCrunch Disrupt 2023 02 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_02_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "TechCrunch"
+ },
+ "daron-acemoglu": {
+  "qid": "Q718581",
+  "description": "Turkish-American economist and receiver of the 2024 Nobel Prize in economic sciences (born 1967)",
+  "file": "Acemoglu 2016.png",
+  "source": "https://commons.wikimedia.org/wiki/File:Acemoglu_2016.png",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "MeJudice"
+ },
+ "david-autor": {
+  "qid": "Q19609648",
+  "description": "American economist (1967-)",
+  "file": "David Autor - Festival Economia 2015.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:David_Autor_-_Festival_Economia_2015.JPG",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Niccolò Caranti"
+ },
+ "david-sacks": {
+  "qid": "Q5238174",
+  "description": "South African-American entrepreneur and investor",
+  "file": "David Sacks in March 2025.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:David_Sacks_in_March_2025.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "The White House"
+ },
+ "demis-hassabis": {
+  "qid": "Q3022141",
+  "description": "British artificial intelligence researcher (born 1976)",
+  "file": "Demis Hassabis, 2024 Nobel Prize Laureate in Chemistry 7 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Demis_Hassabis,_2024_Nobel_Prize_Laureate_in_Chemistry_7_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "John Sears"
+ },
+ "dwarkesh-patel": {
+  "qid": "Q137008739",
+  "description": "Indian-born American podcast host and author",
+  "file": "Dwarkesh Patel 2025 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Dwarkesh_Patel_2025_(cropped).jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "TechCrunch"
+ },
+ "e-glen-weyl": {
+  "qid": "Q66013182",
+  "description": "American economist",
+  "file": "Glen Weyl at Republica 2024 02.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Glen_Weyl_at_Republica_2024_02.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Kritzolina"
+ },
+ "ed-zitron": {
+  "qid": "Q57747258",
+  "description": "publicist and author",
+  "file": "Ed Zitron speaking at the Web Summit.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ed_Zitron_speaking_at_the_Web_Summit.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Web Summit"
+ },
+ "eliezer-yudkowsky": {
+  "qid": "Q704195",
+  "description": "American AI researcher and writer (born 1979)",
+  "file": "Eliezer Yudkowsky, Stanford 2006 (square crop).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Eliezer_Yudkowsky,_Stanford_2006_(square_crop).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "\"null0\""
+ },
+ "elizabeth-warren": {
+  "qid": "Q434706",
+  "description": "American politician (born 1949)",
+  "file": "Elizabeth Warren (47992252913) (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Elizabeth_Warren_(47992252913)_(cropped).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Gage Skidmore from Peoria, AZ, United States of America"
+ },
+ "elon-musk": {
+  "qid": "Q317521",
+  "description": "American businessman (born 1971)",
+  "file": "Elon Musk (54816836217) (cropped 2) (b).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Elon_Musk_(54816836217)_(cropped_2)_(b).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Gage Skidmore"
+ },
+ "emily-m-bender": {
+  "qid": "Q33122366",
+  "description": "American linguist",
+  "file": "Emily M Bender CHM Mountain View March 2025.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Emily_M_Bender_CHM_Mountain_View_March_2025.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "King of Hearts"
+ },
+ "erik-brynjolfsson": {
+  "qid": "Q5388515",
+  "description": "Danish academic",
+  "file": "Erik Brynjolfsson at MIT Sloan CIO Symposium 2013 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Erik_Brynjolfsson_at_MIT_Sloan_CIO_Symposium_2013_(cropped).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Gordon Haff"
+ },
+ "fei-fei-li": {
+  "qid": "Q18686107",
+  "description": "American computer scientist",
+  "file": "Fei-Fei Li at AI for Good 2017.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Fei-Fei_Li_at_AI_for_Good_2017.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "ITU Pictures"
+ },
+ "gary-marcus": {
+  "qid": "Q3348133",
+  "description": "American psycholinguist",
+  "file": "Gary Marcus.JPG",
+  "source": "https://commons.wikimedia.org/wiki/File:Gary_Marcus.JPG",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Athena Vouloumanos"
+ },
+ "geoffrey-hinton": {
+  "qid": "Q92894",
+  "description": "British-Canadian computer scientist and psychologist",
+  "file": "Geoffrey Hinton in 2026.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Geoffrey_Hinton_in_2026.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Cmichel67"
+ },
+ "jaron-lanier": {
+  "qid": "Q92862",
+  "description": "American computer scientist, musician, and author",
+  "file": "Jaron Lanier 1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Jaron_Lanier_1.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "vanz"
+ },
+ "jd-vance": {
+  "qid": "Q28935729",
+  "description": "Vice President of the United States since 2025",
+  "file": "March 2026 Official Vice Presidential Portrait of JD Vance.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:March_2026_Official_Vice_Presidential_Portrait_of_JD_Vance.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Emily J. Higgins"
+ },
+ "jensen-huang": {
+  "qid": "Q305177",
+  "description": "American entrepreneur and businessman; co-founder and CEO of Nvidia",
+  "file": "Jen-Hsun Huang 2025.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Jen-Hsun_Huang_2025.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "The White House"
+ },
+ "jonathan-haidt": {
+  "qid": "Q845573",
+  "description": "American social psychologist (1963-)",
+  "file": "Jonathan Haidt 2012 03.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Jonathan_Haidt_2012_03.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Miller Center of Public Affairs flickr page, Charlottesville, VA"
+ },
+ "josh-hawley": {
+  "qid": "Q23020745",
+  "description": "American lawyer and politician (born 1979)",
+  "file": "Hawley at Jackson Egg Farm.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Hawley_at_Jackson_Egg_Farm.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Natureofthought"
+ },
+ "joy-buolamwini": {
+  "qid": "Q31359093",
+  "description": "American computer scientist and digital activist",
+  "file": "Joy Buolamwini, 2018 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Joy_Buolamwini,_2018_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Niccolò Caranti"
+ },
+ "karen-hao": {
+  "qid": "Q106111546",
+  "description": "American journalist and data scientist",
+  "file": "Karen Hao at Republica26 2026-05-18 11.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Karen_Hao_at_Republica26_2026-05-18_11.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Leonhard Lenz"
+ },
+ "liz-shuler": {
+  "qid": "Q6660295",
+  "description": "American labor activist (born 1970)",
+  "file": "Elizabeth Shuler (3x4a).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Elizabeth_Shuler_(3x4a).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Cfiles-aflcio"
+ },
+ "marc-andreessen": {
+  "qid": "Q62882",
+  "description": "American entrepreneur, investor, and software engineer",
+  "file": "Marc Andreessen-9 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Marc_Andreessen-9_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "JD Lasica"
+ },
+ "mark-zuckerberg": {
+  "qid": "Q36215",
+  "description": "American Internet entrepreneur",
+  "file": "Mark Zuckerberg F8 2019 Keynote (32830578717) (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(32830578717)_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Anthony Quintano from Westminster, United States"
+ },
+ "marsha-blackburn": {
+  "qid": "Q458971",
+  "description": "American businesswoman and politician (born 1952)",
+  "file": "Sen. Marsha Blackburn (R-TN) official headshot - 116th Congress (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sen._Marsha_Blackburn_(R-TN)_official_headshot_-_116th_Congress_(cropped).jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Senate Photographic Studio"
+ },
+ "max-tegmark": {
+  "qid": "Q2076321",
+  "description": "Swedish-American physicist and cosmologist",
+  "file": "Partnership - CGTN & Razor Broadcast Studio (54919125534) (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Partnership_-_CGTN_%26_Razor_Broadcast_Studio_(54919125534)_(cropped).jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Web Summit"
+ },
+ "meredith-whittaker": {
+  "qid": "Q55433882",
+  "description": "American artificial intelligence research scientist",
+  "file": "Meredith Whittaker at House Hearing on Artificial Intelligence.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Meredith_Whittaker_at_House_Hearing_on_Artificial_Intelligence.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "House Science, Space, and Technology Committee"
+ },
+ "michael-kratsios": {
+  "qid": "Q50754818",
+  "description": "Deputy U.S. Chief Technology Officer",
+  "file": "Michael Kratsios (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Michael_Kratsios_(cropped).jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Shealeah Craighead"
+ },
+ "miles-brundage": {
+  "qid": "Q50263717",
+  "description": "AI policy researcher",
+  "file": "MilesBrundage2017.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:MilesBrundage2017.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "FisherStudios54"
+ },
+ "mustafa-suleyman": {
+  "qid": "Q16847797",
+  "description": "British entrepreneur (born 1984)",
+  "file": "Mustafa Suleyman (29099346447).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mustafa_Suleyman_(29099346447).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Joi Ito from Cambridge, MA, USA"
+ },
+ "paul-kingsnorth": {
+  "qid": "Q7151792",
+  "description": "English writer and environmentalist (1972-)",
+  "file": "Paul Kingsnorth.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Paul_Kingsnorth.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Navjoat Kingsnorth"
+ },
+ "pete-buttigieg": {
+  "qid": "Q7173106",
+  "description": "American politician (born 1982)",
+  "file": "Pete Buttigieg, Secretary of Transportation.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Pete_Buttigieg,_Secretary_of_Transportation.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Department of Transportation"
+ },
+ "peter-thiel": {
+  "qid": "Q705525",
+  "description": "German-American entrepreneur and venture capitalist (born 1967)",
+  "file": "Peter Thiel by Gage Skidmore.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Peter_Thiel_by_Gage_Skidmore.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Gage Skidmore"
+ },
+ "pope-leo-xiv": {
+  "qid": "Q6109517",
+  "description": "267th Pope of the Catholic Church (2025–)",
+  "file": "Leo XIV (13 October 2025).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Leo_XIV_(13_October_2025).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ricardo Stuckert"
+ },
+ "reid-hoffman": {
+  "qid": "Q211098",
+  "description": "American co-founder of LinkedIn, venture capitalist, and author",
+  "file": "2022 Reid Hoffman (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:2022_Reid_Hoffman_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "U.S. Secretary of Defense"
+ },
+ "richard-blumenthal": {
+  "qid": "Q2023708",
+  "description": "United States Senator from Connecticut since 2011",
+  "file": "Richard Blumenthal Official Portrait.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Richard_Blumenthal_Official_Portrait.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Senate"
+ },
+ "ro-khanna": {
+  "qid": "Q7339221",
+  "description": "U.S. Representative from California",
+  "file": "Ro Khanna, official portrait, 115th Congress.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ro_Khanna,_official_portrait,_115th_Congress.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "U.S. Congress/Eric Connolly"
+ },
+ "robin-hanson": {
+  "qid": "Q2159779",
+  "description": "American economist (1959-)",
+  "file": "Robin Hanson in a field 2.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Robin_Hanson_in_a_field_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "KatjaGrace"
+ },
+ "ruha-benjamin": {
+  "qid": "Q28935115",
+  "description": "American sociologist",
+  "file": "Ruha Benjamin, Databite 124, 2019 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ruha_Benjamin,_Databite_124,_2019_(cropped).jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Data &amp; Society Research Institute"
+ },
+ "rumman-chowdhury": {
+  "qid": "Q41241224",
+  "description": "US data scientist, AI specialist",
+  "file": "Rumman Chowdhury at the AI for Good Global Summit 2018 (42110666692).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Rumman_Chowdhury_at_the_AI_for_Good_Global_Summit_2018_(42110666692).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "ITU Pictures from Geneva, Switzerland"
+ },
+ "safiya-noble": {
+  "qid": "Q54856700",
+  "description": "American professor and author",
+  "file": "Re publica 18 - Day 1 (41809675342).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Re_publica_18_-_Day_1_(41809675342).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "re:publica from Germany"
+ },
+ "sam-altman": {
+  "qid": "Q7407093",
+  "description": "American entrepreneur and investor (born 1985)",
+  "file": "Sam Altman speaking at TED (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sam_Altman_speaking_at_TED_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Steve Jurvetson"
+ },
+ "scott-wiener": {
+  "qid": "Q7437504",
+  "description": "American politician (born 1970)",
+  "file": "Scott Wiener.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Scott_Wiener.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Scott Wiener"
+ },
+ "shoshana-zuboff": {
+  "qid": "Q15953956",
+  "description": "American sociologist, professor emerita at Harvard Business School and author",
+  "file": "Shoshana Zuboff at Alexander von Humboldt Institut.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Shoshana_Zuboff_at_Alexander_von_Humboldt_Institut.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Alexander von Humboldt Institut for internet and society"
+ },
+ "stuart-russell": {
+  "qid": "Q3656334",
+  "description": "British computer scientist (1962-)",
+  "file": "Stuart Russell.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Stuart_Russell.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Unknown authorUnknown author"
+ },
+ "ted-cruz": {
+  "qid": "Q2036942",
+  "description": "American politician (born 1970)",
+  "file": "Ted Cruz senatorial portrait.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ted_Cruz_senatorial_portrait.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "U.S. Senate Photographic Studio"
+ },
+ "timnit-gebru": {
+  "qid": "Q59753117",
+  "description": "computer scientist and AI ethics researcher",
+  "file": "Timnit Gebru crop.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Timnit_Gebru_crop.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "TechCrunch"
+ },
+ "tristan-harris": {
+  "qid": "Q59781806",
+  "description": "American computer scientist and businessman",
+  "file": "Tristan Harris at Collision Conf 2018 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tristan_Harris_at_Collision_Conf_2018_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Photo by Stephen McCarthy/Collision via Sportsfile"
+ },
+ "tyler-cowen": {
+  "qid": "Q602278",
+  "description": "American economist, columnist and blogger",
+  "file": "Tyler Cowen 1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Tyler_Cowen_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "artist": "Tyler Cowen"
+ },
+ "venkatesh-rao": {
+  "qid": "Q28677293",
+  "description": "indian-American author and consultant",
+  "file": "Venkatesh Rao (8452380933).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Venkatesh_Rao_(8452380933).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "liftconferencephotos from Geneva, Switzerland"
+ },
+ "vitalik-buterin": {
+  "qid": "Q16197959",
+  "description": "Russian-Canadian computer scientist",
+  "file": "VitalikButerinProfile.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:VitalikButerinProfile.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Romanpoet"
+ },
+ "william-macaskill": {
+  "qid": "Q20684655",
+  "description": "Scottish philosopher and ethicist (born 1987)",
+  "file": "William MacAskill Portrait 2015 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:William_MacAskill_Portrait_2015_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Sam Deere"
+ },
+ "yann-lecun": {
+  "qid": "Q3571662",
+  "description": "American-French computer scientist (born 1960)",
+  "file": "Yann LeCun - 2025 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Yann_LeCun_-_2025_(cropped).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Ecole  polytechnique from Paris"
+ },
+ "yoshua-bengio": {
+  "qid": "Q3572699",
+  "description": "Canadian computer scientist (born 1964)",
+  "file": "Yoshua Bengio 2019 cropped.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Yoshua_Bengio_2019_cropped.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Maryse Boyce"
+ },
+ "yuval-noah-harari": {
+  "qid": "Q2484404",
+  "description": "Israeli historian and author of popular science bestsellers",
+  "file": "MKr364751 Yuval Noah Harari (Frankfurter Buchmesse 2024).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:MKr364751_Yuval_Noah_Harari_(Frankfurter_Buchmesse_2024).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Martin Kraft"
+ },
+ "zvi-mowshowitz": {
+  "qid": "Q8075542",
+  "description": "American Magic: The Gathering player",
+  "file": "Zvi Mowshowitz playing poker at Manifest 2023.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Zvi_Mowshowitz_playing_poker_at_Manifest_2023.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Nikita Sokolsky"
+ }
+}

@@ -95,6 +95,11 @@ def test_committed_bundle_is_current():
         voices=json.loads(voices.read_text()) if voices.exists() else {},
         season_id=committed["season"],
     )
+    # portraits are added by the build script from seed/faces.json, after the bundle itself
+    faces = committed.pop("faces", {})
+    for t in committed["thinkers"]:
+        face = t.pop("face", None)
+        assert face is None or (t["id"] in faces and face == f"/faces/{t['id']}.jpg")
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
 
 

@@ -218,6 +218,7 @@ def lean(table: Table, group: list[str], base: list[str], ids: list[str]) -> lis
 def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
     size = int(options[options.index("--size") + 1]) if "--size" in options else 30
     atlas_path = options[options.index("--atlas") + 1] if "--atlas" in options else None
+    keep = options[options.index("--keep") + 1] if "--keep" in options else None
     table, pool = load(stances_path, pool_path)
     ids = [s["id"] for s in pool]
     full, extra = augment(table, atlas_path)
@@ -340,6 +341,9 @@ def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
         }
     sizes = {}
     chosen, log = choose(table, pool, levels_of, size)
+    if keep:  # a published survey stays fixed: redraw the groups, keep its statements
+        chosen = [st["id"] for st in json.loads(pathlib.Path(keep).read_text())["statements"]]
+        log = [f"kept the survey in {keep}", *log]
     for k in sorted({24, 27, 30, 33, size}):
         chosen_k, _ = choose(table, pool, levels_of, k)
         sizes[k] = {

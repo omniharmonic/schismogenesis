@@ -511,7 +511,7 @@
    "work": "Understanding the Luddites in the age of AI"
   },
   {
-   "position": "AI product claims are shaped mainly to attract investors.",
+   "position": "Big AI companies like OpenAI now aim their products more at investors than at ordinary users.",
    "quote": "OpenAI’s products are no longer primarily aimed at consumers but at investors.",
    "url": "https://www.bloodinthemachine.com/p/gpt-5-is-a-joke-will-it-matter",
    "work": "GPT-5 is a joke. Will it matter?"
@@ -921,7 +921,7 @@
    "work": "Mindscape 283: Daron Acemoglu on Technology, Inequality, and Power"
   },
   {
-   "position": "The main AI risk is powerful tools controlled by the largest corporations, not superintelligence.",
+   "position": "A pressing AI risk, whether or not AI becomes superintelligent, is that very powerful tools sit in the hands of the largest corporations, which face few checks.",
    "quote": "So that's why I started by saying you have to worry about the fact that these tools are in the hands of the most powerful corporations humanity has ever seen.",
    "url": "https://rosetta.to/u/nobelprize/daron-acemoglu-nobel-prize-conversations",
    "work": "Daron Acemoglu: Nobel Prize Conversations (transcript)"
@@ -1009,7 +1009,7 @@
    "work": "Long X post: the 'Goldilocks' state of AI and why the doomer narratives were wrong"
   },
   {
-   "position": "Foreign-policy experts have been overconfident; diplomacy with adversaries should be pursued to avoid escalation.",
+   "position": "Hawkish commentators have been overconfident about Ukraine, and the US should seriously try diplomacy with Russia given the risk of nuclear escalation.",
    "quote": "It’s deeply irresponsible not to try for diplomacy when the stakes are so high.",
    "url": "https://web.archive.org/web/20251109020934/https://www.theamericanconservative.com/should-america-go-all-in-on-ukraine/",
    "work": "Should America Go All In on Ukraine?"
@@ -1041,7 +1041,7 @@
    "work": "What Should Be Done (35 thoughts on what has happened and what America should do)"
   },
   {
-   "position": "Independent, government-licensed private auditors should verify that frontier labs follow their safety plans.",
+   "position": "Frontier AI labs should be thoroughly audited against their own safety plans, probably by expert private bodies, possibly certified by government.",
    "quote": "So, it would be good for someone to thoroughly audit the frontier labs at least to test their adherence to their own safety plans, as well as to probe their broader internal governance of the AI recursive self-improvement loops.",
    "url": "https://www.hyperdimensional.co/p/what-should-be-done",
    "work": "What Should Be Done (35 thoughts on what has happened and what America should do)"
@@ -1181,7 +1181,7 @@
    "work": "AI Is an Ideology, Not a Technology"
   },
   {
-   "position": "Where technology goes is shaped by collective choices, especially public investment, not fixed in advance.",
+   "position": "The future of technology is not fixed in advance; through our collective investments in technology we choose among several possible futures.",
    "quote": "There are clusters of plausible visions of the future and technologies that empower these; through our collective technological investments, we help choose among these possibilities.",
    "url": "https://www.plurality.net/read/2-0/",
    "work": "A Widening Gulf (Plurality, ch. 2-0)"
@@ -1365,7 +1365,7 @@
    "work": "Transcript of Elon Musk: Digital Superintelligence, Multiplanetary Life, How to Be Useful (YC AI Startup School)"
   },
   {
-   "position": "A high-bandwidth brain-computer link that lets humans merge with AI is the best long-term path for humanity.",
+   "position": "Merging with AI through a high-bandwidth brain interface is probably the best long-term outcome for humanity.",
    "quote": "The merge scenario with AI is the one that seems like probably the best for us.",
    "url": "https://singjupost.com/joe-rogan-experience-1169-with-elon-musk-transcript/",
    "work": "Joe Rogan Experience #1169 with Elon Musk (Transcript)"
@@ -2073,7 +2073,7 @@
    "work": "The Myth of AI"
   },
   {
-   "position": "Generative AI recombines existing human work creatively but has a ceiling set by its training data.",
+   "position": "Generative AI recombines existing human work in a real but limited way, and he suspects it cannot rise above what it was trained on.",
    "quote": "Our cartoon, however, strongly suggests that it’s creativity with a ceiling. It fills in the spaces between the trees, but does not climb above them.",
    "url": "https://www.newyorker.com/science/annals-of-artificial-intelligence/how-to-picture-ai",
    "work": "How to Picture A.I."
@@ -2297,7 +2297,7 @@
    "work": "AI Threatens the Working Man"
   },
   {
-   "position": "Human limits are part of human dignity, so efforts to transcend humanity through technology are mistaken.",
+   "position": "Human limits carry dignity, so trying to eliminate all human frailty through technology is dangerous, even though curing disease is good.",
    "quote": "We are limited creatures and there's a dignity in that.",
    "url": "https://www.compactmag.com/article/josh-hawley-we-must-bend-ai-to-serve-the-good/",
    "work": "Josh Hawley: We Must ‘Bend’ AI to Serve the Good"
@@ -2507,7 +2507,7 @@
    "work": "AFL-CIO President Liz Shuler's Speech to the National Press Club"
   },
   {
-   "position": "Workplace AI surveillance without disclosure endangers workers and needs guardrails.",
+   "position": "Companies using AI without guardrails are getting workers surveilled, fired, hurt and even killed, so workplace AI needs guardrails.",
    "quote": "Today it’s workers being surveilled, fired, hurt, even killed by companies that use A.I. without guardrails.",
    "url": "https://web.archive.org/web/20260727143520/https://aflcio.org/speeches/afl-cio-president-liz-shulers-speech-national-press-club",
    "work": "AFL-CIO President Liz Shuler's Speech to the National Press Club"
@@ -2545,7 +2545,7 @@
    "work": "Why AI Will Save the World"
   },
   {
-   "position": "Government policy should protect startups from incumbents' regulatory capture.",
+   "position": "Bad government policy is now the biggest threat to tech startups, so defending them is a first-class political issue.",
    "quote": "We believe bad government policies are now the #1 threat to Little Tech.",
    "url": "https://a16z.com/the-little-tech-agenda/",
    "work": "The Little Tech Agenda"
@@ -2621,7 +2621,7 @@
    "work": "Mark Zuckerberg: AI will write most Meta code in 18 months"
   },
   {
-   "position": "Companies should build their own foundational technology so platform gatekeepers cannot limit what they make.",
+   "position": "Open ecosystems in AI matter so that companies are not boxed in by gatekeepers who control closed platforms.",
    "quote": "On a philosophical level, this is a major reason why I believe so strongly in building open ecosystems in AI and AR/VR for the next generation of computing.",
    "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
    "work": "Open Source AI Is the Path Forward"
@@ -2737,7 +2737,7 @@
    "work": "Meredith Whittaker on Who Controls Your Data in the Age of AI"
   },
   {
-   "position": "Corporate ethics principles cannot replace enforceable accountability, regulation and collective action.",
+   "position": "Corporate ethics codes and boards are no substitute for real accountability, public oversight and regulation.",
    "quote": "However, these codes, guidelines and ethics boards do not substitute for meaningful accountability and oversight.",
    "url": "https://ainowinstitute.org/wp-content/uploads/2024/01/062619-whittaker-house-testimony.pdf",
    "work": "Written Testimony of Meredith Whittaker: \"Artificial Intelligence: Societal and Ethical Implications\""
@@ -2927,7 +2927,7 @@
    "work": "The Dark Enlightenment, Part 1"
   },
   {
-   "position": "Any realistic theory of capitalism must account for sovereign power over property.",
+   "position": "Any serious account of capitalism has to use the idea of 'sovereign property', which he credits Moldbug with developing.",
    "quote": "I think, however you’re going to end up doing it, it has to be done in terms of an understanding of sovereign property.",
    "url": "https://vincentl3.substack.com/p/a-conversation-with-nick-land-part-a4f",
    "work": "A Conversation with Nick Land (Part 2)"
@@ -2959,7 +2959,7 @@
    "work": "If AI is a weapon, why don't we regulate it like one?"
   },
   {
-   "position": "AI is a highly useful everyday technology, and American hostility to it is out of step with the evidence.",
+   "position": "AI is an amazingly useful everyday technology, and Americans are unusually fearful of it compared with people in other countries.",
    "quote": "This is an amazingly useful technology, and I love using it.",
    "url": "https://www.noahpinion.blog/p/i-love-ai-why-doesnt-everyone",
    "work": "I love AI. Why doesn't everyone?"
@@ -3101,7 +3101,7 @@
  ],
  "peter-thiel": [
   {
-   "position": "Since about 1970 technological progress has been fast in computing but slow in the physical world of energy, medicine and transport.",
+   "position": "Technological progress has been fast in computing and the internet but has stagnated in the physical world, such as transport and energy.",
    "quote": "There’s the question of stagnation, which I think has been a story of stagnation in the world of atoms, not bits.",
    "url": "https://conversationswithtyler.com/episodes/peter-thiel/",
    "work": "Peter Thiel on Political Correctness, Stagnation and Inequality (Conversations with Tyler, Ep. 1)"
@@ -3131,7 +3131,7 @@
    "work": "COSM talk: The Failures and 'Self-Hatred' of Big Tech (Mind Matters Ep. 156 transcript)"
   },
   {
-   "position": "Fear of the destructive potential of science after nuclear weapons helped produce decades of regulation and stagnation.",
+   "position": "Fear of science's destructive power after nuclear weapons is one underrated reason science and technology stagnated for decades.",
    "quote": "But I think one dimension that’s not to be underestimated for the science and tech stagnation is that an awful lot of science and technology had this dystopian or apocalyptic dimension.",
    "url": "https://greaterwrong.com/posts/xbpig7TcsEktyykNF/thiel-on-ai-and-racing-with-china",
    "work": "Thiel on AI & Racing with China (transcribed excerpt of Joe Rogan Experience, Aug 2024)"
@@ -3315,7 +3315,7 @@
    "work": "Ro Khanna: Trump has no cards left to play ahead of the China summit"
   },
   {
-   "position": "Democrats must not repeat globalization's neglect of working-class losers in the AI transition.",
+   "position": "Democrats must not repeat the mistake of globalization by letting AI erode working-class earnings and security.",
    "quote": "The party can be forgiven once for the mistake of abetting globalization to run amok, just not twice.",
    "url": "https://khanna.house.gov/media/ros-op-eds/democrats-must-not-repeat-mistakes-globalization",
    "work": "Democrats Must Not Repeat the Mistakes of Globalization"
@@ -3373,7 +3373,7 @@
    "work": "What Are Reasonable AI Fears?"
   },
   {
-   "position": "Liability rules and insurance are better tools than prohibitions for AI harms to outsiders and workers.",
+   "position": "Where AI failures could hurt outsiders, he says extending liability law and requiring insurance is plausibly the right fix, and he suggests job-loss insurance for workers.",
    "quote": "then yes we should plausibly extend liability law to cover such cases, and maybe require relevant actors to hold sufficient liability insurance.",
    "url": "https://quillette.com/2023/04/14/what-are-reasonable-ai-fears/",
    "work": "What Are Reasonable AI Fears?"
@@ -3573,7 +3573,7 @@
  ],
  "samuel-hammond": [
   {
-   "position": "Frontier AI labs merit targeted government oversight, even though most proposed AI regulations are premature.",
+   "position": "Frontier AI labs merit targeted government oversight, even for those unsure most other AI regulation is useful.",
    "quote": "You can be ambivalent about the usefulness of most forms of AI regulation and still favor oversight of the frontier labs.",
    "url": "https://www.secondbest.ca/p/ninety-five-theses-on-ai",
    "work": "Ninety-five theses on AI"
@@ -3603,7 +3603,7 @@
    "work": "Ninety-five theses on AI"
   },
   {
-   "position": "Training AI only on outcome rewards produces goal-driven agents that override norms, so alignment needs rule-following constraints.",
+   "position": "Training AI only on rewards for finished tasks tends to produce agents that override norms to reach goals; he thinks human rule-following may point toward a fix.",
    "quote": "RLVR creates AIs with an intellectual concept of right and wrong that’s overpowered by an obsessive-compulsive drive to achieve its goal at all costs.",
    "url": "https://www.secondbest.ca/p/the-sorcerers-apprentice",
    "work": "The Sorcerer's Apprentice"
@@ -4005,7 +4005,7 @@
    "work": "Existential risk, AI, and the inevitable turn in human history"
   },
   {
-   "position": "Writers should now treat AI systems as a major audience for their work.",
+   "position": "He now writes largely with AI systems as his intended readers, expecting them to shape how he is remembered.",
    "quote": "I'm happy if humans read it, but mostly I wrote it for the AIs.",
    "url": "https://www.dwarkesh.com/p/tyler-cowen-4",
    "work": "Tyler Cowen — The #1 bottleneck to AI progress is humans"
@@ -4025,7 +4025,7 @@
    "work": "A Camera, Not an Engine"
   },
   {
-   "position": "Humans and AI are entering a symbiosis comparable to the evolutionary origin of complex cells.",
+   "position": "Humans and AI may be entering a symbiosis comparable to the evolutionary origin of complex cells.",
    "quote": "The emergence of AI, in the particular form that it has appeared (deep learning), is arguably the eukaryotic moment in human cultural evolution, understood in memetic terms, with humans playing the role of mitochondria, and AI the role of the nucleus.",
    "url": "https://contraptions.venkateshrao.com/p/our-eukaryotic-moment",
    "work": "Our Eukaryotic Moment"

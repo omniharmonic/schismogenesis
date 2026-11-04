@@ -1,7 +1,7 @@
 // Click into the map: a card for any thinker (their stated positions, quote by quote, beside
 // your answers) and for any school (who is in it, what it agrees on, where it argues inside).
-import { agreement, plainStances } from "./fingerprint.js";
-import { esc, mapSVG, markSelected, nodeMembers, schoolMembers, wireMap } from "./map.js";
+import { agreement, plainStances } from "./placement.js";
+import { badge, esc, mapSVG, markSelected, nodeMembers, schoolMembers, wireMap } from "./map.js";
 
 const LEVEL = ["Camp", "School", "Branch", "Close circle"];
 
@@ -62,7 +62,7 @@ export function thinkerCard(bundle, id, answers = {}) {
     : t.between ? `between ${link(t.between[0])} and ${link(t.between[1])}`
     : `<button class="link-button" data-school="">not yet grouped</button>`;
   return `<header class="card-head">
-      <span class="badge big" aria-hidden="true">${esc(t.initials)}</span>
+      ${badge(t, "big")}
       <div><h3 tabindex="-1">${esc(t.name)}</h3><p class="small muted">${t.path?.length ? "" : "School: "}${school}${t.provisional ? ". A newer voice: placed by agreement with the others, and grouped only on the positions that set a school apart." : ""}</p></div>
     </header>
     ${summary}
@@ -84,7 +84,7 @@ export function schoolCard(bundle, label, answers = {}) {
   if (label === "") {
     return `<header class="card-head"><div><h3 tabindex="-1">Not yet grouped</h3>
       <p class="small muted">${ids.length} thinkers we don't place in a school yet. A voice joins a school only when it clearly holds the positions that set that school apart, not just views most people share. Some sit between two schools; for others we haven't read enough of their work. As we read more, some will join a school and some may start a new one.</p></div></header>
-      <ul class="positions">${ids.map((id) => { const t = bundle.thinkers.find((x) => x.id === id); return `<li><button class="person is-new" data-thinker="${esc(id)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>${esc(t.name)}</button>
+      <ul class="positions">${ids.map((id) => { const t = bundle.thinkers.find((x) => x.id === id); return `<li><button class="person is-new" data-thinker="${esc(id)}">${badge(t)}${esc(t.name)}</button>
         <p class="small muted" style="margin:6px 0 0">${t.between ? `Between the ${esc(t.between[0])} and the ${esc(t.between[1])}.` : "Too little of their writing so far to tell."}</p></li>`; }).join("")}</ul>`;
   }
   const core = new Set(bundle.schools.find((s) => s.label === label)?.members || []);
@@ -106,7 +106,7 @@ export function schoolCard(bundle, label, answers = {}) {
   const member = (id) => {
     const t = byId[id], r = agree[id];
     const score = r && r.n >= 3 ? `<span class="small muted">${r.k}/${r.n}</span>` : "";
-    return `<li><button class="person${core.has(id) ? "" : " is-new"}" data-thinker="${esc(id)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>${esc(t.name)}${score}</button></li>`;
+    return `<li><button class="person${core.has(id) ? "" : " is-new"}" data-thinker="${esc(id)}">${badge(t)}${esc(t.name)}${score}</button></li>`;
   };
   const row = (e, argue) => `<li><p class="serif">${esc(e.a.text)}</p><p class="sides">${argue
       ? `<span class="chip split">${e.up} agree, ${e.n - e.up} disagree</span>`
@@ -156,7 +156,7 @@ export function nodeCard(bundle, id, answers = {}) {
     const t = byId[pid], r = agree[pid];
     if (!t) return "";
     const score = r && r.n >= 3 ? `<span class="small muted">${r.k}/${r.n}</span>` : "";
-    return `<li><button class="person${drew.has(pid) ? "" : " is-new"}" data-thinker="${esc(pid)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>${esc(t.name)}${score}</button></li>`;
+    return `<li><button class="person${drew.has(pid) ? "" : " is-new"}" data-thinker="${esc(pid)}">${badge(t)}${esc(t.name)}${score}</button></li>`;
   };
   const kids = n.children.map((c) => bundle.tree.nodes[c]);
   const inKids = new Set(kids.flatMap((k) => nodeMembers(bundle, k.id)));
@@ -172,7 +172,7 @@ export function nodeCard(bundle, id, answers = {}) {
       const kidIds = nodeMembers(bundle, k.id);
       return `<li><button class="school-card small" data-node="${esc(k.id)}">
         <span class="school-name">${esc(k.label)}</span>
-        <span class="faces" aria-hidden="true">${kidIds.slice(0, 6).map((x) => `<span class="badge">${esc(byId[x]?.initials || "")}</span>`).join("")}${kidIds.length > 6 ? `<span class="more">+${kidIds.length - 6}</span>` : ""}</span>
+        <span class="faces" aria-hidden="true">${kidIds.slice(0, 6).map((x) => `${badge(byId[x])}`).join("")}${kidIds.length > 6 ? `<span class="more">+${kidIds.length - 6}</span>` : ""}</span>
         <span class="small muted">${kidIds.length} thinkers, together ${Math.round(k.cohesion * 100)}% of the time</span></button></li>`;
     }).join("")}</ul>` : ""}
     <h4>${kids.length ? "Everyone in it" : "Who is in it"}</h4>
@@ -193,7 +193,7 @@ export function schoolGrid(bundle, result = null) {
   const loose = schoolMembers(bundle, "");
   const looseCard = loose.length ? `<li><button class="school-card is-loose" data-school="">
       <span class="school-name">Not yet grouped</span>
-      <span class="faces" aria-hidden="true">${loose.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${loose.length > 7 ? `<span class="more">+${loose.length - 7}</span>` : ""}</span>
+      <span class="faces" aria-hidden="true">${loose.slice(0, 7).map((id) => `${badge(byId[id])}`).join("")}${loose.length > 7 ? `<span class="more">+${loose.length - 7}</span>` : ""}</span>
       <span class="small muted">${loose.length} thinkers whose outlook doesn't yet match a school</span></button></li>` : "";
   const campOf = Object.fromEntries((bundle.tree?.roots || []).map((r) => [bundle.tree.nodes[r].label, r]));
   return `<ul class="school-grid">${schools.map((s) => {
@@ -204,7 +204,7 @@ export function schoolGrid(bundle, result = null) {
     const inside = node ? bundle.tree.nodes[node].children.map((c) => bundle.tree.nodes[c].label) : [];
     return `<li><button class="school-card" ${node ? `data-node="${esc(node)}"` : `data-school="${esc(s.label)}"`}>
       <span class="school-name">${esc(s.label)}</span>${near}
-      <span class="faces" aria-hidden="true">${ids.slice(0, 7).map((id) => `<span class="badge">${esc(byId[id].initials)}</span>`).join("")}${ids.length > 7 ? `<span class="more">+${ids.length - 7}</span>` : ""}</span>
+      <span class="faces" aria-hidden="true">${ids.slice(0, 7).map((id) => `${badge(byId[id])}`).join("")}${ids.length > 7 ? `<span class="more">+${ids.length - 7}</span>` : ""}</span>
       <span class="small muted">${ids.length} thinkers${best ? `. Closest to you: ${esc(best.name)}, ${best.k} of ${best.n}` : ""}</span>
       ${inside.length ? `<span class="small inside">Inside: ${inside.map(esc).join(" · ")}</span>` : ""}
     </button></li>`;

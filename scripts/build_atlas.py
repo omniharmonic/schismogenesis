@@ -106,7 +106,7 @@ def choose_count(holdings: list[Holding], family: dict[str, int]) -> tuple[int, 
     return best, {"count": best, "separation": round(best_score, 3), "by_count": table}
 
 
-PLACE_SHARPNESS = 14  # the fingerprint's weighting (packages/arena_fingerprint, fingerprint.js)
+PLACE_SHARPNESS = 14  # the fingerprint's weighting (packages/arena_fingerprint, placement.js)
 FORECAST_WEIGHT = 0.5  # forecasts count half as much as values, action and what AI is
 
 

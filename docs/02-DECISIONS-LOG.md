@@ -199,3 +199,10 @@ Benjamin, 2026-11-03: "we vastly over-simplified the schools. its too homogenous
 - The survey's 27 statements are chosen to separate groups at both the camp and the finest level.
 - On the site, every group is a card that opens the groups inside it, and the map redraws around it.
 - Details: `docs/fingerprint/07-ROUND-4.md`.
+
+### D-31.22 Pre-launch audit, portraits, Dia fix (2026-11-04)
+- **Dia blank page:** the scoring script was named `fingerprint.js`, which EasyPrivacy (shipped in Dia, Brave and uBlock) blocks by path. It is now `placement.js`; a test fails if any script name matches the common blocklist patterns.
+- **Final audit:** 15 independent readers checked every published item against one bar: would the person sign what we show? Stances: 565 of 670 ok, 24 replaced with a clearer quote from the same text, 81 dropped. Signature positions: 22 of 499 rewritten. Logged in `seed/final-audit-log.json` (`scripts/final_audit.py`, `scripts/apply_final_audit.py`).
+- Groups were redrawn from the corrected stances with the survey held fixed (`draw_schools.py --keep`), except one swap: "An AI can be a genuine friend" (left with one holder) replaced by "How technology reshapes work and society is set by collective choices", the rule's next pick. All 28 group names rewritten to describe beliefs without praise or put-downs, claiming only positions no member rejects.
+- Accuracy after the audit: camp 87% top-1 (96% top-3), school 55% top-1 (80% top-3). Fewer, cleaner stances cost school-level resolution; more reading would restore it.
+- **Portraits:** 68 shown people have a Wikimedia Commons photo under a free licence (CC0, public domain, CC BY, CC BY-SA), matched through Wikidata and checked by eye; credits on the About page. Others keep initials (`scripts/fetch_faces.py`, `seed/faces.json`).

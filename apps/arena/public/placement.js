@@ -67,7 +67,7 @@ export function fingerprint(bundle, answers) {
   const agree = agreement(answers, stancesA);
   const rows = Object.entries(agree)
     .filter(([, r]) => r.n >= MIN_SHARED)
-    .map(([id, r]) => ({ id, name: thinkers[id].name, initials: thinkers[id].initials,
+    .map(([id, r]) => ({ id, name: thinkers[id].name, initials: thinkers[id].initials, face: thinkers[id].face,
       school: thinkers[id].school, ...r }))
     .sort((a, b) => b.s - a.s || b.n - a.n || (a.id < b.id ? -1 : 1));
   if (answered < MIN_ANSWERED || rows.length < MIN_RANKED) {

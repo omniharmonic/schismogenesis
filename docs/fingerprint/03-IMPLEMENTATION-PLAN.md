@@ -46,7 +46,7 @@ F1 to F6 are built and pass `make ci` (107 Python tests, 9 JS tests). Benjamin's
 - Done when `fingerprint.json` exists with 24 anchors, 8 per set.
 
 ### F2. Fingerprint scoring (browser module)
-- Files: `apps/arena/public/fingerprint.js`, `apps/arena/tests/fingerprint.test.mjs`.
+- Files: `apps/arena/public/placement.js`, `apps/arena/tests/fingerprint.test.mjs`.
 - Interface: `fingerprint(bundle, answers) -> {status: 'ok'|'not_enough', answered, ranked[], furthest[], schools[], position, signature[], camps[]}`. Each `ranked` item is `{id, name, k, n, s}`.
 - Tests: the shared vectors; not enough answers; ranking needs n ≥ 3; signature found on a crafted case; camp deepest split; position inside the hull of the top 5. Plus the balance check (PRD S1): 1,000 random answer sheets, each school's top-match rate between 0.5× and 2× its fair share. If it fails, report it rather than tune it away.
 

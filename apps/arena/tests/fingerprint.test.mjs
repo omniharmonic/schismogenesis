@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { agreement, fingerprint, plainStances, teaser } from "../public/fingerprint.js";
+import { agreement, fingerprint, plainStances, teaser } from "../public/placement.js";
 
 const root = new URL("../../../", import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, root), "utf8"));
@@ -134,7 +134,7 @@ test("balance: well-covered schools top random sheets within 0.5x to 2x of fair 
   }
 });
 
-import { highlights, profileSummary } from "../public/fingerprint.js";
+import { highlights, profileSummary } from "../public/placement.js";
 
 test("highlights pick a real agreeing quote, a disagreeing one, and the rarest take", () => {
   const stances = plainStances(bundle);

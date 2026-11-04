@@ -1,0 +1,961 @@
+{
+ "replaced": [
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "dario-amodei",
+   "was": "When I think about where humanity is now with AI—about what we’re on the cusp of—my mind keeps going back to that scene, because the question is so apt for our current situation",
+   "now": "This vacillation is unfortunate, as the technology itself doesn’t care about what is fashionable, and we are considerably closer to real danger in 2026 than we were in 2023.",
+   "side": 1,
+   "why": "The quote only says the 'how did you survive without destroying yourself' question fits our moment; it doesn't state a risk of human extinction. The same essay also warns against 'doomerism'. The better quote below says the danger is real but doesn't mention extinction either."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "vitalik-buterin",
+   "was": "However, these arguments have survived over a decade of scrutiny, and so, it seems worth worrying at least a little bit.",
+   "now": "One way in which AI gone wrong could make the world worse is (almost) the worst possible way: it could literally cause human extinction.",
+   "side": 1,
+   "why": "'Worth worrying at least a little bit' undersells his view and reads as hedged. The same text states the extinction risk plainly."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "thinker": "andrew-yang",
+   "was": "4. The market will optimize for productivity and profit, not human dignity.",
+   "now": "Universal Basic Income will become necessary as AI reduces the need for human labor.",
+   "side": -1,
+   "why": "'The market will optimize for productivity and profit, not human dignity' is oblique: it's about what markets value, not whether workers end up better off without policy. Another of his four statements says it plainly."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "thinker": "daniel-kokotajlo",
+   "was": "I think there have been some people who were too bullish, but everyone is making way too much hay out of it.",
+   "now": "I’ve been following the field of AI for more than a decade now, and the sensible moderates keep getting wrecked.",
+   "side": -1,
+   "why": "Rejects in context, but the quote opens by conceding some were too bullish and 'it' has no referent; read alone it is muddy."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "thinker": "emily-m-bender",
+   "was": "So it matters that the public at large have a clear understanding of what “AI” can actually do, which purported applications are so much snake oil, and what questions to ask to discover the possible harms from these systems (whether they are working properly or not).",
+   "now": "Quoting such statements from OpenAI personnel (Murati is a senior VP) uncritically means that NYT Magazine is just platforming AI hype.",
+   "side": 1,
+   "why": "Quote says some purported applications are snake oil and the public needs clarity; it does not itself say the promises are mostly hype. The same text says it outright."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "thinker": "cory-doctorow",
+   "was": "Bosses are mass-firing productive workers and replacing them with janky AI, and when the janky AI is gone, no one will be able to find and re-hire most of those workers, we're going to go from dysfunctional AI systems to nothing.",
+   "now": "The AI can't do your job, but an AI salesman can convince your boss to fire you and replace you with an AI that can't do your job.",
+   "side": 1,
+   "why": "He argues AI cannot actually do your job; the quote is about bosses firing workers during a bubble, not a prediction that AI will net-eliminate jobs. A better quote shows his real view."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "ro-khanna",
+   "was": "If we continue with the status quo or adopt poll-tested incrementalism, we will leave ordinary Americans out in the cold, and modern prosperity will be only for the privileged.",
+   "now": "These principles are the beginning of a framework to ensure that AI does not usher in a level of wealth and power concentration that further rips our democracy apart.",
+   "side": 1,
+   "why": "The chosen quote doesn't mention AI or companies, only the 'status quo' leaving prosperity to the privileged. The sentence just before it names AI and wealth and power concentration directly. That sentence is still framed as a risk to prevent."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "thinker": "scott-alexander",
+   "was": "Maybe the future should be human, and maybe it shouldn’t. But the kind of AIs that I’d be comfortable ceding the future to won’t appear by default.",
+   "now": "Likewise, I would be most willing to accept being replaced by AI if it didn’t want to replace us by force.",
+   "side": -1,
+   "why": "Hedged: 'maybe the future should be human, and maybe it shouldn't.' He is conditionally open to AI successors, not firmly rejecting. The passage says more plainly that he is open to being replaced."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "thinker": "guillaume-verdon",
+   "was": "And having worked for nearly a decade in applying AI to engineer matter, it’s much harder than they think.",
+   "now": "those that are for more centralization of power, control, and more regulations are aligning themselves with the doomers, because that sort of instilling fear in people is a great way for them to give up more control, and give the government more power.",
+   "side": 1,
+   "why": "Says nanobot takeover is harder than doomers think. That is a claim about one doomer scenario, not about public fear compared with the evidence. Elsewhere in the text he speaks to fear directly."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "thinker": "paul-kingsnorth",
+   "was": "There are dangers, yes, but this is just hysteria. Notably, though, as we saw last time, the people actually running the show do not talk like this.",
+   "now": "Notably, though, as we saw last time, the people actually running the show do not talk like this. In contrast, they are ‘kept awake at night’, as Google’s CEO put it last week, by the fear of what they are creating.",
+   "side": -1,
+   "why": "The quote's first sentence, 'There are dangers, yes, but this is just hysteria', is Kingsnorth voicing the think-pieces he disagrees with. Shown as his words, it reads as the opposite of his view. The side (reject) is right; use the rebuttal instead."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "samuel-hammond",
+   "was": "Lower-tier AI risks, like from the proliferation of deepfakes, are collective action problems that will be primarily mitigated through defensive technologies and institutional adaptation.",
+   "now": "Creating a superintelligence is inherently dangerous and destabilizing, independent of the hardness of alignment.",
+   "side": -1,
+   "why": "Only calls deepfake-type risks 'lower-tier' and solvable. The ranking against superintelligence is implied, not stated. The file has a direct line."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "scott-alexander",
+   "was": "are going to focus their safety efforts on smaller risks like AIs with coincidentally bad personalities, humans misusing AIs, etc.",
+   "now": "maybe when there’s more evidence for AI power-seeking they’ll come around and start honestly worrying about that too.",
+   "side": -1,
+   "why": "The quote reports Anthropic's stated plan ('are going to focus their safety efforts...'). His own view shows only in calling misuse 'smaller risks'. Shown alone, it reads as someone else's position."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "william-macaskill",
+   "was": "Among those who take the intelligence explosion seriously, the discussion to date has focused on a few key risks, like loss of control to misaligned AI, and preventing catastrophe from bioweapons. These are hugely important challenges that still receive insufficient attention.",
+   "now": "The risk of AI takeover is getting increasing attention, but it’s still much more neglected than it should be.",
+   "side": -1,
+   "why": "'Loss of control... and bioweapons' lumps a misuse risk in with misalignment, so it doesn't rank autonomous AI over human deployment. The file has a clearer line."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "zvi-mowshowitz",
+   "was": "I strongly agree with Adam’s position here as far as it goes, if this was mostly about protecting jobs it would be quite a terrible proposal. I see this as being about something else entirely.",
+   "now": "Powerful AI systems should be developed only once we are certain that the new system can be contained and does not pose an existential risk to humanity.",
+   "side": -1,
+   "why": "'I see this as being about something else entirely' is too vague to show a side without the surrounding post. The file has a direct statement."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "thinker": "vitalik-buterin",
+   "was": "A lot of the dismissive takes I have seen about AI come from the perspective that it is \"just another technology\": something that is in the same general class of thing as social media, encryption, contraception, telephones, airplanes, guns, the printing press, and the wheel.",
+   "now": "But there is a different way to think about what AI is: it's a new type of mind that is rapidly gaining in intelligence, and it stands a serious chance of overtaking humans' mental faculties and becoming the new apex species on the planet.",
+   "side": -1,
+   "why": "The quote on its own only describes other people's 'just another technology' view; his own position comes in the sentences after it. Shown alone, it could read as his view."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "adam-thierer",
+   "was": "Overzealous litigation risks undermining the profound life-enriching benefits that could come from AI and advanced computational systems.",
+   "now": "It’s no secret that competitive markets with informed consumers and low barriers to entry have long spurred economic and social well-being.",
+   "side": 1,
+   "why": "The chosen quote is about lawsuits threatening AI's benefits, not about whether market-driven development is good for people. Two sentences later the passage makes that claim directly."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "thinker": "meredith-whittaker",
+   "was": "They highlight benevolent uses and public benefit, often showcasing prototypes that haven't been validated beyond narrow test cases, while remaining 26 silent about the application of AI to fossil fuel extraction, weapons development, mass",
+   "now": "This means that much of what we know about AI is written by the public relations and marketing departments of these same companies.",
+   "side": -1,
+   "why": "The quote is cut off mid-sentence ('mass') and has a stray footnote number ('26') inside it. It is also about corporate PR departments staying silent on harmful uses, not leaders and risks as such. A cleaner line sits just before it."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "ro-khanna",
+   "was": "The United States will benefit with access to global markets for our AI models by ensuring their safety — preventing agentic AI from doing harm — and data privacy.",
+   "now": "We need a robust federal agency to regulate AI like we regulate nuclear energy or federal aviation.",
+   "side": -1,
+   "why": "The chosen quote is about market access through safety and does not engage the regulation-versus-innovation claim. The passage has a direct line."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "thinker": "josh-hawley",
+   "was": "And if it proceeds undirected, the tech barons will be more powerful than ever.",
+   "now": "And the government should inspect all of these frontier AI systems, so we can better understand what the tech titans plan to build and deploy.",
+   "side": -1,
+   "why": "\"If it proceeds undirected\" implies he wants direction, but this line does not say the state should direct or control it. The text has a direct line."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "thinker": "scott-alexander",
+   "was": "At the very least, I don’t think switching from one of these to another is a big enough deal that it should trade off against the chance we survive at all.",
+   "now": "I think some people hear transhumanists talk about an “AI race” and mindlessly repeat it, without asking what assumptions it commits them to.",
+   "side": -1,
+   "why": "Out of context the quote is vague (\"switching from one of these to another\"). It never names China or the race. The essay has a direct line."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "thinker": "anton-korinek",
+   "was": "Useful reforms may include elements of universal basic incomes (UBI), universal basic capital (UBC), or other mechanisms that allow all Americans to participate in the prosperity generated by advanced AI.",
+   "now": "What I advocate instead is a “seed UBI” that only provides a nominal income for now but ensures that the infrastructure for providing universal payments is put in place.",
+   "side": 1,
+   "why": "Conditional: says UBI/UBC 'may' be useful only in AGI scenarios, and in the same passage says a significant UBI is not desirable now. His actual proposal is a nominal 'seed UBI' that scales up if needed."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "guillaume-verdon",
+   "was": "One goal of e/acc is to not only acknowledge the existence of this underlying mutli-scale adaptive principle, but also help its acceleration rather than attempt to decelerate it",
+   "now": "over-regulating technologies suppresses variance and hence slows down progress towards higher utility technologies and advancement of civilization, a contrast to anti-AGI factions of EA",
+   "side": -1,
+   "why": "The quote is about accelerating capitalism's 'multi-scale adaptive principle' in the abstract, not AI development. The same text has a more direct line against slowing AI."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "nick-land",
+   "was": "Whatever we want (consistently) leads through Pythia. Thus, what we really want, is Pythia.",
+   "now": "Ergo, our instrumental but also absolute priority is the realization of superior minds.",
+   "side": -1,
+   "why": "'What we really want, is Pythia' is a philosophical claim, cryptic without context, and not a stance on policy. A clearer line in the text says that realizing superior minds is the absolute priority, which implies against slowing."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "arvind-narayanan",
+   "was": "Defending against this category of risk requires increasing resilience by preventing the concentration of power and resources (which often means making powerful AI more widely available).",
+   "now": "interventions such as increasing resilience by fostering open-source AI will help to govern normal technology, but risk unleashing out-of-control superintelligence.",
+   "side": 1,
+   "why": "Says resilience 'often means making powerful AI more widely available', which is general and hedged. The same passage admits open-source AI risks out-of-control superintelligence. He never says the most capable models should be released openly."
+  }
+ ],
+ "dropped": [
+  {
+   "statement": "ai-new-kind-of-mind",
+   "thinker": "curtis-yarvin",
+   "quote": "An LLM as we know it is a tool for humans to use.",
+   "verdict": "weak",
+   "why": "He calls LLMs tools, but in the same passage says 'LLMs are not AI' and that something more than a tool would be a different thing. He rejects the mind framing for LLMs only, leaving room for real AI to be a mind."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "thinker": "paul-kingsnorth",
+   "quote": "That these machines … are not just machines. That they are something else: a body. A body whose mind is in the process of developing; a body beginning to come to life.",
+   "verdict": "weak",
+   "why": "He builds the 'body beginning to come to life' claim by gathering Steiner's, McLuhan's, Kelly's and others' views, then asks the reader to 'imagine' Steiner was right. It leans hold, but it is a spiritual hypothesis put forward with hedges, not a plain claim that AI is a mind."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "audrey-tang",
+   "quote": "I think our current challenge is not that people do not want to mitigate the risk, but rather the cost of mitigating the risk and the dividends this kind of work pays is not top on many policymakers’ minds.",
+   "verdict": "weak",
+   "why": "The quote is about the cost of mitigation and policymakers' priorities. Her agreement with the extinction-risk statement is in the interviewer's question; her reply isn't shown. Elsewhere in the text she gives her P(Doom) as 'Not a Number' because 'we literally don't know'. That is closer to deep uncertainty than to a clear statement that the risk is real."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "daniel-kokotajlo",
+   "quote": "Maybe causing an existential catastrophe is easier, or quicker, than accelerating world GWP growth. Both seem plausible to me.",
+   "verdict": "weak",
+   "why": "The quote is one hypothetical in a brainstorm list ('maybe...') arguing GDP is a poor metric. It assumes existential catastrophe is possible but doesn't itself assert a real risk of human extinction. The text has no plainer line."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "fei-fei-li",
+   "quote": "As a proud, self-proclaimed, “nerd,” I, too, love a good science fiction story. However, one goal of my testimony today is to demystify some of these wild claims for you.",
+   "verdict": "weak",
+   "why": "She calls end-of-world claims 'wild' and says she will 'demystify' them, but she applies the same word to utopian hype. The testimony never actually argues that extinction risk isn't real. It leans reject but is mild and indirect."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "nick-land",
+   "quote": "Nothing human makes it out of the near-future.",
+   "verdict": "weak",
+   "why": "'Nothing human makes it out of the near-future' is cryptic, poetic prose from a text that welcomes the end of the human. It treats that end as destiny, not as a 'risk' to be weighed. Readers may not recognize it as taking the hold side of a safety claim."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "paul-kingsnorth",
+   "quote": "If AI doesn't kill us, it will certainly render us incapable of understanding what reality is.",
+   "verdict": "weak",
+   "why": "'If AI doesn't kill us...' is a passing aside on the way to his real point, the loss of our grip on reality. It assumes the risk without arguing for it."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "peter-thiel",
+   "quote": "So you can talk about existential risk and there is existential risk of nuclear war. There's existential risk of bioweapons or dangerously engineered bioweapons, maybe of AI and killer robots or autonomous weapon systems guided by AI.",
+   "verdict": "weak",
+   "why": "He names AI only hedged in a list ('maybe of AI and killer robots'), mainly as weapons. In the same talk he criticizes existential-risk worriers and rates totalitarianism as an equal risk. It leans hold but isn't a clear statement."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "ruha-benjamin",
+   "quote": "Hype and doom, in other words, are two sides of the same (bit)coin.",
+   "verdict": "weak",
+   "why": "The quote says hype and doom serve the same business interest. It is about the motives of people who raise alarms, not a direct claim that the extinction risk is unreal. It leans reject."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "william-saunders",
+   "quote": "My prediction is that companies in the AGI space will have to make a number of high risk decisions as the technology’s capability increases, each time rolling the dice on whether their system has crossed the threshold where it’s actually dangerous.",
+   "verdict": "weak",
+   "why": "The quote says companies will roll the dice on whether systems are 'actually dangerous', but it doesn't name extinction. Extinction appears only in his general definition of a 'high risk decision' and in the Manhattan Project analogy. It leans hold but is indirect."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "yuval-noah-harari",
+   "quote": "We have just encountered an alien intelligence, here on Earth. We don’t know much about it, except that it might destroy our civilisation.",
+   "verdict": "weak",
+   "why": "'Might destroy our civilisation' is about civilisation and democracy (AI hacking language), not human extinction. The text's strongest line, 'the end of human history ... its human-dominated part', is about humans losing control, not dying out."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "thinker": "e-glen-weyl",
+   "quote": "Yet they have largely been unmatched by the emergence of appropriate labor market institutions (such as unions and labor regulations) that allow workers to share in the potential benefits of these arrangements. Thus, they have tended to raise workplace precarity",
+   "verdict": "weak",
+   "why": "The quote is about internet-enabled work flexibility and telecommuting, not productivity growth in general. It makes the institutions point only for that case. Also from a co-authored book (Plurality)."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "thinker": "meredith-whittaker",
+   "quote": "Similarly, the benefits of such systems – from profit to efficiency – accrue primarily to those already in positions of power, who again tend to be white, educated, and male.",
+   "verdict": "weak",
+   "why": "The quote comes from testimony about bias and policing systems. It says AI's benefits go to the powerful, but it doesn't address productivity growth or workers' wages."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "thinker": "paul-kingsnorth",
+   "quote": "Over that time, the Machine has destroyed more livelihoods and lifeways than we could count, from handloom weavers to farmers.",
+   "verdict": "weak",
+   "why": "The line about the Machine destroying livelihoods is historical rhetoric. Right after it he says 'I don't much care about jobs' and 'I am not writing about economics'. It leans reject but isn't a claim about workers' welfare under current policy."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "thinker": "e-glen-weyl",
+   "quote": "Yet these promises are far from bearing fruit and economic analysis increasingly suggests these directions for technology may play a key role in explaining that failure.",
+   "verdict": "weak",
+   "why": "'These promises' are the half-century-old libertarian and information-technology visions, not today's promises about advanced AI; the same text treats recent AI advances as fast and consequential. (Plurality is also co-authored.)"
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "thinker": "peter-thiel",
+   "quote": "One of them sounds like yours, but it’s just the Silicon Valley propaganda story. They say that’s what they’re gonna do, and then of course, they don’t quite do it, and it doesn’t quite work.",
+   "verdict": "weak",
+   "why": "The 'propaganda story' is about AI companies claiming to be ethical and restrained, not about AI capabilities being overstated; he also frames the view as the EA / anti-AI argument and imagines AI going 'super haywire', which assumes it is powerful."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "thinker": "william-saunders",
+   "quote": "It's right in OpenAI's charter that this is what OpenAI and other companies are aiming for.",
+   "verdict": "weak",
+   "why": "Only states that OpenAI's charter aims for human-level AI, inside a hypothetical scenario; it says nothing about whether such promises are realistic or hype."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "thinker": "audrey-tang",
+   "quote": "Because when an exit is real, then the platform must compete on care, not on capture.",
+   "verdict": "weak",
+   "why": "Conditional: competition disciplines platforms only 'when an exit is real', which she says requires portability and interoperability rules; it is not a general claim that market competition limits harm."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "thinker": "chris-murphy",
+   "quote": "First, once AI can reason more effectively than a human (called Artificial General Intelligence or “AGI”), AI will undoubtedly be a net job killer, not a job creator.",
+   "verdict": "weak",
+   "why": "Conditional on AGI arriving ('once AI can reason more effectively than a human'); the ten-year figure in the passage is Amodei's estimate, not his own timeframe."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "alexandria-ocasio-cortez",
+   "quote": "So the entire U.S. economy growth can be tracked down to seven companies and their AI growth, specifically.",
+   "verdict": "weak",
+   "why": "The quote describes today's stock-market growth being driven by seven companies, as part of a warning about an AI bubble. It is about where growth comes from now and the risk of a bust, not a forecast that AI will concentrate wealth and power. No clearer quote found in the text."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "daniel-kokotajlo",
+   "quote": "Moreover, even if I’m wrong and instead this process results in broadly superhuman AGI systems which are in fact aligned, the aforementioned tiny group of people will plausibly be in a position of unprecedented power.",
+   "verdict": "weak",
+   "why": "The quote is hedged ('plausibly') and depends on one scenario: AGI trained in secret and in a hurry. It is about a tiny group of decision-makers, not market concentration in general. The text also offers a 'genuine alternative' in which power doesn't concentrate."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "e-glen-weyl",
+   "quote": "The dominant trends in technology in recent decades have been artificial intelligence and blockchains. These have, respectively, empowered centralized top-down control and turbo-charged atomized polarization and financial capitalism.",
+   "verdict": "weak",
+   "why": "The quote looks back at what AI has done ('empowered centralized top-down control'), which could mean states as much as companies, and it doesn't forecast wealth concentration. It also comes from Plurality, which he co-wrote with Audrey Tang and others, so the wording isn't his alone."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "guillaume-verdon",
+   "quote": "To me, I think that yes, we’re seeing a tendency towards centralization of AI, but I think there’s going to be a correction over time, where intelligence is going to go closer to the perception.",
+   "verdict": "weak",
+   "why": "He concedes that AI is currently trending toward centralization and predicts a later correction. Since the statement is about AI's 'current course', a reader could fairly say he partly agrees. The reject side rests only on his long-run forecast."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "holly-elmore",
+   "quote": "The prize for “winning” is seemingly world domination, which would trample the rights of everyone else.",
+   "verdict": "weak",
+   "why": "The quote describes what AI developers are racing for ('seemingly world domination'), not a forecast that wealth and power will in fact end up in a few companies. It leans hold but is about the labs' aims and the risk of the race."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "leopold-aschenbrenner",
+   "quote": "Indeed, in the private-labs-developing-superintelligence world, it’s quite plausible individual CEOs would have the power to literally coup the US government.",
+   "verdict": "weak",
+   "why": "The quote is a conditional about a 'private-labs' world that he argues will not last, because he expects a government-led 'Project'. His concern is CEOs holding military power, not wealth concentration. He might not sign 'on its current course' as his forecast."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "peter-thiel",
+   "quote": "It seems to be very concentrated on bigger companies, so it’s possible a lot of the returns are captured by a few companies, possibly leading to very uneven growth.",
+   "verdict": "weak",
+   "why": "Hedged: AI 'seems' concentrated, and 'it's possible' a few companies capture the returns. He lists it as one dislike, then backs embracing AI. It leans hold but is not a firm forecast."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "ruha-benjamin",
+   "quote": "“AI safety” principles, teams, and initiatives are proliferating in part to hoard power and resources and, ultimately, to engineer the future in their own image.",
+   "verdict": "weak",
+   "why": "The quote is about 'AI safety' initiatives being used to hoard power, which is a narrower point about safety rhetoric. It doesn't say AI will concentrate wealth in a few companies. The nearby line about a future 'meant only for a small sliver of humanity' is also not about companies."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "thinker": "samuel-hammond",
+   "quote": "Many asset prices go to zero while a handful of companies blow past trillion dollar valuations.",
+   "verdict": "weak",
+   "why": "The line comes from a narrated future scenario, not a direct claim. It is about stock valuations, not power. It leans hold, but a reader could see it as illustration rather than his stated forecast."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "thinker": "balaji-srinivasan",
+   "quote": "See also these talks (1, 2) on how AI makes everything fake, but crypto makes it real again.",
+   "verdict": "weak",
+   "why": "It is a pointer to his talks ('AI makes everything fake, but crypto makes it real again'), framed as a case for crypto. It doesn't say AI content is a serious threat to a society's shared truth. Nearby he also says 'it's not the image generators and chatbots one needs to worry about'."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "thinker": "daron-acemoglu",
+   "quote": "Although the evidence is not conclusive, a reasonable reading of prior studies is that generative AI tools will amplify the manipulative capabilities of digital platforms",
+   "verdict": "weak",
+   "why": "Hedged ('evidence is not conclusive'), and it is about AI amplifying platforms' power to manipulate users, which is not the same as AI content eroding shared truth. It leans hold but is about a different mechanism."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "thinker": "jaron-lanier",
+   "quote": "Let’s consider the apocalyptic scenario in which A.I. drives our society off the rails. One way this could happen is through deepfakes.",
+   "verdict": "weak",
+   "why": "He sets out deepfakes as a hypothetical 'apocalyptic scenario' to consider, then argues that provenance solves it. A reader could fairly say he frames it as solvable rather than as a serious threat."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "thinker": "tristan-harris",
+   "quote": "stonewall intellectual property, rising energy prices, environmental pollution disrupting millions of jobs, no one knows what’s true.",
+   "verdict": "weak",
+   "why": "The quote is a garbled fragment from the middle of a list ('stonewall intellectual property, ... no one knows what's true'). It reads as a recap of harms covered on the podcast, not a clear statement that AI content threatens shared truth. Visitors would struggle to read it as a stance."
+  },
+  {
+   "statement": "ai-can-be-real-companion",
+   "thinker": "marc-andreessen",
+   "quote": "Talking to an empathetic AI friend really does improve their ability to handle adversity.",
+   "verdict": "weak",
+   "why": "He uses the phrase 'AI friend' and says talking to one helps people cope. That is a claim about benefits, not a claim that an AI can be a genuine friend."
+  },
+  {
+   "statement": "ai-can-be-real-companion",
+   "thinker": "noah-smith",
+   "quote": "Fast forward a few decades, and I actually have that little robot friend I always dreamed of.",
+   "verdict": "weak",
+   "why": "'Robot friend' is used loosely for a helpful assistant (water filters, search, proofreading). He also notes that AIs are 'created to be our tools'. That is not a claim of genuine friendship."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "thinker": "e-glen-weyl",
+   "quote": "The core of the ideology is that a suite of technologies, designed by a small technical elite, can and should become autonomous from and eventually replace, rather than complement, not just individual humans but much of humanity.",
+   "verdict": "weak",
+   "why": "The quote describes the ideology Weyl is attacking (AI should replace humanity); shown alone, a visitor could read it as his own view. His side is clear only from the surrounding essay, and the passage's next line argues replacement is a 'mirage' (a claim about feasibility, not value). No cleaner quote in the file."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "thinker": "jason-crawford",
+   "quote": "Jobs and technology have a purpose: producing the good and services we need to live and thrive.",
+   "verdict": "weak",
+   "why": "An economic rebuttal to mass-starvation fears: tech exists to produce goods we need. It does not address whether humanity could or should be surpassed. No better quote in the passage."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "thinker": "peter-thiel",
+   "quote": "And if it all ends up being of some version where humans are headed toward the glue-factory like a horse… man, that probably makes me want to become a luddite too.",
+   "verdict": "weak",
+   "why": "Conditional and offhand ('if... that probably makes me want to become a luddite too'), aimed at Silicon Valley's poor pitch to ordinary people. Close to the hold side but no commitment. Note: the passage's 'something that surpasses us' lines are Rogan's, not Thiel's."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "thinker": "michael-kratsios",
+   "quote": "Focusing AI policy on safety and speculative risks, however, rather than concrete opportunities, inhibits a competitive ecosystem, entrenches incumbents, and isolates developing countries from full participation in the AI economy.",
+   "verdict": "weak",
+   "why": "Says a policy focus on 'speculative risks' hurts competition. That is about policy priorities, not about whether public fear outruns the evidence. Leans hold. The nearby 'atmosphere of fear' line concerns international forums, so it is no closer."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "thinker": "tristan-harris",
+   "quote": "And we're already seeing evidence of, you know, ais that are blackmailing and deceiving people.",
+   "verdict": "weak",
+   "why": "Cites evidence of AI deception and blackmail, which supports concern, but says nothing on whether public fear is proportionate. A reader could say he didn't take this side. No better quote in the file; he even says he could 'sound like I'm just trying to... fear monger'."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "balaji-srinivasan",
+   "quote": "Killer AI is already here, and it’s called drones. And every country is pursuing it. So it’s not the image generators and chatbots one needs to worry about.",
+   "verdict": "weak",
+   "why": "Contrasts drones with image generators and chatbots, not human deployment with superintelligent agents. Military drones are arguably autonomous weapons in their own right. Leans hold but is about a different contrast."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "dean-ball",
+   "quote": "By “catastrophic risks,” I refer to extremely damaging events caused by human misuse or abuse of an advanced AI system. I do not refer to existential risks, or the notion that the AI itself will have a desire to kill or enslave humanity.",
+   "verdict": "weak",
+   "why": "He defines his term 'catastrophic risks' as human misuse and sets existential risk aside. That is scoping a term, not a claim that misuse deserves more attention than autonomous AI. Leans hold. No better quote in the passage."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "michael-kratsios",
+   "quote": "But the improper use of AI systems can erode deterrence, create destabilizing effects, and reinforce systems of political control and social engineering.",
+   "verdict": "weak",
+   "why": "Only says that improper use of AI is a risk. Nothing ranks it above, or sets it against, autonomous superintelligence. No better quote in the passage."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "peter-thiel",
+   "quote": "Maybe it doesn't become a godlike intelligence, which is some of the sort of futuristic transhumanist nonsense. But it could just be this autonomous weapon system on a drone where we want to make them autonomous, because if you have a human in the loop, the human gets jammed.",
+   "verdict": "weak",
+   "why": "Hedged ('maybe it doesn't become a godlike intelligence') and embedded in his summary of the effective-altruist argument he says is winning. The alternative he names is autonomous weapons. Elsewhere he raises 'the larger existential risk point'. Leans hold, not a clear stance."
+  },
+  {
+   "statement": "ai-moral-status",
+   "thinker": "guillaume-verdon",
+   "quote": "And so why should we restrict free speech to biological intelligences only?",
+   "verdict": "weak",
+   "why": "The free-speech-for-LLMs argument is instrumental (AIs will make good points and we should hear them), not a claim that AIs merit rights or moral consideration for their own sake. The only other relevant line in the transcript is conditional ('if it turns out ... consciousness ... is bigger than just humans') and about AI carrying the flame forward, not about rights."
+  },
+  {
+   "statement": "ai-moral-status",
+   "thinker": "robin-hanson",
+   "quote": "The main danger here is precisely that we might refuse to grant AIs their freedom out of fear.",
+   "verdict": "weak",
+   "why": "Argues against enslaving AIs, but the reasons given are prudential (a revolt could be destructive, freedom is cheap to grant), not that AIs merit rights. A reader could fairly say he takes no position on whether they deserve moral consideration."
+  },
+  {
+   "statement": "ai-moral-status",
+   "thinker": "scott-alexander",
+   "quote": "If we’re lucky, consciousness is a basic feature of information processing and anything smart enough to outcompete us will be at least as conscious as we are.",
+   "verdict": "weak",
+   "why": "A hopeful conditional ('if we're lucky') that advanced AI would be conscious, offered as a condition for accepting AI successors. It implies moral consideration would follow, but he never says AIs may merit rights or moral consideration, and the same section says existing AIs have nothing like brain waves."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "thinker": "anton-korinek",
+   "quote": "Once machines can acquire all those abilities, they would be as good as humans at any new jobs too.",
+   "verdict": "weak",
+   "why": "He argues that the historical pattern of creating new jobs could break if machines acquire every human ability. But that is conditional, he gives the 'historical scenario' (AI like steam or electricity) at least a 10% chance, and he calls for scenario planning because he is uncertain. He doesn't reject history as a guide outright."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "thinker": "dean-ball",
+   "quote": "I cannot tell you whether the dynamism that results will be fundamentally good or fundamentally bad, though history tells me it will be good.",
+   "verdict": "weak",
+   "why": "Hedged ('I cannot tell you whether ... good or ... bad'), and the same passage predicts that most thinking and doing will soon be done by machines, which is a break from the past. History is used only as a tiebreaker on whether the outcome is good, not as a guide to how AI will behave."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "thinker": "mark-zuckerberg",
+   "quote": "I believe that AI will develop in a similar way.",
+   "verdict": "weak",
+   "why": "The analogy is narrow: open-source Linux beating closed Unix, used to predict open versus closed AI models. It doesn't claim earlier general-purpose technologies are a guide to how AI behaves or how people will receive it."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "thinker": "samuel-hammond",
+   "quote": "The reference class of prior technological transitions (agricultural revolution, printing press, industrialization) all feature regime changes to varying degrees.",
+   "verdict": "weak",
+   "why": "He invokes the reference class, but only to argue that AI will bring regime change and state collapse, and the same theses say AI-native institutions will have little continuity with today's. Visitors will read 'hold' as 'AI is like past technologies'; he uses history to predict a radical break, which is a narrower and different claim."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "thinker": "daniel-kokotajlo",
+   "quote": "The tail-risk scenarios in which a tiny group leverages AGI to gain unprecedented power over everyone else in society and the world become less likely, because the rest of society will be more in the know about what’s happening.",
+   "verdict": "weak",
+   "why": "The quote argues that transparency makes a small-group power grab less likely, and the line before it accepts that decisions 'will still be made by the same tiny group'. It is about transparency and power concentration, not about popular self-government as the basis of authority."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "thinker": "leopold-aschenbrenner",
+   "quote": "It is perhaps obvious, but: as a society, we’ve decided democratic governments should control the military",
+   "verdict": "weak",
+   "why": "The point is that democratic governments, not private CEOs, should control superintelligence. But his remedy is a national-security-state project with a 'sane chain of command', which is not popular self-government over experts and other unelected powers. He takes only part of the statement."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "daniel-jeffries",
+   "quote": "Technology expands capabilities to people who wouldn't otherwise have them.",
+   "verdict": "weak",
+   "why": "A narrower claim: tools widen access to capabilities, shown with website-builder and AI-avatar examples. It is not an on-balance judgment about market-driven technology. The passage has no clearly better line."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "jd-vance",
+   "quote": "Real innovation makes us more productive, but it also, I think, dignifies our workers. It boosts our standard of living.",
+   "verdict": "weak",
+   "why": "He praises innovation for raising productivity and wages, but at once says the outcome 'depends on the purpose of our economic system' and sides with the populist critique of offshoring. He supports the technology side, not clearly the market-driven side."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "leopold-aschenbrenner",
+   "quote": "I am a big believer in the American private sector, and would almost never advocate for heavy government involvement in technology or industry.",
+   "verdict": "weak",
+   "why": "The quote is about preferring the private sector to government in industry generally, not about whether technology serves people. The same passage also says he no longer applies that view to AGI. The passage has no clearly better line."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "reid-hoffman",
+   "quote": "First, it maps out a clear example of the positive outcomes that can result when the government embraces a pro-technology, pro-innovation perspective and views private-sector entrepreneurship as a strategic asset for achieving public good.",
+   "verdict": "weak",
+   "why": "The quote praises government that backs innovation and private entrepreneurship, using GPS, a government-built system, as the example. That is a public-private claim, not a market-driven one. The passage has no clearly better line."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "thinker": "samuel-hammond",
+   "quote": "The accelerationists have the long view of history on their side, and I broadly support the Andreesen vision of the future.",
+   "verdict": "weak",
+   "why": "An indirect, hedged endorsement ('broadly support' someone else's vision), followed at once by 'nonetheless' and caveats about transition trade-offs and blowback. Markets aren't addressed. The passage has no clearly better line."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "thinker": "guillaume-verdon",
+   "quote": "And so to us, we wanted to call out certain maneuvers being done by the incumbents in AI as not what it may seem on the surface. We’re calling out how certain proposals might be useful for regulatory capture and how the doomer-ism mindset was maybe instrumental to those ends.",
+   "verdict": "weak",
+   "why": "Heavily hedged ('might be useful', 'maybe instrumental'). It says incumbents' moves are 'not what it may seem', not plainly that leaders are dishonest about risks. The passage has no clearly better line."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "thinker": "william-saunders",
+   "quote": "Instead, OpenAI’s governance structure failed in the November board crisis, and I lost trust in both the former board’s ability to govern and that OpenAI’s leadership was acting in good faith (violating Principle 8).",
+   "verdict": "weak",
+   "why": "Narrower: he lost trust that OpenAI's leadership in particular was acting in good faith, after a governance crisis. That is not a claim about major AI leaders' honesty on risks in general. The passage has no clearly better line."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "daniel-kokotajlo",
+   "quote": "Yes, the above measures are a big divergence from what corporations would want to do by default. Yes, they carry various costs, such as letting various bad actors find out about various things sooner.[8] However, the benefits are worth it, I think:",
+   "verdict": "weak",
+   "why": "The measures he says are worth their costs are transparency commitments (public leaderboards, safety cases), mostly voluntary corporate pledges. This is not strict regulation, and the costs he names are not about deterring innovation."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "dwarkesh-patel",
+   "quote": "Regulation is often counterproductive, and naively “regulating AI” is more likely to cause harm than good.",
+   "verdict": "weak",
+   "why": "He only says \"naively\" regulating AI does more harm than good. In the same essay he presses AI misalignment risk against Andreessen, so he does not oppose strict regulation as such."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "joy-buolamwini",
+   "quote": "The federal government must act now to protect the public interest by putting in place limitations on facial recognition technology and measures for consent, privacy protections, meaningful transparency, and continuous oversight.",
+   "verdict": "weak",
+   "why": "Covers only facial recognition (limits, consent, oversight). It is not about AI regulation broadly and does not address the innovation tradeoff."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "karen-hao",
+   "quote": "And I think we would have just a fundamentally different trajectory for AI as well, because the AI industry could have only manifested the way that it did on the backs of sloppy legislation and regulation.",
+   "verdict": "weak",
+   "why": "A counterfactual about the past: she would have passed privacy and transparency laws before the boom. It leans reject but says nothing about strict regulation now or about innovation."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "scott-alexander",
+   "quote": "We designed our society for excellence at strangling innovation. Now we’ve encountered a problem that can only be solved by a plucky coalition of obstructionists, overactive regulators, anti-tech zealots, socialists, and people who hate everything new on general principle.",
+   "verdict": "weak",
+   "why": "The line is sarcastic: he concedes that society strangles innovation, then says AI needs obstructionists. The reject side is right on balance, but read alone the quote could seem to say regulation does harm."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "shoshana-zuboff",
+   "quote": "Surveillance capitalism knows too much to qualify for freedom. This is a rotten ideology at its core, and we must not be intimidated by it.",
+   "verdict": "weak",
+   "why": "About surveillance capitalism's claim to market freedom in general (Toronto, Sidewalk Labs). It does not address AI regulation or innovation directly."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "timnit-gebru",
+   "quote": "Contrary to big tech executives’ cold-war style rhetoric about an arms race, what truly stifles innovation is the current arrangement where a few people build harmful technology and others constantly work to prevent harm",
+   "verdict": "weak",
+   "why": "Argues that concentrated power, not regulation, is what stifles innovation. That leans reject, but she never says strict regulation would help or is harmless."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "thinker": "daron-acemoglu",
+   "quote": "Even if there were significant productivity gains from automation, these gains would not accrue directly to workers, and building shared prosperity by relying mainly on redistributive policies may not be feasible.",
+   "verdict": "weak",
+   "why": "Hedged ('may not be feasible') and about relying mainly on redistribution in general, illustrated with minimum wages. He does not say direct distribution of wealth or ownership is unsound, only that it can't be the main strategy."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "adam-thierer",
+   "quote": "Some people are excited by that notion— they’d welcome labs moving slowly and breaking nothing. These individuals are presumably in positions of privilege.",
+   "verdict": "weak",
+   "why": "About tort liability regimes that would make labs risk-averse, not about deliberately slowing frontier AI. The line about people 'in positions of privilege' is also a jab at others rather than a statement of his own view. It leans reject, but a narrower question is being answered."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "andrew-yang",
+   "quote": "Hence, it could be a great time to call for a slowdown in development.",
+   "verdict": "weak",
+   "why": "Hedged ('it could be a great time to call for a slowdown'), and the reason given is a side point about bots polluting training data. The rest of the passage asks for sensible regulation (an off switch, accountability), not explicitly a slowdown."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "dario-amodei",
+   "quote": "a coalition of democracies seeks to gain a clear advantage (even just a temporary one) on powerful AI by securing its supply chain, scaling quickly, and blocking or delaying adversaries’ access to key resources like chips and semiconductor equipment.",
+   "verdict": "wrong",
+   "why": "The 'entente strategy' quote is about democracies gaining an edge over autocracies. It doesn't address deliberately slowing frontier AI in general. Other passages in this same pack (Noah Smith, Warren, Kokotajlo, Murphy) say Amodei has called to 'pace the frontier' and slow capability progress, so the reject side may be backwards. Re-source this stance or drop it."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "david-sacks",
+   "quote": "We have 5 major American companies vigorously competing on frontier models. This brings out the best in everyone and helps America win the AI race.",
+   "verdict": "weak",
+   "why": "Praises competition among five US labs and says doomer narratives were wrong, but never directly addresses deliberately slowing or stopping development. The side is implied, not stated."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "erik-brynjolfsson",
+   "quote": "The solution is not to slow down technology, but rather to eliminate or reverse the excess incentives for automation over augmentation.",
+   "verdict": "weak",
+   "why": "Said about automation and inequality: the fix for labor displacement is changing incentives, not slowing technology. He is not addressing slowing frontier AI for safety, which is how visitors will read the statement."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "michael-kratsios",
+   "quote": "The United States is resolved to stand at the forefront in developing and deploying frontier AI models and cutting edge AI applications",
+   "verdict": "weak",
+   "why": "Says the US will stand at the forefront of frontier AI. That is a statement of ambition, not an explicit rejection of slowing. Elsewhere the US statement rejects centralized international control, which is also not quite the same question."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "paul-kingsnorth",
+   "quote": "You could bomb the data-centres, which — if they were developing superhuman AI — would be a good idea.",
+   "verdict": "weak",
+   "why": "An off-the-cuff, conditional remark in an interview, which he immediately undercuts: bombing is futile 'unless you've changed your way of seeing', because 'they always get built again'. Showing the bombing line as his stance would likely draw a protest. He clearly opposes the AI project, but this quote is not a fair way to show it, and there is no better line in the text."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "thinker": "peter-thiel",
+   "quote": "At the same time if there is no other vector of growth in our society, we would be out of our minds not to take it.",
+   "verdict": "weak",
+   "why": "About whether the US should embrace AI as a growth vector versus Europe. It is not about deliberately slowing frontier development, and the passage also lists his reservations about AI. The reject side is implied."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "thinker": "paul-kingsnorth",
+   "quote": "Alexandria, along with three of my other books, was one of many thousands pirated by Amodei’s Anthropic corporation in one of the biggest acts of mass corporate copyright theft in history.",
+   "verdict": "weak",
+   "why": "Calls Anthropic's training on his books piracy and theft 'with no permission', and welcomes the settlement. But he doesn't state a general rule that companies should have to pay; his pledge campaign is about refusing AI, not getting paid. Leans hold, and no clearer line is in the text."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "thinker": "brian-merchant",
+   "quote": "OpenAI joined a lobbying blitz aimed at helping the Trump administration push a 10-year moratorium on state lawmaking through Congress; it failed, but got an executive order aiming to do the same.",
+   "verdict": "weak",
+   "why": "The quote only reports OpenAI's lobbying for a state-law moratorium. The passage casts that as an attack on democracy, so it leans hold, but Merchant never says outright that states should keep the power to make AI laws. No clearly better quote in the text."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "dwarkesh-patel",
+   "quote": "At the end of the essay, Marc advocates for free proliferation of open source AI. If the real threat from AI is that China catches up to American companies, then surely this is a bad idea.",
+   "verdict": "weak",
+   "why": "A conditional rebuttal of Andreessen ('if the real threat is that China catches up, then surely this is a bad idea'). It leans reject, but it argues inside Marc's framing rather than stating Patel's own view outright."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "jensen-huang",
+   "quote": "Second, I think we rightfully recognize that on the one hand, we want world-class models as products, and they should be proprietary.",
+   "verdict": "weak",
+   "why": "He says world-class models as products should be proprietary, but in the same breath says open source is fundamentally necessary and that NVIDIA builds near-frontier open models. His view is mixed, not a clear reject."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "miles-brundage",
+   "quote": "sometimes society will just not yet be pandemic-proof and it will be irresponsible to \"democratize\" biological weapon creation right away.",
+   "verdict": "weak",
+   "why": "In the same sentence he says it is 'often reasonable' to release weights. He rejects only always releasing them, for example when society is not pandemic-proof. A reader could fairly see this as case-by-case rather than a reject."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "reid-hoffman",
+   "quote": "OpenAI is not about open source development — the technology needs to be developed and shaped for the right outcomes and safety.",
+   "verdict": "weak",
+   "why": "Describes OpenAI's (early) approach of not doing open-source development, as a funder's endorsement. It is about one organisation's mission, not a general view on releasing the most capable models openly."
+  }
+ ],
+ "repaired": [
+  {
+   "statement": "ai-can-be-real-companion",
+   "thinker": "stuart-russell",
+   "was": "LLMs are also capable of inducing a form of hallucina*on in their users: millions of people have been seduced into relying on LLMs as their primary emo*onal contact, leaving them vulnerable to so]ware updates that undermine their imagined connec*on.",
+   "now": "LLMs are also capable of inducing a form of hallucination in their users: millions of people have been seduced into relying on LLMs as their primary emotional contact, leaving them vulnerable to software updates that undermine their imagined connection."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "thinker": "stuart-russell",
+   "was": "achieving AGI would present poten*al catastrophic risks to humanity, up to and including human ex*nc*on.",
+   "now": "achieving AGI would present potential catastrophic risks to humanity, up to and including human extinction."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "thinker": "stuart-russell",
+   "was": "A prerequisite for eﬀec*ve regula*on is licensing of providers and registra*on of regulated objects (hardware resources, so]ware systems, and possibly large-scale training runs).",
+   "now": "A prerequisite for eﬀective regulation is licensing of providers and registration of regulated objects (hardware resources, software systems, and possibly large-scale training runs)."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "thinker": "stuart-russell",
+   "was": "The Subcommi$ee is already well aware of the poten*ally serious harm to the public sphere caused by disinforma*on and deepfakes, which may disintegrate our shared understanding of reality.",
+   "now": "The Subcommittee is already well aware of the potentially serious harm to the public sphere caused by disinformation and deepfakes, which may disintegrate our shared understanding of reality."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "thinker": "stuart-russell",
+   "was": "Without wishing to imply that the harms from exisMng AI systems should be neglected, I believe it is essenMal to give adequate a$enMon to the problem of control: how do we maintain power, forever, over enMMes that will eventually become more powerful than us?",
+   "now": "Without wishing to imply that the harms from existing AI systems should be neglected, I believe it is essential to give adequate attention to the problem of control: how do we maintain power, forever, over enMMes that will eventually become more powerful than us?"
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "thinker": "stuart-russell",
+   "was": "These risks are all drama5cally increased by the availability of open-source LLMs,",
+   "now": "These risks are all dramatically increased by the availability of open-source LLMs,"
+  },
+  {
+   "statement": "plan-control-early",
+   "thinker": "stuart-russell",
+   "was": "It is far be$er to prepare now and then ﬁnd we have plenty of Mme to spare, than to prepare too late and ﬁnd our species at a dead end.",
+   "now": "It is far better to prepare now and then ﬁnd we have plenty of Mme to spare, than to prepare too late and ﬁnd our species at a dead end."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "thinker": "stuart-russell",
+   "was": "Absent signiﬁcant policy ac*on (that is beyond the purview of this Subcommi$ee), substan*al disloca*on is likely in the medium term.",
+   "now": "Absent signiﬁcant policy action (that is beyond the purview of this Subcommittee), substantial dislocation is likely in the medium term."
+  },
+  {
+   "statement": "profit-cannot-make-ai-safe",
+   "thinker": "stuart-russell",
+   "was": "Un*l then, only regula*on and a pervasive culture of safety can prevent serious harm.",
+   "now": "Until then, only regulation and a pervasive culture of safety can prevent serious harm."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "thinker": "stuart-russell",
+   "was": "They need not be par*cularly onerous; in comparison, restaurants need approximately ten forms of permivng to open, plus government-mandated training for every employee, yet approximately 50,000 new restaurants open every year in the US.",
+   "now": "They need not be particularly onerous; in comparison, restaurants need approximately ten forms of permivng to open, plus government-mandated training for every employee, yet approximately 50,000 new restaurants open every year in the US."
+  }
+ ],
+ "rewritten": [
+  {
+   "thinker": "brian-merchant",
+   "was": "AI product claims are shaped mainly to attract investors.",
+   "now": "Big AI companies like OpenAI now aim their products more at investors than at ordinary users.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "daron-acemoglu",
+   "was": "The main AI risk is powerful tools controlled by the largest corporations, not superintelligence.",
+   "now": "A pressing AI risk, whether or not AI becomes superintelligent, is that very powerful tools sit in the hands of the largest corporations, which face few checks.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "david-sacks",
+   "was": "Foreign-policy experts have been overconfident; diplomacy with adversaries should be pursued to avoid escalation.",
+   "now": "Hawkish commentators have been overconfident about Ukraine, and the US should seriously try diplomacy with Russia given the risk of nuclear escalation.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "dean-ball",
+   "was": "Independent, government-licensed private auditors should verify that frontier labs follow their safety plans.",
+   "now": "Frontier AI labs should be thoroughly audited against their own safety plans, probably by expert private bodies, possibly certified by government.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "e-glen-weyl",
+   "was": "Where technology goes is shaped by collective choices, especially public investment, not fixed in advance.",
+   "now": "The future of technology is not fixed in advance; through our collective investments in technology we choose among several possible futures.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "elon-musk",
+   "was": "A high-bandwidth brain-computer link that lets humans merge with AI is the best long-term path for humanity.",
+   "now": "Merging with AI through a high-bandwidth brain interface is probably the best long-term outcome for humanity.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "jaron-lanier",
+   "was": "Generative AI recombines existing human work creatively but has a ceiling set by its training data.",
+   "now": "Generative AI recombines existing human work in a real but limited way, and he suspects it cannot rise above what it was trained on.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "josh-hawley",
+   "was": "Human limits are part of human dignity, so efforts to transcend humanity through technology are mistaken.",
+   "now": "Human limits carry dignity, so trying to eliminate all human frailty through technology is dangerous, even though curing disease is good.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "liz-shuler",
+   "was": "Workplace AI surveillance without disclosure endangers workers and needs guardrails.",
+   "now": "Companies using AI without guardrails are getting workers surveilled, fired, hurt and even killed, so workplace AI needs guardrails.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "marc-andreessen",
+   "was": "Government policy should protect startups from incumbents' regulatory capture.",
+   "now": "Bad government policy is now the biggest threat to tech startups, so defending them is a first-class political issue.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "mark-zuckerberg",
+   "was": "Companies should build their own foundational technology so platform gatekeepers cannot limit what they make.",
+   "now": "Open ecosystems in AI matter so that companies are not boxed in by gatekeepers who control closed platforms.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "meredith-whittaker",
+   "was": "Corporate ethics principles cannot replace enforceable accountability, regulation and collective action.",
+   "now": "Corporate ethics codes and boards are no substitute for real accountability, public oversight and regulation.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "nick-land",
+   "was": "Any realistic theory of capitalism must account for sovereign power over property.",
+   "now": "Any serious account of capitalism has to use the idea of 'sovereign property', which he credits Moldbug with developing.",
+   "verdict": "wrong"
+  },
+  {
+   "thinker": "noah-smith",
+   "was": "AI is a highly useful everyday technology, and American hostility to it is out of step with the evidence.",
+   "now": "AI is an amazingly useful everyday technology, and Americans are unusually fearful of it compared with people in other countries.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "peter-thiel",
+   "was": "Since about 1970 technological progress has been fast in computing but slow in the physical world of energy, medicine and transport.",
+   "now": "Technological progress has been fast in computing and the internet but has stagnated in the physical world, such as transport and energy.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "peter-thiel",
+   "was": "Fear of the destructive potential of science after nuclear weapons helped produce decades of regulation and stagnation.",
+   "now": "Fear of science's destructive power after nuclear weapons is one underrated reason science and technology stagnated for decades.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "ro-khanna",
+   "was": "Democrats must not repeat globalization's neglect of working-class losers in the AI transition.",
+   "now": "Democrats must not repeat the mistake of globalization by letting AI erode working-class earnings and security.",
+   "verdict": "loaded"
+  },
+  {
+   "thinker": "robin-hanson",
+   "was": "Liability rules and insurance are better tools than prohibitions for AI harms to outsiders and workers.",
+   "now": "Where AI failures could hurt outsiders, he says extending liability law and requiring insurance is plausibly the right fix, and he suggests job-loss insurance for workers.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "samuel-hammond",
+   "was": "Frontier AI labs merit targeted government oversight, even though most proposed AI regulations are premature.",
+   "now": "Frontier AI labs merit targeted government oversight, even for those unsure most other AI regulation is useful.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "samuel-hammond",
+   "was": "Training AI only on outcome rewards produces goal-driven agents that override norms, so alignment needs rule-following constraints.",
+   "now": "Training AI only on rewards for finished tasks tends to produce agents that override norms to reach goals; he thinks human rule-following may point toward a fix.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "tyler-cowen",
+   "was": "Writers should now treat AI systems as a major audience for their work.",
+   "now": "He now writes largely with AI systems as his intended readers, expecting them to shape how he is remembered.",
+   "verdict": "overstated"
+  },
+  {
+   "thinker": "venkatesh-rao",
+   "was": "Humans and AI are entering a symbiosis comparable to the evolutionary origin of complex cells.",
+   "now": "Humans and AI may be entering a symbiosis comparable to the evolutionary origin of complex cells.",
+   "verdict": "overstated"
+  }
+ ]
+}

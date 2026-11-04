@@ -12,7 +12,7 @@ Owner: Benjamin Life. Drafted by Claude, 2026-11-02. Implements `01-PRD.md`. Dec
         │
         ▼
  Browser (apps/arena, plain ES modules, no build step)
-   fingerprint.js  — all fingerprint scoring, on device (PRD R3)
+   placement.js  — all fingerprint scoring, on device (PRD R3)
    map.js / card.js — 2D map and share card (SVG, canvas → PNG)
    room.js         — voting, writing, room report (only after opt-in)
         │  HTTPS JSON, only after "Add my answers to the live room"
@@ -47,7 +47,7 @@ What stays the same: Python 3.12, uv workspace, Postgres, Alembic with SQL files
 | `packages/arena_core/src/arena_core/migrations/versions/0009_rooms.py` + `sql/0009_rooms.sql` | Schema. |
 | `scripts/build_fingerprint.py` | CLI: atlas → bundle. |
 | `scripts/demo_room.py` | CLI: create the demo room and fill it with synthetic voters. |
-| `apps/arena/public/` | `index.html`, `style.css`, `app.js`, `fingerprint.js`, `map.js`, `card.js`, `room.js`, `admin.html`, `fingerprint.json`, `atlas.html`. |
+| `apps/arena/public/` | `index.html`, `style.css`, `app.js`, `placement.js`, `map.js`, `card.js`, `room.js`, `admin.html`, `fingerprint.json`, `atlas.html`. |
 | `apps/arena/tests/*.test.mjs` | `node --test` for the browser modules. |
 | `apps/arena/source/atlas-v1.json` | The frozen atlas input (public-figure data; quotes ≤280 chars with links). |
 
@@ -175,7 +175,7 @@ There's a simple in-memory rate limit per IP and per participant, with a 429 on 
 
 ## 9. Privacy and red lines in the code
 
-- No answer leaves the browser before opt-in. Before joining, `room.js` is not even loaded, and `fingerprint.js` doesn't use the network.
+- No answer leaves the browser before opt-in. Before joining, `room.js` is not even loaded, and `placement.js` doesn't use the network.
 - Anonymous participants are pseudonymous by random key, with no email. The participant's key lives in `localStorage`, and "Leave the room" deletes it locally.
 - The public report shows aggregates only. Groups under 3 people aren't described.
 - Only the 27 atlas thinkers appear. The bundle builder fails if any of the flagged landmark ids appear (`seed/SEED-v4.json` `flags_for_benjamin`).

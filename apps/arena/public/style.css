@@ -211,6 +211,11 @@ kbd { font: 0.82rem var(--sans); border: 1px solid var(--line); border-radius: 4
 .card-head { display: flex; gap: 14px; align-items: center; }
 .card-head p { margin: 0; }
 .card-head .link-button { min-height: 0; padding: 0; display: inline; font-size: inherit; line-height: inherit; text-decoration: underline; }
+.badge { overflow: hidden; flex: none; }
+.badge.has-face { border-color: color-mix(in srgb, var(--ridge) 55%, transparent); background: var(--sheet); }
+.badge img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+.map-thinker .face { pointer-events: none; }
+.map-thinker.is-faded .face { filter: grayscale(1); }
 .badge.big { width: 56px; height: 56px; flex: none; font-size: 1.05rem; }
 .card-score { margin: 14px 0 0; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--ridge) 8%, transparent); }
 .positions { list-style: none; padding: 0; margin: 0; }

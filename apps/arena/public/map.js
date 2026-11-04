@@ -7,6 +7,14 @@ export const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "
 
 const R = 15; // thinker circle radius in map units
 
+/** A person's round badge: their portrait when there is a freely licensed one, else initials. */
+export function badge(t, cls = "") {
+  const inner = t?.face ? `<img src="${esc(t.face)}" alt="" loading="lazy" decoding="async">` : esc(t?.initials || "");
+  return `<span class="badge${cls ? ` ${cls}` : ""}${t?.face ? " has-face" : ""}" aria-hidden="true">${inner}</span>`;
+}
+
+let clipSeq = 0;
+
 function hull(points) {
   if (points.length < 3) return points;
   const p = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
@@ -18,31 +26,44 @@ function hull(points) {
   return lower.slice(0, -1).concat(upper.slice(0, -1));
 }
 
-// Nudge circles apart so none hide another, keeping each close to its measured spot. Fixed
-// iteration count and order, so everyone sees the same map.
-function relax(pos, ids, box) {
-  const gap = R * 2 + 4;
+// Nudge circles apart so none hide another, keeping each close to its measured spot, and keep
+// them clear of text boxes (group names, the names under the nearest thinkers, the "You" mark).
+// Fixed iteration count and order, so everyone sees the same map.
+const GAP = R * 2 + 7;
+function relax(pos, ids, box, { steps = 220, boxes = () => [] } = {}) {
   const home = Object.fromEntries(ids.map((id) => [id, [...pos[id]]]));
-  for (let step = 0; step < 160; step++) {
+  for (let step = 0; step < steps; step++) {
     for (let i = 0; i < ids.length; i++) {
       for (let j = i + 1; j < ids.length; j++) {
         const a = pos[ids[i]], b = pos[ids[j]];
         let dx = b[0] - a[0], dy = b[1] - a[1];
         let d = Math.hypot(dx, dy);
-        if (d >= gap) continue;
+        if (d >= GAP) continue;
         if (d < 0.01) { dx = 1; dy = (i % 2 ? 1 : -1) * 0.5; d = Math.hypot(dx, dy); }
-        const push = (gap - d) / 2 / d;
+        const push = (GAP - d) / 2 / d;
         a[0] -= dx * push; a[1] -= dy * push; b[0] += dx * push; b[1] += dy * push;
       }
     }
+    const obstacles = boxes();
     for (const id of ids) {
       const p = pos[id], h = home[id];
-      p[0] += (h[0] - p[0]) * 0.02; p[1] += (h[1] - p[1]) * 0.02;
+      p[0] += (h[0] - p[0]) * 0.012; p[1] += (h[1] - p[1]) * 0.012;
+      for (const o of obstacles) {
+        if (o.owner === id) continue;
+        // distance from the circle centre to the box, grown by the radius and a margin
+        const left = o.x - R - 4, right = o.x + o.w + R + 4, top = o.y - R - 4, bottom = o.y + o.h + R + 4;
+        if (p[0] <= left || p[0] >= right || p[1] <= top || p[1] >= bottom) continue;
+        const moves = [[left - p[0], 0], [right - p[0], 0], [0, top - p[1]], [0, bottom - p[1]]];
+        const [mx, my] = moves.reduce((best, m) => (Math.abs(m[0] + m[1]) < Math.abs(best[0] + best[1]) ? m : best));
+        p[0] += mx * 0.5; p[1] += my * 0.5;
+      }
       p[0] = Math.min(box.w - R - 2, Math.max(R + 2, p[0]));
       p[1] = Math.min(box.h - R - 2, Math.max(R + 2, p[1]));
     }
   }
 }
+
+const labelWidth = (text, size = 6.6) => text.length * size + 12;
 
 // A rounded region around points: the hull drawn with a thick round stroke, so one member is a
 // disc, two a capsule, more a padded polygon.
@@ -73,36 +94,61 @@ export function schoolMembers(bundle, label) {
 }
 
 export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null } = {}) {
-  const xs = bundle.thinkers.map((t) => t.x), ys = bundle.thinkers.map((t) => t.y);
+  const PX = (p) => p.x, PY = (p) => p.y;
+  const xs = bundle.thinkers.map(PX), ys = bundle.thinkers.map(PY);
   const pad = 52;
   const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
-  const k = Math.min((width - pad * 2) / (maxX - minX), (height - pad * 2) / (maxY - minY));
-  const X = (x) => pad + (x - minX) * k + ((width - pad * 2) - (maxX - minX) * k) / 2;
-  const Y = (y) => pad + (y - minY) * k + ((height - pad * 2) - (maxY - minY) * k) / 2;
+  // fit the layout; on a tall screen let it stretch up to 1.6 times taller than wide, so the
+  // dots get the room a phone has (distances along each axis keep their order)
+  const kx = Math.min((width - pad * 2) / (maxX - minX), (height - pad * 2) / (maxY - minY));
+  const ky = Math.min((height - pad * 2) / (maxY - minY), kx * 1.6);
+  const X = (x) => pad + (x - minX) * kx + ((width - pad * 2) - (maxX - minX) * kx) / 2;
+  const Y = (y) => pad + (y - minY) * ky + ((height - pad * 2) - (maxY - minY) * ky) / 2;
   const ids = bundle.thinkers.map((t) => t.id);
-  const pos = Object.fromEntries(bundle.thinkers.map((t) => [t.id, [X(t.x), Y(t.y)]]));
+  const pos = Object.fromEntries(bundle.thinkers.map((t) => [t.id, [X(PX(t)), Y(PY(t))]]));
   relax(pos, ids, { w: width, h: height });
   const scoreOf = Object.fromEntries((result?.ranked || []).map((r) => [r.id, r]));
   const near = new Set((result?.nearest || []).map((r) => r.id));
   const label = `Map of ${bundle.thinkers.length} thinkers grouped into schools${result ? ", with your approximate position" : ""}. Select a thinker or a school to see their positions.`;
+  const clip = `face-clip-${++clipSeq}`;
   let svg = `<svg class="thinker-map" viewBox="0 0 ${width} ${height}" role="group" aria-label="${esc(label)}">`;
+  svg += `<defs><clipPath id="${clip}" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5"/></clipPath></defs>`;
 
-  const labels = [];
+  // group names sit above their group; then everyone steps out from under the text
   const regions = regionsFor(bundle, focus);
   const inFocus = focus && bundle.tree?.nodes?.[focus] ? new Set(nodeMembers(bundle, focus)) : null;
+  const labels = [];
+  regions.forEach((g) => {
+    const pts = g.members.map((m) => pos[m]).filter(Boolean);
+    if (!pts.length) return;
+    const cx = pts.reduce((t, p) => t + p[0], 0) / pts.length;
+    const top = Math.min(...pts.map((p) => p[1]));
+    const w = labelWidth(g.label);
+    const x = Math.min(width - w / 2 - 4, Math.max(w / 2 + 4, cx));
+    const y = Math.max(14, top - R - 16);
+    labels.push({ s: g, key: g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`, x, y, w });
+  });
+  const you = result?.position ? [X(PX(result.position)), Y(PY(result.position))] : null;
+  const fixedBoxes = [
+    ...labels.map((l) => ({ x: l.x - l.w / 2, y: l.y - 13, w: l.w, h: 18 })),
+    ...(you ? [{ x: you[0] - 22, y: you[1] - 22, w: 80, h: 44 }] : []),
+  ];
+  const nameBoxes = () => [...near].filter((id) => pos[id]).map((id) => {
+    const w = labelWidth(bundle.thinkers.find((t) => t.id === id).name, 6);
+    return { owner: id, x: pos[id][0] - w / 2, y: pos[id][1] + R + 3, w, h: 16 };
+  });
+  relax(pos, ids, { w: width, h: height }, { steps: 140, boxes: () => [...fixedBoxes, ...nameBoxes()] });
+
   regions.forEach((g, n) => {
     const pts = g.members.map((m) => pos[m]).filter(Boolean);
     if (!pts.length) return;
     const key = g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`;
     const on = (g.id && selected?.node === g.id) || (!g.id && selected?.school === g.school) ? " is-selected" : "";
-    svg += `<path class="map-region${on}" ${key} style="--i:${n}" d="${region(pts)}" stroke-width="${R * 2 + (focus ? 16 : 26)}"/>`;
-    const cx = pts.reduce((t, p) => t + p[0], 0) / pts.length;
-    const top = Math.min(...pts.map((p) => p[1]));
-    labels.push({ s: g, key, x: cx, y: top - R - 18 });
+    svg += `<path class="map-region${on}" ${key} style="--i:${n}" d="${region(pts)}" stroke-width="${R * 2 + (focus ? 16 : 22)}"/>`;
   });
 
   if (result?.position) {
-    const x = X(result.position.x), y = Y(result.position.y);
+    const [x, y] = you;
     for (const t of result.nearest) {
       const [tx, ty] = pos[t.id];
       svg += `<line class="map-tether" x1="${x}" y1="${y}" x2="${tx}" y2="${ty}"/>`;
@@ -121,22 +167,26 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     const faded = inFocus && !inFocus.has(t.id) ? " is-faded" : "";
     svg += `<g class="map-thinker${on}${dark ? " is-dark" : ""}${faded}" data-thinker="${esc(t.id)}" tabindex="0" role="button" aria-label="${esc(`${t.name}, ${what}${note}`)}">`;
     svg += `<circle class="hit" cx="${x}" cy="${y}" r="${R + 5}"/><circle class="dot" cx="${x}" cy="${y}" r="${R}" fill="${fill}" stroke-dasharray="${dash}"/>`;
-    svg += `<text x="${x}" y="${y + 3.6}" text-anchor="middle">${esc(t.initials)}</text>`;
-    if (near.has(t.id)) svg += `<text class="map-name" x="${x}" y="${y + R + 15}" text-anchor="middle">${esc(t.name.replace(/ \(.*\)/, ""))}</text>`;
+    // the portrait sits inside the dot, leaving a ring that still carries the agreement shade
+    const inset = r ? 3.5 : 1.5;
+    svg += t.face
+      ? `<image class="face" href="${esc(t.face)}" x="${x - R + inset}" y="${y - R + inset}" width="${(R - inset) * 2}" height="${(R - inset) * 2}" clip-path="url(#${clip})" preserveAspectRatio="xMidYMid slice"/>`
+      : `<text x="${x}" y="${y + 3.6}" text-anchor="middle">${esc(t.initials)}</text>`;
+    if (near.has(t.id)) {
+      const name = t.name.replace(/ \(.*\)/, ""), half = labelWidth(name, 6) / 2;
+      svg += `<text class="map-name" x="${Math.min(width - half, Math.max(half, x))}" y="${y + R + 14}" text-anchor="middle">${esc(name)}</text>`;
+    }
     svg += `</g>`;
   }
 
   if (result?.position) {
-    const x = X(result.position.x), y = Y(result.position.y);
+    const [x, y] = you;
     svg += `<g class="map-you-mark" aria-hidden="true"><circle cx="${x}" cy="${y}" r="22" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 4"/><circle class="map-you" cx="${x}" cy="${y}" r="7"/><text class="map-name" x="${x + 28}" y="${y + 4}" font-weight="700">You</text></g>`;
   }
 
-  // school names last, with a halo, so they read over the circles
+  // group names last, with a halo, so they read over everything
   for (const { s, key, x, y } of labels) {
-    const w = s.label.length * 6.6 + 12;
-    const lx = Math.min(width - w / 2 - 4, Math.max(w / 2 + 4, x));
-    const ly = Math.max(14, y);
-    svg += `<g class="map-school-label" ${key} tabindex="0" role="button" aria-label="${esc(`Group: ${s.label}`)}"><text x="${lx}" y="${ly}" text-anchor="middle">${esc(s.label)}</text></g>`;
+    svg += `<g class="map-school-label" ${key} tabindex="0" role="button" aria-label="${esc(`Group: ${s.label}`)}"><text x="${x}" y="${y}" text-anchor="middle">${esc(s.label)}</text></g>`;
   }
 
   // marks tag thinkers with a letter, e.g. each room group on the thinkers it votes most like.

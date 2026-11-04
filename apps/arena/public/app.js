@@ -1,8 +1,8 @@
 // Flow: landing → three sets of statements → reveal → (opt-in) room.
 // Before the person joins the room, the only request this page makes is for fingerprint.json.
-import { fingerprint, teaser } from "./fingerprint.js";
+import { fingerprint, teaser } from "./placement.js";
 import { glyphSVG, glyphValues } from "./glyph.js";
-import { esc, mapSVG } from "./map.js";
+import { badge, esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
 import { protectedFetch } from "./turnstile.js";
@@ -137,10 +137,10 @@ function heroPreview() {
 
 // ---------- the reveal ----------
 // phones get a taller, narrower map so circles stay big enough to tap
-export const mapSize = () => (innerWidth < 600 ? { width: 400, height: 600 } : { width: 720, height: 540 });
+export const mapSize = () => (innerWidth < 600 ? { width: 400, height: 640 } : { width: 800, height: 640 });
 
 function thinkerRow(t) {
-  return `<li><button class="thinker-row" data-thinker="${esc(t.id)}"><span class="badge" aria-hidden="true">${esc(t.initials)}</span>
+  return `<li><button class="thinker-row" data-thinker="${esc(t.id)}">${badge(t)}
     <span><b>${esc(t.name)}</b><br><span class="small muted">${esc(t.school || "No school")}${bundle.thinkers.find((x) => x.id === t.id)?.provisional ? ", new voice" : ""}</span></span>
     <span class="score"><b>${t.k} of ${t.n}</b><br><span class="small muted">agree</span></span></button></li>`;
 }

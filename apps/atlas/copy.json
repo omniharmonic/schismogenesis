@@ -6,11 +6,12 @@
  ],
  "schools": [
   {
+   "label": "AI as a new kind of risk",
+   "note": "They see a real risk of human extinction from advanced AI, want binding rules and early work on control, and don't think public fear or AI's promises are overblown.",
    "members": [
     "bernie-sanders",
     "chris-murphy",
     "daniel-kokotajlo",
-    "dario-amodei",
     "demis-hassabis",
     "eliezer-yudkowsky",
     "elon-musk",
@@ -21,20 +22,17 @@
     "max-tegmark",
     "mustafa-suleyman",
     "sam-altman",
-    "samuel-hammond",
     "scott-alexander",
     "stuart-russell",
     "tristan-harris",
-    "vitalik-buterin",
     "william-macaskill",
-    "william-saunders",
     "yoshua-bengio",
     "zvi-mowshowitz"
-   ],
-   "label": "AI as a new kind of risk",
-   "note": "They see AI as a new kind of mind whose gravest dangers come from the systems themselves, not only from misuse, and they doubt that earlier technologies are a good guide."
+   ]
   },
   {
+   "label": "AI as a tool to govern",
+   "note": "They see AI as a tool rather than a new kind of mind, put today's harms ahead of superintelligence, and want binding rules because how technology changes society is a collective choice.",
    "members": [
     "audrey-tang",
     "barack-obama",
@@ -47,41 +45,36 @@
     "josh-hawley",
     "karen-hao",
     "meredith-whittaker",
-    "paul-kingsnorth",
     "pope-leo-xiv",
     "timnit-gebru"
-   ],
-   "label": "Human-first critics",
-   "note": "Market-driven technology doesn't serve people by itself, AI's promises are overblown, and rivalry with China is no reason to push ahead. The camp crosses left and right."
+   ]
   },
   {
+   "label": "Market optimists",
+   "note": "Public fear of AI outruns the evidence, market-driven technology is good for people, and strict regulation or a slowdown would do more harm than good.",
    "members": [
-    "balaji-srinivasan",
+    "curtis-yarvin",
     "david-sacks",
-    "dean-ball",
     "guillaume-verdon",
     "jason-crawford",
     "jd-vance",
     "marc-andreessen",
     "mark-zuckerberg",
-    "michael-kratsios",
     "robin-hanson",
     "ted-cruz",
     "tyler-cowen",
     "venkatesh-rao",
     "yann-lecun"
-   ],
-   "label": "Free-market builders",
-   "note": "AI won't concentrate power, the risk of extinction is overblown, and the state should stay out of directing AI."
+   ]
   },
   {
+   "label": "A new mind on its own course",
+   "note": "A loose group: they see AI as a new kind of mind whose course isn't simply set by collective choice, and back pushing ahead of China.",
    "members": [
-    "arvind-narayanan",
-    "curtis-yarvin",
-    "peter-thiel"
-   ],
-   "label": "Skeptics of hype and of pausing",
-   "note": "AI's promises are overblown and it isn't a new kind of mind, but slowing it down would be wrong too; the dangers are in how people use it."
+    "dean-ball",
+    "nick-land",
+    "noah-smith"
+   ]
   }
  ],
  "lenses": [
@@ -249,12 +242,11 @@
  "tree": {
   "c1": {
    "label": "AI as a new kind of risk",
-   "note": "They see AI as a new kind of mind whose gravest dangers come from the systems themselves, not only from misuse, and they doubt that earlier technologies are a good guide.",
+   "note": "They see a real risk of human extinction from advanced AI, want binding rules and early work on control, and don't think public fear or AI's promises are overblown.",
    "members": [
     "bernie-sanders",
     "chris-murphy",
     "daniel-kokotajlo",
-    "dario-amodei",
     "demis-hassabis",
     "eliezer-yudkowsky",
     "elon-musk",
@@ -265,20 +257,17 @@
     "max-tegmark",
     "mustafa-suleyman",
     "sam-altman",
-    "samuel-hammond",
     "scott-alexander",
     "stuart-russell",
     "tristan-harris",
-    "vitalik-buterin",
     "william-macaskill",
-    "william-saunders",
     "yoshua-bengio",
     "zvi-mowshowitz"
    ]
   },
   "c1.1": {
    "label": "Slow it down and govern it",
-   "note": "They want the most powerful AI slowed and governed in public, would never let AI decide on its own to kill, doubt AI leaders are being honest about the risks, and reject racing China.",
+   "note": "They want the most powerful AI deliberately slowed and bound by government rules, because they don't trust companies to make it safe on their own.",
    "members": [
     "bernie-sanders",
     "chris-murphy",
@@ -291,97 +280,103 @@
    ]
   },
   "c1.1.1": {
-   "label": "Stop and regulate",
-   "note": "They hold all three together: the risk of extinction is real, frontier developers need binding rules, and the most powerful systems should be slowed or stopped.",
+   "label": "Public authority over AI",
+   "note": "How technology reshapes society is a collective choice, and strict regulation now would not do more harm than good.",
    "members": [
     "bernie-sanders",
+    "chris-murphy",
+    "holly-elmore"
+   ]
+  },
+  "c1.1.1.1": {
+   "label": "Sanders and Elmore",
+   "note": "Closest of all here: AI should serve people, and political authority should rest with the public.",
+   "members": [
+    "bernie-sanders",
+    "holly-elmore"
+   ]
+  },
+  "c1.1.2": {
+   "label": "Researchers for state oversight",
+   "note": "The gravest danger is autonomous superintelligence rather than today's misuse, so the state should direct frontier AI and the most capable models should not be released openly.",
+   "members": [
     "daniel-kokotajlo",
-    "holly-elmore",
-    "max-tegmark",
     "stuart-russell",
     "yoshua-bengio"
    ]
   },
-  "c1.1.1.1": {
-   "label": "Kokotajlo and Bengio",
-   "note": "Loss of control and extinction come first for them, and authority over AI should stay with the public.",
+  "c1.1.2.1": {
+   "label": "Russell and Bengio",
+   "note": "Closest of all here: they also see AI-made content as a threat to shared truth, and would never let AI decide on its own to use lethal force.",
    "members": [
-    "daniel-kokotajlo",
+    "stuart-russell",
     "yoshua-bengio"
    ]
   },
-  "c1.1.2": {
-   "label": "Murphy and Harris",
-   "note": "The risk is real, the future is a choice, and productivity alone won't look after workers.",
-   "members": [
-    "chris-murphy",
-    "tristan-harris"
-   ]
-  },
   "c1.2": {
-   "label": "Rationalists and long-termists",
-   "note": "They doubt collective choice can steer AI's course, think AI may come to deserve moral consideration, and want it slowed rather than raced against China.",
+   "label": "Build it, but under rules",
+   "note": "They take advanced AI's promise seriously and don't think building smarter-than-human machines is wrong in itself, but want binding government rules and early work on control.",
    "members": [
-    "eliezer-yudkowsky",
-    "elon-musk",
-    "geoffrey-hinton",
-    "scott-alexander",
-    "william-macaskill"
+    "demis-hassabis",
+    "jack-clark",
+    "leopold-aschenbrenner",
+    "mustafa-suleyman",
+    "zvi-mowshowitz"
    ]
   },
   "c1.2.1": {
-   "label": "Yudkowsky, Musk and Alexander",
-   "note": "They trust their own reasoning over the average of expert opinion, take extinction risk seriously, and don't think strict rules now would do more harm than good.",
+   "label": "Hassabis and Mowshowitz",
+   "note": "Closest of all here: extinction risk is real, public fear isn't overblown, and the most capable models shouldn't be released openly.",
+   "members": [
+    "demis-hassabis",
+    "zvi-mowshowitz"
+   ]
+  },
+  "c1.2.2": {
+   "label": "Clark and Suleyman",
+   "note": "Closest of all here: AI is a new kind of mind, and earlier technologies are not a reliable guide to it.",
+   "members": [
+    "jack-clark",
+    "mustafa-suleyman"
+   ]
+  },
+  "c1.3": {
+   "label": "Extinction risk, no race",
+   "note": "They see a real risk of extinction and want control worked out early; most reject racing China and back sharing AI's gains directly with citizens.",
    "members": [
     "eliezer-yudkowsky",
     "elon-musk",
     "scott-alexander"
    ]
   },
-  "c1.2.2": {
+  "c1.3.1": {
+   "label": "Yudkowsky and Musk",
+   "note": "Closest of all here: AI companies need outside rules, and on hard questions they would follow a careful argument over the average of opinion.",
+   "members": [
+    "eliezer-yudkowsky",
+    "elon-musk"
+   ]
+  },
+  "c1.4": {
+   "label": "The risk is real, and so is the promise",
+   "note": "They see a real risk of extinction, reject the idea that AI's promises are hype, and want control worked out well before it's needed.",
+   "members": [
+    "geoffrey-hinton",
+    "sam-altman",
+    "william-macaskill"
+   ]
+  },
+  "c1.4.1": {
    "label": "Hinton and MacAskill",
-   "note": "AI's promise is real and so is its risk: the danger to watch is the systems themselves, not only how people use them.",
+   "note": "Closest of all here: the bigger danger is autonomous superintelligence, not only today's misuse.",
    "members": [
     "geoffrey-hinton",
     "william-macaskill"
    ]
   },
-  "c1.3": {
-   "label": "Security realists",
-   "note": "Liberal ideals won't win on their own, the most capable models should stay closed, and the risk of extinction is real.",
-   "members": [
-    "demis-hassabis",
-    "leopold-aschenbrenner",
-    "samuel-hammond"
-   ]
-  },
-  "c1.4": {
-   "label": "Lab stewards",
-   "note": "AI is a new kind of mind, unlike any earlier technology, and where it takes society is still ours to choose.",
-   "members": [
-    "jack-clark",
-    "mustafa-suleyman"
-   ]
-  },
-  "c1.5": {
-   "label": "Hopeful builders",
-   "note": "They take the risk of extinction seriously and still see market-driven technology as good for people.",
-   "members": [
-    "sam-altman",
-    "vitalik-buterin"
-   ]
-  },
-  "c1.6": {
-   "label": "Safety insiders",
-   "note": "Former and current lab insiders and critics: the risk is real, AI isn't hype, and the most capable models shouldn't be released openly.",
-   "members": [
-    "william-saunders",
-    "zvi-mowshowitz"
-   ]
-  },
   "c2": {
-   "label": "Human-first critics",
-   "note": "Market-driven technology doesn't serve people by itself, AI's promises are overblown, and rivalry with China is no reason to push ahead. The camp crosses left and right.",
+   "label": "AI as a tool to govern",
+   "note": "They see AI as a tool rather than a new kind of mind, put today's harms ahead of superintelligence, and want binding rules because how technology changes society is a collective choice.",
    "members": [
     "audrey-tang",
     "barack-obama",
@@ -394,14 +389,13 @@
     "josh-hawley",
     "karen-hao",
     "meredith-whittaker",
-    "paul-kingsnorth",
     "pope-leo-xiv",
     "timnit-gebru"
    ]
   },
   "c2.1": {
-   "label": "Democratic humanists",
-   "note": "AI is a tool, not a mind, and how it reshapes work and society is a democratic choice.",
+   "label": "Public control of AI",
+   "note": "Political authority should rest with the public, AI shouldn't concentrate power in a few companies, and productivity gains won't reach workers without new policy.",
    "members": [
     "audrey-tang",
     "barack-obama",
@@ -415,8 +409,8 @@
    ]
   },
   "c2.1.1": {
-   "label": "Power and labour critics",
-   "note": "On its current course AI concentrates wealth and power, the people it trains on should be paid, and the hype runs ahead of the facts.",
+   "label": "Pay creators, share power",
+   "note": "AI companies should pay the people whose work they train on, and the promises made for AI are oversold.",
    "members": [
     "brian-merchant",
     "daron-acemoglu",
@@ -427,19 +421,18 @@
    ]
   },
   "c2.1.1.1": {
-   "label": "Merchant, Acemoglu, Weyl, Hawley and Hao",
-   "note": "Left and right together: the public, not executives or experts, should decide, and power is concentrating.",
+   "label": "A say for workers",
+   "note": "Closest of all here: workers should have a legal say in how AI is used where they work.",
    "members": [
     "brian-merchant",
     "daron-acemoglu",
-    "e-glen-weyl",
     "josh-hawley",
     "karen-hao"
    ]
   },
   "c2.2": {
-   "label": "Hype and harms critics",
-   "note": "Talk of extinction distracts from the harms AI does now; AI isn't a mind, and the hype is the problem.",
+   "label": "Today's harms, oversold promises",
+   "note": "AI's promises are oversold, the dangers that matter most come from how it is deployed now, and companies won't make it safe without outside rules.",
    "members": [
     "ed-zitron",
     "gary-marcus",
@@ -449,25 +442,23 @@
   },
   "c2.2.1": {
    "label": "Whittaker and Gebru",
-   "note": "They reject the extinction framing and the idea of AI as a mind; its direction is a choice people make.",
+   "note": "Closest of all here: they reject the extinction-risk framing and expect AI on its current course to concentrate power in a few companies.",
    "members": [
     "meredith-whittaker",
     "timnit-gebru"
    ]
   },
   "c3": {
-   "label": "Free-market builders",
-   "note": "AI won't concentrate power, the risk of extinction is overblown, and the state should stay out of directing AI.",
+   "label": "Market optimists",
+   "note": "Public fear of AI outruns the evidence, market-driven technology is good for people, and strict regulation or a slowdown would do more harm than good.",
    "members": [
-    "balaji-srinivasan",
+    "curtis-yarvin",
     "david-sacks",
-    "dean-ball",
     "guillaume-verdon",
     "jason-crawford",
     "jd-vance",
     "marc-andreessen",
     "mark-zuckerberg",
-    "michael-kratsios",
     "robin-hanson",
     "ted-cruz",
     "tyler-cowen",
@@ -476,84 +467,72 @@
    ]
   },
   "c3.1": {
-   "label": "Human-centred builders",
-   "note": "AI is a tool that should serve people; work gives people dignity, and slowing AI down would be a mistake.",
+   "label": "Keep the state out",
+   "note": "Market competition limits harm, AI development shouldn't be directed by the state, and strict regulation now would do more harm than good.",
    "members": [
     "david-sacks",
-    "dean-ball",
-    "jd-vance",
-    "marc-andreessen",
-    "mark-zuckerberg",
-    "michael-kratsios",
-    "tyler-cowen",
-    "yann-lecun"
+    "guillaume-verdon",
+    "robin-hanson",
+    "ted-cruz"
    ]
   },
   "c3.1.1": {
-   "label": "Sacks and Andreessen",
-   "note": "Competition limits harm, fear of AI outruns the evidence, and extinction risk isn't real.",
-   "members": [
-    "david-sacks",
-    "marc-andreessen"
-   ]
-  },
-  "c3.1.2": {
-   "label": "Vance and Kratsios",
-   "note": "Technology's course is a choice for a free, self-governing people, and AI's promise is real.",
-   "members": [
-    "jd-vance",
-    "michael-kratsios"
-   ]
-  },
-  "c3.1.3": {
-   "label": "Zuckerberg and LeCun",
-   "note": "AI should serve people, misuse is the real danger, earlier technologies are a good guide, and models should be open.",
-   "members": [
-    "mark-zuckerberg",
-    "yann-lecun"
-   ]
-  },
-  "c3.2": {
-   "label": "Accelerationists",
-   "note": "AI is a new kind of mind that may deserve moral consideration, and humanity needn't be its final end.",
-   "members": [
-    "guillaume-verdon",
-    "robin-hanson",
-    "ted-cruz",
-    "venkatesh-rao"
-   ]
-  },
-  "c3.2.1": {
    "label": "Verdon and Cruz",
-   "note": "Fear outruns the evidence, markets serve people, and strict rules now would do more harm than good.",
+   "note": "Closest of all here: companies don't need outside rules to make AI safe, but should be liable when their products harm people.",
    "members": [
     "guillaume-verdon",
     "ted-cruz"
    ]
   },
-  "c3.2.2": {
-   "label": "Hanson and Rao",
-   "note": "Don't slow AI down: extinction risk isn't real, and humanity needn't be AI's final end.",
+  "c3.2": {
+   "label": "History as a guide",
+   "note": "Earlier general-purpose technologies are a valid guide to AI, its promise is real, and it shouldn't be slowed.",
    "members": [
-    "robin-hanson",
-    "venkatesh-rao"
+    "jason-crawford",
+    "jd-vance",
+    "tyler-cowen"
    ]
   },
   "c3.3": {
-   "label": "Progress optimists",
-   "note": "AI is a tool, markets serve people, and AI won't concentrate power in a few companies.",
+   "label": "Serve people, lead on AI",
+   "note": "AI should serve people rather than surpass them, the real dangers come from misuse rather than superintelligence, and rivalry with China is a reason to push ahead.",
    "members": [
-    "balaji-srinivasan",
-    "jason-crawford"
+    "marc-andreessen",
+    "mark-zuckerberg",
+    "yann-lecun"
+   ]
+  },
+  "c3.3.1": {
+   "label": "Andreessen and LeCun",
+   "note": "Closest of all here: they see no real risk of extinction and oppose binding rules on frontier developers.",
+   "members": [
+    "marc-andreessen",
+    "yann-lecun"
+   ]
+  },
+  "c3.4": {
+   "label": "Yarvin and Rao",
+   "note": "Closest here: they see no real risk of extinction and think public fear outruns the evidence.",
+   "members": [
+    "curtis-yarvin",
+    "venkatesh-rao"
    ]
   },
   "c4": {
-   "label": "Skeptics of hype and of pausing",
-   "note": "AI's promises are overblown and it isn't a new kind of mind, but slowing it down would be wrong too; the dangers are in how people use it.",
+   "label": "A new mind on its own course",
+   "note": "A loose group: they see AI as a new kind of mind whose course isn't simply set by collective choice, and back pushing ahead of China.",
    "members": [
-    "arvind-narayanan",
-    "curtis-yarvin",
-    "peter-thiel"
+    "dean-ball",
+    "nick-land",
+    "noah-smith"
+   ]
+  },
+  "c4.1": {
+   "label": "Ball and Land",
+   "note": "Closest here: frontier AI shouldn't be slowed, and building smarter-than-human machines isn't wrong in itself.",
+   "members": [
+    "dean-ball",
+    "nick-land"
    ]
   }
  }

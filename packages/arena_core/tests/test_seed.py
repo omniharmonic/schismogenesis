@@ -89,7 +89,7 @@ def test_flag_list_hides_landmark_even_if_record_field_is_empty():
 
 @pytest.mark.db
 def test_load_matches_gate_and_second_load_adds_nothing(engine):
-    assert load_seed(engine, SEED, SLICE).created == 234 + 837
+    assert load_seed(engine, SEED, SLICE).created == 234 + 896
     assert [r for r in verify_seed(engine) if r[1] != r[2]] == []
     before = counts(engine)
     assert load_seed(engine, SEED, SLICE).skipped
