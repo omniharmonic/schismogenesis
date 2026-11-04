@@ -1,0 +1,440 @@
+{
+ "status": "round-4 statement pool: the 24 season-1 statements plus candidates on AI and the social contract. Every voice is coded on the pool; the instrument is then chosen by scripts/instrument_check.py",
+ "statements": [
+  {
+   "id": "ai-new-kind-of-mind",
+   "set": "being",
+   "proposition": "AI is best understood as a new kind of mind, more than a tool or artifact.",
+   "display": "AI is better understood as a new kind of mind than as a tool or artifact.",
+   "origin": "season-1",
+   "layer": "ontological"
+  },
+  {
+   "id": "ai-extinction-risk",
+   "set": "being",
+   "proposition": "Advanced AI poses a real risk of human extinction.",
+   "display": "Advanced AI poses a real risk of human extinction.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "direction-of-technology-is-chosen",
+   "set": "being",
+   "proposition": "How technology reshapes work and society is decided by collective choice rather than an inevitable process.",
+   "display": "How technology reshapes work and society is set by collective choices rather than by a fixed course of development.",
+   "origin": "season-1",
+   "layer": "ontological"
+  },
+  {
+   "id": "productivity-benefits-workers-unaided",
+   "set": "being",
+   "proposition": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
+   "display": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "freedom-compatible-with-democracy",
+   "set": "being",
+   "proposition": "Individual freedom and democracy are compatible.",
+   "display": "Individual freedom and democracy are compatible.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "ai-promises-inflated",
+   "set": "being",
+   "proposition": "Public promises about advanced AI are mostly inflated hype.",
+   "display": "Public promises about advanced AI are mostly inflated hype.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "liberal-ideals-carry-their-own-force",
+   "set": "being",
+   "proposition": "Liberal and humane ideals have enough inherent force to prevail in long contests between societies.",
+   "display": "Liberal and humane ideals are strong enough in themselves to win out in long contests between societies.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "competition-limits-harm",
+   "set": "being",
+   "proposition": "Market competition limits the harm that economic actors can do.",
+   "display": "Market competition limits the harm that economic actors can do.",
+   "origin": "season-1",
+   "layer": "empirical"
+  },
+  {
+   "id": "human-end-of-ai",
+   "set": "values",
+   "proposition": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
+   "display": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed.",
+   "origin": "season-1",
+   "layer": "axiological"
+  },
+  {
+   "id": "ai-fear-exceeds-evidence",
+   "set": "values",
+   "proposition": "Public fear of AI exceeds what the evidence supports.",
+   "display": "Public fear of AI exceeds what the evidence supports.",
+   "origin": "season-1",
+   "layer": "epistemic"
+  },
+  {
+   "id": "deployment-harms-over-superintelligence",
+   "set": "values",
+   "proposition": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
+   "display": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents.",
+   "origin": "season-1",
+   "layer": "axiological"
+  },
+  {
+   "id": "ai-moral-status",
+   "set": "values",
+   "proposition": "AI systems may come to merit rights or moral consideration.",
+   "display": "AI systems may come to merit rights or moral consideration.",
+   "origin": "season-1",
+   "layer": "axiological"
+  },
+  {
+   "id": "past-technology-is-valid-reference-class",
+   "set": "values",
+   "proposition": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
+   "display": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it.",
+   "origin": "season-1",
+   "layer": "epistemic"
+  },
+  {
+   "id": "modesty-is-a-sound-default",
+   "set": "values",
+   "proposition": "On hard questions, deferring to base rates or the average of informed opinion is a sound default over one's own reasoning.",
+   "display": "On hard questions, base rates or the average of informed opinion should by default outweigh one's own reasoning.",
+   "origin": "season-1",
+   "layer": "epistemic"
+  },
+  {
+   "id": "popular-self-government-worth-keeping",
+   "set": "values",
+   "proposition": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
+   "display": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers.",
+   "origin": "season-1",
+   "layer": "axiological"
+  },
+  {
+   "id": "market-tech-serves-humans",
+   "set": "values",
+   "proposition": "Market-driven technological development serves human beings on balance.",
+   "display": "On balance, market-driven technological development is good for people.",
+   "origin": "season-1",
+   "layer": "axiological"
+  },
+  {
+   "id": "binding-rules-for-frontier-ai",
+   "set": "action",
+   "proposition": "Governments should impose binding rules on frontier AI developers.",
+   "display": "Governments should impose binding rules on frontier AI developers.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "regulation-does-more-harm",
+   "set": "action",
+   "proposition": "Stringent AI regulation now would do more harm than good by deterring innovation.",
+   "display": "Strict AI regulation now would do more harm than good, because it would deter innovation.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "ai-separate-from-state",
+   "set": "action",
+   "proposition": "AI development should remain separate from state direction and control.",
+   "display": "AI development should not be directed or controlled by the state.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "plurality-over-singularity",
+   "set": "action",
+   "proposition": "Technology should aim at cooperation across diverse groups rather than convergence on a singularity.",
+   "display": "Technology should aim to help diverse groups cooperate rather than to reach a technological singularity.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "china-rivalry-justifies-tech-push",
+   "set": "action",
+   "proposition": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
+   "display": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "direct-distribution-of-wealth-sound",
+   "set": "action",
+   "proposition": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
+   "display": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "slow-or-stop-frontier-ai",
+   "set": "action",
+   "proposition": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
+   "display": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "plan-control-early",
+   "set": "action",
+   "proposition": "Serious work on controlling advanced AI should happen well before such systems exist.",
+   "display": "Serious work on controlling advanced AI should happen well before such systems exist.",
+   "origin": "season-1",
+   "layer": "praxis"
+  },
+  {
+   "id": "ai-cuts-more-jobs-than-it-creates",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Over the next decade, AI will eliminate more jobs than it creates.",
+   "display": "Over the next decade, AI will eliminate more jobs than it creates.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "ai-concentrates-power",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "On its current course, advanced AI will concentrate wealth and power in a small number of companies.",
+   "display": "On its current course, advanced AI will concentrate wealth and power in a small number of companies.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "attention-tech-harms-minds",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Social media and other apps designed to maximize engagement have, on balance, harmed people's mental health.",
+   "display": "Social media and other apps designed to maximize engagement have, on balance, harmed people's mental health.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "ai-threatens-shared-truth",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "AI-generated content is a serious threat to a society's shared sense of what is true.",
+   "display": "AI-generated content is a serious threat to a society's shared sense of what is true.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "ai-can-be-real-companion",
+   "set": "being",
+   "layer": "ontological",
+   "proposition": "An AI can be a genuine friend to a person.",
+   "display": "An AI can be a genuine friend to a person.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "work-gives-dignity",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Most people would lose dignity and purpose without paid work, even if their income were fully replaced.",
+   "display": "Most people would lose dignity and purpose without paid work, even if their income were fully replaced.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "some-domains-free-of-ai",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Some parts of human life should be kept free of AI even where AI could do the work well.",
+   "display": "Some parts of human life should be kept free of AI even where AI could do the work well.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "profit-cannot-make-ai-safe",
+   "set": "values",
+   "layer": "epistemic",
+   "proposition": "Without outside rules, AI companies will not make their systems safe enough.",
+   "display": "Without outside rules, AI companies will not make their systems safe enough.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "creators-owed-for-training",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI companies should have to pay the people whose writing, art or data they train on.",
+   "display": "AI companies should have to pay the people whose writing, art or data they train on.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "inequality-fine-if-all-gain",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Large inequality created by AI is acceptable as long as everyone ends up better off.",
+   "display": "Large inequality created by AI is acceptable as long as everyone ends up better off.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "workers-say-over-ai",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Workers should have a legal say in how AI is used in their workplaces.",
+   "display": "Workers should have a legal say in how AI is used in their workplaces.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "antitrust-on-big-ai",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "The largest AI and technology companies should be broken up under antitrust law.",
+   "display": "The largest AI and technology companies should be broken up under antitrust law.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "protect-ai-whistleblowers",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Employees of AI companies should be legally protected when they disclose confidential company information to warn the public about risks.",
+   "display": "Employees of AI companies should be legally protected when they disclose confidential company information to warn the public about risks.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "states-set-own-ai-rules",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Federal law should not prevent US states from passing their own AI laws.",
+   "display": "Federal law should not prevent US states from passing their own AI laws.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "restrict-ai-companions-for-children",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "The law should restrict children's use of AI companion chatbots.",
+   "display": "The law should restrict children's use of AI companion chatbots.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "public-ai-infrastructure",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Governments should build publicly owned AI systems as public infrastructure.",
+   "display": "Governments should build publicly owned AI systems as public infrastructure.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "income-not-tied-to-work",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "As AI advances, people should receive a guaranteed income that is not tied to work.",
+   "display": "As AI advances, people should receive a guaranteed income that is not tied to work.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "no-autonomous-lethal-force",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI systems should never be allowed to decide on their own to use lethal force.",
+   "display": "AI systems should never be allowed to decide on their own to use lethal force.",
+   "origin": "candidate",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "no-ai-mass-surveillance",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Governments should be barred from using AI to track their own citizens' faces, movements or communications at scale, even to fight crime.",
+   "display": "Governments should be barred from using AI to track their own citizens' faces, movements or communications at scale, even to fight crime.",
+   "origin": "candidate",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "ai-makers-liable-for-harms",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI companies should be legally liable when their products cause harm to the people who use them.",
+   "display": "AI companies should be legally liable when their products cause harm to the people who use them.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) both"
+  },
+  {
+   "id": "tax-ai-job-replacement",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Companies that replace workers with AI should pay a special tax.",
+   "display": "Companies that replace workers with AI should pay a special tax.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) both"
+  },
+  {
+   "id": "communities-can-block-data-centers",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Local communities should be able to block new AI data centers from being built in their area.",
+   "display": "Local communities should be able to block new AI data centers from being built in their area.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) both"
+  },
+  {
+   "id": "ai-bias-audits-required",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI used to decide on hiring, lending, housing or policing should be independently tested for bias before it is used.",
+   "display": "AI used to decide on hiring, lending, housing or policing should be independently tested for bias before it is used.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) both"
+  },
+  {
+   "id": "open-weights-frontier-models",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "The most capable AI models should be released openly for anyone to use and modify.",
+   "display": "The most capable AI models should be released openly for anyone to use and modify.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) R2"
+  },
+  {
+   "id": "ai-politically-biased",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Today's leading AI chatbots are politically biased against conservatives.",
+   "display": "Today's leading AI chatbots are politically biased against conservatives.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) R1"
+  },
+  {
+   "id": "ai-leaders-honest-about-risks",
+   "set": "values",
+   "layer": "epistemic",
+   "proposition": "The leaders of major AI companies are being honest with the public about the risks of what they build.",
+   "display": "The leaders of major AI companies are being honest with the public about the risks of what they build.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) R1"
+  },
+  {
+   "id": "building-superhuman-ai-wrong",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Trying to build machines that are smarter than humans is wrong in itself, whatever the outcome.",
+   "display": "Trying to build machines that are smarter than humans is wrong in itself, whatever the outcome.",
+   "origin": "candidate",
+   "review": "missing dimension proposed by blind reviewer(s) R2"
+  }
+ ]
+}

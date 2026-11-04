@@ -1,0 +1,433 @@
+{
+  "group": "A",
+  "people": [
+    {
+      "id": "scott-santens",
+      "name": "Scott Santens",
+      "niche": "Universal basic income advocate and writer; former editor of Basic Income Today",
+      "reason": "He argues that automation should free people from jobs and that unconditional income lets people do meaningful unpaid work, separating purpose from paid employment.",
+      "gap": "The map has few voices saying outright that purpose does not depend on paid work; he is the best-known US UBI advocate making that case.",
+      "flag": null
+    },
+    {
+      "id": "james-livingston",
+      "name": "James Livingston",
+      "niche": "Historian, Rutgers University; author of 'No More Work: Why Full Employment Is a Bad Idea'",
+      "reason": "His Aeon essay argues the belief that a job gives meaning, purpose and character is no longer plausible and asks what people would do if income didn't depend on work.",
+      "gap": "Supplies an explicit post-work rejection of the idea that paid work is the source of dignity and purpose.",
+      "flag": null
+    },
+    {
+      "id": "oren-cass",
+      "name": "Oren Cass",
+      "niche": "Founder of American Compass; former Manhattan Institute fellow; pro-worker conservative economics",
+      "reason": "He argues a universal basic income should be rejected on principle because it would make work optional and render self-reliance moot, favouring wage subsidies instead.",
+      "gap": "Gives the 'reject' side of guaranteed income a leading pro-work conservative policy voice, alongside Hawley and Vance's camp.",
+      "flag": null
+    },
+    {
+      "id": "robert-shiller",
+      "name": "Robert Shiller",
+      "niche": "Nobel-laureate economist (Yale); behavioral finance, inequality and risk-sharing",
+      "reason": "In his own Project Syndicate column he argues that modest, even temporary, robot taxes should not be ruled out and could fund wage insurance for workers displaced by automation.",
+      "gap": "Adds a mainstream economist who supports taxing labor-replacing automation, a side currently carried only by two progressive politicians.",
+      "flag": null
+    },
+    {
+      "id": "lawrence-summers",
+      "name": "Lawrence Summers",
+      "niche": "Former US Treasury Secretary, Harvard economist; growth-first centrist",
+      "reason": "In his own op-ed he calls a tax on job-replacing robots illogical, 'protectionism against progress', and prefers growing the pie then redistributing through taxes, transfers and retraining.",
+      "gap": "Adds the best-known mainstream economist rejecting a special tax on labor-replacing automation.",
+      "flag": null
+    },
+    {
+      "id": "mark-lemley",
+      "name": "Mark A. Lemley",
+      "niche": "Stanford law professor; leading US copyright and IP scholar",
+      "reason": "His co-authored article 'Fair Learning' is the most-cited academic argument that AI training on copyrighted works should generally be permitted.",
+      "gap": "Gives creators-owed-for-training a legal-scholar voice on the reject side.",
+      "flag": "Work is co-authored with Bryan Casey (an academic paper, not a co-signed letter)."
+    },
+    {
+      "id": "jeff-jarvis",
+      "name": "Jeff Jarvis",
+      "niche": "Journalism professor and media critic (BuzzMachine; testified to the US Senate on AI and journalism, Jan 2024)",
+      "reason": "A journalist who argues that AI reading and learning from text is fair use and warns that restricting training sets would harm public discourse.",
+      "gap": "A media-side voice who rejects payment-for-training, unlike most publishers.",
+      "flag": null
+    },
+    {
+      "id": "chris-callison-burch",
+      "name": "Chris Callison-Burch",
+      "niche": "UPenn computer science professor; testified to the House Judiciary IP subcommittee on generative AI (May 2023)",
+      "reason": "His House testimony explicitly advocates keeping fair use for AI training, warning that per-work licensing would hand AI to incumbents.",
+      "gap": "A technical researcher's voice on the reject side.",
+      "flag": "Lower public profile than most map figures."
+    },
+    {
+      "id": "daniel-jeffries",
+      "name": "Daniel Jeffries",
+      "niche": "Open-source AI advocate and writer (Future History newsletter; former Stability AI CIO)",
+      "reason": "Argues training on scraped data is fair use and that individual compensation for creators is unworkable and would entrench big companies.",
+      "gap": "An open-source, anti-copyright-expansion voice on the reject side.",
+      "flag": "Modest public profile; former Stability AI executive, so he has an interest in the outcome."
+    },
+    {
+      "id": "bruce-schneier",
+      "name": "Bruce Schneier",
+      "niche": "Security technologist and Harvard Kennedy School lecturer; public-interest technology and AI-and-democracy writer",
+      "reason": "He argues for a government-funded and government-directed 'public option' for AI so that development is not left only to private companies.",
+      "gap": "Without him the public-ai-infrastructure statement has almost no explicit proponents of publicly built AI models on the map.",
+      "flag": "Co-authored essay (with Nathan E. Sanders), published under both names; not a co-signed letter, but check the rule."
+    }
+  ],
+  "works": [
+    {
+      "key": "alexander-basic-income-not-basic-jobs",
+      "author": "scott-alexander",
+      "url": "https://slatestarcodex.com/2018/05/16/basic-income-not-basic-jobs-against-hijacking-utopia/",
+      "title": "Basic Income, Not Basic Jobs: Against Hijacking Utopia",
+      "published": "2018-05-16",
+      "channel": "Slate Star Codex",
+      "format": "post",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "work-gives-dignity",
+          "side": "reject",
+          "where": "reply to Sarris: 'Getting a sense of purpose from your job is a crapshoot at best. Getting a sense of purpose outside your job is a natural part of the human condition'; retirees example"
+        },
+        {
+          "id": "income-not-tied-to-work",
+          "side": "hold",
+          "where": "opening ('I've pushed for a basic income guarantee before') and closing ('Basic income is a real shot at utopia')"
+        }
+      ],
+      "note": "Not AI-specific: argues UBI over a jobs guarantee in general, with a nod to future em/superchild disadvantage. Page includes a long comment thread; the passages cited are in the post body, before 'This entry was posted'."
+    },
+    {
+      "key": "santens-why-we-should-all-have-a-basic-income",
+      "author": "scott-santens",
+      "url": "https://www.scottsantens.com/why-we-should-all-have-a-basic-income/",
+      "title": "Why We Should All Have a Basic Income",
+      "published": "2017-01-16",
+      "channel": "scottsantens.com (also World Economic Forum agenda)",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "income-not-tied-to-work",
+          "side": "hold",
+          "where": "whole essay; automation section on mechanistic work handed off to machines"
+        },
+        {
+          "id": "work-gives-dignity",
+          "side": "reject",
+          "where": "'the difference between doing meaningless work for money, and using money to do meaningful work'; unpaid caregiving and open-source work"
+        }
+      ],
+      "note": "The dignity reading is moderate: he says purpose comes from intrinsically motivated (often unpaid) work, not that people need no work at all."
+    },
+    {
+      "key": "livingston-fuck-work",
+      "author": "james-livingston",
+      "url": "https://aeon.co/essays/what-if-jobs-are-not-the-solution-but-the-problem",
+      "title": "What if jobs are not the solution but the problem? (Fuck work)",
+      "published": "2016-11-25",
+      "channel": "Aeon",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "work-gives-dignity",
+          "side": "reject",
+          "where": "opening: belief that 'a job gives meaning, purpose and structure' is 'no longer plausible... ridiculous'; later 'a world in which the job no longer builds our character'"
+        }
+      ],
+      "note": "Pre-dates generative AI; framed around automation and insufficient work. Publication date from memory of Aeon listing; confirm. Does not explicitly propose UBI in the text I scanned, so not tagged for income-not-tied-to-work."
+    },
+    {
+      "key": "acemoglu-why-ubi-is-a-bad-idea",
+      "author": "daron-acemoglu",
+      "url": "https://www.dailymaverick.co.za/opinionista/2019-06-10-why-universal-basic-income-is-a-bad-idea/",
+      "title": "Why Universal Basic Income Is a Bad Idea",
+      "published": "2019-06-07",
+      "channel": "Project Syndicate (reprinted in Daily Maverick)",
+      "format": "op-ed",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "income-not-tied-to-work",
+          "side": "reject",
+          "where": "'UBI is a flawed idea, not least because it would be prohibitively expensive'; close: 'dribble out enough crumbs to keep people at home, distracted, and otherwise pacified'"
+        }
+      ],
+      "note": "Original at project-syndicate.org is paywalled; Daily Maverick carries the full syndicated text with Project Syndicate copyright line. Framed explicitly around automation and globalization. He concedes UBI beats mass impoverishment and prefers a negative income tax / expanded EITC."
+    },
+    {
+      "key": "cass-ubi-terrible-idea",
+      "author": "oren-cass",
+      "url": "https://manhattan.institute/article/why-a-universal-basic-income-is-a-terrible-idea",
+      "title": "Why a Universal Basic Income Is a Terrible Idea",
+      "published": "2016-06-15",
+      "channel": "National Review (reposted by Manhattan Institute)",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "income-not-tied-to-work",
+          "side": "reject",
+          "where": "early: 'even if it could work, it should be rejected on principle... It would make work optional and render self-reliance moot'"
+        }
+      ],
+      "note": "Not AI-specific; responds to automation-motivated UBI proposals (Andy Stern, Robert Reich, Charles Murray). Also implies work gives dignity (hold side of work-gives-dignity) but not tagged."
+    },
+    {
+      "key": "shiller-taxing-the-robots",
+      "author": "robert-shiller",
+      "url": "https://www.socialeurope.eu/taxing-the-robots",
+      "title": "Taxing The Robots?",
+      "published": "2017-03-30",
+      "channel": "Social Europe (syndicated Project Syndicate column, 'Robotization Without Taxation?')",
+      "format": "op-ed",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "tax-ai-job-replacement",
+          "side": "hold",
+          "where": "closing paragraphs: 'let's not rule out so quickly at least modest robot taxes' and 'A moderate tax on robots ... seems a natural component of a policy to address rising inequality'"
+        }
+      ],
+      "note": "Author's own syndicated column (Project Syndicate original is paywalled; this full-text reprint carries the PS copyright line). Stance is hedged: modest/temporary robot tax, revenue to wage insurance. About robots/automation generally, written 2017, not AI specifically."
+    },
+    {
+      "key": "summers-robots-wealth-creators",
+      "author": "lawrence-summers",
+      "url": "https://larrysummers.com/news-item/robots-are-wealth-creators-and-taxing-them-is-illogical/",
+      "title": "Robots are wealth creators and taxing them is illogical",
+      "published": "2017-03-05",
+      "channel": "larrysummers.com (repost of his op-ed; site dates it to Washington Post March 5, 2017)",
+      "format": "op-ed",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "tax-ai-job-replacement",
+          "side": "reject",
+          "where": "opening rebuttal of Bill Gates's robot-tax proposal; 'Mr Gates' robot tax risks essentially being protectionism against progress'"
+        }
+      ],
+      "note": "Direct reply to Gates's 2017 robot-tax interview. Concerns robots/automation broadly, not AI by name; argues for retraining and transfers instead. Site headline says Washington Post but the text matches his FT column of the same title; date is the column date."
+    },
+    {
+      "key": "newsom-sb7-veto",
+      "author": "gavin-newsom",
+      "url": "https://www.gov.ca.gov/wp-content/uploads/2025/10/SB-7-Veto.pdf",
+      "title": "Veto message: Senate Bill 7 (No Robo Bosses Act)",
+      "published": "2025-10-13",
+      "channel": "Office of the Governor of California",
+      "format": "letter",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "workers-say-over-ai",
+          "side": "reject",
+          "where": "paragraphs 3-4: bill 'imposes unfocused notification requirements' and 'overly broad restrictions on how employers may use ADS tools'"
+        }
+      ],
+      "note": "WEAK. Scanned image PDF (no text layer; readable only by OCR/vision). Bill-specific veto: he says 'I share the author's concern' that unregulated employer use of automated decision systems can harm workers and defers to forthcoming CPPA rules. He rejects this law's worker-notice and limits, not the principle of worker say. Readers may well code it neutral."
+    },
+    {
+      "key": "lemley-fair-learning",
+      "author": "mark-lemley",
+      "url": "https://www.law.berkeley.edu/wp-content/uploads/2024/04/Fair-learning.pdf",
+      "title": "Fair Learning (with Bryan Casey)",
+      "published": "2021-03-01",
+      "channel": "Texas Law Review 99:743 (draft PDF hosted by Berkeley Law)",
+      "format": "paper",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "creators-owed-for-training",
+          "side": "reject",
+          "where": "Introduction: 'we argue that ML systems should generally be able to use databases for training, whether or not the contents of that database are copyrighted'"
+        }
+      ],
+      "note": "PDF is the 2020 pre-publication draft; text extracts with pdftotext. Argues for permitting training under fair use; it does not explicitly address payment schemes beyond saying copyright claims would stop the use without compensating anyone in particular."
+    },
+    {
+      "key": "jarvis-copyright-ai-journalism",
+      "author": "jeff-jarvis",
+      "url": "https://buzzmachine.com/2023/09/02/copyright-and-ai-and-journalism/",
+      "title": "Copyright and AI and journalism",
+      "published": "2023-09-02",
+      "channel": "BuzzMachine (his blog; his comment to the US Copyright Office AI inquiry)",
+      "format": "post",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "creators-owed-for-training",
+          "side": "reject",
+          "where": "'As for Question 8 on fair use ... hard to see how reading and learning from text and images to produce transformative works would not be fair use'"
+        }
+      ],
+      "note": "He also warns that restricting training sets to free content would leave AI built on misinformation. A related post, buzzmachine.com/2024/01/09/journalism-and-ai/ (his Senate testimony text), says he was 'delighted' his books were in Books3."
+    },
+    {
+      "key": "callison-burch-house-testimony-2023",
+      "author": "chris-callison-burch",
+      "url": "https://docs.house.gov/meetings/JU/JU03/20230517/115951/HHRG-118-JU03-Wstate-Callison-BurchC-20230517.pdf",
+      "title": "Testimony before the House Judiciary Subcommittee on Courts, IP and the Internet: Artificial Intelligence and Intellectual Property",
+      "published": "2023-05-17",
+      "channel": "US House Judiciary Committee",
+      "format": "testimony",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "creators-owed-for-training",
+          "side": "reject",
+          "where": "Opening list item 3: 'Advocacy to retain fair use for the purposes of training AI systems'; later: requiring 'an explicit license from the copyright holder' would jeopardize progress"
+        }
+      ],
+      "note": "15 MB PDF with a text layer. He acknowledges that many artists disagree, and he favors opt-out tools, but his stated position is to retain fair use rather than require licensing."
+    },
+    {
+      "key": "ball-synthetic-data-policy",
+      "author": "dean-ball",
+      "url": "https://www.hyperdimensional.co/p/synthetic-data-in-ai-implications",
+      "title": "Synthetic Data in AI: Implications for Policy",
+      "published": "2024-04-25",
+      "channel": "Hyperdimensional (Substack)",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "creators-owed-for-training",
+          "side": "reject",
+          "where": "'The Main Idea' section: copyright 'theft' framing attributed to 'AI cynics and opponents'; restricting copyrighted data 'not a meaningful barrier'; 'Model training is rather unambiguously a form of speech'"
+        }
+      ],
+      "note": "WEAK/INDIRECT: he never says outright that companies should not pay. He dismisses the theft framing and data-restriction bills and treats training as protected speech. Readers may code this as unclear."
+    },
+    {
+      "key": "jeffries-copyright-expansion",
+      "author": "daniel-jeffries",
+      "url": "https://danieljeffries.substack.com/p/ai-art-blurred-lines-and-the-looming",
+      "title": "AI, Art, Blurred Lines and the Looming Nightmare of Copyright Expansion",
+      "published": "2023-05-09",
+      "channel": "Future History (Substack)",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "creators-owed-for-training",
+          "side": "reject",
+          "where": "'Scraping that data was absolutely fair use'; 'Anyone thinking that artists, writers, coders, and content creators are going to get compensated individually is out of their mind'"
+        }
+      ],
+      "note": "Explicit. Part of his argument is that compensation is unworkable, but he also argues normatively against expanding copyright to cover training."
+    },
+    {
+      "key": "ball-case-for-public-ai-infrastructure",
+      "author": "dean-ball",
+      "url": "https://www.hyperdimensional.co/p/the-case-for-public-ai-infrastructure",
+      "title": "The Case for Public AI Infrastructure",
+      "published": "2024-02-15",
+      "channel": "Hyperdimensional (Substack)",
+      "format": "essay",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "public-ai-infrastructure",
+          "side": "hold",
+          "where": "intro list of 'things government should build' and the section 'The Case for Public AI Research Infrastructure'"
+        }
+      ],
+      "note": "Moderate hold. He backs publicly accessible AI research infrastructure (compute and data for academics) built by the federal government, and prefers a federal effort to California's CalCompute. This is research infrastructure, not government-run consumer AI systems, so readers may grade it as a partial hold."
+    },
+    {
+      "key": "schneier-build-ai-by-the-people",
+      "author": "bruce-schneier",
+      "url": "https://www.schneier.com/essays/archives/2023/06/build-ai-by-the-people-for-the-people.html",
+      "title": "Build AI by the People, for the People",
+      "published": "2023-06-12",
+      "channel": "Foreign Policy (reposted on schneier.com)",
+      "format": "op-ed",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "public-ai-infrastructure",
+          "side": "hold",
+          "where": "'It's time to start taking AI development out of the exclusive hands of private companies' and the 'public option' paragraphs"
+        }
+      ],
+      "note": "Strong, explicit hold: calls for 'a government-funded and -directed AI program to develop widely reusable models in the public interest'. Co-authored with Nathan E. Sanders."
+    },
+    {
+      "key": "marcus-what-could-possibly-go-wrong-altman",
+      "author": "gary-marcus",
+      "url": "https://garymarcus.substack.com/p/what-could-possibly-go-wrong-with",
+      "title": "What Could Possibly Go Wrong with Sam Altman's New Ambitions?",
+      "published": "2024-02-09",
+      "channel": "Marcus on AI (Substack)",
+      "format": "post",
+      "authorship": "own_name",
+      "excerpt": "",
+      "verified_reachable": true,
+      "deliverable": "gap",
+      "statements": [
+        {
+          "id": "inequality-fine-if-all-gain",
+          "side": "reject",
+          "where": "closing paragraphs: 'Even if the $7 trillion bet succeeded ... it might tear apart society through radically increased unemployment and social inequality'"
+        }
+      ],
+      "note": "Weak-to-moderate reject. He treats AI-driven social inequality as a harm even in the success case, but he does not directly address the 'everyone ends up better off' condition."
+    }
+  ]
+}

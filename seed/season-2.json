@@ -1,0 +1,228 @@
+{
+ "season": "season-2",
+ "status": "chosen 2026-11-03 by the instrument checks (scripts/draw_schools.py, D-31.20) from a pool of 51 statements; replaces season 1 before launch (no participants yet)",
+ "rule": "each statement has figures on both sides in their own words (at least 3 each, 7 in all, the smaller side at least a tenth), separates the schools, adds figures not yet covered, and is not a near-duplicate of one already chosen; 9 per set",
+ "statements": [
+  {
+   "id": "ai-new-kind-of-mind",
+   "set": "being",
+   "layer": "ontological",
+   "proposition": "AI is best understood as a new kind of mind, more than a tool or artifact.",
+   "display": "AI is better understood as a new kind of mind than as a tool or artifact.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-extinction-risk",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Advanced AI poses a real risk of human extinction.",
+   "display": "Advanced AI poses a real risk of human extinction.",
+   "review": "kept as written"
+  },
+  {
+   "id": "productivity-benefits-workers-unaided",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Technology-driven productivity growth leaves most workers better off without any change in public policy.",
+   "display": "Technology-driven productivity growth leaves most workers better off even if public policy stays as it is.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-promises-inflated",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Public promises about advanced AI are mostly inflated hype.",
+   "display": "Public promises about advanced AI are mostly inflated hype.",
+   "review": "kept as written"
+  },
+  {
+   "id": "competition-limits-harm",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Market competition limits the harm that economic actors can do.",
+   "display": "Market competition limits the harm that economic actors can do.",
+   "review": "kept as written"
+  },
+  {
+   "id": "ai-cuts-more-jobs-than-it-creates",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "Over the next decade, AI will eliminate more jobs than it creates.",
+   "display": "Over the next decade, AI will eliminate more jobs than it creates.",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "ai-concentrates-power",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "On its current course, advanced AI will concentrate wealth and power in a small number of companies.",
+   "display": "On its current course, advanced AI will concentrate wealth and power in a small number of companies.",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "ai-threatens-shared-truth",
+   "set": "being",
+   "layer": "empirical",
+   "proposition": "AI-generated content is a serious threat to a society's shared sense of what is true.",
+   "display": "AI-generated content is a serious threat to a society's shared sense of what is true.",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "ai-can-be-real-companion",
+   "set": "being",
+   "layer": "ontological",
+   "proposition": "An AI can be a genuine friend to a person.",
+   "display": "An AI can be a genuine friend to a person.",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "human-end-of-ai",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Human beings should remain the end that AI serves, and should not be treated as a stage to surpass.",
+   "display": "AI should serve human beings as its end, and humanity should not be treated as a stage to be surpassed.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "ai-fear-exceeds-evidence",
+   "set": "values",
+   "layer": "epistemic",
+   "proposition": "Public fear of AI exceeds what the evidence supports.",
+   "display": "Public fear of AI exceeds what the evidence supports.",
+   "review": "kept as written"
+  },
+  {
+   "id": "deployment-harms-over-superintelligence",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "The AI dangers most worth attention come from present human deployment of AI, not from autonomous superintelligent agents.",
+   "display": "The AI dangers that most deserve attention come from how people deploy AI now, not from autonomous superintelligent agents.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-moral-status",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "AI systems may come to merit rights or moral consideration.",
+   "display": "AI systems may come to merit rights or moral consideration.",
+   "review": "kept as written"
+  },
+  {
+   "id": "past-technology-is-valid-reference-class",
+   "set": "values",
+   "layer": "epistemic",
+   "proposition": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and be received.",
+   "display": "The history of earlier general-purpose technologies is a valid guide to how AI will behave and how people will receive it.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "popular-self-government-worth-keeping",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Popular self-government should remain the basis of political authority, rather than rule by experts, executives or other unelected powers.",
+   "display": "Political authority should rest on popular self-government rather than on experts, executives or other unelected powers.",
+   "review": "slant-v1 round 2: equivalent (M5, M6)"
+  },
+  {
+   "id": "market-tech-serves-humans",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Market-driven technological development serves human beings on balance.",
+   "display": "On balance, market-driven technological development is good for people.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "work-gives-dignity",
+   "set": "values",
+   "layer": "axiological",
+   "proposition": "Most people would lose dignity and purpose without paid work, even if their income were fully replaced.",
+   "display": "Most people would lose dignity and purpose without paid work, even if their income were fully replaced.",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "ai-leaders-honest-about-risks",
+   "set": "values",
+   "layer": "epistemic",
+   "proposition": "The leaders of major AI companies are being honest with the public about the risks of what they build.",
+   "display": "The leaders of major AI companies are being honest with the public about the risks of what they build.",
+   "review": "missing dimension proposed by blind reviewer(s) R1"
+  },
+  {
+   "id": "regulation-does-more-harm",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Stringent AI regulation now would do more harm than good by deterring innovation.",
+   "display": "Strict AI regulation now would do more harm than good, because it would deter innovation.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "ai-separate-from-state",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI development should remain separate from state direction and control.",
+   "display": "AI development should not be directed or controlled by the state.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "china-rivalry-justifies-tech-push",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Rivalry with China is a sound reason for the United States to press ahead in advanced technology and protect its lead.",
+   "display": "Rivalry with China is a good reason for the United States to push ahead in advanced technology and keep its lead.",
+   "review": "slant-v1: equivalent (M3, M4)"
+  },
+  {
+   "id": "direct-distribution-of-wealth-sound",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
+   "display": "Distributing wealth or ownership directly to citizens is a sound way to share technology's gains.",
+   "review": "kept as written"
+  },
+  {
+   "id": "slow-or-stop-frontier-ai",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
+   "display": "Development of the most powerful general AI systems should be deliberately slowed or stopped.",
+   "review": "kept as written"
+  },
+  {
+   "id": "creators-owed-for-training",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI companies should have to pay the people whose writing, art or data they train on.",
+   "display": "AI companies should have to pay the people whose writing, art or data they train on.",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "states-set-own-ai-rules",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "Federal law should not prevent US states from passing their own AI laws.",
+   "display": "Federal law should not prevent US states from passing their own AI laws.",
+   "review": "rewritten from blind reviews R1/R2 (both flagged the draft)"
+  },
+  {
+   "id": "income-not-tied-to-work",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "As AI advances, people should receive a guaranteed income that is not tied to work.",
+   "display": "As AI advances, people should receive a guaranteed income that is not tied to work.",
+   "review": "passed blind reviews R1/R2 as drafted"
+  },
+  {
+   "id": "no-autonomous-lethal-force",
+   "set": "action",
+   "layer": "praxis",
+   "proposition": "AI systems should never be allowed to decide on their own to use lethal force.",
+   "display": "AI systems should never be allowed to decide on their own to use lethal force.",
+   "review": "passed blind reviews R1/R2 as drafted"
+  }
+ ],
+ "notes": [
+  "Kept from season 1: 17 statements. New: 10 on AI and the social contract: ai-cuts-more-jobs-than-it-creates, ai-concentrates-power, ai-threatens-shared-truth, ai-can-be-real-companion, work-gives-dignity, ai-leaders-honest-about-risks, creators-owed-for-training, states-set-own-ai-rules, income-not-tied-to-work, no-autonomous-lethal-force.",
+  "Dropped from season 1: direction-of-technology-is-chosen, freedom-compatible-with-democracy, liberal-ideals-carry-their-own-force, modesty-is-a-sound-default, binding-rules-for-frontier-ai, plurality-over-singularity, plan-control-early. Each has too few figures on one side of the record (for example binding rules for frontier AI, 52 to 3, and planning control early, 31 to 1) or too few figures in all.",
+  "income-not-tied-to-work and direct-distribution-of-wealth-sound were flagged as overlapping by both blind reviewers; the data shows they separate figures differently enough to keep both."
+ ]
+}

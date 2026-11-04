@@ -23,7 +23,8 @@ RESULTS = pathlib.Path("evals/results/holding-audit")
 DROPS = pathlib.Path("seed/holding-audit-drops.json")
 SEASON = pathlib.Path("seed/season-1.json")
 SOURCES = ["seed/WORLDVIEW-CORE-SOURCES.json", "seed/AI-FUTURES-SOURCES.json",
-           "seed/AI-FUTURES-SOURCES-v2.json", "seed/AI-FUTURES-SOURCES-v3.json"]  # fmt: skip
+           "seed/AI-FUTURES-SOURCES-v2.json", "seed/AI-FUTURES-SOURCES-v3.json",
+           "seed/AI-FUTURES-SOURCES-v4.json", "seed/AI-FUTURES-SOURCES-v5.json"]  # fmt: skip
 PACK_WORDS = 45_000
 
 
@@ -33,7 +34,7 @@ def works_by_url() -> dict[str, dict]:
         if pathlib.Path(f).exists():
             for w in json.loads(pathlib.Path(f).read_text())["works"]:
                 path = pathlib.Path(f"data/texts/{w['key']}.txt")
-                if path.exists() and not w.get("exclude"):
+                if path.exists() and not w.get("exclude") and not w.get("duplicate_of"):
                     out.setdefault(w["url"], {**w, "path": str(path),
                                               "words": len(path.read_text().split())})  # fmt: skip
     return out

@@ -1,0 +1,2689 @@
+{
+ "pool": [
+  "ai-new-kind-of-mind",
+  "ai-extinction-risk",
+  "direction-of-technology-is-chosen",
+  "productivity-benefits-workers-unaided",
+  "freedom-compatible-with-democracy",
+  "ai-promises-inflated",
+  "liberal-ideals-carry-their-own-force",
+  "competition-limits-harm",
+  "human-end-of-ai",
+  "ai-fear-exceeds-evidence",
+  "deployment-harms-over-superintelligence",
+  "ai-moral-status",
+  "past-technology-is-valid-reference-class",
+  "modesty-is-a-sound-default",
+  "popular-self-government-worth-keeping",
+  "market-tech-serves-humans",
+  "binding-rules-for-frontier-ai",
+  "regulation-does-more-harm",
+  "ai-separate-from-state",
+  "plurality-over-singularity",
+  "china-rivalry-justifies-tech-push",
+  "direct-distribution-of-wealth-sound",
+  "slow-or-stop-frontier-ai",
+  "plan-control-early",
+  "ai-cuts-more-jobs-than-it-creates",
+  "ai-concentrates-power",
+  "attention-tech-harms-minds",
+  "ai-threatens-shared-truth",
+  "ai-can-be-real-companion",
+  "work-gives-dignity",
+  "some-domains-free-of-ai",
+  "profit-cannot-make-ai-safe",
+  "creators-owed-for-training",
+  "inequality-fine-if-all-gain",
+  "workers-say-over-ai",
+  "antitrust-on-big-ai",
+  "protect-ai-whistleblowers",
+  "states-set-own-ai-rules",
+  "restrict-ai-companions-for-children",
+  "public-ai-infrastructure",
+  "income-not-tied-to-work",
+  "no-autonomous-lethal-force",
+  "no-ai-mass-surveillance",
+  "ai-makers-liable-for-harms",
+  "tax-ai-job-replacement",
+  "communities-can-block-data-centers",
+  "ai-bias-audits-required",
+  "open-weights-frontier-models",
+  "ai-politically-biased",
+  "ai-leaders-honest-about-risks",
+  "building-superhuman-ai-wrong"
+ ],
+ "instrument": [
+  "ai-new-kind-of-mind",
+  "ai-extinction-risk",
+  "productivity-benefits-workers-unaided",
+  "ai-promises-inflated",
+  "competition-limits-harm",
+  "ai-cuts-more-jobs-than-it-creates",
+  "ai-concentrates-power",
+  "ai-threatens-shared-truth",
+  "ai-can-be-real-companion",
+  "human-end-of-ai",
+  "ai-fear-exceeds-evidence",
+  "deployment-harms-over-superintelligence",
+  "ai-moral-status",
+  "past-technology-is-valid-reference-class",
+  "popular-self-government-worth-keeping",
+  "market-tech-serves-humans",
+  "work-gives-dignity",
+  "ai-leaders-honest-about-risks",
+  "regulation-does-more-harm",
+  "ai-separate-from-state",
+  "china-rivalry-justifies-tech-push",
+  "direct-distribution-of-wealth-sound",
+  "slow-or-stop-frontier-ai",
+  "creators-owed-for-training",
+  "states-set-own-ai-rules",
+  "income-not-tied-to-work",
+  "no-autonomous-lethal-force"
+ ],
+ "schools": [
+  {
+   "id": 0,
+   "members": [
+    "barack-obama",
+    "brian-merchant",
+    "daron-acemoglu",
+    "e-glen-weyl",
+    "jaron-lanier",
+    "josh-hawley",
+    "karen-hao",
+    "meredith-whittaker",
+    "paul-kingsnorth",
+    "pope-leo-xiv",
+    "timnit-gebru"
+   ],
+   "attached": [
+    "arvind-narayanan",
+    "audrey-tang",
+    "david-autor",
+    "divya-siddarth",
+    "ed-zitron",
+    "emily-m-bender",
+    "liz-shuler",
+    "ruha-benjamin",
+    "rumman-chowdhury",
+    "shoshana-zuboff"
+   ],
+   "cohesion": 0.772,
+   "distinctive": [
+    {
+     "statement": "market-tech-serves-humans",
+     "side": -1,
+     "mean": -0.5,
+     "lean": -1.1,
+     "n": 4
+    },
+    {
+     "statement": "ai-promises-inflated",
+     "side": 1,
+     "mean": 0.75,
+     "lean": 1.08,
+     "n": 8
+    },
+    {
+     "statement": "direct-distribution-of-wealth-sound",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.0,
+     "n": 3
+    },
+    {
+     "statement": "deployment-harms-over-superintelligence",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.88,
+     "n": 7
+    },
+    {
+     "statement": "china-rivalry-justifies-tech-push",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.8,
+     "n": 5
+    },
+    {
+     "statement": "regulation-does-more-harm",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.67,
+     "n": 6
+    },
+    {
+     "statement": "ai-separate-from-state",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.63,
+     "n": 4
+    },
+    {
+     "statement": "ai-new-kind-of-mind",
+     "side": -1,
+     "mean": -0.8,
+     "lean": -0.62,
+     "n": 10
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "members": [
+    "david-sacks",
+    "dean-ball",
+    "guillaume-verdon",
+    "jd-vance",
+    "marc-andreessen",
+    "michael-kratsios",
+    "robin-hanson",
+    "ted-cruz",
+    "yann-lecun"
+   ],
+   "attached": [
+    "adam-thierer",
+    "balaji-srinivasan",
+    "daniel-jeffries",
+    "mark-zuckerberg",
+    "reid-hoffman",
+    "tyler-cowen"
+   ],
+   "cohesion": 0.857,
+   "distinctive": [
+    {
+     "statement": "profit-cannot-make-ai-safe",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.7,
+     "n": 3
+    },
+    {
+     "statement": "ai-concentrates-power",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.6,
+     "n": 4
+    },
+    {
+     "statement": "ai-separate-from-state",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.37,
+     "n": 6
+    },
+    {
+     "statement": "ai-extinction-risk",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.33,
+     "n": 7
+    },
+    {
+     "statement": "regulation-does-more-harm",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.33,
+     "n": 8
+    },
+    {
+     "statement": "binding-rules-for-frontier-ai",
+     "side": -1,
+     "mean": -0.5,
+     "lean": -1.28,
+     "n": 4
+    },
+    {
+     "statement": "slow-or-stop-frontier-ai",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.22,
+     "n": 8
+    },
+    {
+     "statement": "china-rivalry-justifies-tech-push",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.2,
+     "n": 6
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "members": [
+    "bernie-sanders",
+    "chris-murphy",
+    "demis-hassabis",
+    "holly-elmore",
+    "max-tegmark",
+    "stuart-russell",
+    "tristan-harris",
+    "yoshua-bengio",
+    "zvi-mowshowitz"
+   ],
+   "attached": [
+    "helen-toner",
+    "jack-clark",
+    "mustafa-suleyman",
+    "ro-khanna",
+    "vitalik-buterin",
+    "william-macaskill",
+    "william-saunders",
+    "yuval-noah-harari"
+   ],
+   "cohesion": 0.739,
+   "distinctive": [
+    {
+     "statement": "past-technology-is-valid-reference-class",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.29,
+     "n": 4
+    },
+    {
+     "statement": "deployment-harms-over-superintelligence",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.12,
+     "n": 7
+    },
+    {
+     "statement": "ai-fear-exceeds-evidence",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.9,
+     "n": 7
+    },
+    {
+     "statement": "china-rivalry-justifies-tech-push",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.8,
+     "n": 4
+    },
+    {
+     "statement": "ai-cuts-more-jobs-than-it-creates",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.8,
+     "n": 3
+    },
+    {
+     "statement": "slow-or-stop-frontier-ai",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.78,
+     "n": 8
+    },
+    {
+     "statement": "ai-extinction-risk",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.67,
+     "n": 9
+    },
+    {
+     "statement": "ai-promises-inflated",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.67,
+     "n": 4
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "members": [
+    "daniel-kokotajlo",
+    "eliezer-yudkowsky",
+    "elon-musk",
+    "leopold-aschenbrenner",
+    "noah-smith",
+    "sam-altman",
+    "scott-alexander"
+   ],
+   "attached": [
+    "anton-korinek",
+    "daniel-faggella",
+    "dario-amodei"
+   ],
+   "cohesion": 0.596,
+   "distinctive": [
+    {
+     "statement": "direction-of-technology-is-chosen",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -1.64,
+     "n": 2
+    },
+    {
+     "statement": "ai-leaders-honest-about-risks",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.5,
+     "n": 2
+    },
+    {
+     "statement": "ai-new-kind-of-mind",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.18,
+     "n": 2
+    },
+    {
+     "statement": "direct-distribution-of-wealth-sound",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 1.0,
+     "n": 3
+    },
+    {
+     "statement": "income-not-tied-to-work",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.86,
+     "n": 3
+    },
+    {
+     "statement": "deployment-harms-over-superintelligence",
+     "side": -1,
+     "mean": -0.6,
+     "lean": -0.72,
+     "n": 5
+    },
+    {
+     "statement": "ai-extinction-risk",
+     "side": 1,
+     "mean": 1.0,
+     "lean": 0.67,
+     "n": 7
+    },
+    {
+     "statement": "ai-promises-inflated",
+     "side": -1,
+     "mean": -1.0,
+     "lean": -0.67,
+     "n": 5
+    }
+   ]
+  }
+ ],
+ "people": {
+  "barack-obama": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -50.8,
+   "y": 0.5,
+   "stances": 14
+  },
+  "bernie-sanders": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -25.3,
+   "y": 121.9,
+   "stances": 24
+  },
+  "brian-merchant": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -120.6,
+   "y": 40.4,
+   "stances": 15
+  },
+  "chris-murphy": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -17.3,
+   "y": 148.5,
+   "stances": 18
+  },
+  "daniel-kokotajlo": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 41.8,
+   "y": 153.0,
+   "stances": 13
+  },
+  "daron-acemoglu": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -97.6,
+   "y": 31.2,
+   "stances": 21
+  },
+  "david-sacks": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 22.7,
+   "y": -237.6,
+   "stances": 13
+  },
+  "dean-ball": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 37.4,
+   "y": -150.7,
+   "stances": 18
+  },
+  "demis-hassabis": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 66.1,
+   "y": 70.1,
+   "stances": 12
+  },
+  "e-glen-weyl": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -136.0,
+   "y": 88.3,
+   "stances": 12
+  },
+  "eliezer-yudkowsky": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 100.3,
+   "y": 128.4,
+   "stances": 12
+  },
+  "elon-musk": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 145.6,
+   "y": 137.4,
+   "stances": 17
+  },
+  "guillaume-verdon": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 113.2,
+   "y": -190.0,
+   "stances": 18
+  },
+  "holly-elmore": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -20.0,
+   "y": 97.9,
+   "stances": 14
+  },
+  "jaron-lanier": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -194.1,
+   "y": 51.5,
+   "stances": 13
+  },
+  "jd-vance": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -15.4,
+   "y": -139.5,
+   "stances": 13
+  },
+  "josh-hawley": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -107.9,
+   "y": 74.4,
+   "stances": 22
+  },
+  "karen-hao": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -146.9,
+   "y": 70.9,
+   "stances": 12
+  },
+  "leopold-aschenbrenner": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 96.2,
+   "y": -2.2,
+   "stances": 17
+  },
+  "marc-andreessen": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -48.4,
+   "y": -205.1,
+   "stances": 25
+  },
+  "max-tegmark": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 66.4,
+   "y": 145.5,
+   "stances": 15
+  },
+  "meredith-whittaker": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -138.1,
+   "y": 42.8,
+   "stances": 19
+  },
+  "michael-kratsios": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 1.1,
+   "y": -161.8,
+   "stances": 12
+  },
+  "noah-smith": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 177.5,
+   "y": -51.9,
+   "stances": 18
+  },
+  "paul-kingsnorth": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -99.7,
+   "y": 200.9,
+   "stances": 14
+  },
+  "pope-leo-xiv": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -119.2,
+   "y": 115.3,
+   "stances": 15
+  },
+  "robin-hanson": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 167.8,
+   "y": -201.9,
+   "stances": 14
+  },
+  "sam-altman": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 102.4,
+   "y": 59.7,
+   "stances": 12
+  },
+  "scott-alexander": {
+   "school": 3,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 183.6,
+   "y": 105.1,
+   "stances": 16
+  },
+  "stuart-russell": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -3.3,
+   "y": 178.6,
+   "stances": 15
+  },
+  "ted-cruz": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 2.7,
+   "y": -200.3,
+   "stances": 12
+  },
+  "timnit-gebru": {
+   "school": 0,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -164.2,
+   "y": 39.7,
+   "stances": 12
+  },
+  "tristan-harris": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -4.7,
+   "y": 112.6,
+   "stances": 19
+  },
+  "yann-lecun": {
+   "school": 1,
+   "between": [],
+   "basis": "drew the schools",
+   "x": -31.4,
+   "y": -217.3,
+   "stances": 12
+  },
+  "yoshua-bengio": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 11.9,
+   "y": 160.9,
+   "stances": 16
+  },
+  "zvi-mowshowitz": {
+   "school": 2,
+   "between": [],
+   "basis": "drew the schools",
+   "x": 63.9,
+   "y": 118.0,
+   "stances": 13
+  },
+  "adam-thierer": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.393,
+    0.702,
+    0.354,
+    0.453
+   ],
+   "basis": "attached",
+   "x": 74.0,
+   "y": -201.8,
+   "stances": 6
+  },
+  "alexandria-ocasio-cortez": {
+   "school": null,
+   "between": [
+    2,
+    0
+   ],
+   "fit": [
+    0.632,
+    0.379,
+    0.642,
+    0.59
+   ],
+   "basis": "between",
+   "x": -124.3,
+   "y": 166.6,
+   "stances": 7
+  },
+  "alondra-nelson": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.712,
+    0.409,
+    0.687,
+    0.614
+   ],
+   "basis": "between",
+   "x": -96.1,
+   "y": 115.4,
+   "stances": 7
+  },
+  "andrew-yang": {
+   "school": null,
+   "between": [
+    2,
+    3
+   ],
+   "fit": [
+    0.524,
+    0.367,
+    0.65,
+    0.635
+   ],
+   "basis": "between",
+   "x": 115.1,
+   "y": 164.3,
+   "stances": 7
+  },
+  "anton-korinek": {
+   "school": 3,
+   "between": [],
+   "fit": [
+    0.486,
+    0.454,
+    0.549,
+    0.636
+   ],
+   "basis": "attached",
+   "x": 182.1,
+   "y": 29.1,
+   "stances": 8
+  },
+  "arvind-narayanan": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.665,
+    0.608,
+    0.456,
+    0.402
+   ],
+   "basis": "attached",
+   "x": -143.9,
+   "y": -111.4,
+   "stances": 10
+  },
+  "audrey-tang": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.761,
+    0.543,
+    0.694,
+    0.551
+   ],
+   "basis": "attached",
+   "x": -65.8,
+   "y": 40.0,
+   "stances": 10
+  },
+  "balaji-srinivasan": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.543,
+    0.631,
+    0.404,
+    0.468
+   ],
+   "basis": "attached",
+   "x": -81.6,
+   "y": -170.1,
+   "stances": 8
+  },
+  "cory-doctorow": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.574,
+    0.55,
+    0.519,
+    0.408
+   ],
+   "basis": "not yet grouped",
+   "x": -178.5,
+   "y": -101.1,
+   "stances": 9
+  },
+  "curtis-yarvin": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.51,
+    0.538,
+    0.382,
+    0.376
+   ],
+   "basis": "not yet grouped",
+   "x": -152.1,
+   "y": -175.8,
+   "stances": 7
+  },
+  "daniel-faggella": {
+   "school": 3,
+   "between": [],
+   "fit": [
+    0.434,
+    0.538,
+    0.562,
+    0.676
+   ],
+   "basis": "attached",
+   "x": 212.6,
+   "y": 12.6,
+   "stances": 5
+  },
+  "daniel-jeffries": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.33,
+    0.673,
+    0.385,
+    0.49
+   ],
+   "basis": "attached",
+   "x": 68.4,
+   "y": -223.1,
+   "stances": 6
+  },
+  "dario-amodei": {
+   "school": 3,
+   "between": [],
+   "fit": [
+    0.488,
+    0.577,
+    0.526,
+    0.63
+   ],
+   "basis": "attached",
+   "x": 121.4,
+   "y": -63.3,
+   "stances": 11
+  },
+  "david-autor": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.656,
+    0.576,
+    0.527,
+    0.537
+   ],
+   "basis": "attached",
+   "x": -71.8,
+   "y": -69.0,
+   "stances": 7
+  },
+  "divya-siddarth": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.76,
+    0.611,
+    0.708,
+    0.702
+   ],
+   "basis": "attached",
+   "x": -63.5,
+   "y": 109.2,
+   "stances": 5
+  },
+  "dwarkesh-patel": {
+   "school": null,
+   "between": [
+    3,
+    2
+   ],
+   "fit": [
+    0.39,
+    0.536,
+    0.628,
+    0.651
+   ],
+   "basis": "between",
+   "x": 194.3,
+   "y": 5.8,
+   "stances": 9
+  },
+  "ed-zitron": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.65,
+    0.527,
+    0.541,
+    0.487
+   ],
+   "basis": "attached",
+   "x": -163.3,
+   "y": -19.7,
+   "stances": 11
+  },
+  "elizabeth-warren": {
+   "school": null,
+   "between": [
+    2,
+    0
+   ],
+   "fit": [
+    0.674,
+    0.414,
+    0.685,
+    0.653
+   ],
+   "basis": "between",
+   "x": -55.9,
+   "y": 171.0,
+   "stances": 7
+  },
+  "emily-m-bender": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.663,
+    0.535,
+    0.534,
+    0.439
+   ],
+   "basis": "attached",
+   "x": -155.6,
+   "y": -65.7,
+   "stances": 7
+  },
+  "erik-brynjolfsson": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.557,
+    0.56,
+    0.555,
+    0.488
+   ],
+   "basis": "not yet grouped",
+   "x": -11.9,
+   "y": -92.3,
+   "stances": 5
+  },
+  "fei-fei-li": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.621,
+    0.583,
+    0.537,
+    0.433
+   ],
+   "basis": "not yet grouped",
+   "x": -91.1,
+   "y": -93.5,
+   "stances": 6
+  },
+  "gary-marcus": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.699,
+    0.48,
+    0.669,
+    0.623
+   ],
+   "basis": "between",
+   "x": -77.9,
+   "y": 75.7,
+   "stances": 9
+  },
+  "geoffrey-hinton": {
+   "school": null,
+   "between": [
+    2,
+    3
+   ],
+   "fit": [
+    0.445,
+    0.411,
+    0.698,
+    0.672
+   ],
+   "basis": "between",
+   "x": 166.2,
+   "y": 114.2,
+   "stances": 7
+  },
+  "helen-toner": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.593,
+    0.515,
+    0.692,
+    0.637
+   ],
+   "basis": "attached",
+   "x": 30.3,
+   "y": -13.3,
+   "stances": 8
+  },
+  "jack-clark": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.587,
+    0.472,
+    0.745,
+    0.688
+   ],
+   "basis": "attached",
+   "x": 86.9,
+   "y": 99.8,
+   "stances": 11
+  },
+  "jason-crawford": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.475,
+    0.617,
+    0.501,
+    0.572
+   ],
+   "basis": "not yet grouped",
+   "x": 93.6,
+   "y": -111.4,
+   "stances": 11
+  },
+  "jensen-huang": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.506,
+    0.59,
+    0.494,
+    0.495
+   ],
+   "basis": "not yet grouped",
+   "x": 60.8,
+   "y": -137.4,
+   "stances": 8
+  },
+  "jonathan-haidt": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.792,
+    0.7,
+    0.772,
+    0.306
+   ],
+   "basis": "between",
+   "x": -37.4,
+   "y": 58.5,
+   "stances": 7
+  },
+  "joy-buolamwini": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.652,
+    0.408,
+    0.621,
+    0.549
+   ],
+   "basis": "between",
+   "x": 62.2,
+   "y": 6.1,
+   "stances": 5
+  },
+  "liz-shuler": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.681,
+    0.516,
+    0.6,
+    0.439
+   ],
+   "basis": "attached",
+   "x": -142.8,
+   "y": -30.1,
+   "stances": 5
+  },
+  "mark-zuckerberg": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.583,
+    0.677,
+    0.504,
+    0.528
+   ],
+   "basis": "attached",
+   "x": -54.6,
+   "y": -129.3,
+   "stances": 10
+  },
+  "marsha-blackburn": {
+   "school": null,
+   "between": [
+    0,
+    1
+   ],
+   "fit": [
+    0.637,
+    0.62,
+    0.619,
+    0.544
+   ],
+   "basis": "between",
+   "x": -73.4,
+   "y": -72.3,
+   "stances": 7
+  },
+  "miles-brundage": {
+   "school": null,
+   "between": [
+    2,
+    3
+   ],
+   "fit": [
+    0.533,
+    0.369,
+    0.738,
+    0.691
+   ],
+   "basis": "between",
+   "x": 93.4,
+   "y": 159.9,
+   "stances": 9
+  },
+  "mustafa-suleyman": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.523,
+    0.571,
+    0.732,
+    0.658
+   ],
+   "basis": "attached",
+   "x": 72.1,
+   "y": 24.2,
+   "stances": 10
+  },
+  "nick-land": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.331,
+    0.562,
+    0.434,
+    0.575
+   ],
+   "basis": "not yet grouped",
+   "x": 233.2,
+   "y": -78.7,
+   "stances": 7
+  },
+  "pete-buttigieg": {
+   "school": null,
+   "between": [
+    2,
+    0
+   ],
+   "fit": [
+    0.609,
+    0.523,
+    0.638,
+    0.568
+   ],
+   "basis": "between",
+   "x": 61.8,
+   "y": -23.3,
+   "stances": 6
+  },
+  "peter-thiel": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.564,
+    0.57,
+    0.511,
+    0.459
+   ],
+   "basis": "not yet grouped",
+   "x": -118.6,
+   "y": -137.8,
+   "stances": 11
+  },
+  "reid-hoffman": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.547,
+    0.622,
+    0.519,
+    0.518
+   ],
+   "basis": "attached",
+   "x": 28.2,
+   "y": -110.8,
+   "stances": 7
+  },
+  "richard-blumenthal": {
+   "school": null,
+   "between": [
+    2,
+    3
+   ],
+   "fit": [
+    0.657,
+    0.449,
+    0.739,
+    0.708
+   ],
+   "basis": "between",
+   "x": 24.4,
+   "y": 74.1,
+   "stances": 9
+  },
+  "ro-khanna": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.637,
+    0.386,
+    0.687,
+    0.601
+   ],
+   "basis": "attached",
+   "x": -84.3,
+   "y": 159.4,
+   "stances": 9
+  },
+  "ruha-benjamin": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.659,
+    0.552,
+    0.569,
+    0.404
+   ],
+   "basis": "attached",
+   "x": -179.4,
+   "y": -41.1,
+   "stances": 8
+  },
+  "rumman-chowdhury": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.659,
+    0.47,
+    0.554,
+    0.558
+   ],
+   "basis": "attached",
+   "x": -126.0,
+   "y": -41.3,
+   "stances": 5
+  },
+  "safiya-noble": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.65,
+    0.533,
+    0.612,
+    0.389
+   ],
+   "basis": "between",
+   "x": -198.7,
+   "y": -4.8,
+   "stances": 5
+  },
+  "samuel-hammond": {
+   "school": null,
+   "between": [
+    3,
+    2
+   ],
+   "fit": [
+    0.5,
+    0.51,
+    0.636,
+    0.648
+   ],
+   "basis": "between",
+   "x": 149.4,
+   "y": -9.3,
+   "stances": 9
+  },
+  "scott-wiener": {
+   "school": null,
+   "between": [
+    0,
+    2
+   ],
+   "fit": [
+    0.694,
+    0.418,
+    0.676,
+    0.616
+   ],
+   "basis": "between",
+   "x": -70.8,
+   "y": -16.7,
+   "stances": 5
+  },
+  "shoshana-zuboff": {
+   "school": 0,
+   "between": [],
+   "fit": [
+    0.701,
+    0.565,
+    0.649,
+    0.613
+   ],
+   "basis": "attached",
+   "x": -8.7,
+   "y": -14.3,
+   "stances": 5
+  },
+  "tyler-cowen": {
+   "school": 1,
+   "between": [],
+   "fit": [
+    0.406,
+    0.669,
+    0.398,
+    0.48
+   ],
+   "basis": "attached",
+   "x": 131.5,
+   "y": -169.1,
+   "stances": 7
+  },
+  "venkatesh-rao": {
+   "school": null,
+   "between": [],
+   "fit": [
+    0.484,
+    0.586,
+    0.418,
+    0.544
+   ],
+   "basis": "not yet grouped",
+   "x": 171.4,
+   "y": -132.4,
+   "stances": 7
+  },
+  "vitalik-buterin": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.511,
+    0.515,
+    0.661,
+    0.565
+   ],
+   "basis": "attached",
+   "x": 121.1,
+   "y": 66.3,
+   "stances": 8
+  },
+  "william-macaskill": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.5,
+    0.431,
+    0.713,
+    0.59
+   ],
+   "basis": "attached",
+   "x": 154.0,
+   "y": 55.8,
+   "stances": 9
+  },
+  "william-saunders": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.668,
+    0.597,
+    0.763,
+    0.7
+   ],
+   "basis": "attached",
+   "x": 16.0,
+   "y": 24.1,
+   "stances": 10
+  },
+  "yuval-noah-harari": {
+   "school": 2,
+   "between": [],
+   "fit": [
+    0.611,
+    0.362,
+    0.711,
+    0.635
+   ],
+   "basis": "attached",
+   "x": 44.5,
+   "y": 193.3,
+   "stances": 9
+  }
+ },
+ "together": {
+  "barack-obama|bernie-sanders": 0.267,
+  "barack-obama|brian-merchant": 0.65,
+  "barack-obama|chris-murphy": 0.21,
+  "barack-obama|daniel-kokotajlo": 0.18,
+  "barack-obama|daron-acemoglu": 0.64,
+  "barack-obama|david-sacks": 0.057,
+  "barack-obama|dean-ball": 0.067,
+  "barack-obama|demis-hassabis": 0.14,
+  "barack-obama|e-glen-weyl": 0.65,
+  "barack-obama|eliezer-yudkowsky": 0.06,
+  "barack-obama|elon-musk": 0.063,
+  "barack-obama|guillaume-verdon": 0.043,
+  "barack-obama|holly-elmore": 0.25,
+  "barack-obama|jaron-lanier": 0.607,
+  "barack-obama|jd-vance": 0.21,
+  "barack-obama|josh-hawley": 0.653,
+  "barack-obama|karen-hao": 0.653,
+  "barack-obama|leopold-aschenbrenner": 0.2,
+  "barack-obama|marc-andreessen": 0.073,
+  "barack-obama|max-tegmark": 0.127,
+  "barack-obama|meredith-whittaker": 0.663,
+  "barack-obama|michael-kratsios": 0.157,
+  "barack-obama|noah-smith": 0.15,
+  "barack-obama|paul-kingsnorth": 0.38,
+  "barack-obama|pope-leo-xiv": 0.707,
+  "barack-obama|robin-hanson": 0.037,
+  "barack-obama|sam-altman": 0.16,
+  "barack-obama|scott-alexander": 0.053,
+  "barack-obama|stuart-russell": 0.213,
+  "barack-obama|ted-cruz": 0.063,
+  "barack-obama|timnit-gebru": 0.657,
+  "barack-obama|tristan-harris": 0.21,
+  "barack-obama|yann-lecun": 0.063,
+  "barack-obama|yoshua-bengio": 0.207,
+  "barack-obama|zvi-mowshowitz": 0.117,
+  "bernie-sanders|brian-merchant": 0.173,
+  "bernie-sanders|chris-murphy": 0.88,
+  "bernie-sanders|daniel-kokotajlo": 0.817,
+  "bernie-sanders|daron-acemoglu": 0.213,
+  "bernie-sanders|david-sacks": 0.0,
+  "bernie-sanders|dean-ball": 0.0,
+  "bernie-sanders|demis-hassabis": 0.56,
+  "bernie-sanders|e-glen-weyl": 0.233,
+  "bernie-sanders|eliezer-yudkowsky": 0.423,
+  "bernie-sanders|elon-musk": 0.31,
+  "bernie-sanders|guillaume-verdon": 0.0,
+  "bernie-sanders|holly-elmore": 0.87,
+  "bernie-sanders|jaron-lanier": 0.16,
+  "bernie-sanders|jd-vance": 0.03,
+  "bernie-sanders|josh-hawley": 0.22,
+  "bernie-sanders|karen-hao": 0.187,
+  "bernie-sanders|leopold-aschenbrenner": 0.337,
+  "bernie-sanders|marc-andreessen": 0.0,
+  "bernie-sanders|max-tegmark": 0.593,
+  "bernie-sanders|meredith-whittaker": 0.23,
+  "bernie-sanders|michael-kratsios": 0.027,
+  "bernie-sanders|noah-smith": 0.14,
+  "bernie-sanders|paul-kingsnorth": 0.353,
+  "bernie-sanders|pope-leo-xiv": 0.393,
+  "bernie-sanders|robin-hanson": 0.0,
+  "bernie-sanders|sam-altman": 0.433,
+  "bernie-sanders|scott-alexander": 0.33,
+  "bernie-sanders|stuart-russell": 0.88,
+  "bernie-sanders|ted-cruz": 0.0,
+  "bernie-sanders|timnit-gebru": 0.233,
+  "bernie-sanders|tristan-harris": 0.833,
+  "bernie-sanders|yann-lecun": 0.0,
+  "bernie-sanders|yoshua-bengio": 0.883,
+  "bernie-sanders|zvi-mowshowitz": 0.577,
+  "brian-merchant|chris-murphy": 0.15,
+  "brian-merchant|daniel-kokotajlo": 0.063,
+  "brian-merchant|daron-acemoglu": 0.947,
+  "brian-merchant|david-sacks": 0.007,
+  "brian-merchant|dean-ball": 0.007,
+  "brian-merchant|demis-hassabis": 0.04,
+  "brian-merchant|e-glen-weyl": 0.913,
+  "brian-merchant|eliezer-yudkowsky": 0.003,
+  "brian-merchant|elon-musk": 0.0,
+  "brian-merchant|guillaume-verdon": 0.0,
+  "brian-merchant|holly-elmore": 0.173,
+  "brian-merchant|jaron-lanier": 0.927,
+  "brian-merchant|jd-vance": 0.093,
+  "brian-merchant|josh-hawley": 0.947,
+  "brian-merchant|karen-hao": 0.977,
+  "brian-merchant|leopold-aschenbrenner": 0.06,
+  "brian-merchant|marc-andreessen": 0.01,
+  "brian-merchant|max-tegmark": 0.033,
+  "brian-merchant|meredith-whittaker": 0.88,
+  "brian-merchant|michael-kratsios": 0.053,
+  "brian-merchant|noah-smith": 0.027,
+  "brian-merchant|paul-kingsnorth": 0.647,
+  "brian-merchant|pope-leo-xiv": 0.697,
+  "brian-merchant|robin-hanson": 0.0,
+  "brian-merchant|sam-altman": 0.04,
+  "brian-merchant|scott-alexander": 0.0,
+  "brian-merchant|stuart-russell": 0.087,
+  "brian-merchant|ted-cruz": 0.007,
+  "brian-merchant|timnit-gebru": 0.843,
+  "brian-merchant|tristan-harris": 0.203,
+  "brian-merchant|yann-lecun": 0.01,
+  "brian-merchant|yoshua-bengio": 0.08,
+  "brian-merchant|zvi-mowshowitz": 0.06,
+  "chris-murphy|daniel-kokotajlo": 0.807,
+  "chris-murphy|daron-acemoglu": 0.17,
+  "chris-murphy|david-sacks": 0.0,
+  "chris-murphy|dean-ball": 0.0,
+  "chris-murphy|demis-hassabis": 0.587,
+  "chris-murphy|e-glen-weyl": 0.19,
+  "chris-murphy|eliezer-yudkowsky": 0.463,
+  "chris-murphy|elon-musk": 0.337,
+  "chris-murphy|guillaume-verdon": 0.0,
+  "chris-murphy|holly-elmore": 0.863,
+  "chris-murphy|jaron-lanier": 0.143,
+  "chris-murphy|jd-vance": 0.023,
+  "chris-murphy|josh-hawley": 0.187,
+  "chris-murphy|karen-hao": 0.157,
+  "chris-murphy|leopold-aschenbrenner": 0.33,
+  "chris-murphy|marc-andreessen": 0.0,
+  "chris-murphy|max-tegmark": 0.637,
+  "chris-murphy|meredith-whittaker": 0.23,
+  "chris-murphy|michael-kratsios": 0.017,
+  "chris-murphy|noah-smith": 0.127,
+  "chris-murphy|paul-kingsnorth": 0.34,
+  "chris-murphy|pope-leo-xiv": 0.343,
+  "chris-murphy|robin-hanson": 0.0,
+  "chris-murphy|sam-altman": 0.423,
+  "chris-murphy|scott-alexander": 0.36,
+  "chris-murphy|stuart-russell": 0.887,
+  "chris-murphy|ted-cruz": 0.0,
+  "chris-murphy|timnit-gebru": 0.233,
+  "chris-murphy|tristan-harris": 0.897,
+  "chris-murphy|yann-lecun": 0.0,
+  "chris-murphy|yoshua-bengio": 0.877,
+  "chris-murphy|zvi-mowshowitz": 0.643,
+  "daniel-kokotajlo|daron-acemoglu": 0.097,
+  "daniel-kokotajlo|david-sacks": 0.0,
+  "daniel-kokotajlo|dean-ball": 0.0,
+  "daniel-kokotajlo|demis-hassabis": 0.673,
+  "daniel-kokotajlo|e-glen-weyl": 0.117,
+  "daniel-kokotajlo|eliezer-yudkowsky": 0.567,
+  "daniel-kokotajlo|elon-musk": 0.44,
+  "daniel-kokotajlo|guillaume-verdon": 0.0,
+  "daniel-kokotajlo|holly-elmore": 0.837,
+  "daniel-kokotajlo|jaron-lanier": 0.043,
+  "daniel-kokotajlo|jd-vance": 0.023,
+  "daniel-kokotajlo|josh-hawley": 0.09,
+  "daniel-kokotajlo|karen-hao": 0.063,
+  "daniel-kokotajlo|leopold-aschenbrenner": 0.48,
+  "daniel-kokotajlo|marc-andreessen": 0.0,
+  "daniel-kokotajlo|max-tegmark": 0.67,
+  "daniel-kokotajlo|meredith-whittaker": 0.137,
+  "daniel-kokotajlo|michael-kratsios": 0.023,
+  "daniel-kokotajlo|noah-smith": 0.203,
+  "daniel-kokotajlo|paul-kingsnorth": 0.22,
+  "daniel-kokotajlo|pope-leo-xiv": 0.26,
+  "daniel-kokotajlo|robin-hanson": 0.0,
+  "daniel-kokotajlo|sam-altman": 0.56,
+  "daniel-kokotajlo|scott-alexander": 0.463,
+  "daniel-kokotajlo|stuart-russell": 0.867,
+  "daniel-kokotajlo|ted-cruz": 0.0,
+  "daniel-kokotajlo|timnit-gebru": 0.137,
+  "daniel-kokotajlo|tristan-harris": 0.733,
+  "daniel-kokotajlo|yann-lecun": 0.0,
+  "daniel-kokotajlo|yoshua-bengio": 0.903,
+  "daniel-kokotajlo|zvi-mowshowitz": 0.663,
+  "daron-acemoglu|david-sacks": 0.007,
+  "daron-acemoglu|dean-ball": 0.007,
+  "daron-acemoglu|demis-hassabis": 0.06,
+  "daron-acemoglu|e-glen-weyl": 0.903,
+  "daron-acemoglu|eliezer-yudkowsky": 0.017,
+  "daron-acemoglu|elon-musk": 0.01,
+  "daron-acemoglu|guillaume-verdon": 0.003,
+  "daron-acemoglu|holly-elmore": 0.213,
+  "daron-acemoglu|jaron-lanier": 0.903,
+  "daron-acemoglu|jd-vance": 0.08,
+  "daron-acemoglu|josh-hawley": 0.917,
+  "daron-acemoglu|karen-hao": 0.95,
+  "daron-acemoglu|leopold-aschenbrenner": 0.07,
+  "daron-acemoglu|marc-andreessen": 0.01,
+  "daron-acemoglu|max-tegmark": 0.053,
+  "daron-acemoglu|meredith-whittaker": 0.86,
+  "daron-acemoglu|michael-kratsios": 0.053,
+  "daron-acemoglu|noah-smith": 0.043,
+  "daron-acemoglu|paul-kingsnorth": 0.633,
+  "daron-acemoglu|pope-leo-xiv": 0.693,
+  "daron-acemoglu|robin-hanson": 0.003,
+  "daron-acemoglu|sam-altman": 0.053,
+  "daron-acemoglu|scott-alexander": 0.013,
+  "daron-acemoglu|stuart-russell": 0.127,
+  "daron-acemoglu|ted-cruz": 0.007,
+  "daron-acemoglu|timnit-gebru": 0.823,
+  "daron-acemoglu|tristan-harris": 0.217,
+  "daron-acemoglu|yann-lecun": 0.01,
+  "daron-acemoglu|yoshua-bengio": 0.12,
+  "daron-acemoglu|zvi-mowshowitz": 0.063,
+  "david-sacks|dean-ball": 0.933,
+  "david-sacks|demis-hassabis": 0.007,
+  "david-sacks|e-glen-weyl": 0.0,
+  "david-sacks|eliezer-yudkowsky": 0.0,
+  "david-sacks|elon-musk": 0.0,
+  "david-sacks|guillaume-verdon": 0.887,
+  "david-sacks|holly-elmore": 0.0,
+  "david-sacks|jaron-lanier": 0.0,
+  "david-sacks|jd-vance": 0.767,
+  "david-sacks|josh-hawley": 0.0,
+  "david-sacks|karen-hao": 0.0,
+  "david-sacks|leopold-aschenbrenner": 0.103,
+  "david-sacks|marc-andreessen": 0.95,
+  "david-sacks|max-tegmark": 0.0,
+  "david-sacks|meredith-whittaker": 0.0,
+  "david-sacks|michael-kratsios": 0.827,
+  "david-sacks|noah-smith": 0.217,
+  "david-sacks|paul-kingsnorth": 0.0,
+  "david-sacks|pope-leo-xiv": 0.0,
+  "david-sacks|robin-hanson": 0.87,
+  "david-sacks|sam-altman": 0.003,
+  "david-sacks|scott-alexander": 0.0,
+  "david-sacks|stuart-russell": 0.0,
+  "david-sacks|ted-cruz": 0.97,
+  "david-sacks|timnit-gebru": 0.003,
+  "david-sacks|tristan-harris": 0.0,
+  "david-sacks|yann-lecun": 0.953,
+  "david-sacks|yoshua-bengio": 0.0,
+  "david-sacks|zvi-mowshowitz": 0.0,
+  "dean-ball|demis-hassabis": 0.01,
+  "dean-ball|e-glen-weyl": 0.0,
+  "dean-ball|eliezer-yudkowsky": 0.003,
+  "dean-ball|elon-musk": 0.007,
+  "dean-ball|guillaume-verdon": 0.827,
+  "dean-ball|holly-elmore": 0.0,
+  "dean-ball|jaron-lanier": 0.0,
+  "dean-ball|jd-vance": 0.803,
+  "dean-ball|josh-hawley": 0.0,
+  "dean-ball|karen-hao": 0.0,
+  "dean-ball|leopold-aschenbrenner": 0.117,
+  "dean-ball|marc-andreessen": 0.957,
+  "dean-ball|max-tegmark": 0.003,
+  "dean-ball|meredith-whittaker": 0.0,
+  "dean-ball|michael-kratsios": 0.863,
+  "dean-ball|noah-smith": 0.243,
+  "dean-ball|paul-kingsnorth": 0.0,
+  "dean-ball|pope-leo-xiv": 0.0,
+  "dean-ball|robin-hanson": 0.81,
+  "dean-ball|sam-altman": 0.007,
+  "dean-ball|scott-alexander": 0.007,
+  "dean-ball|stuart-russell": 0.0,
+  "dean-ball|ted-cruz": 0.937,
+  "dean-ball|timnit-gebru": 0.003,
+  "dean-ball|tristan-harris": 0.0,
+  "dean-ball|yann-lecun": 0.96,
+  "dean-ball|yoshua-bengio": 0.0,
+  "dean-ball|zvi-mowshowitz": 0.003,
+  "demis-hassabis|e-glen-weyl": 0.067,
+  "demis-hassabis|eliezer-yudkowsky": 0.77,
+  "demis-hassabis|elon-musk": 0.677,
+  "demis-hassabis|guillaume-verdon": 0.007,
+  "demis-hassabis|holly-elmore": 0.577,
+  "demis-hassabis|jaron-lanier": 0.033,
+  "demis-hassabis|jd-vance": 0.023,
+  "demis-hassabis|josh-hawley": 0.047,
+  "demis-hassabis|karen-hao": 0.04,
+  "demis-hassabis|leopold-aschenbrenner": 0.637,
+  "demis-hassabis|marc-andreessen": 0.007,
+  "demis-hassabis|max-tegmark": 0.893,
+  "demis-hassabis|meredith-whittaker": 0.08,
+  "demis-hassabis|michael-kratsios": 0.02,
+  "demis-hassabis|noah-smith": 0.36,
+  "demis-hassabis|paul-kingsnorth": 0.153,
+  "demis-hassabis|pope-leo-xiv": 0.157,
+  "demis-hassabis|robin-hanson": 0.007,
+  "demis-hassabis|sam-altman": 0.623,
+  "demis-hassabis|scott-alexander": 0.677,
+  "demis-hassabis|stuart-russell": 0.62,
+  "demis-hassabis|ted-cruz": 0.007,
+  "demis-hassabis|timnit-gebru": 0.083,
+  "demis-hassabis|tristan-harris": 0.553,
+  "demis-hassabis|yann-lecun": 0.007,
+  "demis-hassabis|yoshua-bengio": 0.633,
+  "demis-hassabis|zvi-mowshowitz": 0.83,
+  "e-glen-weyl|eliezer-yudkowsky": 0.013,
+  "e-glen-weyl|elon-musk": 0.007,
+  "e-glen-weyl|guillaume-verdon": 0.0,
+  "e-glen-weyl|holly-elmore": 0.243,
+  "e-glen-weyl|jaron-lanier": 0.883,
+  "e-glen-weyl|jd-vance": 0.07,
+  "e-glen-weyl|josh-hawley": 0.923,
+  "e-glen-weyl|karen-hao": 0.93,
+  "e-glen-weyl|leopold-aschenbrenner": 0.077,
+  "e-glen-weyl|marc-andreessen": 0.003,
+  "e-glen-weyl|max-tegmark": 0.067,
+  "e-glen-weyl|meredith-whittaker": 0.833,
+  "e-glen-weyl|michael-kratsios": 0.043,
+  "e-glen-weyl|noah-smith": 0.027,
+  "e-glen-weyl|paul-kingsnorth": 0.64,
+  "e-glen-weyl|pope-leo-xiv": 0.75,
+  "e-glen-weyl|robin-hanson": 0.0,
+  "e-glen-weyl|sam-altman": 0.06,
+  "e-glen-weyl|scott-alexander": 0.007,
+  "e-glen-weyl|stuart-russell": 0.143,
+  "e-glen-weyl|ted-cruz": 0.0,
+  "e-glen-weyl|timnit-gebru": 0.797,
+  "e-glen-weyl|tristan-harris": 0.223,
+  "e-glen-weyl|yann-lecun": 0.003,
+  "e-glen-weyl|yoshua-bengio": 0.14,
+  "e-glen-weyl|zvi-mowshowitz": 0.07,
+  "eliezer-yudkowsky|elon-musk": 0.87,
+  "eliezer-yudkowsky|guillaume-verdon": 0.007,
+  "eliezer-yudkowsky|holly-elmore": 0.44,
+  "eliezer-yudkowsky|jaron-lanier": 0.003,
+  "eliezer-yudkowsky|jd-vance": 0.007,
+  "eliezer-yudkowsky|josh-hawley": 0.017,
+  "eliezer-yudkowsky|karen-hao": 0.003,
+  "eliezer-yudkowsky|leopold-aschenbrenner": 0.563,
+  "eliezer-yudkowsky|marc-andreessen": 0.0,
+  "eliezer-yudkowsky|max-tegmark": 0.783,
+  "eliezer-yudkowsky|meredith-whittaker": 0.02,
+  "eliezer-yudkowsky|michael-kratsios": 0.007,
+  "eliezer-yudkowsky|noah-smith": 0.453,
+  "eliezer-yudkowsky|paul-kingsnorth": 0.13,
+  "eliezer-yudkowsky|pope-leo-xiv": 0.07,
+  "eliezer-yudkowsky|robin-hanson": 0.007,
+  "eliezer-yudkowsky|sam-altman": 0.677,
+  "eliezer-yudkowsky|scott-alexander": 0.887,
+  "eliezer-yudkowsky|stuart-russell": 0.47,
+  "eliezer-yudkowsky|ted-cruz": 0.0,
+  "eliezer-yudkowsky|timnit-gebru": 0.027,
+  "eliezer-yudkowsky|tristan-harris": 0.443,
+  "eliezer-yudkowsky|yann-lecun": 0.0,
+  "eliezer-yudkowsky|yoshua-bengio": 0.487,
+  "eliezer-yudkowsky|zvi-mowshowitz": 0.773,
+  "elon-musk|guillaume-verdon": 0.013,
+  "elon-musk|holly-elmore": 0.32,
+  "elon-musk|jaron-lanier": 0.0,
+  "elon-musk|jd-vance": 0.01,
+  "elon-musk|josh-hawley": 0.01,
+  "elon-musk|karen-hao": 0.0,
+  "elon-musk|leopold-aschenbrenner": 0.553,
+  "elon-musk|marc-andreessen": 0.0,
+  "elon-musk|max-tegmark": 0.66,
+  "elon-musk|meredith-whittaker": 0.007,
+  "elon-musk|michael-kratsios": 0.01,
+  "elon-musk|noah-smith": 0.577,
+  "elon-musk|paul-kingsnorth": 0.113,
+  "elon-musk|pope-leo-xiv": 0.047,
+  "elon-musk|robin-hanson": 0.013,
+  "elon-musk|sam-altman": 0.723,
+  "elon-musk|scott-alexander": 0.93,
+  "elon-musk|stuart-russell": 0.343,
+  "elon-musk|ted-cruz": 0.0,
+  "elon-musk|timnit-gebru": 0.02,
+  "elon-musk|tristan-harris": 0.317,
+  "elon-musk|yann-lecun": 0.0,
+  "elon-musk|yoshua-bengio": 0.36,
+  "elon-musk|zvi-mowshowitz": 0.65,
+  "guillaume-verdon|holly-elmore": 0.0,
+  "guillaume-verdon|jaron-lanier": 0.0,
+  "guillaume-verdon|jd-vance": 0.67,
+  "guillaume-verdon|josh-hawley": 0.0,
+  "guillaume-verdon|karen-hao": 0.0,
+  "guillaume-verdon|leopold-aschenbrenner": 0.097,
+  "guillaume-verdon|marc-andreessen": 0.837,
+  "guillaume-verdon|max-tegmark": 0.003,
+  "guillaume-verdon|meredith-whittaker": 0.003,
+  "guillaume-verdon|michael-kratsios": 0.723,
+  "guillaume-verdon|noah-smith": 0.217,
+  "guillaume-verdon|paul-kingsnorth": 0.01,
+  "guillaume-verdon|pope-leo-xiv": 0.0,
+  "guillaume-verdon|robin-hanson": 0.977,
+  "guillaume-verdon|sam-altman": 0.013,
+  "guillaume-verdon|scott-alexander": 0.01,
+  "guillaume-verdon|stuart-russell": 0.0,
+  "guillaume-verdon|ted-cruz": 0.883,
+  "guillaume-verdon|timnit-gebru": 0.007,
+  "guillaume-verdon|tristan-harris": 0.0,
+  "guillaume-verdon|yann-lecun": 0.86,
+  "guillaume-verdon|yoshua-bengio": 0.0,
+  "guillaume-verdon|zvi-mowshowitz": 0.003,
+  "holly-elmore|jaron-lanier": 0.147,
+  "holly-elmore|jd-vance": 0.027,
+  "holly-elmore|josh-hawley": 0.213,
+  "holly-elmore|karen-hao": 0.19,
+  "holly-elmore|leopold-aschenbrenner": 0.36,
+  "holly-elmore|marc-andreessen": 0.0,
+  "holly-elmore|max-tegmark": 0.6,
+  "holly-elmore|meredith-whittaker": 0.263,
+  "holly-elmore|michael-kratsios": 0.027,
+  "holly-elmore|noah-smith": 0.133,
+  "holly-elmore|paul-kingsnorth": 0.317,
+  "holly-elmore|pope-leo-xiv": 0.39,
+  "holly-elmore|robin-hanson": 0.0,
+  "holly-elmore|sam-altman": 0.43,
+  "holly-elmore|scott-alexander": 0.337,
+  "holly-elmore|stuart-russell": 0.867,
+  "holly-elmore|ted-cruz": 0.0,
+  "holly-elmore|timnit-gebru": 0.25,
+  "holly-elmore|tristan-harris": 0.783,
+  "holly-elmore|yann-lecun": 0.0,
+  "holly-elmore|yoshua-bengio": 0.87,
+  "holly-elmore|zvi-mowshowitz": 0.577,
+  "jaron-lanier|jd-vance": 0.067,
+  "jaron-lanier|josh-hawley": 0.913,
+  "jaron-lanier|karen-hao": 0.93,
+  "jaron-lanier|leopold-aschenbrenner": 0.037,
+  "jaron-lanier|marc-andreessen": 0.007,
+  "jaron-lanier|max-tegmark": 0.03,
+  "jaron-lanier|meredith-whittaker": 0.833,
+  "jaron-lanier|michael-kratsios": 0.03,
+  "jaron-lanier|noah-smith": 0.02,
+  "jaron-lanier|paul-kingsnorth": 0.707,
+  "jaron-lanier|pope-leo-xiv": 0.703,
+  "jaron-lanier|robin-hanson": 0.0,
+  "jaron-lanier|sam-altman": 0.027,
+  "jaron-lanier|scott-alexander": 0.003,
+  "jaron-lanier|stuart-russell": 0.093,
+  "jaron-lanier|ted-cruz": 0.0,
+  "jaron-lanier|timnit-gebru": 0.807,
+  "jaron-lanier|tristan-harris": 0.193,
+  "jaron-lanier|yann-lecun": 0.003,
+  "jaron-lanier|yoshua-bengio": 0.07,
+  "jaron-lanier|zvi-mowshowitz": 0.05,
+  "jd-vance|josh-hawley": 0.073,
+  "jd-vance|karen-hao": 0.083,
+  "jd-vance|leopold-aschenbrenner": 0.177,
+  "jd-vance|marc-andreessen": 0.803,
+  "jd-vance|max-tegmark": 0.017,
+  "jd-vance|meredith-whittaker": 0.087,
+  "jd-vance|michael-kratsios": 0.933,
+  "jd-vance|noah-smith": 0.22,
+  "jd-vance|paul-kingsnorth": 0.04,
+  "jd-vance|pope-leo-xiv": 0.073,
+  "jd-vance|robin-hanson": 0.65,
+  "jd-vance|sam-altman": 0.06,
+  "jd-vance|scott-alexander": 0.01,
+  "jd-vance|stuart-russell": 0.02,
+  "jd-vance|ted-cruz": 0.777,
+  "jd-vance|timnit-gebru": 0.083,
+  "jd-vance|tristan-harris": 0.02,
+  "jd-vance|yann-lecun": 0.787,
+  "jd-vance|yoshua-bengio": 0.023,
+  "jd-vance|zvi-mowshowitz": 0.017,
+  "josh-hawley|karen-hao": 0.943,
+  "josh-hawley|leopold-aschenbrenner": 0.06,
+  "josh-hawley|marc-andreessen": 0.003,
+  "josh-hawley|max-tegmark": 0.05,
+  "josh-hawley|meredith-whittaker": 0.847,
+  "josh-hawley|michael-kratsios": 0.043,
+  "josh-hawley|noah-smith": 0.023,
+  "josh-hawley|paul-kingsnorth": 0.657,
+  "josh-hawley|pope-leo-xiv": 0.737,
+  "josh-hawley|robin-hanson": 0.0,
+  "josh-hawley|sam-altman": 0.05,
+  "josh-hawley|scott-alexander": 0.007,
+  "josh-hawley|stuart-russell": 0.133,
+  "josh-hawley|ted-cruz": 0.0,
+  "josh-hawley|timnit-gebru": 0.803,
+  "josh-hawley|tristan-harris": 0.233,
+  "josh-hawley|yann-lecun": 0.003,
+  "josh-hawley|yoshua-bengio": 0.123,
+  "josh-hawley|zvi-mowshowitz": 0.07,
+  "karen-hao|leopold-aschenbrenner": 0.06,
+  "karen-hao|marc-andreessen": 0.003,
+  "karen-hao|max-tegmark": 0.037,
+  "karen-hao|meredith-whittaker": 0.877,
+  "karen-hao|michael-kratsios": 0.047,
+  "karen-hao|noah-smith": 0.023,
+  "karen-hao|paul-kingsnorth": 0.657,
+  "karen-hao|pope-leo-xiv": 0.707,
+  "karen-hao|robin-hanson": 0.0,
+  "karen-hao|sam-altman": 0.04,
+  "karen-hao|scott-alexander": 0.0,
+  "karen-hao|stuart-russell": 0.1,
+  "karen-hao|ted-cruz": 0.0,
+  "karen-hao|timnit-gebru": 0.847,
+  "karen-hao|tristan-harris": 0.203,
+  "karen-hao|yann-lecun": 0.003,
+  "karen-hao|yoshua-bengio": 0.09,
+  "karen-hao|zvi-mowshowitz": 0.057,
+  "leopold-aschenbrenner|marc-andreessen": 0.1,
+  "leopold-aschenbrenner|max-tegmark": 0.537,
+  "leopold-aschenbrenner|meredith-whittaker": 0.063,
+  "leopold-aschenbrenner|michael-kratsios": 0.17,
+  "leopold-aschenbrenner|noah-smith": 0.53,
+  "leopold-aschenbrenner|paul-kingsnorth": 0.063,
+  "leopold-aschenbrenner|pope-leo-xiv": 0.093,
+  "leopold-aschenbrenner|robin-hanson": 0.093,
+  "leopold-aschenbrenner|sam-altman": 0.677,
+  "leopold-aschenbrenner|scott-alexander": 0.573,
+  "leopold-aschenbrenner|stuart-russell": 0.367,
+  "leopold-aschenbrenner|ted-cruz": 0.1,
+  "leopold-aschenbrenner|timnit-gebru": 0.05,
+  "leopold-aschenbrenner|tristan-harris": 0.317,
+  "leopold-aschenbrenner|yann-lecun": 0.103,
+  "leopold-aschenbrenner|yoshua-bengio": 0.403,
+  "leopold-aschenbrenner|zvi-mowshowitz": 0.55,
+  "marc-andreessen|max-tegmark": 0.0,
+  "marc-andreessen|meredith-whittaker": 0.007,
+  "marc-andreessen|michael-kratsios": 0.85,
+  "marc-andreessen|noah-smith": 0.22,
+  "marc-andreessen|paul-kingsnorth": 0.0,
+  "marc-andreessen|pope-leo-xiv": 0.003,
+  "marc-andreessen|robin-hanson": 0.82,
+  "marc-andreessen|sam-altman": 0.003,
+  "marc-andreessen|scott-alexander": 0.0,
+  "marc-andreessen|stuart-russell": 0.0,
+  "marc-andreessen|ted-cruz": 0.953,
+  "marc-andreessen|timnit-gebru": 0.01,
+  "marc-andreessen|tristan-harris": 0.0,
+  "marc-andreessen|yann-lecun": 0.97,
+  "marc-andreessen|yoshua-bengio": 0.0,
+  "marc-andreessen|zvi-mowshowitz": 0.0,
+  "max-tegmark|meredith-whittaker": 0.09,
+  "max-tegmark|michael-kratsios": 0.017,
+  "max-tegmark|noah-smith": 0.32,
+  "max-tegmark|paul-kingsnorth": 0.17,
+  "max-tegmark|pope-leo-xiv": 0.197,
+  "max-tegmark|robin-hanson": 0.003,
+  "max-tegmark|sam-altman": 0.59,
+  "max-tegmark|scott-alexander": 0.683,
+  "max-tegmark|stuart-russell": 0.673,
+  "max-tegmark|ted-cruz": 0.0,
+  "max-tegmark|timnit-gebru": 0.103,
+  "max-tegmark|tristan-harris": 0.613,
+  "max-tegmark|yann-lecun": 0.0,
+  "max-tegmark|yoshua-bengio": 0.687,
+  "max-tegmark|zvi-mowshowitz": 0.867,
+  "meredith-whittaker|michael-kratsios": 0.047,
+  "meredith-whittaker|noah-smith": 0.027,
+  "meredith-whittaker|paul-kingsnorth": 0.573,
+  "meredith-whittaker|pope-leo-xiv": 0.71,
+  "meredith-whittaker|robin-hanson": 0.003,
+  "meredith-whittaker|sam-altman": 0.043,
+  "meredith-whittaker|scott-alexander": 0.003,
+  "meredith-whittaker|stuart-russell": 0.183,
+  "meredith-whittaker|ted-cruz": 0.003,
+  "meredith-whittaker|timnit-gebru": 0.933,
+  "meredith-whittaker|tristan-harris": 0.28,
+  "meredith-whittaker|yann-lecun": 0.003,
+  "meredith-whittaker|yoshua-bengio": 0.163,
+  "meredith-whittaker|zvi-mowshowitz": 0.11,
+  "michael-kratsios|noah-smith": 0.217,
+  "michael-kratsios|paul-kingsnorth": 0.02,
+  "michael-kratsios|pope-leo-xiv": 0.047,
+  "michael-kratsios|robin-hanson": 0.703,
+  "michael-kratsios|sam-altman": 0.05,
+  "michael-kratsios|scott-alexander": 0.01,
+  "michael-kratsios|stuart-russell": 0.02,
+  "michael-kratsios|ted-cruz": 0.84,
+  "michael-kratsios|timnit-gebru": 0.043,
+  "michael-kratsios|tristan-harris": 0.013,
+  "michael-kratsios|yann-lecun": 0.847,
+  "michael-kratsios|yoshua-bengio": 0.023,
+  "michael-kratsios|zvi-mowshowitz": 0.01,
+  "noah-smith|paul-kingsnorth": 0.1,
+  "noah-smith|pope-leo-xiv": 0.04,
+  "noah-smith|robin-hanson": 0.23,
+  "noah-smith|sam-altman": 0.52,
+  "noah-smith|scott-alexander": 0.557,
+  "noah-smith|stuart-russell": 0.14,
+  "noah-smith|ted-cruz": 0.213,
+  "noah-smith|timnit-gebru": 0.04,
+  "noah-smith|tristan-harris": 0.133,
+  "noah-smith|yann-lecun": 0.22,
+  "noah-smith|yoshua-bengio": 0.147,
+  "noah-smith|zvi-mowshowitz": 0.303,
+  "paul-kingsnorth|pope-leo-xiv": 0.51,
+  "paul-kingsnorth|robin-hanson": 0.01,
+  "paul-kingsnorth|sam-altman": 0.13,
+  "paul-kingsnorth|scott-alexander": 0.103,
+  "paul-kingsnorth|stuart-russell": 0.29,
+  "paul-kingsnorth|ted-cruz": 0.003,
+  "paul-kingsnorth|timnit-gebru": 0.55,
+  "paul-kingsnorth|tristan-harris": 0.39,
+  "paul-kingsnorth|yann-lecun": 0.007,
+  "paul-kingsnorth|yoshua-bengio": 0.263,
+  "paul-kingsnorth|zvi-mowshowitz": 0.183,
+  "pope-leo-xiv|robin-hanson": 0.0,
+  "pope-leo-xiv|sam-altman": 0.107,
+  "pope-leo-xiv|scott-alexander": 0.047,
+  "pope-leo-xiv|stuart-russell": 0.363,
+  "pope-leo-xiv|ted-cruz": 0.0,
+  "pope-leo-xiv|timnit-gebru": 0.723,
+  "pope-leo-xiv|tristan-harris": 0.33,
+  "pope-leo-xiv|yann-lecun": 0.0,
+  "pope-leo-xiv|yoshua-bengio": 0.333,
+  "pope-leo-xiv|zvi-mowshowitz": 0.163,
+  "robin-hanson|sam-altman": 0.013,
+  "robin-hanson|scott-alexander": 0.013,
+  "robin-hanson|stuart-russell": 0.0,
+  "robin-hanson|ted-cruz": 0.86,
+  "robin-hanson|timnit-gebru": 0.007,
+  "robin-hanson|tristan-harris": 0.0,
+  "robin-hanson|yann-lecun": 0.843,
+  "robin-hanson|yoshua-bengio": 0.0,
+  "robin-hanson|zvi-mowshowitz": 0.003,
+  "sam-altman|scott-alexander": 0.72,
+  "sam-altman|stuart-russell": 0.443,
+  "sam-altman|ted-cruz": 0.003,
+  "sam-altman|timnit-gebru": 0.05,
+  "sam-altman|tristan-harris": 0.4,
+  "sam-altman|yann-lecun": 0.003,
+  "sam-altman|yoshua-bengio": 0.477,
+  "sam-altman|zvi-mowshowitz": 0.573,
+  "scott-alexander|stuart-russell": 0.36,
+  "scott-alexander|ted-cruz": 0.0,
+  "scott-alexander|timnit-gebru": 0.013,
+  "scott-alexander|tristan-harris": 0.34,
+  "scott-alexander|yann-lecun": 0.0,
+  "scott-alexander|yoshua-bengio": 0.377,
+  "scott-alexander|zvi-mowshowitz": 0.67,
+  "stuart-russell|ted-cruz": 0.0,
+  "stuart-russell|timnit-gebru": 0.21,
+  "stuart-russell|tristan-harris": 0.82,
+  "stuart-russell|yann-lecun": 0.0,
+  "stuart-russell|yoshua-bengio": 0.96,
+  "stuart-russell|zvi-mowshowitz": 0.627,
+  "ted-cruz|timnit-gebru": 0.007,
+  "ted-cruz|tristan-harris": 0.0,
+  "ted-cruz|yann-lecun": 0.963,
+  "ted-cruz|yoshua-bengio": 0.0,
+  "ted-cruz|zvi-mowshowitz": 0.0,
+  "timnit-gebru|tristan-harris": 0.277,
+  "timnit-gebru|yann-lecun": 0.007,
+  "timnit-gebru|yoshua-bengio": 0.177,
+  "timnit-gebru|zvi-mowshowitz": 0.1,
+  "tristan-harris|yann-lecun": 0.0,
+  "tristan-harris|yoshua-bengio": 0.813,
+  "tristan-harris|zvi-mowshowitz": 0.637,
+  "yann-lecun|yoshua-bengio": 0.0,
+  "yann-lecun|zvi-mowshowitz": 0.0,
+  "yoshua-bengio|zvi-mowshowitz": 0.643
+ },
+ "statements": {
+  "ai-new-kind-of-mind": {
+   "hold": 15,
+   "reject": 26,
+   "n": 41,
+   "minority": 0.366,
+   "eta": 0.62
+  },
+  "ai-extinction-risk": {
+   "hold": 36,
+   "reject": 18,
+   "n": 54,
+   "minority": 0.333,
+   "eta": 0.833
+  },
+  "direction-of-technology-is-chosen": {
+   "hold": 45,
+   "reject": 6,
+   "n": 51,
+   "minority": 0.118,
+   "eta": 0.521
+  },
+  "productivity-benefits-workers-unaided": {
+   "hold": 4,
+   "reject": 28,
+   "n": 32,
+   "minority": 0.125,
+   "eta": 0.622
+  },
+  "freedom-compatible-with-democracy": {
+   "hold": 12,
+   "reject": 1,
+   "n": 13,
+   "minority": 0.077,
+   "eta": 0.0
+  },
+  "ai-promises-inflated": {
+   "hold": 16,
+   "reject": 33,
+   "n": 49,
+   "minority": 0.327,
+   "eta": 0.812
+  },
+  "liberal-ideals-carry-their-own-force": {
+   "hold": 2,
+   "reject": 6,
+   "n": 8,
+   "minority": 0.25,
+   "eta": 1.0
+  },
+  "competition-limits-harm": {
+   "hold": 6,
+   "reject": 3,
+   "n": 9,
+   "minority": 0.333,
+   "eta": 1.0
+  },
+  "human-end-of-ai": {
+   "hold": 30,
+   "reject": 7,
+   "n": 37,
+   "minority": 0.189,
+   "eta": 0.525
+  },
+  "ai-fear-exceeds-evidence": {
+   "hold": 15,
+   "reject": 18,
+   "n": 33,
+   "minority": 0.455,
+   "eta": 0.848
+  },
+  "deployment-harms-over-superintelligence": {
+   "hold": 30,
+   "reject": 17,
+   "n": 47,
+   "minority": 0.362,
+   "eta": 0.87
+  },
+  "ai-moral-status": {
+   "hold": 9,
+   "reject": 5,
+   "n": 14,
+   "minority": 0.357,
+   "eta": 0.167
+  },
+  "past-technology-is-valid-reference-class": {
+   "hold": 22,
+   "reject": 10,
+   "n": 32,
+   "minority": 0.312,
+   "eta": 0.844
+  },
+  "modesty-is-a-sound-default": {
+   "hold": 2,
+   "reject": 3,
+   "n": 5,
+   "minority": 0.4,
+   "eta": 0.0
+  },
+  "popular-self-government-worth-keeping": {
+   "hold": 23,
+   "reject": 3,
+   "n": 26,
+   "minority": 0.115,
+   "eta": 0.0
+  },
+  "market-tech-serves-humans": {
+   "hold": 25,
+   "reject": 4,
+   "n": 29,
+   "minority": 0.138,
+   "eta": 0.688
+  },
+  "binding-rules-for-frontier-ai": {
+   "hold": 52,
+   "reject": 3,
+   "n": 55,
+   "minority": 0.055,
+   "eta": 0.719
+  },
+  "regulation-does-more-harm": {
+   "hold": 14,
+   "reject": 32,
+   "n": 46,
+   "minority": 0.304,
+   "eta": 1.0
+  },
+  "ai-separate-from-state": {
+   "hold": 6,
+   "reject": 16,
+   "n": 22,
+   "minority": 0.273,
+   "eta": 1.0
+  },
+  "plurality-over-singularity": {
+   "hold": 5,
+   "reject": 1,
+   "n": 6,
+   "minority": 0.167,
+   "eta": 1.0
+  },
+  "china-rivalry-justifies-tech-push": {
+   "hold": 16,
+   "reject": 14,
+   "n": 30,
+   "minority": 0.467,
+   "eta": 0.75
+  },
+  "direct-distribution-of-wealth-sound": {
+   "hold": 9,
+   "reject": 5,
+   "n": 14,
+   "minority": 0.357,
+   "eta": 1.0
+  },
+  "slow-or-stop-frontier-ai": {
+   "hold": 23,
+   "reject": 19,
+   "n": 42,
+   "minority": 0.452,
+   "eta": 0.854
+  },
+  "plan-control-early": {
+   "hold": 31,
+   "reject": 1,
+   "n": 32,
+   "minority": 0.031,
+   "eta": 1.0
+  },
+  "ai-cuts-more-jobs-than-it-creates": {
+   "hold": 9,
+   "reject": 10,
+   "n": 19,
+   "minority": 0.474,
+   "eta": 0.792
+  },
+  "ai-concentrates-power": {
+   "hold": 27,
+   "reject": 6,
+   "n": 33,
+   "minority": 0.182,
+   "eta": 1.0
+  },
+  "attention-tech-harms-minds": {
+   "hold": 10,
+   "reject": 1,
+   "n": 11,
+   "minority": 0.091,
+   "eta": 0.0
+  },
+  "ai-threatens-shared-truth": {
+   "hold": 18,
+   "reject": 4,
+   "n": 22,
+   "minority": 0.182,
+   "eta": 1.0
+  },
+  "ai-can-be-real-companion": {
+   "hold": 3,
+   "reject": 8,
+   "n": 11,
+   "minority": 0.273,
+   "eta": 1.0
+  },
+  "work-gives-dignity": {
+   "hold": 7,
+   "reject": 4,
+   "n": 11,
+   "minority": 0.364,
+   "eta": 0.556
+  },
+  "some-domains-free-of-ai": {
+   "hold": 8,
+   "reject": 0,
+   "n": 8,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "profit-cannot-make-ai-safe": {
+   "hold": 29,
+   "reject": 3,
+   "n": 32,
+   "minority": 0.094,
+   "eta": 1.0
+  },
+  "creators-owed-for-training": {
+   "hold": 8,
+   "reject": 6,
+   "n": 14,
+   "minority": 0.429,
+   "eta": 1.0
+  },
+  "inequality-fine-if-all-gain": {
+   "hold": 2,
+   "reject": 0,
+   "n": 2,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "workers-say-over-ai": {
+   "hold": 8,
+   "reject": 0,
+   "n": 8,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "antitrust-on-big-ai": {
+   "hold": 3,
+   "reject": 0,
+   "n": 3,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "protect-ai-whistleblowers": {
+   "hold": 8,
+   "reject": 0,
+   "n": 8,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "states-set-own-ai-rules": {
+   "hold": 5,
+   "reject": 6,
+   "n": 11,
+   "minority": 0.455,
+   "eta": 1.0
+  },
+  "restrict-ai-companions-for-children": {
+   "hold": 6,
+   "reject": 2,
+   "n": 8,
+   "minority": 0.25,
+   "eta": 0.0
+  },
+  "public-ai-infrastructure": {
+   "hold": 3,
+   "reject": 0,
+   "n": 3,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "income-not-tied-to-work": {
+   "hold": 8,
+   "reject": 4,
+   "n": 12,
+   "minority": 0.333,
+   "eta": 1.0
+  },
+  "no-autonomous-lethal-force": {
+   "hold": 4,
+   "reject": 3,
+   "n": 7,
+   "minority": 0.429,
+   "eta": 1.0
+  },
+  "no-ai-mass-surveillance": {
+   "hold": 4,
+   "reject": 1,
+   "n": 5,
+   "minority": 0.2,
+   "eta": 0.0
+  },
+  "ai-makers-liable-for-harms": {
+   "hold": 14,
+   "reject": 0,
+   "n": 14,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "tax-ai-job-replacement": {
+   "hold": 3,
+   "reject": 4,
+   "n": 7,
+   "minority": 0.429,
+   "eta": 0.0
+  },
+  "communities-can-block-data-centers": {
+   "hold": 3,
+   "reject": 0,
+   "n": 3,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "ai-bias-audits-required": {
+   "hold": 4,
+   "reject": 2,
+   "n": 6,
+   "minority": 0.333,
+   "eta": 0.0
+  },
+  "open-weights-frontier-models": {
+   "hold": 5,
+   "reject": 13,
+   "n": 18,
+   "minority": 0.278,
+   "eta": 0.556
+  },
+  "ai-politically-biased": {
+   "hold": 3,
+   "reject": 0,
+   "n": 3,
+   "minority": 0.0,
+   "eta": 0.0
+  },
+  "ai-leaders-honest-about-risks": {
+   "hold": 3,
+   "reject": 10,
+   "n": 13,
+   "minority": 0.231,
+   "eta": 1.0
+  },
+  "building-superhuman-ai-wrong": {
+   "hold": 2,
+   "reject": 18,
+   "n": 20,
+   "minority": 0.1,
+   "eta": 1.0
+  }
+ },
+ "checks": {
+  "voices_with_stances": 125,
+  "drew_schools": 36,
+  "placed": 88,
+  "attached": 27,
+  "between": 16,
+  "not_yet_grouped": 9,
+  "weights": {
+   "ai-bias-audits-required": 1.999,
+   "ai-can-be-real-companion": 0.981,
+   "ai-concentrates-power": 0.097,
+   "ai-cuts-more-jobs-than-it-creates": 0.158,
+   "ai-extinction-risk": 0.098,
+   "ai-fear-exceeds-evidence": 0.192,
+   "ai-leaders-honest-about-risks": 0.863,
+   "ai-makers-liable-for-harms": 1.999,
+   "ai-moral-status": 0.647,
+   "ai-new-kind-of-mind": 0.273,
+   "ai-politically-biased": 1.0,
+   "ai-promises-inflated": 0.156,
+   "ai-separate-from-state": 0.273,
+   "ai-threatens-shared-truth": 0.178,
+   "antitrust-on-big-ai": 1.999,
+   "attention-tech-harms-minds": 1.0,
+   "binding-rules-for-frontier-ai": 0.217,
+   "building-superhuman-ai-wrong": 0.854,
+   "china-rivalry-justifies-tech-push": 0.237,
+   "communities-can-block-data-centers": 1.999,
+   "competition-limits-harm": 0.343,
+   "creators-owed-for-training": 1.295,
+   "deployment-harms-over-superintelligence": 0.264,
+   "direct-distribution-of-wealth-sound": 0.478,
+   "direction-of-technology-is-chosen": 0.284,
+   "freedom-compatible-with-democracy": 0.697,
+   "human-end-of-ai": 0.305,
+   "income-not-tied-to-work": 0.677,
+   "inequality-fine-if-all-gain": 1.999,
+   "liberal-ideals-carry-their-own-force": 0.858,
+   "market-tech-serves-humans": 0.346,
+   "modesty-is-a-sound-default": 1.999,
+   "no-ai-mass-surveillance": 1.999,
+   "no-autonomous-lethal-force": 1.454,
+   "open-weights-frontier-models": 0.537,
+   "past-technology-is-valid-reference-class": 0.264,
+   "plan-control-early": 0.476,
+   "plurality-over-singularity": 1.454,
+   "popular-self-government-worth-keeping": 0.655,
+   "productivity-benefits-workers-unaided": 0.139,
+   "profit-cannot-make-ai-safe": 0.261,
+   "protect-ai-whistleblowers": 1.999,
+   "public-ai-infrastructure": 1.999,
+   "regulation-does-more-harm": 0.185,
+   "restrict-ai-companions-for-children": 1.999,
+   "slow-or-stop-frontier-ai": 0.211,
+   "some-domains-free-of-ai": 1.999,
+   "states-set-own-ai-rules": 1.169,
+   "tax-ai-job-replacement": 1.999,
+   "work-gives-dignity": 0.714,
+   "workers-say-over-ai": 1.999
+  },
+  "schools": 4,
+  "silhouette": 0.276,
+  "stability": 0.619,
+  "by_count": {
+   "4": {
+    "silhouette": 0.276,
+    "stability": 0.619,
+    "singletons": 0
+   },
+   "5": {
+    "silhouette": 0.217,
+    "stability": 0.539,
+    "singletons": 0
+   },
+   "6": {
+    "silhouette": 0.22,
+    "stability": 0.522,
+    "singletons": 0
+   },
+   "7": {
+    "silhouette": 0.208,
+    "stability": 0.469,
+    "singletons": 0
+   },
+   "8": {
+    "silhouette": 0.199,
+    "stability": 0.462,
+    "singletons": 1
+   },
+   "9": {
+    "silhouette": 0.185,
+    "stability": 0.455,
+    "singletons": 2
+   },
+   "10": {
+    "silhouette": 0.178,
+    "stability": 0.432,
+    "singletons": 2
+   },
+   "11": {
+    "silhouette": 0.147,
+    "stability": 0.426,
+    "singletons": 2
+   },
+   "12": {
+    "silhouette": 0.152,
+    "stability": 0.399,
+    "singletons": 2
+   }
+  },
+  "dimensions_pool": {
+   "participation_ratio": 24.52,
+   "axes_beyond_chance": 4,
+   "top_eigenvalues": [
+    6.99,
+    3.62,
+    2.5,
+    2.03,
+    1.84,
+    1.67,
+    1.49,
+    1.43
+   ]
+  },
+  "dimensions_instrument": {
+   "participation_ratio": 11.29,
+   "axes_beyond_chance": 2,
+   "top_eigenvalues": [
+    5.92,
+    3.24,
+    2.09,
+    1.78,
+    1.51,
+    1.47,
+    1.27,
+    1.22
+   ]
+  },
+  "dimensions_season1": {
+   "participation_ratio": 10.19,
+   "axes_beyond_chance": 3,
+   "top_eigenvalues": [
+    5.46,
+    3.24,
+    2.28,
+    1.65,
+    1.39,
+    1.23,
+    1.15,
+    1.09
+   ]
+  },
+  "recovery_pool": {
+   "voices": 58,
+   "top1": 0.862,
+   "top3": 0.948
+  },
+  "recovery_season1": {
+   "voices": 53,
+   "top1": 0.83,
+   "top3": 0.943
+  },
+  "recovery_by_size": {
+   "24": {
+    "voices": 44,
+    "top1": 0.795,
+    "top3": 0.955,
+    "statements": 24
+   },
+   "27": {
+    "voices": 50,
+    "top1": 0.86,
+    "top3": 0.94,
+    "statements": 27
+   },
+   "30": {
+    "voices": 56,
+    "top1": 0.893,
+    "top3": 0.946,
+    "statements": 29
+   },
+   "33": {
+    "voices": 56,
+    "top1": 0.893,
+    "top3": 0.946,
+    "statements": 30
+   },
+   "36": {
+    "voices": 56,
+    "top1": 0.893,
+    "top3": 0.946,
+    "statements": 30
+   }
+  },
+  "near_duplicates": []
+ },
+ "log": [
+  "left out (too few sides or one-sided): freedom-compatible-with-democracy {'hold': 12, 'reject': 1, 'n': 13, 'minority': 0.077}",
+  "left out (too few sides or one-sided): liberal-ideals-carry-their-own-force {'hold': 2, 'reject': 6, 'n': 8, 'minority': 0.25}",
+  "left out (too few sides or one-sided): modesty-is-a-sound-default {'hold': 2, 'reject': 3, 'n': 5, 'minority': 0.4}",
+  "left out (too few sides or one-sided): binding-rules-for-frontier-ai {'hold': 52, 'reject': 3, 'n': 55, 'minority': 0.055}",
+  "left out (too few sides or one-sided): plurality-over-singularity {'hold': 5, 'reject': 1, 'n': 6, 'minority': 0.167}",
+  "left out (too few sides or one-sided): plan-control-early {'hold': 31, 'reject': 1, 'n': 32, 'minority': 0.031}",
+  "left out (too few sides or one-sided): attention-tech-harms-minds {'hold': 10, 'reject': 1, 'n': 11, 'minority': 0.091}",
+  "left out (too few sides or one-sided): some-domains-free-of-ai {'hold': 8, 'reject': 0, 'n': 8, 'minority': 0.0}",
+  "left out (too few sides or one-sided): profit-cannot-make-ai-safe {'hold': 29, 'reject': 3, 'n': 32, 'minority': 0.094}",
+  "left out (too few sides or one-sided): inequality-fine-if-all-gain {'hold': 2, 'reject': 0, 'n': 2, 'minority': 0.0}",
+  "left out (too few sides or one-sided): workers-say-over-ai {'hold': 8, 'reject': 0, 'n': 8, 'minority': 0.0}",
+  "left out (too few sides or one-sided): antitrust-on-big-ai {'hold': 3, 'reject': 0, 'n': 3, 'minority': 0.0}",
+  "left out (too few sides or one-sided): protect-ai-whistleblowers {'hold': 8, 'reject': 0, 'n': 8, 'minority': 0.0}",
+  "left out (too few sides or one-sided): restrict-ai-companions-for-children {'hold': 6, 'reject': 2, 'n': 8, 'minority': 0.25}",
+  "left out (too few sides or one-sided): public-ai-infrastructure {'hold': 3, 'reject': 0, 'n': 3, 'minority': 0.0}",
+  "left out (too few sides or one-sided): no-ai-mass-surveillance {'hold': 4, 'reject': 1, 'n': 5, 'minority': 0.2}",
+  "left out (too few sides or one-sided): ai-makers-liable-for-harms {'hold': 14, 'reject': 0, 'n': 14, 'minority': 0.0}",
+  "left out (too few sides or one-sided): communities-can-block-data-centers {'hold': 3, 'reject': 0, 'n': 3, 'minority': 0.0}",
+  "left out (too few sides or one-sided): ai-bias-audits-required {'hold': 4, 'reject': 2, 'n': 6, 'minority': 0.333}",
+  "left out (too few sides or one-sided): ai-politically-biased {'hold': 3, 'reject': 0, 'n': 3, 'minority': 0.0}",
+  "left out (too few sides or one-sided): building-superhuman-ai-wrong {'hold': 2, 'reject': 18, 'n': 20, 'minority': 0.1}"
+ ]
+}

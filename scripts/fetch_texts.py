@@ -1,7 +1,7 @@
 """Fetch and clean the texts for a source list into data/texts/<key>.txt (never committed).
 
 Usage: uv run --with trafilatura --with pypdf python scripts/fetch_texts.py <sources.json>
-       [--only-missing]
+       [--only-missing] [--only key,key,...] [--max-words N] [--min-words N]
 Extraction is deterministic (trafilatura), so quotes can be checked against the text exactly.
 Pages over MAX_WORDS keep their most AI-relevant paragraphs, in their original order.
 Polite: one request every two seconds, an honest user agent, and failures are logged, not retried.
@@ -28,10 +28,10 @@ TOPIC = re.compile(
 )
 
 
-def trim(text: str) -> str:
+def trim(text: str, limit: int = MAX_WORDS) -> str:
     paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
     words = sum(len(p.split()) for p in paragraphs)
-    if words <= MAX_WORDS:
+    if words <= limit:
         return "\n\n".join(paragraphs)
     scored = sorted(
         range(len(paragraphs)),
@@ -40,7 +40,7 @@ def trim(text: str) -> str:
     keep, total = set(), 0
     for i in scored:
         n = len(paragraphs[i].split())
-        if total + n > MAX_WORDS:
+        if total + n > limit:
             continue
         keep.add(i)
         total += n
@@ -84,15 +84,20 @@ def fetch(url: str) -> str | None:
 def main(sources: str, *flags: str) -> None:
     TEXTS.mkdir(parents=True, exist_ok=True)
     log = json.loads(LOG.read_text()) if LOG.exists() else {}
+    limit = int(flags[flags.index("--max-words") + 1]) if "--max-words" in flags else MAX_WORDS
+    floor = int(flags[flags.index("--min-words") + 1]) if "--min-words" in flags else 300
+    only = set(flags[flags.index("--only") + 1].split(",")) if "--only" in flags else None
     for work in json.loads(pathlib.Path(sources).read_text())["works"]:
         path = TEXTS / f"{work['key']}.txt"
         if path.exists() and "--only-missing" in flags:
             continue
+        if (only is not None and work["key"] not in only) or work.get("duplicate_of"):
+            continue
         try:
             text = fetch(work["url"])
-            if not text or len(text.split()) < 300:
+            if not text or len(text.split()) < floor:
                 raise ValueError(f"too little text ({len((text or '').split())} words)")
-            path.write_text(trim(text) + "\n")
+            path.write_text(trim(text, limit) + "\n")
             log[work["key"]] = {
                 "ok": True,
                 "words": len(path.read_text().split()),

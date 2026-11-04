@@ -1,7 +1,8 @@
 """Build the fingerprint bundle and the atlas page for the arena app.
 
-Usage: build_fingerprint.py [atlas.json] [out_dir] [--season] [--version fp-...]
-  --season takes the statements and their reviewed wording from seed/season-1.json.
+Usage: build_fingerprint.py [atlas.json] [out_dir] [--season [file]] [--version fp-...]
+  --season takes the statements and their reviewed wording from a season file
+  (default seed/season-1.json).
 """
 
 import json
@@ -22,25 +23,34 @@ def flagged_ids() -> set[str]:
 def main(*args: str) -> None:
     season_mode = "--season" in args
     version = args[args.index("--version") + 1] if "--version" in args else None
-    paths = [a for a in args if not a.startswith("--") and a != version]
+    after = (
+        args[args.index("--season") + 1]
+        if season_mode and args.index("--season") + 1 < len(args)
+        else ""
+    )
+    season_file = after if after.endswith(".json") and "season" in after else "seed/season-1.json"
+    paths = [a for a in args if not a.startswith("--") and a not in (version, season_file)]
     atlas_path = paths[0] if paths else "apps/arena/source/atlas-v1.json"
     out = paths[1] if len(paths) > 1 else "apps/arena/public"
     current = REPO / out / "fingerprint.json"
     previous = json.loads(current.read_text()) if current.exists() else None
     # the reviewed season file decides the statements and their wording
-    season = (
-        json.loads((REPO / "seed/season-1.json").read_text())["statements"] if season_mode else None
-    )
+    season_doc = json.loads((REPO / season_file).read_text()) if season_mode else None
+    season = season_doc["statements"] if season_doc else None
     version = version or (previous["version"] if previous else None)
     atlas = json.loads((REPO / atlas_path).read_text())
     extra = {"version": version} if version else {}
     atlas_version = pathlib.Path(atlas_path).stem
-    expansion = REPO / "seed/AI-FUTURES-SOURCES-v2.json"
-    newcomers = (
-        {p["id"]: p["name"] for p in json.loads(expansion.read_text())["people"]}
-        if expansion.exists()
-        else {}
-    )
+    newcomers = {
+        p["id"]: p["name"]
+        for name in (
+            "AI-FUTURES-SOURCES-v2.json",
+            "AI-FUTURES-SOURCES-v4.json",
+            "AI-FUTURES-SOURCES-v5.json",
+        )  # fmt: skip
+        if (REPO / "seed" / name).exists()
+        for p in json.loads((REPO / "seed" / name).read_text()).get("people", [])
+    }
     voices_path = REPO / "seed/thinker-voices.json"
     voices = json.loads(voices_path.read_text()) if voices_path.exists() else {}
     bundle = build_bundle(
@@ -50,6 +60,7 @@ def main(*args: str) -> None:
         atlas_version=atlas_version,
         newcomers=newcomers,
         voices=voices,
+        **({"season_id": season_doc["season"]} if season_doc else {}),
         **extra,
     )
     target = REPO / out

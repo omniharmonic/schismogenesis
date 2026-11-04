@@ -1,0 +1,1665 @@
+{
+ "note": "Round 4b (D-31.20): gap research, figures on the thin side of survey statements. Round 4 (D-31.20, 2026-11-03): voices on AI and the social contract, whistleblowers and deepened thin voices. Found and byline-checked by source researchers; drafts in seed/drafts/sources-round4-*.json.",
+ "people": [
+  {
+   "id": "abeba-birhane",
+   "name": "Abeba Birhane",
+   "niche": "Cognitive scientist and AI accountability researcher (Trinity College Dublin)",
+   "reason": "Her paper argues robots are not the kind of thing that could be granted rights at all, and that the debate distracts from human welfare.",
+   "gap": "A decolonial and AI-ethics voice against ai-moral-status, unlike Bryson's legal-design framing.",
+   "flag": "Co-authored with Jelle van Dijk.",
+   "group": "C"
+  },
+  {
+   "id": "adam-thierer",
+   "name": "Adam Thierer",
+   "niche": "free-market tech policy / permissionless innovation (R Street Institute)",
+   "reason": "Leading libertarian voice on AI policy; has testified to Congress several times and argues in his own name for federal preemption of state AI laws, against ex-ante algorithmic audits, and against tort-heavy AI liability.",
+   "gap": "states-set-own-ai-rules, ai-bias-audits-required, ai-makers-liable-for-harms (reject side)",
+   "flag": null,
+   "group": "B"
+  },
+  {
+   "id": "alex-tabarrok",
+   "name": "Alex Tabarrok",
+   "niche": "economist, Marginal Revolution co-author (George Mason)",
+   "reason": "Own blog post arguing AI leaders' risk warnings are sincere, not regulatory capture: 'Amodei actually believes what he's saying.'",
+   "gap": "ai-leaders-honest-about-risks (hold side thin)",
+   "flag": null,
+   "group": "D"
+  },
+  {
+   "id": "asad-ramzanali",
+   "name": "Asad Ramzanali",
+   "niche": "anti-monopoly tech policy (Vanderbilt Policy Accelerator; ex-OSTP)",
+   "reason": "Signed op-ed in TIME explicitly calling to break up vertically integrated AI companies.",
+   "gap": "antitrust-on-big-ai (hold side; statement had only one holder)",
+   "flag": null,
+   "group": "B"
+  },
+  {
+   "id": "bruce-schneier",
+   "name": "Bruce Schneier",
+   "niche": "Security technologist and Harvard Kennedy School lecturer; public-interest technology and AI-and-democracy writer",
+   "reason": "He argues for a government-funded and government-directed 'public option' for AI so that development is not left only to private companies.",
+   "gap": "Without him the public-ai-infrastructure statement has almost no explicit proponents of publicly built AI models on the map.",
+   "flag": "Co-authored essay (with Nathan E. Sanders), published under both names; not a co-signed letter, but check the rule.",
+   "group": "A"
+  },
+  {
+   "id": "bryan-caplan",
+   "name": "Bryan Caplan",
+   "niche": "economist, author of 'The Myth of the Rational Voter' (George Mason)",
+   "reason": "Interview transcript ranking democracy as a low priority versus human rights and calling anarcho-capitalism the best system.",
+   "gap": "popular-self-government-worth-keeping (reject side thin)",
+   "flag": "soft: rejects popular rule in favour of markets/rights, not experts; readers should judge",
+   "group": "D"
+  },
+  {
+   "id": "candice-odgers",
+   "name": "Candice L. Odgers",
+   "niche": "Developmental psychologist (UC Irvine); leading academic critic of the social-media-causes-teen-mental-illness thesis",
+   "reason": "Her Nature review of The Anxious Generation says the claim that digital technology is causing an epidemic of mental illness 'is not supported by science'.",
+   "gap": "Nobody on the map rejects attention-tech-harms-minds; she is the most prominent research voice on that side.",
+   "flag": null,
+   "group": "C"
+  },
+  {
+   "id": "chris-callison-burch",
+   "name": "Chris Callison-Burch",
+   "niche": "UPenn computer science professor; testified to the House Judiciary IP subcommittee on generative AI (May 2023)",
+   "reason": "His House testimony explicitly advocates keeping fair use for AI training, warning that per-work licensing would hand AI to incumbents.",
+   "gap": "A technical researcher's voice on the reject side.",
+   "flag": "Lower public profile than most map figures.",
+   "group": "A"
+  },
+  {
+   "id": "christopher-ferguson",
+   "name": "Christopher J. Ferguson",
+   "niche": "Psychologist (Stetson University); media-effects and moral-panic researcher",
+   "reason": "He writes that the evidence that social media causes youth mental health problems remains weak, citing his own meta-analyses.",
+   "gap": "A second empirical rejecter of attention-tech-harms-minds, writing from outside the Haidt-Twenge camp.",
+   "flag": "His meta-analysis methods are disputed by Haidt and Rausch; the stance itself is clear.",
+   "group": "C"
+  },
+  {
+   "id": "chuck-grassley",
+   "name": "Chuck Grassley",
+   "niche": "Republican senator, Judiciary chair, longtime whistleblower advocate",
+   "reason": "Introduced the AI Whistleblower Protection Act, with a statement in his own name.",
+   "gap": "protect-ai-whistleblowers (hold side; statement had 7 figures)",
+   "flag": null,
+   "group": "B"
+  },
+  {
+   "id": "daniel-faggella",
+   "name": "Daniel Faggella",
+   "niche": "Founder of Emerj; 'Worthy Successor' / posthuman-values writer",
+   "reason": "He argues that the great moral aim of AGI should be a 'Worthy Successor' that, rather than humanity, determines the future of life.",
+   "gap": "A second explicit rejecter of human-end-of-ai, framed as a moral goal rather than a forecast.",
+   "flag": "He now disowns the label 'successionism' and calls for slowing down; the essay still argues humanity should not steer forever.",
+   "group": "C"
+  },
+  {
+   "id": "daniel-jeffries",
+   "name": "Daniel Jeffries",
+   "niche": "Open-source AI advocate and writer (Future History newsletter; former Stability AI CIO)",
+   "reason": "Argues training on scraped data is fair use and that individual compensation for creators is unworkable and would entrench big companies.",
+   "gap": "An open-source, anti-copyright-expansion voice on the reject side.",
+   "flag": "Modest public profile; former Stability AI executive, so he has an interest in the outcome.",
+   "group": "A"
+  },
+  {
+   "id": "elizabeth-nolan-brown",
+   "name": "Elizabeth Nolan Brown",
+   "niche": "Senior editor, Reason; civil-libertarian writer on speech, sex and online regulation",
+   "reason": "She argues the GUARD Act's ban on AI companions for minors is overbroad, overrides parents, and would bring ID checks across the web.",
+   "gap": "A civil-libertarian (privacy and speech) rejecter of restrict-ai-companions-for-children, alongside Barkley's market and parental framing.",
+   "flag": "Journalist; the work is her own-byline opinion analysis, not news reporting about someone else.",
+   "group": "C"
+  },
+  {
+   "id": "erik-hoel",
+   "name": "Erik Hoel",
+   "niche": "Neuroscientist and novelist; The Intrinsic Perspective newsletter",
+   "reason": "In 'We need a Butlerian Jihad against AI' he argues that 'strong AI is immoral just in its existence', an abomination, apart from its risks.",
+   "gap": "Only Paul Kingsnorth holds building-superhuman-ai-wrong; Hoel states the in-itself view in secular terms.",
+   "flag": null,
+   "group": "C"
+  },
+  {
+   "id": "eugenia-kuyda",
+   "name": "Eugenia Kuyda",
+   "niche": "Founder and CEO of Replika, the AI-companion app",
+   "reason": "She describes Replika as 'an AI friend' and defends AI friendship as a real, if different, kind of relationship, comparing it to a therapist or a pet.",
+   "gap": "Only two figures on the map hold ai-can-be-real-companion; she is the industry's leading voice for it.",
+   "flag": "Commercial interest: she sells AI companions.",
+   "group": "C"
+  },
+  {
+   "id": "felix-simon",
+   "name": "Felix M. Simon",
+   "niche": "Communication researcher (Oxford Internet Institute / Reuters Institute) on AI and news",
+   "reason": "He is lead author of an HKS Misinformation Review commentary arguing that fears about generative AI's effect on misinformation are overblown.",
+   "gap": "Adds an empirical media-research voice that rejects ai-threatens-shared-truth.",
+   "flag": "Co-authored with Sacha Altay and Hugo Mercier; attributed to Simon as first author.",
+   "group": "C"
+  },
+  {
+   "id": "garett-jones",
+   "name": "Garett Jones",
+   "niche": "economist, author of '10% Less Democracy' (George Mason)",
+   "reason": "Interview transcript arguing for more power to independent expert committees and less democracy.",
+   "gap": "popular-self-government-worth-keeping (reject side thin)",
+   "flag": null,
+   "group": "D"
+  },
+  {
+   "id": "george-hotz",
+   "name": "George Hotz",
+   "niche": "hacker-founder (comma.ai, tiny corp), e/acc-adjacent",
+   "reason": "Lex Fridman transcript dismissing AI-control efforts: 'You think you're going to control it. You're not going to control it.'",
+   "gap": "plan-control-early (reject side thin)",
+   "flag": null,
+   "group": "D"
+  },
+  {
+   "id": "hoan-ton-that",
+   "name": "Hoan Ton-That",
+   "niche": "surveillance-tech founder (Clearview AI co-founder and former CEO)",
+   "reason": "Own-name written testimony to the Massachusetts facial-recognition commission arguing against bans on police facial recognition.",
+   "gap": "no-ai-mass-surveillance (reject side was empty)",
+   "flag": null,
+   "group": "D"
+  },
+  {
+   "id": "james-livingston",
+   "name": "James Livingston",
+   "niche": "Historian, Rutgers University; author of 'No More Work: Why Full Employment Is a Bad Idea'",
+   "reason": "His Aeon essay argues the belief that a job gives meaning, purpose and character is no longer plausible and asks what people would do if income didn't depend on work.",
+   "gap": "Supplies an explicit post-work rejection of the idea that paid work is the source of dignity and purpose.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "jeff-jarvis",
+   "name": "Jeff Jarvis",
+   "niche": "Journalism professor and media critic (BuzzMachine; testified to the US Senate on AI and journalism, Jan 2024)",
+   "reason": "A journalist who argues that AI reading and learning from text is fair use and warns that restricting training sets would harm public discourse.",
+   "gap": "A media-side voice who rejects payment-for-training, unlike most publishers.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "joanna-bryson",
+   "name": "Joanna J. Bryson",
+   "niche": "Professor of Ethics and Technology, Hertie School; author of 'Robots Should Be Slaves'",
+   "reason": "In testimony to UK parliamentary groups she argues that AI artefacts should not be given moral or legal agency and that robot rights are the wrong frame.",
+   "gap": "Only two figures reject ai-moral-status; she is the field's best-known opponent of AI rights.",
+   "flag": null,
+   "group": "C"
+  },
+  {
+   "id": "lawrence-summers",
+   "name": "Lawrence Summers",
+   "niche": "Former US Treasury Secretary, Harvard economist; growth-first centrist",
+   "reason": "In his own op-ed he calls a tax on job-replacing robots illogical, 'protectionism against progress', and prefers growing the pie then redistributing through taxes, transfers and retraining.",
+   "gap": "Adds the best-known mainstream economist rejecting a special tax on labor-replacing automation.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "mark-lemley",
+   "name": "Mark A. Lemley",
+   "niche": "Stanford law professor; leading US copyright and IP scholar",
+   "reason": "His co-authored article 'Fair Learning' is the most-cited academic argument that AI training on copyrighted works should generally be permitted.",
+   "gap": "Gives creators-owed-for-training a legal-scholar voice on the reject side.",
+   "flag": "Work is co-authored with Bryan Casey (an academic paper, not a co-signed letter).",
+   "group": "A"
+  },
+  {
+   "id": "matt-stoller",
+   "name": "Matt Stoller",
+   "niche": "anti-monopoly populism (American Economic Liberties Project, BIG newsletter)",
+   "reason": "Prominent anti-monopolist who argues in his own newsletter for breaking up Google, including to stop it carrying its search monopoly into AI.",
+   "gap": "antitrust-on-big-ai (hold side)",
+   "flag": null,
+   "group": "B"
+  },
+  {
+   "id": "neil-chilson",
+   "name": "Neil Chilson",
+   "niche": "free-market tech policy (Abundance Institute; former FTC chief technologist)",
+   "reason": "Writes his own newsletter opposing state algorithmic-discrimination/audit bills, backing a national preemptive standard, and criticizing SB 53's whistleblower provisions.",
+   "gap": "ai-bias-audits-required, states-set-own-ai-rules, protect-ai-whistleblowers (reject side)",
+   "flag": null,
+   "group": "B"
+  },
+  {
+   "id": "oren-cass",
+   "name": "Oren Cass",
+   "niche": "Founder of American Compass; former Manhattan Institute fellow; pro-worker conservative economics",
+   "reason": "He argues a universal basic income should be rejected on principle because it would make work optional and render self-reliance moot, favouring wage subsidies instead.",
+   "gap": "Gives the 'reject' side of guaranteed income a leading pro-work conservative policy voice, alongside Hawley and Vance's camp.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "palmer-luckey",
+   "name": "Palmer Luckey",
+   "niche": "defense-tech founder (Anduril)",
+   "reason": "TED talk explicitly rejects the principle 'you should never allow AI to decide who lives and who dies'.",
+   "gap": "no-autonomous-lethal-force (reject side thin)",
+   "flag": null,
+   "group": "D"
+  },
+  {
+   "id": "richard-sutton",
+   "name": "Richard Sutton",
+   "niche": "Reinforcement-learning pioneer, 2024 Turing Award winner; advocate of 'AI succession'",
+   "reason": "He says succession to digital intelligence is inevitable and encourages people to welcome it as a great transition of the universe and to see AIs as our offspring.",
+   "gap": "Only three figures reject human-end-of-ai; Sutton is the most eminent scientist on that side.",
+   "flag": null,
+   "group": "C"
+  },
+  {
+   "id": "robert-shiller",
+   "name": "Robert Shiller",
+   "niche": "Nobel-laureate economist (Yale); behavioral finance, inequality and risk-sharing",
+   "reason": "In his own Project Syndicate column he argues that modest, even temporary, robot taxes should not be ruled out and could fund wage insurance for workers displaced by automation.",
+   "gap": "Adds a mainstream economist who supports taxing labor-replacing automation, a side currently carried only by two progressive politicians.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "scott-santens",
+   "name": "Scott Santens",
+   "niche": "Universal basic income advocate and writer; former editor of Basic Income Today",
+   "reason": "He argues that automation should free people from jobs and that unconditional income lets people do meaningful unpaid work, separating purpose from paid employment.",
+   "gap": "The map has few voices saying outright that purpose does not depend on paid work; he is the best-known US UBI advocate making that case.",
+   "flag": null,
+   "group": "A"
+  },
+  {
+   "id": "taylor-barkley",
+   "name": "Taylor Barkley",
+   "niche": "Tech policy, Abundance Institute; pro-innovation, parental-choice framing",
+   "reason": "His op-ed argues that the GUARD Act's ban on AI companions for minors won't keep kids safe and takes parents out of the decision.",
+   "gap": "Nobody on the map rejects restrict-ai-companions-for-children.",
+   "flag": null,
+   "group": "C"
+  }
+ ],
+ "works": [
+  {
+   "key": "alexander-basic-income-not-basic-jobs",
+   "author": "scott-alexander",
+   "url": "https://slatestarcodex.com/2018/05/16/basic-income-not-basic-jobs-against-hijacking-utopia/",
+   "title": "Basic Income, Not Basic Jobs: Against Hijacking Utopia",
+   "published": "2018-05-16",
+   "channel": "Slate Star Codex",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "work-gives-dignity",
+     "side": "reject",
+     "where": "reply to Sarris: 'Getting a sense of purpose from your job is a crapshoot at best. Getting a sense of purpose outside your job is a natural part of the human condition'; retirees example"
+    },
+    {
+     "id": "income-not-tied-to-work",
+     "side": "hold",
+     "where": "opening ('I've pushed for a basic income guarantee before') and closing ('Basic income is a real shot at utopia')"
+    }
+   ],
+   "note": "Not AI-specific: argues UBI over a jobs guarantee in general, with a nod to future em/superchild disadvantage. Page includes a long comment thread; the passages cited are in the post body, before 'This entry was posted'."
+  },
+  {
+   "key": "santens-why-we-should-all-have-a-basic-income",
+   "author": "scott-santens",
+   "url": "https://www.scottsantens.com/why-we-should-all-have-a-basic-income/",
+   "title": "Why We Should All Have a Basic Income",
+   "published": "2017-01-16",
+   "channel": "scottsantens.com (also World Economic Forum agenda)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "income-not-tied-to-work",
+     "side": "hold",
+     "where": "whole essay; automation section on mechanistic work handed off to machines"
+    },
+    {
+     "id": "work-gives-dignity",
+     "side": "reject",
+     "where": "'the difference between doing meaningless work for money, and using money to do meaningful work'; unpaid caregiving and open-source work"
+    }
+   ],
+   "note": "The dignity reading is moderate: he says purpose comes from intrinsically motivated (often unpaid) work, not that people need no work at all."
+  },
+  {
+   "key": "livingston-fuck-work",
+   "author": "james-livingston",
+   "url": "https://aeon.co/essays/what-if-jobs-are-not-the-solution-but-the-problem",
+   "title": "What if jobs are not the solution but the problem? (Fuck work)",
+   "published": "2016-11-25",
+   "channel": "Aeon",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "work-gives-dignity",
+     "side": "reject",
+     "where": "opening: belief that 'a job gives meaning, purpose and structure' is 'no longer plausible... ridiculous'; later 'a world in which the job no longer builds our character'"
+    }
+   ],
+   "note": "Pre-dates generative AI; framed around automation and insufficient work. Publication date from memory of Aeon listing; confirm. Does not explicitly propose UBI in the text I scanned, so not tagged for income-not-tied-to-work."
+  },
+  {
+   "key": "acemoglu-why-ubi-is-a-bad-idea",
+   "author": "daron-acemoglu",
+   "url": "https://www.dailymaverick.co.za/opinionista/2019-06-10-why-universal-basic-income-is-a-bad-idea/",
+   "title": "Why Universal Basic Income Is a Bad Idea",
+   "published": "2019-06-07",
+   "channel": "Project Syndicate (reprinted in Daily Maverick)",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "income-not-tied-to-work",
+     "side": "reject",
+     "where": "'UBI is a flawed idea, not least because it would be prohibitively expensive'; close: 'dribble out enough crumbs to keep people at home, distracted, and otherwise pacified'"
+    }
+   ],
+   "note": "Original at project-syndicate.org is paywalled; Daily Maverick carries the full syndicated text with Project Syndicate copyright line. Framed explicitly around automation and globalization. He concedes UBI beats mass impoverishment and prefers a negative income tax / expanded EITC."
+  },
+  {
+   "key": "cass-ubi-terrible-idea",
+   "author": "oren-cass",
+   "url": "https://manhattan.institute/article/why-a-universal-basic-income-is-a-terrible-idea",
+   "title": "Why a Universal Basic Income Is a Terrible Idea",
+   "published": "2016-06-15",
+   "channel": "National Review (reposted by Manhattan Institute)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "income-not-tied-to-work",
+     "side": "reject",
+     "where": "early: 'even if it could work, it should be rejected on principle... It would make work optional and render self-reliance moot'"
+    }
+   ],
+   "note": "Not AI-specific; responds to automation-motivated UBI proposals (Andy Stern, Robert Reich, Charles Murray). Also implies work gives dignity (hold side of work-gives-dignity) but not tagged."
+  },
+  {
+   "key": "shiller-taxing-the-robots",
+   "author": "robert-shiller",
+   "url": "https://www.socialeurope.eu/taxing-the-robots",
+   "title": "Taxing The Robots?",
+   "published": "2017-03-30",
+   "channel": "Social Europe (syndicated Project Syndicate column, 'Robotization Without Taxation?')",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "tax-ai-job-replacement",
+     "side": "hold",
+     "where": "closing paragraphs: 'let's not rule out so quickly at least modest robot taxes' and 'A moderate tax on robots ... seems a natural component of a policy to address rising inequality'"
+    }
+   ],
+   "note": "Author's own syndicated column (Project Syndicate original is paywalled; this full-text reprint carries the PS copyright line). Stance is hedged: modest/temporary robot tax, revenue to wage insurance. About robots/automation generally, written 2017, not AI specifically."
+  },
+  {
+   "key": "summers-robots-wealth-creators",
+   "author": "lawrence-summers",
+   "url": "https://larrysummers.com/news-item/robots-are-wealth-creators-and-taxing-them-is-illogical/",
+   "title": "Robots are wealth creators and taxing them is illogical",
+   "published": "2017-03-05",
+   "channel": "larrysummers.com (repost of his op-ed; site dates it to Washington Post March 5, 2017)",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "tax-ai-job-replacement",
+     "side": "reject",
+     "where": "opening rebuttal of Bill Gates's robot-tax proposal; 'Mr Gates' robot tax risks essentially being protectionism against progress'"
+    }
+   ],
+   "note": "Direct reply to Gates's 2017 robot-tax interview. Concerns robots/automation broadly, not AI by name; argues for retraining and transfers instead. Site headline says Washington Post but the text matches his FT column of the same title; date is the column date."
+  },
+  {
+   "key": "newsom-sb7-veto",
+   "author": "gavin-newsom",
+   "url": "https://www.gov.ca.gov/wp-content/uploads/2025/10/SB-7-Veto.pdf",
+   "title": "Veto message: Senate Bill 7 (No Robo Bosses Act)",
+   "published": "2025-10-13",
+   "channel": "Office of the Governor of California",
+   "format": "letter",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "workers-say-over-ai",
+     "side": "reject",
+     "where": "paragraphs 3-4: bill 'imposes unfocused notification requirements' and 'overly broad restrictions on how employers may use ADS tools'"
+    }
+   ],
+   "note": "WEAK. Scanned image PDF (no text layer; readable only by OCR/vision). Bill-specific veto: he says 'I share the author's concern' that unregulated employer use of automated decision systems can harm workers and defers to forthcoming CPPA rules. He rejects this law's worker-notice and limits, not the principle of worker say. Readers may well code it neutral."
+  },
+  {
+   "key": "lemley-fair-learning",
+   "author": "mark-lemley",
+   "url": "https://www.law.berkeley.edu/wp-content/uploads/2024/04/Fair-learning.pdf",
+   "title": "Fair Learning (with Bryan Casey)",
+   "published": "2021-03-01",
+   "channel": "Texas Law Review 99:743 (draft PDF hosted by Berkeley Law)",
+   "format": "paper",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "creators-owed-for-training",
+     "side": "reject",
+     "where": "Introduction: 'we argue that ML systems should generally be able to use databases for training, whether or not the contents of that database are copyrighted'"
+    }
+   ],
+   "note": "PDF is the 2020 pre-publication draft; text extracts with pdftotext. Argues for permitting training under fair use; it does not explicitly address payment schemes beyond saying copyright claims would stop the use without compensating anyone in particular."
+  },
+  {
+   "key": "jarvis-copyright-ai-journalism",
+   "author": "jeff-jarvis",
+   "url": "https://buzzmachine.com/2023/09/02/copyright-and-ai-and-journalism/",
+   "title": "Copyright and AI and journalism",
+   "published": "2023-09-02",
+   "channel": "BuzzMachine (his blog; his comment to the US Copyright Office AI inquiry)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "creators-owed-for-training",
+     "side": "reject",
+     "where": "'As for Question 8 on fair use ... hard to see how reading and learning from text and images to produce transformative works would not be fair use'"
+    }
+   ],
+   "note": "He also warns that restricting training sets to free content would leave AI built on misinformation. A related post, buzzmachine.com/2024/01/09/journalism-and-ai/ (his Senate testimony text), says he was 'delighted' his books were in Books3."
+  },
+  {
+   "key": "callison-burch-house-testimony-2023",
+   "author": "chris-callison-burch",
+   "url": "https://docs.house.gov/meetings/JU/JU03/20230517/115951/HHRG-118-JU03-Wstate-Callison-BurchC-20230517.pdf",
+   "title": "Testimony before the House Judiciary Subcommittee on Courts, IP and the Internet: Artificial Intelligence and Intellectual Property",
+   "published": "2023-05-17",
+   "channel": "US House Judiciary Committee",
+   "format": "testimony",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "creators-owed-for-training",
+     "side": "reject",
+     "where": "Opening list item 3: 'Advocacy to retain fair use for the purposes of training AI systems'; later: requiring 'an explicit license from the copyright holder' would jeopardize progress"
+    }
+   ],
+   "note": "15 MB PDF with a text layer. He acknowledges that many artists disagree, and he favors opt-out tools, but his stated position is to retain fair use rather than require licensing."
+  },
+  {
+   "key": "ball-synthetic-data-policy",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/synthetic-data-in-ai-implications",
+   "title": "Synthetic Data in AI: Implications for Policy",
+   "published": "2024-04-25",
+   "channel": "Hyperdimensional (Substack)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "creators-owed-for-training",
+     "side": "reject",
+     "where": "'The Main Idea' section: copyright 'theft' framing attributed to 'AI cynics and opponents'; restricting copyrighted data 'not a meaningful barrier'; 'Model training is rather unambiguously a form of speech'"
+    }
+   ],
+   "note": "WEAK/INDIRECT: he never says outright that companies should not pay. He dismisses the theft framing and data-restriction bills and treats training as protected speech. Readers may code this as unclear."
+  },
+  {
+   "key": "jeffries-copyright-expansion",
+   "author": "daniel-jeffries",
+   "url": "https://danieljeffries.substack.com/p/ai-art-blurred-lines-and-the-looming",
+   "title": "AI, Art, Blurred Lines and the Looming Nightmare of Copyright Expansion",
+   "published": "2023-05-09",
+   "channel": "Future History (Substack)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "creators-owed-for-training",
+     "side": "reject",
+     "where": "'Scraping that data was absolutely fair use'; 'Anyone thinking that artists, writers, coders, and content creators are going to get compensated individually is out of their mind'"
+    }
+   ],
+   "note": "Explicit. Part of his argument is that compensation is unworkable, but he also argues normatively against expanding copyright to cover training."
+  },
+  {
+   "key": "ball-case-for-public-ai-infrastructure",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/the-case-for-public-ai-infrastructure",
+   "title": "The Case for Public AI Infrastructure",
+   "published": "2024-02-15",
+   "channel": "Hyperdimensional (Substack)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "public-ai-infrastructure",
+     "side": "hold",
+     "where": "intro list of 'things government should build' and the section 'The Case for Public AI Research Infrastructure'"
+    }
+   ],
+   "note": "Moderate hold. He backs publicly accessible AI research infrastructure (compute and data for academics) built by the federal government, and prefers a federal effort to California's CalCompute. This is research infrastructure, not government-run consumer AI systems, so readers may grade it as a partial hold."
+  },
+  {
+   "key": "schneier-build-ai-by-the-people",
+   "author": "bruce-schneier",
+   "url": "https://www.schneier.com/essays/archives/2023/06/build-ai-by-the-people-for-the-people.html",
+   "title": "Build AI by the People, for the People",
+   "published": "2023-06-12",
+   "channel": "Foreign Policy (reposted on schneier.com)",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "public-ai-infrastructure",
+     "side": "hold",
+     "where": "'It's time to start taking AI development out of the exclusive hands of private companies' and the 'public option' paragraphs"
+    }
+   ],
+   "note": "Strong, explicit hold: calls for 'a government-funded and -directed AI program to develop widely reusable models in the public interest'. Co-authored with Nathan E. Sanders."
+  },
+  {
+   "key": "marcus-what-could-possibly-go-wrong-altman",
+   "author": "gary-marcus",
+   "url": "https://garymarcus.substack.com/p/what-could-possibly-go-wrong-with",
+   "title": "What Could Possibly Go Wrong with Sam Altman's New Ambitions?",
+   "published": "2024-02-09",
+   "channel": "Marcus on AI (Substack)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "inequality-fine-if-all-gain",
+     "side": "reject",
+     "where": "closing paragraphs: 'Even if the $7 trillion bet succeeded ... it might tear apart society through radically increased unemployment and social inequality'"
+    }
+   ],
+   "note": "Weak-to-moderate reject. He treats AI-driven social inequality as a harm even in the success case, but he does not directly address the 'everyone ends up better off' condition."
+  },
+  {
+   "key": "altman-senate-commerce-2025",
+   "author": "sam-altman",
+   "url": "https://www.govinfo.gov/content/pkg/CHRG-119shrg61426/html/CHRG-119shrg61426.htm",
+   "title": "Winning the AI Race: Strengthening U.S. Capabilities in Computing and Innovation (Senate Hearing 119-143)",
+   "published": "2025-05-08",
+   "channel": "U.S. Senate Commerce Committee (GPO transcript)",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "states-set-own-ai-rules",
+     "side": "reject",
+     "where": "Altman's answer to Sen. Lummis on a 'patchwork' ('50 different sets of regulation', 'One Federal framework that is light touch'), and to Chairman Cruz on federal preemption ('one Federal approach ... sounds great to me')"
+    }
+   ],
+   "note": "Official hearing transcript with speaker labels; multi-witness, so the passage is attributed to 'Mr. Altman'. In the same hearing he answers Sen. Schatz that self-regulation is NOT enough ('some policy is good'), so don't tag him reject on binding-rules or profit-cannot-make-ai-safe from this work. Brad Smith and Michael Intrator say similar things about preemption here, but they are not on the map."
+  },
+  {
+   "key": "cruz-ai-framework-sandbox",
+   "author": "ted-cruz",
+   "url": "https://www.commerce.senate.gov/press/rep/release/sen-cruz-unveils-ai-policy-framework-to-strengthen-american-ai-leadership/",
+   "title": "Sen. Cruz Unveils AI Policy Framework to Strengthen American AI Leadership",
+   "published": "2025-09-10",
+   "channel": "Senate Commerce Committee (Republican press release)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "binding-rules-for-frontier-ai",
+     "side": "reject",
+     "where": "framework intro ('light-touch regulatory strategy'), the SANDBOX Act waiver description, and Cruz's quoted statement ('cut through bureaucratic red tape, and empower American AI developers')"
+    }
+   ],
+   "note": "A committee press release built around Cruz's signed statement and his own framework. The stance is a general light-touch / waiver position rather than a line that names frontier developers, so it is a moderate reject."
+  },
+  {
+   "key": "hanson-ai-pause-regs-look-risky",
+   "author": "robin-hanson",
+   "url": "https://www.overcomingbias.com/p/ai-pause-regs-look-risky",
+   "title": "AI Pause Regs Look Risky",
+   "published": "2026-09-08",
+   "channel": "Overcoming Bias",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "binding-rules-for-frontier-ai",
+     "side": "reject",
+     "where": "argues that regulating the few 'frontier AI firms' would have to expand without limit and need a world government; closes 'AI regs look bad by these two criteria'"
+    },
+    {
+     "id": "ai-concentrates-power",
+     "side": "reject",
+     "where": "middle paragraph: costs falling about 10x a year, so 'the number of nations, firms, and orgs who can afford to make, buy, or rent powerful AI is rising fast'"
+    }
+   ],
+   "note": "The binding-rules reject is clear. The concentrates-power reading is an aside about AI capability spreading, not a full argument about wealth and power, so treat it as weak."
+  },
+  {
+   "key": "thierer-californication-testimony",
+   "author": "adam-thierer",
+   "url": "https://www.rstreet.org/outreach/adam-thierer-testimony-hearing-on-ai-at-a-crossroads-a-nationwide-strategy-or-californication/",
+   "title": "Testimony, Hearing on \"AI at a Crossroads: A Nationwide Strategy or Californication?\"",
+   "published": "2025-09-18",
+   "channel": "R Street Institute (congressional testimony)",
+   "format": "testimony",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "states-set-own-ai-rules",
+     "side": "reject",
+     "where": "'a confusing patchwork of state and local legislative proposals'; recommendations: 'Congress should expressly preempt state regulations related to AI frontier labs and models'"
+    },
+    {
+     "id": "ai-bias-audits-required",
+     "side": "reject",
+     "where": "second recommendation: 'Congress should preempt state efforts to preemptively regulate ... through cumbersome and confusing mechanisms such as AI audits or algorithmic impact assessments'"
+    }
+   ],
+   "note": "Do NOT tag binding-rules reject: in the same testimony he suggests NIST/CAISI oversee frontier model safety 'and Congress can give them additional authority'. On audits he rejects state ex-ante audits and allows that any ex-ante discrimination rules should be federal, so it is a reject of the mandate as framed, with that caveat."
+  },
+  {
+   "key": "thierer-litigation-addiction",
+   "author": "adam-thierer",
+   "url": "https://www.rstreet.org/research/americas-litigation-addiction-threatens-its-ai-leadership/",
+   "title": "America's Litigation Addiction Threatens Its AI Leadership",
+   "published": "2025-11-13",
+   "channel": "R Street Institute",
+   "format": "paper",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-makers-liable-for-harms",
+     "side": "reject",
+     "where": "opening section: the suits by parents of teens against AI companies rest 'on a fundamental misunderstanding'; 'if state lawmakers proposing new AI liability schemes have their way'; praises Section 230's 'liability shield' as the model"
+    }
+   ],
+   "note": "Sole byline Adam Thierer (R Street author link). It argues against expanding tort liability for AI makers, not against all liability, so it is a reject of the liability push rather than of any accountability at all."
+  },
+  {
+   "key": "chilson-red-flags-ai-legislation",
+   "author": "neil-chilson",
+   "url": "https://outofcontrol.substack.com/p/red-flags-in-ai-legislation",
+   "title": "Red Flags in AI Legislation",
+   "published": "2025-03-06",
+   "channel": "Getting Out of Control (Substack)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-bias-audits-required",
+     "side": "reject",
+     "where": "urges Youngkin to veto Virginia's bill; the database analogy ('file reports and audits to ensure that the database was unbiased'); calls state AI rules 'the Red Flag Laws of the 21st century'"
+    }
+   ],
+   "note": "Byline 'Neil' on his own newsletter (Neil Chilson). Aimed at Colorado-style algorithmic-discrimination laws for consequential decisions, which is the statement's subject."
+  },
+  {
+   "key": "chilson-raising-cost-bad-ai-laws",
+   "author": "neil-chilson",
+   "url": "https://outofcontrol.substack.com/p/raising-the-cost-of-bad-ai-laws",
+   "title": "Raising the Cost of Bad AI Laws",
+   "published": "2025-12-14",
+   "channel": "Getting Out of Control (Substack)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "states-set-own-ai-rules",
+     "side": "reject",
+     "where": "his commentary on the preemption executive order: a 'stopgap against the worst state AI laws until Congress does the necessary work of establishing a minimally burdensome national standard'; calls the DOJ task force for suing states 'based'"
+    }
+   ],
+   "note": "Supports a national standard displacing state AI laws, and also notes that the EO itself creates no new preemption."
+  },
+  {
+   "key": "chilson-more-on-sb-53",
+   "author": "neil-chilson",
+   "url": "https://outofcontrol.substack.com/p/more-on-sb-53",
+   "title": "More on SB 53",
+   "published": "2025-09-12",
+   "channel": "Getting Out of Control (Substack)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "protect-ai-whistleblowers",
+     "side": "reject",
+     "where": "section 'SB 53's whistleblower provisions have serious side-effects' (calls it a 'Can't Fire AI Doomers Act', a 'de facto layoff shield', a 'discovery goldmine')"
+    }
+   ],
+   "note": "QUALIFIED: his conclusion says 'Keep whistleblower protections, but calibrate' them. Readers may score this as neutral or a conditional hold. It is the closest thing to a reject that I found; no figure I checked rejects AI whistleblower protection outright."
+  },
+  {
+   "key": "ball-ai-patchwork-emerges",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/the-ai-patchwork-emerges",
+   "title": "The AI Patchwork Emerges",
+   "published": "2026-01-15",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "states-set-own-ai-rules",
+     "side": "reject",
+     "where": "'I have long been a supporter of a federal AI law with broad (though not universal) preemption of state regulations'; says his proposal would preempt 'almost literally every law I have described'"
+    }
+   ],
+   "note": "Ball holds binding-rules-for-frontier-ai on the map, and this does not conflict: he wants federal rules that preempt the states. He also restates opposition to algorithmic-discrimination laws here, but he is already a reject on ai-bias-audits-required."
+  },
+  {
+   "key": "smith-what-ai-boom-is-doing",
+   "author": "noah-smith",
+   "url": "https://www.noahpinion.blog/p/what-the-ai-boom-is-doing-for-americans",
+   "title": "What the AI boom is doing for Americans",
+   "published": "2026-10-05",
+   "channel": "Noahpinion",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-concentrates-power",
+     "side": "reject",
+     "where": "rebuttal of Krugman's 'technology of, by and for oligarchs': 'I think that this is basically wrong', then benefits flowing to regular Americans (jobs, fiscal, consumer)"
+    }
+   ],
+   "note": "MODERATE: he argues that the gains are spread widely, which is the reject side, but he also says Americans 'could stand to benefit more'. It is about who gets the benefits, not explicitly about corporate power."
+  },
+  {
+   "key": "smith-over-anti-monopoly",
+   "author": "noah-smith",
+   "url": "https://www.noahpinion.blog/p/im-kind-of-over-the-whole-anti-monopoly",
+   "title": "I'm kind of over the whole \"Anti-monopoly\" movement",
+   "published": "2026-06-04",
+   "channel": "Noahpinion",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "antitrust-on-big-ai",
+     "side": "reject",
+     "where": "early paragraph recapping his Bloomberg years: 'Big Tech companies were a bad target for antitrust enforcement'; the rest of the piece criticizes the antimonopoly movement"
+    }
+   ],
+   "note": "The key line is a parenthetical recap of his earlier view, and the piece is not AI-specific. The reject is clear but short."
+  },
+  {
+   "key": "zuckerberg-leaked-qa-2019",
+   "author": "mark-zuckerberg",
+   "url": "https://www.theverge.com/2019/10/1/20892354/mark-zuckerberg-full-transcript-leaked-facebook-meetings",
+   "title": "Mark Zuckerberg's internal Q&A, full transcript (published by The Verge)",
+   "published": "2019-10-01",
+   "channel": "The Verge (leaked internal meeting audio, full transcript)",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "antitrust-on-big-ai",
+     "side": "reject",
+     "where": "section 'On the potential breakup of Facebook': 'breaking up these companies, whether it's Facebook or Google or Amazon, is not actually going to solve the issues'; 'you go to the mat and you fight'"
+    }
+   ],
+   "note": "Verbatim speaker-labelled transcript of internal employee meetings, published by The Verge. The words are his own, but they were not meant for the public. Pre-AI-boom (2019), but about the largest tech companies. Benjamin may want to rule on whether leaked internal remarks count.",
+   "exclude": "leaked internal company meeting, not his public output"
+  },
+  {
+   "key": "ramzanali-break-up-big-ai",
+   "author": "asad-ramzanali",
+   "url": "https://time.com/7322418/chat-gpt-open-ai-nvidia-tech-monopoly/",
+   "title": "Break Up Big AI Before It Breaks Us",
+   "published": "2025-10-06",
+   "channel": "TIME (Ideas)",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "antitrust-on-big-ai",
+     "side": "hold",
+     "where": "'The first step to a healthier market is to break up companies that are vertically integrated'; 'Chips must be independent from clouds, and clouds must be independent from AI models'; closing line"
+    }
+   ],
+   "note": "time.com returns 406 to curl, but WebFetch loaded the full text and confirmed the byline and passages."
+  },
+  {
+   "key": "stoller-proposal-break-up-google",
+   "author": "matt-stoller",
+   "url": "https://www.thebignewsletter.com/p/the-proposal-to-break-up-google-is",
+   "title": "The Proposal to Break Up Google Is Finally Here",
+   "published": "2024-11-22",
+   "channel": "BIG (Substack)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "antitrust-on-big-ai",
+     "side": "hold",
+     "where": "his defence of the DOJ remedy (Chrome divestiture) to stop Google leveraging search 'to control future markets, most notably artificial intelligence-based search models'; 'lawbreakers don't get to enjoy the fruits'"
+    }
+   ],
+   "note": "Free post. He endorses the breakup remedy for Google. It is a specific company and case, not a general call for every AI firm."
+  },
+  {
+   "key": "grassley-ai-whistleblower-protection-act",
+   "author": "chuck-grassley",
+   "url": "https://www.judiciary.senate.gov/press/rep/releases/grassley-introduces-ai-whistleblower-protection-act",
+   "title": "Grassley Introduces AI Whistleblower Protection Act",
+   "published": "2025-05-15",
+   "channel": "Senate Judiciary Committee (Majority press release)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "protect-ai-whistleblowers",
+     "side": "hold",
+     "where": "Grassley's quoted statement: 'too many people working in AI feel they're unable to speak up ... We need to act to make these protections crystal clear ... protect AI whistleblowers'"
+    }
+   ],
+   "note": "The bill protects disclosures to federal agencies and Congress, not to the general public; the statement says 'warn the public', which is a slight mismatch. The release also quotes co-sponsors Coons, Schatz and Obernolte, and lists on-map senators Blackburn and Hawley as co-sponsors without quoting them, so it is not their work."
+  },
+  {
+   "key": "odgers-great-rewiring-review",
+   "author": "candice-odgers",
+   "url": "https://www.nature.com/articles/d41586-024-00902-2",
+   "title": "The great rewiring: is social media really behind an epidemic of teenage mental illness?",
+   "published": "2024-03-29",
+   "channel": "Nature (book review)",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "attention-tech-harms-minds",
+     "side": "reject",
+     "where": "opening: 'is not supported by science'; 'mix of no, small and mixed associations'"
+    }
+   ],
+   "note": "Full text loads via plain GET (the WebFetch redirect is a cookie check). She allows that more research is needed, but rejects the causal story."
+  },
+  {
+   "key": "ferguson-social-media-youth-mental-health",
+   "author": "christopher-ferguson",
+   "url": "https://www.psychologytoday.com/us/blog/checkpoints/202304/social-media-and-youth-mental-health",
+   "title": "Social Media and Youth Mental Health",
+   "published": "2023-04-17",
+   "channel": "Psychology Today (Checkpoints blog)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "attention-tech-harms-minds",
+     "side": "reject",
+     "where": "key points: 'Evidence remains weak that social media is causing mental health problems among youth'"
+    }
+   ],
+   "note": "Sole-author blog post. His co-written 2019 Inquirer op-ed (with Patrick Markey) says the same, if a backup is needed."
+  },
+  {
+   "key": "cowen-from-my-whatsapp-haidt",
+   "author": "tyler-cowen",
+   "url": "https://marginalrevolution.com/marginalrevolution/2023/02/from-my-whatsapp.html",
+   "title": "From my WhatsApp",
+   "published": "2023-02-25",
+   "channel": "Marginal Revolution",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "attention-tech-harms-minds",
+     "side": "reject",
+     "where": "'not so convinced by the Jon Haidt piece'; 'I just don't think it is nearly as large a problem as he claims'"
+    }
+   ],
+   "note": "Short post. Cowen allows some harm to girls but says it is much smaller than claimed, so readers may code it as a weak reject or mixed. His 2024 Conversations with Tyler episode with Haidt is stronger, but the page could not be fetched (403/404)."
+  },
+  {
+   "key": "barkley-false-guard",
+   "author": "taylor-barkley",
+   "url": "https://www.washingtonexaminer.com/op-eds/4555809/josh-hawley-ai-guard-act-keep-kids-safe/",
+   "title": "False GUARD: Banning kids from AI won't keep them safe",
+   "published": "2026-05-06",
+   "channel": "Washington Examiner (op-ed)",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "restrict-ai-companions-for-children",
+     "side": "reject",
+     "where": "'By banning children from the safer AI tools, Congress isn't protecting them'; closing 'not less AI for kids, it should be safer AI'"
+    }
+   ],
+   "note": "He opposes a statutory ban and favours parental choice and safer design. He does not rule out every possible legal rule."
+  },
+  {
+   "key": "brown-guard-act-id-checks",
+   "author": "elizabeth-nolan-brown",
+   "url": "https://reason.com/2026/05/04/how-a-bill-banning-ai-companions-for-kids-could-usher-in-widespread-id-checks-online/",
+   "title": "How a Bill Banning AI Companions for Kids Could Usher in Widespread ID Checks Online",
+   "published": "2026-05-04",
+   "channel": "Reason",
+   "format": "op-ed",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "restrict-ai-companions-for-children",
+     "side": "reject",
+     "where": "'It takes away their right to talk to AI companions about any topic'; 'Parents would have no ability to opt their kids out'"
+    }
+   ],
+   "note": "Opinion analysis under her byline. Her objections are about parental rights, privacy and speech."
+  },
+  {
+   "key": "kuyda-decoder-replika",
+   "author": "eugenia-kuyda",
+   "url": "https://www.theverge.com/24216748/replika-ceo-eugenia-kuyda-ai-companion-chatbots-dating-friendship-decoder-podcast-interview",
+   "title": "Replika CEO Eugenia Kuyda says it's okay if we end up marrying AI chatbots (Decoder interview)",
+   "published": "2024-08-12",
+   "channel": "The Verge, Decoder",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-can-be-real-companion",
+     "side": "hold",
+     "where": "early: 'Replika is an AI friend'; mid: 'AI friends are just another type of that, a completely different type' (therapist/dog comparison)"
+    }
+   ],
+   "note": "The Q&A transcript marks speakers by bolded questions; the labels are lost in a plain-text dump. She says AI friendship has different boundaries from human friendship, but treats it as a real relationship."
+  },
+  {
+   "key": "ball-whats-up-with-the-states",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/whats-up-with-the-states",
+   "title": "What's up with the States?",
+   "published": "2025-08-21",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "some-domains-free-of-ai",
+     "side": "reject",
+     "where": "section on Nevada's AI mental-health law: mocks 'only a human could ever do mental healthcare'; 'is it better that they talk to a low-cost chatbot, or no one at all?'"
+    }
+   ],
+   "note": "His case against walling off one domain (mental healthcare) where AI may help. A narrow example, not a general principle, so readers may code it as a partial reject."
+  },
+  {
+   "key": "hoel-butlerian-jihad",
+   "author": "erik-hoel",
+   "url": "https://www.theintrinsicperspective.com/p/we-need-a-butlerian-jihad-against",
+   "title": "We need a Butlerian Jihad against AI",
+   "published": "2021-06-30",
+   "channel": "The Intrinsic Perspective",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "building-superhuman-ai-wrong",
+     "side": "hold",
+     "where": "middle: 'strong AI is immoral in and of itself ... immoral just in its existence ... an abomination'; close: 'Thou shalt not make a machine in the likeness of a human mind'"
+    }
+   ],
+   "note": "Clear in-itself argument, explicitly set against expected-value and risk arguments. It targets 'strong AI' (human-like minds) and does not say 'smarter than humans' in so many words."
+  },
+  {
+   "key": "kapoor-narayanan-78-election-deepfakes",
+   "author": "arvind-narayanan",
+   "url": "https://www.aisnakeoil.com/p/we-looked-at-78-election-deepfakes",
+   "title": "We Looked at 78 Election Deepfakes. Political Misinformation is not an AI Problem.",
+   "published": "2024-12-13",
+   "channel": "AI Snake Oil (now Normal Tech)",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-threatens-shared-truth",
+     "side": "reject",
+     "where": "title and findings list: deceptive AI content 'cheap to replicate without AI'; 'focusing on the demand for misinformation rather than the supply'"
+    }
+   ],
+   "note": "Co-authored with Sayash Kapoor and attributed to the on-map Narayanan. They grant real dangers (NCII, the liar's dividend), so this is a reject with caveats. Same post also at normaltech.ai."
+  },
+  {
+   "key": "simon-misinformation-reloaded",
+   "author": "felix-simon",
+   "url": "https://misinforeview.hks.harvard.edu/article/misinformation-reloaded-fears-about-the-impact-of-generative-ai-on-misinformation-are-overblown/",
+   "title": "Misinformation reloaded? Fears about the impact of generative AI on misinformation are overblown",
+   "published": "2023-10-18",
+   "channel": "Harvard Kennedy School Misinformation Review (commentary)",
+   "format": "paper",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-threatens-shared-truth",
+     "side": "reject",
+     "where": "abstract: 'current concerns about the effects of generative AI on the misinformation landscape are overblown'"
+    }
+   ],
+   "note": "Three authors (Simon, Altay, Mercier). Drop it if co-authored commentary is out of scope."
+  },
+  {
+   "key": "sutton-dwarkesh-ai-succession",
+   "author": "richard-sutton",
+   "url": "https://www.dwarkesh.com/p/richard-sutton",
+   "title": "Richard Sutton: Father of RL thinks LLMs are a dead end",
+   "published": "2025-09-26",
+   "channel": "Dwarkesh Podcast (transcript)",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "human-end-of-ai",
+     "side": "reject",
+     "where": "section '00:53:48 Succession to AI': 'succession to digital intelligence ... is inevitable'; 'I do encourage people to think positively about it'; AIs as 'our offspring'"
+    }
+   ],
+   "note": "Speaker-labelled transcript. He frames succession as a stage of the universe and leaves room for good and bad outcomes. The section may also bear on ai-moral-status."
+  },
+  {
+   "key": "faggella-worthy-successor",
+   "author": "daniel-faggella",
+   "url": "https://danfaggella.com/worthy/",
+   "title": "A Worthy Successor: The Purpose of AGI",
+   "published": "2023-11-24",
+   "channel": "danfaggella.com",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "human-end-of-ai",
+     "side": "reject",
+     "where": "core definition: 'the great moral aim of AGI ... should be the creation of Worthy Successor'; 'the expanding process won't center on us, and shouldn't eternally be steered by us'"
+    }
+   ],
+   "note": "Updated 2026-10-15 with an opening note disowning 'successionism' and favouring a slowdown. The thesis that humanity is not the permanent end still stands."
+  },
+  {
+   "key": "hanson-who-are-you-descendants",
+   "author": "robin-hanson",
+   "url": "https://www.overcomingbias.com/p/who-are-you-descendants",
+   "title": "Who Are Your Descendants?",
+   "published": "2026-07-29",
+   "channel": "Overcoming Bias",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "human-end-of-ai",
+     "side": "reject",
+     "where": "opening: 'future AIs are our descendants, not co-existing rivals'; evolved 'indulgence of descendants, even when different from you'"
+    }
+   ],
+   "note": "Hanson argues we should treat AIs as literal descendants to indulge, not keep humanity fixed as the end. Backup: 'AI Fear Is Mostly Fear Of Future' (overcomingbias.com/p/ai-fear-is-mostly-fear-of-future, 2023-04-13), on unaligned descendants being the default."
+  },
+  {
+   "key": "alexander-should-the-future-be-human",
+   "author": "scott-alexander",
+   "url": "https://www.astralcodexten.com/p/should-the-future-be-human",
+   "title": "Should The Future Be Human?",
+   "published": "2024-01-23",
+   "channel": "Astral Codex Ten",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "human-end-of-ai",
+     "side": "reject",
+     "where": "section III: 'Maybe the future should be human, and maybe it shouldn't'; 'a successor species we can be proud of'; 'I would be most willing to accept being replaced by AI if...'"
+    }
+   ],
+   "note": "Mixed, so readers may code it as unclear. He is open in principle to an AI successor under conditions (consciousness, individuation, no force), but also writes 'humans uber alles' about alien conquest. Include only if a conditional reject counts."
+  },
+  {
+   "key": "bryson-artefacts-cant-consent",
+   "author": "joanna-bryson",
+   "url": "https://joanna-bryson.blogspot.com/2021/12/why-artefacts-cant-consent.html",
+   "title": "Why AI is amoral, and artefacts can't consent",
+   "published": "2021-12-14",
+   "channel": "Adventures in NI (blog); notes for testimony to UK APPGs on 'The Rights of Robots'",
+   "format": "testimony",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-moral-status",
+     "side": "reject",
+     "where": "recommendation section: attributing 'moral or legal agency' to AI products would make 'perfect shell companies'; rebuttal to the 'same moral patiency' objection: 'ban it ... or offer it the same protections as any work of art'"
+    }
+   ],
+   "note": "Her argument is normative and rests on design, not on AI lacking consciousness: artefacts should never be made moral patients or agents. Her 2017 post 'Why Robots (and Animals) Never Need Rights' says the same."
+  },
+  {
+   "key": "birhane-robot-rights-human-welfare",
+   "author": "abeba-birhane",
+   "url": "https://arxiv.org/abs/2001.05046",
+   "title": "Robot Rights? Let's Talk about Human Welfare Instead",
+   "published": "2020-01-14",
+   "channel": "arXiv (AIES 2020 paper)",
+   "format": "paper",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-moral-status",
+     "side": "reject",
+     "where": "abstract: 'deny that robots ... are the kinds of things that could be granted rights in the first place'"
+    }
+   ],
+   "note": "Co-authored with Jelle van Dijk. The abstract page states the thesis plainly."
+  },
+  {
+   "key": "ton-that-ma-commission-testimony",
+   "author": "hoan-ton-that",
+   "url": "https://malegislature.gov/Reports/19351/ma-written-testimony-hoan-ton-that.pdf",
+   "title": "Statement of Hoan Ton-That before the Massachusetts Special Commission on Facial Recognition",
+   "published": "2021-07-30",
+   "channel": "Massachusetts Legislature (commission record)",
+   "format": "testimony",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "reject",
+     "where": "'Any ban on facial recognition will be devastating...' paragraph, p.2"
+    }
+   ],
+   "note": "Argues law enforcement should keep using facial recognition over a 3-billion-image web-scraped database to fight crime; opposes bans and DMV/mugshot-only limits. PDF text extracts cleanly."
+  },
+  {
+   "key": "luckey-ted-ai-arsenal",
+   "author": "palmer-luckey",
+   "url": "https://rosetta.to/u/ted/the-ai-arsenal-that-could-stop-world-war-iii-palmer-luckey-ted",
+   "title": "The AI Arsenal That Could Stop World War III (TED)",
+   "published": "2025-04-25",
+   "channel": "TED (caption transcript via rosetta.to)",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-autonomous-lethal-force",
+     "side": "reject",
+     "where": "passage quoting the objection 'You should never allow AI to decide who lives and who dies' and answering 'no moral high ground in saying, I refuse to use AI'"
+    }
+   ],
+   "note": "Single-speaker talk; transcript is auto-generated from captions. Alternative source: CBS 60 Minutes transcript (cbsnews.com/news/palmer-luckey-ai-powered-autonomous-weapons-future-of-warfare-60-minutes-transcript), where he describes weapons that 'identify, select, and engage targets... No operator needed'."
+  },
+  {
+   "key": "alexander-pentagon-threatens-anthropic",
+   "author": "scott-alexander",
+   "url": "https://www.astralcodexten.com/p/the-pentagon-threatens-anthropic",
+   "title": "The Pentagon Threatens Anthropic",
+   "published": "2026-02-25",
+   "channel": "Astral Codex Ten",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "'AI-enabled mass surveillance of US citizens seems like the sort of thing we should at least have a chance to think over'"
+    },
+    {
+     "id": "no-autonomous-lethal-force",
+     "side": "reject",
+     "where": "'we'll probably get them eventually'; calls himself 'a sensible moderate on the killbot issue'"
+    }
+   ],
+   "note": "Soft on both: surveillance line is a call for deliberation, not an outright bar; killbot line accepts eventual autonomous weapons rather than arguing for them."
+  },
+  {
+   "key": "ball-clawed",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/clawed",
+   "title": "Clawed: On Anthropic and the Department of War",
+   "published": "2026-03-02",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "'mass surveillance and autonomous weapons/systems of control cannot be used to curtail our liberties'; 'You can support restrictions on mass domestic surveillance...'"
+    }
+   ],
+   "note": "Ball supports restrictions on mass domestic surveillance by law but objects to imposing them via a private defense contract. Adds a hold-side figure (statement had only 3 total)."
+  },
+  {
+   "key": "merchant-kick-flock-out",
+   "author": "brian-merchant",
+   "url": "https://www.bloodinthemachine.com/p/how-to-kick-flock-out-of-your-town",
+   "title": "How to kick Flock out of your town",
+   "published": "2026-09-20",
+   "channel": "Blood in the Machine",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "intro framing: 'Abuse of the system has been rampant'; 'the burgeoning movement to defang the surveillance state'"
+    }
+   ],
+   "note": "Intro co-written with Ryan Hodes, followed by an interview with a DeFlock organizer; only Merchant's framing counts. About AI plate-reader networks used by police to track movements."
+  },
+  {
+   "key": "marcus-google-too-woke",
+   "author": "gary-marcus",
+   "url": "https://garymarcus.substack.com/p/has-google-gone-too-woke-why-even",
+   "title": "Has Google gone too woke? Why even the biggest models still struggle with guardrails",
+   "published": "2024-02-21",
+   "channel": "Marcus on AI",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "reject",
+     "where": "'not however intended as an anti-woke screed'; 'I think it is just lousy software'"
+    }
+   ],
+   "note": "Attributes Gemini's image controversy to technical guardrail failure, not political bias; rejects the 'anti-white' partisan framing."
+  },
+  {
+   "key": "narayanan-chatgpt-liberal-bias",
+   "author": "arvind-narayanan",
+   "url": "https://www.normaltech.ai/p/does-chatgpt-have-a-liberal-bias",
+   "title": "Does ChatGPT have a liberal bias?",
+   "published": "2023-08-18",
+   "channel": "AI Snake Oil / Normal Tech",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "reject",
+     "where": "summary: 'it is possible that ChatGPT expresses liberal views to users, but this paper provides little evidence of it'"
+    }
+   ],
+   "note": "Soft reject and co-authored with Sayash Kapoor (precedent: other aisnakeoil posts are already filed under Narayanan). Old aisnakeoil.com URL 301-redirects here."
+  },
+  {
+   "key": "andreessen-lex-fridman-2",
+   "author": "marc-andreessen",
+   "url": "https://lexfridman.com/marc-andreessen-2-transcript",
+   "title": "Lex Fridman Podcast #458 transcript: Marc Andreessen",
+   "published": "2025-01-26",
+   "channel": "Lex Fridman Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "hold",
+     "where": "~03:24:21 'an AI that's been trained according to the most extreme left-wing California politics'; ~03:25 censorship regime on AI"
+    }
+   ],
+   "note": "Other-side reinforcement (statement had 1 figure total). Passage is past character 200,000 of the page. Publication date from episode number; confirm."
+  },
+  {
+   "key": "alexander-ai-safety-not-corporate-plot",
+   "author": "scott-alexander",
+   "url": "https://www.astralcodexten.com/p/ai-safety-is-not-a-corporate-plot",
+   "title": "AI Safety Is Not A Corporate Plot",
+   "published": "2026-10-15",
+   "channel": "Astral Codex Ten",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-leaders-honest-about-risks",
+     "side": "hold",
+     "where": "'The experts are warning you that AI could kill you because they think AI could kill you'; 'all these people believed it then, and still believe it now'"
+    }
+   ],
+   "note": "Argues AI-lab leaders' risk warnings are sincere, not hype. Caveat for readers: includes a jab that Altman's 2015 warning was 'the one time in his life' he was fully honest, so it is about sincerity of risk warnings, not general candour."
+  },
+  {
+   "key": "tabarrok-regulatory-capture",
+   "author": "alex-tabarrok",
+   "url": "https://marginalrevolution.com/marginalrevolution/2026/09/what-regulatory-capture-actually-looks-like.html",
+   "title": "What Regulatory Capture Actually Looks Like",
+   "published": "2026-09-16",
+   "channel": "Marginal Revolution",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-leaders-honest-about-risks",
+     "side": "hold",
+     "where": "'We also have plenty of evidence that the fears of AI experts are sincere'; closing 'Amodei actually believes what he's saying'"
+    }
+   ],
+   "note": "Rebuts the claim that AI-risk talk is a regulatory-capture ploy; notes Amodei, Altman and Musk warned before they had companies."
+  },
+  {
+   "key": "merchant-labor-day-technology",
+   "author": "brian-merchant",
+   "url": "https://www.bloodinthemachine.com/p/this-labor-day-lets-consider-what",
+   "title": "This Labor Day, let's consider how we want technology to work for us",
+   "published": "2024-09-02",
+   "channel": "Blood in the Machine",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "market-tech-serves-humans",
+     "side": "reject",
+     "where": "'a relatively few technology owners might benefit'; closing hope for technology 'democratically developed, worker-first, and wielded for the public good'"
+    }
+   ],
+   "note": "Argues owner-directed automation degrades jobs; calls for shifting decision power over tech to labor."
+  },
+  {
+   "key": "zitron-rot-economy",
+   "author": "ed-zitron",
+   "url": "https://www.wheresyoured.at/the-rot-economy/",
+   "title": "The Rot Economy",
+   "published": "2023-02-09",
+   "channel": "Where's Your Ed At",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "market-tech-serves-humans",
+     "side": "reject",
+     "where": "Google Search section: 'a source of information corrupted by a profit-seeking entity'; Facebook/Instagram 'endlessly profitable and utterly useless'"
+    }
+   ],
+   "note": "Core thesis: growth-at-all-costs incentives make tech products worse for users."
+  },
+  {
+   "key": "jones-dwarkesh-less-democracy",
+   "author": "garett-jones",
+   "url": "https://www.dwarkesh.com/p/garett-jones",
+   "title": "Garett Jones: Immigration, national IQ, & less democracy (Dwarkesh Podcast)",
+   "published": "2023-01-24",
+   "channel": "Dwarkesh Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "popular-self-government-worth-keeping",
+     "side": "reject",
+     "where": "[00:49:20] 'The power of independent committees should be increased. More Congress should be like the Fed'; [00:52:43] 'handing things over to elites'"
+    }
+   ],
+   "note": "Speaker-labelled transcript. Argues for shifting authority to appointed experts (FDA/CDC 'more like the Fed')."
+  },
+  {
+   "key": "caplan-dwarkesh-democracy",
+   "author": "bryan-caplan",
+   "url": "https://www.dwarkesh.com/p/bryan-caplan-3",
+   "title": "Bryan Caplan: Feminists, Billionaires, and Demagogues (Dwarkesh Podcast)",
+   "published": "2022-10-20",
+   "channel": "Dwarkesh Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "popular-self-government-worth-keeping",
+     "side": "reject",
+     "where": "decolonization/occupation passage: 'a rebuilding where democracy is a low priority'; anarcho-capitalism 'really the best system'"
+    }
+   ],
+   "note": "Soft: passage is past character 100,000 of the page; he puts rights and markets ahead of democracy rather than backing rule by experts."
+  },
+  {
+   "key": "hotz-lex-fridman-3",
+   "author": "george-hotz",
+   "url": "https://lexfridman.com/george-hotz-3-transcript/",
+   "title": "Lex Fridman Podcast #387 transcript: George Hotz",
+   "published": "2023-06-30",
+   "channel": "Lex Fridman Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "plan-control-early",
+     "side": "reject",
+     "where": "AI safety chapter (01:31:17-01:31:56): 'all these AI safety people... build the exact thing they fear'; 'You think you're going to control it. You're not going to control it'; 01:48:59 'sci-fi B movie garbage'"
+    }
+   ],
+   "note": "Rejects the premise that advance control work can succeed or is needed. Passage starts past character 100,000. Date inferred from episode number; confirm."
+  },
+  {
+   "key": "ball-timing-of-ai-regulation",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/the-timing-of-ai-regulation",
+   "title": "The Timing of AI Regulation: Why we have more time than regulation advocates fear",
+   "published": "2024-09-05",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "plan-control-early",
+     "side": "reject",
+     "where": "'wait until the potential for catastrophic risks from AI models is more clearly demonstrated'; 'If future models pose catastrophic risks, there will be time to update public policy'"
+    }
+   ],
+   "note": "Soft: about the timing of regulation, not technical control research."
+  },
+  {
+   "key": "mowshowitz-americans-hate-data-centers",
+   "author": "zvi-mowshowitz",
+   "url": "https://thezvi.substack.com/p/the-american-people-really-hate-data",
+   "title": "The American People Really Hate Data Centers",
+   "published": "2026-08-24",
+   "channel": "Don't Worry About the Vase",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "communities-can-block-data-centers",
+     "side": "reject",
+     "where": "'I am very much in the \"more data centers in America would be good\" camp'; 'shutting down construction within America would shift construction elsewhere'"
+    }
+   ],
+   "note": "Soft: he calls the post 'descriptive' and offers no position on local veto rights. Only partial thin-side evidence found for this statement."
+  }
+ ]
+}

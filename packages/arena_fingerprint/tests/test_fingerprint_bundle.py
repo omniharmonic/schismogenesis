@@ -85,11 +85,15 @@ def test_committed_bundle_is_current():
         atlas_version=committed["atlas_version"],
         newcomers={
             p["id"]: p["name"]
-            for p in json.loads((HERE.parents[2] / "seed/AI-FUTURES-SOURCES-v2.json").read_text())[
-                "people"
-            ]
+            for name in (
+                "AI-FUTURES-SOURCES-v2.json",
+                "AI-FUTURES-SOURCES-v4.json",
+                "AI-FUTURES-SOURCES-v5.json",
+            )  # fmt: skip
+            for p in json.loads((HERE.parents[2] / "seed" / name).read_text()).get("people", [])
         },
         voices=json.loads(voices.read_text()) if voices.exists() else {},
+        season_id=committed["season"],
     )
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))
 

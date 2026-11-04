@@ -47,7 +47,7 @@ export function thinkerCard(bundle, id, answers = {}) {
     ${(bundle.voices?.[id] || []).length ? `<h4>In their own words</h4><ul class="positions voices">${bundle.voices[id].map((v) => `<li>
         <p class="voice-position">${esc(v.position)}</p>
         <blockquote class="voice">“${esc(v.quote)}”<cite><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.work)}</a></cite></blockquote></li>`).join("")}</ul>` : ""}
-    ${rows.length ? "" : `<p class="muted">We haven't found this person taking a clear side on any of the 24 statements yet.</p>`}
+    ${rows.length ? "" : `<p class="muted">We haven't found this person taking a clear side on any of the ${bundle.anchors.length} statements yet.</p>`}
     ${groups.map(([title, list]) => `<h4>${title}</h4><ul class="positions">${list.map((r) => `<li>
         <p class="serif">${esc(r.a.text)}</p>
         <p class="sides">${chip(r.item.a, SIDE)}${r.you !== undefined ? chip(r.you, YOU) : ""}<a class="small" href="/s/${esc(r.a.id)}">Everyone on this</a></p>

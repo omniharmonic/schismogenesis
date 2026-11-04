@@ -17,15 +17,17 @@ from arena_core.provenance import code_ref, inputs_hash, log_events
 # Gate G0.3 plus later decisions. D-31.9 added bayeslord and D-31.12 added Alex Karp, neither in
 # SEED-v4, so 817 becomes 819. D-31.12 also moved three seed landmarks in, so 53 slice landmarks
 # becomes 58. D-31.18 (atlas expansion, Benjamin 2026-11-03) added 18 new voices and moved 7 more
-# seed landmarks in: 819 becomes 837 and 58 becomes 83. These stay literal so verify checks the
-# data against the decision instead of against itself.
+# seed landmarks in: 819 becomes 837 and 58 becomes 83. D-31.20 (round 4, AI and the social
+# contract, 2026-11-03) added 31 new voices and moved 11 more seed landmarks in: 837 becomes 868
+# and 83 becomes 125; its gap round (4b) added 28 more and moved 3 in: 896 and 156. These
+# stay literal so verify checks the data against the decision instead of against itself.
 EXPECTED = {
     "niches": 234,
-    "landmarks": 837,
+    "landmarks": 896,
     "slice niches": 15,
     "slice core niches": 8,
     "slice adjacent niches": 7,
-    "slice landmarks": 83,
+    "slice landmarks": 156,
     "worldview core landmarks": 11,
     "landmarks hidden from public surfaces": 20,
     "flagged landmarks visible on public surfaces": 0,

@@ -49,7 +49,8 @@ MIN_PLACED = 4
 TERMS = ["safety", "intelligence", "progress", "freedom", "democracy", "alignment", "power",
          "open", "human", "truth", "risk", "accelerat"]  # fmt: skip
 SEEDS = ["seed/WORLDVIEW-CORE-SOURCES.json", "seed/AI-FUTURES-SOURCES.json",
-         "seed/AI-FUTURES-SOURCES-v2.json", "seed/AI-FUTURES-SOURCES-v3.json"]  # fmt: skip
+         "seed/AI-FUTURES-SOURCES-v2.json", "seed/AI-FUTURES-SOURCES-v3.json",
+         "seed/AI-FUTURES-SOURCES-v4.json", "seed/AI-FUTURES-SOURCES-v5.json"]  # fmt: skip
 
 
 def majority(rows: list[dict]) -> dict:
@@ -259,6 +260,15 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
                  "url": claim[4], "work": claim[5], "year": claim[6],
                  "why": h.get("necessity")}
             )  # fmt: skip
+    if "--pool" in options:
+        # statements on the survey pool that the claim structure doesn't have yet join the atlas
+        # as ideas; their holders come only from the audited stances
+        pool = json.loads(pathlib.Path(options[options.index("--pool") + 1]).read_text())
+        for st in pool["statements"]:
+            if st["id"] not in meta:
+                meta[st["id"]] = {"key": st["id"], "canonical": st["proposition"],
+                                  "layer": st["layer"], "tl_type": "claim",
+                                  "validity": None, "holdings": []}  # fmt: skip
     if "--stances" in options:
         # the audited stances (two blind readers of the full texts, quotes checked in code) are
         # the only source for the season statements: they replace every older holding there
@@ -286,12 +296,20 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
         if core_path
         else None
     )
+    drawn = (
+        json.loads(pathlib.Path(options[options.index("--schools") + 1]).read_text())
+        if "--schools" in options
+        else None
+    )
     # core voices draw the schools and need more evidence; others are only placed by agreement
     keep = {
         p
         for p, n in count.items()
         if n >= MIN_HOLDINGS or (core_ids is not None and p not in core_ids and n >= MIN_PLACED)
     }
+    if drawn is not None:
+        # schools drawn from the audited stances (scripts/draw_schools.py): everyone placed there
+        keep = {p for p in drawn["people"] if p in count}
     dropped = sorted(names[p] for p in names if p in {*count} and p not in keep)
     chosen = {pair: h for pair, h in chosen.items() if pair[1] in keep}
 
@@ -305,13 +323,22 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     # mistaken for a view. Centring turns silence into "minus the average", so thinly read voices
     # look alike and would form a school of their own. Everyone else is placed by agreement.
     core = core_ids & keep if core_ids is not None else set(keep)
+    if drawn is not None:
+        core = {m for sc in drawn["schools"] for m in sc["members"]} & keep
     all_holdings = holdings
     holdings = [h for h in all_holdings if h.person in core]
     space = person_space(holdings, family)
     people = space.people
-    count, count_info = choose_count(holdings, family)
-    groups = sorted(schools(space, count), key=len, reverse=True)
-    stability = school_stability(holdings, family, count, runs=500)
+    if drawn is not None:
+        groups = [[m for m in sc["members"] if m in core] for sc in drawn["schools"]]
+        count = len(groups)
+        count_info = {"count": count, "separation": drawn["checks"]["silhouette"],
+                      "by_count": drawn["checks"]["by_count"]}  # fmt: skip
+        stability = {frozenset(k.split("|")): v for k, v in drawn["together"].items()}
+    else:
+        count, count_info = choose_count(holdings, family)
+        groups = sorted(schools(space, count), key=len, reverse=True)
+        stability = school_stability(holdings, family, count, runs=500)
     points = layout(space)
     points = points - points.mean(0)
     k = SPREAD / max(float(np.percentile(np.abs(points), 92)), 1e-9)
@@ -335,8 +362,16 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
         points = np.array([place[p] for p in people])
     stated = {(idea, p): h["a"] for (idea, p), h in chosen.items() if not h["inf"]}
     placed_by: dict[str, list[tuple[str, float]]] = {}
+    if drawn is not None:
+        # one measure for place and school: everyone sits where the drawing put them
+        place = {p: np.array([drawn["people"][p]["x"], drawn["people"][p]["y"]], float)
+                 for p in keep}  # fmt: skip
+        points = np.array([place[p] for p in people])
     for person in sorted(keep - core):
         result = place_by_agreement(person, stated, people, place, layer)
+        if drawn is not None:
+            placed_by[person] = result.top if result else []
+            continue
         if result is None:
             dropped.append(names[person])
             continue
@@ -386,7 +421,12 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     label_map = {tuple(sorted(s["members"])): s for s in copy.get("schools", [])}
     # a voice joins a school only on clear, distinctive evidence; otherwise it is shown as between
     # two schools, or as not yet grouped
-    fitted = {p: school_fit(p, stated, groups, layer) for p in placed_by}
+    fitted = (
+        {p: {"school": drawn["people"][p]["school"], "between": drawn["people"][p]["between"]}
+         for p in placed_by}
+        if drawn is not None
+        else {p: school_fit(p, stated, groups, layer) for p in placed_by}
+    )  # fmt: skip
     voted = {p: f["school"] for p, f in fitted.items()}
     schools_out = []
     for n, group in enumerate(groups):
@@ -465,6 +505,9 @@ def main(structure: str, copy_path: str, output: str, *options: str) -> None:
     for c in rows:
         if c[1] in people and c[7]:
             texts[c[1]].append(c[7])
+    for person in people:  # voices read only for the stances: use their audited quotes
+        if not texts[person]:
+            texts[person] = [h["q"] for (_, p), h in chosen.items() if p == person and h["q"]]
     means = np.array(
         [model.encode(texts[p][:200], normalize_embeddings=True).mean(0) for p in people]
     )

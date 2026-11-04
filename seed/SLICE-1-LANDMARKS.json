@@ -3330,6 +3330,1555 @@
    "landmark_id": "noah-smith",
    "name": "Noah Smith",
    "slice_tier": "atlas-expansion"
+  },
+  {
+   "landmark_id": "alexandria-ocasio-cortez",
+   "name": "Alexandria Ocasio-Cortez",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "andrew-yang",
+   "name": "Andrew Yang",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "barack-obama",
+   "name": "Barack Obama",
+   "primary_niche": "moderate-centrist-democrats",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Over a decade he has set out a consistent view: AI is transformative and unstoppable, but its gains must be shared through public oversight, guardrails, and possibly a shorter work week or guaranteed income.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.wired.com/2016/10/president-obama-mit-joi-ito-interview/",
+    "https://www.theverge.com/23948871/barack-obama-ai-regulation-free-speech-first-amendment-decoder-interview",
+    "https://obama.org/stories/read-president-obamas-remarks-at-the-2023-democracy-forum/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "moderate-centrist-democrats",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "chris-murphy",
+   "name": "Chris Murphy",
+   "primary_niche": "fight-oligarchy-populist-left",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He argues AI is a spiritual and civic threat as much as an economic one (job loss, AI companionship replacing friendship, outsourcing moral judgement) and calls the China-race argument a 'fraud'.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.chrismurphyct.com/p/in-our-scramble-to-win-the-ai-race",
+    "https://web.archive.org/web/20260616095502/https://www.murphy.senate.gov/newsroom/press-releases/murphy-speaks-on-ais-impact-on-job-loss-purpose-social-connection-at-brookings-institution",
+    "https://www.chrismurphyct.com/p/the-cult-of-technology-wants-to-outsource"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "fight-oligarchy-populist-left",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "cory-doctorow",
+   "name": "Cory Doctorow",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "david-autor",
+   "name": "David Autor",
+   "primary_niche": "abundance-liberals",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is the leading labor economist on automation and job polarization, and argues that AI could rebuild middle-class work by extending expertise to non-elite workers if policy and design steer it.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "One work is co-authored with James Manyika, a Google senior vice president; that is a tech-industry tie for that piece only. He is already in the seed as a co-author of the existing w34854 entry and as a speaker in the Jon Stewart transcript (AI-FUTURES-SOURCES-v2).",
+   "sources": [
+    "https://www.noemamag.com/how-ai-could-help-rebuild-the-middle-class/",
+    "https://economics.mit.edu/sites/default/files/2026-04/A%20Better%20Way%20to%20Think%20About%20AI%20-%20The%20Atlantic.pdf",
+    "https://economics.mit.edu/sites/default/files/2026-04/Autor-JEL-Reiew-Kasy-March-2026.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "abundance-liberals",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "duncan-crabtree-ireland",
+   "name": "Duncan Crabtree-Ireland",
+   "primary_niche": "labor-movement-left",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He negotiated the 2023 SAG-AFTRA AI protections and is the leading union voice on consent, compensation and digital replicas of performers.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Fewer than 3 usable works (1 found). His April 2024 Senate Judiciary NO FAKES Act testimony and sagaftra.org statements could not be fetched: judiciary.senate.gov and sagaftra.org return 403. The web-search budget ran out before other venues could be checked. Fran Drescher was not sourced for the same reason. No one is proposed in his place.",
+   "sources": [
+    "https://www.ftc.gov/system/files/ftc_gov/pdf/creative-economy-and-generative-ai-transcript-october-4-2023.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "labor-movement-left",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "elizabeth-warren",
+   "name": "Elizabeth Warren",
+   "primary_niche": "anti-monopoly-neo-brandeisian",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She frames AI as a question of finance and power: a debt-fuelled bubble, bailout risk, taxing AI gains, and breaking Big Tech's grip, and she now calls for a pause on frontier AI.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://time.com/article/2026/05/27/why-we-need-to-tax-ai/",
+    "https://web.archive.org/web/20260713035910/https://www.banking.senate.gov/newsroom/minority/warren-remarks-at-vanderbilt-policy-accelerator-event-highlighting-economic-and-financial-risks-of-potential-ai-crash",
+    "https://web.archive.org/web/20260322072401id_/https://www.warren.senate.gov/imo/media/doc/letter_to_openai_from_senator_warren.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "anti-monopoly-neo-brandeisian",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "erik-brynjolfsson",
+   "name": "Erik Brynjolfsson",
+   "primary_niche": "abundance-liberals",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He coined 'the Turing Trap', the argument that building human-like AI to automate work concentrates power and wealth whereas augmentation shares gains, and his ADP payroll study is the most-cited evidence on AI's early hit to young workers.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://arxiv.org/pdf/2201.04200",
+    "https://digitaleconomy.stanford.edu/wp-content/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf",
+    "https://www.nber.org/system/files/working_papers/w31161/w31161.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "abundance-liberals",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "ezra-klein",
+   "name": "Ezra Klein",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "fei-fei-li",
+   "name": "Fei-Fei Li",
+   "primary_niche": "agi-frontier-builders",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She is the best-known voice for 'human-centered AI', arguing for public-sector AI investment, evidence-based policy and an open research ecosystem, and against SB 1047.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://hai.stanford.edu/assets/files/2023-09/Fei-Fei-Li-Senate-Testimony.pdf",
+    "https://fortune.com/2024/08/06/godmother-of-ai-says-californias-ai-bill-will-harm-us-ecosystem-tech-politics/",
+    "https://transcripts.un.org/en/sc/9821"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "agi-frontier-builders",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "frances-haugen",
+   "name": "Frances Haugen",
+   "primary_niche": "humane-tech-attention-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She is the best-known tech whistleblower. Her account of engagement-based ranking, AI moderation that fails outside English, and harm to children set the terms of the platform-accountability debate that AI policy now inherits.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Her own-voice texts are mostly from 2021 to 2023 and are about social-media algorithms and machine-learning moderation, not frontier AI. Her 2026 statements on AI (that whistleblowers are the best check on AI labs, and that audits should be required by law) exist only in news articles and audio without transcripts, so they are not included. Owner should decide whether platform-algorithm positions are enough to place her.",
+   "sources": [
+    "https://www.govinfo.gov/content/pkg/CHRG-117shrg54110/html/CHRG-117shrg54110.htm",
+    "https://docs.house.gov/meetings/IF/IF16/20211201/114268/HHRG-117-IF16-Wstate-HaugenF-20211201-U1.pdf",
+    "https://www.mctd.ac.uk/wp-content/uploads/2022/05/Frances-Haugen-transcript-1.html"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "humane-tech-attention-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "gavin-newsom",
+   "name": "Gavin Newsom",
+   "primary_niche": "moderate-centrist-democrats",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "As governor of the state that hosts most frontier AI labs, he vetoed SB 1047, signed SB 53, and issued AI executive orders on state use of AI and on worker displacement, so his decisions set de facto US AI policy.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Review: in June 2026 the governor's office announced a partnership supplying Anthropic tools to California state agencies (gov.ca.gov, 2026-06-29). Anthropic makes the model doing this research.",
+   "sources": [
+    "https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf",
+    "https://www.gov.ca.gov/wp-content/uploads/2025/09/SB-53-Signing-Message.pdf",
+    "https://www.gov.ca.gov/wp-content/uploads/2025/10/AB-1064-Veto.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "moderate-centrist-democrats",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "jan-leike",
+   "name": "Jan Leike",
+   "primary_niche": "ai-safety-xrisk",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is a leading alignment researcher whose 2024 resignation from OpenAI ('safety culture has taken a backseat to shiny products') was a landmark, and who now argues that alignment is unsolved but looks increasingly solvable.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Close tie to Anthropic: he is a current Anthropic employee and co-leads its Alignment Science team, and Anthropic's model is doing this research. His 2026 post praises the alignment of Anthropic's own models. His blog is mostly technical alignment writing, so it has fewer social positions than others in this group.",
+   "sources": [
+    "https://aligned.substack.com/p/alignment-is-not-solved-but-increasingly-looks-solvable",
+    "https://aligned.substack.com/p/should-we-control-ai",
+    "https://aligned.substack.com/p/two-alignment-threat-models"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-safety-xrisk",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "jaron-lanier",
+   "name": "Jaron Lanier",
+   "primary_niche": "humane-tech-attention-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "A technologist from inside the industry who argues there is no 'A.I.' as a creature, only a new form of human collaboration, and who proposes data dignity (provenance and payment for the people whose data trains models).",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Employed by Microsoft (Prime Unifying Scientist, Microsoft Research), a major AI developer and OpenAI's largest backer; his essays say they do not speak for Microsoft. The owner may want to note this.",
+   "sources": [
+    "https://www.newyorker.com/science/annals-of-artificial-intelligence/there-is-no-ai",
+    "https://www.newyorker.com/science/annals-of-artificial-intelligence/how-to-picture-ai",
+    "https://www.newyorker.com/culture/the-weekend-essay/your-ai-lover-will-change-you"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "humane-tech-attention-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "jensen-huang",
+   "name": "Jensen Huang",
+   "primary_niche": "agi-frontier-builders",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "As head of the company that supplies most AI compute, he is the loudest industry voice against chip export controls and against predictions of mass AI job loss.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Anthropic tie: Nvidia announced a large investment in and compute partnership with Anthropic (Nov 2025), and Huang has publicly clashed with Anthropic and Dario Amodei over export controls and jobs. Owner should review.",
+   "sources": [
+    "https://www.rev.com/transcripts/nvidia-ceo-jensen-huang-60-minutes-interview",
+    "https://stratechery.com/2025/an-interview-with-nvidia-ceo-jensen-huang-about-chip-controls-ai-factories-and-enterprise-pragmatism/",
+    "https://www.geopolitechs.org/p/jensen-huangs-interview-on-cctvs"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "agi-frontier-builders",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "jonathan-haidt",
+   "name": "Jonathan Haidt",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "joy-buolamwini",
+   "name": "Joy Buolamwini",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Her Gender Shades audits made AI bias a mainstream policy issue, and she has testified repeatedly for moratoria and biometric rights.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://docs.house.gov/meetings/GO/GO00/20190522/109521/HHRG-116-GO00-Wstate-BuolamwiniJ-20190522.pdf",
+    "https://time.com/5520558/artificial-intelligence-racial-gender-bias/",
+    "https://poetofcode.substack.com/p/in-the-beginning-welcome-to-the-poet"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "kate-crawford",
+   "name": "Kate Crawford",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She treats AI as an extractive industry of energy, water, minerals, labour and data, and calls for disclosure and regulation of those material costs.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Employed by Microsoft Research (a major AI developer and OpenAI investor); she discloses this as a competing interest in her Nature piece. Only 3 usable works found, one of them a 2014 big-data essay.",
+   "sources": [
+    "https://www.nature.com/articles/d41586-024-00478-x",
+    "https://www.e-flux.com/architecture/intensification/6782975/eating-the-future-the-metabolic-logic-of-ai-slop",
+    "http://thenewinquiry.com/essays/the-anxieties-of-big-data/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "lina-khan",
+   "name": "Lina Khan",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "liz-shuler",
+   "name": "Liz Shuler",
+   "primary_niche": "labor-movement-left",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She leads the largest US labor federation and has made AI its top issue, calling unregulated AI 'the single biggest threat to working people of our lifetime' while backing labor-tech partnerships such as the AFL-CIO and Microsoft deal.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "aflcio.org blocks plain HTTP GET (Cloudflare returns 403 to curl and WebFetch). All three works point to Internet Archive snapshots of the original aflcio.org pages, which load as static HTML. Her AFL-CIO press statements on AI (Senate AI Insight Forums, 2023) are short (116 and 181 words), so they are left out.",
+   "sources": [
+    "https://web.archive.org/web/20260727143520/https://aflcio.org/speeches/afl-cio-president-liz-shulers-speech-national-press-club",
+    "https://web.archive.org/web/20240104101330/https://aflcio.org/speeches/shulers-speech-afl-cio-and-microsofts-new-tech-labor-partnership-event",
+    "https://web.archive.org/web/20241007021324/https://aflcio.org/speeches/pres-shulers-speech-2024-labor-innovation-technology-summit"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "labor-movement-left",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "marsha-blackburn",
+   "name": "Marsha Blackburn",
+   "primary_niche": "populist-ai-backlash",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She led the 99-1 vote to strip the state AI-law moratorium and argues for the protections she calls the '4 Cs' (children, creators, conservatives, communities), a populist-right case for regulating AI.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Her official site (blackburn.senate.gov) returns HTTP 403 to plain requests, so two of her five works are verbatim mirrors of her office's press releases on capitolreleases.com; the owner may prefer to swap these for the originals.",
+   "sources": [
+    "https://elizabethton.com/2025/07/08/on-ai-congress-just-provided-a-huge-win-for-children-creators-and-conservatives/",
+    "https://www.govinfo.gov/content/pkg/CHRG-119shrg61677/html/CHRG-119shrg61677.htm",
+    "https://isoc.live/sotn2025/05_Marsha_Blackburn_TRANSCRIPT.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "populist-ai-backlash",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "michael-kratsios",
+   "name": "Michael Kratsios",
+   "primary_niche": "tech-right",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is the administration's chief AI policy voice at home and abroad: 'AI dominance', export of the 'American AI stack', and outright rejection of global AI governance.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Industry ties: he was a managing director at Scale AI between his two OSTP terms, and earlier chief of staff at Thiel Capital. Worth noting for the owner, though not a conflict with Anthropic.",
+   "sources": [
+    "https://republicans-science.house.gov/_cache/files/3/b/3beb7204-ddbf-4de1-88a9-8f7a5514535c/ED8720DCF1CBBEADA0456B7E79AE33E820400442F4CFA88EB754E047936A4C2B.ostp-director-kratsios-ai-action-plan-hearing-testimony-for-house-sst-committee-1.14.26.pdf",
+    "https://www.govinfo.gov/content/pkg/CHRG-119shrg62739/html/CHRG-119shrg62739.htm",
+    "https://www.whitehouse.gov/releases/2025/08/remarks-by-director-kratsios-at-the-apec-digital-and-ai-ministerial-meeting/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "tech-right",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "miles-brundage",
+   "name": "Miles Brundage",
+   "primary_niche": "ai-safety-xrisk",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He was a longtime OpenAI policy insider who left to argue in public that superhuman AI is a few years away and that the US urgently needs comprehensive regulation, security-first governance and mandatory independent frontier-AI auditing.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://milesbrundage.substack.com/p/times-up-for-ai-policy",
+    "https://milesbrundage.substack.com/p/emergency-blog-post-reflections-on",
+    "https://milesbrundage.substack.com/p/why-we-need-to-think-bigger-in-ai"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-safety-xrisk",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "pete-buttigieg",
+   "name": "Pete Buttigieg",
+   "primary_niche": "moderate-centrist-democrats",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He argues that Democrats and the public are 'profoundly underreacting' to AI, and frames its effect on jobs, wealth concentration and belonging as a policy choice rather than a technology puzzle.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Only 3 usable works found. His Substack has a single AI essay; the other two are labelled interview transcripts.",
+   "sources": [
+    "https://petebuttigieg.substack.com/p/we-are-still-underreacting-on-ai",
+    "https://steveinskeep.substack.com/p/pete-buttigieg-has-a-warning-about",
+    "https://theharvardpoliticalreview.com/interviews-pete-buttigieg/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "moderate-centrist-democrats",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "reid-hoffman",
+   "name": "Reid Hoffman",
+   "primary_niche": "abundance-liberals",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is the most articulate pro-deployment 'techno-humanist', arguing that iterative public release of AI expands human agency and that regulation should follow measured risk.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.linkedin.com/pulse/openai-ai-futures-reid-hoffman/",
+    "https://www.linkedin.com/pulse/superagency-reid-hoffman-d3ojf/",
+    "https://www.reidhoffman.org/ai-society-and-our-world-order/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "abundance-liberals",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "richard-blumenthal",
+   "name": "Richard Blumenthal",
+   "primary_niche": "populist-ai-backlash",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He ran the hearings (Altman, Amodei, Bengio and others) that set the US licensing-and-liability template for AI regulation.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "All three usable works are his opening statements inside 2023 hearing transcripts; his own site (blumenthal.senate.gov) blocks automated fetches, so 2024-2026 statements were not verified.",
+   "sources": [
+    "https://www.govinfo.gov/content/pkg/CHRG-118shrg52706/html/CHRG-118shrg52706.htm",
+    "https://www.govinfo.gov/content/pkg/CHRG-118shrg53503/html/CHRG-118shrg53503.htm",
+    "https://www.govinfo.gov/content/pkg/CHRG-118shrg53879/html/CHRG-118shrg53879.htm"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "populist-ai-backlash",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "ro-khanna",
+   "name": "Ro Khanna",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "ron-desantis",
+   "name": "Ron DeSantis",
+   "primary_niche": "national-conservatives",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is the most prominent Republican executive defying federal preemption, pairing child-safety and consumer rules with a moral, religious critique of AI 'supplanting' humans.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Only 3 usable works. His AI statements are mostly at press conferences (video only), and a further search was cut short by the session's search budget.",
+   "sources": [
+    "https://www.flsenate.gov/usercontent/session/archive/journals/2026/2026-sj-bound-vI.pdf",
+    "https://pubt.io/view/73A780A33353CB46182F066EB404EE0708E135D4",
+    "https://www.flgov.com/eog/news/press/2026/governor-ron-desantis-signs-law-protect-floridians-subsidizing-data-centers"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "national-conservatives",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "ruha-benjamin",
+   "name": "Ruha Benjamin",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She links AI hype and AI-doom alike to eugenic and elite visions of the future and argues for community-led, imaginative alternatives.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://lareviewofbooks.org/article/the-new-artificial-intelligentsia/",
+    "https://www.ted.com/talks/ruha_benjamin_is_technology_our_savior_or_our_slayer/transcript",
+    "https://www.techpolicy.press/imagining-2025-and-beyond-with-dr-ruha-benjamin/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "rumman-chowdhury",
+   "name": "Rumman Chowdhury",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "A practitioner of responsible AI who argues that governance, independent audits and red-teaming make innovation possible, and who wants global oversight that includes the Global Majority.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://republicans-science.house.gov/index.cfm?a=Files.Serve&File_id=68B1083C-D768-4982-A8F9-74B0E771A2BC",
+    "https://www.wired.com/story/ai-desperately-needs-global-oversight/",
+    "https://foreignpolicy.com/2024/09/19/ai-governance-safety-global-majority-internet-access-regulation/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "russell-moore",
+   "name": "Russell Moore",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "safiya-noble",
+   "name": "Safiya Umoja Noble",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She framed algorithmic discrimination as a structural feature of commercial platforms rather than a bug, and argues for regulation and reparation over tech fixes.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.wired.com/story/social-inequality-will-not-be-solved-by-an-app/",
+    "https://www.noemamag.com/the-loss-of-public-goods-to-big-tech/",
+    "https://www.npr.org/transcripts/1197954253"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "scott-wiener",
+   "name": "Scott Wiener",
+   "primary_niche": "abundance-liberals",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He wrote the two most contested US frontier-AI safety bills and frames catastrophic-risk regulation as a progressive check on corporate self-regulation.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Review: Anthropic engaged on SB 1047 (his own release names Anthropic as a group that helped refine the bill) and publicly backed SB 53. He was also a 2026 congressional candidate (CA-11), so recent statements are campaign-adjacent.",
+   "sources": [
+    "https://sd11.senate.ca.gov/news/senator-wiener-responds-openai-opposition-sb-1047",
+    "https://sd11.senate.ca.gov/news/senator-wiener-responds-speaker-emerita-pelosis-opposition-sb-1047",
+    "https://sd11.senate.ca.gov/news/senator-wiener-responds-governor-newsom-vetoing-landmark-ai-bill"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "abundance-liberals",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "sean-o-brien",
+   "name": "Sean O'Brien",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "shoshana-zuboff",
+   "name": "Shoshana Zuboff",
+   "primary_niche": "humane-tech-attention-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She gives the political-economy critique that AI is surveillance capitalism continuing to expand, built on taking behavioural data, and that it is incompatible with democracy unless that taking is outlawed.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Thin AI-specific material: only the Dec 2025 El País interview addresses AI directly; the other works are her core surveillance-capitalism framework (2019 to 2021). Her AI-focused book is reportedly due in 2026 and would be a better source once out.",
+   "sources": [
+    "https://english.elpais.com/technology/2025-12-15/shoshana-zuboff-philosopher-ai-is-surveillance-capitalism-continuing-to-evolve-and-expand.html",
+    "https://www.transcend.org/tms/?p=178527",
+    "https://newlaborforum.cuny.edu/2019/01/22/surveillance-capitalism/"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "humane-tech-attention-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "steven-adler",
+   "name": "Steven Adler",
+   "primary_niche": "ai-safety-xrisk",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is an ex-OpenAI safety researcher who argues in plain language that AI danger warnings are sincere, that companies must not grade their own homework, that federal preemption without federal rules is a dodge, and that AI could enable authoritarian surveillance.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Several of his posts defend Anthropic's choices (refusing Pentagon surveillance and autonomous-weapons uses; withholding the Mythos model) and criticise OpenAI. As far as these sources show he has no formal tie to Anthropic, but the owner may want to check for balance, since Anthropic's model is doing this research.",
+   "sources": [
+    "https://www.clear-eyed.ai/p/dont-let-openai-grade-its-own-homework",
+    "https://www.clear-eyed.ai/p/ai-powered-authoritarianism-is-coming",
+    "https://www.clear-eyed.ai/p/the-magic-phrase-that-kills-ai-regulation"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-safety-xrisk",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "stuart-russell",
+   "name": "Stuart Russell",
+   "primary_niche": "ai-safety-xrisk",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "One of the most cited AI scientists, he argues from inside the field that the control problem is real, that voluntary commitments are not enough, and that regulators should enforce behavioural red lines and put the burden of proof on developers.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://aima.eecs.berkeley.edu/~russell/papers/russell-senate23-written.pdf",
+    "https://aima.eecs.berkeley.edu/~russell/papers/russell-senate23b-statement.pdf",
+    "https://aima.eecs.berkeley.edu/~russell/papers/russell-daedalus22-succeed.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-safety-xrisk",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "ted-cruz",
+   "name": "Ted Cruz",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "tristan-harris",
+   "name": "Tristan Harris",
+   "slice_tier": "atlas-expansion-r4"
+  },
+  {
+   "landmark_id": "william-saunders",
+   "name": "William Saunders",
+   "primary_niche": "ai-safety-xrisk",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is an insider who resigned over safety and told the Senate that OpenAI repeatedly put speed ahead of rigor, that AGI could come within about 3 years, and that the public must have a say in risky AI decisions.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.govinfo.gov/content/pkg/CHRG-118shrg63050/html/CHRG-118shrg63050.htm",
+    "https://williamrsaunders.substack.com/p/principles-for-the-agi-race",
+    "https://williamrsaunders.substack.com/p/pragmatic-advice-on-ai-regulation"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "ai-safety-xrisk",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "yuval-noah-harari",
+   "name": "Yuval Noah Harari",
+   "primary_niche": "humane-tech-attention-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "His framing that AI is an agent, not a tool, and has 'hacked the operating system' of civilisation through language shapes how leaders and the general public talk about AI's threat to democracy, trust and human history.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.sundaytimes.timeslive.co.za/sunday-times/opinion-and-analysis/insight/2023-06-11-watch-out-humans--ai-has-hacked-the-operating-system-of-civilisation/",
+    "https://www.theglobeandmail.com/opinion/article-why-ai-poses-an-existential-danger-to-humanity/",
+    "https://singjupost.com/transcript-ai-and-the-future-of-humanity-yuval-noah-harari"
+   ],
+   "slice_tier": "atlas-expansion-r4",
+   "slice_niche": "humane-tech-attention-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: AI and the social contract); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "abeba-birhane",
+   "name": "Abeba Birhane",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Her paper argues robots are not the kind of thing that could be granted rights at all, and that the debate distracts from human welfare.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Co-authored with Jelle van Dijk.",
+   "sources": [
+    "https://arxiv.org/abs/2001.05046"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "adam-thierer",
+   "name": "Adam Thierer",
+   "primary_niche": "classical-liberal-libertarians",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Leading libertarian voice on AI policy; has testified to Congress several times and argues in his own name for federal preemption of state AI laws, against ex-ante algorithmic audits, and against tort-heavy AI liability.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.rstreet.org/outreach/adam-thierer-testimony-hearing-on-ai-at-a-crossroads-a-nationwide-strategy-or-californication/",
+    "https://www.rstreet.org/research/americas-litigation-addiction-threatens-its-ai-leadership/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "classical-liberal-libertarians",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "alex-tabarrok",
+   "name": "Alex Tabarrok",
+   "primary_niche": "progress-studies-abundance",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Own blog post arguing AI leaders' risk warnings are sincere, not regulatory capture: 'Amodei actually believes what he's saying.'",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://marginalrevolution.com/marginalrevolution/2026/09/what-regulatory-capture-actually-looks-like.html"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "progress-studies-abundance",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "asad-ramzanali",
+   "name": "Asad Ramzanali",
+   "primary_niche": "anti-monopoly-neo-brandeisian",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Signed op-ed in TIME explicitly calling to break up vertically integrated AI companies.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://time.com/7322418/chat-gpt-open-ai-nvidia-tech-monopoly/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "anti-monopoly-neo-brandeisian",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "bruce-schneier",
+   "name": "Bruce Schneier",
+   "primary_niche": "deliberative-democracy-civic-tech",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He argues for a government-funded and government-directed 'public option' for AI so that development is not left only to private companies.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Co-authored essay (with Nathan E. Sanders), published under both names; not a co-signed letter, but check the rule.",
+   "sources": [
+    "https://www.schneier.com/essays/archives/2023/06/build-ai-by-the-people-for-the-people.html"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "deliberative-democracy-civic-tech",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "bryan-caplan",
+   "name": "Bryan Caplan",
+   "slice_tier": "atlas-expansion-r4b"
+  },
+  {
+   "landmark_id": "candice-odgers",
+   "name": "Candice L. Odgers",
+   "primary_niche": "tech-hype-skeptics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Her Nature review of The Anxious Generation says the claim that digital technology is causing an epidemic of mental illness 'is not supported by science'.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.nature.com/articles/d41586-024-00902-2"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "tech-hype-skeptics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "chris-callison-burch",
+   "name": "Chris Callison-Burch",
+   "primary_niche": "open-source-digital-rights",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "His House testimony explicitly advocates keeping fair use for AI training, warning that per-work licensing would hand AI to incumbents.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Lower public profile than most map figures.",
+   "sources": [
+    "https://docs.house.gov/meetings/JU/JU03/20230517/115951/HHRG-118-JU03-Wstate-Callison-BurchC-20230517.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "open-source-digital-rights",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "christopher-ferguson",
+   "name": "Christopher J. Ferguson",
+   "primary_niche": "tech-hype-skeptics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He writes that the evidence that social media causes youth mental health problems remains weak, citing his own meta-analyses.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "His meta-analysis methods are disputed by Haidt and Rausch; the stance itself is clear.",
+   "sources": [
+    "https://www.psychologytoday.com/us/blog/checkpoints/202304/social-media-and-youth-mental-health"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "tech-hype-skeptics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "chuck-grassley",
+   "name": "Chuck Grassley",
+   "primary_niche": "fiscal-business-conservatives",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Introduced the AI Whistleblower Protection Act, with a statement in his own name.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.judiciary.senate.gov/press/rep/releases/grassley-introduces-ai-whistleblower-protection-act"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "fiscal-business-conservatives",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "daniel-faggella",
+   "name": "Daniel Faggella",
+   "primary_niche": "effective-accelerationism",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He argues that the great moral aim of AGI should be a 'Worthy Successor' that, rather than humanity, determines the future of life.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "He now disowns the label 'successionism' and calls for slowing down; the essay still argues humanity should not steer forever.",
+   "sources": [
+    "https://danfaggella.com/worthy/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "effective-accelerationism",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "daniel-jeffries",
+   "name": "Daniel Jeffries",
+   "primary_niche": "open-source-digital-rights",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Argues training on scraped data is fair use and that individual compensation for creators is unworkable and would entrench big companies.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Modest public profile; former Stability AI executive, so he has an interest in the outcome.",
+   "sources": [
+    "https://danieljeffries.substack.com/p/ai-art-blurred-lines-and-the-looming"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "open-source-digital-rights",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "elizabeth-nolan-brown",
+   "name": "Elizabeth Nolan Brown",
+   "primary_niche": "classical-liberal-libertarians",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She argues the GUARD Act's ban on AI companions for minors is overbroad, overrides parents, and would bring ID checks across the web.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Journalist; the work is her own-byline opinion analysis, not news reporting about someone else.",
+   "sources": [
+    "https://reason.com/2026/05/04/how-a-bill-banning-ai-companions-for-kids-could-usher-in-widespread-id-checks-online/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "classical-liberal-libertarians",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "erik-hoel",
+   "name": "Erik Hoel",
+   "primary_niche": "populist-ai-backlash",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "In 'We need a Butlerian Jihad against AI' he argues that 'strong AI is immoral just in its existence', an abomination, apart from its risks.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.theintrinsicperspective.com/p/we-need-a-butlerian-jihad-against"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "populist-ai-backlash",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "eugenia-kuyda",
+   "name": "Eugenia Kuyda",
+   "primary_niche": "agi-frontier-builders",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "She describes Replika as 'an AI friend' and defends AI friendship as a real, if different, kind of relationship, comparing it to a therapist or a pet.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Commercial interest: she sells AI companions.",
+   "sources": [
+    "https://www.theverge.com/24216748/replika-ceo-eugenia-kuyda-ai-companion-chatbots-dating-friendship-decoder-podcast-interview"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "agi-frontier-builders",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "felix-simon",
+   "name": "Felix M. Simon",
+   "primary_niche": "tech-hype-skeptics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He is lead author of an HKS Misinformation Review commentary arguing that fears about generative AI's effect on misinformation are overblown.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Co-authored with Sacha Altay and Hugo Mercier; attributed to Simon as first author.",
+   "sources": [
+    "https://misinforeview.hks.harvard.edu/article/misinformation-reloaded-fears-about-the-impact-of-generative-ai-on-misinformation-are-overblown/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "tech-hype-skeptics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "garett-jones",
+   "name": "Garett Jones",
+   "primary_niche": "progress-studies-abundance",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Interview transcript arguing for more power to independent expert committees and less democracy.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.dwarkesh.com/p/garett-jones"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "progress-studies-abundance",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "george-hotz",
+   "name": "George Hotz",
+   "primary_niche": "effective-accelerationism",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Lex Fridman transcript dismissing AI-control efforts: 'You think you're going to control it. You're not going to control it.'",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://lexfridman.com/george-hotz-3-transcript/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "effective-accelerationism",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "hoan-ton-that",
+   "name": "Hoan Ton-That",
+   "primary_niche": "tech-right",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Own-name written testimony to the Massachusetts facial-recognition commission arguing against bans on police facial recognition.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://malegislature.gov/Reports/19351/ma-written-testimony-hoan-ton-that.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "tech-right",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "james-livingston",
+   "name": "James Livingston",
+   "primary_niche": "class-first-heterodox-left",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "His Aeon essay argues the belief that a job gives meaning, purpose and character is no longer plausible and asks what people would do if income didn't depend on work.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://aeon.co/essays/what-if-jobs-are-not-the-solution-but-the-problem"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "class-first-heterodox-left",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "jeff-jarvis",
+   "name": "Jeff Jarvis",
+   "primary_niche": "open-source-digital-rights",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "A journalist who argues that AI reading and learning from text is fair use and warns that restricting training sets would harm public discourse.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://buzzmachine.com/2023/09/02/copyright-and-ai-and-journalism/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "open-source-digital-rights",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "joanna-bryson",
+   "name": "Joanna J. Bryson",
+   "primary_niche": "ai-ethics-critics",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "In testimony to UK parliamentary groups she argues that AI artefacts should not be given moral or legal agency and that robot rights are the wrong frame.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://joanna-bryson.blogspot.com/2021/12/why-artefacts-cant-consent.html"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "ai-ethics-critics",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "lawrence-summers",
+   "name": "Lawrence Summers",
+   "primary_niche": "moderate-centrist-democrats",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "In his own op-ed he calls a tax on job-replacing robots illogical, 'protectionism against progress', and prefers growing the pie then redistributing through taxes, transfers and retraining.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://larrysummers.com/news-item/robots-are-wealth-creators-and-taxing-them-is-illogical/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "moderate-centrist-democrats",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "mark-lemley",
+   "name": "Mark A. Lemley",
+   "primary_niche": "open-source-digital-rights",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "His co-authored article 'Fair Learning' is the most-cited academic argument that AI training on copyrighted works should generally be permitted.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": "Work is co-authored with Bryan Casey (an academic paper, not a co-signed letter).",
+   "sources": [
+    "https://www.law.berkeley.edu/wp-content/uploads/2024/04/Fair-learning.pdf"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "open-source-digital-rights",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "matt-stoller",
+   "name": "Matt Stoller",
+   "slice_tier": "atlas-expansion-r4b"
+  },
+  {
+   "landmark_id": "neil-chilson",
+   "name": "Neil Chilson",
+   "primary_niche": "classical-liberal-libertarians",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "Writes his own newsletter opposing state algorithmic-discrimination/audit bills, backing a national preemptive standard, and criticizing SB 53's whistleblower provisions.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://outofcontrol.substack.com/p/red-flags-in-ai-legislation",
+    "https://outofcontrol.substack.com/p/raising-the-cost-of-bad-ai-laws",
+    "https://outofcontrol.substack.com/p/more-on-sb-53"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "classical-liberal-libertarians",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "oren-cass",
+   "name": "Oren Cass",
+   "slice_tier": "atlas-expansion-r4b"
+  },
+  {
+   "landmark_id": "richard-sutton",
+   "name": "Richard Sutton",
+   "primary_niche": "agi-frontier-builders",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He says succession to digital intelligence is inevitable and encourages people to welcome it as a great transition of the universe and to see AIs as our offspring.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.dwarkesh.com/p/richard-sutton"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "agi-frontier-builders",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "robert-shiller",
+   "name": "Robert Shiller",
+   "primary_niche": "moderate-centrist-democrats",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "In his own Project Syndicate column he argues that modest, even temporary, robot taxes should not be ruled out and could fund wage insurance for workers displaced by automation.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.socialeurope.eu/taxing-the-robots"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "moderate-centrist-democrats",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "scott-santens",
+   "name": "Scott Santens",
+   "primary_niche": "fight-oligarchy-populist-left",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "He argues that automation should free people from jobs and that unconditional income lets people do meaningful unpaid work, separating purpose from paid employment.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.scottsantens.com/why-we-should-all-have-a-basic-income/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "fight-oligarchy-populist-left",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
+  },
+  {
+   "landmark_id": "taylor-barkley",
+   "name": "Taylor Barkley",
+   "primary_niche": "classical-liberal-libertarians",
+   "secondary_niches": [],
+   "domain": "d3-tech-futures",
+   "role": "core",
+   "why": "His op-ed argues that the GUARD Act's ban on AI companions for minors won't keep kids safe and takes parents out of the decision.",
+   "platforms": {
+    "other": "public writing, speeches and testimony"
+   },
+   "longform_output": "medium",
+   "active_2025_2026": true,
+   "verification": "pending",
+   "record_type": "person",
+   "flag_for_benjamin": null,
+   "conflict_note": null,
+   "sources": [
+    "https://www.washingtonexaminer.com/op-eds/4555809/josh-hawley-ai-guard-act-keep-kids-safe/"
+   ],
+   "slice_tier": "atlas-expansion-r4b",
+   "slice_niche": "classical-liberal-libertarians",
+   "added": "2026-11-03 at Benjamin's direction (D-31.20: figures on the thin side of survey statements); names proposed by Claude for his review (E9)"
   }
  ],
  "priority_encounters": [

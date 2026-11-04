@@ -136,6 +136,7 @@ def build_bundle(
     atlas_version: str = "atlas-v1",
     newcomers: dict[str, str] | None = None,
     voices: dict[str, list[dict]] | None = None,
+    season_id: str = SEASON,
 ) -> dict:
     """Build the browser bundle. With `season`, keep those statements instead of reselecting.
 
@@ -196,7 +197,7 @@ def build_bundle(
     stances = {a: {p: v for p, v in e.items() if p in shown} for a, e in stances.items()}
     return {
         "version": version,
-        "season": SEASON,
+        "season": season_id,
         "atlas_version": atlas_version,
         "sets": SETS,
         "layers": LAYERS,
@@ -206,7 +207,7 @@ def build_bundle(
                 "set": i["set"],
                 "layer": i["layer"],
                 "text": i.get("display") or i["text"],
-                **({"proposition": i["text"]} if i.get("display") else {}),
+                **({"proposition": i["text"]} if i.get("display") not in (None, i["text"]) else {}),
                 "family": i["family"],
                 "split_score": i["split_score"],
             }

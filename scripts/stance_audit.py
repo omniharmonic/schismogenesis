@@ -45,7 +45,7 @@ def works_by_author() -> dict[str, list[dict]]:
             continue
         for w in json.loads(pathlib.Path(f).read_text())["works"]:
             path = pathlib.Path(f"data/texts/{w['key']}.txt")
-            if w["key"] in seen or not path.exists() or w.get("exclude"):
+            if w["key"] in seen or not path.exists() or w.get("exclude") or w.get("duplicate_of"):
                 continue
             seen.add(w["key"])
             out[w["author"]].append(

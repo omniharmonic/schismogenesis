@@ -119,7 +119,7 @@ function heroPreview() {
   $("hero-preview").append(card);
   const draw = () => {
     const p = pairs[n % pairs.length];
-    card.innerHTML = `<p class="preview-eyebrow">One of the 24 statements</p>
+    card.innerHTML = `<p class="preview-eyebrow">One of the ${bundle.anchors.length} statements</p>
       <p class="preview-statement serif">${esc(p.a.text)}</p>
       <div class="preview-sides">${side(p.yes, `Agree, ${p.up} thinkers`, "agree")}${side(p.no, `Disagree, ${p.down} thinkers`, "disagree")}</div>
       <button class="link-button small" id="preview-next">Show another</button>`;

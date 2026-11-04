@@ -57,7 +57,7 @@ async function main() {
     <div class="cols">${side(yes, names, "Agree", "agree")}${side(no, names, "Disagree", "disagree")}</div>
     ${people}
     <div class="room-card"><h2 style="margin-top:0">Where do you sit on the rest?</h2>
-      <p>${saved?.answers ? "Your answer here counts toward your fingerprint." : "Answer 24 statements like this one, with the names hidden, and see which thinkers you agree with."}</p>
+      <p>${saved?.answers ? "Your answer here counts toward your fingerprint." : `Answer ${bundle.anchors.length} statements like this one, with the names hidden, and see which thinkers you agree with.`}</p>
       <a class="button primary" href="/">${saved?.answers ? "Back to my fingerprint" : "Take the fingerprint"}</a></div>
     <p class="small muted">Thinkers are read by machine from their public work, and none has reviewed this. Silence is never counted as disagreement.</p>`;
   for (const b of el.querySelectorAll(".answers button")) {

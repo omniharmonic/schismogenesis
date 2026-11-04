@@ -7,70 +7,63 @@
  "schools": [
   {
    "members": [
-    "sam-altman",
-    "dario-amodei",
-    "marc-andreessen",
-    "elon-musk",
-    "guillaume-verdon",
-    "jd-vance"
-   ],
-   "label": "Builders"
-  },
-  {
-   "members": [
-    "emily-m-bender",
-    "timnit-gebru",
+    "barack-obama",
+    "brian-merchant",
+    "daron-acemoglu",
+    "e-glen-weyl",
+    "jaron-lanier",
+    "josh-hawley",
     "karen-hao",
-    "josh-hawley"
+    "meredith-whittaker",
+    "paul-kingsnorth",
+    "pope-leo-xiv",
+    "timnit-gebru"
    ],
    "label": "Human-first critics",
-   "note": "This group crosses the usual left and right. Hawley writes from a religious and national starting point, and the others from labor and language. They land together on AI's present harms to people."
+   "note": "They judge AI by what it does to people now: they doubt the big promises, put present harms first, and doubt that markets alone will serve people. The group crosses left and right, with labour and civil-rights scholars beside Josh Hawley, Pope Leo XIV and Paul Kingsnorth."
   },
   {
    "members": [
-    "curtis-yarvin",
     "david-sacks",
-    "nick-land"
+    "dean-ball",
+    "guillaume-verdon",
+    "jd-vance",
+    "marc-andreessen",
+    "michael-kratsios",
+    "robin-hanson",
+    "ted-cruz",
+    "yann-lecun"
    ],
-   "label": "Power realists"
+   "label": "Free-market builders",
+   "note": "They want AI built fast by private companies with the state kept out: strict rules now would do more harm than good, and fear of extinction is overblown."
+  },
+  {
+   "members": [
+    "bernie-sanders",
+    "chris-murphy",
+    "demis-hassabis",
+    "holly-elmore",
+    "max-tegmark",
+    "stuart-russell",
+    "tristan-harris",
+    "yoshua-bengio",
+    "zvi-mowshowitz"
+   ],
+   "label": "Public-interest safety",
+   "note": "They see advanced AI as a real risk to humanity and to jobs, and want it slowed and governed in the public interest rather than raced against China. Senators, scientists and safety researchers meet here."
   },
   {
    "members": [
     "daniel-kokotajlo",
     "eliezer-yudkowsky",
+    "elon-musk",
+    "leopold-aschenbrenner",
+    "noah-smith",
+    "sam-altman",
     "scott-alexander"
    ],
-   "label": "AI risk rationalists"
-  },
-  {
-   "members": [
-    "jason-crawford",
-    "robin-hanson",
-    "tyler-cowen"
-   ],
-   "label": "Progress pragmatists"
-  },
-  {
-   "members": [
-    "max-tegmark",
-    "vitalik-buterin",
-    "william-macaskill"
-   ],
-   "label": "Long-term stewards"
-  },
-  {
-   "members": [
-    "audrey-tang",
-    "e-glen-weyl"
-   ],
-   "label": "Pluralists"
-  },
-  {
-   "members": [
-    "balaji-srinivasan",
-    "peter-thiel"
-   ],
-   "label": "Exit founders"
+   "label": "AGI is near",
+   "note": "They expect a new kind of mind to arrive soon, whatever anyone chooses, take its risks seriously, and expect its wealth to need sharing directly, through ownership or income not tied to work."
   }
  ],
  "lenses": [

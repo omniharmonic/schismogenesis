@@ -304,7 +304,8 @@
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "deepen",
-   "note": "Episode page opened; whether it carries a full transcript was not checked. Chapter list includes 'AI doomerism and political narratives'."
+   "note": "Episode page opened; whether it carries a full transcript was not checked. Chapter list includes 'AI doomerism and political narratives'.",
+   "exclude": "not his own words as written: an AI-generated summary layer over an unlabelled caption transcript (flagged in the stance audit and round-4 source research)"
   },
   {
    "key": "weyl-the-real-dangers-of-generative-ai",
@@ -435,7 +436,8 @@
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "deepen",
-   "note": "Musk is one of several speakers (Neuralink team); use only his segments."
+   "note": "Musk is one of several speakers (Neuralink team); use only his segments.",
+   "exclude": "transcript without speaker labels, mostly Neuralink staff and the host (round-4 readers A-01, B-01)"
   },
   {
    "key": "alexander-why-not-slow-ai-progress",
@@ -989,7 +991,8 @@
    "excerpt": "",
    "verified_reachable": true,
    "deliverable": "widen",
-   "note": "Government document produced under her leadership at OSTP; not a personal byline. Use as context, weight lower."
+   "note": "Government document produced under her leadership at OSTP; not a personal byline. Use as context, weight lower.",
+   "exclude": "an official White House document, not her own words (holding audit: wrong speaker)"
   },
   {
    "key": "nelson-alondra-nelson-the-ai-bill-of-rights-and-the-fut",
@@ -1801,7 +1804,8 @@
    "authorship": "own_name",
    "replaces": "sacks-david-sacks-ai-crypto-china-dems-and-sf-a16z-pod",
    "verified_text": true,
-   "note": "Appears to be the same 2025-11-03 a16z episode under its YouTube title. Transcript is machine-generated from captions, with no speaker labels; Andreessen and Horowitz also speak."
+   "note": "Appears to be the same 2025-11-03 a16z episode under its YouTube title. Transcript is machine-generated from captions, with no speaker labels; Andreessen and Horowitz also speak.",
+   "exclude": "not his own words as written: an AI-generated summary layer over an unlabelled caption transcript (flagged in the stance audit and round-4 source research)"
   },
   {
    "key": "weyl-the-real-dangers-of-generative-ai-r",
@@ -1854,7 +1858,8 @@
    "authorship": "own_name",
    "replaces": "tang-ai-is-assistive-intelligence-can-lead-to-better",
    "verified_text": true,
-   "note": "Her own words run to about 3,000 words, followed by a Q&A. The page opens with host introductions. Theme: AI that connects rather than divides, and civic AI."
+   "note": "Her own words run to about 3,000 words, followed by a Q&A. The page opens with host introductions. Theme: AI that connects rather than divides, and civic AI.",
+   "duplicate_of": "tang-2025-12-04-right-livelihood-lecture-university-o"
   },
   {
    "key": "toner-how-to-govern-ai-even-if-it-s-hard-to-predict-r",
@@ -1906,7 +1911,8 @@
    "authorship": "own_name",
    "replaces": "nelson-alondra-nelson-the-ai-bill-of-rights-and-the-fut",
    "verified_text": true,
-   "note": "Lightly edited transcript; about 3,000 words are hers. Covers the AI Bill of Rights and its rollback."
+   "note": "Lightly edited transcript; about 3,000 words are hers. Covers the AI Bill of Rights and its rollback.",
+   "duplicate_of": "nelson-a-conversation-with-dr-alondra-nelson-on-ai-and"
   },
   {
    "key": "sanders-the-big-tech-oligarchs-war-against-workers-ai-an-r",
@@ -1919,7 +1925,8 @@
    "authorship": "own_name",
    "replaces": "sanders-the-big-tech-oligarchs-war-against-workers-ai-an",
    "verified_text": true,
-   "note": "The date is the repost date on his Senate site; the original Fox News date was not checked. The /op-eds/ path is readable even though other sanders.senate.gov URLs return 403."
+   "note": "The date is the repost date on his Senate site; the original Fox News date was not checked. The /op-eds/ path is readable even though other sanders.senate.gov URLs return 403.",
+   "duplicate_of": "sanders-artificial-intelligence-is-coming-for-the-workin"
   },
   {
    "key": "sanders-slow-this-thing-down-sanders-warns-us-has-no-clu-r",
@@ -1958,7 +1965,8 @@
    "authorship": "own_name",
    "replaces": "hassabis-accelerating-scientific-discovery-with-ai-nobel",
    "verified_text": true,
-   "note": "Same lecture. Transcript is machine-generated from captions, about 5,000 words, and starts with the moderator's introduction. Alternative: https://singjupost.com/?p=53922 (his Cambridge lecture of the same title, March 2025)."
+   "note": "Same lecture. Transcript is machine-generated from captions, about 5,000 words, and starts with the moderator's introduction. Alternative: https://singjupost.com/?p=53922 (his Cambridge lecture of the same title, March 2025).",
+   "exclude": "an auto-generated summary page, not the lecture (round-4 readers A-04, B-04)"
   },
   {
    "key": "suleyman-what-is-an-ai-anyway-r",
@@ -1984,7 +1992,8 @@
    "authorship": "own_name",
    "replaces": "lecun-a-path-towards-autonomous-machine-intelligence",
    "verified_text": true,
-   "note": "Official transcript with speaker labels. Covers his JEPA / world-model agenda, the limits of LLMs, open source, and AI doomers."
+   "note": "Official transcript with speaker labels. Covers his JEPA / world-model agenda, the limits of LLMs, open source, and AI doomers.",
+   "duplicate_of": "lecun-transcript-for-yann-lecun-meta-ai-open-source-li"
   },
   {
    "key": "acemoglu-the-simple-macroeconomics-of-ai-r",
@@ -2013,7 +2022,8 @@
    "coauthors": [
     "david-autor"
    ],
-   "note": "The date is the transcript's posting date; the episode was probably recorded around 2026-04-21. Speaker-labelled; Autor also speaks at length. Covers AI hype and productivity."
+   "note": "The date is the transcript's posting date; the episode was probably recorded around 2026-04-21. Speaker-labelled; Autor also speaks at length. Covers AI hype and productivity.",
+   "exclude": "two-guest show transcript without speaker labels; his words can't be told from David Autor's (replaced by his testimony, round 4)"
   },
   {
    "key": "acemoglu-redesigning-ai-r",
@@ -2055,7 +2065,8 @@
    "authorship": "own_name",
    "replaces": "korinek-economic-policy-challenges-for-the-age-of-ai",
    "verified_text": true,
-   "note": "The paper has no arXiv HTML version. This is a speaker-labelled transcript (AI-generated with human review), with about 6,000 words from Korinek on the same policy challenges."
+   "note": "The paper has no arXiv HTML version. This is a speaker-labelled transcript (AI-generated with human review), with about 6,000 words from Korinek on the same policy challenges.",
+   "exclude": "podcast transcript without speaker labels (replaced, round 4)"
   },
   {
    "key": "mowshowitz-on-fli-open-letter",
@@ -2226,7 +2237,8 @@
    "format": "lecture",
    "authorship": "own_name",
    "verified_text": true,
-   "note": "Lightly edited transcript of an opening talk and Q&A given 2026-10-22."
+   "note": "Lightly edited transcript of an opening talk and Q&A given 2026-10-22.",
+   "exclude": "interview transcript without speaker labels: her words can't be told from others' (replaced by her own speeches, round 4)"
   },
   {
    "key": "hassabis-ted-2024",
@@ -2409,7 +2421,8 @@
    "channel": "Future of Life Institute Podcast (Zencastr transcript)",
    "format": "interview",
    "authorship": "own_name",
-   "verified_text": true
+   "verified_text": true,
+   "exclude": "podcast transcript without speaker labels (replaced by his own written statement, round 4)"
   },
   {
    "key": "narayanan-extraordinary-government-intervention",
@@ -2502,7 +2515,8 @@
    "format": "lecture",
    "authorship": "own_name",
    "verified_text": true,
-   "note": "His own written summary of his talk."
+   "note": "His own written summary of his talk.",
+   "exclude": "largely an AI-written summary, published by Karpathy (round-4 readers A-21, B-21)"
   },
   {
    "key": "patel-contra-andreessen",
@@ -2614,7 +2628,8 @@
    "format": "lecture",
    "authorship": "co_authored",
    "verified_text": true,
-   "note": "Co-presented with Udbhav Tiwari; date guessed from 39C3 (late Dec 2025); transcript truncated near the end. Caption lines joined into paragraphs so quotes can span them."
+   "note": "Co-presented with Udbhav Tiwari; date guessed from 39C3 (late Dec 2025); transcript truncated near the end. Caption lines joined into paragraphs so quotes can span them.",
+   "duplicate_of": "whittaker-velvet-glove-coup-agents"
   }
  ]
 }

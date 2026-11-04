@@ -1,0 +1,428 @@
+{
+ "group": "D",
+ "notes": "Web search budget for the session ran out partway through (shared 200-call limit). Remaining candidates were found by reading on-map authors' own blog archives (Substack archive listings) and transcripts already known. All URLs below were fetched and the passage located; none appears in seed/*SOURCES*.json. Several thin-side entries are marked 'soft' in their note: the readers should judge them independently.",
+ "people": [
+  {
+   "id": "hoan-ton-that",
+   "name": "Hoan Ton-That",
+   "niche": "surveillance-tech founder (Clearview AI co-founder and former CEO)",
+   "reason": "Own-name written testimony to the Massachusetts facial-recognition commission arguing against bans on police facial recognition.",
+   "gap": "no-ai-mass-surveillance (reject side was empty)",
+   "flag": null
+  },
+  {
+   "id": "palmer-luckey",
+   "name": "Palmer Luckey",
+   "niche": "defense-tech founder (Anduril)",
+   "reason": "TED talk explicitly rejects the principle 'you should never allow AI to decide who lives and who dies'.",
+   "gap": "no-autonomous-lethal-force (reject side thin)",
+   "flag": null
+  },
+  {
+   "id": "alex-tabarrok",
+   "name": "Alex Tabarrok",
+   "niche": "economist, Marginal Revolution co-author (George Mason)",
+   "reason": "Own blog post arguing AI leaders' risk warnings are sincere, not regulatory capture: 'Amodei actually believes what he's saying.'",
+   "gap": "ai-leaders-honest-about-risks (hold side thin)",
+   "flag": null
+  },
+  {
+   "id": "garett-jones",
+   "name": "Garett Jones",
+   "niche": "economist, author of '10% Less Democracy' (George Mason)",
+   "reason": "Interview transcript arguing for more power to independent expert committees and less democracy.",
+   "gap": "popular-self-government-worth-keeping (reject side thin)",
+   "flag": null
+  },
+  {
+   "id": "bryan-caplan",
+   "name": "Bryan Caplan",
+   "niche": "economist, author of 'The Myth of the Rational Voter' (George Mason)",
+   "reason": "Interview transcript ranking democracy as a low priority versus human rights and calling anarcho-capitalism the best system.",
+   "gap": "popular-self-government-worth-keeping (reject side thin)",
+   "flag": "soft: rejects popular rule in favour of markets/rights, not experts; readers should judge"
+  },
+  {
+   "id": "george-hotz",
+   "name": "George Hotz",
+   "niche": "hacker-founder (comma.ai, tiny corp), e/acc-adjacent",
+   "reason": "Lex Fridman transcript dismissing AI-control efforts: 'You think you're going to control it. You're not going to control it.'",
+   "gap": "plan-control-early (reject side thin)",
+   "flag": null
+  }
+ ],
+ "works": [
+  {
+   "key": "ton-that-ma-commission-testimony",
+   "author": "hoan-ton-that",
+   "url": "https://malegislature.gov/Reports/19351/ma-written-testimony-hoan-ton-that.pdf",
+   "title": "Statement of Hoan Ton-That before the Massachusetts Special Commission on Facial Recognition",
+   "published": "2021-07-30",
+   "channel": "Massachusetts Legislature (commission record)",
+   "format": "testimony",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "reject",
+     "where": "'Any ban on facial recognition will be devastating...' paragraph, p.2"
+    }
+   ],
+   "note": "Argues law enforcement should keep using facial recognition over a 3-billion-image web-scraped database to fight crime; opposes bans and DMV/mugshot-only limits. PDF text extracts cleanly."
+  },
+  {
+   "key": "luckey-ted-ai-arsenal",
+   "author": "palmer-luckey",
+   "url": "https://rosetta.to/u/ted/the-ai-arsenal-that-could-stop-world-war-iii-palmer-luckey-ted",
+   "title": "The AI Arsenal That Could Stop World War III (TED)",
+   "published": "2025-04-25",
+   "channel": "TED (caption transcript via rosetta.to)",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-autonomous-lethal-force",
+     "side": "reject",
+     "where": "passage quoting the objection 'You should never allow AI to decide who lives and who dies' and answering 'no moral high ground in saying, I refuse to use AI'"
+    }
+   ],
+   "note": "Single-speaker talk; transcript is auto-generated from captions. Alternative source: CBS 60 Minutes transcript (cbsnews.com/news/palmer-luckey-ai-powered-autonomous-weapons-future-of-warfare-60-minutes-transcript), where he describes weapons that 'identify, select, and engage targets... No operator needed'."
+  },
+  {
+   "key": "alexander-pentagon-threatens-anthropic",
+   "author": "scott-alexander",
+   "url": "https://www.astralcodexten.com/p/the-pentagon-threatens-anthropic",
+   "title": "The Pentagon Threatens Anthropic",
+   "published": "2026-02-25",
+   "channel": "Astral Codex Ten",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "'AI-enabled mass surveillance of US citizens seems like the sort of thing we should at least have a chance to think over'"
+    },
+    {
+     "id": "no-autonomous-lethal-force",
+     "side": "reject",
+     "where": "'we'll probably get them eventually'; calls himself 'a sensible moderate on the killbot issue'"
+    }
+   ],
+   "note": "Soft on both: surveillance line is a call for deliberation, not an outright bar; killbot line accepts eventual autonomous weapons rather than arguing for them."
+  },
+  {
+   "key": "ball-clawed",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/clawed",
+   "title": "Clawed: On Anthropic and the Department of War",
+   "published": "2026-03-02",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "'mass surveillance and autonomous weapons/systems of control cannot be used to curtail our liberties'; 'You can support restrictions on mass domestic surveillance...'"
+    }
+   ],
+   "note": "Ball supports restrictions on mass domestic surveillance by law but objects to imposing them via a private defense contract. Adds a hold-side figure (statement had only 3 total)."
+  },
+  {
+   "key": "merchant-kick-flock-out",
+   "author": "brian-merchant",
+   "url": "https://www.bloodinthemachine.com/p/how-to-kick-flock-out-of-your-town",
+   "title": "How to kick Flock out of your town",
+   "published": "2026-09-20",
+   "channel": "Blood in the Machine",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "no-ai-mass-surveillance",
+     "side": "hold",
+     "where": "intro framing: 'Abuse of the system has been rampant'; 'the burgeoning movement to defang the surveillance state'"
+    }
+   ],
+   "note": "Intro co-written with Ryan Hodes, followed by an interview with a DeFlock organizer; only Merchant's framing counts. About AI plate-reader networks used by police to track movements."
+  },
+  {
+   "key": "marcus-google-too-woke",
+   "author": "gary-marcus",
+   "url": "https://garymarcus.substack.com/p/has-google-gone-too-woke-why-even",
+   "title": "Has Google gone too woke? Why even the biggest models still struggle with guardrails",
+   "published": "2024-02-21",
+   "channel": "Marcus on AI",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "reject",
+     "where": "'not however intended as an anti-woke screed'; 'I think it is just lousy software'"
+    }
+   ],
+   "note": "Attributes Gemini's image controversy to technical guardrail failure, not political bias; rejects the 'anti-white' partisan framing."
+  },
+  {
+   "key": "narayanan-chatgpt-liberal-bias",
+   "author": "arvind-narayanan",
+   "url": "https://www.normaltech.ai/p/does-chatgpt-have-a-liberal-bias",
+   "title": "Does ChatGPT have a liberal bias?",
+   "published": "2023-08-18",
+   "channel": "AI Snake Oil / Normal Tech",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "reject",
+     "where": "summary: 'it is possible that ChatGPT expresses liberal views to users, but this paper provides little evidence of it'"
+    }
+   ],
+   "note": "Soft reject and co-authored with Sayash Kapoor (precedent: other aisnakeoil posts are already filed under Narayanan). Old aisnakeoil.com URL 301-redirects here."
+  },
+  {
+   "key": "andreessen-lex-fridman-2",
+   "author": "marc-andreessen",
+   "url": "https://lexfridman.com/marc-andreessen-2-transcript",
+   "title": "Lex Fridman Podcast #458 transcript: Marc Andreessen",
+   "published": "2025-01-26",
+   "channel": "Lex Fridman Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-politically-biased",
+     "side": "hold",
+     "where": "~03:24:21 'an AI that's been trained according to the most extreme left-wing California politics'; ~03:25 censorship regime on AI"
+    }
+   ],
+   "note": "Other-side reinforcement (statement had 1 figure total). Passage is past character 200,000 of the page. Publication date from episode number; confirm."
+  },
+  {
+   "key": "alexander-ai-safety-not-corporate-plot",
+   "author": "scott-alexander",
+   "url": "https://www.astralcodexten.com/p/ai-safety-is-not-a-corporate-plot",
+   "title": "AI Safety Is Not A Corporate Plot",
+   "published": "2026-10-15",
+   "channel": "Astral Codex Ten",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-leaders-honest-about-risks",
+     "side": "hold",
+     "where": "'The experts are warning you that AI could kill you because they think AI could kill you'; 'all these people believed it then, and still believe it now'"
+    }
+   ],
+   "note": "Argues AI-lab leaders' risk warnings are sincere, not hype. Caveat for readers: includes a jab that Altman's 2015 warning was 'the one time in his life' he was fully honest, so it is about sincerity of risk warnings, not general candour."
+  },
+  {
+   "key": "tabarrok-regulatory-capture",
+   "author": "alex-tabarrok",
+   "url": "https://marginalrevolution.com/marginalrevolution/2026/09/what-regulatory-capture-actually-looks-like.html",
+   "title": "What Regulatory Capture Actually Looks Like",
+   "published": "2026-09-16",
+   "channel": "Marginal Revolution",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "ai-leaders-honest-about-risks",
+     "side": "hold",
+     "where": "'We also have plenty of evidence that the fears of AI experts are sincere'; closing 'Amodei actually believes what he's saying'"
+    }
+   ],
+   "note": "Rebuts the claim that AI-risk talk is a regulatory-capture ploy; notes Amodei, Altman and Musk warned before they had companies."
+  },
+  {
+   "key": "merchant-labor-day-technology",
+   "author": "brian-merchant",
+   "url": "https://www.bloodinthemachine.com/p/this-labor-day-lets-consider-what",
+   "title": "This Labor Day, let's consider how we want technology to work for us",
+   "published": "2024-09-02",
+   "channel": "Blood in the Machine",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "market-tech-serves-humans",
+     "side": "reject",
+     "where": "'a relatively few technology owners might benefit'; closing hope for technology 'democratically developed, worker-first, and wielded for the public good'"
+    }
+   ],
+   "note": "Argues owner-directed automation degrades jobs; calls for shifting decision power over tech to labor."
+  },
+  {
+   "key": "zitron-rot-economy",
+   "author": "ed-zitron",
+   "url": "https://www.wheresyoured.at/the-rot-economy/",
+   "title": "The Rot Economy",
+   "published": "2023-02-09",
+   "channel": "Where's Your Ed At",
+   "format": "essay",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "market-tech-serves-humans",
+     "side": "reject",
+     "where": "Google Search section: 'a source of information corrupted by a profit-seeking entity'; Facebook/Instagram 'endlessly profitable and utterly useless'"
+    }
+   ],
+   "note": "Core thesis: growth-at-all-costs incentives make tech products worse for users."
+  },
+  {
+   "key": "jones-dwarkesh-less-democracy",
+   "author": "garett-jones",
+   "url": "https://www.dwarkesh.com/p/garett-jones",
+   "title": "Garett Jones: Immigration, national IQ, & less democracy (Dwarkesh Podcast)",
+   "published": "2023-01-24",
+   "channel": "Dwarkesh Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "popular-self-government-worth-keeping",
+     "side": "reject",
+     "where": "[00:49:20] 'The power of independent committees should be increased. More Congress should be like the Fed'; [00:52:43] 'handing things over to elites'"
+    }
+   ],
+   "note": "Speaker-labelled transcript. Argues for shifting authority to appointed experts (FDA/CDC 'more like the Fed')."
+  },
+  {
+   "key": "caplan-dwarkesh-democracy",
+   "author": "bryan-caplan",
+   "url": "https://www.dwarkesh.com/p/bryan-caplan-3",
+   "title": "Bryan Caplan: Feminists, Billionaires, and Demagogues (Dwarkesh Podcast)",
+   "published": "2022-10-20",
+   "channel": "Dwarkesh Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "popular-self-government-worth-keeping",
+     "side": "reject",
+     "where": "decolonization/occupation passage: 'a rebuilding where democracy is a low priority'; anarcho-capitalism 'really the best system'"
+    }
+   ],
+   "note": "Soft: passage is past character 100,000 of the page; he puts rights and markets ahead of democracy rather than backing rule by experts."
+  },
+  {
+   "key": "hotz-lex-fridman-3",
+   "author": "george-hotz",
+   "url": "https://lexfridman.com/george-hotz-3-transcript/",
+   "title": "Lex Fridman Podcast #387 transcript: George Hotz",
+   "published": "2023-06-30",
+   "channel": "Lex Fridman Podcast",
+   "format": "transcript",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "plan-control-early",
+     "side": "reject",
+     "where": "AI safety chapter (01:31:17-01:31:56): 'all these AI safety people... build the exact thing they fear'; 'You think you're going to control it. You're not going to control it'; 01:48:59 'sci-fi B movie garbage'"
+    }
+   ],
+   "note": "Rejects the premise that advance control work can succeed or is needed. Passage starts past character 100,000. Date inferred from episode number; confirm."
+  },
+  {
+   "key": "ball-timing-of-ai-regulation",
+   "author": "dean-ball",
+   "url": "https://www.hyperdimensional.co/p/the-timing-of-ai-regulation",
+   "title": "The Timing of AI Regulation: Why we have more time than regulation advocates fear",
+   "published": "2024-09-05",
+   "channel": "Hyperdimensional",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "plan-control-early",
+     "side": "reject",
+     "where": "'wait until the potential for catastrophic risks from AI models is more clearly demonstrated'; 'If future models pose catastrophic risks, there will be time to update public policy'"
+    }
+   ],
+   "note": "Soft: about the timing of regulation, not technical control research."
+  },
+  {
+   "key": "mowshowitz-americans-hate-data-centers",
+   "author": "zvi-mowshowitz",
+   "url": "https://thezvi.substack.com/p/the-american-people-really-hate-data",
+   "title": "The American People Really Hate Data Centers",
+   "published": "2026-08-24",
+   "channel": "Don't Worry About the Vase",
+   "format": "post",
+   "authorship": "own_name",
+   "excerpt": "",
+   "verified_reachable": true,
+   "deliverable": "gap",
+   "statements": [
+    {
+     "id": "communities-can-block-data-centers",
+     "side": "reject",
+     "where": "'I am very much in the \"more data centers in America would be good\" camp'; 'shutting down construction within America would shift construction elsewhere'"
+    }
+   ],
+   "note": "Soft: he calls the post 'descriptive' and offers no position on local veto rights. Only partial thin-side evidence found for this statement."
+  }
+ ],
+ "summary": {
+  "no-ai-mass-surveillance": "thin side (reject): 1 figure (Hoan Ton-That, new). Also +3 on the hold side (Dean Ball; Scott Alexander, soft; Brian Merchant). Total is now 7.",
+  "no-autonomous-lethal-force": "thin side (reject): +2 (Palmer Luckey, new and explicit; Scott Alexander, soft), so 4 rejecters in all. Total is now 8.",
+  "communities-can-block-data-centers": "thin side (reject): 1, soft (Zvi Mowshowitz). Nothing explicit found. The hold side gained nothing new: the Sanders moratorium press release returns 403, and AOC's data-center release is already in the seed. Still under 8.",
+  "ai-politically-biased": "thin side (reject): 2 (Gary Marcus, explicit; Arvind Narayanan, soft). Also +1 on the hold side (Marc Andreessen). Total is now 4. The JD Vance Paris speech, which has a George Washington image line, is already in the seed: re-score it on this statement.",
+  "ai-leaders-honest-about-risks": "thin side (hold): +2 (Scott Alexander; Alex Tabarrok, new), so 3 holders with Noah Smith.",
+  "market-tech-serves-humans": "thin side (reject): +2 (Brian Merchant, Ed Zitron), so 4 rejecters in all.",
+  "popular-self-government-worth-keeping": "thin side (reject): +2 (Garett Jones, new; Bryan Caplan, new and soft). Peter Thiel's Cato Unbound essay 'I no longer believe that freedom and democracy are compatible' is already in the seed but the readers did not tag it on this statement; worth re-scoring that existing work.",
+  "plan-control-early": "thin side (reject): +2 (George Hotz, new; Dean Ball, soft), so 3 rejecters with Robin Hanson. Already in the seed and worth re-scoring here: Yann LeCun Lex Fridman #416, and the Mark Zuckerberg Dwarkesh episode (soft: \"I don't think the runaway case is a particularly likely one\")."
+ }
+}
