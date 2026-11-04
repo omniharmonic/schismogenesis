@@ -268,8 +268,8 @@
    "name": "Adam Thierer",
    "initials": "AT",
    "school": "Free-market builders",
-   "x": 74.0,
-   "y": -201.8,
+   "x": 35.9,
+   "y": -222.2,
    "provisional": true
   },
   {
@@ -277,8 +277,8 @@
    "name": "Alexandria Ocasio-Cortez",
    "initials": "AO",
    "school": null,
-   "x": -124.3,
-   "y": 166.6,
+   "x": -79.3,
+   "y": 147.5,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -290,8 +290,8 @@
    "name": "Alondra Nelson",
    "initials": "AN",
    "school": null,
-   "x": -96.1,
-   "y": 115.4,
+   "x": -42.2,
+   "y": 73.4,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -303,8 +303,8 @@
    "name": "Andrew Yang",
    "initials": "AY",
    "school": null,
-   "x": 115.1,
-   "y": 164.3,
+   "x": 97.9,
+   "y": 61.8,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -316,8 +316,8 @@
    "name": "Anton Korinek",
    "initials": "AK",
    "school": "AGI is near",
-   "x": 182.1,
-   "y": 29.1,
+   "x": 189.8,
+   "y": 4.0,
    "provisional": true
   },
   {
@@ -325,8 +325,8 @@
    "name": "Arvind Narayanan",
    "initials": "AN",
    "school": "Human-first critics",
-   "x": -143.9,
-   "y": -111.4,
+   "x": -172.3,
+   "y": -61.8,
    "provisional": true
   },
   {
@@ -334,8 +334,8 @@
    "name": "Audrey Tang",
    "initials": "AT",
    "school": "Human-first critics",
-   "x": -65.8,
-   "y": 40.0,
+   "x": -104.4,
+   "y": 60.1,
    "provisional": true
   },
   {
@@ -343,8 +343,8 @@
    "name": "Balaji Srinivasan",
    "initials": "BS",
    "school": "Free-market builders",
-   "x": -81.6,
-   "y": -170.1,
+   "x": -59.5,
+   "y": -191.1,
    "provisional": true
   },
   {
@@ -352,40 +352,40 @@
    "name": "Barack Obama",
    "initials": "BO",
    "school": "Human-first critics",
-   "x": -50.8,
-   "y": 0.5
+   "x": -96.7,
+   "y": 20.4
   },
   {
    "id": "bernie-sanders",
    "name": "Bernie Sanders",
    "initials": "BS",
    "school": "Public-interest safety",
-   "x": -25.3,
-   "y": 121.9
+   "x": 1.2,
+   "y": 135.9
   },
   {
    "id": "brian-merchant",
    "name": "Brian Merchant",
    "initials": "BM",
    "school": "Human-first critics",
-   "x": -120.6,
-   "y": 40.4
+   "x": -134.8,
+   "y": 39.2
   },
   {
    "id": "chris-murphy",
    "name": "Chris Murphy",
    "initials": "CM",
    "school": "Public-interest safety",
-   "x": -17.3,
-   "y": 148.5
+   "x": 8.0,
+   "y": 163.2
   },
   {
    "id": "cory-doctorow",
    "name": "Cory Doctorow",
    "initials": "CD",
    "school": null,
-   "x": -178.5,
-   "y": -101.1,
+   "x": -110.4,
+   "y": -99.1,
    "provisional": true
   },
   {
@@ -393,8 +393,8 @@
    "name": "Curtis Yarvin",
    "initials": "CY",
    "school": null,
-   "x": -152.1,
-   "y": -175.8,
+   "x": -132.3,
+   "y": -147.5,
    "provisional": true
   },
   {
@@ -402,8 +402,8 @@
    "name": "Daniel Faggella",
    "initials": "DF",
    "school": "AGI is near",
-   "x": 212.6,
-   "y": 12.6,
+   "x": 219.0,
+   "y": -5.0,
    "provisional": true
   },
   {
@@ -411,8 +411,8 @@
    "name": "Daniel Jeffries",
    "initials": "DJ",
    "school": "Free-market builders",
-   "x": 68.4,
-   "y": -223.1,
+   "x": 48.9,
+   "y": -227.1,
    "provisional": true
   },
   {
@@ -420,16 +420,16 @@
    "name": "Daniel Kokotajlo",
    "initials": "DK",
    "school": "AGI is near",
-   "x": 41.8,
-   "y": 153.0
+   "x": 127.5,
+   "y": 117.6
   },
   {
    "id": "dario-amodei",
    "name": "Dario Amodei",
    "initials": "DA",
    "school": "AGI is near",
-   "x": 121.4,
-   "y": -63.3,
+   "x": 172.5,
+   "y": -40.6,
    "provisional": true
   },
   {
@@ -437,16 +437,16 @@
    "name": "Daron Acemoglu",
    "initials": "DA",
    "school": "Human-first critics",
-   "x": -97.6,
-   "y": 31.2
+   "x": -111.0,
+   "y": 40.2
   },
   {
    "id": "david-autor",
    "name": "David Autor",
    "initials": "DA",
    "school": "Human-first critics",
-   "x": -71.8,
-   "y": -69.0,
+   "x": -134.0,
+   "y": -30.7,
    "provisional": true
   },
   {
@@ -454,32 +454,32 @@
    "name": "David Sacks",
    "initials": "DS",
    "school": "Free-market builders",
-   "x": 22.7,
-   "y": -237.6
+   "x": 14.1,
+   "y": -247.1
   },
   {
    "id": "dean-ball",
    "name": "Dean W. Ball",
    "initials": "DB",
    "school": "Free-market builders",
-   "x": 37.4,
-   "y": -150.7
+   "x": 33.7,
+   "y": -169.6
   },
   {
    "id": "demis-hassabis",
    "name": "Demis Hassabis",
    "initials": "DH",
    "school": "Public-interest safety",
-   "x": 66.1,
-   "y": 70.1
+   "x": 62.9,
+   "y": 117.7
   },
   {
    "id": "divya-siddarth",
    "name": "Divya Siddarth",
    "initials": "DS",
    "school": "Human-first critics",
-   "x": -63.5,
-   "y": 109.2,
+   "x": -132.7,
+   "y": 94.0,
    "provisional": true
   },
   {
@@ -487,8 +487,8 @@
    "name": "Dwarkesh Patel",
    "initials": "DP",
    "school": null,
-   "x": 194.3,
-   "y": 5.8,
+   "x": 153.8,
+   "y": -20.2,
    "provisional": true,
    "between": [
     "AGI is near",
@@ -500,16 +500,16 @@
    "name": "E. Glen Weyl",
    "initials": "EW",
    "school": "Human-first critics",
-   "x": -136.0,
-   "y": 88.3
+   "x": -151.8,
+   "y": 76.2
   },
   {
    "id": "ed-zitron",
    "name": "Ed Zitron",
    "initials": "EZ",
    "school": "Human-first critics",
-   "x": -163.3,
-   "y": -19.7,
+   "x": -165.9,
+   "y": -7.1,
    "provisional": true
   },
   {
@@ -517,16 +517,16 @@
    "name": "Eliezer Yudkowsky",
    "initials": "EY",
    "school": "AGI is near",
-   "x": 100.3,
-   "y": 128.4
+   "x": 159.2,
+   "y": 90.0
   },
   {
    "id": "elizabeth-warren",
    "name": "Elizabeth Warren",
    "initials": "EW",
    "school": null,
-   "x": -55.9,
-   "y": 171.0,
+   "x": -12.4,
+   "y": 62.2,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -538,16 +538,16 @@
    "name": "Elon Musk",
    "initials": "EM",
    "school": "AGI is near",
-   "x": 145.6,
-   "y": 137.4
+   "x": 192.2,
+   "y": 72.0
   },
   {
    "id": "emily-m-bender",
    "name": "Emily M. Bender",
    "initials": "EB",
    "school": "Human-first critics",
-   "x": -155.6,
-   "y": -65.7,
+   "x": -172.0,
+   "y": -27.1,
    "provisional": true
   },
   {
@@ -555,8 +555,8 @@
    "name": "Erik Brynjolfsson",
    "initials": "EB",
    "school": null,
-   "x": -11.9,
-   "y": -92.3,
+   "x": 8.5,
+   "y": -61.5,
    "provisional": true
   },
   {
@@ -564,8 +564,8 @@
    "name": "Fei-Fei Li",
    "initials": "FL",
    "school": null,
-   "x": -91.1,
-   "y": -93.5,
+   "x": -57.4,
+   "y": -65.4,
    "provisional": true
   },
   {
@@ -573,8 +573,8 @@
    "name": "Gary Marcus",
    "initials": "GM",
    "school": null,
-   "x": -77.9,
-   "y": 75.7,
+   "x": -33.9,
+   "y": 26.7,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -586,8 +586,8 @@
    "name": "Geoffrey Hinton",
    "initials": "GH",
    "school": null,
-   "x": 166.2,
-   "y": 114.2,
+   "x": 146.1,
+   "y": 70.9,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -599,16 +599,16 @@
    "name": "Guillaume Verdon (Beff Jezos)",
    "initials": "GJ",
    "school": "Free-market builders",
-   "x": 113.2,
-   "y": -190.0
+   "x": 79.7,
+   "y": -214.4
   },
   {
    "id": "helen-toner",
    "name": "Helen Toner",
    "initials": "HT",
    "school": "Public-interest safety",
-   "x": 30.3,
-   "y": -13.3,
+   "x": 32.0,
+   "y": 91.7,
    "provisional": true
   },
   {
@@ -616,16 +616,16 @@
    "name": "Holly Elmore",
    "initials": "HE",
    "school": "Public-interest safety",
-   "x": -20.0,
-   "y": 97.9
+   "x": -5.8,
+   "y": 140.6
   },
   {
    "id": "jack-clark",
    "name": "Jack Clark",
    "initials": "JC",
    "school": "Public-interest safety",
-   "x": 86.9,
-   "y": 99.8,
+   "x": 70.0,
+   "y": 134.4,
    "provisional": true
   },
   {
@@ -633,16 +633,16 @@
    "name": "Jaron Lanier",
    "initials": "JL",
    "school": "Human-first critics",
-   "x": -194.1,
-   "y": 51.5
+   "x": -190.0,
+   "y": 42.0
   },
   {
    "id": "jason-crawford",
    "name": "Jason Crawford",
    "initials": "JC",
    "school": null,
-   "x": 93.6,
-   "y": -111.4,
+   "x": 73.8,
+   "y": -94.6,
    "provisional": true
   },
   {
@@ -650,16 +650,16 @@
    "name": "JD Vance",
    "initials": "JV",
    "school": "Free-market builders",
-   "x": -15.4,
-   "y": -139.5
+   "x": -4.8,
+   "y": -166.2
   },
   {
    "id": "jensen-huang",
    "name": "Jensen Huang",
    "initials": "JH",
    "school": null,
-   "x": 60.8,
-   "y": -137.4,
+   "x": 28.9,
+   "y": -93.8,
    "provisional": true
   },
   {
@@ -667,8 +667,8 @@
    "name": "Jonathan Haidt",
    "initials": "JH",
    "school": null,
-   "x": -37.4,
-   "y": 58.5,
+   "x": -31.7,
+   "y": 52.0,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -680,16 +680,16 @@
    "name": "Josh Hawley",
    "initials": "JH",
    "school": "Human-first critics",
-   "x": -107.9,
-   "y": 74.4
+   "x": -117.4,
+   "y": 79.4
   },
   {
    "id": "joy-buolamwini",
    "name": "Joy Buolamwini",
    "initials": "JB",
    "school": null,
-   "x": 62.2,
-   "y": 6.1,
+   "x": 46.4,
+   "y": -2.6,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -701,24 +701,24 @@
    "name": "Karen Hao",
    "initials": "KH",
    "school": "Human-first critics",
-   "x": -146.9,
-   "y": 70.9
+   "x": -142.9,
+   "y": 68.5
   },
   {
    "id": "leopold-aschenbrenner",
    "name": "Leopold Aschenbrenner",
    "initials": "LA",
    "school": "AGI is near",
-   "x": 96.2,
-   "y": -2.2
+   "x": 129.5,
+   "y": 1.0
   },
   {
    "id": "liz-shuler",
    "name": "Liz Shuler",
    "initials": "LS",
    "school": "Human-first critics",
-   "x": -142.8,
-   "y": -30.1,
+   "x": -153.0,
+   "y": -1.8,
    "provisional": true
   },
   {
@@ -726,16 +726,16 @@
    "name": "Marc Andreessen",
    "initials": "MA",
    "school": "Free-market builders",
-   "x": -48.4,
-   "y": -205.1
+   "x": -40.0,
+   "y": -216.7
   },
   {
    "id": "mark-zuckerberg",
    "name": "Mark Zuckerberg",
    "initials": "MZ",
    "school": "Free-market builders",
-   "x": -54.6,
-   "y": -129.3,
+   "x": -35.6,
+   "y": -152.0,
    "provisional": true
   },
   {
@@ -743,8 +743,8 @@
    "name": "Marsha Blackburn",
    "initials": "MB",
    "school": null,
-   "x": -73.4,
-   "y": -72.3,
+   "x": -20.1,
+   "y": -56.2,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -756,32 +756,32 @@
    "name": "Max Tegmark",
    "initials": "MT",
    "school": "Public-interest safety",
-   "x": 66.4,
-   "y": 145.5
+   "x": 69.9,
+   "y": 159.1
   },
   {
    "id": "meredith-whittaker",
    "name": "Meredith Whittaker",
    "initials": "MW",
    "school": "Human-first critics",
-   "x": -138.1,
-   "y": 42.8
+   "x": -136.3,
+   "y": 54.3
   },
   {
    "id": "michael-kratsios",
    "name": "Michael Kratsios",
    "initials": "MK",
    "school": "Free-market builders",
-   "x": 1.1,
-   "y": -161.8
+   "x": -9.3,
+   "y": -179.3
   },
   {
    "id": "miles-brundage",
    "name": "Miles Brundage",
    "initials": "MB",
    "school": null,
-   "x": 93.4,
-   "y": 159.9,
+   "x": 100.3,
+   "y": 76.9,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -793,8 +793,8 @@
    "name": "Mustafa Suleyman",
    "initials": "MS",
    "school": "Public-interest safety",
-   "x": 72.1,
-   "y": 24.2,
+   "x": 75.6,
+   "y": 84.2,
    "provisional": true
   },
   {
@@ -802,8 +802,8 @@
    "name": "Nick Land",
    "initials": "NL",
    "school": null,
-   "x": 233.2,
-   "y": -78.7,
+   "x": 185.2,
+   "y": -99.8,
    "provisional": true
   },
   {
@@ -811,24 +811,24 @@
    "name": "Noah Smith",
    "initials": "NS",
    "school": "AGI is near",
-   "x": 177.5,
-   "y": -51.9
+   "x": 196.2,
+   "y": -46.5
   },
   {
    "id": "paul-kingsnorth",
    "name": "Paul Kingsnorth",
    "initials": "PK",
    "school": "Human-first critics",
-   "x": -99.7,
-   "y": 200.9
+   "x": -157.2,
+   "y": 144.5
   },
   {
    "id": "pete-buttigieg",
    "name": "Pete Buttigieg",
    "initials": "PB",
    "school": null,
-   "x": 61.8,
-   "y": -23.3,
+   "x": 31.3,
+   "y": -7.9,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -840,8 +840,8 @@
    "name": "Peter Thiel",
    "initials": "PT",
    "school": null,
-   "x": -118.6,
-   "y": -137.8,
+   "x": -79.8,
+   "y": -101.1,
    "provisional": true
   },
   {
@@ -849,16 +849,16 @@
    "name": "Pope Leo XIV",
    "initials": "PX",
    "school": "Human-first critics",
-   "x": -119.2,
-   "y": 115.3
+   "x": -125.1,
+   "y": 106.4
   },
   {
    "id": "reid-hoffman",
    "name": "Reid Hoffman",
    "initials": "RH",
    "school": "Free-market builders",
-   "x": 28.2,
-   "y": -110.8,
+   "x": 21.9,
+   "y": -151.0,
    "provisional": true
   },
   {
@@ -866,8 +866,8 @@
    "name": "Richard Blumenthal",
    "initials": "RB",
    "school": null,
-   "x": 24.4,
-   "y": 74.1,
+   "x": 41.2,
+   "y": 39.8,
    "provisional": true,
    "between": [
     "Public-interest safety",
@@ -879,8 +879,8 @@
    "name": "Ro Khanna",
    "initials": "RK",
    "school": "Public-interest safety",
-   "x": -84.3,
-   "y": 159.4,
+   "x": -21.1,
+   "y": 180.6,
    "provisional": true
   },
   {
@@ -888,16 +888,16 @@
    "name": "Robin Hanson",
    "initials": "RH",
    "school": "Free-market builders",
-   "x": 167.8,
-   "y": -201.9
+   "x": 98.8,
+   "y": -242.3
   },
   {
    "id": "ruha-benjamin",
    "name": "Ruha Benjamin",
    "initials": "RB",
    "school": "Human-first critics",
-   "x": -179.4,
-   "y": -41.1,
+   "x": -180.0,
+   "y": -10.1,
    "provisional": true
   },
   {
@@ -905,8 +905,8 @@
    "name": "Rumman Chowdhury",
    "initials": "RC",
    "school": "Human-first critics",
-   "x": -126.0,
-   "y": -41.3,
+   "x": -164.5,
+   "y": 14.4,
    "provisional": true
   },
   {
@@ -914,8 +914,8 @@
    "name": "Safiya Umoja Noble",
    "initials": "SN",
    "school": null,
-   "x": -198.7,
-   "y": -4.8,
+   "x": -139.1,
+   "y": -65.4,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -927,16 +927,16 @@
    "name": "Sam Altman",
    "initials": "SA",
    "school": "AGI is near",
-   "x": 102.4,
-   "y": 59.7
+   "x": 143.4,
+   "y": 40.6
   },
   {
    "id": "samuel-hammond",
    "name": "Samuel Hammond",
    "initials": "SH",
    "school": null,
-   "x": 149.4,
-   "y": -9.3,
+   "x": 91.1,
+   "y": -24.9,
    "provisional": true,
    "between": [
     "AGI is near",
@@ -948,16 +948,16 @@
    "name": "Scott Alexander",
    "initials": "SA",
    "school": "AGI is near",
-   "x": 183.6,
-   "y": 105.1
+   "x": 210.5,
+   "y": 73.3
   },
   {
    "id": "scott-wiener",
    "name": "Scott Wiener",
    "initials": "SW",
    "school": null,
-   "x": -70.8,
-   "y": -16.7,
+   "x": -24.0,
+   "y": -10.8,
    "provisional": true,
    "between": [
     "Human-first critics",
@@ -969,8 +969,8 @@
    "name": "Shoshana Zuboff",
    "initials": "SZ",
    "school": "Human-first critics",
-   "x": -8.7,
-   "y": -14.3,
+   "x": -113.4,
+   "y": 11.6,
    "provisional": true
   },
   {
@@ -978,40 +978,40 @@
    "name": "Stuart Russell",
    "initials": "SR",
    "school": "Public-interest safety",
-   "x": -3.3,
-   "y": 178.6
+   "x": 16.1,
+   "y": 181.1
   },
   {
    "id": "ted-cruz",
    "name": "Ted Cruz",
    "initials": "TC",
    "school": "Free-market builders",
-   "x": 2.7,
-   "y": -200.3
+   "x": -6.3,
+   "y": -212.6
   },
   {
    "id": "timnit-gebru",
    "name": "Timnit Gebru",
    "initials": "TG",
    "school": "Human-first critics",
-   "x": -164.2,
-   "y": 39.7
+   "x": -159.8,
+   "y": 55.7
   },
   {
    "id": "tristan-harris",
    "name": "Tristan Harris",
    "initials": "TH",
    "school": "Public-interest safety",
-   "x": -4.7,
-   "y": 112.6
+   "x": 11.2,
+   "y": 138.1
   },
   {
    "id": "tyler-cowen",
    "name": "Tyler Cowen",
    "initials": "TC",
    "school": "Free-market builders",
-   "x": 131.5,
-   "y": -169.1,
+   "x": 75.0,
+   "y": -200.1,
    "provisional": true
   },
   {
@@ -1019,8 +1019,8 @@
    "name": "Venkatesh Rao",
    "initials": "VR",
    "school": null,
-   "x": 171.4,
-   "y": -132.4,
+   "x": 124.9,
+   "y": -121.9,
    "provisional": true
   },
   {
@@ -1028,8 +1028,8 @@
    "name": "Vitalik Buterin",
    "initials": "VB",
    "school": "Public-interest safety",
-   "x": 121.1,
-   "y": 66.3,
+   "x": 94.2,
+   "y": 121.6,
    "provisional": true
   },
   {
@@ -1037,8 +1037,8 @@
    "name": "William MacAskill",
    "initials": "WM",
    "school": "Public-interest safety",
-   "x": 154.0,
-   "y": 55.8,
+   "x": 74.0,
+   "y": 176.6,
    "provisional": true
   },
   {
@@ -1046,8 +1046,8 @@
    "name": "William Saunders",
    "initials": "WS",
    "school": "Public-interest safety",
-   "x": 16.0,
-   "y": 24.1,
+   "x": 29.2,
+   "y": 81.0,
    "provisional": true
   },
   {
@@ -1055,24 +1055,24 @@
    "name": "Yann LeCun",
    "initials": "YL",
    "school": "Free-market builders",
-   "x": -31.4,
-   "y": -217.3
+   "x": -22.0,
+   "y": -223.9
   },
   {
    "id": "yoshua-bengio",
    "name": "Yoshua Bengio",
    "initials": "YB",
    "school": "Public-interest safety",
-   "x": 11.9,
-   "y": 160.9
+   "x": 29.4,
+   "y": 167.5
   },
   {
    "id": "yuval-noah-harari",
    "name": "Yuval Noah Harari",
    "initials": "YH",
    "school": "Public-interest safety",
-   "x": 44.5,
-   "y": 193.3,
+   "x": 51.3,
+   "y": 185.3,
    "provisional": true
   },
   {
@@ -1080,8 +1080,8 @@
    "name": "Zvi Mowshowitz",
    "initials": "ZM",
    "school": "Public-interest safety",
-   "x": 63.9,
-   "y": 118.0
+   "x": 79.8,
+   "y": 144.2
   }
  ],
  "schools": [

@@ -34,6 +34,7 @@ from arena_fingerprint.instrument import (
     stability,
     statement_stats,
 )
+from scipy.stats import spearmanr
 
 MIN_CLUSTER = 12  # stances on the pool to help draw the schools
 MIN_PLACE = 5  # stances to be placed on the map at all
@@ -45,6 +46,7 @@ MIN_MINORITY = 0.1  # the smaller side must hold at least this share
 MIN_SIDE = 3  # and at least this many figures: both sides on the record
 MIN_TAKEN = 7  # voices with a side
 FORECAST_WEIGHT = 0.5
+LAYOUT_PULL = 0.35  # see the layout step; 0.35 left 2 foreign dots in regions vs 13 at 0
 
 
 def load(stances_path: str, pool_path: str) -> tuple[Table, list[dict]]:
@@ -201,7 +203,19 @@ def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
         }
     placed = sorted(people)
     d, shared = distances(table, placed, ids, weight)
-    xy = smacof(d, np.minimum(shared, 20) / 20 + 1e-3)
+    # the flat map can't show five axes: pull schoolmates a little together (and push other
+    # schools a little apart) so a dot rarely sits in a region it doesn't belong to
+    school_at = [people[p]["school"] for p in placed]
+    laid = d.copy()
+    for i in range(len(placed)):
+        for j in range(i + 1, len(placed)):
+            if school_at[i] is not None and school_at[j] is not None:
+                f = 1 - LAYOUT_PULL if school_at[i] == school_at[j] else 1 + LAYOUT_PULL / 2
+                laid[i, j] = laid[j, i] = d[i, j] * f
+    xy = smacof(laid, np.minimum(shared, 20) / 20 + 1e-3)
+    gaps = np.sqrt(((xy[:, None] - xy[None]) ** 2).sum(-1))
+    upper = np.triu_indices(len(placed), 1)
+    layout_fidelity = float(spearmanr(gaps[upper], d[upper])[0])  # pyright: ignore[reportArgumentType]
     xy = xy / max(float(np.percentile(np.abs(xy), 92)), 1e-9) * 190
     for p, (x, y) in zip(placed, xy, strict=True):
         people[p].update({"x": round(float(x), 1), "y": round(float(y), 1), "stances": counts[p]})
@@ -256,6 +270,7 @@ def main(stances_path: str, pool_path: str, out: str, *options: str) -> None:
         "between": sum(1 for v in people.values() if v["basis"] == "between"),
         "not_yet_grouped": sum(1 for v in people.values() if v["basis"] == "not yet grouped"),
         "weights": {k: round(v, 3) for k, v in sorted(weight.items())},
+        "layout_rank_fidelity": round(layout_fidelity, 3),
         "schools": drawing.count,
         "silhouette": drawing.silhouette,
         "stability": drawing.stability,
