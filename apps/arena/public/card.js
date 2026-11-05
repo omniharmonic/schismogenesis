@@ -2,9 +2,27 @@
 //   drawCard: the 1200x675 landscape card for posts.
 //   drawStory: a 1080x1920 story image for one Wrapped slide.
 import { pathsFromValues } from "./glyph.js";
+import { DEBATE_HOST } from "./site-config.js";
 
 const SANS = "'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif";
 const SERIF = "Newsreader, Georgia, serif";
+const MACRO = "Anton, Impact, sans-serif";
+// the shared antimemes.is ground (docs/brand/BRAND.md); share cards are always dark
+const C = { ground: "#121820", ink: "#dde4eb", ink2: "#9aa7b6", recog: "#8fb0ff", heat: "#ff5468", rule: "#2b3644" };
+
+/** The anti+memes wordmark, right-aligned at (right, y): Anton, the "+" in heat, as on the lab. */
+function wordmark(c, right, y, size, colour = C.ink, plus = C.heat) {
+  c.save();
+  c.font = `400 ${size}px ${MACRO}`;
+  const a = c.measureText("anti").width, b = c.measureText("memes").width;
+  c.font = `400 ${size * 1.3}px ${MACRO}`;
+  const p = c.measureText("+").width, pad = size * 0.04;
+  const x = right - (a + p + b + pad * 2);
+  c.fillStyle = plus; c.fillText("+", x + a + pad, y + size * 0.08);
+  c.font = `400 ${size}px ${MACRO}`; c.fillStyle = colour;
+  c.fillText("anti", x, y); c.fillText("memes", x + a + p + pad * 2, y);
+  c.restore();
+}
 
 function wrap(ctx, text, maxWidth) {
   const lines = [];
@@ -29,17 +47,16 @@ function drawPrint(c, values, x, y, size, color) {
 
 export const twistLine = (s) => `…but sides with the ${s.ally} ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
 
-export function drawCard(canvas, values, result, { dark = false, thinkers = null } = {}) {
+export function drawCard(canvas, values, result, { thinkers = null } = {}) {
   const W = 1200, H = 675;
   canvas.width = W; canvas.height = H;
   const c = canvas.getContext("2d");
-  const ink = dark ? "#e3e8ef" : "#1b2430", paper = dark ? "#10151c" : "#e9edf2";
-  const ridge = dark ? "#8197ff" : "#2f4bd9", muted = dark ? "#9aa5b4" : "#5d6877";
+  const { ink, ground: paper, recog: ridge, ink2: muted } = C;
   c.fillStyle = paper; c.fillRect(0, 0, W, H);
   drawPrint(c, values, 50, 95, 470, ridge);
   const left = 600;
   c.fillStyle = muted; c.font = `500 26px ${SANS}`;
-  c.fillText("My AI futures fingerprint", left, 92);
+  c.fillText("My fingerprint in The Great AI Debate", left, 92);
   c.fillStyle = ink; c.font = `600 54px ${SANS}`;
   const head = wrap(c, `Closest to the ${result.schools[0]?.label || ""}`, 540).slice(0, 2);
   head.forEach((l, i) => c.fillText(l, left, 156 + i * 60));
@@ -55,12 +72,14 @@ export function drawCard(canvas, values, result, { dark = false, thinkers = null
     c.fillStyle = ink; c.font = `italic 400 28px ${SERIF}`;
     wrap(c, twistLine(result.signature[0]), 540).slice(0, 4).forEach((l, i) => c.fillText(l, left, y + i * 36));
   }
+  c.fillStyle = C.rule; c.fillRect(50, H - 78, W - 100, 1);
   c.fillStyle = muted; c.font = `500 22px ${SANS}`;
-  c.fillText(`Names hidden while answering. ${thinkers ? `${thinkers} thinkers` : "Thinkers"}, read from their public work. ${location.host}`, 50, H - 36);
+  c.fillText(`Names hidden while answering. ${thinkers ? `${thinkers} thinkers` : "Thinkers"}, read from their public work. ${DEBATE_HOST}`, 50, H - 36);
+  wordmark(c, W - 50, H - 34, 30);
   return canvas;
 }
 
-/** spec: {bg, fg, eyebrow, title, lede, quote, cite, rows: [[left, right]], big, print} */
+/** spec: {bg, fg, eyebrow, title, meme, lede, quote, cite, rows: [[left, right]], big, print} */
 export function drawStory(canvas, spec, values) {
   const W = 1080, H = 1920, pad = 96, width = W - pad * 2;
   canvas.width = W; canvas.height = H;
@@ -74,9 +93,9 @@ export function drawStory(canvas, spec, values) {
     y += gap;
   };
   if (spec.print) { ops.push({ t: "print", y }); y += 640; }
-  if (spec.big) { y += 230; ops.push({ t: "text", l: spec.big, font: `600 300px ${SANS}`, y, alpha: 1 }); y += 60; }
+  if (spec.big) { y += 230; ops.push({ t: "text", l: spec.big, font: `400 300px ${MACRO}`, y, alpha: 1 }); y += 60; }
   if (spec.eyebrow) text(spec.eyebrow, `500 40px ${SANS}`, 52, 24, 0.8, 3);
-  if (spec.title) text(spec.title, `600 104px ${SANS}`, 104, 40, 1, 4);
+  if (spec.title) text(spec.meme ? spec.title.toUpperCase() : spec.title, spec.meme ? `400 116px ${MACRO}` : `600 104px ${SANS}`, spec.meme ? 116 : 104, 40, 1, 4);
   if (spec.lede) text(spec.lede, `500 46px ${SANS}`, 60, 30, 1, 6);
   if (spec.quote) text(`“${spec.quote}”`, `italic 400 52px ${SERIF}`, 66, 26, 1, 8);
   if (spec.cite) text(spec.cite, `500 36px ${SANS}`, 48, 20, 0.8, 5);
@@ -85,9 +104,10 @@ export function drawStory(canvas, spec, values) {
   const offset = top + Math.max(0, (bottom - top - y) / 2);
   c.fillStyle = spec.bg; c.fillRect(0, 0, W, H);
   c.fillStyle = spec.fg; c.globalAlpha = 0.75; c.font = `500 34px ${SANS}`;
-  c.fillText("AI Futures Fingerprint", pad, 140);
-  c.fillText(`Find yours: ${location.host}`, pad, H - 110);
+  c.fillText("The Great AI Debate", pad, 140);
+  c.fillText(`Find yours: ${DEBATE_HOST}`, pad, H - 110);
   c.globalAlpha = 1;
+  wordmark(c, W - pad, 140, 40, spec.fg, spec.fg);
   for (const op of ops) {
     if (op.t === "print") drawPrint(c, values, pad - 20, offset + op.y - 20, 620, spec.fg);
     if (op.t === "text") { c.globalAlpha = op.alpha; c.font = op.font; c.fillText(op.l, pad, offset + op.y); c.globalAlpha = 1; }
@@ -101,7 +121,7 @@ export function drawStory(canvas, spec, values) {
 }
 
 export function shareText(result, url) {
-  const lines = [`My AI futures fingerprint: closest to the ${result.schools[0]?.label}.`];
+  const lines = [`My fingerprint in The Great AI Debate: closest to the ${result.schools[0]?.label}.`];
   lines.push(`Nearest: ${result.nearest.map((t) => `${t.name} (${t.k}/${t.n})`).join(", ")}`);
   const s = result.signature[0];
   if (s) lines.push(`Plot twist: I side with the ${s.ally} ${s.answer === 1 ? "that" : "against"} "${s.text}"`);

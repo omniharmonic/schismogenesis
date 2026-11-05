@@ -21,7 +21,9 @@ SUMMARY = {
     "nearest": [{"id": "vitalik-buterin", "k": 5, "n": 6}, {"id": "max-tegmark", "k": 6, "n": 8}],
     "furthest": [{"id": "josh-hawley", "k": 3, "n": 11}],
     "signature": [{"anchor": A[1], "answer": -1, "ally": BUNDLE["schools"][1]["label"]}],
-    "camps": [{"id": "eacc", "agreed": 3, "opposed": 5, "deepest": "ontological"}],
+    "camps": [
+        {"id": BUNDLE["camps"][0]["id"], "agreed": 3, "opposed": 5, "deepest": "ontological"}
+    ],
     "rarest": {"anchor": A[2], "answer": 1},
 }
 GLYPH = ([1, -1, 0, None] * 9)[: len(A)]
@@ -78,7 +80,7 @@ def test_bsky_handle_rules():
 
 
 def test_bsky_check_ignores_reposts_of_the_code():
-    holder = ["dialogos-abc123", False]
+    holder = ["antimemes-abc123", False]
     assert check_bsky("alice.bsky.social", holder[0], FakeBsky(holder)) is None
     holder[1] = True
     found = check_bsky("alice.bsky.social", holder[0], FakeBsky(holder))

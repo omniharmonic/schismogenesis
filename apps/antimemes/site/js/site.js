@@ -1,17 +1,27 @@
-/* anti-memes.is: the memetic field and the scroll story. No dependencies. */
+/* antimemes.is: the memetic field and the scroll story. No dependencies. */
 (() => {
   "use strict";
 
-  // ---- config: change these when the debate moves to a subdomain ----
+  // ---- config: the one place the lab's links to the debate live ----
+  const LAB_URL = "https://antimemes.is";
+  const DEBATE_URL = "https://debate.antimemes.is";
   const CONFIG = {
-    debateBase: "https://dialogos-fingerprint.vercel.app",
+    debateBase: DEBATE_URL,
     surveyPath: "/",
     atlasPath: "/atlas",
-    cardPath: "/people#", // + person id: their card, with a way to report a misreading
+    peoplePath: "/people",
+    cardPath: "/people#", // + person id: that thinker's full profile on the debate
+    aboutPath: "/about",
+    privacyPath: "/privacy",
   };
   const LINKS = {
+    lab: (/(^|\.)antimemes\.is$/.test(location.hostname) ? LAB_URL : "") + "/", // relative in local previews
+    debate: CONFIG.debateBase + "/",
     survey: CONFIG.debateBase + CONFIG.surveyPath,
     atlas: CONFIG.debateBase + CONFIG.atlasPath,
+    people: CONFIG.debateBase + CONFIG.peoplePath,
+    about: CONFIG.debateBase + CONFIG.aboutPath,
+    privacy: CONFIG.debateBase + CONFIG.privacyPath,
   };
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -25,10 +35,8 @@
   let REDUCE = reduceMQ.matches;
   const finePointer = matchMedia("(pointer: fine)").matches;
 
-  for (const a of $$("[data-link]")) {
-    a.href = LINKS[a.dataset.link] || "#";
-    if (a.dataset.link in LINKS) { a.target = "_blank"; a.rel = "noopener"; }
-  }
+  // the lab and the debate are one site in two places, so links between them stay in the same tab
+  for (const a of $$("[data-link]")) if (a.dataset.link in LINKS) a.href = LINKS[a.dataset.link];
 
   const css = getComputedStyle(document.documentElement);
   const tok = (n) => css.getPropertyValue(n).trim();
@@ -75,6 +83,7 @@
   const region = { x0: 0, x1: 0, y0: 0, y1: 0, init: false };
   const anim = { heat: 0, sep: 0, goat: 0, plural: 0, alpha: 1, rivalA: 0 };
   let schismStatement = null, centroid = {};
+  const loop = { near: null, far: null, phase: 0, t: 0, el: [] }; // see -> meet -> move -> meta-consensus
   let awake = false, lastT = 0, t0 = performance.now();
 
   function resize() {
@@ -92,13 +101,13 @@
     const top = TOP + 18;
     if (mobile) {
       if (key === "map") return { x0: 14, x1: W - 14, y0: top + 6, y1: H * 0.44 };
-      if (["contagion", "schism", "scapegoat", "plural"].includes(key)) return { x0: 18, x1: W - 18, y0: top + 10, y1: H * 0.5 };
+      if (["contagion", "schism", "scapegoat", "plural", "loop"].includes(key)) return { x0: 18, x1: W - 18, y0: top + 10, y1: H * 0.5 };
       return { x0: 14, x1: W - 14, y0: top + 10, y1: H - 24 };
     }
     const gutter = clamp(W * 0.04, 16, 48);
     const right = W >= 1180 ? W - 170 : W - 60;
     if (key === "map") return { x0: Math.max(W * 0.44, gutter + 560), x1: right, y0: top + 16, y1: H - 70 };
-    if (["contagion", "schism", "scapegoat", "plural"].includes(key)) return { x0: gutter + 460 + 70, x1: right, y0: top + 30, y1: H - 80 };
+    if (["contagion", "schism", "scapegoat", "plural", "loop"].includes(key)) return { x0: gutter + 460 + 70, x1: right, y0: top + 30, y1: H - 80 };
     return { x0: 60, x1: W - 60, y0: top + 10, y1: H - 40 };
   }
 
@@ -216,6 +225,19 @@
       else { n.px = n.mx * 0.42; n.py = n.my * 0.42; }
     });
 
+    // loop: say the survey places you with the largest school; the far side is the school whose
+    // centre on the real map is farthest from it
+    const mc = DATA.schools.map((s) => {
+      const m = s.members.map((id) => byId.get(id)).filter(Boolean);
+      return { label: s.label, n: m.length, x: m.reduce((a, n) => a + n.mx, 0) / (m.length || 1), y: m.reduce((a, n) => a + n.my, 0) / (m.length || 1), color: schoolColor(s.label) };
+    }).filter((c) => c.n);
+    if (mc.length >= 2) {
+      loop.near = mc.slice().sort((a, b) => b.n - a.n)[0];
+      loop.far = mc.filter((c) => c !== loop.near).sort((a, b) => Math.hypot(b.x - loop.near.x, b.y - loop.near.y) - Math.hypot(a.x - loop.near.x, a.y - loop.near.y))[0];
+      // the example "you" marker sits just off the near school's centre, toward the middle of the map
+      loop.you = { x: loop.near.x * 0.82, y: loop.near.y * 0.82 };
+    }
+
     // scapegoat ring angles
     nodes.forEach((n, j) => { n.ga = (j / nodes.length) * Math.PI * 2 + (j % 3) * 0.04; n.gj = j % 2 ? 0.74 : 1.0; });
     $("#ro-nodes").textContent = String(nodes.length);
@@ -245,9 +267,13 @@
     const goat = k === "scapegoat" ? ease(clamp(p * 1.5 - 0.05)) : 0;
     const plural = ["plural", "dim", "faint"].includes(k) ? 1 : 0;
     anim.sep = sep; anim.goatT = goat; anim.pluralT = plural;
+    // loop: the real map for see/meet/move, then it opens out into schools for meta-consensus
+    const lp = k === "loop" ? ease(clamp((p - 0.7) / 0.16)) : 0;
+    anim.loopPlural = lp;
     for (const n of nodes) {
       let x = n.mx, y = n.my;
       if (plural) { x = n.px; y = n.py; }
+      else if (k === "loop") { x = lerp(n.mx, n.px, lp); y = lerp(n.my, n.py, lp); }
       else if (k === "schism" || k === "scapegoat") {
         x = lerp(n.mx, n.sx, sep); y = lerp(n.my, n.sy, sep);
         if (k === "scapegoat") {
@@ -271,7 +297,11 @@
     const k = scene.key, p = scene.p;
     const goalHeat = k === "contagion" ? clamp(p * 1.35) : k === "schism" || k === "scapegoat" ? 1 : 0;
     const goalAlpha = k === "dim" ? 0.34 : k === "faint" ? 0.2 : 1;
-    const goalPlural = ["plural", "dim", "faint"].includes(k) ? 1 : 0;
+    const goalPlural = ["plural", "dim", "faint"].includes(k) ? 1 : k === "loop" ? anim.loopPlural : 0;
+    // loop phases: 0 see, 1 meet, 2 move, 3 meta-consensus
+    const phase = k === "loop" ? (p < 0.22 ? 0 : p < 0.46 ? 1 : p < 0.7 ? 2 : 3) : -1;
+    if (phase !== loop.phase) setLoopPhase(phase);
+    anim.loop = (anim.loop || 0) + ((k === "loop" ? 1 : 0) - (anim.loop || 0)) * (REDUCE ? 1 : 0.12);
     const goalGoat = k === "scapegoat" ? anim.goatT : 0;
     const goalRival = k === "schism" ? anim.sep : k === "scapegoat" ? 1 - anim.goatT : 0;
     const s = REDUCE ? 1 : 0.08;
@@ -288,6 +318,9 @@
       n.heat += (wantHeat - n.heat) * (REDUCE ? 1 : 0.15);
       let wantA = 1;
       if ((k === "schism" || (k === "scapegoat" && anim.goat < 0.3)) && !n.side) wantA = lerp(1, 0.22, anim.sep);
+      if (k === "loop" && (loop.phase === 1 || loop.phase === 2) && loop.far) {
+        wantA = n.p.school === loop.far.label ? 1 : n.p.school === loop.near.label ? 0.55 : 0.18;
+      }
       n.alpha += (wantA - n.alpha) * (REDUCE ? 1 : 0.1);
       if (pointer.drag === n) { n.x = pointer.x; n.y = pointer.y; n.vx = n.vy = 0; continue; }
       if (REDUCE) { n.x = n.tx; n.y = n.ty; continue; }
@@ -439,6 +472,8 @@
       ctx.setLineDash([]);
     }
 
+    if (anim.loop > 0.02 && loop.far) drawLoop(t, R);
+
     // nodes
     for (const n of nodes) {
       const a = n.alpha * A;
@@ -463,6 +498,8 @@
       }
       ctx.globalAlpha = 1;
     }
+
+    if (anim.loop > 0.02 && loop.far) drawYou(R);
 
     // faction labels in the plural view
     if (anim.plural > 0.3 && A > 0.5 && W > 520) {
@@ -490,8 +527,60 @@
     if (sel && sel.alpha * A > 0.15) {
       const r = R * 1.35;
       brackets(sel.x, sel.y, r, C.recog);
-      tag(sel.x + r, sel.y, sel.p.name, sel.p.school || (sel.p.between ? "Between " + sel.p.between.join(" and ") : "No school yet"), sel.color);
+      tag(sel.x + r, sel.y, sel.p.name, sel.p.school || (sel.p.between ? "Between " + sel.p.between.join(" and ") : "No camp yet"), sel.color);
     }
+  }
+
+  // the see -> meet -> move loop, drawn on the real map
+  function loopPoints() {
+    const [yx, yy] = toScreen(lerp(loop.you.x, centroid[loop.near.label]?.x ?? loop.you.x, anim.loopPlural), lerp(loop.you.y, centroid[loop.near.label]?.y ?? loop.you.y, anim.loopPlural));
+    const [fx, fy] = toScreen(lerp(loop.far.x, centroid[loop.far.label]?.x ?? loop.far.x, anim.loopPlural), lerp(loop.far.y, centroid[loop.far.label]?.y ?? loop.far.y, anim.loopPlural));
+    return { yx, yy, fx, fy };
+  }
+  function drawLoop(t, R) {
+    const ph = loop.phase, A = anim.loop * (1 - anim.loopPlural);
+    loop.tag = null;
+    if (ph < 1 || A < 0.02) return;
+    const { yx, yy, fx, fy } = loopPoints();
+    const dx = fx - yx, dy = fy - yy;
+    // out (meet) bows one way, back (move) bows the other: together, a loop
+    const out = { x: (yx + fx) / 2 - dy * 0.28, y: (yy + fy) / 2 + dx * 0.28 };
+    const back = { x: (yx + fx) / 2 + dy * 0.28, y: (yy + fy) / 2 - dx * 0.28 };
+    const curve = (c, a, b) => { ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.quadraticCurveTo(c.x, c.y, b[0], b[1]); ctx.stroke(); };
+    const at = (c, a, b, u) => { const v = 1 - u; return [v * v * a[0] + 2 * v * u * c.x + u * u * b[0], v * v * a[1] + 2 * v * u * c.y + u * u * b[1]]; };
+    const u = REDUCE ? 0.55 : ((t - t0) / 2600) % 1;
+    ctx.lineWidth = 1.5; ctx.setLineDash([4, 5]);
+    ctx.strokeStyle = rgba(C.recog, 0.85 * A); curve(out, [yx, yy], [fx, fy]);
+    if (ph >= 2) { ctx.strokeStyle = rgba(C.recog, 0.85 * A); ctx.setLineDash([]); curve(back, [fx, fy], [yx, yy]); }
+    ctx.setLineDash([]);
+    // a note travels out; once signed, it comes back
+    ctx.fillStyle = rgba(C.recog, A);
+    const [ox, oy] = at(out, [yx, yy], [fx, fy], u); ctx.fillRect(ox - 3, oy - 3, 6, 6);
+    if (ph >= 2) { const [bx, by] = at(back, [fx, fy], [yx, yy], u); ctx.beginPath(); ctx.arc(bx, by, 4, 0, Math.PI * 2); ctx.fill(); }
+    // the far side, bracketed
+    ctx.globalAlpha = A; brackets(fx, fy, R * 3.2, loop.far.color); ctx.globalAlpha = 1;
+    if (A > 0.3) {
+      const [lx, ly] = at(out, [yx, yy], [fx, fy], 0.5);
+      loop.tag = [lx, ly, ph >= 2 ? "Move: signed, it comes back" : "Meet: the far side", ph >= 2 ? "Bridging reputation (coming)" : "“" + loop.far.label + "” (next)", C.recog]; // drawn above the faces, in drawYou
+    }
+  }
+  function drawYou(R) {
+    const A = anim.loop;
+    const { yx, yy } = loopPoints();
+    ctx.globalAlpha = A;
+    ctx.fillStyle = C.ground; ctx.strokeStyle = C.recog; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(yx, yy, R * 0.9, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.arc(yx, yy, R * 0.9 + 5, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = C.recog; ctx.font = "600 12px 'Plex Cond', sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("you", yx, yy + 0.5); ctx.textAlign = "left";
+    ctx.globalAlpha = 1;
+    if (loop.tag) tag(...loop.tag);
+    if (loop.phase === 0 && A > 0.5) tag(yx + R, yy, "You (an example placement)", "In “" + loop.near.label + "”", C.recog);
+  }
+  function setLoopPhase(ph) {
+    loop.phase = ph;
+    if (!loop.el.length) loop.el = $$("#loop-steps > li");
+    if (ph >= 0) loop.el.forEach((li, j) => { li.classList.toggle("on", j === ph); li.classList.toggle("done", j < ph); });
   }
 
   function frame(t) {
@@ -499,7 +588,7 @@
     readScroll();
     const e = step(dt);
     draw(t);
-    const continuous = !REDUCE && (scene.key === "contagion" || anim.goat > 0.01 || anim.plural > 0.02);
+    const continuous = !REDUCE && (scene.key === "contagion" || scene.key === "loop" || anim.goat > 0.01 || anim.plural > 0.02);
     if (e > 0.3 || continuous || pointer.drag) requestAnimationFrame(frame);
     else awake = false;
   }
@@ -524,7 +613,7 @@
     if (id !== lastRail) {
       lastRail = id;
       for (const a of railLinks) a.classList.toggle("on", a.dataset.rail === (id === "why" ? "turn" : id));
-      const names = { top: "map", contagion: "contagion", schism: "schismogenesis", scapegoat: "scapegoat", fixes: "fixes", turn: "anti-mimesis", why: "anti-mimesis", instruments: "instruments", debate: "first release", rules: "rules", join: "invitation" };
+      const names = { top: "map", contagion: "contagion", schism: "schismogenesis", scapegoat: "scapegoat", fixes: "fixes", turn: "anti-mimesis", why: "anti-mimesis", instruments: "instruments", debate: "first release", loop: "see > meet > move", rules: "rules", join: "invitation" };
       $("#ro-scene").textContent = names[id] || id;
     }
   }
@@ -582,12 +671,13 @@
     const p = n.p;
     dz.style.setProperty("--sw", n.color);
     $("#dz-name").textContent = p.name;
-    $("#dz-school").textContent = p.school ? p.school : p.between ? "Between " + p.between.join(" and ") : "Not in a school yet";
+    $("#dz-school").textContent = p.school ? p.school : p.between ? "Between " + p.between.join(" and ") : "Not in a camp yet";
     const face = $("#dz-face");
     face.textContent = p.face ? "" : p.initials;
     face.style.backgroundImage = p.face ? `url("${p.face}")` : "none";
     face.setAttribute("role", "img"); face.setAttribute("aria-label", p.face ? "Portrait of " + p.name : "");
     $("#dz-card").href = CONFIG.debateBase + CONFIG.cardPath + encodeURIComponent(p.id);
+    $("#dz-card").textContent = "Full profile of " + p.name + " on The Great AI Debate";
     const body = $("#dz-body");
     body.innerHTML = `<p class="fine" style="padding-top:12px">Loading their words…</p>`;
     dz.hidden = false;
@@ -607,6 +697,7 @@
     if (dzReturn) { dzReturn.focus(); dzReturn = null; }
   }
   $("#dz-close").addEventListener("click", closeDossier);
+  $("#credits-link").addEventListener("click", () => { $("#credits-details").open = true; });
   addEventListener("keydown", (e) => { if (e.key === "Escape" && !dz.hidden) closeDossier(); });
 
   // ---------------------------------------------------------------- index (keyboard path to every node)
@@ -650,7 +741,7 @@
     pick(0);
 
     // schools
-    $(".schools > h3").textContent = `The ${DATA.schools.length === 4 ? "four" : DATA.schools.length} schools the map finds right now`;
+    $(".schools > h3").textContent = `The ${DATA.schools.length === 4 ? "four" : DATA.schools.length} camps the map finds right now`;
     $(".school-list").innerHTML = DATA.schools.map((s) => `<li><h4><span class="swatch" style="--sw:${schoolColor(s.label)}"></span>${esc(s.label)}</h4><span class="n">${s.members.length} figures</span><p>${esc(s.note)}</p></li>`).join("");
 
     // footer
@@ -662,6 +753,14 @@
       const lic = c.license_url ? `<a href="${esc(safeUrl(c.license_url))}" target="_blank" rel="noopener">${esc(c.license)}</a>` : esc(c.license);
       return `<li>${esc(name)}: <a href="${esc(safeUrl(c.source))}" target="_blank" rel="noopener">photo</a> by ${esc(c.artist || "unknown")}, ${lic}</li>`;
     }).join("");
+
+    // the loop's words come from the same data as its picture
+    if (loop.far) {
+      for (const el of $$('[data-loop="near"]')) el.textContent = "“" + loop.near.label + "”";
+      for (const el of $$('[data-loop="far"]')) el.textContent = "“" + loop.far.label + "”";
+    }
+    const ns = DATA.schools.length;
+    for (const el of $$('[data-loop="signed"]')) el.textContent = `0 of ${ns * (ns - 1)}`;
 
     initSplit();
   }

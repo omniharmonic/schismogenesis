@@ -42,7 +42,7 @@ def normalise_bsky(handle: str) -> str | None:
 
 
 def challenge_code() -> str:
-    return f"dialogos-{secrets.token_hex(8)}"
+    return f"antimemes-{secrets.token_hex(8)}"
 
 
 @dataclass(frozen=True)

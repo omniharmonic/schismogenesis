@@ -215,6 +215,12 @@ export function attachHoverCard(container, opts) {
   container.addEventListener("keydown", (e) => {
     if ((e.key === "Enter" || e.key === " ") && circle(e.target)) hide();
   });
+  // the live map: dragging a face closes its card; once the graph settles, an open card
+  // re-anchors to where its circle came to rest
+  container.addEventListener("thinkermap:drag", () => { if (anchor && container.contains(anchor)) hide(); });
+  container.addEventListener("thinkermap:settle", () => {
+    if (anchor && card && !card.hidden && container.contains(anchor)) place(card, anchor);
+  });
   // touch: the first tap on a circle shows its card; a second tap opens the profile as before.
   // Capture phase, so it runs before the map's own click handler.
   container.addEventListener("click", (e) => {

@@ -1,6 +1,7 @@
 import { esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
 import { fingerprint } from "./placement.js";
+import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 // answers saved by this browser, if the visitor took it here; never sent anywhere from this page
 function savedAnswers(bundle) {
@@ -35,7 +36,7 @@ async function main() {
     mapOptions: { marks, result: ok, ...size },
     intro: `<h3>${bundle.thinkers.length} thinkers, ${bundle.schools.length} camps</h3>
       <p>Each circle is a public thinker, placed by what they've said on the ${bundle.anchors.length} statements and the wider atlas. Select a camp to open the schools inside it, and keep going down to the tightest circles of people who agree on almost everything. Select a person to read their positions in their own words.</p>
-      ${ok ? `<p class="small muted">Your saved answers from this browser are shown beside theirs.</p>` : `<p><a class="button primary" href="/">Take the fingerprint</a></p><p class="small muted">Then you'll see your own answers beside theirs.</p>`}`,
+      ${ok ? `<p class="small muted">Your saved answers from this browser are shown beside theirs.</p>` : `<p><a class="button primary" href="/">Take the survey</a></p><p class="small muted">Then you'll see your own answers beside theirs.</p>`}`,
   });
   // /people#<thinker-id> opens that thinker's card (linked from shared profiles)
   const fromHash = () => {

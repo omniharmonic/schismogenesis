@@ -1,6 +1,7 @@
 // A published profile. The data comes embedded in the page; the bundle supplies names and quotes.
 import { valuesSVG } from "./glyph.js";
 import { badge, esc } from "./map.js";
+import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
   empirical: "What will happen", praxis: "What to do" };
@@ -47,7 +48,7 @@ async function main() {
     ${who}
     <div class="reveal-head" style="margin-top:24px">
       ${valuesSVG(p.glyph, { label: `${p.display_name}'s fingerprint` })}
-      <div><p class="muted">AI futures fingerprint</p><h1 style="max-width:18ch">Closest to the ${esc(s.home)}</h1>
+      <div><p class="muted">Fingerprint from The Great AI Debate</p><h1 style="max-width:18ch">Closest to the ${esc(s.home)}</h1>
       <p>From ${s.answered} statements, answered with the names hidden.</p></div>
     </div>
     ${compare}
@@ -62,7 +63,7 @@ async function main() {
       ${s.camps.map((c) => `<tr><th scope="row">${esc(c.label)}</th><td class="cell-agree">${c.agreed}</td><td class="cell-split">${c.opposed}</td><td>${c.deepest ? LAYER[c.deepest] : "none"}</td></tr>`).join("")}</table>
     ${answersHTML}
     <div class="room-card"><h2 style="margin-top:0">Where do you sit?</h2><p>Answer ${bundle.anchors.length} statements with the names hidden, then see which of ${bundle.thinkers.length} thinkers you agree with.</p>
-      <a class="button primary" href="/">Take the fingerprint</a></div>
+      <a class="button primary" href="/">Take the survey</a></div>
     ${isOwner ? `<p class="small muted">This is your page. <button class="link-button" id="delete">Delete it</button></p>` : ""}
     <p class="small muted">Result as computed in the publisher's browser. Thinkers are read by machine from their public work and haven't reviewed this.</p>`;
   const del = document.getElementById("delete");

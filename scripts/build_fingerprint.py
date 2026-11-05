@@ -64,6 +64,17 @@ def main(*args: str) -> None:
         **extra,
     )
     target = REPO / out
+    # the camps are the top of the current tree (the early e/acc, safety, d/acc trio is retired)
+    tree = bundle.get("tree") or {}
+    if tree.get("roots"):
+        bundle["camps"] = [
+            {
+                "id": r,
+                "label": tree["nodes"][r]["label"],
+                "members": tree["nodes"][r]["members"] + tree["nodes"][r].get("attached", []),
+            }
+            for r in tree["roots"]
+        ]
     # portraits from Wikimedia Commons (scripts/fetch_faces.py), each with its credit
     credits_path = REPO / "seed/faces.json"
     credits = json.loads(credits_path.read_text()) if credits_path.exists() else {}

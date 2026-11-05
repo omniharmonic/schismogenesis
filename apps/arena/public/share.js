@@ -75,12 +75,12 @@ export async function openShare({ bundle, answers, result, toast, verified = nul
     const $ = (s) => dialog.querySelector(s);
     $("#copy-link").onclick = async () => { try { await navigator.clipboard.writeText(url); toast("Link copied"); event("copy_link"); } catch { $("input").select(); } };
     $("#native").hidden = !navigator.share;
-    $("#native").onclick = async () => { try { await navigator.share({ title: "My AI futures fingerprint", text: shareText(result), url }); event("share_native"); } catch { /* cancelled */ } };
+    $("#native").onclick = async () => { try { await navigator.share({ title: "My fingerprint in The Great AI Debate", text: shareText(result), url }); event("share_native"); } catch { /* cancelled */ } };
     $("#post-x").onclick = () => { window.open(`https://x.com/intent/post?text=${encodeURIComponent(shareText(result))}&url=${encodeURIComponent(url)}`, "_blank", "noopener"); event("share_x"); };
     $("#post-bsky").onclick = () => { window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(text)}`, "_blank", "noopener"); event("share_bsky"); };
     $("#card").onclick = async () => {
       const blob = await canvasBlob(drawCard(document.createElement("canvas"), values, result, { thinkers: bundle.thinkers.length }));
-      const a = document.createElement("a"); a.download = "ai-futures-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
+      const a = document.createElement("a"); a.download = "great-ai-debate-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
       event("save_card");
     };
     $("#close").onclick = () => dialog.close();
@@ -126,7 +126,7 @@ export async function openShare({ bundle, answers, result, toast, verified = nul
         <button class="primary" id="x-go">Sign in with X</button>`;
     }
     if (state.bsky) {
-      const post = `Verifying my AI Futures Fingerprint: ${state.bsky.code}`;
+      const post = `Verifying my place in The Great AI Debate: ${state.bsky.code}`;
       return `<p class="small">Post this from <b>@${esc(state.bsky.handle)}</b>. You can delete the post once you're verified.</p>
         <p><span class="code">${esc(state.bsky.code)}</span></p>
         <div class="row"><a class="button" target="_blank" rel="noopener" href="https://bsky.app/intent/compose?text=${encodeURIComponent(post)}">Post it on Bluesky</a>

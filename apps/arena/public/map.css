@@ -1,0 +1,81 @@
+/* The live thinker map (map.js). Loaded by map.js itself, after style.css, so pages need no
+   extra <link>. House graph language from docs/brand/BRAND.md "The graph": faces ringed in camp
+   colour, hairline kin links, --recog for links/focus, crosshair + readout. Only map rules here. */
+
+svg.thinker-map {
+  --tm-node: var(--ground-2, #19212b);
+  --tm-ground: var(--ground, #121820);
+  --tm-halo: var(--sheet, #161d26);
+  --tm-ink: var(--ink, #dde4eb);
+  --tm-ink2: var(--ink-2, #9aa7b6);
+  --tm-ink3: var(--ink-3, #6f7c8c);
+  --tm-recog: var(--recog, #8fb0ff);
+  --tm-agree: var(--agree, #43c3a3);
+  --camp: #6e7b8b;
+}
+svg.thinker-map .camp-0 { --camp: #6e7b8b; }
+svg.thinker-map .camp-1 { --camp: #e2b14a; }
+svg.thinker-map .camp-2 { --camp: #4cc2ae; }
+svg.thinker-map .camp-3 { --camp: #c08cf0; }
+svg.thinker-map .camp-4 { --camp: #e6dfcf; }
+
+svg.thinker-map.is-live { -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+
+/* camps as soft regions in their own colour */
+svg.thinker-map .map-region {
+  fill: var(--camp); fill-opacity: 0.06; stroke: var(--camp); stroke-opacity: 0.06; stroke-linejoin: round;
+}
+svg.thinker-map .map-region:hover, svg.thinker-map .map-region.is-selected { fill-opacity: 0.13; stroke-opacity: 0.13; }
+svg.thinker-map .map-school-label text { fill: var(--camp); stroke: var(--tm-halo); font-family: "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; }
+svg.thinker-map .map-school-label:hover text,
+svg.thinker-map .map-school-label.is-selected text { fill: var(--tm-ink); }
+svg.thinker-map .map-school-label:focus-visible text { fill: var(--tm-ink); text-decoration: underline; text-decoration-color: var(--tm-recog); }
+
+/* kin links: hairlines where published words agree; the hovered face's links in --recog */
+svg.thinker-map .map-kin {
+  fill: none; stroke: var(--tm-ink); stroke-opacity: 0.12; stroke-width: 1;
+  vector-effect: non-scaling-stroke; pointer-events: none;
+}
+svg.thinker-map.has-focus .map-kin { stroke-opacity: 0.05; }
+svg.thinker-map .map-kin.is-on { stroke: var(--tm-recog); stroke-opacity: 0.8; stroke-width: 1.3; }
+
+/* faces ringed in camp colour; the ring's inner band carries agreement with you */
+svg.thinker-map.is-live .map-thinker { cursor: grab; }
+svg.thinker-map.is-dragging, svg.thinker-map.is-dragging .map-thinker { cursor: grabbing; }
+svg.thinker-map .map-thinker .dot { stroke: var(--camp); stroke-width: 2; }
+svg.thinker-map .map-thinker text:not(.map-name) { fill: var(--tm-ink2); font-family: "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; }
+svg.thinker-map .map-thinker.is-dark text:not(.map-name) { fill: var(--tm-ground); }
+svg.thinker-map .tm-body { transition: transform 0.12s ease-out; }
+svg.thinker-map .map-thinker:hover .tm-body,
+svg.thinker-map .map-thinker:focus-visible .tm-body,
+svg.thinker-map .map-thinker.is-dragged .tm-body { transform: scale(1.22); }
+svg.thinker-map .map-thinker:hover .dot,
+svg.thinker-map .map-thinker:focus-visible .dot { stroke-width: 2.4; }
+svg.thinker-map .map-thinker.is-selected .dot { stroke: var(--tm-recog); stroke-width: 3; }
+svg.thinker-map .map-thinker:focus-visible .hit { stroke: var(--tm-recog); stroke-width: 2; }
+svg.thinker-map .map-name { fill: var(--tm-ink); stroke: var(--tm-halo); font-family: "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; }
+
+/* you, your tethers, room/listing tags */
+svg.thinker-map .map-you { fill: var(--tm-ink); }
+svg.thinker-map .map-you-mark circle:not(.map-you) { stroke: var(--tm-ink); }
+svg.thinker-map .map-tether { stroke: var(--tm-recog); stroke-opacity: 0.45; stroke-width: 1; vector-effect: non-scaling-stroke; }
+svg.thinker-map .map-tag { pointer-events: none; }
+svg.thinker-map .map-tag circle { fill: var(--tm-ink); }
+svg.thinker-map .map-tag text { fill: var(--tm-ground); }
+
+/* ops-console furniture: focus brackets, crosshair, readout */
+svg.thinker-map .map-brackets { fill: none; stroke: var(--tm-recog); stroke-width: 1.5; pointer-events: none; }
+svg.thinker-map .map-cross line { stroke: var(--tm-recog); stroke-opacity: 0.16; stroke-width: 1; vector-effect: non-scaling-stroke; pointer-events: none; }
+svg.thinker-map .map-readout {
+  font: 500 11px "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; fill: var(--tm-ink3);
+  font-variant-numeric: tabular-nums; pointer-events: none;
+}
+svg.thinker-map:not(.is-live) .map-readout { display: none; }
+
+/* the key under the results map follows the same encoding */
+.mapbox .map-key i { border-color: var(--tm-ink3, #6f7c8c); }
+.mapbox .map-key .k-dark { background: var(--agree, #43c3a3); border-color: var(--agree, #43c3a3); }
+
+@media (prefers-reduced-motion: reduce) {
+  svg.thinker-map .tm-body { transition: none; }
+}

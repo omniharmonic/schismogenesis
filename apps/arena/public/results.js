@@ -1,5 +1,6 @@
 // Public results: aggregates only, from people who chose to add their answers.
 import { esc } from "./map.js";
+import { handoffHTML } from "./site-config.js";
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
   empirical: "What will happen", praxis: "What to do" };
@@ -36,7 +37,7 @@ function hbars(rows, label, value, tipText) {
     <span class="num">${pct(value(r))}</span></li>`).join("")}</ul>`;
 }
 
-// diverging cell colour: disagree orange, through a grey midpoint, to agree blue
+// diverging cell colour: disagree pink, through the panel colour, to agree green
 const heatColour = (share) => {
   const t = Math.abs(share - 0.5) * 2;
   const hue = share >= 0.5 ? "var(--yes)" : "var(--no)";
@@ -106,7 +107,7 @@ function render(r) {
     <div class="sortbar" role="group" aria-label="Sort statements">
       <button data-sort="split" aria-pressed="${sort === "split"}">Most divided first</button>
       <button data-sort="gap" aria-pressed="${sort === "gap"}">Furthest from the thinkers</button>
-      <button data-sort="order" aria-pressed="${sort === "order"}">Fingerprint order</button></div>
+      <button data-sort="order" aria-pressed="${sort === "order"}">Survey order</button></div>
     <div id="rows">${sorted.map(statementRow).join("")}</div>
     ${r.homes.length ? `<h2>Neighbourhoods</h2><p class="muted">The school of each person's nearest thinker.</p>
       ${hbars(r.homes, (h) => h.school, (h) => h.share, (h) => `${h.people} people`)}` : ""}
@@ -114,7 +115,7 @@ function render(r) {
       ${hbars(r.nearest, (t) => t.name, (t) => t.share, (t) => `${t.people} people`)}` : ""}
     ${r.camps.length ? `<h2>Who leans with each camp</h2><p class="muted">Share of people who agree with a camp's thinkers on most statements where the camp takes a side.</p>
       ${hbars(r.camps, (c) => c.label, (c) => c.share_aligned, (c) => `${pct(c.share_aligned)} lean with ${c.label}`)}` : ""}
-    ${r.crosstab ? `<h2>How each neighbourhood answers</h2><p class="muted">Share agreeing, among people whose nearest thinker is in that school. Blue leans agree, orange leans disagree.</p>${crosstab(r)}` : ""}
+    ${r.crosstab ? `<h2>How each neighbourhood answers</h2><p class="muted">Share agreeing, among people whose nearest thinker is in that school. Green leans agree, pink leans disagree.</p>${crosstab(r)}` : ""}
     <details style="margin-top:28px"><summary>Table of every statement</summary><div class="scroll"><table class="camps-table">
       <tr><th>Statement</th><th>Agree</th><th>Unsure</th><th>Disagree</th><th>Thinkers agree</th></tr>
       ${r.statements.map((s) => `<tr><td>${esc(s.text)}</td><td>${s.agree}</td><td>${s.unsure}</td><td>${s.disagree}</td><td>${pct(s.thinkers_agree_share)}</td></tr>`).join("")}</table></div></details>
@@ -129,6 +130,7 @@ async function main() {
   const r = await (await fetch(`/api/results${room ? `?room=${encodeURIComponent(room)}` : ""}`)).json();
   if (r.demo) document.getElementById("lede").outerHTML = `<div class="demo-banner">Demo results. These people are synthetic, made up to show how the page works.</div>`;
   render(r);
+  document.getElementById("handoff").innerHTML = handoffHTML();
 }
 
 main();

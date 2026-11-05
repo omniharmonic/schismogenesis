@@ -52,5 +52,5 @@ def test_homes_crosstab_and_suppression():
 
 def test_camp_alignment_tracks_who_answered():
     r = results(like("guillaume-verdon", 20) | like("marc-andreessen", 10, seed=4), BUNDLE)
-    shares = {c["id"]: c["share_aligned"] for c in r["camps"]}
-    assert shares["eacc"] > shares["safety"]
+    shares = {c["label"]: c["share_aligned"] for c in r["camps"]}
+    assert shares["Market optimists"] > shares["AI as a new kind of risk"]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh the anti-memes.is site data from the live Fingerprint bundle.
+"""Refresh the antimemes.is site data from the live Fingerprint bundle.
 
 Reads   apps/arena/public/fingerprint.json   (the current AI Futures map)
         apps/arena/public/faces/<id>.jpg      (portraits)

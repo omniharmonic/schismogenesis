@@ -97,6 +97,8 @@ def test_committed_bundle_is_current():
     )
     # portraits are added by the build script from seed/faces.json, after the bundle itself
     faces = committed.pop("faces", {})
+    committed.pop("camps", None)  # derived from the tree by the build script
+    rebuilt.pop("camps", None)
     for t in committed["thinkers"]:
         t.pop("role", None)  # from seed/roles.json, added by the build script
         face = t.pop("face", None)

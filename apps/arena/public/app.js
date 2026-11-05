@@ -6,6 +6,7 @@ import { badge, esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
 import { protectedFetch } from "./turnstile.js";
+import { handoffHTML } from "./site-config.js";
 
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name }) }).catch(() => {});
@@ -115,7 +116,7 @@ function heroPreview() {
   const side = ([id, i], label, cls) => `<div class="side ${cls}"><span class="side-label">${label}</span>
     <blockquote>“${esc(i.q)}”</blockquote><p class="who">${esc(names[id])}</p></div>`;
   const card = document.createElement("div");
-  card.className = "preview-card";
+  card.className = "preview-card bracketed";
   $("hero-preview").append(card);
   const draw = () => {
     const p = pairs[n % pairs.length];
@@ -271,7 +272,8 @@ function renderReveal() {
 
     <ul class="notes small">${bundle.notes.map((n) => `<li>${esc(n)}</li>`).join("")}
       ${r.unranked.length ? `<li>Not enough shared statements to compare you with: ${r.unranked.map((t) => esc(t.name)).join(", ")}.</li>` : ""}</ul>
-    <div class="row"><button class="link-button" id="redo">Change my answers</button></div>`;
+    <div class="row"><button class="link-button" id="redo">Change my answers</button></div>
+    ${handoffHTML({ far: r.furthest[0]?.school || null })}`;
 
   const ex = explorer({
     bundle, answers, mapEl: $("reveal-map"), panelEl: $("reveal-panel"), gridEl: $("reveal-schools"),
@@ -288,15 +290,14 @@ function renderReveal() {
     $("reveal-panel").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
   const values = glyphValues(bundle, answers);
   const thinkers = bundle.thinkers.length;
-  drawCard($("card"), values, r, { dark, thinkers });
-  document.fonts?.ready.then(() => drawCard($("card"), values, r, { dark, thinkers }));
+  drawCard($("card"), values, r, { thinkers });
+  document.fonts?.ready.then(() => drawCard($("card"), values, r, { thinkers }));
   $("download").onclick = async () => {
     const blob = await canvasBlob($("card"));
     const a = document.createElement("a");
-    a.download = "ai-futures-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
+    a.download = "great-ai-debate-fingerprint.png"; a.href = URL.createObjectURL(blob); a.click();
     event("save_card");
   };
   $("copy").onclick = async () => {

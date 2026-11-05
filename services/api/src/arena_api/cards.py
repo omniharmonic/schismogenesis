@@ -17,7 +17,10 @@ FONTS = pathlib.Path(
     or (_HERE.parents[4] / "apps/arena/fonts" if len(_HERE.parents) > 4 else _HERE.parent)
 )
 RINGS = 15
-PAPER, INK, MUTED, RIDGE = (233, 237, 242), (27, 36, 48), (93, 104, 119), (47, 75, 217)
+# the shared antimemes.is ground (docs/brand/BRAND.md): slate, ink, recognition blue; cards are dark
+PAPER, INK, MUTED, RIDGE = (18, 24, 32), (221, 228, 235), (154, 167, 182), (143, 176, 255)
+RULE, AGREE, DISAGREE = (43, 54, 68), (67, 195, 163), (240, 106, 155)
+SITE = "debate.antimemes.is"
 WIDTH, HEIGHT = 1200, 630
 
 
@@ -117,7 +120,8 @@ def profile_card(profile: dict, names: dict[str, str]) -> bytes:
         for part in wrap(draw, line, serif, right - left)[:4]:
             draw.text((left, y), part, font=serif, fill=INK)
             y += 36
-    foot = "AI Futures Fingerprint, by Dialogos. Answer 24 statements and see where you sit."
+    foot = f"The Great AI Debate, from antimemes.is. Find where you sit: {SITE}"
+    draw.line((40, HEIGHT - 76, WIDTH - 40, HEIGHT - 76), fill=RULE, width=1)
     draw.text((40, HEIGHT - 52), foot, font=font("IBMPlexSansCondensed-Medium.ttf", 22), fill=MUTED)
     out = io.BytesIO()
     img.save(out, "PNG", optimize=True)
@@ -143,13 +147,13 @@ def statement_card(text: str, agree: int, disagree: int, layer: str) -> bytes:
     total = max(agree + disagree, 1)
     bar_y, width = HEIGHT - 150, right - left
     split = int(width * agree / total)
-    draw.rounded_rectangle((left, bar_y, left + split - 2, bar_y + 22), 6, fill=(47, 95, 208))
-    draw.rounded_rectangle((left + split + 2, bar_y, right, bar_y + 22), 6, fill=(196, 87, 15))
+    draw.rounded_rectangle((left, bar_y, left + split - 2, bar_y + 22), 6, fill=AGREE)
+    draw.rounded_rectangle((left + split + 2, bar_y, right, bar_y + 22), 6, fill=DISAGREE)
     body = font("IBMPlexSansCondensed-Medium.ttf", 28)
     draw.text((left, bar_y + 34), f"{agree} thinkers agree", font=body, fill=INK)
     label = f"{disagree} disagree"
     draw.text((right - draw.textlength(label, font=body), bar_y + 34), label, font=body, fill=INK)
-    foot = f"AI Futures Fingerprint, by Dialogos. {layer}. Answer it and see who's with you."
+    foot = f"{layer}. The Great AI Debate: answer it and see who's with you at {SITE}"
     draw.text(
         (left, HEIGHT - 52), foot, font=font("IBMPlexSansCondensed-Medium.ttf", 22), fill=MUTED
     )

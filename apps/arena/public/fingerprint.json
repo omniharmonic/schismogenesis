@@ -2546,32 +2546,109 @@
  },
  "camps": [
   {
-   "id": "eacc",
-   "label": "e/acc",
+   "id": "c1",
+   "label": "AI as a new kind of risk",
    "members": [
-    "guillaume-verdon",
-    "nick-land",
-    "marc-andreessen"
-   ]
-  },
-  {
-   "id": "safety",
-   "label": "AI safety / EA",
-   "members": [
-    "eliezer-yudkowsky",
+    "alexandria-ocasio-cortez",
+    "andrew-yang",
+    "anton-korinek",
+    "bernie-sanders",
+    "chris-murphy",
     "daniel-kokotajlo",
-    "scott-alexander",
+    "demis-hassabis",
+    "eliezer-yudkowsky",
+    "elon-musk",
+    "erik-hoel",
+    "geoffrey-hinton",
+    "holly-elmore",
+    "jack-clark",
     "max-tegmark",
-    "william-macaskill"
+    "miles-brundage",
+    "mustafa-suleyman",
+    "richard-blumenthal",
+    "sam-altman",
+    "scott-alexander",
+    "stuart-russell",
+    "tristan-harris",
+    "vitalik-buterin",
+    "william-macaskill",
+    "yoshua-bengio",
+    "yuval-noah-harari",
+    "zvi-mowshowitz",
+    "james-livingston",
+    "scott-santens"
    ]
   },
   {
-   "id": "dacc",
-   "label": "d/acc & pluralists",
+   "id": "c2",
+   "label": "AI as a tool to govern",
    "members": [
-    "vitalik-buterin",
+    "arvind-narayanan",
+    "asad-ramzanali",
     "audrey-tang",
-    "e-glen-weyl"
+    "barack-obama",
+    "brian-merchant",
+    "bruce-schneier",
+    "cory-doctorow",
+    "daron-acemoglu",
+    "e-glen-weyl",
+    "ed-zitron",
+    "emily-m-bender",
+    "gary-marcus",
+    "jaron-lanier",
+    "jeff-jarvis",
+    "joanna-bryson",
+    "josh-hawley",
+    "karen-hao",
+    "meredith-whittaker",
+    "pope-leo-xiv",
+    "ro-khanna",
+    "timnit-gebru",
+    "david-autor",
+    "fei-fei-li",
+    "liz-shuler",
+    "matt-stoller",
+    "ruha-benjamin",
+    "rumman-chowdhury",
+    "safiya-noble"
+   ]
+  },
+  {
+   "id": "c3",
+   "label": "Market optimists",
+   "members": [
+    "adam-thierer",
+    "curtis-yarvin",
+    "daniel-jeffries",
+    "david-sacks",
+    "dean-ball",
+    "guillaume-verdon",
+    "jason-crawford",
+    "jd-vance",
+    "marc-andreessen",
+    "mark-zuckerberg",
+    "michael-kratsios",
+    "nick-land",
+    "robin-hanson",
+    "taylor-barkley",
+    "ted-cruz",
+    "tyler-cowen",
+    "venkatesh-rao",
+    "yann-lecun",
+    "balaji-srinivasan",
+    "neil-chilson",
+    "reid-hoffman"
+   ]
+  },
+  {
+   "id": "c4",
+   "label": "Real promise, real risk, US lead",
+   "members": [
+    "dario-amodei",
+    "dwarkesh-patel",
+    "leopold-aschenbrenner",
+    "noah-smith",
+    "samuel-hammond"
    ]
   }
  ],

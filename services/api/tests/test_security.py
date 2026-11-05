@@ -89,7 +89,7 @@ def test_chunked_body_over_the_cap_is_refused(engine):
 
 def test_bsky_code_is_long_and_old_posts_do_not_count():
     code = challenge_code()
-    assert len(code.removeprefix("dialogos-")) == 16
+    assert len(code.removeprefix("antimemes-")) == 16
     now = datetime.datetime.now(datetime.UTC)
 
     def fetch(url):

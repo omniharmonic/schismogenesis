@@ -47,24 +47,24 @@ def gate_page(target: str, wrong: bool = False) -> HTMLResponse:
     note = '<p class="no">That password didn\'t match. Try again.</p>' if wrong else ""
     body = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex"><title>Dialogos preview</title>
+<meta name="robots" content="noindex"><title>Preview: The Great AI Debate</title>
 <style>
-body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#f3f1ec;
-color:#1d1f24;font:17px/1.5 Georgia,serif}}
-@media (prefers-color-scheme:dark){{body{{background:#14161c;color:#e9e6df}}
-input{{background:#1d2029;color:#e9e6df;border-color:#3a3f52}}}}
-form{{width:min(360px,calc(100vw - 32px))}}
-h1{{font:600 24px/1.2 system-ui,sans-serif;margin:0 0 6px}}
-p{{margin:0 0 18px;opacity:.8}} .no{{color:#c2412d;opacity:1}}
+body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#121820;
+color:#dde4eb;font:17px/1.5 Georgia,serif}}
+form{{width:min(360px,calc(100vw - 32px));border:1px solid #2b3644;background:#161d26;padding:24px}}
+.k{{font:13px "Arial Narrow",system-ui,sans-serif;color:#9aa7b6;margin:0 0 8px}}
+h1{{font:400 26px/1.15 Georgia,serif;margin:0 0 6px}}
+p{{margin:0 0 18px;color:#9aa7b6}} .no{{color:#ff5468}}
 label{{display:block;font:14px system-ui,sans-serif;margin-bottom:6px}}
 input{{box-sizing:border-box;width:100%;font:16px system-ui,sans-serif;padding:11px 12px;
-border:1px solid #c9c4b8;border-radius:6px;margin-bottom:12px}}
-button{{width:100%;font:600 16px system-ui,sans-serif;padding:11px;border:0;border-radius:6px;
-background:#2f5bd3;color:#fff;cursor:pointer}}
+background:#121820;color:#dde4eb;border:1px solid #3a4757;border-radius:2px;margin-bottom:12px}}
+button{{width:100%;font:600 16px system-ui,sans-serif;padding:11px;border:0;border-radius:2px;
+background:#dde4eb;color:#121820;cursor:pointer}}
 button:focus-visible,input:focus-visible{{outline:3px solid #8fb0ff;outline-offset:2px}}
 </style></head><body>
 <form method="post" action="{GATE_PATH}">
-<h1>Dialogos is in preview</h1>
+<p class="k">antimemes.is</p>
+<h1>The Great AI Debate is in preview</h1>
 <p>Enter the preview password to continue.</p>{note}
 <label for="pw">Password</label>
 <input id="pw" name="password" type="password" autocomplete="current-password" autofocus required>
@@ -226,7 +226,7 @@ def create_app(
     store = Store(engine)
     # rate-limit buckets hold hashed addresses, never raw ones
     salt = config.rate_salt or secrets.token_hex(16)
-    app = FastAPI(title="Dialogos: AI Futures Fingerprint", docs_url=None, redoc_url=None)
+    app = FastAPI(title="The Great AI Debate (antimemes.is)", docs_url=None, redoc_url=None)
 
     @app.middleware("http")
     async def launch_gate(request: Request, call_next):
@@ -728,7 +728,10 @@ def create_app(
         who = data["display_name"] + (f" (@{data['handle']})" if data["handle"] else "")
         title = f"{who}: closest to the {data['summary']['home']}"
         nearest = ", ".join(names[m["id"]] for m in data["summary"]["nearest"])
-        description = f"Nearest thinkers: {nearest}. Answer 24 statements and see where you sit."
+        description = (
+            f"Nearest thinkers: {nearest}. The Great AI Debate: answer "
+            f"{len(bundle['anchors'])} statements and see where you sit."
+        )
         page = (public / "profile.html").read_text()
         url = f"{config.public_url}/p/{code}"
         safe_json = (

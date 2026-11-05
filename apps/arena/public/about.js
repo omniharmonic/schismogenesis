@@ -1,5 +1,6 @@
 // Photo credits for the About page, from the bundle (scripts/fetch_faces.py fills them in).
 import { esc } from "./map.js";
+import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 const bundle = await (await fetch("/fingerprint.json")).json();
 const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));

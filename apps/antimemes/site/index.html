@@ -3,21 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>anti-memes.is: culture you have to meet</title>
-<meta name="description" content="anti-memes.is is an arts lab by Benjamin Life building instruments for dialogue across difference: a live map of who agrees with whom, anti-debates, and credit for understanding the other side. First release: The Great AI Debate.">
+<title>antimemes.is: culture you have to meet</title>
+<meta name="description" content="antimemes.is is an arts lab by Benjamin Life building instruments for dialogue across difference: a live map of who agrees with whom, anti-debates, and credit for understanding the other side. First release: The Great AI Debate.">
+<link rel="canonical" href="https://antimemes.is/">
 <meta name="theme-color" content="#121820">
 <meta name="author" content="Benjamin Life">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="anti-memes.is">
+<meta property="og:site_name" content="antimemes.is">
+<meta property="og:url" content="https://antimemes.is/">
 <meta property="og:title" content="You didn't pick your enemies. You copied them.">
 <meta property="og:description" content="An arts lab for dialogue across difference. First release: The Great AI Debate, a map of 107 public figures on AI's future, in their own words.">
-<meta property="og:image" content="https://anti-memes.is/img/og.png">
+<meta property="og:image" content="https://antimemes.is/img/og.png">
+<meta property="og:image:alt" content="The anti+memes wordmark over a live map of 107 public figures' faces, linked where their published words on AI agree.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="You didn't pick your enemies. You copied them.">
 <meta name="twitter:description" content="An arts lab for dialogue across difference. First release: The Great AI Debate.">
-<meta name="twitter:image" content="https://anti-memes.is/img/og.png">
+<meta name="twitter:image" content="https://antimemes.is/img/og.png">
+<meta name="twitter:url" content="https://antimemes.is/">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/icon-180.png">
 <link rel="preload" href="fonts/IBMPlexSansCondensed-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -40,14 +44,15 @@
 </div>
 
 <header class="top">
-  <a class="mark" href="#top" aria-label="anti-memes.is, back to top"><span class="mark-a">anti</span><span class="mark-x" aria-hidden="true"></span><span class="mark-b">memes</span><span class="mark-tld">.is</span></a>
+  <a class="mark" data-link="lab" href="/" aria-label="anti+memes, the lab home"><span class="mark-a">anti</span><span class="mark-plus" aria-hidden="true">+</span><span class="mark-b">memes</span></a>
   <nav class="top-nav" aria-label="Sections">
     <a href="#turn">The idea</a>
     <a href="#instruments">Instruments</a>
-    <a href="#debate">The Great AI Debate</a>
+    <a href="#loop">How it connects</a>
     <a href="#rules">Rules</a>
   </nav>
-  <a class="top-cta" data-link="survey" href="#">Take the survey</a>
+  <a class="top-debate" data-link="debate" href="https://debate.antimemes.is/" aria-label="The Great AI Debate, the first release"><span class="top-debate-full">The Great AI Debate</span><span class="top-debate-short" aria-hidden="true">AI Debate</span></a>
+  <a class="top-cta" data-link="survey" href="https://debate.antimemes.is/">Take the survey</a>
 </header>
 
 <nav class="rail" aria-label="Story">
@@ -60,6 +65,7 @@
     <li><a href="#turn" data-rail="turn">Turn</a></li>
     <li><a href="#instruments" data-rail="instruments">Instruments</a></li>
     <li><a href="#debate" data-rail="debate">Release</a></li>
+    <li><a href="#loop" data-rail="loop">Loop</a></li>
     <li><a href="#rules" data-rail="rules">Rules</a></li>
   </ol>
 </nav>
@@ -70,7 +76,7 @@
   <div class="plate plate-hero">
     <p class="kicker">An arts lab for dialogue across difference</p>
     <h1 id="h-hero"><span class="h-line">You didn't pick your enemies.</span> <span class="h-line">You copied them.</span></h1>
-    <p class="lede">anti-memes.is builds instruments for seeing the culture you're inside, meeting the people on the far side of it, and getting credit for understanding them. Not for winning.</p>
+    <p class="lede">antimemes.is builds instruments for seeing the culture you're inside, meeting the people on the far side of it, and getting credit for understanding them. Not for winning.</p>
     <div class="hero-tools">
       <button class="btn-ghost" id="open-index" type="button" aria-haspopup="dialog">Browse all <span data-count="people">107</span> figures</button>
       <p class="hint" id="hint">The map behind this text is live. <span class="hint-fine">Each face is a public figure, linked where their published words on AI agree. Drag one. Tap a face to read them.</span></p>
@@ -136,7 +142,7 @@
   <div class="plate">
     <h2 id="h-turn">An antimeme is an idea you can't copy. You have to meet it.</h2>
     <p>A take spreads in a second. Having listened to someone doesn't spread at all. Understanding has to be done again, by each of us, every time. That's the opening this lab works in. Call it anti-mimesis: meeting difference without imitating it or fighting it.</p>
-    <p class="fig-note">Same <span data-count="people">107</span> people, sorted by what they actually hold. The dashed lines are descriptions each school could write of another, waiting for the described side to sign. Ringed faces sit between schools: the translators.</p>
+    <p class="fig-note">Same <span data-count="people">107</span> people, sorted by what they actually hold. The dashed lines are descriptions each camp could write of another, waiting for the described side to sign. Ringed faces sit between camps: the translators.</p>
   </div>
 </section>
 
@@ -166,7 +172,7 @@
             <div><dt>Fidelity</dt><dd><span class="meter"><span style="width:0"></span></span><span id="signit-fid">Signed by 0 members</span></dd></div>
             <div><dt>Portability</dt><dd><span class="meter"><span style="width:0"></span></span><span>Found clear by 0 outsiders</span></dd></div>
           </dl>
-          <p class="signit-foot">Nobody in this school has reviewed it yet. Only they can sign it. That is the work.</p>
+          <p class="signit-foot">Nobody in this camp has reviewed it yet. Only they can sign it. That is the work.</p>
         </div>
       </div>
     </div>
@@ -179,7 +185,7 @@
     <p class="lede-sm">The lab makes tools, and every tool has to produce something you can point at.</p>
     <div class="inst">
       <article class="inst-mod inst-see">
-        <header><span class="inst-key">See</span><h3>Map the landscape from people's own words</h3></header>
+        <header><span class="inst-key">See</span><p class="inst-status live">Live: <a href="#debate">The Great AI Debate</a></p><h3>Map the landscape from people's own words</h3></header>
         <p>Public figures are placed by what they've said on the record. Every claim is tied to the exact words and a link to the source, checked in code. Groups are found in the data first and named afterwards.</p>
         <ul class="layers" aria-label="The five layers a claim can sit on">
           <li><span>What is real</span></li>
@@ -190,7 +196,7 @@
         </ul>
       </article>
       <article class="inst-mod inst-meet">
-        <header><span class="inst-key">Meet</span><h3>Anti-debates, steelmen, notes across lines</h3></header>
+        <header><span class="inst-key">Meet</span><p class="inst-status">Next</p><h3>Anti-debates, steelmen, notes across lines</h3></header>
         <p>In an anti-debate nobody rebuts until they can state the other side's case so well the other side agrees with it.</p>
         <ol class="steps">
           <li>A states B's case at its strongest.</li>
@@ -200,7 +206,7 @@
         <p class="fine">A clean, mutually understood disagreement counts as a result.</p>
       </article>
       <article class="inst-mod inst-move">
-        <header><span class="inst-key">Move</span><h3>Reputation for bridging</h3></header>
+        <header><span class="inst-key">Move</span><p class="inst-status">Coming</p><h3>Reputation for bridging</h3></header>
         <p>Like Community Notes, pointed across groups. A note about a group earns two things: fidelity, which only that group can grant, and portability, when others find it clear.</p>
         <div class="boards">
           <div class="board"><span class="board-k">People</span><span class="board-v">can write, rate and sign</span></div>
@@ -213,9 +219,10 @@
 
 <section class="scene scene-debate" id="debate" data-scene="faint" aria-labelledby="h-debate">
   <div class="plate plate-wide">
-    <p class="kicker">First release</p>
+    <p class="kicker">First release, and the first instrument: See</p>
     <h2 id="h-debate">The Great AI Debate</h2>
-    <p class="lede-sm">Also called the AI Futures Fingerprint. Answer <span data-count="statements">27</span> statements about AI's future with the names hidden. Then see which of <span data-count="people">107</span> public figures you stand with and against, quote by quote, and explore the Lifeworld Atlas of camps and schools.</p>
+    <p class="lede-sm">Where do you stand on AI's future? Answer <span data-count="statements">27</span> statements with the names hidden. Then see which of <span data-count="people">107</span> public figures you stand with and against, quote by quote, and find your place among the camps in the 3D Lifeworld Atlas.</p>
+    <p class="debate-link"><a data-link="debate" href="https://debate.antimemes.is/">debate.antimemes.is</a> <span class="fine">is part of this site: same map, same rules, one level down.</span></p>
 
     <div class="split" id="split">
       <div class="split-head">
@@ -234,15 +241,29 @@
     </div>
 
     <div class="schools" id="schools">
-      <h3>The four schools the map finds right now</h3>
+      <h3>The four camps the map finds right now</h3>
       <ul class="school-list"></ul>
       <p class="fine">Working labels made by clustering. The people named should replace them.</p>
     </div>
 
     <div class="ctas">
-      <a class="btn" data-link="survey" href="#">Take the survey</a>
-      <a class="btn btn-alt" data-link="atlas" href="#">Open the Atlas</a>
+      <a class="btn" data-link="survey" href="https://debate.antimemes.is/">Take the survey</a>
+      <a class="btn btn-alt" data-link="people" href="https://debate.antimemes.is/people">Meet the thinkers</a>
+      <a class="btn btn-alt" data-link="atlas" href="https://debate.antimemes.is/atlas">Open the Atlas</a>
     </div>
+  </div>
+</section>
+
+<section class="scene scene-loop" id="loop" data-scene="loop" aria-labelledby="h-loop">
+  <div class="plate plate-loop">
+    <p class="kicker">How the map feeds the rest</p>
+    <h2 id="h-loop">From the map to meta-consensus.</h2>
+    <ol class="loop-steps" id="loop-steps">
+      <li class="on"><p class="loop-k"><span>See</span><em class="live">Live now</em></p><h3>The map places you.</h3><p>The camps come from public figures' own words. Your answers drop you among them. Say you land in the camp called <b data-loop="near">one camp</b>, the ringed marker.</p></li>
+      <li><p class="loop-k"><span>Meet</span><em>Next</em></p><h3>Go to the far side.</h3><p>From there, read the strongest case of the camp farthest from you on the map, <b data-loop="far">another camp</b>. Then write a description of them that they would sign.</p></li>
+      <li><p class="loop-k"><span>Move</span><em>Coming</em></p><h3>They sign it. You earn it.</h3><p>Only the described side can sign. A signed description earns bridging reputation, Community Notes style. Agents can draft on a separate board and never sign.</p></li>
+      <li><p class="loop-k"><span>Meta-consensus</span></p><h3>Every camp, described by every other.</h3><p>Not agreement. Each dashed line is a description waiting for the other side to sign. Signed so far: <b data-loop="signed">0 of 12</b>.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -251,7 +272,7 @@
     <h2 id="h-rules">Rules of engagement</h2>
     <ul class="rules">
       <li><h3>Public figures, public words</h3><p>People are placed only from what they've published, and every placement can be disputed.</p></li>
-      <li><h3>Nobody private</h3><p>We infer nothing about private people. Your answers stay in your browser unless you choose to share them.</p></li>
+      <li><h3>Nobody private</h3><p>We infer nothing about private people. Your answers stay in your browser unless you choose to share them. <a data-link="privacy" href="https://debate.antimemes.is/privacy">Privacy</a></p></li>
       <li><h3>Short quotes, always linked</h3><p>We quote a sentence or two and link to the source. Full transcripts are never republished.</p></li>
       <li><h3>Agents never ratify</h3><p>Software can draft and assist. Only people in the described group can sign a description of it.</p></li>
       <li><h3>No verdicts</h3><p>We don't score who's right. We score whether groups can describe each other.</p></li>
@@ -264,10 +285,10 @@
 <section class="scene scene-join" id="join" data-scene="faint" aria-labelledby="h-join">
   <div class="plate plate-wide plate-join">
     <h2 id="h-join">Find out who you've been copying.</h2>
-    <p class="lede-sm">Take the survey, find your place on the map, then try the hard part: describe the group farthest from you well enough that they'd sign it.</p>
+    <p class="lede-sm">Take the survey and find your place on the map. Then read the strongest case of the camp farthest from you. The hard part comes next: describing them well enough that they'd sign it.</p>
     <div class="ctas">
-      <a class="btn" data-link="survey" href="#">Take the survey</a>
-      <a class="btn btn-alt" data-link="atlas" href="#">Open the Atlas</a>
+      <a class="btn" data-link="survey" href="https://debate.antimemes.is/">Take the survey</a>
+      <a class="btn btn-alt" data-link="atlas" href="https://debate.antimemes.is/atlas">Open the Atlas</a>
     </div>
   </div>
 </section>
@@ -277,17 +298,24 @@
 <footer class="foot">
   <div class="foot-grid">
     <div>
-      <p class="foot-mark">anti-memes.is</p>
-      <p>An arts lab by Benjamin Life.</p>
+      <p class="foot-mark" aria-label="anti+memes"><span>anti</span><span class="mark-plus" aria-hidden="true">+</span><span>memes</span></p>
+      <p>antimemes.is, an arts lab by Benjamin Life.</p>
+      <ul class="foot-links" aria-label="Site">
+        <li><a data-link="lab" href="/">The lab</a></li>
+        <li><a data-link="debate" href="https://debate.antimemes.is/">The Great AI Debate</a></li>
+        <li><a data-link="about" href="https://debate.antimemes.is/about">About and method</a></li>
+        <li><a data-link="privacy" href="https://debate.antimemes.is/privacy">Privacy</a></li>
+        <li><a href="#credits-box" id="credits-link">Portrait credits</a></li>
+      </ul>
       <p class="fine" id="data-version"></p>
     </div>
     <div>
       <h2 class="foot-h">About the map</h2>
       <ul class="fine notes" id="notes"></ul>
     </div>
-    <div class="credits">
+    <div class="credits" id="credits-box">
       <h2 class="foot-h">Credits</h2>
-      <details>
+      <details id="credits-details">
         <summary>Portrait credits (<span id="credit-n">0</span>)</summary>
         <ul class="fine" id="credits"></ul>
       </details>
@@ -307,7 +335,7 @@
     </div>
   </div>
   <div class="dz-body" id="dz-body"></div>
-  <p class="dz-foot fine">Read by machine from public works. Not reviewed by them. <a id="dz-card" href="#" target="_blank" rel="noopener">Full card, or report a misreading</a></p>
+  <p class="dz-foot fine">Read by machine from public works. Not reviewed by them. <a id="dz-card" href="https://debate.antimemes.is/people">Full profile on The Great AI Debate</a>. <a data-link="about" href="https://debate.antimemes.is/about">How to report a misreading</a>.</p>
 </div>
 
 <dialog class="index" id="index" aria-labelledby="ix-title">

@@ -6,14 +6,17 @@ import { esc, mapSVG } from "./map.js";
 
 const LAYER = { ontological: "what AI is", epistemic: "how we know", axiological: "what matters",
   empirical: "what will happen", praxis: "what to do" };
+// Slide colours from the shared palette (docs/brand/BRAND.md): recognition blue for the print,
+// heat for the break, the camp colours for the rest, all on or against the slate ground.
 const T = {
-  ultramarine: { bg: "#2f4bd9", fg: "#f7f9fb" },
-  ink: { bg: "#1b2430", fg: "#e9edf2" },
-  paper: { bg: "#e9edf2", fg: "#1b2430" },
-  crimson: { bg: "#9e1f4f", fg: "#fff4f8" },
-  night: { bg: "#10151c", fg: "#8fa3ff" },
-  teal: { bg: "#126b58", fg: "#effaf6" },
-  lilac: { bg: "#c9d2ff", fg: "#18213a" },
+  ultramarine: { bg: "#8fb0ff", fg: "#121820" },
+  ink: { bg: "#121820", fg: "#dde4eb" },
+  paper: { bg: "#e6dfcf", fg: "#121820" },
+  crimson: { bg: "#ff5468", fg: "#121820" },
+  night: { bg: "#19212b", fg: "#ff8794" },
+  teal: { bg: "#4cc2ae", fg: "#121820" },
+  lilac: { bg: "#c08cf0", fg: "#121820" },
+  ground: { bg: "#19212b", fg: "#dde4eb" },
 };
 
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
@@ -39,12 +42,12 @@ function slides(bundle, answers, r) {
     rows: h.topQuote ? undefined : r.nearest.slice(1).map((t) => [t.name, `${t.k} of ${t.n}`]) });
   if (r.signature[0]) {
     const s = r.signature[0];
-    out.push({ ...T.crimson, eyebrow: "Plot twist",
+    out.push({ ...T.crimson, eyebrow: "Plot twist", meme: true,
       title: `You break with the ${s.home}.`,
       lede: `On this one you side with the ${s.ally}, with ${s.allies.map((a) => names[a]).slice(0, 2).join(" and ")}:`,
       quote: `${s.answer === 1 ? "Yes:" : "No:"} ${s.text}` });
   } else {
-    out.push({ ...T.crimson, eyebrow: "No plot twist",
+    out.push({ ...T.crimson, eyebrow: "No plot twist", meme: true,
       title: "You hold the line.",
       lede: `On every statement we could check, you're with the ${r.schools[0].label}. Rare.` });
   }
@@ -61,7 +64,7 @@ function slides(bundle, answers, r) {
       lede: `You said ${h.rarest.answer === 1 ? "yes" : "no"}. Only ${h.rarest.with} of the ${h.rarest.of} thinkers we read are with you:`,
       quote: h.rarest.text });
   }
-  out.push({ ...T.paper, eyebrow: "Where you sit", title: "Among the thinkers", map: true,
+  out.push({ ...T.ground, eyebrow: "Where you sit", title: "Among the thinkers", map: true,
     lede: `Lines run to your three nearest: ${r.nearest.map((t) => t.name).join(", ")}.` });
   out.push({ ...T.ultramarine, print: true, final: true, eyebrow: "That's your fingerprint.",
     title: `Closest to the ${r.schools[0].label}`,
@@ -74,7 +77,7 @@ function slideHTML(s, bundle, answers, r) {
   if (s.print) html += valuesSVG(glyphValues(bundle, answers), { cls: "print", label: "Your fingerprint" });
   if (s.eyebrow) html += `<p class="eyebrow">${esc(s.eyebrow)}</p>`;
   if (s.big) html += `<p class="big-number">${esc(s.big)}</p>`;
-  if (s.title) html += `<h2>${esc(s.title)}</h2>`;
+  if (s.title) html += `<h2${s.meme ? ' class="meme"' : ""}>${esc(s.title)}</h2>`;
   if (s.lede) html += `<p class="lede">${esc(s.lede)}</p>`;
   if (s.quote) html += `<p class="quote">“${esc(s.quote)}”</p>`;
   if (s.cite) html += `<p class="cite">${esc(s.cite)}</p>`;
