@@ -1,13 +1,13 @@
 # antimemes.is brand system (2026-11-05)
 
-**Domain correction:** the registered domain is **antimemes.is** (no hyphen). Lab: https://antimemes.is. Debate: https://debate.antimemes.is. The wordmark can still read `anti+memes`.
+**Domain correction:** the registered domain is **antimemes.is** (no hyphen). Lab: https://antimemes.is. Debate: https://debate.antimemes.is. The wordmark can still read `antimemes`.
 
 One site, one visual language, one sub-brand. Owner: Benjamin Life (@omniharmonic). Never OpenCivics. The word "Dialogos" is retired from everything a visitor can see (page titles, headers, meta, share cards, About, emails). Internal code names (package names, `dialogos-fingerprint` Vercel project) can stay.
 
 ## Architecture
 - **antimemes.is**: the lab. The scroll story, the idea, the instruments, the rules.
 - **debate.antimemes.is**: **The Great AI Debate**, the first release. The survey, results, thinkers, profiles, statements, the 3D Lifeworld Atlas, About, privacy.
-- They are one site in two places. Every page on both carries the same top bar: the anti-memes wordmark at left (`anti+memes`, Anton, the "+" in --heat) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
+- They are one site in two places. Every page on both carries the same top bar: the anti-memes wordmark at left (`antimemes`, Anton, the "+" in --heat) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
 - Links between them are absolute and live in one config constant per app (`LAB_URL = "https://antimemes.is"`, `DEBATE_URL = "https://debate.antimemes.is"`).
 
 ## Ground and type (shared, from the lab)
@@ -20,7 +20,7 @@ One site, one visual language, one sub-brand. Owner: Benjamin Life (@omniharmoni
 ## The Great AI Debate sub-brand (keeps its identity)
 - Name: "The Great AI Debate". Subtitle where needed: "Where do you stand on AI's future?". The fingerprint/glyph artwork and the Wrapped-style results story stay; they are its signature.
 - Its own accent for agree/disagree marks: agree `#43c3a3`, disagree `#f06a9b`, unsure `#7d8796` (already the debate's dark palette). Agreement shading on the map uses these. Everything else uses the shared ground, type and signals.
-- Wordmark lockup: `anti+memes / The Great AI Debate`.
+- Wordmark lockup: `antimemes / The Great AI Debate`.
 
 ## The graph (the shared signature)
 The live force graph from the lab home page is the house visual: real faces as round nodes ringed in camp colour, hairline links where published words agree, gentle gravity that settles, drag to pull a face, hover/tap for the hover card, crosshair + readout. The results map, the thinkers map and the 3D atlas all use this language so moving between them feels like zooming into one instrument. Respect prefers-reduced-motion (settled, static layout).

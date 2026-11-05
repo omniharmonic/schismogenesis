@@ -84,7 +84,7 @@ button { font: inherit; color: inherit; }
   border-bottom: 1px solid var(--rule);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.mark { display: inline-flex; align-items: baseline; gap: 2px; text-decoration: none; color: var(--ink); font: 400 26px/1 var(--f-macro); letter-spacing: 0.01em; }
+.mark { display: inline-flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); font: 400 26px/1 var(--f-macro); letter-spacing: 0.01em; }
 .mark:hover { color: var(--ink); }
 /* the wordmark: anti+memes, Anton, the "+" in heat. Same lockup on debate.antimemes.is. */
 .mark-plus { color: var(--heat); margin: 0 1px; font-size: 1.3em; line-height: 0; }

@@ -10,7 +10,7 @@ const MACRO = "Anton, Impact, sans-serif";
 // the shared antimemes.is ground (docs/brand/BRAND.md); share cards are always dark
 const C = { ground: "#121820", ink: "#dde4eb", ink2: "#9aa7b6", recog: "#8fb0ff", heat: "#ff5468", rule: "#2b3644" };
 
-/** The anti+memes wordmark, right-aligned at (right, y): Anton, the "+" in heat, as on the lab. */
+/** The antimemes wordmark, right-aligned at (right, y): Anton, the "+" in heat, as on the lab. */
 function wordmark(c, right, y, size, colour = C.ink, plus = C.heat) {
   c.save();
   c.font = `400 ${size}px ${MACRO}`;
