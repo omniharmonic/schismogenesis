@@ -1,0 +1,255 @@
+{
+ "abeba-birhane": {
+  "file": "UN AI for Good Summit 2025 - Abeba Birhane 02 (cropped).jpg",
+  "qid": "Q105834628",
+  "crop": [
+   0.08,
+   0.03,
+   0.45,
+   0.25
+  ]
+ },
+ "adam-thierer": {
+  "url": "https://www.rstreet.org/wp-content/uploads/2026/04/Adam-Thierer-april-2026-headshot.png",
+  "source": "https://www.rstreet.org/people/adam-thierer/",
+  "artist": "R Street Institute (staff page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Senior fellow, R Street Institute"
+ },
+ "alex-tabarrok": {
+  "file": "Alex Tabarrok speaking at TED in 2009.jpg",
+  "qid": "Q4717865",
+  "crop": [
+   0.13,
+   0.47,
+   0.37,
+   0.83
+  ]
+ },
+ "asad-ramzanali": {
+  "url": "https://www.vanderbilt.edu/vanderbilt-policy-accelerator/wp-content/uploads/sites/412/2026/11/a4271ef4346730c6b00299d210304638-900x1200-c-default.jpg",
+  "source": "https://www.vanderbilt.edu/vanderbilt-policy-accelerator/people/",
+  "artist": "Vanderbilt Policy Accelerator (people page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "AI and technology policy, Vanderbilt Policy Accelerator"
+ },
+ "chris-callison-burch": {
+  "url": "https://www.cis.upenn.edu/~ccb/assets/img/CCB-small.jpg",
+  "source": "https://www.cis.upenn.edu/~ccb/",
+  "artist": "Chris Callison-Burch (own faculty home page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Professor of computer science, University of Pennsylvania"
+ },
+ "christopher-ferguson": {
+  "url": "https://www.christopherjferguson.com/images/christopher_ferguson_silo.jpg",
+  "source": "https://www.christopherjferguson.com/",
+  "artist": "Christopher J. Ferguson (own website)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Professor of psychology, Stetson University"
+ },
+ "chuck-grassley": {
+  "file": "Chuck Grassley official photo 2017 (cropped).jpg",
+  "description": "United States senator from Iowa"
+ },
+ "daniel-faggella": {
+  "file": "Daniel at the Geneva Disarmament Platform.jpg",
+  "crop": [
+   0.36,
+   0.12,
+   0.68,
+   0.6
+  ],
+  "description": "Founder of Emerj Artificial Intelligence Research"
+ },
+ "daniel-jeffries": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc6d1102-0e00-456d-b882-b79d09a13f94_1008x911.png",
+  "source": "https://danieljeffries.substack.com/about",
+  "artist": "Daniel Jeffries (Substack author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Writer and AI entrepreneur"
+ },
+ "daniel-kokotajlo": {
+  "url": "https://ai-futures.org/Daniel.jpeg",
+  "source": "https://ai-futures.org/about/",
+  "artist": "AI Futures Project (team page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Executive director, AI Futures Project; formerly OpenAI"
+ },
+ "dean-ball": {
+  "url": "https://cdn.sanity.io/images/d8lrla4f/staging/1c7df545660cf419ebb259ea1d551a0691ea8d01-720x480.png?rect=200,12,457,457&w=400&h=400&fit=crop",
+  "source": "https://www.thefai.org/profile/dean-ball",
+  "artist": "Foundation for American Innovation (staff page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Senior fellow, Foundation for American Innovation"
+ },
+ "divya-siddarth": {
+  "url": "https://images.squarespace-cdn.com/content/v1/631d02b2dfa9482a32db47ec/08a518d7-1cdc-4cfd-8de9-2c56b437161c/Headshot_Side.jpeg?format=750w",
+  "source": "https://www.cip.org/team",
+  "artist": "Collective Intelligence Project (team page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Co-founder and executive director, Collective Intelligence Project",
+  "crop": [
+   0.2,
+   0.12,
+   0.72,
+   0.62
+  ]
+ },
+ "elizabeth-nolan-brown": {
+  "url": "https://d2eehagpk5cl65.cloudfront.net/img/c400x400-w400-h400-q80-g1/uploads/2024/01/ENB_16-01-2024-14-36-55-scaled-e1706560338711-400x400.jpg",
+  "source": "https://reason.com/people/elizabeth-nolan-brown/",
+  "artist": "Reason (staff page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Senior editor, Reason"
+ },
+ "guillaume-verdon": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24464a50-ce39-4745-9c08-c066a231d362_400x400.jpeg",
+  "source": "https://beff.substack.com/about",
+  "artist": "Guillaume Verdon as Beff Jezos (his own chosen avatar)",
+  "license": "Self-published avatar",
+  "license_url": "",
+  "description": "Founder of Extropic; posts as Beff Jezos. Shown with his own chosen pixel-art avatar, not a photograph"
+ },
+ "helen-toner": {
+  "url": "https://cset.georgetown.edu/wp-content/uploads/Helen-Toner-Headshot-2025.png",
+  "source": "https://cset.georgetown.edu/staff/helen-toner/",
+  "artist": "Center for Security and Emerging Technology, Georgetown (staff page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "AI policy researcher at CSET, Georgetown; former OpenAI board member"
+ },
+ "hoan-ton-that": {
+  "url": "https://hoantonthat.com/assets/images/image01.jpg",
+  "source": "https://hoantonthat.com/",
+  "artist": "Hoan Ton-That (own website)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Co-founder of Clearview AI"
+ },
+ "holly-elmore": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffe1e29b5-7935-418b-ae14-402c998e2f9b_2027x1818.jpeg",
+  "source": "https://hollyelmore.substack.com/about",
+  "artist": "Holly Elmore (Substack author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Executive director, PauseAI US"
+ },
+ "jack-clark": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cc1c9c9-fc87-4eeb-ad15-7dc989b77553_528x504.png",
+  "source": "https://importai.substack.com/about",
+  "artist": "Jack Clark (Import AI author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Co-founder of Anthropic; author of Import AI"
+ },
+ "jan-leike": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe21b6a1a-5f0c-48e5-9047-2706653d8e88_1433x1358.jpeg",
+  "source": "https://aligned.substack.com/about",
+  "artist": "Jan Leike (Substack author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Alignment researcher at Anthropic, formerly OpenAI"
+ },
+ "jason-crawford": {
+  "url": "https://jasoncrawford.org/img/jason-crawford-2020.jpg",
+  "source": "https://jasoncrawford.org/",
+  "artist": "Jason Crawford (own website)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Founder of the Roots of Progress"
+ },
+ "leopold-aschenbrenner": {
+  "url": "https://storage.ghost.io/c/06/72/0672802e-16ea-4b14-9738-7e6d926836a3/content/images/size/w1080/2026/05/leopoldaschenbrenner2026-1.jpeg",
+  "source": "https://www.forourposterity.com/",
+  "artist": "Leopold Aschenbrenner (own website, For Our Posterity)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Founder of Situational Awareness LP; formerly OpenAI superalignment",
+  "crop": [
+   0.15,
+   0.03,
+   0.85,
+   0.58
+  ]
+ },
+ "mark-lemley": {
+  "url": "https://law.stanford.edu/wp-content/uploads/2015/06/mark-a-lemley-4-400x400.jpg",
+  "source": "https://law.stanford.edu/mark-a-lemley/",
+  "artist": "Stanford Law School (faculty page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Professor of law, Stanford Law School"
+ },
+ "neil-chilson": {
+  "url": "https://www.abundance.institute/wp-content/uploads/2025/10/22194551/team-neil-chilson%402x.c57d8a00-384x480.jpg",
+  "source": "https://www.abundance.institute/about",
+  "artist": "Abundance Institute (team page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "AI policy lead at the Abundance Institute"
+ },
+ "nick-land": {
+  "qid": "Q7027450",
+  "file": "Nick Land October 2025 (1x1 cropped).jpg",
+  "description": "English philosopher; still from his own webcam in a 2025 video interview he gave (he is rarely photographed)"
+ },
+ "noah-smith": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89fd964a-586f-461a-9f5a-ea4587d45728_397x441.png",
+  "source": "https://www.noahpinion.blog/about",
+  "artist": "Noah Smith (Noahpinion author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Economics writer, Noahpinion"
+ },
+ "richard-sutton": {
+  "file": "Richard Sutton 2021 (cropped).jpg",
+  "description": "Canadian computer scientist, pioneer of reinforcement learning"
+ },
+ "russell-moore": {
+  "file": "Russell D. Moore Preaching.jpg",
+  "crop": [
+   0.06,
+   0.03,
+   0.56,
+   0.61
+  ],
+  "description": "American evangelical theologian, editor of Christianity Today"
+ },
+ "samuel-hammond": {
+  "url": "https://cdn.sanity.io/images/d8lrla4f/staging/7674f641e11c0e2e22dc02861718cd10fc28212f-2398x2388.jpg?w=800",
+  "source": "https://thefai.org/profile/Samuel-Hammond",
+  "artist": "Foundation for American Innovation (staff page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Chief economist, Foundation for American Innovation"
+ },
+ "sean-o-brien": {
+  "file": "Sean O'brien Teamster.jpg",
+  "description": "General President of the International Brotherhood of Teamsters"
+ },
+ "steven-adler": {
+  "url": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4cc0ff3-5403-4378-bee6-aded1be48a65_2317x2317.png",
+  "source": "https://stevenadler.substack.com/about",
+  "artist": "Steven Adler (Substack author photo)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "AI safety researcher, formerly at OpenAI"
+ },
+ "taylor-barkley": {
+  "url": "https://www.abundance.institute/wp-content/uploads/2025/10/22194609/team-taylor-barkley%402x.34cb29ba-384x480.jpg",
+  "source": "https://www.abundance.institute/about",
+  "artist": "Abundance Institute (team page)",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "description": "Public policy lead at the Abundance Institute"
+ }
+}

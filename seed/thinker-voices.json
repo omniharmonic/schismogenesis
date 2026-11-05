@@ -1123,6 +1123,32 @@
    "work": "The Collective Intelligence Project whitepaper"
   }
  ],
+ "duncan-crabtree-ireland": [
+  {
+   "position": "Unregulated AI threatens performers' consent, fair payment and protection from competing with their own digital replicas.",
+   "quote": "Our members believe that AI technology, left unregulated, poses an existential threat to their ability to, one, require consent for the creative use of their digital representation.",
+   "url": "https://techpolicy.press/transcript-us-senate-judiciary-subcommittee-hearing-on-the-no-fakes-act",
+   "work": "Transcript: US Senate Judiciary Subcommittee Hearing on the NO FAKES Act"
+  },
+  {
+   "position": "Rights to one's voice and likeness should be federal property rights, with limits on lifetime transfers.",
+   "quote": "These rights should be transferable and descendible just like any other intellectual property or any kind of property someone owns, with durational limitations on transfers during one's lifetime to ensure that we don't enter into an era of digital indentured servitude.",
+   "url": "https://techpolicy.press/transcript-us-senate-judiciary-subcommittee-hearing-on-the-no-fakes-act",
+   "work": "Transcript: US Senate Judiciary Subcommittee Hearing on the NO FAKES Act"
+  },
+  {
+   "position": "Protections against unauthorized digital replicas should be enacted now without waiting for broader AI regulation.",
+   "quote": "It's neither necessary nor appropriate to wait for broader artificial intelligence regulation to be adopted.",
+   "url": "https://techpolicy.press/transcript-us-senate-judiciary-subcommittee-hearing-on-the-no-fakes-act",
+   "work": "Transcript: US Senate Judiciary Subcommittee Hearing on the NO FAKES Act"
+  },
+  {
+   "position": "Collective bargaining representatives can appropriately mediate how individuals license their digital likenesses.",
+   "quote": "there are a number of examples that occur in labor law, labor and employment law where there are defined worker protections that then can be deviated from through a collective bargaining arrangement, but not through individual contracts.",
+   "url": "https://techpolicy.press/transcript-us-senate-judiciary-subcommittee-hearing-on-the-no-fakes-act",
+   "work": "Transcript: US Senate Judiciary Subcommittee Hearing on the NO FAKES Act"
+  }
+ ],
  "dwarkesh-patel": [
   {
    "position": "Current AI models lack humanlike continual learning, and this is the main bottleneck to broad economic usefulness.",
@@ -2485,6 +2511,44 @@
    "quote": "But of the options we have, The Project is the only sane one.",
    "url": "https://situational-awareness.ai/the-project/",
    "work": "IV. The Project"
+  }
+ ],
+ "lina-khan": [
+  {
+   "position": "Existing laws already cover AI, and enforcers should apply them.",
+   "quote": "Today’s interagency statement makes clear that AI technologies are covered by existing laws. These tools are not emerging in a legal vacuum.",
+   "url": "https://search.ftc.gov/system/files/ftc_gov/pdf/remarks-of-chair-lina-m-khan-re-joint-interagency-statement-on-ai.pdf",
+   "work": "Remarks of Chair Lina M. Khan Regarding the Joint Interagency Statement on AI"
+  },
+  {
+   "position": "Claims of innovation do not excuse breaking the law.",
+   "quote": "Claims of innovation must not be cover for lawbreaking.",
+   "url": "https://search.ftc.gov/system/files/ftc_gov/pdf/remarks-of-chair-lina-m-khan-re-joint-interagency-statement-on-ai.pdf",
+   "work": "Remarks of Chair Lina M. Khan Regarding the Joint Interagency Statement on AI"
+  },
+  {
+   "position": "A few firms control the data, cloud and computing that AI developers depend on.",
+   "quote": "A handful of powerful firms control the necessary raw materials—not only the vast stores of data, but also the cloud services and computing power— that startups and other businesses rely on to develop and deploy AI products",
+   "url": "https://search.ftc.gov/system/files/ftc_gov/pdf/remarks-of-chair-lina-m-khan-re-joint-interagency-statement-on-ai.pdf",
+   "work": "Remarks of Chair Lina M. Khan Regarding the Joint Interagency Statement on AI"
+  },
+  {
+   "position": "Antitrust law exists to prevent extreme concentrations of economic power.",
+   "quote": "the antitrust and anti-monopoly laws that were designed precisely to prevent extreme concentrations of economic power.",
+   "url": "https://paulkrugman.substack.com/p/talking-with-lina-khan",
+   "work": "Talking With Lina Khan (transcript of CUNY Graduate Center conversation with Paul Krugman)"
+  },
+  {
+   "position": "The claimed benefits of market consolidation have often been overstated.",
+   "quote": "And through doing this research, it was clear that oftentimes the purported benefits of consolidation had been overstated.",
+   "url": "https://paulkrugman.substack.com/p/talking-with-lina-khan",
+   "work": "Talking With Lina Khan (transcript of CUNY Graduate Center conversation with Paul Krugman)"
+  },
+  {
+   "position": "Generative AI could quickly take power away from creators whose work is used in models they do not control.",
+   "quote": "we have also heard significant concern about how these technologies could, virtually overnight, significantly disempower creators and artists, who may watch their life’s creation be appropriated into models over which they have no control.",
+   "url": "https://search.ftc.gov/system/files/ftc_gov/pdf/remarks-chair-khan-at-the-creative-economy-and-ai-roundtable.pdf",
+   "work": "Remarks of Chair Khan As Prepared for Delivery, Creative Economy and Generative AI Roundtable"
   }
  ],
  "liz-shuler": [

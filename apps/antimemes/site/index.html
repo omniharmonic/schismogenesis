@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>anti-memes.is: culture you have to meet</title>
+<meta name="description" content="anti-memes.is is an arts lab by Benjamin Life building instruments for dialogue across difference: a live map of who agrees with whom, anti-debates, and credit for understanding the other side. First release: The Great AI Debate.">
+<meta name="theme-color" content="#121820">
+<meta name="author" content="Benjamin Life">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="anti-memes.is">
+<meta property="og:title" content="You didn't pick your enemies. You copied them.">
+<meta property="og:description" content="An arts lab for dialogue across difference. First release: The Great AI Debate, a map of 107 public figures on AI's future, in their own words.">
+<meta property="og:image" content="https://anti-memes.is/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You didn't pick your enemies. You copied them.">
+<meta name="twitter:description" content="An arts lab for dialogue across difference. First release: The Great AI Debate.">
+<meta name="twitter:image" content="https://anti-memes.is/img/og.png">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="preload" href="fonts/IBMPlexSansCondensed-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="map-data.json" as="fetch" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="hud" aria-hidden="true">
+  <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+  <div class="hud-readout" id="readout">
+    <span class="ro-k">scene</span><span class="ro-v" id="ro-scene">map</span>
+    <span class="ro-k">nodes</span><span class="ro-v" id="ro-nodes">0</span>
+    <span class="ro-k">cursor</span><span class="ro-v" id="ro-xy">+000.0 +000.0</span>
+  </div>
+  <div class="macro" id="macro"><span>anyone</span><span>will do</span></div>
+</div>
+
+<header class="top">
+  <a class="mark" href="#top" aria-label="anti-memes.is, back to top"><span class="mark-a">anti</span><span class="mark-x" aria-hidden="true"></span><span class="mark-b">memes</span><span class="mark-tld">.is</span></a>
+  <nav class="top-nav" aria-label="Sections">
+    <a href="#turn">The idea</a>
+    <a href="#instruments">Instruments</a>
+    <a href="#debate">The Great AI Debate</a>
+    <a href="#rules">Rules</a>
+  </nav>
+  <a class="top-cta" data-link="survey" href="#">Take the survey</a>
+</header>
+
+<nav class="rail" aria-label="Story">
+  <ol>
+    <li><a href="#top" data-rail="top">Map</a></li>
+    <li><a href="#contagion" data-rail="contagion">Contagion</a></li>
+    <li><a href="#schism" data-rail="schism">Split</a></li>
+    <li><a href="#scapegoat" data-rail="scapegoat">Scapegoat</a></li>
+    <li><a href="#fixes" data-rail="fixes">Fixes</a></li>
+    <li><a href="#turn" data-rail="turn">Turn</a></li>
+    <li><a href="#instruments" data-rail="instruments">Instruments</a></li>
+    <li><a href="#debate" data-rail="debate">Release</a></li>
+    <li><a href="#rules" data-rail="rules">Rules</a></li>
+  </ol>
+</nav>
+
+<main id="main">
+
+<section class="scene hero" id="top" data-scene="map" aria-labelledby="h-hero">
+  <div class="plate plate-hero">
+    <p class="kicker">An arts lab for dialogue across difference</p>
+    <h1 id="h-hero"><span class="h-line">You didn't pick your enemies.</span> <span class="h-line">You copied them.</span></h1>
+    <p class="lede">anti-memes.is builds instruments for seeing the culture you're inside, meeting the people on the far side of it, and getting credit for understanding them. Not for winning.</p>
+    <div class="hero-tools">
+      <button class="btn-ghost" id="open-index" type="button" aria-haspopup="dialog">Browse all <span data-count="people">107</span> figures</button>
+      <p class="hint" id="hint">The map behind this text is live. <span class="hint-fine">Each face is a public figure, linked where their published words on AI agree. Drag one. Tap a face to read them.</span></p>
+    </div>
+  </div>
+  <p class="scroll-cue" aria-hidden="true"><span></span>Scroll to run the machine</p>
+</section>
+
+<section class="scene" id="contagion" data-scene="contagion" aria-labelledby="h-contagion">
+  <div class="plate">
+    <h2 id="h-contagion">Desire is borrowed.</h2>
+    <p>We want what our models want. Online everyone is a model and everyone is a rival, so wants and grudges spread the same way: by contact.</p>
+    <blockquote class="greentext" aria-label="A greentext story">
+      <p>&gt;be me</p>
+      <p>&gt;no opinion on open-weights AI</p>
+      <p>&gt;watch someone I admire dunk on it</p>
+      <p>&gt;now I have a strong opinion on open-weights AI</p>
+      <p>&gt;it isn't even mine</p>
+    </blockquote>
+    <p class="fig-note">On the map, the links are real agreements. The spread is a simulation.</p>
+  </div>
+</section>
+
+<section class="scene" id="schism" data-scene="schism" aria-labelledby="h-schism">
+  <div class="plate">
+    <h2 id="h-schism">Then the room splits in two.</h2>
+    <p>Gregory Bateson called it schismogenesis: two groups define themselves against each other, every move answered by its mirror, until the difference is all either side has left.</p>
+    <p>Feeds run it at scale. Sort everyone by one question and the middle disappears.</p>
+    <div class="sorter" id="sorter">
+      <p class="sorter-q" id="sorter-q">Loading the question…</p>
+      <dl class="sorter-counts">
+        <div><dt>Agree</dt><dd id="sorter-yes">0</dd></div>
+        <div><dt>Disagree</dt><dd id="sorter-no">0</dd></div>
+        <div class="off"><dt>No recorded stance, dropped from the feed</dt><dd id="sorter-off">0</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="scapegoat" data-scene="scapegoat" aria-labelledby="h-scapegoat">
+  <div class="plate">
+    <h2 id="h-scapegoat">And every crisis wants a victim.</h2>
+    <p>When rivalry has worn away every other difference, crowds settle it the oldest way: all against one. René Girard called it the scapegoat mechanism. Online it never finishes. There is a new one every morning.</p>
+    <p class="fig-note">The node in the middle is nobody. That's the point.</p>
+  </div>
+</section>
+
+<section class="scene scene-fixes" id="fixes" data-scene="dim" aria-labelledby="h-fixes">
+  <div class="plate plate-wide">
+    <h2 id="h-fixes">The usual fixes feed the machine.</h2>
+    <p class="lede-sm">Every move below is a reasonable thing to do. Each one hands the rivalry a new object.</p>
+    <ol class="brain" aria-label="Escalating fixes, in the format of the expanding brain meme">
+      <li><span class="glow g1" aria-hidden="true"></span><div><h3>Debate them</h3><p>Now there's a winner and a loser, and a highlight reel of the loss.</p></div></li>
+      <li><span class="glow g2" aria-hidden="true"></span><div><h3>Fact-check them</h3><p>Now there's a referee, and both sides can fight the referee.</p></div></li>
+      <li><span class="glow g3" aria-hidden="true"></span><div><h3>Post more good content</h3><p>More models to imitate, faster. The feed doesn't care which side you're on.</p></div></li>
+      <li><span class="glow g4" aria-hidden="true"></span><div><h3>Dunk on the people dunking</h3><p>Congratulations, you found today's scapegoat.</p></div></li>
+      <li class="brain-out"><span class="glow g0" aria-hidden="true"></span><div><h3>Stop fighting over the same object</h3><p>Give people something to want that the other side has to grant, and that never runs out.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="scene" id="turn" data-scene="plural" aria-labelledby="h-turn">
+  <div class="plate">
+    <h2 id="h-turn">An antimeme is an idea you can't copy. You have to meet it.</h2>
+    <p>A take spreads in a second. Having listened to someone doesn't spread at all. Understanding has to be done again, by each of us, every time. That's the opening this lab works in. Call it anti-mimesis: meeting difference without imitating it or fighting it.</p>
+    <p class="fig-note">Same <span data-count="people">107</span> people, sorted by what they actually hold. The dashed lines are descriptions each school could write of another, waiting for the described side to sign. Ringed faces sit between schools: the translators.</p>
+  </div>
+</section>
+
+<section class="scene scene-turn" id="why" data-scene="dim" aria-label="Girard, Habermas and meta-consensus">
+  <div class="plate plate-wide">
+
+    <div class="pair pair-first">
+      <article class="pair-card">
+        <h3>Girard's diagnosis</h3>
+        <p>Desire is learned from models. Rivals become each other's doubles. Crowds end the crisis by choosing a victim. We take the diagnosis and refuse the conclusion some of his readers drew, that order needs an enemy.</p>
+      </article>
+      <article class="pair-card">
+        <h3>Habermas's wager</h3>
+        <p>People can coordinate by reaching understanding, not by force or price, when what they say has to answer for itself. The lifeworld, the shared background we all talk from, is what feeds keep colonising. We build for the lifeworld.</p>
+      </article>
+    </div>
+
+    <div class="measure">
+      <h3>How we know it's working</h3>
+      <p class="measure-def">Not agreement. <strong>Meta-consensus:</strong> every group able to describe every other group in words the described side would sign.</p>
+      <div class="signit" id="signit">
+        <div class="signit-tabs" role="tablist" aria-label="Schools of thought on AI"></div>
+        <div class="signit-body" role="tabpanel" tabindex="0">
+          <p class="signit-label">Draft description, written by our pipeline from public words</p>
+          <p class="signit-note" id="signit-note"></p>
+          <dl class="signit-meters">
+            <div><dt>Fidelity</dt><dd><span class="meter"><span style="width:0"></span></span><span id="signit-fid">Signed by 0 members</span></dd></div>
+            <div><dt>Portability</dt><dd><span class="meter"><span style="width:0"></span></span><span>Found clear by 0 outsiders</span></dd></div>
+          </dl>
+          <p class="signit-foot">Nobody in this school has reviewed it yet. Only they can sign it. That is the work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene scene-instruments" id="instruments" data-scene="dim" aria-labelledby="h-inst">
+  <div class="plate plate-wide">
+    <h2 id="h-inst">Three instruments.</h2>
+    <p class="lede-sm">The lab makes tools, and every tool has to produce something you can point at.</p>
+    <div class="inst">
+      <article class="inst-mod inst-see">
+        <header><span class="inst-key">See</span><h3>Map the landscape from people's own words</h3></header>
+        <p>Public figures are placed by what they've said on the record. Every claim is tied to the exact words and a link to the source, checked in code. Groups are found in the data first and named afterwards.</p>
+        <ul class="layers" aria-label="The five layers a claim can sit on">
+          <li><span>What is real</span></li>
+          <li><span>How we know</span></li>
+          <li><span>What matters</span></li>
+          <li><span>What will happen</span></li>
+          <li><span>What to do</span></li>
+        </ul>
+      </article>
+      <article class="inst-mod inst-meet">
+        <header><span class="inst-key">Meet</span><h3>Anti-debates, steelmen, notes across lines</h3></header>
+        <p>In an anti-debate nobody rebuts until they can state the other side's case so well the other side agrees with it.</p>
+        <ol class="steps">
+          <li>A states B's case at its strongest.</li>
+          <li>B says "yes, that's us", or corrects it.</li>
+          <li>Only then does A disagree.</li>
+        </ol>
+        <p class="fine">A clean, mutually understood disagreement counts as a result.</p>
+      </article>
+      <article class="inst-mod inst-move">
+        <header><span class="inst-key">Move</span><h3>Reputation for bridging</h3></header>
+        <p>Like Community Notes, pointed across groups. A note about a group earns two things: fidelity, which only that group can grant, and portability, when others find it clear.</p>
+        <div class="boards">
+          <div class="board"><span class="board-k">People</span><span class="board-v">can write, rate and sign</span></div>
+          <div class="board board-agent"><span class="board-k">Agents</span><span class="board-v">can draft and rate on a separate board. Never sign.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="scene scene-debate" id="debate" data-scene="faint" aria-labelledby="h-debate">
+  <div class="plate plate-wide">
+    <p class="kicker">First release</p>
+    <h2 id="h-debate">The Great AI Debate</h2>
+    <p class="lede-sm">Also called the AI Futures Fingerprint. Answer <span data-count="statements">27</span> statements about AI's future with the names hidden. Then see which of <span data-count="people">107</span> public figures you stand with and against, quote by quote, and explore the Lifeworld Atlas of camps and schools.</p>
+
+    <div class="split" id="split">
+      <div class="split-head">
+        <button class="step" type="button" id="split-prev" aria-label="Previous statement">‹</button>
+        <div class="split-q-wrap">
+          <p class="split-meta" id="split-meta"></p>
+          <p class="split-q" id="split-q" aria-live="polite"></p>
+        </div>
+        <button class="step" type="button" id="split-next" aria-label="Next statement">›</button>
+      </div>
+      <div class="split-cols">
+        <div class="split-col"><h3>Agree <span id="split-yes-n"></span></h3><ul class="faces" id="split-yes"></ul></div>
+        <div class="split-col"><h3>Disagree <span id="split-no-n"></span></h3><ul class="faces" id="split-no"></ul></div>
+      </div>
+      <div class="split-quote" id="split-quote" aria-live="polite"><p class="fine">Pick a face to read what they said.</p></div>
+    </div>
+
+    <div class="schools" id="schools">
+      <h3>The four schools the map finds right now</h3>
+      <ul class="school-list"></ul>
+      <p class="fine">Working labels made by clustering. The people named should replace them.</p>
+    </div>
+
+    <div class="ctas">
+      <a class="btn" data-link="survey" href="#">Take the survey</a>
+      <a class="btn btn-alt" data-link="atlas" href="#">Open the Atlas</a>
+    </div>
+  </div>
+</section>
+
+<section class="scene scene-rules" id="rules" data-scene="faint" aria-labelledby="h-rules">
+  <div class="plate plate-wide">
+    <h2 id="h-rules">Rules of engagement</h2>
+    <ul class="rules">
+      <li><h3>Public figures, public words</h3><p>People are placed only from what they've published, and every placement can be disputed.</p></li>
+      <li><h3>Nobody private</h3><p>We infer nothing about private people. Your answers stay in your browser unless you choose to share them.</p></li>
+      <li><h3>Short quotes, always linked</h3><p>We quote a sentence or two and link to the source. Full transcripts are never republished.</p></li>
+      <li><h3>Agents never ratify</h3><p>Software can draft and assist. Only people in the described group can sign a description of it.</p></li>
+      <li><h3>No verdicts</h3><p>We don't score who's right. We score whether groups can describe each other.</p></li>
+      <li><h3>Adults only</h3><p>The survey is for people 18 and over.</p></li>
+    </ul>
+    <p class="fine honest">Where this stands today: each figure is read by machine from about three public works, and none of them has reviewed it yet.</p>
+  </div>
+</section>
+
+<section class="scene scene-join" id="join" data-scene="faint" aria-labelledby="h-join">
+  <div class="plate plate-wide plate-join">
+    <h2 id="h-join">Find out who you've been copying.</h2>
+    <p class="lede-sm">Take the survey, find your place on the map, then try the hard part: describe the group farthest from you well enough that they'd sign it.</p>
+    <div class="ctas">
+      <a class="btn" data-link="survey" href="#">Take the survey</a>
+      <a class="btn btn-alt" data-link="atlas" href="#">Open the Atlas</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-mark">anti-memes.is</p>
+      <p>An arts lab by Benjamin Life.</p>
+      <p class="fine" id="data-version"></p>
+    </div>
+    <div>
+      <h2 class="foot-h">About the map</h2>
+      <ul class="fine notes" id="notes"></ul>
+    </div>
+    <div class="credits">
+      <h2 class="foot-h">Credits</h2>
+      <details>
+        <summary>Portrait credits (<span id="credit-n">0</span>)</summary>
+        <ul class="fine" id="credits"></ul>
+      </details>
+      <p class="fine">Type: Anton, IBM Plex Sans Condensed and Newsreader, under the SIL Open Font License.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="dossier" id="dossier" role="dialog" aria-modal="false" aria-labelledby="dz-name" hidden>
+  <button class="dz-close" type="button" id="dz-close" aria-label="Close">×</button>
+  <div class="dz-head">
+    <div class="dz-face" id="dz-face"></div>
+    <div>
+      <p class="dz-class">Public figure</p>
+      <h2 id="dz-name"></h2>
+      <p class="dz-school" id="dz-school"></p>
+    </div>
+  </div>
+  <div class="dz-body" id="dz-body"></div>
+  <p class="dz-foot fine">Read by machine from public works. Not reviewed by them. <a id="dz-card" href="#" target="_blank" rel="noopener">Full card, or report a misreading</a></p>
+</div>
+
+<dialog class="index" id="index" aria-labelledby="ix-title">
+  <div class="ix-head"><h2 id="ix-title">All figures on the map</h2><button type="button" class="dz-close" id="ix-close" aria-label="Close">×</button></div>
+  <ul class="ix-list" id="ix-list"></ul>
+</dialog>
+
+<noscript><p class="noscript">The map needs JavaScript. Everything else on this page reads fine without it.</p></noscript>
+<script src="js/site.js" defer></script>
+</body>
+</html>

@@ -1,6 +1,8 @@
 // The live room. Loaded only after the person chooses "Add my answers to the live room".
 import { esc, mapSVG } from "./map.js";
 import { humanToken } from "./turnstile.js";
+import { attachHoverCard } from "./hovercard.js";
+import { fingerprint } from "./placement.js";
 
 const params = new URLSearchParams(location.search);
 const SLUG = /^[a-z0-9-]{2,40}$/.test(params.get("room") || "") ? params.get("room") : "ai-futures";
@@ -231,4 +233,8 @@ async function renderReport() {
   }
   if (r.notes.length) html += `<ul class="notes small">${r.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`;
   el.innerHTML = html;
+  // the thinkers map gets the same hover card as the results page, with this browser's answers
+  const answers = (() => { try { return JSON.parse(localStorage.getItem("fp.answers"))?.answers || {}; } catch { return {}; } })();
+  const result = Object.keys(answers).length ? fingerprint(bundle, answers) : null;
+  attachHoverCard(el, { bundle, answers, result: result?.status === "ok" ? result : null });
 }

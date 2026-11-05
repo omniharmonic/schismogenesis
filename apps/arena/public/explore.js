@@ -2,6 +2,7 @@
 // your answers) and for any school (who is in it, what it agrees on, where it argues inside).
 import { agreement, plainStances } from "./placement.js";
 import { badge, esc, mapSVG, markSelected, nodeMembers, schoolMembers, wireMap } from "./map.js";
+import { attachHoverCard } from "./hovercard.js";
 
 const LEVEL = ["Camp", "School", "Branch", "Close circle"];
 
@@ -249,6 +250,8 @@ export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, 
     onNode: (id) => open({ node: id }) };
   wireMap(mapEl, handlers);
   if (gridEl) wireMap(gridEl, handlers);
+  // hovering a circle shows a short card; its "See full profile" opens this panel's full card
+  attachHoverCard(mapEl, { bundle, answers, result: mapOptions?.result || null, onProfile: handlers.onThinker });
   panelEl.addEventListener("click", (e) => {
     if (e.target.closest("[data-back]")) {
       current = history.pop() || null;

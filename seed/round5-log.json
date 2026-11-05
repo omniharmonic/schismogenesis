@@ -1,0 +1,1860 @@
+{
+ "added": [
+  {
+   "statement": "ai-concentrates-power",
+   "person": "abeba-birhane",
+   "a": 1,
+   "q": "Without intentional rectification and proper guardrails, AI often leads to surveillance, manipulation, inequity and erosion of fundamental rights and human agency while concentrating power, wealth and influence in the hands of AI developers and vendors."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "anton-korinek",
+   "a": 1,
+   "q": "We find that the market for cutting-edge foundation models exhibits a strong tendency towards market concentration"
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "arvind-narayanan",
+   "a": 1,
+   "q": "The real impact of AI is likely to be subtler: AI tools will shift power away from workers and centralize it in the hands of a few companies."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "audrey-tang",
+   "a": 1,
+   "q": "The result is a system that interacts with billions of people but is, by default, controlled by a small circle of researchers and executives, while those most affected have almost no voice in shaping the outcomes."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "daniel-faggella",
+   "a": 1,
+   "q": "As tech giants win the “winner takes all” game of AI, this power will continue to concentrate."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "e-glen-weyl",
+   "a": 1,
+   "q": "have seen the challenges of emerging monopolies only expand in the market for chips and generative foundation models."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "emily-m-bender",
+   "a": 1,
+   "q": "This technological sector is presently the site of enormous inﬂuxes of capital and enormous concentrations of power."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "felix-simon",
+   "a": 1,
+   "q": "Given the nature of the technology — which has a high barrier to entry due to the vast data and computational power requirements — platform companies are likely to dominate this space for the foreseeable future."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "holly-elmore",
+   "a": 1,
+   "q": "There’s no place for the rest of us in the world the AI industry is trying to build."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "Open AI may be our best and only defense against its oligarchic domination."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "kate-crawford",
+   "a": 1,
+   "q": "The territories are dominated by a few global mega-companies, which are creating new infrastructures and mechanisms for the accumulation of capital and exploitation of human and planetary resources."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "scott-alexander",
+   "a": 1,
+   "q": "If AI takeover is averted, the default outcome of the current AI race is that some particular company wins."
+  },
+  {
+   "statement": "ai-concentrates-power",
+   "person": "scott-santens",
+   "a": 1,
+   "q": "The wealth they generate flows to a remarkably small number of people while the costs are distributed across entire communities who have been dispossessed of what was theirs."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "adam-thierer",
+   "a": -1,
+   "q": "For many professions, AI is already a multiplier tool that will create new opportunities and jobs well beyond what computers have already provided us."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "daniel-faggella",
+   "a": 1,
+   "q": "Humans will eventually be buffered entirely out of “work” of any kind (economic, scientific, governmental, etc.)"
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "daniel-jeffries",
+   "a": -1,
+   "q": "Because here’s what the doomers never understood: productivity tools don’t eliminate human work."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "erik-brynjolfsson",
+   "a": -1,
+   "q": "This means we are not in danger of mass unemployment anytime soon. There is no shortage of work that needs to be done in our society that only humans can do."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "reid-hoffman",
+   "a": -1,
+   "q": "In the past, it has always been breakthrough technologies that have created the jobs of the future—and I expect it to be no different this time."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "robin-hanson",
+   "a": -1,
+   "q": "The big picture is that it will take decades for AI to have big econ impact."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "samuel-hammond",
+   "a": -1,
+   "q": "This “perfect complementarity” between production and consumption is why automation doesn’t lead to technological unemployment."
+  },
+  {
+   "statement": "ai-cuts-more-jobs-than-it-creates",
+   "person": "taylor-barkley",
+   "a": -1,
+   "q": "AI won’t replace humans; it will augment our capabilities in ways that make them more valuable, not less."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "andrew-yang",
+   "a": 1,
+   "q": "I hope that we heed Jacob’s warning. We are running out of time."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "anton-korinek",
+   "a": 1,
+   "q": "It's something that I would not rule out, and as a society, I think we absolutely want to spend resources on forestalling that."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "arvind-narayanan",
+   "a": -1,
+   "q": "the x-risk framing is the one that is driving public concern and much policy discourse, despite the fact that credible causal pathways haven’t been articulated (and attempts to do so are unconvincing to say the least)."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "brian-merchant",
+   "a": -1,
+   "q": "Do I share the x-riskers’ fear that out-of-control, super-intelligent AI agents might end the world? I do not."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "bruce-schneier",
+   "a": -1,
+   "q": "I actually don’t think that AI poses a risk to human extinction."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "bryan-caplan",
+   "a": -1,
+   "q": "I’ve listened to the fearful past the point of patience, and I remain convinced that the risks of AI extermination are barely worth thinking about."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "chris-callison-burch",
+   "a": -1,
+   "q": "My P(Doom) is vanishingly small."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "erik-hoel",
+   "a": 1,
+   "q": "Pandora's box has been forever unlocked. Forevermore, we will live with the existential risk of AI."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "jeff-jarvis",
+   "a": -1,
+   "q": "a machine so powerful it could destroy humankind unless we listen to its creators. I call bullshit."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "karen-hao",
+   "a": -1,
+   "q": "Because there’s no scientific evidence that we can actually develop AGI, the people who are strongly — have this strong conviction that they will do it and that it’s going to happen soon, it is just purely based on belief."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "oren-cass",
+   "a": -1,
+   "q": "These could be enormously costly, and lead to massive human suffering, but they are not existential. They are not even the equivalent of an old-fashioned war."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "scott-santens",
+   "a": 1,
+   "q": "The winning scenario is aligned AI. The losing scenario is not that China gets there first. The losing scenario is that anyone gets there with a misaligned system."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "steven-adler",
+   "a": 1,
+   "q": "Even a 1-2% chance on ‘superintelligence will kill everyone on Earth’ is an absolutely outlandish probability to tolerate, if it is correct and if there’s anything we can do about it."
+  },
+  {
+   "statement": "ai-extinction-risk",
+   "person": "yuval-noah-harari",
+   "a": 1,
+   "q": "The rise of AI poses an existential danger to humankind, not because of the malevolence of computers, but because of our own shortcomings."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "adam-thierer",
+   "a": 1,
+   "q": "Doomsday forecasts persist, however, because the media and academics have powerful incentives to promote tales of a coming techno-apocalypse."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "christopher-ferguson",
+   "a": 1,
+   "q": "The public narrative — “a chatbot encouraged a teen to commit suicide” — has already outpaced both the actual evidence from the case and any evidence from research."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "elizabeth-nolan-brown",
+   "a": 1,
+   "q": "Unfortunately, we're almost certain to keep seeing people sue AI companies—language models, image generators, etc.—on dubious grounds, because America is in the midst of a growing AI tech panic."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "erik-hoel",
+   "a": -1,
+   "q": "But are such levels of concern reasonable? I think yes, absolutely. If nothing changes."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "felix-simon",
+   "a": 1,
+   "q": "We diagnose the alarmist discourse surrounding AI and elections as a version of what Orben (2020) has termed the “Sisyphean cycle of technology panics”"
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "george-hotz",
+   "a": 1,
+   "q": "This is negative valence hype, not only is it not true, it’s mostly designed to make you feel bad about yourself"
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "holly-elmore",
+   "a": -1,
+   "q": "There’s plenty we can do together to make the world safer even if some people want to bury their heads in the sand about just how dangerous AI could be."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "I intervened (as we say in circles) and said that first journalists must be educated about AI because too much of their coverage amounts to moral panic"
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "matt-stoller",
+   "a": 1,
+   "q": "So color me skeptical of ghost stories. We can manage the risks of AI products. The real crisis is that we no longer manage the risks of anything."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "neil-chilson",
+   "a": 1,
+   "q": "This knowledge problem is a major constraint on raw intelligence, suggesting that many AI doomer scenarios are far overblown."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "oren-cass",
+   "a": 1,
+   "q": "Pontificating that AI could someday destroy humanity is rather a waste of time when it cannot yet answer a basic question without hallucinating."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "richard-sutton",
+   "a": 1,
+   "q": "The AI fear-mongers have not helped us see clearly, but they have gotten us to pay attention."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "russell-moore",
+   "a": -1,
+   "q": "The relative apathy of most of the American public to all this is itself a piece of the mystery."
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "scott-alexander",
+   "a": -1,
+   "q": "I find myself more optimistic about alignment than the average person who thinks about AI safety at all (although still more pessimistic than the average member of the population)"
+  },
+  {
+   "statement": "ai-fear-exceeds-evidence",
+   "person": "tyler-cowen",
+   "a": 1,
+   "q": "That fear was not based on peer-reviewed scientific research showing a high chance of doom, nor was doom indicated in any market prices of the time, including measures of risk."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "brian-merchant",
+   "a": -1,
+   "q": "Declarations that AI is so powerful it might end the world are a kind of marketing, and anyone who says otherwise is just as off base as those who say that’s all that it is."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "cory-doctorow",
+   "a": -1,
+   "q": "The tech bros who have spent the past year holding flashlights under their chins and intoning “Ayyyyyy Eyeeeee” in their very spookiest voices want us to think they’re evil sorcerers, not huxters"
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "emily-m-bender",
+   "a": -1,
+   "q": "Going along with company executives and describing their products as beings with agency allows these executives to evade accountability while deceiving the public."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "gary-marcus",
+   "a": -1,
+   "q": "This company simply cannot be trusted. Their software is becoming ever more dangerous; their internal security practices leave a lot to be desired; they aren’t being straight with the public"
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "jeff-jarvis",
+   "a": -1,
+   "q": "This turns out to be another instance of the doom-as-marketing strategy engaged in by both OpenAI and Anthropic."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "joanna-bryson",
+   "a": -1,
+   "q": "Yesterday in the process of switching his misdirection about AI from impossible scenarios (AGI) to the one we're already solving (superintelligence), he fully revealed his anti-regulatory, anti-government agenda."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "karen-hao",
+   "a": -1,
+   "q": "And he will say different things to different people if he thinks they need to hear different things."
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "matt-stoller",
+   "a": -1,
+   "q": "It’s hard to escape there’s something very strange and manipulative about AI safety discourse. The AI doomers have a lot of money, they run the major AI companies, they fund most AI research"
+  },
+  {
+   "statement": "ai-leaders-honest-about-risks",
+   "person": "yuval-noah-harari",
+   "a": -1,
+   "q": "The companies tell us completely contradictory things. When it comes to accountability, the story is: it's just a game."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "alex-tabarrok",
+   "a": 1,
+   "q": "When assessing the consciousness of a newborn, an animal, or an intelligent machine, we should weigh observable and circumstantial evidence and not just abstract theory. If we must err, let us err on the side of compassion."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "bryan-caplan",
+   "a": -1,
+   "q": "What makes me so sure that AIs aren’t even slightly literally conscious? The same thing that makes you sure that portraits of staring people can’t slightly literally see you."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "daniel-kokotajlo",
+   "a": 1,
+   "q": "Also, for the record, I do actually think that AIs probably deserve moral consideration, should have rights, etc."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "dario-amodei",
+   "a": 1,
+   "q": "There are other more exotic consequences of opacity, such as that it inhibits our ability to judge whether AI systems are (or may someday be) sentient and may be deserving of important rights."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "jack-clark",
+   "a": 1,
+   "q": "To me, it feels like they’re on a trajectory heading towards consciousness, and if they’re conscious today, it’s in a form that we would recognize as like a truly alien consciousness, not human consciousness."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "noah-smith",
+   "a": 1,
+   "q": "It would be very bad if we were to commit the same sins with sentient AIs that we currently do with animals."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "pope-leo-xiv",
+   "a": -1,
+   "q": "Today, some propose granting these systems rights, or even legal personhood. Such an approach risks obscuring human responsibility and leaving those who suffer harm to confront a faceless entity."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "richard-sutton",
+   "a": 1,
+   "q": "We could aspire to treat some AIs like people and to have similar outcomes"
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "samuel-hammond",
+   "a": 1,
+   "q": "It is at minimum plausible enough to warrant greater research and precautionary interventions, such as giving AIs the ability to quit distressing conversations."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "tristan-harris",
+   "a": -1,
+   "q": "We’re seeing several states work to pass bans for legal personhood for AI, meaning AI should be a product, not a person. Human rights were for humans."
+  },
+  {
+   "statement": "ai-moral-status",
+   "person": "zvi-mowshowitz",
+   "a": 1,
+   "q": "It is worth noticing that the answer to the question of whether AI is sentient, or a moral patient, or experiencing emotions or ‘truly’ has ‘motivations’ could change."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "alex-tabarrok",
+   "a": 1,
+   "q": "Clark is clear that we are growing intelligent systems that are more complex than we can understand. Moreover, these systems are becoming self-aware–that is a fact, even if you think they are not sentient (but beware hubris on the latter question)."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "asad-ramzanali",
+   "a": -1,
+   "q": "AI is powerful technology, but it is fundamentally a “normal” technology, in contrast to the utopian and dystopian science-fiction futures often debated"
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "bruce-schneier",
+   "a": -1,
+   "q": "AIs are not people; they don’t have agency."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "bryan-caplan",
+   "a": -1,
+   "q": "Both are technologies of superficial simulation. A photograph is designed to look just like the human it captures. An AI is designed to talk just like the data upon which it is trained."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "curtis-yarvin",
+   "a": -1,
+   "q": "AI is a tool. It is not magic. AI does not act. Humans act, with the power of our tools."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "daniel-faggella",
+   "a": 1,
+   "q": "Today, the greater process of life implies not only human civilization and the entire biosphere, but also the emerging expansion of new non-biological forms of life."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "daniel-jeffries",
+   "a": -1,
+   "q": "AI is a general purpose technology. It's not a sentient being with its own desires. It’s a tool."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "dean-ball",
+   "a": -1,
+   "q": "AI is a transformational technology. I do not believe, as some do, that it represents a new kind of organism per se"
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "eliezer-yudkowsky",
+   "a": 1,
+   "q": "Now you’re going to have aliens talking to you about alignment and you’re going to verify their results. Aliens who are possibly lying."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "erik-hoel",
+   "a": 1,
+   "q": "That’s one of the co-founders of OpenAI, who apparently cannot tell the qualitative difference between a technology like electricity, which is unintelligent and non-agential, and building alien and inhuman minds, which are intelligent and agential."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "fei-fei-li",
+   "a": -1,
+   "q": "Ultimately, when I say “AI is a tool,” it reflects my faith in humanity—my faith in human nature and human society. I believe in humans. I do not believe in AI."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "jeff-jarvis",
+   "a": -1,
+   "q": "Now I will object to the idea that what AI offers is “intelligence.” That is a gross anthropomorphism that, by its very conception, competes with and excludes humanity."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "kate-crawford",
+   "a": -1,
+   "q": "AI is neither artificial nor intelligent. It is made from natural resources and it is people who are performing the tasks to make the systems appear autonomous."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "mark-lemley",
+   "a": -1,
+   "q": "We do not intend by using those terms to suggest that AI acts consciously or with purpose ; it does not."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "matt-stoller",
+   "a": -1,
+   "q": "These LLM systems are often parodied as fancy auto-complete, but that notion underplays the power of simplicity. Fancy auto-complete, along with some logical programming, is in fact what they are."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "oren-cass",
+   "a": -1,
+   "q": "We should celebrate AI as the next general purpose technology in a long line of them, not dismiss it as a fax machine, worship it as a nascent god, or fear it as an extinction-level threat."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "samuel-hammond",
+   "a": 1,
+   "q": "Selection into the assistant persona is literally constitutive of the model’s assistant-like behavior, making a purely tool-like, persona-less agent an oxymoron."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "scott-alexander",
+   "a": 1,
+   "q": "Nothing about any of these levels of explanations supports a contention like “Humans are doing REAL THOUGHT, but AIs are simply next-token predictors.”"
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "taylor-barkley",
+   "a": -1,
+   "q": "Many people are afraid because they are imagining a new kind of creature when, instead, it’s just a new kind of tool."
+  },
+  {
+   "statement": "ai-new-kind-of-mind",
+   "person": "tyler-cowen",
+   "a": -1,
+   "q": "And by the way I do not think the AIs are conscious, no more than I believe in the Thunder God of Thor."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "abeba-birhane",
+   "a": 1,
+   "q": "This has created a massive gap between public perception and the actual capabilities of AI systems both as 1) consumer products, which often fail to meet their promises"
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "andrej-karpathy",
+   "a": -1,
+   "q": "And I think people still haven't like really seen what's possible in this space. Like at all."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "andrew-yang",
+   "a": -1,
+   "q": "I rode in a Waymo multiple times and would do it again. This stuff is real."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "curtis-yarvin",
+   "a": -1,
+   "q": "And this AI really works — I use it professionally, not in my writing of course."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "dwarkesh-patel",
+   "a": -1,
+   "q": "But within 20 years, 99% of the workforce in the military, the government, and the private sector will be AIs."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "erik-hoel",
+   "a": 1,
+   "q": "Another sign of stalling is that, despite all the hype, companies like OpenAI are now regularly not releasing internal models to the public, almost certainly because they don’t work as well as the hype claims."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "george-hotz",
+   "a": 1,
+   "q": "I’ll bet you everything I have that this doesn’t happen."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "holly-elmore",
+   "a": -1,
+   "q": "The libs are trying to deny those making AI power by denying what AI can and will do. That’s just false, but I appreciate the moxie."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "Sam Altman’s contention that they are building “artificial general intelligence” or “artificial superintelligence”: Bullshit."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "joanna-bryson",
+   "a": 1,
+   "q": "I both think generativeAI is being widely used, and that it's being massively overvalued."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "lawrence-summers",
+   "a": -1,
+   "q": "Of course, I think that this technology potentially has implications greater than any past technology, because fire doesn't make more fire, electricity doesn't make more electricity."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "neil-chilson",
+   "a": -1,
+   "q": "Still, the opportunity is immense. AI can help read scans, flag rare diseases, accelerate drug discovery, match patients to clinical trials, translate medical records, reduce administrative waste, detect fraud, identify cyber vulnerabilities and make expert assistance available"
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "oren-cass",
+   "a": 1,
+   "q": "The technologists willing to make the most absurd and self-confident pronouncements have become celebrities. And no one wants to call “bullshit”; where’s the fun, or funding, in that?"
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "robin-hanson",
+   "a": 1,
+   "q": "The big picture is that it will take decades for AI to have big econ impact."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "scott-alexander",
+   "a": -1,
+   "q": "AI is less than 1% of the economy! In a few years, we’re going to look back on these days the way we look back now on punch-card computers."
+  },
+  {
+   "statement": "ai-promises-inflated",
+   "person": "yoshua-bengio",
+   "a": -1,
+   "q": "I agree that more powerful AI can be immensely useful but with this power also comes the possibility of more dangerous uses"
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "adam-thierer",
+   "a": 1,
+   "q": "Whether this is being proposed by progressive liberals, conservative populists, national security hawks, or even AI companies themselves, all varieties of AI socialism or state corporatism must be rejected."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "anton-korinek",
+   "a": -1,
+   "q": "Given the rise of artificial intelligence, it is now time to establish a federal agency to oversee advanced artificial intelligence—an AI Control Council that is explicitly designed to address the AI Control Problem"
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "asad-ramzanali",
+   "a": -1,
+   "q": "The markets for chips, cloud computing, and AI foundation models have the features of markets that have been traditionally regulated as utilities in the U.S."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "brian-merchant",
+   "a": -1,
+   "q": "The next steps would be towards moving AI under public control; again, it’s only reasonable, since everyone, not just AI insiders, should get a say over how a technology whose developers say might kill us is developed and deployed."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "bryan-caplan",
+   "a": 1,
+   "q": "When (not if) AI comes before the Supreme Court, I bet SCOTUS will side with the government against the industry. But hopefully I’m wrong."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "dwarkesh-patel",
+   "a": 1,
+   "q": "While some regulation might be inevitable, I think it’d be a terrible idea for the government to wholesale take over this technology."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "elizabeth-nolan-brown",
+   "a": 1,
+   "q": "Couched in the language of giving power to \"the American people,\" Sanders' plan actually presents a frighteningly authoritarian vision in which the federal government gains significant control over private AI companies and the future of output."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "erik-hoel",
+   "a": -1,
+   "q": "The public and the government should decide that, after a lot of debate, and with a hefty roll of red tape."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "geoffrey-hinton",
+   "a": -1,
+   "q": "The problem is we're at a point in history when what we really need is strong democratic governments who cooperate to make sure this stuff is well regulated and not developed dangerously."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "george-hotz",
+   "a": 1,
+   "q": "Their crap Consortium is just world government with sci-fi characteristics."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "joanna-bryson",
+   "a": -1,
+   "q": "We ought to be spending at least 1/3 of what we presently spend building AI on governing AI and its consequences."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "matt-stoller",
+   "a": -1,
+   "q": "Why isn’t it possible to force model developers to invest in tech to make agents safer? Well, it is. We just choose not to force the powerful financiers at these AI firms to invest in safer products."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "max-tegmark",
+   "a": -1,
+   "q": "It is therefore logical for individual countries to similarly adopt national safety standards for AI tools."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "mustafa-suleyman",
+   "a": -1,
+   "q": "That is a good question. I think some of those voluntary commitments should become legally mandated."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "neil-chilson",
+   "a": 1,
+   "q": "Most importantly, it means recognizing that the most effective solutions may emerge from the distributed efforts of many actors rather than from centralized control."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "scott-alexander",
+   "a": -1,
+   "q": "A good pause strategy would involve both sides being able to monitor the other’s data centers to prevent illegal training, then limiting training to some slow mutually-agreeable rate that lets alignment researchers thoroughly test each generation of AIs pre-release"
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "steven-adler",
+   "a": -1,
+   "q": "I think it is in fact reasonable enough to keep working on superintelligence development while others are too, but I really hope the AI companies are privately asking governments and international bodies to intercede."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "In a world where governments are beginning to decide who may compute and who may not, Ohio can send a clear message: In this state, the power to think, build and innovate belongs to the people."
+  },
+  {
+   "statement": "ai-separate-from-state",
+   "person": "william-macaskill",
+   "a": -1,
+   "q": "I tentatively think that an international AGI project is feasible and desirable."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "demis-hassabis",
+   "a": 1,
+   "q": "And I think that’s a very, very pressing need right now for near-term issues with AI like deepfakes and disinformation and so on."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "ed-zitron",
+   "a": 1,
+   "q": "The onslaught of AI-generated content — facilitated, in no small part, by Google and Microsoft — has polluted our information ecosystems."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "elizabeth-nolan-brown",
+   "a": -1,
+   "q": "AI Isn't Destabilizing Elections"
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "emily-m-bender",
+   "a": 1,
+   "q": "The pollution of the information ecosystem with synthetic media"
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "jack-clark",
+   "a": 1,
+   "q": "My takeaway from this research is that LLMs will inevitably be used to generate synthetic propaganda about things most people deem to be conspiracy theories. We can probably blunt the socially corrosive effects of this if we design in some constraints - but that takes policy."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "jeff-jarvis",
+   "a": -1,
+   "q": "But hold on. First, we already have more than enough misinformation; who’s to say that any more will make a difference?"
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "richard-blumenthal",
+   "a": 1,
+   "q": "When the American people can no longer recognize fact from fiction, quite literally, it will be impossible to have a democracy."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "rumman-chowdhury",
+   "a": 1,
+   "q": "Really, the pivot that ChatGPT, and Bard, and a lot of the more readily available models do is now anybody can make it very easily. So we do have to be concerned about the type of media and how convincing it is."
+  },
+  {
+   "statement": "ai-threatens-shared-truth",
+   "person": "timnit-gebru",
+   "a": 1,
+   "q": "the explosion of synthetic media in the world, which both reproduces systems of oppression and endangers our information ecosystem"
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "alex-karp",
+   "a": 1,
+   "q": "I happen to respect their culture quite a bit, China, but it is us or them. And they have a dynamic, interesting super high IQ scaled culture that is doing exceedingly well at AI. And we've got to make sure we're the leaders."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "andrew-yang",
+   "a": -1,
+   "q": "The argument that “we can’t interfere with the AI industry for fear of losing the competition to China” ignores the facts"
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "asad-ramzanali",
+   "a": 1,
+   "q": "American leadership in AI is critical to our geopolitical competition with the People’s Republic of China (PRC)."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "dwarkesh-patel",
+   "a": 1,
+   "q": "But what is the reason we want America to win the AI race? It’s because we want to make sure free open societies can defend themselves."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "ed-zitron",
+   "a": -1,
+   "q": "It’s time to wake up and accept that there was never an “AI arms race,”"
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "michael-kratsios",
+   "a": 1,
+   "q": "We face many dangers as a nation, but thanks to decades of feckless American leaders, China in particular has grown into both a geopolitical rival and technological competitor."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "miles-brundage",
+   "a": 1,
+   "q": "Robust responses, especially tightening of American export controls on GPUs, are necessary given the increasing importance of AI to the global economy."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "reid-hoffman",
+   "a": 1,
+   "q": "DeepSeek demonstrates how immediate and strong the competitive talent from China is and why it’s crucial for America to continue to be at the forefront of AI development."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "ro-khanna",
+   "a": 1,
+   "q": "The trillions spent on wars and tax cuts for the wealthy and corporations should instead be invested in advanced scientific, military, medical and technological research, such as artificial intelligence and quantum computing."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "scott-santens",
+   "a": -1,
+   "q": "Neither wants to slow down. Both treat the race itself as the priority, when the winner will be decided by alignment."
+  },
+  {
+   "statement": "china-rivalry-justifies-tech-push",
+   "person": "yoshua-bengio",
+   "a": -1,
+   "q": "I reject these arguments."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "asad-ramzanali",
+   "a": 1,
+   "q": "As I suggest later, pro-competition policies can aid in mitigating these impacts."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "audrey-tang",
+   "a": 1,
+   "q": "If your telecom cannot keep your number hostage, it has to serve you well. The same goes for social networks."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "bruce-schneier",
+   "a": 1,
+   "q": "Lock-in is an important concern because it results in products and services that are less responsive to customer demand. The harder it is for you to switch to a competitor, the more poorly a company can treat you."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "cory-doctorow",
+   "a": 1,
+   "q": "First: competition. Companies that fear you will take your business elsewhere are cautious about worsening quality or raising prices."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "daniel-jeffries",
+   "a": 1,
+   "q": "In other words, nothing happens in a vacuum. There will be pushback and friction and other companies and people with breakthroughs in AI at the same time so this argument by Bengio is another swerve into the absurd."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "elizabeth-warren",
+   "a": 1,
+   "q": "With a handful of CEOs in charge, a handful of people dictate what you watch on TV, which doctor you’re allowed to see, what you eat, what predators get online access to your kids, what apartment you can rent, and, as AI sweeps in, maybe what your future job looks like"
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "erik-hoel",
+   "a": -1,
+   "q": "We are currently fouling our own nests. Since the internet economy runs on eyeballs and clicks the new ability of anyone, anywhere, to easily generate infinite low-quality content via AI is now remorselessly generating tragedy."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "garett-jones",
+   "a": 1,
+   "q": "But part of that is that they face some kind of global competition. Cities face huge competition for labor. And the extremely valuable freedom to leave means that a city can’t get rich by just telling its most productive workers"
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "And government should encourage truly open-source development and investment to bring on competitors that can keep these boys, more than their machines, in check."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "josh-hawley",
+   "a": 1,
+   "q": "If the FTC wins, it could force Meta to divest Instagram and WhatsApp, restoring competition to digital markets."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "lina-khan",
+   "a": 1,
+   "q": "And so that’s another way in which we saw a real relationship between diminishing competition and, you know, higher prices and more situations where you had greater vulnerability to abrupt spikes in prices."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "miles-brundage",
+   "a": -1,
+   "q": "Contrary to some people’s beliefs, companies do not in fact have sufficient incentives to mitigate all major risks, and competition is driving corner-cutting that needs to be reined in somehow."
+  },
+  {
+   "statement": "competition-limits-harm",
+   "person": "scott-wiener",
+   "a": 1,
+   "q": "Competition is the key that unlocks lower prices and innovation."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "elizabeth-nolan-brown",
+   "a": -1,
+   "q": "It's also a weird understanding of copyright infringement—akin to arguing that someone reading a book in order to learn about a subject for a presentation is infringing on the work or that search engines are infringing when they scan webpages to index them."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "marc-andreessen",
+   "a": -1,
+   "q": "Copyright law should not be co-opted to imply that machines should be prevented from using data—the foundation of AI—to learn in the same way as people."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "mark-zuckerberg",
+   "a": -1,
+   "q": "Look, we’re a big company. We pay for content when it’s valuable to people. We’re just not going to pay for content when it’s not valuable to people."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "marsha-blackburn",
+   "a": 1,
+   "q": "Our Constitution—specifically, Article I, Section 8, Clause 8—gives all creators in our country the guaranteed right to benefit from their works, but AI is increasingly challenging this right that our creative community relies on to make a living,"
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "matt-stoller",
+   "a": 1,
+   "q": "which mandates that AI firms license from copyright holders instead of freely ingesting copyrighted material. That would shape the development of this technology into far safer, less monopolistic and more productivity-enhancing pathways."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "richard-blumenthal",
+   "a": 1,
+   "q": "First, Meta, Google and OpenAI are using the hard work of newspapers and authors to train their AI models without compensation or credit."
+  },
+  {
+   "statement": "creators-owed-for-training",
+   "person": "rumman-chowdhury",
+   "a": 1,
+   "q": "So I actually– yes, the lawsuits matter. Yes, the IP matters because people should be compensated for their work."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "bruce-schneier",
+   "a": 1,
+   "q": "I am less worried about AI; I regard fear of AI more as a mirror of our own society than as a harbinger of the future."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "chris-callison-burch",
+   "a": 1,
+   "q": "That’s my personal fear for doomsday scenarios. It’s not an apocalyptic event, but it could have real harms."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "daniel-jeffries",
+   "a": 1,
+   "q": "I don't fear AI taking over. I fear dumb, narrow AI, controlled by nasty, sadistic, power hungry people."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "Yet I am cautious about this latest AI flavor of the month, not because generative AI itself is dangerous but because the uses to which it is being put are stupid and its current proprietors are worrisome."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "joanna-bryson",
+   "a": 1,
+   "q": "A blogpost about why AGI is not a problem, and superintelligence is THE problem our culture has already caused."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "matt-stoller",
+   "a": 1,
+   "q": "When you look at this situation carefully, it really has nothing to do with bots taking over humanity. It is simply unsafe product design and a society-wide refusal to manage risk."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "mustafa-suleyman",
+   "a": 1,
+   "q": "What wasn’t effective, I can tell you, was the obsession with superintelligence. I honestly think that did a seismic distraction — if not disservice — to the actual debate."
+  },
+  {
+   "statement": "deployment-harms-over-superintelligence",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "We should expect that AI can be used to exploit workers, manipulate attention, concentrate power, and spread lies. That is not AI “becoming evil.” It is people being people, now with a stronger instrument in their hands."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "person": "alexandria-ocasio-cortez",
+   "a": 1,
+   "q": "So I think that what we do, is when we actually decouple ourselves from this idea — we should get to a point and we should structure our systems, whether it’s a tax rate, whether it’s distributing wealth that is created by automation."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "person": "curtis-yarvin",
+   "a": -1,
+   "q": "And you’re still living like a child. It’s this sort of massive dehumanization of the human race."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "person": "george-hotz",
+   "a": -1,
+   "q": "Belief in UBI comes from a fallacy that the economy is some natural thing."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "person": "joanna-bryson",
+   "a": -1,
+   "q": "This was when I realised that indeed, if we disconnect a bunch of people from the recognised economy, and give them less motivation to find a place for themselves within the states and nations they constitute, then we do them a disservice."
+  },
+  {
+   "statement": "direct-distribution-of-wealth-sound",
+   "person": "noah-smith",
+   "a": 1,
+   "q": "Also, corporate taxes could be modified so if the labor share of income gets too low, the tax rate on profits automatically goes up, with the proceeds going to cash benefits."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "alexandria-ocasio-cortez",
+   "a": 1,
+   "q": "We should not feel nervous about the tollbooth collector not having to collect tolls anymore. We should be excited by that. But the reason we’re not excited by it, is because we live in a society where if you don’t have a job, you are left to die."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "bruce-schneier",
+   "a": 1,
+   "q": "It’s no accident that these corporate AIs have a human-like interface. There’s nothing inevitable about that. It’s a design choice."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "dean-ball",
+   "a": -1,
+   "q": "There is no “we” who “decides” questions such as these, and there is no polling place to cast one’s vote. History does not unfold by show of hands."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "erik-hoel",
+   "a": 1,
+   "q": "Activism to slow down or place limits on AI will work, just as it has before with other threats."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "felix-simon",
+   "a": 1,
+   "q": "The concept of technological determinism—the idea that technology directly drives social and cultural change in a linear, inevitable manner—has long been abandoned."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "jason-crawford",
+   "a": 1,
+   "q": "Quite the contrary: We can and should steer what technologies are created."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "once the technology becomes familiar as a tool in many hands, both the technologist and the technology fade into the background and what matters is what is made with it by others, the rest of us."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "jensen-huang",
+   "a": 1,
+   "q": "And the choices we make now, how fast we build, how broadly we participate and how responsibly we deploy it, will shape what this era becomes."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "matt-stoller",
+   "a": 1,
+   "q": "This dynamic isn’t driven technological advance, it’s driven by a refusal to collectively manage risk. We just don’t govern."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "richard-blumenthal",
+   "a": 1,
+   "q": "This world of disinformation doesn't have to be our future. We have agency. We can take action."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "safiya-noble",
+   "a": 1,
+   "q": "I find it really troublesome that large language models are talked about as inevitable as without consequence."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "steven-adler",
+   "a": 1,
+   "q": "Fundamentally we have a choice about the society we want to build."
+  },
+  {
+   "statement": "direction-of-technology-is-chosen",
+   "person": "yuval-noah-harari",
+   "a": 1,
+   "q": "I do not think anything is inevitable. One of the excuses for doing nothing is to claim something is inevitable."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "divya-siddarth",
+   "a": 1,
+   "q": "Yet the aim to transcend that which makes us human is not the path to serving humanity."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "erik-hoel",
+   "a": 1,
+   "q": "The intelligences like Sydney tech companies are now making are not human, they never will be, and only dumb species purposefully create potential rivals to get a financial return on investment."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "eugenia-kuyda",
+   "a": 1,
+   "q": "I believe that we need what I call the human flourishing metric for AI."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "liz-shuler",
+   "a": 1,
+   "q": "Working people should come before algorithms."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "ro-khanna",
+   "a": 1,
+   "q": "That is why I am calling on the CEOs of major AI companies to answer for how their policies align with Magnifica humanitas, including how they will prevent mass unemployment and ensure that technology remains in the service of human beings"
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "russell-moore",
+   "a": 1,
+   "q": "And he sees what’s really behind the rush toward the posthuman path, in which we view weakness, dependence, mystery, and even personhood as problems to engineer away."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "We can pursue wisdom, set guardrails, and use tools to serve people, while remembering that our hope is not in a technology and our dignity is not threatened by one."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "timnit-gebru",
+   "a": 1,
+   "q": "We should be building machines that work for us, instead of \"adapting\" society to be machine readable and writable."
+  },
+  {
+   "statement": "human-end-of-ai",
+   "person": "yoshua-bengio",
+   "a": 1,
+   "q": "Put your talents, passion, energy and conviction to the service of an organization that is building AI that will allow to preserve human joy and endeavour, not lead to undermining humanity and dominating others."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "asad-ramzanali",
+   "a": -1,
+   "q": "While some believe universal basic income (UBI) is needed to respond to AI-related job displacement, many have argued for years that UBI is not a good policy solution for the problem of automation-driven unemployment."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "bryan-caplan",
+   "a": -1,
+   "q": "Given how bad the status quo is, I maintain “The UBI would be worse than the status quo” is a harsh but fair indictment of the UBI."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "curtis-yarvin",
+   "a": -1,
+   "q": "And then people are like, “Oh, well, we’ll give you UBI,” which you can spend on your shoes that are no longer made in Vietnam but are now made in the UK by robots. And you’re still living like a child."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "george-hotz",
+   "a": -1,
+   "q": "Thinking that UBI will solve anything comes from a misunderstanding about money."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "joanna-bryson",
+   "a": -1,
+   "q": "I think better than basic income is raising minimum wage and ensuring various employment conditions are met."
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "noah-smith",
+   "a": 1,
+   "q": "The introduction of simple, near-universal cash benefits would be an important way of insuring against any sudden disruptive job market impacts from AI"
+  },
+  {
+   "statement": "income-not-tied-to-work",
+   "person": "robin-hanson",
+   "a": 1,
+   "q": "A solution that occurs to me is to push for a World Basic Income (WBI)."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "abeba-birhane",
+   "a": -1,
+   "q": "AI technologies—whether in the hands of big tech or civil society—are inherently conservative, exploitative, and inextricably entangled with capitalism."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "daniel-jeffries",
+   "a": 1,
+   "q": "Technology doesn’t destroy prosperity. Technology creates prosperity by making things cheaper, by expanding what’s possible, by eliminating the barriers between human vision and execution."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "elon-musk",
+   "a": 1,
+   "q": "I think we are most likely headed to an exciting, amazing era of abundance."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "erik-brynjolfsson",
+   "a": 1,
+   "q": "Our nation, and the world, are immensely freer and wealthier than our ancestors because of these three milestones and the subsequent changes they set in motion."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "leopold-aschenbrenner",
+   "a": 1,
+   "q": "I agree with Tyler that while this will cause great upheavals, the good will likely considerably outweigh the bad. Past technological progress has been amazing for human wellbeing; so too will the new vistas opened by AI."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "reid-hoffman",
+   "a": 1,
+   "q": "The thing that is so important about Silicon Valley is the broadly held belief — even if it’s manifested differently in Peter versus me or other people — is that the creation of new technology companies is how progress is made."
+  },
+  {
+   "statement": "market-tech-serves-humans",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "When technology makes us more productive, it creates wealth. When it eliminates mundane tasks, it frees us to pursue higher-value activities."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "person": "daniel-jeffries",
+   "a": 1,
+   "q": "That's because, other than Meta, American companies have abandoned open source. This is a looming disaster and it's one that some people not only don't want to avoid, they want to make it much, much worse."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "person": "geoffrey-hinton",
+   "a": -1,
+   "q": "So I think it’s just crazy releasing weights."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "person": "george-hotz",
+   "a": 1,
+   "q": "Open source AI isn’t anti-safety. It’s anti-feudal."
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "A good number of people in the room — I include myself among them — believe AI models must be open to provide competition to the big companies like OpenAI, Microsoft, and Google, which now control the technology"
+  },
+  {
+   "statement": "open-weights-frontier-models",
+   "person": "mustafa-suleyman",
+   "a": -1,
+   "q": "So what that means is if we just continue to open source absolutely everything for every new generation of frontier models, then it’s quite likely that we’re going to see a rapid proliferation of power."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "adam-thierer",
+   "a": 1,
+   "q": "Every major technological revolution—but especially information and communications technology (ICT) revolutions—eventually feature calls for far-reaching political controls."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "alex-tabarrok",
+   "a": 1,
+   "q": "Nor is this argument purely theoretical. Between 1870 and today, hours of work in the United States fell by about 40% — from nearly 3,000 hours per year to about 1,800. Hours fells but unemployment did not increase."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "asad-ramzanali",
+   "a": 1,
+   "q": "One instructive parallel for thinking about AI is looking back at the Second Industrial Revolution of the late 19th and early 20th Century."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "audrey-tang",
+   "a": 1,
+   "q": "Now we are seeing the same movement in AI. We are having a Linux moment for generative AI"
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "bruce-schneier",
+   "a": 1,
+   "q": "There is a lot we can learn about social media’s unregulated evolution over the past decade that directly applies to AI companies and technologies."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "bryan-caplan",
+   "a": 1,
+   "q": "Agriculture was humanity’s dominant industry for millennia; yet when technology virtually wiped out agricultural jobs, we still found plenty of new work to do instead."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "christopher-ferguson",
+   "a": 1,
+   "q": "We’ve been through this cycle before, with concerns that violent video games make people violent (they don’t) and that social media leads to poor mental health in youths (it doesn’t) both turning into moral panics."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "dean-ball",
+   "a": 1,
+   "q": "AI is a general-purpose technology that, like electricity, will become so embedded into the world within a couple of decades that it will be nearly impossible to imagine life without it."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "erik-brynjolfsson",
+   "a": 1,
+   "q": "For instance, when American factories first electrified, there was negligible productivity growth for the first 30 years."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "erik-hoel",
+   "a": -1,
+   "q": "This isn’t like any technology ever made before. Ever. There is no analogy."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "AI is, like the printing press, a general machine. Gutenberg could not design movable type to prevent its use in promoting propaganda or witch hunts."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "jensen-huang",
+   "a": 1,
+   "q": "There’ll be more people working at the end of this industrial revolution than at the beginning of it, just like at the end of the last one, the beginning of this one."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "joanna-bryson",
+   "a": 1,
+   "q": "In my opinion, the only thing really novel here is reach."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "sam-altman",
+   "a": 1,
+   "q": "If history is any guide, we will figure out new things to do and new things to want, and assimilate new tools quickly (job change after the industrial revolution is a good recent example)."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "samuel-hammond",
+   "a": 1,
+   "q": "Indeed, the rule from all past such transitions is for irreversible second order effects to displace previous modes of social organization and, ultimately, create a new kind of human. Why would the AI revolution be any different?"
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "History keeps teaching the same lesson: new tools automate tasks, but they also enlarge the economic pie and open fresh avenues for human ingenuity."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "venkatesh-rao",
+   "a": 1,
+   "q": "Something should strike you about this story: this is what is already happening. This is how non-AI-software eating the world has unfolded for decades, and it is how AI-eating-the-world is already unfolding in its early years."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "william-macaskill",
+   "a": -1,
+   "q": "This will not merely be one more invention. The magnitude of the transformation will be beyond that of the printing press, or the steam engine, or electricity; more on a par with the evolution of Homo sapiens, or of life itself."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "yoshua-bengio",
+   "a": -1,
+   "q": "Secondly, AI has attributes that make it particularly risky amongst technological innovations."
+  },
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "yuval-noah-harari",
+   "a": -1,
+   "q": "AI is an unprecedented threat to humanity because it is the first technology in history that can make decisions and create new ideas by itself."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "alexandria-ocasio-cortez",
+   "a": 1,
+   "q": "this is why I say we need to be really zeroing in on the malpractice of governance, and how special interests have captured the only tool that we have to govern ourselves fairly, and not at a profit."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "chris-murphy",
+   "a": 1,
+   "q": "Our nation will be better off if citizens and their government – not just the technology class – create the guardrails to assure we get as much of AI’s upside, and as little of the downside, as possible."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "james-livingston",
+   "a": 1,
+   "q": "But as Americans we’re accustomed to it because we believe in the sovereignty of the people, not the state or the cabinet or the Parliament or the party."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "jeff-jarvis",
+   "a": 1,
+   "q": "He speaks of democratization. That occurs through the institutions of government and the vote, not companies."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "leopold-aschenbrenner",
+   "a": 1,
+   "q": "The European Parliament elections that do occur are mostly irrelevant to the political outcomes, which are dictated primarily by the backroom negotiations of European prime ministers and the machinations of technocracy."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "liz-shuler",
+   "a": 1,
+   "q": "What we’ve never seen is those same CEOs and billionaires being handed full control of our government; our democracy; our lives."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "matt-stoller",
+   "a": 1,
+   "q": "it’s an argument about the inevitable weakness of democracy, and how self-government is a ruse that will lead to our collective annihilation, while an all-powerful caste by contrast can protect and enrich our lives. It’s very Divine Right of Kings, actually."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "max-tegmark",
+   "a": 1,
+   "q": "I believe that all of humanity should have a say in humanity’s destiny, rather than a handful of tech bros and venture capitalists sealing its fate."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "safiya-noble",
+   "a": 1,
+   "q": "But there are still troubling ideological world views from leaders in Silicon Valley. They believe technocrats can design a better society and that democracy is too messy."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "timnit-gebru",
+   "a": 1,
+   "q": "While we agree that \"such decisions must not be delegated to unelected tech leaders,\" we also note that such decisions should not be up to the academics experiencing an \"AI summer,\" who are largely financially beholden to Silicon Valley."
+  },
+  {
+   "statement": "popular-self-government-worth-keeping",
+   "person": "william-macaskill",
+   "a": 1,
+   "q": "In contrast, democratic governance is the best approach to political power that has actually been tried. Governments also have far more legitimacy than companies to exercise political power (though more on this below)."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "adam-thierer",
+   "a": 1,
+   "q": "They have no idea what the future holds, but their worst-case thinking will inspire costly, counter-productive proposals that will result in ineffective, poorly targeted interventions that will likely only prevent the transition to a better future for workers and the public."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "geoffrey-hinton",
+   "a": -1,
+   "q": "But we know it’s not going to be like that. We know what’s going to happen is the extremely rich are going to get even more extremely rich and the not very well off are going to have to work three jobs."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "holly-elmore",
+   "a": -1,
+   "q": "If you think the benefits of AI company success are going to trickle down to you, think again."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "james-livingston",
+   "a": -1,
+   "q": "Wages and median family income have stagnated, even though labor productivity has steadily risen, as Alan Greenspan reminds us, in keeping with the cybernation of work."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "mustafa-suleyman",
+   "a": -1,
+   "q": "I think that a large portion of the population are going to struggle to compete in the workplace with AI and we’re going to have to decide whether to shorten the working week or whether to increase taxes on some portion of capital."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "scott-santens",
+   "a": -1,
+   "q": "Then policy choices — the erosion of the minimum wage, the dismantling of unions, tax cuts for the rich, deregulation — broke the link between what the economy produced and what most people received."
+  },
+  {
+   "statement": "productivity-benefits-workers-unaided",
+   "person": "taylor-barkley",
+   "a": 1,
+   "q": "This pattern isn’t accidental. It reflects how markets work and how humans adapt. When technology makes us more productive, it creates wealth."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "andrew-yang",
+   "a": -1,
+   "q": "I’m confident that American tech firms can do two things at once: continue to break new ground in AI and also keep us from Skynet killing us all or hacking the grid and sending us into the stone age."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "anton-korinek",
+   "a": -1,
+   "q": "Moreover, if well-designed, even the oversight and regulation required to address the social control problem can in fact spur technological progress by providing certainty about the regulatory environment and by forestalling a race to the bottom by competing companies."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "brian-merchant",
+   "a": -1,
+   "q": "I would also argue we might get a lot of the way to stopping any currently envisioned robot apocalypse simply by forcing AI companies to assume liability, and to submit to the full brunt of the law."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "bruce-schneier",
+   "a": -1,
+   "q": "We need government to constrain the behavior of corporations and the AIs they build, deploy, and control."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "daniel-faggella",
+   "a": -1,
+   "q": "There is no end to the arms race for individual AGI labs (OpenAI, Meta, etc) or for nations (primarily: USA and China) unless there is international governance and agreement in place"
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "daniel-jeffries",
+   "a": 1,
+   "q": "they will do real, lasting, nasty damage that's infinitely worse than the thing they're supposed to stop or prevent."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "elizabeth-nolan-brown",
+   "a": 1,
+   "q": "Alas, Blackburn is serving up a cornucopia of proposals that could throttle free speech and free markets online. An anti-tech omnibus, if you will, sold as a simple AI regulatory scheme."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "emily-m-bender",
+   "a": -1,
+   "q": "It is high time for us to regulate usage of systems sold as “AI”, not because they are magical machines, but because they are error-prone products that shouldn’t be used in high-stakes scenarios."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "erik-hoel",
+   "a": -1,
+   "q": "We need the equivalent of a Clean Air Act: a Clean Internet Act. We can’t just sit by and let human culture end up buried."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "gavin-newsom",
+   "a": -1,
+   "q": "proving that innovation and economic growth are fully compatible with common sense regulations that address risks and advance public safety through responsible deployment of AI systems and models"
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "geoffrey-hinton",
+   "a": -1,
+   "q": "But if they put in strong AI regulations that made Google less valuable but increased the chance of humanity surviving, I’d be very happy."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "joanna-bryson",
+   "a": -1,
+   "q": "Much regulation is helpful to a sector – governments regulate to strengthen their economy."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "joy-buolamwini",
+   "a": -1,
+   "q": "So I think it’s a great opportunity for the Biden administration to make true on their promise to make what was put in the blueprint binding through the Office of Management and Budget, and then to push to make the blueprint federal law."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "karen-hao",
+   "a": -1,
+   "q": "And we need more — some kind of more guardrails to actually prevent these companies from continuing to try and develop labor-automating technologies"
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "kate-crawford",
+   "a": -1,
+   "q": "Much stronger regulatory regimes and greater rigour and responsibility around how training datasets are constructed."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "leopold-aschenbrenner",
+   "a": 1,
+   "q": "I hear blunt cries for government regulation—but remember that it’s Lina Khan-types who would be writing these regulations right now."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "liz-shuler",
+   "a": -1,
+   "q": "We’re demanding our politicians do what 80% of Americans want you to do: pass common-sense guardrails. Protect working people. Bring us to the table now, not after the fact,"
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "mark-zuckerberg",
+   "a": 1,
+   "q": "Regulating against known harms is necessary, but pre-emptive regulation of theoretical harms for nascent technologies such as open-source AI will stifle innovation."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "max-tegmark",
+   "a": -1,
+   "q": "Like most other human tools, tool AI also comes with risks that can be managed with legally binding safety standards"
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "mustafa-suleyman",
+   "a": -1,
+   "q": "I mean, the consequences are so vast and potentially so huge, both positive and negative, that this is a moment when we need strong governments and proactive intervention."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "pete-buttigieg",
+   "a": -1,
+   "q": "I mean, the aerospace sector is known to be very innovative, but also you make sure it's safe."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "reid-hoffman",
+   "a": 1,
+   "q": "I do. I hope there will be much more enablement of technology innovation."
+  },
+  {
+   "statement": "regulation-does-more-harm",
+   "person": "safiya-noble",
+   "a": -1,
+   "q": "That seems woefully insufficient when we could regulate these tools differently and limit their adoption to where it makes sense."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "andrew-yang",
+   "a": 1,
+   "q": "But when I see the absolute lack of leadership in DC stepping up to put us on a safer path, it makes me wish that I was in position to temper the breakneck pace of AI development."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "bryan-caplan",
+   "a": -1,
+   "q": "The cost of caution is very high; unless humanity shuts down the internet, AI will keep improving rapidly. And yes, crushing AI really does amplify the risk of other awful outcomes."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "curtis-yarvin",
+   "a": -1,
+   "q": "let’s ban the new technology, let’s ban AI, let’s ban genome sequencers. Something, something, something actually to fix the economy. It’s the old technology that you have to ban."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "e-glen-weyl",
+   "a": 1,
+   "q": "They are allies in important projects, such as limiting the race for massive investments in “AI” capabilities and engaging in governance experimentation."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "gary-marcus",
+   "a": 1,
+   "q": "If there was ever a case for pausing a company for the public good, it would be now."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "neil-chilson",
+   "a": -1,
+   "q": "A delayed approval for a frontier model could have a greater cost than even the horror of delaying a disease treatment. A delayed model could slow or stop progress across the entire economy."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "peter-thiel",
+   "a": -1,
+   "q": "Well, it's already, it's an answer to the nuclear problem. It's an answer to the environmental challenges. It's an answer to the AI challenge, which is, and I would just submit it's not a good answer."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "richard-sutton",
+   "a": -1,
+   "q": "Clamping down, trying to control everything, is not the answer"
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "scott-santens",
+   "a": 1,
+   "q": "It may be how we slow a technology racing past our ability to control it."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "steven-adler",
+   "a": 1,
+   "q": "I want us to get those great futures too, and I fear that rushing ahead isn’t the way to do so."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "vitalik-buterin",
+   "a": 1,
+   "q": "I personally am very pro-technology, and if it were a binary option of \"go further\" vs \"stay where we are\", I would gladly push forward on everything except for a very small list (eg. gain of function research, weapons and superintelligent AI) despite the risks."
+  },
+  {
+   "statement": "slow-or-stop-frontier-ai",
+   "person": "yuval-noah-harari",
+   "a": 1,
+   "q": "I am not saying stop developing all AI. What I am saying is that that development must occur more slowly and more carefully so humanity can adapt."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "asad-ramzanali",
+   "a": 1,
+   "q": "The state AI law moratorium recently passed by the House would wipe away guardrails protecting real people from real harms, not to mention its unintended consequences."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "brian-merchant",
+   "a": 1,
+   "q": "Trump vocally supports Silicon Valley’s push for deregulation, and is on board with the push to ban states from passing AI laws. In other words, the plan will help de-democratize AI."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "dwarkesh-patel",
+   "a": -1,
+   "q": "And honestly, Anthropic specifically has been naive here in urging regulation, and, for example, in opposing moratoriums on state AI regulation."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "gary-marcus",
+   "a": 1,
+   "q": "Some state laws are trying to address these issues, but as we know the Federal government is trying to undermine the states’ abilities to pass and enforce AI regulation."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "karen-hao",
+   "a": 1,
+   "q": "This is absolutely going to enshrine the impunity of Silicon Valley into law."
+  },
+  {
+   "statement": "states-set-own-ai-rules",
+   "person": "taylor-barkley",
+   "a": -1,
+   "q": "The proposed AI moratorium offers exactly that: a pragmatic pause to craft a single, strong federal framework that provides clarity, ensures accountability, encourages innovation, and most importantly, protects children nationwide."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "alexandria-ocasio-cortez",
+   "a": -1,
+   "q": "Because not all creativity needs to be bonded by wage."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "curtis-yarvin",
+   "a": 1,
+   "q": "So actually, a world in which you get shoes without work doesn’t really work, because people need to do something."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "james-livingston",
+   "a": -1,
+   "q": "Most adults don’t want or need to be fulfilled by work, as per Gourevitch’s achingly earnest agenda—they want to enjoy the rest of their lives."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "joanna-bryson",
+   "a": 1,
+   "q": "Employment is a form of security, it binds a local community together."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "lawrence-summers",
+   "a": 1,
+   "q": "So the challenge for economic policy will increasingly be generating enough work for all who need work for income, purchasing power and dignity."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "pete-buttigieg",
+   "a": 1,
+   "q": "You're an auto worker, you're in a tool and dye shop, and it's your whole sense of belonging revolves around your job, not just your paycheck."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "robert-shiller",
+   "a": 1,
+   "q": "with not only their effects on their incomes, but also with something deeper, the meaning of work and life, a concept which our psychology will not let us neglect."
+  },
+  {
+   "statement": "work-gives-dignity",
+   "person": "taylor-barkley",
+   "a": -1,
+   "q": "Your value is not your productivity. Your dignity is not granted by an employer, an algorithm, or a trend."
+  }
+ ],
+ "replaced": [],
+ "dropped": [
+  {
+   "statement": "past-technology-is-valid-reference-class",
+   "person": "mustafa-suleyman",
+   "was": {
+    "a": -1,
+    "q": "And AI really is different, and that means we have to think about it creatively and honestly. We have to push our analogies and our metaphors to the very limits to be able to grapple with what's coming.",
+    "url": "https://rosetta.to/u/ted/what-is-an-ai-anyway-mustafa-suleyman-ted",
+    "work": "What Is an AI Anyway? (transcript)",
+    "year": "2024",
+    "why": "He dismisses his old stock answer that AI is 'just another general-purpose technology' like printing or steam and says AI is fundamentally different from earlier inventions.",
+    "basis": "round4"
+   }
+  }
+ ],
+ "new_voices": [
+  "duncan-crabtree-ireland",
+  "lina-khan"
+ ]
+}

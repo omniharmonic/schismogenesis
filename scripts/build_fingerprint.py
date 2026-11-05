@@ -68,7 +68,11 @@ def main(*args: str) -> None:
     credits_path = REPO / "seed/faces.json"
     credits = json.loads(credits_path.read_text()) if credits_path.exists() else {}
     bundle["faces"] = {}
+    roles_path = REPO / "seed/roles.json"
+    roles = json.loads(roles_path.read_text()) if roles_path.exists() else {}
     for t in bundle["thinkers"]:
+        if roles.get(t["id"]):
+            t["role"] = roles[t["id"]]
         c = credits.get(t["id"])
         if c and (target / "faces" / f"{t['id']}.jpg").exists():
             t["face"] = f"/faces/{t['id']}.jpg"

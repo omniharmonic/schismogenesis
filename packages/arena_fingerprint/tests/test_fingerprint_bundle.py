@@ -98,6 +98,7 @@ def test_committed_bundle_is_current():
     # portraits are added by the build script from seed/faces.json, after the bundle itself
     faces = committed.pop("faces", {})
     for t in committed["thinkers"]:
+        t.pop("role", None)  # from seed/roles.json, added by the build script
         face = t.pop("face", None)
         assert face is None or (t["id"] in faces and face == f"/faces/{t['id']}.jpg")
     assert committed == json.loads(json.dumps(rebuilt, ensure_ascii=False))

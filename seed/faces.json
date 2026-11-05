@@ -1,4 +1,40 @@
 {
+ "abeba-birhane": {
+  "qid": "Q105834628",
+  "description": "Ethiopian-born cognitive scientist",
+  "file": "UN AI for Good Summit 2025 - Abeba Birhane 02 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:UN_AI_for_Good_Summit_2025_-_Abeba_Birhane_02_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Xuthoria"
+ },
+ "adam-thierer": {
+  "qid": "",
+  "description": "Senior fellow, R Street Institute",
+  "file": "https://www.rstreet.org/wp-content/uploads/2026/04/Adam-Thierer-april-2026-headshot.png",
+  "source": "https://www.rstreet.org/people/adam-thierer/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "R Street Institute (staff page)"
+ },
+ "alex-karp": {
+  "qid": "Q19560940",
+  "description": "businessman, author",
+  "file": "Alex Karp attends AI Summit (53302457013) 4-5 ratio.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Alex_Karp_attends_AI_Summit_(53302457013)_4-5_ratio.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "UK Government"
+ },
+ "alex-tabarrok": {
+  "qid": "Q4717865",
+  "description": "Canadian economist",
+  "file": "Alex Tabarrok speaking at TED in 2009.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Alex_Tabarrok_speaking_at_TED_in_2009.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Bill Holsinger-Robinson"
+ },
  "alexandria-ocasio-cortez": {
   "qid": "Q55223040",
   "description": "American politician (born 1989)",
@@ -16,6 +52,15 @@
   "license": "Public domain",
   "license_url": "",
   "artist": "Executive Office of the President of the United States"
+ },
+ "andrej-karpathy": {
+  "qid": "Q56037405",
+  "description": "Slovakian-Canadian AI researcher (born 1986)",
+  "file": "Andrej Karpathy, OpenAI.png",
+  "source": "https://commons.wikimedia.org/wiki/File:Andrej_Karpathy,_OpenAI.png",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Gladwin Analytics"
  },
  "andrew-yang": {
   "qid": "Q28723576",
@@ -43,6 +88,15 @@
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "Robert Scoble"
+ },
+ "asad-ramzanali": {
+  "qid": "",
+  "description": "AI and technology policy, Vanderbilt Policy Accelerator",
+  "file": "https://www.vanderbilt.edu/vanderbilt-policy-accelerator/wp-content/uploads/sites/412/2026/11/a4271ef4346730c6b00299d210304638-900x1200-c-default.jpg",
+  "source": "https://www.vanderbilt.edu/vanderbilt-policy-accelerator/people/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Vanderbilt Policy Accelerator (people page)"
  },
  "audrey-tang": {
   "qid": "Q15025",
@@ -89,6 +143,33 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "artist": "Bea Phi"
  },
+ "bruce-schneier": {
+  "qid": "Q368328",
+  "description": "American computer scientist (born 1963)",
+  "file": "Bruce Schneier 1.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Bruce_Schneier_1.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "sfllaw"
+ },
+ "bryan-caplan": {
+  "qid": "Q943121",
+  "description": "American economist and author (b. 1971)",
+  "file": "BryanCaplan.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:BryanCaplan.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Simultaneous movement"
+ },
+ "chris-callison-burch": {
+  "qid": "",
+  "description": "Professor of computer science, University of Pennsylvania",
+  "file": "https://www.cis.upenn.edu/~ccb/assets/img/CCB-small.jpg",
+  "source": "https://www.cis.upenn.edu/~ccb/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Chris Callison-Burch (own faculty home page)"
+ },
  "chris-murphy": {
   "qid": "Q1077594",
   "description": "American lawyer and politician (born 1973)",
@@ -97,6 +178,24 @@
   "license": "Public domain",
   "license_url": "",
   "artist": "Unknown authorUnknown author"
+ },
+ "christopher-ferguson": {
+  "qid": "",
+  "description": "Professor of psychology, Stetson University",
+  "file": "https://www.christopherjferguson.com/images/christopher_ferguson_silo.jpg",
+  "source": "https://www.christopherjferguson.com/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Christopher J. Ferguson (own website)"
+ },
+ "chuck-grassley": {
+  "qid": null,
+  "description": "United States senator from Iowa",
+  "file": "Chuck Grassley official photo 2017 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Chuck_Grassley_official_photo_2017_(cropped).jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Congress"
  },
  "cory-doctorow": {
   "qid": "Q110436",
@@ -115,6 +214,33 @@
   "license": "CC BY 3.0",
   "license_url": "https://creativecommons.org/licenses/by/3.0",
   "artist": "Philosophy of Art &amp; Science"
+ },
+ "daniel-faggella": {
+  "qid": null,
+  "description": "Founder of Emerj Artificial Intelligence Research",
+  "file": "Daniel at the Geneva Disarmament Platform.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Daniel_at_the_Geneva_Disarmament_Platform.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Daniel Faggella"
+ },
+ "daniel-jeffries": {
+  "qid": "",
+  "description": "Writer and AI entrepreneur",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc6d1102-0e00-456d-b882-b79d09a13f94_1008x911.png",
+  "source": "https://danieljeffries.substack.com/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Daniel Jeffries (Substack author photo)"
+ },
+ "daniel-kokotajlo": {
+  "qid": "",
+  "description": "Executive director, AI Futures Project; formerly OpenAI",
+  "file": "https://ai-futures.org/Daniel.jpeg",
+  "source": "https://ai-futures.org/about/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "AI Futures Project (team page)"
  },
  "dario-amodei": {
   "qid": "Q103335665",
@@ -152,6 +278,15 @@
   "license_url": "",
   "artist": "The White House"
  },
+ "dean-ball": {
+  "qid": "",
+  "description": "Senior fellow, Foundation for American Innovation",
+  "file": "https://cdn.sanity.io/images/d8lrla4f/staging/1c7df545660cf419ebb259ea1d551a0691ea8d01-720x480.png?rect=200,12,457,457&w=400&h=400&fit=crop",
+  "source": "https://www.thefai.org/profile/dean-ball",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Foundation for American Innovation (staff page)"
+ },
  "demis-hassabis": {
   "qid": "Q3022141",
   "description": "British artificial intelligence researcher (born 1976)",
@@ -160,6 +295,24 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "artist": "John Sears"
+ },
+ "divya-siddarth": {
+  "qid": "",
+  "description": "Co-founder and executive director, Collective Intelligence Project",
+  "file": "https://images.squarespace-cdn.com/content/v1/631d02b2dfa9482a32db47ec/08a518d7-1cdc-4cfd-8de9-2c56b437161c/Headshot_Side.jpeg?format=750w",
+  "source": "https://www.cip.org/team",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Collective Intelligence Project (team page)"
+ },
+ "duncan-crabtree-ireland": {
+  "qid": "Q127013226",
+  "description": "American business executive (born 1970s)",
+  "file": "CES 2025 - Duncan Crabtree-Ireland 01.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:CES_2025_-_Duncan_Crabtree-Ireland_01.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Xuthoria"
  },
  "dwarkesh-patel": {
   "qid": "Q137008739",
@@ -197,6 +350,15 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "artist": "\"null0\""
  },
+ "elizabeth-nolan-brown": {
+  "qid": "",
+  "description": "Senior editor, Reason",
+  "file": "https://d2eehagpk5cl65.cloudfront.net/img/c400x400-w400-h400-q80-g1/uploads/2024/01/ENB_16-01-2024-14-36-55-scaled-e1706560338711-400x400.jpg",
+  "source": "https://reason.com/people/elizabeth-nolan-brown/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Reason (staff page)"
+ },
  "elizabeth-warren": {
   "qid": "Q434706",
   "description": "American politician (born 1949)",
@@ -233,6 +395,15 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "artist": "Gordon Haff"
  },
+ "ezra-klein": {
+  "qid": "Q605",
+  "description": "American journalist (born 1984)",
+  "file": "Ezra Klein 2026-01-28.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ezra_Klein_2026-01-28.jpg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "SWinxy"
+ },
  "fei-fei-li": {
   "qid": "Q18686107",
   "description": "American computer scientist",
@@ -241,6 +412,33 @@
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "ITU Pictures"
+ },
+ "felix-simon": {
+  "qid": "Q140177510",
+  "description": "British communication researcher",
+  "file": "Felix M. Simon - Re-publica 26 - Tag 1 - 55280254690 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Felix_M._Simon_-_Re-publica_26_-_Tag_1_-_55280254690_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Jan Zappner / re:publica"
+ },
+ "frances-haugen": {
+  "qid": "Q108793477",
+  "description": "American data engineer, scientist, and whistleblower",
+  "file": "Frances Haugen, 2024, cropped.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Frances_Haugen,_2024,_cropped.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Jay Dixit"
+ },
+ "garett-jones": {
+  "qid": "Q5523013",
+  "description": "American economist",
+  "file": "Garett Jones in DC 2024 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Garett_Jones_in_DC_2024_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Werner Zagrebbi"
  },
  "gary-marcus": {
   "qid": "Q3348133",
@@ -251,6 +449,15 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0",
   "artist": "Athena Vouloumanos"
  },
+ "gavin-newsom": {
+  "qid": "Q461391",
+  "description": "40th governor of California since 2019",
+  "file": "Gavin Newsom official photo.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Gavin_Newsom_official_photo.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Office of the Lieutenant Governor of California"
+ },
  "geoffrey-hinton": {
   "qid": "Q92894",
   "description": "British-Canadian computer scientist and psychologist",
@@ -259,6 +466,69 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "artist": "Cmichel67"
+ },
+ "george-hotz": {
+  "qid": "Q370733",
+  "description": "American hacker",
+  "file": "George Hotz at TechCrunch Disrupt.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:George_Hotz_at_TechCrunch_Disrupt.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Steve Jennings/Getty Images"
+ },
+ "guillaume-verdon": {
+  "qid": "",
+  "description": "Founder of Extropic; posts as Beff Jezos. Shown with his own chosen pixel-art avatar, not a photograph",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24464a50-ce39-4745-9c08-c066a231d362_400x400.jpeg",
+  "source": "https://beff.substack.com/about",
+  "license": "Self-published avatar",
+  "license_url": "",
+  "artist": "Guillaume Verdon as Beff Jezos (his own chosen avatar)"
+ },
+ "helen-toner": {
+  "qid": "",
+  "description": "AI policy researcher at CSET, Georgetown; former OpenAI board member",
+  "file": "https://cset.georgetown.edu/wp-content/uploads/Helen-Toner-Headshot-2025.png",
+  "source": "https://cset.georgetown.edu/staff/helen-toner/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Center for Security and Emerging Technology, Georgetown (staff page)"
+ },
+ "hoan-ton-that": {
+  "qid": "",
+  "description": "Co-founder of Clearview AI",
+  "file": "https://hoantonthat.com/assets/images/image01.jpg",
+  "source": "https://hoantonthat.com/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Hoan Ton-That (own website)"
+ },
+ "holly-elmore": {
+  "qid": "",
+  "description": "Executive director, PauseAI US",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffe1e29b5-7935-418b-ae14-402c998e2f9b_2027x1818.jpeg",
+  "source": "https://hollyelmore.substack.com/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Holly Elmore (Substack author photo)"
+ },
+ "jack-clark": {
+  "qid": "",
+  "description": "Co-founder of Anthropic; author of Import AI",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cc1c9c9-fc87-4eeb-ad15-7dc989b77553_528x504.png",
+  "source": "https://importai.substack.com/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Jack Clark (Import AI author photo)"
+ },
+ "jan-leike": {
+  "qid": "",
+  "description": "Alignment researcher at Anthropic, formerly OpenAI",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe21b6a1a-5f0c-48e5-9047-2706653d8e88_1433x1358.jpeg",
+  "source": "https://aligned.substack.com/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Jan Leike (Substack author photo)"
  },
  "jaron-lanier": {
   "qid": "Q92862",
@@ -269,6 +539,15 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "vanz"
  },
+ "jason-crawford": {
+  "qid": "",
+  "description": "Founder of the Roots of Progress",
+  "file": "https://jasoncrawford.org/img/jason-crawford-2020.jpg",
+  "source": "https://jasoncrawford.org/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Jason Crawford (own website)"
+ },
  "jd-vance": {
   "qid": "Q28935729",
   "description": "Vice President of the United States since 2025",
@@ -278,6 +557,15 @@
   "license_url": "",
   "artist": "Emily J. Higgins"
  },
+ "jeff-jarvis": {
+  "qid": "Q1581997",
+  "description": "American journalist",
+  "file": "Jeff Jarvis, famous blogger.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Jeff_Jarvis,_famous_blogger.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Robert Scoble"
+ },
  "jensen-huang": {
   "qid": "Q305177",
   "description": "American entrepreneur and businessman; co-founder and CEO of Nvidia",
@@ -286,6 +574,15 @@
   "license": "Public domain",
   "license_url": "",
   "artist": "The White House"
+ },
+ "joanna-bryson": {
+  "qid": "Q47493123",
+  "description": "Researcher; Professor of Ethics and Technology",
+  "file": "Joanna Bryson at the World Economic Forum.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Joanna_Bryson_at_the_World_Economic_Forum.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "World Economic Forum"
  },
  "jonathan-haidt": {
   "qid": "Q845573",
@@ -323,6 +620,42 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0",
   "artist": "Leonhard Lenz"
  },
+ "kate-crawford": {
+  "qid": "Q6375450",
+  "description": "Australian researcher",
+  "file": "Kate Crawford in 2025 01.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Kate_Crawford_in_2025_01.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Cmichel67"
+ },
+ "lawrence-summers": {
+  "qid": "Q317953",
+  "description": "American economist and government official (born 1954)",
+  "file": "Lawrence Summers Treasury portrait.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lawrence_Summers_Treasury_portrait.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Department of Treasury"
+ },
+ "leopold-aschenbrenner": {
+  "qid": "",
+  "description": "Founder of Situational Awareness LP; formerly OpenAI superalignment",
+  "file": "https://storage.ghost.io/c/06/72/0672802e-16ea-4b14-9738-7e6d926836a3/content/images/size/w1080/2026/05/leopoldaschenbrenner2026-1.jpeg",
+  "source": "https://www.forourposterity.com/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Leopold Aschenbrenner (own website, For Our Posterity)"
+ },
+ "lina-khan": {
+  "qid": "Q56523534",
+  "description": "American legal scholar and jurist (born 1989)",
+  "file": "Lina Khan, FTC Chair (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Lina_Khan,_FTC_Chair_(cropped).jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "Federal Trade Commission"
+ },
  "liz-shuler": {
   "qid": "Q6660295",
   "description": "American labor activist (born 1970)",
@@ -341,6 +674,15 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "JD Lasica"
  },
+ "mark-lemley": {
+  "qid": "",
+  "description": "Professor of law, Stanford Law School",
+  "file": "https://law.stanford.edu/wp-content/uploads/2015/06/mark-a-lemley-4-400x400.jpg",
+  "source": "https://law.stanford.edu/mark-a-lemley/",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Stanford Law School (faculty page)"
+ },
  "mark-zuckerberg": {
   "qid": "Q36215",
   "description": "American Internet entrepreneur",
@@ -358,6 +700,15 @@
   "license": "Public domain",
   "license_url": "",
   "artist": "United States Senate Photographic Studio"
+ },
+ "matt-stoller": {
+  "qid": "Q100987749",
+  "description": "author",
+  "file": "Matt Stoller (2823281324) (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Matt_Stoller_(2823281324)_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Matt Stoller"
  },
  "max-tegmark": {
   "qid": "Q2076321",
@@ -403,6 +754,51 @@
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "Joi Ito from Cambridge, MA, USA"
+ },
+ "neil-chilson": {
+  "qid": "",
+  "description": "AI policy lead at the Abundance Institute",
+  "file": "https://www.abundance.institute/wp-content/uploads/2025/10/22194551/team-neil-chilson%402x.c57d8a00-384x480.jpg",
+  "source": "https://www.abundance.institute/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Abundance Institute (team page)"
+ },
+ "nick-land": {
+  "qid": "Q7027450",
+  "description": "English philosopher; still from his own webcam in a 2025 video interview he gave (he is rarely photographed)",
+  "file": "Nick Land October 2025 (1x1 cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Nick_Land_October_2025_(1x1_cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Koolisid"
+ },
+ "noah-smith": {
+  "qid": "",
+  "description": "Economics writer, Noahpinion",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89fd964a-586f-461a-9f5a-ea4587d45728_397x441.png",
+  "source": "https://www.noahpinion.blog/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Noah Smith (Noahpinion author photo)"
+ },
+ "oren-cass": {
+  "qid": "Q96318752",
+  "description": "American political advisor (1983-)",
+  "file": "Oren Cass on Reason TV.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Oren_Cass_on_Reason_TV.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "ReasonTV"
+ },
+ "palmer-luckey": {
+  "qid": "Q16269109",
+  "description": "American founder of Oculus VR and inventor of the Oculus Rift",
+  "file": "Palmer Luckey at SVVR 2014.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Palmer_Luckey_at_SVVR_2014.jpg",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Dcoetzee"
  },
  "paul-kingsnorth": {
   "qid": "Q7151792",
@@ -458,6 +854,15 @@
   "license_url": "",
   "artist": "United States Senate"
  },
+ "richard-sutton": {
+  "qid": "Q107369759",
+  "description": "Canadian computer scientist, pioneer of reinforcement learning",
+  "file": "Richard Sutton 2021 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Richard_Sutton_2021_(cropped).jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Numenta"
+ },
  "ro-khanna": {
   "qid": "Q7339221",
   "description": "U.S. Representative from California",
@@ -467,6 +872,15 @@
   "license_url": "",
   "artist": "U.S. Congress/Eric Connolly"
  },
+ "robert-shiller": {
+  "qid": "Q338151",
+  "description": "American economist",
+  "file": "Robert Shiller - World Economic Forum Annual Meeting 2012 (cropped).jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Robert_Shiller_-_World_Economic_Forum_Annual_Meeting_2012_(cropped).jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Robert_Shiller_-_World_Economic_Forum_Annual_Meeting_2012.jpg: World Economic Forum from Cologny, Switzerland\nderivative work: César"
+ },
  "robin-hanson": {
   "qid": "Q2159779",
   "description": "American economist (1959-)",
@@ -475,6 +889,15 @@
   "license": "CC BY-SA 3.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "artist": "KatjaGrace"
+ },
+ "ron-desantis": {
+  "qid": "Q3105215",
+  "description": "American politician (born 1978)",
+  "file": "Ron DeSantis 113th Congress.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Ron_DeSantis_113th_Congress.jpg",
+  "license": "Public domain",
+  "license_url": "",
+  "artist": "United States Congress"
  },
  "ruha-benjamin": {
   "qid": "Q28935115",
@@ -494,6 +917,15 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "ITU Pictures from Geneva, Switzerland"
  },
+ "russell-moore": {
+  "qid": "Q117406572",
+  "description": "American evangelical theologian, editor of Christianity Today",
+  "file": "Russell D. Moore Preaching.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Russell_D._Moore_Preaching.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Theology147"
+ },
  "safiya-noble": {
   "qid": "Q54856700",
   "description": "American professor and author",
@@ -512,6 +944,15 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "artist": "Steve Jurvetson"
  },
+ "samuel-hammond": {
+  "qid": "",
+  "description": "Chief economist, Foundation for American Innovation",
+  "file": "https://cdn.sanity.io/images/d8lrla4f/staging/7674f641e11c0e2e22dc02861718cd10fc28212f-2398x2388.jpg?w=800",
+  "source": "https://thefai.org/profile/Samuel-Hammond",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Foundation for American Innovation (staff page)"
+ },
  "scott-wiener": {
   "qid": "Q7437504",
   "description": "American politician (born 1970)",
@@ -520,6 +961,15 @@
   "license": "CC BY-SA 3.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "artist": "Scott Wiener"
+ },
+ "sean-o-brien": {
+  "qid": "Q7441306",
+  "description": "General President of the International Brotherhood of Teamsters",
+  "file": "Sean O'brien Teamster.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Sean_O%27brien_Teamster.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Tgmod"
  },
  "shoshana-zuboff": {
   "qid": "Q15953956",
@@ -530,6 +980,15 @@
   "license_url": "https://creativecommons.org/licenses/by/3.0",
   "artist": "Alexander von Humboldt Institut for internet and society"
  },
+ "steven-adler": {
+  "qid": "",
+  "description": "AI safety researcher, formerly at OpenAI",
+  "file": "https://substackcdn.com/image/fetch/w_600,c_limit,f_jpg,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4cc0ff3-5403-4378-bee6-aded1be48a65_2317x2317.png",
+  "source": "https://stevenadler.substack.com/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Steven Adler (Substack author photo)"
+ },
  "stuart-russell": {
   "qid": "Q3656334",
   "description": "British computer scientist (1962-)",
@@ -538,6 +997,15 @@
   "license": "CC BY-SA 3.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "artist": "Unknown authorUnknown author"
+ },
+ "taylor-barkley": {
+  "qid": "",
+  "description": "Public policy lead at the Abundance Institute",
+  "file": "https://www.abundance.institute/wp-content/uploads/2025/10/22194609/team-taylor-barkley%402x.34cb29ba-384x480.jpg",
+  "source": "https://www.abundance.institute/about",
+  "license": "Self-published profile photo",
+  "license_url": "",
+  "artist": "Abundance Institute (team page)"
  },
  "ted-cruz": {
   "qid": "Q2036942",
