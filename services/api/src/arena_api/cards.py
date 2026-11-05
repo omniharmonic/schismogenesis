@@ -98,7 +98,7 @@ def profile_card(profile: dict, names: dict[str, str]) -> bytes:
     y += 56
     for line in wrap(
         draw,
-        f"Closest to the {summary['home']}",
+        f"Closest to “{summary['home']}”",
         font("IBMPlexSansCondensed-SemiBold.ttf", 56),
         right - left,
     )[:2]:
@@ -115,7 +115,7 @@ def profile_card(profile: dict, names: dict[str, str]) -> bytes:
     if twist:
         y += 16
         verb = "that" if twist["answer"] == 1 else "against"
-        line = f"…but sides with the {twist['ally']} {verb} “{twist['text']}”"
+        line = f"…but sides with “{twist['ally']}” {verb} “{twist['text']}”"
         serif = font("Newsreader-Italic.ttf", 28)
         for part in wrap(draw, line, serif, right - left)[:4]:
             draw.text((left, y), part, font=serif, fill=INK)

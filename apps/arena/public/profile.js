@@ -48,7 +48,7 @@ async function main() {
     ${who}
     <div class="reveal-head" style="margin-top:24px">
       ${valuesSVG(p.glyph, { label: `${p.display_name}'s fingerprint` })}
-      <div><p class="muted">Fingerprint from The Great AI Debate</p><h1 style="max-width:18ch">Closest to the ${esc(s.home)}</h1>
+      <div><p class="muted">Fingerprint from The Great AI Debate</p><h1 style="max-width:18ch">Closest to “${esc(s.home)}”</h1>
       <p>From ${s.answered} statements, answered with the names hidden.</p></div>
     </div>
     ${compare}
@@ -56,7 +56,7 @@ async function main() {
     <div class="cols"><div><ul class="thinkers">${s.nearest.map(row).join("")}</ul></div>
       <div><p class="muted" style="margin:0 0 4px">Furthest</p><ul class="thinkers">${s.furthest.map(row).join("")}</ul></div></div>
     ${s.signature.length ? `<h2>Plot twist</h2><ul class="signature">${s.signature.map((t) => `<li><span class="serif">${t.answer === 1 ? "Agrees" : "Disagrees"}: “${esc(t.text)}”</span>
-      <p class="small muted" style="margin-top:6px">Against most of the ${esc(t.home)}, with the ${esc(t.ally)}.</p></li>`).join("")}</ul>` : ""}
+      <p class="small muted" style="margin-top:6px">Against most of “${esc(t.home)}”, with “${esc(t.ally)}”.</p></li>`).join("")}</ul>` : ""}
     ${s.rarest ? `<h2>Rarest take</h2><p class="serif" style="font-size:1.25rem">${s.rarest.answer === 1 ? "Agrees" : "Disagrees"}: “${esc(s.rarest.text)}”</p>` : ""}
     <h2>The camps</h2>
     <table class="camps-table"><tr><th scope="col">Camp</th><th scope="col">With</th><th scope="col">Against</th><th scope="col">Deepest split</th></tr>

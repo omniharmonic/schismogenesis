@@ -10,17 +10,12 @@ const MACRO = "Anton, Impact, sans-serif";
 // the shared antimemes.is ground (docs/brand/BRAND.md); share cards are always dark
 const C = { ground: "#121820", ink: "#dde4eb", ink2: "#9aa7b6", recog: "#8fb0ff", heat: "#ff5468", rule: "#2b3644" };
 
-/** The antimemes wordmark, right-aligned at (right, y): Anton, the "+" in heat, as on the lab. */
-function wordmark(c, right, y, size, colour = C.ink, plus = C.heat) {
+/** The antimemes wordmark, right-aligned at (right, y): one word in Anton, as on the lab. */
+function wordmark(c, right, y, size, colour = C.ink) {
   c.save();
   c.font = `400 ${size}px ${MACRO}`;
-  const a = c.measureText("anti").width, b = c.measureText("memes").width;
-  c.font = `400 ${size * 1.3}px ${MACRO}`;
-  const p = c.measureText("+").width, pad = size * 0.04;
-  const x = right - (a + p + b + pad * 2);
-  c.fillStyle = plus; c.fillText("+", x + a + pad, y + size * 0.08);
-  c.font = `400 ${size}px ${MACRO}`; c.fillStyle = colour;
-  c.fillText("anti", x, y); c.fillText("memes", x + a + p + pad * 2, y);
+  c.fillStyle = colour; c.textAlign = "right";
+  c.fillText("antimemes", right, y);
   c.restore();
 }
 
@@ -45,7 +40,7 @@ function drawPrint(c, values, x, y, size, color) {
   c.restore(); c.globalAlpha = 1;
 }
 
-export const twistLine = (s) => `…but sides with the ${s.ally} ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
+export const twistLine = (s) => `…but sides with “${s.ally}” ${s.answer === 1 ? "that" : "against"} “${s.text}”`;
 
 export function drawCard(canvas, values, result, { thinkers = null } = {}) {
   const W = 1200, H = 675;
@@ -58,7 +53,7 @@ export function drawCard(canvas, values, result, { thinkers = null } = {}) {
   c.fillStyle = muted; c.font = `500 26px ${SANS}`;
   c.fillText("My fingerprint in The Great AI Debate", left, 92);
   c.fillStyle = ink; c.font = `600 54px ${SANS}`;
-  const head = wrap(c, `Closest to the ${result.schools[0]?.label || ""}`, 540).slice(0, 2);
+  const head = wrap(c, `Closest to “${result.schools[0]?.label || ""}”`, 540).slice(0, 2);
   head.forEach((l, i) => c.fillText(l, left, 156 + i * 60));
   let y = 156 + head.length * 60 + 16;
   c.font = `500 30px ${SANS}`;
@@ -107,7 +102,7 @@ export function drawStory(canvas, spec, values) {
   c.fillText("The Great AI Debate", pad, 140);
   c.fillText(`Find yours: ${DEBATE_HOST}`, pad, H - 110);
   c.globalAlpha = 1;
-  wordmark(c, W - pad, 140, 40, spec.fg, spec.fg);
+  wordmark(c, W - pad, 140, 40, spec.fg);
   for (const op of ops) {
     if (op.t === "print") drawPrint(c, values, pad - 20, offset + op.y - 20, 620, spec.fg);
     if (op.t === "text") { c.globalAlpha = op.alpha; c.font = op.font; c.fillText(op.l, pad, offset + op.y); c.globalAlpha = 1; }
@@ -121,10 +116,10 @@ export function drawStory(canvas, spec, values) {
 }
 
 export function shareText(result, url) {
-  const lines = [`My fingerprint in The Great AI Debate: closest to the ${result.schools[0]?.label}.`];
+  const lines = [`My fingerprint in The Great AI Debate: closest to “${result.schools[0]?.label}”.`];
   lines.push(`Nearest: ${result.nearest.map((t) => `${t.name} (${t.k}/${t.n})`).join(", ")}`);
   const s = result.signature[0];
-  if (s) lines.push(`Plot twist: I side with the ${s.ally} ${s.answer === 1 ? "that" : "against"} "${s.text}"`);
+  if (s) lines.push(`Plot twist: I side with “${s.ally}” ${s.answer === 1 ? "that" : "against"} "${s.text}"`);
   if (url) lines.push(url);
   return lines.join("\n");
 }

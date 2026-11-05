@@ -194,6 +194,9 @@ export function kinLinks(bundle, { perNode = 3, minKin = 0.34, minShared = 4 } =
   return [...out.values()];
 }
 
+// a strip under the map for the readout, so it never sits on top of a face
+const READOUT = 22;
+
 /** A small seeded random generator (mulberry32), so the settling jiggle is the same for everyone. */
 export function seeded(seed = 1) {
   let a = seed >>> 0;
@@ -349,7 +352,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   // a phone-sized map is drawn narrow and shown small, so its text is set larger (map.css)
   const narrow = width < 600;
   const LW = narrow ? 7.6 : 6.6, NW = narrow ? 6.8 : 6, LH = narrow ? 20 : 18;
-  let svg = `<svg class="thinker-map${focus ? " has-focus" : ""}${narrow ? " is-narrow" : ""}" id="${svgId}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${esc(label)}">`;
+  let svg = `<svg class="thinker-map${focus ? " has-focus" : ""}${narrow ? " is-narrow" : ""}" id="${svgId}" viewBox="0 0 ${width} ${height + READOUT}" role="group" aria-label="${esc(label)}">`;
   svg += `<defs><clipPath id="${clip}" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5"/></clipPath></defs>`;
 
   // group names sit above their group; then everyone steps out from under the text
@@ -366,9 +369,11 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     const y = Math.max(14, top - R - 16);
     labels.push({ s: g, key: g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`, x, y, w });
   });
-  const faces = ids.map((id) => ({ x: pos[id][0], y: pos[id][1], weight: inFocus && !inFocus.has(id) ? 0.25 : 1 }));
-  spreadLabels(labels, { width, height, h: LH, faces });
   const you = result?.position ? [X(PX(result.position)), Y(PY(result.position))] : null;
+  const faces = ids.map((id) => ({ x: pos[id][0], y: pos[id][1], weight: inFocus && !inFocus.has(id) ? 0.25 : 1 }));
+  // the "You" mark and its word count as heavy faces, so no group name lands on them
+  if (you) faces.push({ x: you[0], y: you[1], weight: 4 }, { x: you[0] + 40, y: you[1], weight: 4 });
+  spreadLabels(labels, { width, height, h: LH, faces });
   const fixedBoxes = [
     ...labels.map((l) => ({ x: l.x - l.w / 2, y: l.y - LH + 5, w: l.w, h: LH })),
     ...(you ? [{ x: you[0] - 22, y: you[1] - 22, w: 80, h: 44 }] : []),
@@ -416,7 +421,9 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     }
   }
 
-  for (const t of bundle.thinkers) {
+  const placedNames = [];
+  const drawOrder = [...bundle.thinkers.filter((t) => !near.has(t.id)), ...bundle.thinkers.filter((t) => near.has(t.id))];
+  for (const t of drawOrder) {
     const [x, y] = pos[t.id];
     const r = scoreOf[t.id];
     const share = r ? Math.round(Math.max(0, r.s - 0.3) * 140) : 0;
@@ -436,9 +443,20 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
       : `<text y="3.6" text-anchor="middle">${esc(t.initials)}</text>`;
     svg += `</g>`;
     if (near.has(t.id)) {
-      const name = t.name.replace(/ \(.*\)/, ""), half = labelWidth(name, NW) / 2;
-      const nx = Math.min(width - half, Math.max(half, x)) - x;
-      svg += `<text class="map-name" x="${nx.toFixed(1)}" y="${R + 14}" text-anchor="middle">${esc(name)}</text>`;
+      const name = t.name.replace(/ \(.*\)/, ""), w = labelWidth(name, NW), half = w / 2;
+      // below the face, else above it: the first spot clear of group names, the "You" mark
+      // and the names already placed
+      const spots = [[0, R + 14], [0, -R - 6]];
+      const boxAt = ([dx, dy]) => {
+        const cx = Math.min(width - half, Math.max(half, x + dx));
+        return { x: cx - half, y: y + dy - 12, w, h: 16, cx };
+      };
+      const clear = (b) => ![...fixedBoxes, ...placedNames].some((o) =>
+        b.x < o.x + o.w && o.x < b.x + b.w && b.y < o.y + o.h && o.y < b.y + b.h);
+      const spot = spots.find((sp) => clear(boxAt(sp))) || spots[0];
+      const b = boxAt(spot);
+      placedNames.push(b);
+      svg += `<text class="map-name" x="${(b.cx - x).toFixed(1)}" y="${spot[1]}" text-anchor="middle">${esc(name)}</text>`;
     }
     svg += `</g>`;
   }
@@ -474,7 +492,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   const br = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => `M${sx * s},${sy * (s - l)}L${sx * s},${sy * s}L${sx * (s - l)},${sy * s}`).join("");
   svg += `<path class="map-brackets" aria-hidden="true" d="${br}" visibility="hidden"/>`;
   svg += `<g class="map-cross" aria-hidden="true" visibility="hidden"><line class="h" x1="0" x2="${width}" y1="0" y2="0"/><line class="v" y1="0" y2="${height}" x1="0" x2="0"/></g>`;
-  svg += `<text class="map-readout" aria-hidden="true" x="${width - 12}" y="${height - 12}" text-anchor="end">${ids.length} thinkers · ${links.length} kin links</text>`;
+  svg += `<text class="map-readout" aria-hidden="true" x="${width - 4}" y="${height + READOUT - 6}" text-anchor="end">${ids.length} thinkers · ${links.length} kin links</text>`;
 
   live.set(svgId, { P, anchors, links, regionIdx, obstacles: fixedBoxes, box, ids });
   if (typeof document !== "undefined") activateSoon(svgId);
@@ -538,7 +556,9 @@ function activate(svg, m) {
   svg.dataset.live = "1";
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const fine = matchMedia("(pointer: fine)").matches;
-  const groups = [...svg.querySelectorAll(".map-thinker")];
+  // by id, not page order: the nearest thinkers are drawn last so their names sit on top
+  const groups = [];
+  for (const el of svg.querySelectorAll(".map-thinker")) groups[m.ids.indexOf(el.dataset.thinker)] = el;
   // x, y: where the face is now; h: its anchor (pulled toward); t: the settled spot it lands on
   const nodes = m.P.map(([x, y], i) => ({ x, y, vx: 0, vy: 0, hx: m.anchors[i][0], hy: m.anchors[i][1], tx: x, ty: y, fixed: false, sx: x, sy: y }));
   const links = m.links;
@@ -629,7 +649,7 @@ function activate(svg, m) {
   let rect = null;
   const toMap = (e) => {
     rect ||= svg.getBoundingClientRect();
-    return [((e.clientX - rect.left) / rect.width) * m.box.w, ((e.clientY - rect.top) / rect.height) * m.box.h];
+    return [((e.clientX - rect.left) / rect.width) * m.box.w, ((e.clientY - rect.top) / rect.height) * (m.box.h + READOUT)];
   };
   const forget = () => { rect = null; };
   addEventListener("scroll", forget, { passive: true });

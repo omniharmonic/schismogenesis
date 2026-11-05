@@ -70,7 +70,7 @@ function interlude(doneSet) {
   const t = teaser(bundle, answers);
   $("interlude-step").textContent = `Part ${setNo} of 3 done.`;
   $("interlude-text").textContent = t
-    ? `So far you're closer to the ${t.closer} than to the ${t.further}.`
+    ? `So far you're closer to “${t.closer}” than to “${t.further}”.`
     : "Not enough answers yet to say who you're closer to. Keep going.";
   show("interlude");
   $("continue").focus();
@@ -149,13 +149,13 @@ function thinkerRow(t) {
 function signatureHTML(r) {
   if (!r.signature.length) {
     const weakest = r.nearest.at(-1);
-    return `<p>You're consistent with the ${esc(r.schools[0].label)} on every statement we could check.
+    return `<p>You're consistent with “${esc(r.schools[0].label)}” on every statement we could check.
       Your weakest close match is ${esc(weakest.name)}, at ${weakest.k} of ${weakest.n}.</p>`;
   }
   const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
   return `<ul class="signature">${r.signature.map((s) => `<li>
       <span class="serif">You ${s.answer === 1 ? "agree" : "disagree"}: “${esc(s.text)}”</span>
-      <p class="small muted" style="margin-top:6px">Most of the ${esc(s.home)} we read take the other side. The ${esc(s.ally)} are with you: ${s.allies.map((a) => esc(names[a])).join(", ")}.</p>
+      <p class="small muted" style="margin-top:6px">Most of the thinkers in “${esc(s.home)}” take the other side. Those in “${esc(s.ally)}” are with you: ${s.allies.map((a) => esc(names[a])).join(", ")}.</p>
     </li>`).join("")}</ul>`;
 }
 
@@ -212,7 +212,7 @@ function renderReveal() {
       ${glyphSVG(bundle, answers, { label: "Your fingerprint, drawn from your answers" })}
       <div>
         <p class="muted">Your fingerprint</p>
-        <h1 style="max-width:18ch">Closest to the ${esc(home.label)}</h1>
+        <h1 style="max-width:18ch">Closest to “${esc(home.label)}”</h1>
         <p>From ${r.answered} statements you took a side on.</p>
       </div>
     </div>

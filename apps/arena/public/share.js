@@ -104,7 +104,7 @@ export async function openShare({ bundle, answers, result, toast, verified = nul
   function preview() {
     const s = result;
     const items = [
-      `Your neighbourhood: the ${s.schools[0].label}`,
+      `Your neighbourhood: “${s.schools[0].label}”`,
       `Nearest: ${s.nearest.map((t) => `${t.name} (${t.k} of ${t.n})`).join(", ")}`,
       `Furthest: ${s.furthest.map((t) => t.name).join(", ")}`,
       ...s.signature.map((t) => `Your answer on: “${t.text}”`),

@@ -110,6 +110,19 @@ CSP = (
 )
 
 
+def csp_for(atlas: bool = False) -> str:
+    """The page's Content-Security-Policy. The 3D atlas page is one self-contained file with an
+    inline script and two pinned libraries from CDNs; no other page may load outside scripts.
+    Also written into the CDN headers by scripts/build_vercel.py, so both stay identical."""
+    if not atlas:
+        return CSP
+    return (
+        CSP.replace("script-src 'self' https://challenges.cloudflare.com", ATLAS_SCRIPTS)
+        .replace("style-src 'self'", "style-src 'self' https://fonts.googleapis.com")
+        .replace("font-src 'self'", "font-src 'self' https://fonts.gstatic.com")
+    )
+
+
 @dataclass(frozen=True)
 class Config:
     admin_token: str | None = None
@@ -282,23 +295,31 @@ def create_app(
                     return JSONResponse({"error": "Request too large."}, status_code=413)
             request._body = body  # starlette reuses this when the route reads the body
         response = await call_next(request)
-        # the 3D atlas page is a single self-contained file with an inline script
-        # The 3D atlas page is one self-contained file with an inline script and two pinned
-        # libraries from CDNs. No other page may load outside scripts.
-        atlas = request.url.path == "/atlas"
-        response.headers["Content-Security-Policy"] = (
-            CSP.replace("script-src 'self' https://challenges.cloudflare.com", ATLAS_SCRIPTS)
-            .replace("style-src 'self'", "style-src 'self' https://fonts.googleapis.com")
-            .replace("font-src 'self'", "font-src 'self' https://fonts.gstatic.com")
-            if atlas
-            else CSP
+        response.headers["Content-Security-Policy"] = csp_for(
+            request.url.path in ("/atlas", "/atlas.html")
         )
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
         if config.production:
             response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-        if request.url.path.startswith("/api/"):
+        path = request.url.path
+        shared = (
+            request.method == "GET"
+            and response.status_code == 200
+            and (
+                path in ("/api/results", "/api/people", "/api/config")
+                or path.startswith(("/s/", "/p/"))
+                or (path.startswith("/api/rooms/") and path.count("/") == 3)
+            )
+        )
+        if shared and "Cache-Control" not in response.headers:
+            # Public, aggregate answers: the CDN keeps them a minute and serves the last copy
+            # while it refreshes, so a visitor never waits on a cold function or database.
+            response.headers["Cache-Control"] = (
+                "public, max-age=0, s-maxage=60, stale-while-revalidate=600"
+            )
+        elif path.startswith("/api/"):
             response.headers.setdefault("Cache-Control", "no-store")
         elif request.url.path.startswith("/fonts/"):
             response.headers.setdefault("Cache-Control", "public, max-age=31536000, immutable")
@@ -726,7 +747,7 @@ def create_app(
         row = live_profile(code)
         data = public_profile(row)
         who = data["display_name"] + (f" (@{data['handle']})" if data["handle"] else "")
-        title = f"{who}: closest to the {data['summary']['home']}"
+        title = f"{who}: closest to “{data['summary']['home']}”"
         nearest = ", ".join(names[m["id"]] for m in data["summary"]["nearest"])
         description = (
             f"Nearest thinkers: {nearest}. The Great AI Debate: answer "

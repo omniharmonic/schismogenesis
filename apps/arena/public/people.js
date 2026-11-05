@@ -47,7 +47,7 @@ async function main() {
   addEventListener("hashchange", fromHash);
   document.getElementById("people-list").innerHTML = people.map((p) => `<li><a href="/p/${esc(p.code)}">
     ${p.avatar_url ? `<img class="avatar" src="${esc(p.avatar_url)}" alt="" referrerpolicy="no-referrer">` : `<span class="avatar"></span>`}
-    <span><b>${esc(p.display_name)}</b><br><span class="small">@${esc(p.handle)} is closest to the ${esc(p.summary.home)}</span></span></a></li>`).join("");
+    <span><b>${esc(p.display_name)}</b><br><span class="small">@${esc(p.handle)} is closest to “${esc(p.summary.home)}”</span></span></a></li>`).join("");
 }
 
 main();

@@ -32,8 +32,8 @@ function slides(bundle, answers, r) {
     title: `${r.answered} statements. ${bundle.thinkers.length} thinkers. One print.`,
     lede: "Every ridge bends with one of your answers. No one else's looks quite like it." });
   out.push({ ...T.ink, eyebrow: "Your neighbourhood",
-    title: `The ${r.schools[0].label}`,
-    lede: `Your closest thinker sits here. The next nearest schools: ${r.schools.slice(1, 3).map((s) => s.label).join(" and ")}.` });
+    title: r.schools[0].label,
+    lede: `Your closest thinker sits here. Next nearest: ${r.schools.slice(1, 3).map((s) => `“${s.label}”`).join(" and ")}.` });
   out.push({ ...T.paper, eyebrow: "Your top match",
     title: top.name, big: undefined,
     lede: `You agree on ${top.k} of the ${top.n} statements you both took a side on.`,
@@ -43,13 +43,13 @@ function slides(bundle, answers, r) {
   if (r.signature[0]) {
     const s = r.signature[0];
     out.push({ ...T.crimson, eyebrow: "Plot twist", meme: true,
-      title: `You break with the ${s.home}.`,
-      lede: `On this one you side with the ${s.ally}, with ${s.allies.map((a) => names[a]).slice(0, 2).join(" and ")}:`,
+      title: `You break with “${s.home}”.`,
+      lede: `On this one you side with “${s.ally}”, with ${s.allies.map((a) => names[a]).slice(0, 2).join(" and ")}:`,
       quote: `${s.answer === 1 ? "Yes:" : "No:"} ${s.text}` });
   } else {
     out.push({ ...T.crimson, eyebrow: "No plot twist", meme: true,
       title: "You hold the line.",
-      lede: `On every statement we could check, you're with the ${r.schools[0].label}. Rare.` });
+      lede: `On every statement we could check, you're with “${r.schools[0].label}”. Rare.` });
   }
   out.push({ ...T.night, eyebrow: "Your furthest", title: far.name,
     lede: `You agree on just ${far.k} of ${far.n}.`,
@@ -67,7 +67,7 @@ function slides(bundle, answers, r) {
   out.push({ ...T.ground, eyebrow: "Where you sit", title: "Among the thinkers", map: true,
     lede: `Lines run to your three nearest: ${r.nearest.map((t) => t.name).join(", ")}.` });
   out.push({ ...T.ultramarine, print: true, final: true, eyebrow: "That's your fingerprint.",
-    title: `Closest to the ${r.schools[0].label}`,
+    title: `Closest to “${r.schools[0].label}”`,
     lede: r.signature[0] ? twistLine(r.signature[0]) : `Nearest: ${r.nearest.map((t) => t.name).join(", ")}.` });
   return out;
 }

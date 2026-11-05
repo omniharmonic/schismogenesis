@@ -409,7 +409,14 @@ textarea { min-height: 88px; resize: vertical; font-family: var(--serif); font-s
 .story-actions button.ghost { background: transparent; color: inherit; border-color: color-mix(in srgb, currentColor 50%, transparent); }
 .tap { position: absolute; top: 0; bottom: 100px; width: 34%; background: none; border: 0; border-radius: 0; min-height: 0; padding: 0; cursor: pointer; }
 .tap.prev { left: 0; } .tap.next { right: 0; width: 66%; }
-.tap:focus-visible { outline-offset: -6px; }
+.tap:focus, .tap:focus-visible { outline: none; }
+/* the tap zones cover most of the slide, so a focus ring on them boxes the content (phones
+   draw it after a tap); keyboard users get a small chevron at the edge instead */
+.tap:focus-visible::after { content: ""; position: absolute; top: 50%; width: 12px; height: 12px;
+  border: solid currentColor; border-width: 0 2px 2px 0; opacity: 0.7; }
+.tap.next:focus-visible::after { right: 18px; transform: translateY(-50%) rotate(-45deg); }
+.tap.prev:focus-visible::after { left: 18px; transform: translateY(-50%) rotate(135deg); }
+.tap { -webkit-tap-highlight-color: transparent; color: inherit; }
 @media (prefers-reduced-motion: no-preference) {
   .slide.enter > * { animation: rise 0.55s cubic-bezier(.2,.7,.2,1) both; }
   .slide.enter > *:nth-child(2) { animation-delay: 0.08s; } .slide.enter > *:nth-child(3) { animation-delay: 0.16s; }
