@@ -144,3 +144,18 @@ def test_newcomers_are_placed_provisionally_from_their_stances(atlas):
 
     with _pytest.raises(BundleError):
         build_bundle(grown, flagged={"new-voice"}, newcomers={"new-voice": "New Voice"})
+
+
+def test_position_matches_the_browser():
+    """Server-side placement (people map) equals placement.js on the same answers; the expected
+    values were produced by placement.js fingerprint() on the committed bundle."""
+    from arena_fingerprint.agreement import position
+
+    bundle = json.loads((HERE.parents[2] / "apps/arena/public/fingerprint.json").read_text())
+    st = {a: {t: v["a"] for t, v in e.items()} for a, e in bundle["stances"].items()}
+    co = {t["id"]: (t["x"], t["y"]) for t in bundle["thinkers"]}
+    answers = {a["id"]: [1, -1, 1, 0, -1][i % 5] for i, a in enumerate(bundle["anchors"])}
+    if bundle["version"] != "fp-2026-11-05.1":
+        pytest.skip("expected values belong to bundle fp-2026-11-05.1")
+    assert position(answers, st, co) == pytest.approx((-113.0458266047672, -36.62447828082642))
+    assert position({}, st, co) is None

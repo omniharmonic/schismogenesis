@@ -77,6 +77,23 @@ export function hoverCardHTML(bundle, id, { answers = {}, result = null } = {}) 
     <a class="hc-link" href="/people#${encodeURIComponent(id)}" data-profile="${esc(id)}">See full profile <span aria-hidden="true">→</span></a>`;
 }
 
+/**
+ * The card for a person who chose to be shown on the map: their picture, name, @handle, bio and
+ * nearest thinker. `p` is the person's data (from the map's data- attributes). Exported for tests.
+ */
+export function personCardHTML(p, bundle = null) {
+  const nearest = p.nearest ? bundle?.thinkers?.find((t) => t.id === p.nearest)?.name || p.nearest : "";
+  const pic = p.face
+    ? `<span class="badge hc-badge has-face" aria-hidden="true"><img src="${esc(p.face)}" alt="" referrerpolicy="no-referrer"></span>`
+    : `<span class="badge hc-badge" aria-hidden="true">${esc(String(p.name || "").trim().split(/\s+/).slice(0, 2).map((w) => w[0] || "").join("").toUpperCase())}</span>`;
+  return `<div class="hc-head">${pic}<div>
+      <p class="hc-name">${esc(p.name || "Someone who took it")}</p>
+      ${p.handle ? `<p class="hc-role">@${esc(p.handle)}</p>` : ""}
+    </div></div>
+    ${p.bio ? `<p class="hc-bio">${esc(p.bio)}</p>` : ""}
+    ${nearest ? `<p class="hc-score">Nearest: <b>${esc(nearest)}</b></p>` : ""}`;
+}
+
 // ---------- the one shared card ----------
 let card = null;
 let anchor = null;   // the map circle the card is about
@@ -118,7 +135,7 @@ function ensureCard() {
 
 function place(el, target) {
   // one read of the circle, one of the card, then writes: no layout thrash
-  const dot = (target.querySelector(".dot") || target).getBoundingClientRect();
+  const dot = (target.querySelector(".dot, .ring") || target).getBoundingClientRect();
   const w = el.offsetWidth, h = el.offsetHeight;
   const vw = document.documentElement.clientWidth, vh = innerHeight;
   const cx = dot.left + dot.width / 2, cy = dot.top + dot.height / 2;
@@ -147,7 +164,9 @@ function show(target, opts) {
   if (anchor === target && !el.hidden) return;
   anchor?.removeAttribute("aria-describedby");
   anchor = target; owner = opts;
-  el.innerHTML = hoverCardHTML(opts.bundle, target.dataset.thinker, { answers: opts.answers || {}, result: opts.result || null });
+  el.innerHTML = target.dataset.person !== undefined
+    ? personCardHTML(target.dataset, opts.bundle)
+    : hoverCardHTML(opts.bundle, target.dataset.thinker, { answers: opts.answers || {}, result: opts.result || null });
   el.classList.remove("is-open");
   el.style.maxHeight = "";
   el.hidden = false;
@@ -184,7 +203,7 @@ export function attachHoverCard(container, opts) {
   wired.set(container, opts);
   if (known) return;
   const current = () => wired.get(container);
-  const circle = (node) => node?.closest?.(".thinker-map [data-thinker]");
+  const circle = (node) => node?.closest?.(".thinker-map [data-thinker], .thinker-map [data-person]");
   let pointer = "mouse";
 
   container.addEventListener("pointerdown", (e) => { pointer = e.pointerType || "mouse"; }, true);

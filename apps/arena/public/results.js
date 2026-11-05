@@ -1,5 +1,7 @@
 // Public results: aggregates only, from people who chose to add their answers.
-import { esc } from "./map.js";
+import { esc, mapSVG, wireMap } from "./map.js";
+import { attachHoverCard } from "./hovercard.js";
+import { fetchPeople, gapsHTML, mountLayerSwitch } from "./crowd.js";
 import { handoffHTML } from "./site-config.js";
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
@@ -57,7 +59,7 @@ function crosstab(r) {
 
 // How the public thinkers split on each statement, from the fingerprint bundle: no visitor data.
 async function thinkerSplit() {
-  const bundle = await (await fetch("/fingerprint.json")).json();
+  const bundle = await getBundle();
   const rows = bundle.anchors.map((a) => {
     const e = Object.values(bundle.stances[a.id] || {});
     const up = e.filter((i) => i.a === 1).length, down = e.length - up;
@@ -73,6 +75,33 @@ async function thinkerSplit() {
 }
 
 let sort = "split";
+let bundlePromise = null;
+const getBundle = () => (bundlePromise ||= fetch("/fingerprint.json").then((r) => r.json()));
+
+const crowdMapHTML = `<div id="crowd-slot"></div>`;
+let crowdNode = null; // built once, then moved into each redraw of the page (sorting redraws it)
+
+// the thinkers and the crowd on one map; selecting a thinker opens their profile
+async function crowdMap() {
+  const slot = document.getElementById("crowd-slot");
+  if (!slot) return;
+  if (crowdNode) { slot.replaceWith(crowdNode); return; }
+  crowdNode = document.createElement("section");
+  crowdNode.className = "crowd-map";
+  crowdNode.setAttribute("aria-labelledby", "crowd-title");
+  crowdNode.innerHTML = `<h2 id="crowd-title">Where everyone sits</h2>
+    <p class="muted">Each plain dot is someone who added their answers, placed by the three thinkers they agree with most. Faces are people who chose to show themselves.</p>
+    <div class="mapbox" id="crowd-map"><p class="muted">Loading the map…</p></div>`;
+  slot.replaceWith(crowdNode);
+  const mapEl = crowdNode.querySelector("#crowd-map");
+  const [bundle, crowd] = await Promise.all([getBundle(), fetchPeople()]);
+  const size = innerWidth < 600 ? { width: 400, height: 560 } : { width: 800, height: 560 };
+  mapEl.innerHTML = mapSVG(bundle, { ...size, people: crowd.people });
+  mountLayerSwitch(mapEl).set(crowd);
+  const toProfile = (id) => { location.href = `/people#${encodeURIComponent(id)}`; };
+  wireMap(mapEl, { onThinker: toProfile, onSchool: () => {}, onNode: () => {} });
+  attachHoverCard(mapEl, { bundle, onProfile: toProfile });
+}
 
 function render(r) {
   const el = document.getElementById("results");
@@ -86,6 +115,7 @@ function render(r) {
     const rest = r.notes.filter((n) => !n.startsWith("Results appear"));
     const notes = rest.length ? `<ul class="notes small">${rest.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
     el.innerHTML = `${tiles}
+      ${crowdMapHTML}
       <div class="waiting"><p><b>${r.contributors} of ${need}</b> people so far. Results appear at ${need}, so no one can be picked out.</p>
         <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="${need}" aria-valuenow="${r.contributors}"><span style="width:${Math.min(100, (r.contributors / need) * 100)}%"></span></div>
         <p><a class="button primary" href="/">Take it, and add your answers</a></p></div>
@@ -93,6 +123,7 @@ function render(r) {
       <p class="muted">Each statement, with the public thinkers we read on each side. Most divided first. Select a statement to read their own words.</p>
       <div id="thinker-split"><p class="muted">Loading…</p></div>${notes}`;
     thinkerSplit();
+    crowdMap();
     return;
   }
   const sorted = [...r.statements].sort((a, b) => {
@@ -101,7 +132,8 @@ function render(r) {
     const av = a[key] ?? -1, bv = b[key] ?? -1;
     return sort === "gap" ? Math.abs(bv) - Math.abs(av) : bv - av;
   });
-  el.innerHTML = `${tiles}
+  el.innerHTML = `${gapsHTML(r.statements)}${tiles}
+    ${crowdMapHTML}
     <h2>Statement by statement</h2>
     <div class="legend"><span><i class="key" style="background:var(--yes)"></i>Agree</span><span><i class="key" style="background:var(--mid)"></i>Unsure</span><span><i class="key" style="background:var(--no)"></i>Disagree</span><span><i class="key" style="background:var(--ink);width:3px"></i>How the thinkers split</span></div>
     <div class="sortbar" role="group" aria-label="Sort statements">
@@ -122,6 +154,7 @@ function render(r) {
     ${notes}
     <p class="small muted">Updated ${new Date(r.computed_at).toLocaleString()}. People who add their answers aren't a random sample, so read this as "the people here", not "the public".</p>`;
   for (const b of el.querySelectorAll("[data-sort]")) b.onclick = () => { sort = b.dataset.sort; render(r); };
+  crowdMap();
 }
 
 async function main() {

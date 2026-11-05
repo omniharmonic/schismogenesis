@@ -31,3 +31,29 @@ def ranked(
 ) -> list[tuple[str, int, int, float]]:
     rows = [(t, k, n, s) for t, (k, n, s) in agreement(answers, stances).items() if n >= MIN_SHARED]
     return sorted(rows, key=lambda r: (-r[3], -r[2], r[0]))
+
+
+MIN_ANSWERED = 6
+MIN_RANKED = 5
+
+
+def position(
+    answers: dict[str, int],
+    stances: dict[str, dict[str, int]],
+    coords: dict[str, tuple[float, float]],
+) -> tuple[float, float] | None:
+    """Where a person sits on the thinker map, as placement.js places "You": the top three
+    thinkers by agreement, sharply weighted, since a broad average lands between schools."""
+    import math
+
+    answered = sum(1 for v in answers.values() if v in (1, -1))
+    rows = [r for r in ranked(answers, stances) if r[0] in coords]
+    if answered < MIN_ANSWERED or len(rows) < MIN_RANKED:
+        return None
+    wx = wy = wt = 0.0
+    for thinker, _, _, s in rows[:3]:
+        w = math.exp(14 * (s - 0.5))
+        wx += w * coords[thinker][0]
+        wy += w * coords[thinker][1]
+        wt += w
+    return wx / wt, wy / wt

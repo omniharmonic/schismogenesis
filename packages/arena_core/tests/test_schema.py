@@ -66,6 +66,13 @@ NOT_DERIVED = {
     "report_cache",
     "rate_hit",
     "daily_counter",
+    # accounts (D-31.24): what people choose and answer; the map spot is plain arithmetic
+    "account",
+    "account_login",
+    "account_session",
+    "auth_flow",
+    "email_token",
+    "account_sheet",
     "agent",
     "agent_action",
     "strategy",

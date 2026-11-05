@@ -1,6 +1,7 @@
 import { esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
 import { fingerprint } from "./placement.js";
+import { fetchPeople, mountLayerSwitch } from "./crowd.js";
 import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 // answers saved by this browser, if the visitor took it here; never sent anywhere from this page
@@ -28,15 +29,22 @@ async function main() {
   const marks = Object.entries(counts).map(([id, n]) => ({ near: [id], label: String(n), title: `${n} listed ${n === 1 ? "person is" : "people are"} nearest to ${names[id]}` }));
   const size = innerWidth < 600 ? { width: 400, height: 640 } : { width: 800, height: 640 };
   const mapEl = document.getElementById("people-map");
-  mapEl.innerHTML = mapSVG(bundle, { marks, result: ok, ...size });
+  const mapOptions = { marks, result: ok, ...size };
+  mapEl.innerHTML = mapSVG(bundle, mapOptions);
   document.getElementById("people-schools").innerHTML = schoolGrid(bundle, ok);
   const ex = explorer({
     bundle, answers, mapEl, panelEl: document.getElementById("people-panel"),
     gridEl: document.getElementById("people-schools"),
-    mapOptions: { marks, result: ok, ...size },
+    mapOptions,
     intro: `<h3>${bundle.thinkers.length} thinkers, ${bundle.schools.length} camps</h3>
       <p>Each circle is a public thinker, placed by what they've said on the ${bundle.anchors.length} statements and the wider atlas. Select a camp to open the schools inside it, and keep going down to the tightest circles of people who agree on almost everything. Select a person to read their positions in their own words.</p>
       ${ok ? `<p class="small muted">Your saved answers from this browser are shown beside theirs.</p>` : `<p><a class="button primary" href="/">Take the survey</a></p><p class="small muted">Then you'll see your own answers beside theirs.</p>`}`,
+  });
+  // people who added their answers, in the same space as the thinkers
+  const layer = mountLayerSwitch(mapEl);
+  fetchPeople().then((crowd) => {
+    layer.set(crowd);
+    if (crowd.people.length) { mapOptions.people = crowd.people; ex.redraw(); }
   });
   // /people#<thinker-id> opens that thinker's card (linked from shared profiles)
   const fromHash = () => {

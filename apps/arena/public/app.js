@@ -7,6 +7,8 @@ import { explorer, schoolGrid } from "./explore.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
 import { protectedFetch } from "./turnstile.js";
 import { handoffHTML } from "./site-config.js";
+import { getMe, pickAnswers, saveAnswers, signInHTML, takeSignInHash, wireSignIn, xAvailable } from "./auth.js";
+import { fetchPeople, mountLayerSwitch } from "./crowd.js";
 
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ name }) }).catch(() => {});
@@ -24,6 +26,7 @@ const LAYER_NAME = { ontological: "What AI is", epistemic: "How we know", axiolo
 let bundle;
 let answers = {};
 let index = 0;
+let me = null; // the signed-in account (GET /api/me), or null
 
 function show(id) {
   for (const s of ["landing", "quiz", "interlude", "reveal", "room"]) $(s).hidden = s !== id;
@@ -33,10 +36,24 @@ function show(id) {
 function toast(text) {
   const t = document.createElement("div");
   t.className = "toast"; t.setAttribute("role", "status"); t.textContent = text;
-  document.body.append(t); setTimeout(() => t.remove(), 2200);
+  document.body.append(t); setTimeout(() => t.remove(), Math.max(2200, text.length * 55));
 }
 
-function save() { store.set("fp.answers", { version: bundle.version, season: bundle.season, answers, index }); }
+// when signed in, answers go up to the account a moment after each change, and at once at the end
+let syncTimer = 0;
+function syncSoon(now = false) {
+  clearTimeout(syncTimer);
+  if (!me) return;
+  const run = () => saveAnswers(answers)
+    .then(() => { if (me) me.sheet = { season: bundle.season, answers: { ...answers }, updated_at: new Date().toISOString() }; })
+    .catch(() => {});
+  if (now) run(); else syncTimer = setTimeout(run, 1200);
+}
+
+function save({ sync = true, updated_at = new Date().toISOString() } = {}) {
+  store.set("fp.answers", { version: bundle.version, season: bundle.season, answers, index, updated_at });
+  if (sync) syncSoon();
+}
 
 // ---------- answering ----------
 function renderCard() {
@@ -91,6 +108,7 @@ async function share(verified = null) {
 
 async function finish({ story = true } = {}) {
   save();
+  syncSoon(true);
   renderReveal();
   show("reveal");
   const r = fingerprint(bundle, answers);
@@ -207,6 +225,7 @@ function renderReveal() {
     return;
   }
   const home = r.schools[0];
+  const mapOptions = { result: r, ...mapSize() };
   el.innerHTML = `
     <div class="reveal-head">
       ${glyphSVG(bundle, answers, { label: "Your fingerprint, drawn from your answers" })}
@@ -221,7 +240,7 @@ function renderReveal() {
       <h2 id="sit-title">Where you sit</h2>
       <p class="muted explore-hint">Select any thinker or school to see where they stand, statement by statement, beside your answers.</p>
       <div class="explore-grid">
-        <div class="mapbox" id="reveal-map">${mapSVG(bundle, { result: r, ...mapSize() })}
+        <div class="mapbox" id="reveal-map">${mapSVG(bundle, mapOptions)}
           <p class="map-key small muted"><span><i class="k-dark"></i>agrees with you more</span><span><i class="k-dash"></i>too few shared statements</span><span><i class="k-dot"></i>new voice</span></p>
         </div>
         <aside class="panel" id="reveal-panel" aria-live="polite"></aside>
@@ -251,6 +270,8 @@ function renderReveal() {
     </div>
     <p class="small muted">A share link makes a page with a preview card for X and Bluesky. You choose what it shows and can delete it any time. Images are made in your browser.</p>
 
+    <div class="room-card save-card" id="save-card"></div>
+
     <div class="room-card" id="contribute-card">
       <h2 style="margin-top:0">Add your answers to the results</h2>
       <p>See how everyone who took it answers, statement by statement, and where you fall among them. Your answers are counted without your name, and nothing about any group under ten people is shown.</p>
@@ -277,11 +298,19 @@ function renderReveal() {
 
   const ex = explorer({
     bundle, answers, mapEl: $("reveal-map"), panelEl: $("reveal-panel"), gridEl: $("reveal-schools"),
-    mapOptions: { result: r, ...mapSize() },
+    mapOptions,
     intro: `<h3>Your nearest thinkers</h3><ul class="thinkers">${r.nearest.map(thinkerRow).join("")}</ul>
       <h3>Furthest from you</h3><ul class="thinkers">${r.furthest.map(thinkerRow).join("")}</ul>
       <p class="small muted">Select anyone here or on the map to compare, statement by statement.</p>`,
   });
+
+  // the people who added their answers, on the same map (Thinkers / People / Both)
+  const layer = mountLayerSwitch($("reveal-map"));
+  fetchPeople().then((crowd) => {
+    layer.set(crowd);
+    if (crowd.people.length && $("reveal-map")) { mapOptions.people = crowd.people; ex.redraw(); }
+  });
+  paintSaveCard();
 
   el.addEventListener("click", (e) => {
     const t = e.target.closest("details.mirror [data-thinker]");
@@ -304,7 +333,11 @@ function renderReveal() {
     try { await navigator.clipboard.writeText(shareText(r, location.origin)); toast("Copied"); event("copy_text"); } catch { toast("Copy failed. Select the text manually."); }
   };
   $("get-link").onclick = () => share();
-  if (store.get("fp.room.ai-futures", null)) {
+  if (me) {
+    $("contribute-card").querySelector("h2").textContent = "Counted in the results";
+    $("contribute-card").querySelector("p").textContent = "Your saved answers are counted in the results, without your name.";
+    $("contribute").remove();
+  } else if (store.get("fp.room.ai-futures", null)) {
     $("contribute-card").querySelector("p").textContent = "Your answers are counted in the results. Thank you.";
     $("contribute").remove();
   } else {
@@ -341,6 +374,46 @@ function renderReveal() {
   };
 }
 
+// "Save your answers": the four ways in while signed out; a quiet note once signed in
+async function paintSaveCard() {
+  const card = $("save-card");
+  if (!card) return;
+  if (me) {
+    card.innerHTML = `<h2 style="margin-top:0">Your answers are saved</h2>
+      <p>They save to your account as you change them, so you can come back on any device. Choose whether to show yourself on the map from <a href="/account.html">your account</a>.</p>`;
+    return;
+  }
+  card.innerHTML = `<h2 style="margin-top:0">Save your answers</h2>
+    <p>Sign in to come back on any device and change your answers. Saved answers are also counted in the results, without your name. Your name and picture go on the map only if you switch that on.</p>
+    <div class="row"><button class="primary" id="save-open" aria-expanded="false" aria-controls="save-ways">Choose how to sign in</button></div>
+    <div id="save-ways" hidden></div>`;
+  $("save-open").onclick = async () => {
+    const ways = $("save-ways");
+    if (!ways.childElementCount) {
+      ways.innerHTML = signInHTML({ id: "save", x: await xAvailable() });
+      wireSignIn(ways.querySelector(".signin"), {
+        onSignedIn: async (how) => { await signedInHere(); if (how !== "key-new") afterSignIn(); },
+        onKeySaved: () => afterSignIn(),
+      });
+    }
+    ways.hidden = !ways.hidden;
+    $("save-open").setAttribute("aria-expanded", String(!ways.hidden));
+  };
+}
+
+// a same-page sign-in (email code or key): upload what this browser has
+async function signedInHere() {
+  me = await getMe();
+  if (me) syncSoon(true);
+}
+function afterSignIn() {
+  if (!me) { toast("Couldn't sign in"); return; }
+  toast("Signed in");
+  paintSaveCard();
+  const c = $("contribute");
+  if (c) { $("contribute-card").querySelector("h2").textContent = "Counted in the results"; $("contribute-card").querySelector("p").textContent = "Your saved answers are counted in the results, without your name."; c.remove(); }
+}
+
 function disputeForm(button, anchorId) {
   const ids = Object.keys(bundle.stances[anchorId]);
   const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
@@ -362,7 +435,9 @@ function disputeForm(button, anchorId) {
 
 // ---------- start ----------
 async function boot() {
-  bundle = await (await fetch("fingerprint.json")).json();
+  const [b, account] = await Promise.all([fetch("fingerprint.json").then((res) => res.json()), getMe()]);
+  bundle = b; me = account;
+  const back = takeSignInHash();
   const saved = store.get("fp.answers", null);
   // answers stay valid while the statements stay the same (one season), across bundle rebuilds
   const sameSeason = saved && (saved.season ? saved.season === bundle.season : saved.version === "fp-2026-11-02.1");
@@ -371,6 +446,16 @@ async function boot() {
     answers = Object.fromEntries(Object.entries(saved.answers).filter(([id]) => ids.has(id)));
     index = saved.index || 0;
   }
+  // the account's saved answers win when this browser has none, or older ones; right after a
+  // sign-in, this browser's answers are the ones the person meant to save
+  const ids = new Set(bundle.anchors.map((a) => a.id));
+  const mine = { season: bundle.season, answers, updated_at: saved?.updated_at };
+  const pick = back?.ok && Object.keys(answers).length ? "local" : pickAnswers(mine, me?.sheet, bundle.season);
+  if (pick === "server") {
+    answers = Object.fromEntries(Object.entries(me.sheet.answers).filter(([id, v]) => ids.has(id) && [1, -1, 0].includes(v)));
+    index = bundle.anchors.length;
+    save({ sync: false, updated_at: me.sheet.updated_at });
+  } else if (pick === "local" && me) syncSoon(true);
   $("hero-print").innerHTML = glyphSVG(bundle, Object.fromEntries(bundle.anchors.map((a, k) => [a.id, [1, -1, 0, 1][k % 4]])), { label: "" });
   $("hero-print").firstElementChild.classList.add("hero-print");
   heroPreview();
@@ -392,7 +477,21 @@ async function boot() {
     if (key) { e.preventDefault(); answer(key); }
     if (e.key === "ArrowLeft") $("back").click();
   });
-  // returning from "Sign in with X"
+  // returning from a Bluesky, X or email-link sign-in
+  if (back) {
+    if (!back.ok) toast(back.message);
+    else if (!me) toast("Couldn't sign in");
+    else {
+      toast("Signed in");
+      if (Object.keys(answers).length && index >= bundle.anchors.length) { finish({ story: false }); $("save-card")?.scrollIntoView({ block: "center" }); return; }
+    }
+  }
+  // "Change my answers" from the account page: back into the survey with the saved answers
+  if (location.hash === "#change") {
+    history.replaceState(null, "", location.pathname + location.search);
+    if (Object.keys(answers).length) { index = 0; startQuiz(); return; }
+  }
+  // returning from "Sign in with X" to verify a share link
   const verify = location.hash.match(/^#verify=(.+)$/);
   if (verify) {
     history.replaceState(null, "", location.pathname + location.search);

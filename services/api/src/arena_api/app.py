@@ -24,7 +24,8 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 
-from arena_api import identity, turnstile
+from arena_api import account_routes, identity, turnstile
+from arena_api.account_store import AccountStore
 from arena_api.cards import profile_card, statement_card
 from arena_api.profiles import (
     Summary,
@@ -137,6 +138,8 @@ class Config:
     rate_salt: str | None = None  # shared by every instance, so rate limits hold across them
     turnstile_site_key: str | None = None
     turnstile_secret: str | None = None
+    resend_key: str | None = None  # email sign-in (Resend, send-only key)
+    mail_from: str = "antimemes <signin@omniharmonic.com>"
 
     @classmethod
     def from_env(cls) -> "Config":
@@ -154,6 +157,8 @@ class Config:
             site_password=env("ARENA_SITE_PASSWORD") or None,
             turnstile_site_key=env("ARENA_TURNSTILE_SITE_KEY") or None,
             turnstile_secret=env("ARENA_TURNSTILE_SECRET") or None,
+            resend_key=env("ARENA_RESEND_KEY") or None,
+            mail_from=env("ARENA_MAIL_FROM") or "antimemes <signin@omniharmonic.com>",
         )
         if config.production and (not config.admin_token or len(config.admin_token) < 24):
             raise RuntimeError("ARENA_ADMIN_TOKEN of 24+ characters is required in production")
@@ -230,6 +235,7 @@ def create_app(
     config: Config | None = None,
     fetch: identity.Fetch = identity.fetch_json,
     human: turnstile.Verifier = turnstile.verify,
+    account_options: dict | None = None,
 ) -> FastAPI:
     config = config or Config(admin_token=admin_token)
     bundle = json.loads((public / "fingerprint.json").read_text())
@@ -308,7 +314,8 @@ def create_app(
             request.method == "GET"
             and response.status_code == 200
             and (
-                path in ("/api/results", "/api/people", "/api/config")
+                path in ("/api/results", "/api/people", "/api/config", "/api/map/people")
+                or path == "/oauth/client-metadata.json"
                 or path.startswith(("/s/", "/p/"))
                 or (path.startswith("/api/rooms/") and path.count("/") == 3)
             )
@@ -564,7 +571,9 @@ def create_app(
         return RedirectResponse(url, status_code=302)
 
     @app.get("/auth/x/callback")
-    def x_callback(state: str = "", code: str = "", error: str = ""):
+    def x_callback(request: Request, state: str = "", code: str = "", error: str = ""):
+        if state.startswith("acct-"):  # "Sign in with X" for an account, not a share check
+            return app.state.x_account_callback(request, state, "" if error else code)
         check = store.check_by_state(state) if state else None
         if error or not code or check is None or not config.x_client_id:
             return RedirectResponse("/#verify=failed", status_code=302)
@@ -846,6 +855,18 @@ def create_app(
     @app.get("/atlas")
     def atlas():
         return FileResponse(public / "atlas.html")
+
+    account_routes.register(
+        app,
+        store=store,
+        astore=AccountStore(engine),
+        config=config,
+        bundle=bundle,
+        consent_version=CONSENT_VERSION,
+        limit=limit,
+        client=client,
+        **(account_options or {}),
+    )
 
     app.mount("/", StaticFiles(directory=public, html=True), name="public")
     app.state.started = datetime.datetime.now(datetime.UTC).isoformat()

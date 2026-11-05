@@ -602,3 +602,79 @@ summary { cursor: pointer; }
   .slide .rows li b { text-align: right; }
 }
 .lab-note .small a { display: inline-block; padding: 10px 0; }
+.hc-bio { margin-top: 8px !important; font-family: var(--serif); font-size: 0.98rem; line-height: 1.4; }
+
+/* ---------- accounts: the four ways in (auth.js), the account page (account.js) ---------- */
+.lede { font-size: 1.25rem; line-height: 1.45; }
+input[type="email"] {
+  width: 100%; font: 1rem var(--sans); color: var(--ink); background: var(--sheet);
+  border: 1.5px solid var(--line); border-radius: 2px; padding: 12px; min-height: 48px;
+}
+input[type="text"], input[type="password"] { min-height: 48px; }
+input:focus-visible, textarea:focus-visible { border-color: var(--recog); }
+.signin { display: grid; gap: 14px; margin: 20px 0; }
+@media (min-width: 720px) { .signin { grid-template-columns: 1fr 1fr; } .signin .si-msg { grid-column: 1 / -1; } }
+.si-way { background: var(--sheet); border: 1px solid var(--line); border-radius: 2px; padding: 18px; margin: 0; min-width: 0; }
+.si-way h3 { margin-bottom: 8px; }
+.si-way label { display: block; margin: 0 0 6px; color: var(--ink-2); }
+.si-way p { margin: 10px 0 0; }
+.si-inline { display: flex; flex-wrap: wrap; gap: 8px; }
+.si-inline input { flex: 1 1 12em; min-width: 0; }
+.si-inline button { flex: 0 0 auto; }
+.key-save, .key-use { margin-top: 12px; }
+.key-save label, .key-use label { margin-top: 10px; }
+.ks-user { color: var(--ink-2) !important; }
+.key-done { margin-top: 12px; }
+button.danger { border-color: color-mix(in srgb, var(--heat) 60%, var(--rule-2)); color: var(--heat); }
+button.danger:hover { border-color: var(--heat); color: #fff; background: color-mix(in srgb, var(--heat) 18%, transparent); }
+
+.acc-head { display: flex; gap: 16px; align-items: center; margin: 8px 0 8px; }
+.acc-avatar { width: 64px; height: 64px; border-radius: 50%; flex: 0 0 64px; object-fit: cover; background: var(--ground-2); border: 1px solid var(--rule-2); display: inline-flex; align-items: center; justify-content: center; font: 600 1.3rem var(--sans); color: var(--ink-2); }
+.acc-name { font: 400 1.6rem/1.15 var(--serif); margin: 0 0 2px; overflow-wrap: anywhere; }
+.acc-section { border-top: 1px solid var(--rule); margin-top: 32px; padding-top: 4px; }
+.acc-section h2 { margin-top: 20px; font-size: 1.5rem; }
+.switch-row { display: flex; gap: 16px; align-items: center; justify-content: space-between; background: var(--sheet); border: 1px solid var(--line); border-radius: 2px; padding: 14px 16px; cursor: pointer; min-height: 56px; }
+.switch-row input[role="switch"] {
+  appearance: none; -webkit-appearance: none; flex: 0 0 52px; width: 52px; height: 30px; margin: 0; border-radius: 15px;
+  background: var(--ground-2); border: 1.5px solid var(--rule-2); position: relative; cursor: pointer; transition: background .15s;
+}
+.switch-row input[role="switch"]::after { content: ""; position: absolute; top: 3px; left: 3px; width: 21px; height: 21px; border-radius: 50%; background: var(--ink-2); transition: transform .15s; }
+.switch-row input[role="switch"]:checked { background: var(--recog); border-color: var(--recog); }
+.switch-row input[role="switch"]:checked::after { transform: translateX(22px); background: var(--ground); }
+.switch-row input[role="switch"]:focus-visible { outline: 2px solid var(--recog); outline-offset: 3px; }
+.switch-row + p { margin-top: 10px; }
+.acc-logins { list-style: none; padding: 0; margin: 0 0 12px; }
+.acc-logins li { padding: 10px 0; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; }
+.acc-add summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--recog); font-weight: 500; }
+
+/* the survey's "Save your answers" panel */
+.save-card .signin { margin-bottom: 0; }
+
+/* ---------- the map's layer switch and the crowd (crowd.js) ---------- */
+.layer-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 4px 0 12px; }
+.layer-switch { display: inline-flex; border: 1px solid var(--rule-2); border-radius: 2px; }
+.layer-switch button { border: 0; border-radius: 0; min-height: 44px; padding: 8px 16px; font-size: 0.95rem; color: var(--ink-2); }
+.layer-switch button + button { border-left: 1px solid var(--rule-2); }
+.layer-switch button[aria-pressed="true"] { background: rgba(143, 176, 255, 0.12); color: var(--ink); box-shadow: inset 0 -2px 0 var(--recog); }
+.layer-note { margin: 0; }
+
+/* where the crowd and the thinkers split most (results page) */
+.gaps h2 { margin-top: 32px; }
+.gap-list { list-style: none; padding: 0; margin: 0; }
+.gap-list li { border-bottom: 1px solid var(--rule); }
+.gap-list a { display: block; padding: 14px 0; color: inherit; text-decoration: none; }
+.gap-list a:hover .gap-text { text-decoration: underline; text-decoration-color: var(--recog); }
+.gap-text { display: block; font-size: 1.08rem; line-height: 1.35; margin-bottom: 10px; }
+.gap-track { display: block; position: relative; height: 14px; margin: 0 7px; border-radius: 7px; background: var(--ground-2); }
+.gap-span { position: absolute; top: 5px; height: 4px; background: color-mix(in srgb, var(--heat) 55%, transparent); }
+.gap-dot { position: absolute; top: 1px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; }
+.gap-dot.crowd { background: var(--ink); }
+.gap-dot.thinkers { background: var(--ground); border: 2px solid var(--recog); }
+.gap-note { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 6px; color: var(--ink-2); }
+.gap-note b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.gap-key { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.gap-key.crowd { background: var(--ink); }
+.gap-key.thinkers { border: 2px solid var(--recog); }
+@media (prefers-reduced-motion: reduce) {
+  .switch-row input[role="switch"], .switch-row input[role="switch"]::after { transition: none; }
+}

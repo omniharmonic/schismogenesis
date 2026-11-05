@@ -86,3 +86,19 @@ svg.thinker-map.is-narrow .map-school-label text { font-size: 14.5px; stroke-wid
 svg.thinker-map.is-narrow .map-name { font-size: 13px; stroke-width: 4px; }
 svg.thinker-map.is-narrow .map-thinker text:not(.map-name) { font-size: 11.5px; }
 svg.thinker-map.is-narrow .map-readout { font-size: 13px; }
+
+/* people who added their answers: plain dots behind, faces (camp-neutral ring) above them, both
+   under the thinkers. The mapbox's data-layer (crowd.js) chooses thinkers, people or both. */
+svg.thinker-map .map-people-dots circle { fill: var(--tm-ink2); fill-opacity: 0.5; pointer-events: none; }
+svg.thinker-map .map-person .ring { fill: var(--tm-node); stroke: var(--tm-ink2); stroke-opacity: 0.7; stroke-width: 1; vector-effect: non-scaling-stroke; }
+svg.thinker-map .map-person .hit { fill: transparent; }
+svg.thinker-map .map-person text { fill: var(--tm-ink2); font: 600 8px "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; }
+svg.thinker-map .map-person { cursor: default; outline: none; }
+svg.thinker-map .map-person:hover .ring { stroke: var(--tm-ink); stroke-opacity: 1; }
+svg.thinker-map .map-person:focus-visible .ring { stroke: var(--tm-recog); stroke-width: 2; stroke-opacity: 1; }
+.mapbox[data-layer="thinkers"] svg.thinker-map .map-people { display: none; }
+.mapbox[data-layer="people"] svg.thinker-map .map-thinker,
+.mapbox[data-layer="people"] svg.thinker-map .map-tag { opacity: 0.18; }
+.mapbox[data-layer="people"] svg.thinker-map .map-kin { display: none; }
+.mapbox[data-layer="people"] svg.thinker-map .map-people-dots circle { fill: var(--tm-ink); fill-opacity: 0.85; }
+.mapbox[data-layer="people"] svg.thinker-map .map-thinker { pointer-events: none; }

@@ -323,6 +323,70 @@ export function settlingStart(nodes, groups, { seed = 7, gather = 0.32, jitter =
   });
 }
 
+// ------------------------------------------------------------------ people (pure)
+
+export const FACE_R = Math.round(R * 0.7 * 10) / 10; // a person's face: about 0.7 of a thinker's
+export const DOT_R = 3;                              // an anonymous person: a small plain dot
+export const MAX_DOTS = 300;
+
+/** Keep at most `max` anonymous dots, evenly through the list, so a crowd never buries the map. */
+export function thinDots(dots, max = MAX_DOTS) {
+  if (dots.length <= max) return dots;
+  const out = [];
+  const step = dots.length / max;
+  for (let k = 0; k < max; k++) out.push(dots[Math.floor(k * step)]);
+  return out;
+}
+
+/**
+ * Where each person is drawn, in map units. `people` are {x, y, face?, name?, handle?, bio?,
+ * nearest?} in the same space as thinker.x/y; X and Y are the map's own transforms. A person
+ * with a name (and usually a picture) is a face; everyone else is a dot. People who land on the
+ * same spot are fanned out on a small spiral, the same way for everyone.
+ */
+export function placePeople(people, X, Y, { max = MAX_DOTS, box = null } = {}) {
+  const faces = [], dots = [];
+  for (const p of people || []) {
+    if (!Number.isFinite(p?.x) || !Number.isFinite(p?.y)) continue;
+    (p.name || p.face ? faces : dots).push(p);
+  }
+  const fan = (list, r) => {
+    const seen = new Map();
+    return list.map((p) => {
+      let x = X(p.x), y = Y(p.y);
+      const key = `${Math.round(x / r)},${Math.round(y / r)}`;
+      const k = seen.get(key) || 0;
+      seen.set(key, k + 1);
+      if (k) { const a = k * 2.39996, d = r * 1.9 * Math.sqrt(k); x += Math.cos(a) * d; y += Math.sin(a) * d; }
+      if (box) { x = Math.min(box.w - r - 1, Math.max(r + 1, x)); y = Math.min(box.h - r - 1, Math.max(r + 1, y)); }
+      return { ...p, px: x, py: y };
+    });
+  };
+  return { faces: fan(faces, FACE_R), dots: fan(thinDots(dots, max), DOT_R), total: faces.length + dots.length };
+}
+
+const initialsOf = (name) => String(name || "").trim().split(/\s+/).slice(0, 2).map((w) => w[0] || "").join("").toUpperCase();
+
+/** The people layer's markup: dots, then faces. `clip` is the id of the map's round clip path. */
+export function peopleMarkup({ faces, dots }, clip, nameOf = (id) => id) {
+  let dotsSvg = `<g class="map-people map-people-dots" aria-hidden="true">`;
+  for (const d of dots) dotsSvg += `<circle cx="${d.px.toFixed(1)}" cy="${d.py.toFixed(1)}" r="${DOT_R}"/>`;
+  dotsSvg += `</g>`;
+  let facesSvg = `<g class="map-people map-people-faces">`;
+  faces.forEach((p, i) => {
+    const who = [p.name, p.handle ? `@${p.handle}` : "", p.nearest ? `nearest: ${nameOf(p.nearest)}` : ""].filter(Boolean).join(", ");
+    const data = ["name", "handle", "bio", "nearest", "face", "kind"].map((k) => (p[k] ? ` data-${k}="${esc(p[k])}"` : "")).join("");
+    facesSvg += `<g class="map-person" data-person="${i}"${data} transform="${tr(p.px, p.py)}" tabindex="0" role="img" aria-label="${esc(who || "A person who added their answers")}">`;
+    facesSvg += `<circle class="hit" r="${FACE_R + 4}"/><circle class="ring" r="${FACE_R}"/>`;
+    facesSvg += p.face
+      ? `<image href="${esc(p.face)}" x="${1 - FACE_R}" y="${1 - FACE_R}" width="${(FACE_R - 1) * 2}" height="${(FACE_R - 1) * 2}" clip-path="url(#${clip})" preserveAspectRatio="xMidYMid slice"/>`
+      : `<text y="3.4" text-anchor="middle">${esc(initialsOf(p.name))}</text>`;
+    facesSvg += `</g>`;
+  });
+  facesSvg += `</g>`;
+  return { dotsSvg, facesSvg };
+}
+
 // ------------------------------------------------------------------ the markup
 
 const live = new Map(); // svg id -> what the live layer needs, until the svg is in the page
@@ -330,7 +394,7 @@ const live = new Map(); // svg id -> what the live layer needs, until the svg is
 const kinPath = (links, P) => links.map((l) => `M${P[l.a][0].toFixed(1)},${P[l.a][1].toFixed(1)}L${P[l.b][0].toFixed(1)},${P[l.b][1].toFixed(1)}`).join("");
 const tr = (x, y) => `translate(${x.toFixed(1)} ${y.toFixed(1)})`;
 
-export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null } = {}) {
+export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null, people = null } = {}) {
   const PX = (p) => p.x, PY = (p) => p.y;
   const xs = bundle.thinkers.map(PX), ys = bundle.thinkers.map(PY);
   const pad = 52;
@@ -421,6 +485,15 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     }
   }
 
+  // people sit under the thinkers: plain dots first, faces above them (static; the live layer
+  // moves only the thinkers)
+  const crowd = people?.length ? placePeople(people, X, Y, { box }) : null;
+  if (crowd) {
+    const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
+    const { dotsSvg, facesSvg } = peopleMarkup(crowd, clip, (id) => names[id] || id);
+    svg += dotsSvg + facesSvg;
+  }
+
   const placedNames = [];
   const drawOrder = [...bundle.thinkers.filter((t) => !near.has(t.id)), ...bundle.thinkers.filter((t) => near.has(t.id))];
   for (const t of drawOrder) {
@@ -492,7 +565,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   const br = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => `M${sx * s},${sy * (s - l)}L${sx * s},${sy * s}L${sx * (s - l)},${sy * s}`).join("");
   svg += `<path class="map-brackets" aria-hidden="true" d="${br}" visibility="hidden"/>`;
   svg += `<g class="map-cross" aria-hidden="true" visibility="hidden"><line class="h" x1="0" x2="${width}" y1="0" y2="0"/><line class="v" y1="0" y2="${height}" x1="0" x2="0"/></g>`;
-  svg += `<text class="map-readout" aria-hidden="true" x="${width - 4}" y="${height + READOUT - 6}" text-anchor="end">${ids.length} thinkers · ${links.length} kin links</text>`;
+  svg += `<text class="map-readout" aria-hidden="true" x="${width - 4}" y="${height + READOUT - 6}" text-anchor="end">${ids.length} thinkers · ${links.length} kin links${crowd ? ` · ${crowd.total} people` : ""}</text>`;
 
   live.set(svgId, { P, anchors, links, regionIdx, obstacles: fixedBoxes, box, ids });
   if (typeof document !== "undefined") activateSoon(svgId);

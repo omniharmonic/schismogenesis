@@ -268,5 +268,11 @@ export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, 
     if (s) open({ school: s.dataset.school });
   });
   render();
-  return { open };
+  // redraw the map in place (e.g. once the people layer has loaded into mapOptions)
+  const redraw = () => {
+    if (!mapOptions) return;
+    mapEl.innerHTML = mapSVG(bundle, { ...mapOptions, focus: drawnFocus });
+    markSelected(mapEl, current || {});
+  };
+  return { open, redraw };
 }
