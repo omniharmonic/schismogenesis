@@ -7,7 +7,7 @@ One site, one visual language, one sub-brand. Owner: Benjamin Life (@omniharmoni
 ## Architecture
 - **antimemes.is**: the lab. The scroll story, the idea, the instruments, the rules.
 - **debate.antimemes.is**: **The Great AI Debate**, the first release. The survey, results, thinkers, profiles, statements, the 3D Lifeworld Atlas, About, privacy.
-- They are one site in two places. Every page on both carries the same top bar: the anti-memes wordmark at left (`antimemes`, Anton, the "+" in --heat) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
+- They are one site in two places. Every page on both carries the same top bar: the antimemes wordmark at left (`antimemes`, one word in Anton, no symbol) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
 - Links between them are absolute and live in one config constant per app (`LAB_URL = "https://antimemes.is"`, `DEBATE_URL = "https://debate.antimemes.is"`).
 
 ## Ground and type (shared, from the lab)

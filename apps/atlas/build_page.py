@@ -64,6 +64,8 @@ def main(data: str, output: str, *flags: str) -> None:
         page = (
             '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+            '<link rel="icon" href="/favicon.svg" type="image/svg+xml">'
+            '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
             "</head><body>" + page + "</body></html>"
         )
     pathlib.Path(output).write_text(page)

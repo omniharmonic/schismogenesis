@@ -53,7 +53,7 @@ async function main() {
     </div>
     <p class="small" id="mine" role="status">${mine === 1 || mine === -1 ? `You ${mine === 1 ? "agree" : "disagree"}, like ${(mine === 1 ? yes : no).length} of the ${entries.length} thinkers we read.` : "Answer to see who's with you. Your answer stays in your browser."}</p>
     <h2>Where the camps lean</h2>
-    <ul class="hbars">${camps.map((c) => `<li><span>${esc(c.label)}</span><span class="small">${c.lean > 0 ? "lean agree" : c.lean < 0 ? "lean disagree" : "split"}</span><span class="num">${c.n} read</span></li>`).join("")}</ul>
+    <ul class="hbars lean">${camps.map((c) => `<li><span>${esc(c.label)}</span><span class="small">${c.lean > 0 ? "lean agree" : c.lean < 0 ? "lean disagree" : "split"}</span><span class="num">${c.n} read</span></li>`).join("")}</ul>
     <h2>The thinkers, in their own words</h2>
     <div class="cols">${side(yes, names, "Agree", "agree")}${side(no, names, "Disagree", "disagree")}</div>
     ${people}

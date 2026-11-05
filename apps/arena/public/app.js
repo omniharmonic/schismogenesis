@@ -161,13 +161,13 @@ function signatureHTML(r) {
 
 function campsHTML(r) {
   const layers = bundle.layers.filter((l) => r.camps.some((c) => c.byLayer[l][0] + c.byLayer[l][1]));
-  const head = `<tr><th scope="col">Camp</th>${layers.map((l) => `<th scope="col">${LAYER_NAME[l]}</th>`).join("")}<th scope="col">Deepest split</th></tr>`;
+  const head = `<tr class="head"><th scope="col">Camp</th>${layers.map((l) => `<th scope="col">${LAYER_NAME[l]}</th>`).join("")}<th scope="col">Deepest split</th></tr>`;
   const rows = r.camps.map((c) => `<tr><th scope="row">${esc(c.label)}</th>${layers.map((l) => {
     const [a, o] = c.byLayer[l];
-    if (!a && !o) return `<td class="muted">none</td>`;
-    return `<td><span class="cell-agree">${a}</span> / <span class="cell-split">${o}</span></td>`;
-  }).join("")}<td>${c.deepest ? LAYER_NAME[c.deepest] : "none"}</td></tr>`).join("");
-  return `<div style="overflow-x:auto"><table class="camps-table">${head}${rows}</table></div>
+    if (!a && !o) return `<td class="muted" data-label="${LAYER_NAME[l]}">none</td>`;
+    return `<td data-label="${LAYER_NAME[l]}"><span class="cell-agree">${a}</span> / <span class="cell-split">${o}</span></td>`;
+  }).join("")}<td data-label="Deepest split">${c.deepest ? LAYER_NAME[c.deepest] : "none"}</td></tr>`).join("");
+  return `<div class="table-wrap"><table class="camps-table stacks">${head}${rows}</table></div>
     <p class="small muted">Each cell is <span class="cell-agree">with you</span> / <span class="cell-split">against you</span>: statements where the camp's thinkers lean one way and you answered. Layers run from roots to action, so a split low down runs deeper.</p>`;
 }
 

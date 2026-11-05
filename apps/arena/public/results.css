@@ -9,13 +9,21 @@ main.wide { max-width: 1040px; }
 .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--ink-2); margin: 8px 0 14px; }
 .key { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
 .srow { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }
-@media (max-width: 720px) { .srow { grid-template-columns: 1fr; gap: 6px; } .tile { border-right: 0; border-bottom: 1px solid var(--rule); } .tile:last-child { border-bottom: 0; } }
+@media (max-width: 720px) {
+  .srow { grid-template-columns: 1fr; gap: 6px; }
+  /* tiles become a short list: the number, then what it counts, on one line */
+  .tiles { grid-template-columns: 1fr; }
+  .tile { display: flex; align-items: baseline; gap: 12px; padding: 10px 16px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .tile b { flex: none; min-width: 2.2ch; font-size: 1.7rem; }
+  .tile span { font-size: 1rem; }
+  .tile:last-child { border-bottom: 0; }
+}
 .srow .serif { font-size: 1.04rem; line-height: 1.35; }
 .bar { position: relative; display: flex; height: 18px; gap: 2px; }
 .bar i { display: block; height: 100%; }
 .bar i:first-child { border-radius: 2px 0 0 2px; } .bar i:last-child { border-radius: 0 2px 2px 0; }
 .bar .marker { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); border-radius: 1px; }
-.barnote { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--ink-2); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.barnote { display: flex; justify-content: space-between; gap: 8px; font-size: 0.9rem; color: var(--ink-2); margin-top: 4px; font-variant-numeric: tabular-nums; }
 .hbars { list-style: none; padding: 0; margin: 0; }
 .hbars li { display: grid; grid-template-columns: minmax(120px, 210px) 1fr 52px; gap: 10px; align-items: center; padding: 6px 0; }
 .hbars .track { height: 14px; background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 8px); }
@@ -29,10 +37,34 @@ main.wide { max-width: 1040px; }
 .scroll { overflow-x: auto; }
 .tip { position: fixed; z-index: 60; pointer-events: none; background: var(--panel); color: var(--ink); border: 1px solid var(--rule-2); padding: 8px 10px; border-radius: 2px; font-size: 0.85rem; max-width: 280px; font-variant-numeric: tabular-nums; }
 .sortbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
-.sortbar button { min-height: 40px; padding: 6px 14px; font-size: 0.9rem; }
+.sortbar button { min-height: 44px; padding: 6px 14px; font-size: 0.95rem; }
 .sortbar button[aria-pressed="true"] { background: rgba(143, 176, 255, 0.1); border-color: var(--recog); color: var(--ink); }
 .waiting { background: var(--panel); border: 1px solid var(--rule); padding: 18px 20px; margin: 20px 0 8px; }
 .waiting p { margin: 0 0 10px; }
 .waiting b { font-variant-numeric: tabular-nums; }
 .meter { height: 6px; background: repeating-linear-gradient(90deg, var(--rule-2) 0 6px, transparent 6px 8px); overflow: hidden; margin-bottom: 16px; }
 .meter span { display: block; height: 100%; background: var(--recog); }
+
+/* the statement page's camp list: name, lean, count, with no bar track */
+.hbars.lean li { grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.hbars.lean li:last-child { border-bottom: 0; }
+.hbars.lean .small { white-space: nowrap; color: var(--ink-2); }
+@media (max-width: 520px) {
+  .hbars li { grid-template-columns: minmax(0, 1fr) 46px; gap: 4px 10px; }
+  .hbars li > span:first-child { grid-column: 1 / -1; }
+  .hbars .track { grid-column: 1; }
+  .hbars.lean li { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; }
+  .hbars.lean li > span:first-child { grid-column: 1; }
+  .hbars.lean li > .small { grid-column: 1; }
+  .hbars.lean li > .num { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+}
+@media (max-width: 640px) {
+  .heat.stacks { border-spacing: 0; }
+  .heat.stacks tr { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .heat.stacks th.stmt { font-size: 1.02rem; }
+  .heat.stacks td { display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; padding: 8px 10px; border-radius: 2px; font-size: 1.05rem; font-weight: 600; text-align: left; }
+  .heat.stacks td::before { float: none; margin: 0; font-size: 0.84rem; font-weight: 400; line-height: 1.25; color: color-mix(in srgb, var(--ink) 78%, transparent); }
+  .heat.stacks td.empty { border: 1px dashed var(--rule-2); font-size: 0; }
+  .heat.stacks td.empty::after { content: "too few people"; font-size: 0.9rem; font-weight: 400; color: var(--ink-2); }
+}
+.srow a.serif { display: inline-block; padding: 6px 0; }

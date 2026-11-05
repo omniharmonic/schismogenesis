@@ -16,6 +16,17 @@ export const LAB_LINKS = {
 // Static pages already carry these hrefs so they work without scripts; this keeps them in step.
 if (typeof document !== "undefined") {
   for (const a of document.querySelectorAll("a[data-lab]")) a.href = LAB_LINKS[a.dataset.lab] || LAB_LINKS.home;
+  // on a phone the nav is its own row that scrolls sideways: keep the current page in view, and
+  // fade the right edge only while there is more to scroll to
+  const nav = document.querySelector(".top-nav");
+  if (nav) {
+    const current = nav.querySelector("[aria-current]");
+    const edge = () => nav.classList.toggle("has-more", nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 2);
+    if (current && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, current.offsetLeft - nav.offsetLeft - 24);
+    edge();
+    nav.addEventListener("scroll", edge, { passive: true });
+    addEventListener("resize", edge, { passive: true });
+  }
 }
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);

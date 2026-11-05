@@ -56,7 +56,9 @@ button { font: inherit; color: inherit; }
 .skip:focus { top: 12px; }
 
 /* ---------- field + HUD ---------- */
-#field { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100lvh; z-index: 0; touch-action: pan-y; display: block; }
+/* the canvas is sized in js/site.js from a stable stage height (see resize()); these are only the
+   pre-script defaults. lvh keeps it covering the screen when a phone's address bar hides. */
+#field { position: fixed; left: 0; top: 0; width: 100%; height: 100vh; height: 100lvh; z-index: 0; touch-action: pan-y; display: block; }
 .hud { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
 .hud-corner { position: absolute; width: 18px; height: 18px; border: 0 solid var(--rule-2); }
 .hud-corner.tl { left: 10px; top: calc(var(--top-h) + 6px); border-left-width: 1px; border-top-width: 1px; }
@@ -86,8 +88,7 @@ button { font: inherit; color: inherit; }
 }
 .mark { display: inline-flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); font: 400 26px/1 var(--f-macro); letter-spacing: 0.01em; }
 .mark:hover { color: var(--ink); }
-/* the wordmark: anti+memes, Anton, the "+" in heat. Same lockup on debate.antimemes.is. */
-.mark-plus { color: var(--heat); margin: 0 1px; font-size: 1.3em; line-height: 0; }
+/* the wordmark: plain "antimemes" in Anton. Same lockup on debate.antimemes.is. */
 .mark:hover .mark-a, .mark:hover .mark-b { text-shadow: 2px 0 var(--heat), -2px 0 var(--recog); }
 .top-nav { display: flex; gap: 22px; margin-left: auto; }
 .top-nav a { font: 500 15px var(--f-ui); color: var(--ink-2); text-decoration: none; padding: 8px 0; }
@@ -400,43 +401,81 @@ main { position: relative; z-index: 5; pointer-events: none; }
   .top-debate { margin-left: auto; }
 }
 @media (max-width: 760px) {
-  :root { --top-h: 54px; }
+  :root { --top-h: 54px; --panel: rgba(18, 24, 32, 0.95); }
   body { font-size: 17px; }
-  .mark { font-size: 22px; }
+
+  /* performance: blurring the backdrop of a canvas that redraws every frame is the costliest thing
+     a phone can be asked to do while scrolling. Phones get near-solid panels instead. */
+  .top, .plate { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .top { background: rgba(18, 24, 32, 0.97); }
+  .plate-wide, .plate-hero { background: rgba(18, 24, 32, 0.95); }
+
+  .mark { font-size: 22px; min-height: 44px; }
   .top { gap: 12px; }
-  .top-cta { padding: 8px 11px; font-size: 14px; }
-  .top-debate { font-size: 14px; padding-left: 12px; gap: 6px; }
+  .top-cta { padding: 0 12px; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+  .top-debate { font-size: 15px; padding-left: 12px; gap: 6px; min-height: 44px; }
   .top-debate::before { display: none; }
   .hud-readout { display: none; }
-  .hero { padding-bottom: 70px; }
+  .hud-corner.bl, .hud-corner.br { display: none; }
+  .macro { font-size: 34px; -webkit-text-stroke-width: 1.5px; text-shadow: 0 0 1px #000, 2px 2px 0 #000; }
+
+  /* hero: the live graph owns the top of the first screen (js/site.js targetRegion "map" uses the
+     same 46svh), the headline starts right under it and the rest scrolls in. */
+  .hero { min-height: 0; justify-content: flex-start; padding-top: calc(var(--top-h) + 46vh); padding-top: calc(var(--top-h) + 46svh); padding-bottom: 12vh; }
   .plate-hero { padding: 20px 18px; }
   .hero .lede { font-size: 18px; }
   .scroll-cue { display: none; }
-  .plate { padding: 18px 18px 16px; top: auto; }
-  /* on phones the story plates sit at the bottom so the graph shows above */
-  #contagion, #schism, #scapegoat, #turn, #loop { min-height: 190vh; display: flex; flex-direction: column; }
-  #loop { min-height: 300vh; }
-  #contagion .plate, #schism .plate, #scapegoat .plate, #turn .plate, #loop .plate { position: sticky; top: auto; bottom: 12px; margin-top: auto; margin-bottom: 12px; }
-  /* on phones only the current loop step shows its sentence; the others keep their heading */
+  .plate { padding: 18px 18px 16px; }
+
+  /* story scenes on phones: the plate is never pinned. It scrolls past like a card, then a long
+     clear runway lets the graph above play the scene out. Plates sit more than a screen apart, so
+     two can never share the screen, and nothing ever covers the graph while it is animating. */
+  #contagion, #schism, #scapegoat, #turn { min-height: 0; padding-top: 52vh; padding-bottom: 72vh; }
+  #contagion .plate, #schism .plate, #scapegoat .plate, #turn .plate { position: relative; top: auto; }
+
+  /* the loop's text follows the scroll (one step at a time), so its plate stays pinned to the
+     bottom; the graph takes the space above it. The lead space keeps it from rising into view
+     while the previous section is still on screen. */
+  #loop { min-height: 0; height: 330vh; display: flex; flex-direction: column; padding-top: 90vh; }
+  #loop .plate { position: sticky; top: auto; bottom: 10px; margin-top: auto; margin-bottom: 10px; }
+  /* only the current loop step shows its sentence; the others keep their name */
   .loop-steps li { padding: 5px 0 5px 12px; }
   .loop-steps li:not(.on) p:last-child, .loop-steps li:not(.on) h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .loop-steps li.on { padding: 8px 0 8px 12px; }
-  .loop-steps h3 { font-size: 16px; }
-  .loop-k { font-size: 19px; }
+  .loop-steps h3 { font-size: 17px; }
+  .loop-steps li p:last-child { font-size: 16px; }
+  .loop-k { font-size: 20px; }
+  .loop-k em { font-size: 14px; }
   .plate-loop h2 { font-size: 24px; margin-bottom: 8px; }
   .plate-loop .kicker { display: none; }
+
   .scene h2 { font-size: 28px; }
+  .scene-fixes, .scene-turn, .scene-instruments, .scene-debate, .scene-rules, .scene-join { padding-top: 12vh; }
+
+  /* legibility: nothing a visitor has to read is under 15px on a phone */
+  .fine, .fig-note, .hint, .signit-foot, .board, .debate-link { font-size: 15px; }
+  .greentext { font-size: 16px; }
+  .kicker, .inst-status, .split-meta, .signit-label, .sorter-counts dt, .split-col h3, .school-list .n, .dz-class { font-size: 14px; }
+  .layers li { font-size: 14px; }
+  .dz-item a { font-size: 15px; }
+
+  /* tap targets */
+  .foot-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .credits summary { min-height: 44px; display: flex; align-items: center; }
+  .dz-close { width: 44px; height: 44px; right: 4px; top: 4px; }
+
   .pair { grid-template-columns: 1fr; }
   .pair-card + .pair-card { border-left: 0; border-top: 1px solid var(--rule); }
   .signit-meters { grid-template-columns: 1fr; }
   .brain li { grid-template-columns: 64px 1fr; gap: 14px; }
   .glow { height: 52px; }
   .g4::before { width: 52px; height: 52px; }
+  .split-head { padding: 12px 10px; gap: 8px; }
   .split-cols { grid-template-columns: 1fr; }
   .split-col + .split-col { border-left: 0; border-top: 1px solid var(--rule-2); }
   .rules { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; }
-  .dossier { right: 8px; left: 8px; width: auto; top: auto; bottom: 8px; max-height: 62vh; }
+  .dossier { right: 8px; left: 8px; width: auto; top: auto; bottom: 8px; max-height: 62vh; max-height: 62svh; }
   .plate-wide { padding: 22px 18px; }
   .inst-key { font-size: 44px; }
 }

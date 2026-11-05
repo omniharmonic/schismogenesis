@@ -2,7 +2,7 @@
 
 The front page for antimemes.is (https://antimemes.is), Benjamin Life's arts lab for dialogue across difference. It's one scrolling page that tells the story: mimetic contagion, then schismogenesis, then the scapegoat, then why the usual fixes fail, then anti-mimesis, the three instruments (SEE, MEET, MOVE), the first release (The Great AI Debate), the loop that connects them (see, meet, move, meta-consensus) and the rules.
 
-The lab and The Great AI Debate (https://debate.antimemes.is) are one site in two places. Both share the top bar (the `anti+memes` wordmark), footer, colours and type set out in `docs/brand/BRAND.md`. A live graph of the real AI Futures map runs behind the page.
+The lab and The Great AI Debate (https://debate.antimemes.is) are one site in two places. Both share the top bar (the `antimemes` wordmark), footer, colours and type set out in `docs/brand/BRAND.md`. A live graph of the real AI Futures map runs behind the page.
 
 It's a static site with no framework and no build step. It uses no third-party scripts, and the fonts are hosted in the site folder.
 
@@ -19,7 +19,8 @@ apps/antimemes/
     map-quotes.json   stances with quotes and source links (generated; loads when idle)
     faces/            portraits, only those with a recorded credit (generated)
     fonts/            Anton, IBM Plex Sans Condensed, Newsreader (SIL OFL)
-    img/              favicon.svg, icon-180.png, og.png (1200×630)
+    img/              favicon.svg + icon-180.png (four camp-coloured faces, each linked to every
+                      other: meta-consensus as a graph), og.png (1200×630)
     robots.txt        allow all, points at the sitemap
     sitemap.xml       https://antimemes.is/
   deploy/vercel.json  clean URLs and security headers (copied next to the site by deploy.sh)
@@ -50,6 +51,10 @@ python3 -m http.server 8811 --directory apps/antimemes/site
 ```
 
 Then open http://localhost:8811.
+
+## On phones
+
+Below 760px the graph owns the top of the screen. Story plates (contagion, split, scapegoat, the turn) are not pinned: each scrolls past as a card, then a long clear runway lets the scene play out above. Plates sit more than a screen apart, so two never share the screen. Only the loop plate is pinned (its text follows the scroll); the graph takes the space above it. The canvas is sized from `svh`/`lvh`, which don't change when the address bar shows or hides, so the graph never re-lays out mid-scroll; only a new width (rotation) does.
 
 ## Links to the debate
 

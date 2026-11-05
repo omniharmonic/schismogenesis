@@ -11,8 +11,8 @@
     atlasPath: "/atlas",
     peoplePath: "/people",
     cardPath: "/people#", // + person id: that thinker's full profile on the debate
-    aboutPath: "/about",
-    privacyPath: "/privacy",
+    aboutPath: "/about.html",
+    privacyPath: "/privacy.html",
   };
   const LINKS = {
     lab: (/(^|\.)antimemes\.is$/.test(location.hostname) ? LAB_URL : "") + "/", // relative in local previews
@@ -86,23 +86,74 @@
   const loop = { near: null, far: null, phase: 0, t: 0, el: [] }; // see -> meet -> move -> meta-consensus
   let awake = false, lastT = 0, t0 = performance.now();
 
-  function resize() {
+  // A stable stage. On phones the address bar shows and hides while you scroll, which fires
+  // "resize" with a new innerHeight. Sizing the canvas from that made the whole graph re-layout and
+  // jump mid-scroll. Instead measure the small viewport (svh: bar showing) for layout and the large
+  // one (lvh: bar hidden) for the canvas. Both stay put while the bar moves, so a height-only resize
+  // from the bar changes nothing; only a new width (rotation, window resize) re-lays the stage.
+  const probe = (unit) => {
+    const d = document.createElement("div");
+    d.setAttribute("aria-hidden", "true");
+    d.style.cssText = `position:fixed;left:0;top:0;width:0;height:100${unit};visibility:hidden;pointer-events:none`;
+    document.body.appendChild(d);
+    return d;
+  };
+  const probeS = probe("svh"), probeL = probe("lvh");
+  const hasDynVh = probeS.offsetHeight > 0;
+  let HC = 0, lastW = -1, lastInnerH = -1;
+  let loopPlateH = 0;
+
+  function resize(force) {
+    const w = window.innerWidth, ih = window.innerHeight;
+    const s = hasDynVh ? probeS.offsetHeight : ih, l = hasDynVh ? probeL.offsetHeight : ih;
+    if (force !== true && w === lastW) {
+      // same width: either nothing changed or the URL bar moved. Without svh/lvh support, ignore
+      // height-only changes small enough to be the bar (a real window resize is bigger).
+      if (hasDynVh ? s === H && Math.max(l, ih) <= HC : Math.abs(ih - lastInnerH) < 160) return;
+    }
+    lastW = w; lastInnerH = ih;
     DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = window.innerWidth; H = window.innerHeight;
+    W = w; H = s; HC = Math.max(l, ih, s);
     TOP = parseFloat(getComputedStyle($(".top")).height) || 60;
-    canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
-    canvas.style.width = W + "px"; canvas.style.height = H + "px";
+    canvas.width = Math.round(W * DPR); canvas.height = Math.round(HC * DPR);
+    canvas.style.width = W + "px"; canvas.style.height = HC + "px";
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    measureLoopPlate();
     wake();
+  }
+
+  // the loop plate swaps which step shows its sentence; give it the height of its tallest phase so
+  // it never grows into the graph above it on phones
+  function measureLoopPlate() {
+    const plate = $("#loop .plate");
+    if (!plate) return;
+    plate.style.minHeight = "";
+    if (W >= 760) { loopPlateH = 0; return; }
+    const lis = $$("#loop-steps > li");
+    const was = lis.map((li) => li.className);
+    let m = 0;
+    lis.forEach((_, ph) => {
+      lis.forEach((li, j) => { li.classList.toggle("on", j === ph); li.classList.toggle("done", j < ph); });
+      m = Math.max(m, plate.offsetHeight);
+    });
+    lis.forEach((li, j) => { li.className = was[j]; });
+    plate.style.minHeight = m + "px";
+    loopPlateH = m;
   }
 
   function targetRegion(key) {
     const mobile = W < 760;
     const top = TOP + 18;
     if (mobile) {
-      if (key === "map") return { x0: 14, x1: W - 14, y0: top + 6, y1: H * 0.44 };
-      if (["contagion", "schism", "scapegoat", "plural", "loop"].includes(key)) return { x0: 18, x1: W - 18, y0: top + 10, y1: H * 0.5 };
-      return { x0: 14, x1: W - 14, y0: top + 10, y1: H - 24 };
+      // Phones: the graph owns the top of the screen and the text never pins over it.
+      // map: the space above the hero text (matches .hero padding-top in the CSS).
+      // story scenes: the plates scroll past, then a long clear runway shows the scene play out.
+      // loop: the plate is pinned to the bottom, so the graph takes exactly what is left above it.
+      const x0 = 12, x1 = W - 12, y0 = TOP + 12, stage = H - TOP;
+      if (key === "map") return { x0, x1, y0, y1: TOP + H * 0.46 - 14 };
+      if (key === "loop") return { x0, x1, y0, y1: Math.max(TOP + stage * 0.38, H - loopPlateH - 30) };
+      if (["contagion", "schism", "scapegoat", "plural"].includes(key)) return { x0, x1, y0, y1: TOP + stage * 0.62 };
+      return { x0, x1, y0, y1: H - 24 };
     }
     const gutter = clamp(W * 0.04, 16, 48);
     const right = W >= 1180 ? W - 170 : W - 60;
@@ -279,7 +330,10 @@
         if (k === "scapegoat") {
           const r = lerp(0.95, 0.5, goat) * n.gj;
           const asp = (region.y1 - region.y0) / Math.max(1, region.x1 - region.x0);
-          const gx = Math.cos(n.ga) * r * Math.min(1, asp * 1.1), gy = Math.sin(n.ga) * r * 0.86;
+          // leave a band above and below the crowd for the "anyone / will do" caption
+          const ry = (region.y1 - region.y0) / 2 || 1;
+          const capY = W < 760 ? clamp(1 - 46 / ry, 0.5, 0.86) : 0.86;
+          const gx = Math.cos(n.ga) * r * Math.min(1, asp * 1.1), gy = Math.sin(n.ga) * r * capY;
           x = lerp(x, gx, ease(clamp(p * 2.2))); y = lerp(y, gy, ease(clamp(p * 2.2)));
         }
       }
@@ -381,6 +435,7 @@
     const w = Math.max(w1, w2) + 16, h = sub ? 38 : 22;
     let bx = x + 16, by = y - h / 2;
     if (bx + w > W - 10) bx = x - 16 - w;
+    bx = clamp(bx, 6, Math.max(6, W - w - 6)); // narrow screens: never off either edge
     by = clamp(by, TOP + 6, H - h - 6);
     ctx.fillStyle = "rgba(14,19,26,0.92)"; ctx.fillRect(bx, by, w, h);
     ctx.fillStyle = color; ctx.fillRect(bx, by, 2, h);
@@ -618,12 +673,15 @@
     }
   }
   addEventListener("scroll", wake, { passive: true });
-  addEventListener("resize", resize);
+  addEventListener("resize", () => resize());
+  // rotation: the new viewport settles a moment after the event
+  addEventListener("orientationchange", () => setTimeout(() => resize(true), 250));
   reduceMQ.addEventListener?.("change", (e) => { REDUCE = e.matches; wake(); });
 
   // ---------------------------------------------------------------- pointer
-  function hit(x, y) {
-    const R = nodeRadius() * 1.4 + 4;
+  function hit(x, y, touch) {
+    // a fingertip needs about 44px: give touches a wider catch than the mouse
+    const R = Math.max(nodeRadius() * 1.4 + 4, touch ? 22 : 0);
     let best = null, bd = R * R;
     for (const n of nodes) {
       if (n.alpha * anim.alpha < 0.15) continue;
@@ -648,7 +706,7 @@
   });
   canvas.addEventListener("pointerleave", () => { pointer.inside = false; if (!pointer.drag) hover = null; wake(); });
   canvas.addEventListener("pointerdown", (e) => {
-    const h = hit(e.clientX, e.clientY);
+    const h = hit(e.clientX, e.clientY, e.pointerType !== "mouse");
     pointer.down = true; pointer.moved = 0; pointer.x = e.clientX; pointer.y = e.clientY;
     pointer.cand = h;
     if (h && e.pointerType !== "touch") { pointer.drag = h; canvas.setPointerCapture(e.pointerId); canvas.style.cursor = "grabbing"; }
@@ -814,6 +872,8 @@
     resize();
     buildGraph();
     fillPage();
+    measureLoopPlate();
+    if (document.fonts?.ready) document.fonts.ready.then(() => { measureLoopPlate(); wake(); });
     readScroll();
     if (REDUCE) { for (const n of nodes) { n.alpha = 1; } region.init = false; }
     wake();

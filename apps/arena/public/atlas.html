@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>Lifeworld Atlas · The Great AI Debate</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></head><body><title>Lifeworld Atlas · The Great AI Debate</title>
 <meta name="description" content="A 3D atlas of the ideas under the AI debate: public figures, the assumptions they stand on, and where camps share ground or split. Part of The Great AI Debate on antimemes.is.">
 <meta name="theme-color" content="#121820">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -182,13 +182,14 @@ body.nogl .hud{display:none}
 
 @media (max-width:1100px){ .top-nav{gap:14px} .top-nav a{font-size:14px} }
 @media (max-width:760px){
-  :root{--top-h:84px}
-  .top{flex-wrap:wrap;align-content:center;gap:2px 10px;padding-top:6px;padding-bottom:4px}
+  :root{--top-h:88px}
+  .top{flex-wrap:wrap;align-content:center;gap:0 10px;padding-top:4px;padding-bottom:0}
   .mark{font-size:21px}
-  .sub-brand{font-size:14.5px}
+  .sub-brand{font-size:16px}
   .top-nav{width:100%;margin:0;gap:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
   .top-nav::-webkit-scrollbar{display:none}
-  .top-nav a{font-size:14px;padding:6px 0}
+  .top-nav a{font-size:15px;padding:0;min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center}
+  .mark,.sub-brand{min-height:36px;display:inline-flex;align-items:center}
   #stage,.hud{left:0;bottom:46%}
   #panel{top:auto;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));width:auto;height:calc(46% - 10px);bottom:calc(8px + env(safe-area-inset-bottom,0px))}
   #panel>header{padding:10px 14px 4px}
@@ -196,7 +197,19 @@ body.nogl .hud{display:none}
   .kicker{display:none}
   #view{padding:10px 14px 14px}
   #tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-  #tabs button{white-space:nowrap}
+  #tabs button{white-space:nowrap;min-height:44px;font-size:15px;padding:8px 9px}
+  .sub,.meta,.box,.q a{font-size:14px}
+  h3{font-size:14.5px}
+  #legend label,.key{min-height:36px;font-size:14px}
+  #legend summary{min-height:44px;display:flex;align-items:center}
+  .box{padding:0 12px 6px}
+  .chip{min-height:40px;font-size:14.5px;padding:4px 10px}
+  .back,.crumb{min-height:44px}
+  .crumb{display:inline-flex;align-items:center}
+  .row{padding:11px 0;font-size:16px}
+  .tag{font-size:14px}.tag small{font-size:13px}
+  .hc-role,.hc-side,.hc-hint,.hc-where dt{font-size:13.5px}
+  #search{font-size:16px;padding:10px;min-height:44px}
   .foot{display:none}
   #controls{right:12px;top:calc(var(--top-h) + 10px)}
   .readout,#time,.key-faces{display:none}
@@ -212,7 +225,7 @@ body.nogl .hud{display:none}
     <a class="sub-brand" href="https://debate.antimemes.is">The Great AI Debate</a>
   </div>
   <nav class="top-nav" aria-label="The Great AI Debate">
-    <a href="/">Take it</a><a href="/results">Results</a><a href="/people">Thinkers</a><a href="/atlas" aria-current="page">3D atlas</a><a href="/about">About</a>
+    <a href="/">Take it</a><a href="/results">Results</a><a href="/people">Thinkers</a><a href="/atlas" aria-current="page">3D atlas</a><a href="/about.html">About</a>
   </nav>
 </header>
 <div id="stage" role="img" aria-label="Three-dimensional atlas of ideas and thinkers. The panel holds the same content as text."></div>
@@ -230,7 +243,7 @@ body.nogl .hud{display:none}
   <header><p class="kicker">The Great AI Debate</p><h1>Lifeworld Atlas</h1><div class="sub" id="sub"></div></header>
   <nav role="tablist" id="tabs"></nav>
   <div id="view" tabindex="-1"></div>
-  <div class="foot">antimemes.is, an arts lab by Benjamin Life · <a href="https://antimemes.is">Lab</a> · <a href="https://debate.antimemes.is">Debate</a> · <a href="/about">About</a> · <a href="/privacy">Privacy</a> · <a href="/about#credits">Portrait credits</a></div>
+  <div class="foot">antimemes.is, an arts lab by Benjamin Life · <a href="https://antimemes.is">Lab</a> · <a href="https://debate.antimemes.is">Debate</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/about.html#portraits">Portrait credits</a></div>
 </aside>
 <div id="controls">
   <details id="legend" class="box" open><summary>Layers</summary><div id="layers"></div>
@@ -546,7 +559,7 @@ function start3D(){
       const grid = new THREE.GridHelper(420, 14, COLOR[l], '#3a4757');
       grid.position.y = HEIGHT[l]; grid.material.transparent = true; grid.material.opacity = .1; grid.material.depthWrite = false;
       scene.add(grid);
-      const tag = labelSprite(NAME[l], COLOR[l], 20); tag.position.set(236,HEIGHT[l],0); tag.material.opacity = .8; scene.add(tag);
+      const tag = labelSprite(NAME[l], COLOR[l], isMobile() ? 28 : 20); tag.position.set(236,HEIGHT[l],0); tag.material.opacity = .8; scene.add(tag);
     });
     (A.tree || []).forEach((n, i) => {
       const pts = everyone(n).map(m => person[m]).filter(Boolean);
@@ -555,7 +568,7 @@ function start3D(){
       const r = Math.max(30, ...pts.map(p => Math.hypot(p.x-cx,p.y-cz)+12));
       const ring = new THREE.Mesh(new THREE.RingGeometry(r-.5,r,96), new THREE.MeshBasicMaterial({color:CAMP[i%CAMP.length],side:THREE.DoubleSide,transparent:true,opacity:.22,depthWrite:false}));
       ring.rotation.x = -Math.PI/2; ring.position.set(cx,SURFACE-14,cz); scene.add(ring);
-      const tag = labelSprite(n.label, CAMP[i%CAMP.length], 30, 600); tag.position.set(cx,SURFACE+34,cz-r*.6); tag.material.opacity = FOCUS ? .28 : .9; scene.add(tag); CAMP_TAGS.push(tag);
+      const tag = labelSprite(n.label, CAMP[i%CAMP.length], isMobile() ? 44 : 30, 600); // a phone sees the atlas from further away tag.position.set(cx,SURFACE+34,cz-r*.6); tag.material.opacity = FOCUS ? .28 : .9; scene.add(tag); CAMP_TAGS.push(tag);
     });
     // initials drawn before the font arrived get redrawn in Plex
     A.people.forEach(p => { if (!IMG.has(p.id) && TEX.has(p.id)) redrawFace(p.id); });

@@ -74,6 +74,39 @@ function relax(pos, ids, box, { steps = 220, boxes = () => [] } = {}) {
 
 const labelWidth = (text, size = 6.6) => text.length * size + 12;
 
+// Group names, placed greedily from the top: each takes the spot near its preferred one (above
+// its group) that overlaps no name already placed and covers the fewest faces, the faces of the
+// group in focus counting most. Deterministic, so everyone sees the same map. Mutates x and y.
+function spreadLabels(labels, { width, height, h, faces = [] }) {
+  const placed = [];
+  const hits = (x, y, w) => placed.some((o) => Math.abs(o.x - x) * 2 < o.w + w + 6 && Math.abs(o.y - y) < h + 2);
+  const covered = (x, y, w) => {
+    let n = 0;
+    for (const f of faces) {
+      if (Math.abs(f.x - x) < w / 2 + R && f.y > y - h + 5 - R && f.y < y + 5 + R) n += f.weight;
+    }
+    return n;
+  };
+  const order = [...labels].sort((a, b) => a.y - b.y || a.x - b.x);
+  for (const l of order) {
+    const half = l.w / 2, fit = (x) => Math.min(width - half - 4, Math.max(half + 4, x));
+    let best = null;
+    for (let k = 0; k <= 10; k++) {
+      for (const dy of k ? [-k * (h + 2), k * (h + 2)] : [0]) {
+        for (const dx of [0, -half / 2, half / 2, -half - 8, half + 8]) {
+          const x = fit(l.x + dx), y = l.y + dy;
+          if (y < 14 || y > height - 6 || hits(x, y, l.w)) continue;
+          const score = covered(x, y, l.w) * 3 + Math.abs(dy) / (h + 2) + Math.abs(x - l.x) / l.w;
+          if (!best || score < best[2] - 1e-9) best = [x, y, score];
+        }
+      }
+      if (best && best[2] <= k + 1) break; // nothing further out can beat this
+    }
+    if (best) [l.x, l.y] = best;
+    placed.push(l);
+  }
+}
+
 // A rounded region around points: the hull drawn with a thick round stroke, so one member is a
 // disc, two a capsule, more a padded polygon.
 function region(points) {
@@ -313,7 +346,10 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   const label = `Map of ${bundle.thinkers.length} thinkers grouped into schools${result ? ", with your approximate position" : ""}. Select a thinker or a school to see their positions.`;
   const seq = ++clipSeq;
   const clip = `face-clip-${seq}`, svgId = `thinker-map-${seq}`;
-  let svg = `<svg class="thinker-map${focus ? " has-focus" : ""}" id="${svgId}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${esc(label)}">`;
+  // a phone-sized map is drawn narrow and shown small, so its text is set larger (map.css)
+  const narrow = width < 600;
+  const LW = narrow ? 7.6 : 6.6, NW = narrow ? 6.8 : 6, LH = narrow ? 20 : 18;
+  let svg = `<svg class="thinker-map${focus ? " has-focus" : ""}${narrow ? " is-narrow" : ""}" id="${svgId}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${esc(label)}">`;
   svg += `<defs><clipPath id="${clip}" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5"/></clipPath></defs>`;
 
   // group names sit above their group; then everyone steps out from under the text
@@ -325,18 +361,20 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     if (!pts.length) return;
     const cx = pts.reduce((t, p) => t + p[0], 0) / pts.length;
     const top = Math.min(...pts.map((p) => p[1]));
-    const w = labelWidth(g.label);
+    const w = labelWidth(g.label, LW);
     const x = Math.min(width - w / 2 - 4, Math.max(w / 2 + 4, cx));
     const y = Math.max(14, top - R - 16);
     labels.push({ s: g, key: g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`, x, y, w });
   });
+  const faces = ids.map((id) => ({ x: pos[id][0], y: pos[id][1], weight: inFocus && !inFocus.has(id) ? 0.25 : 1 }));
+  spreadLabels(labels, { width, height, h: LH, faces });
   const you = result?.position ? [X(PX(result.position)), Y(PY(result.position))] : null;
   const fixedBoxes = [
-    ...labels.map((l) => ({ x: l.x - l.w / 2, y: l.y - 13, w: l.w, h: 18 })),
+    ...labels.map((l) => ({ x: l.x - l.w / 2, y: l.y - LH + 5, w: l.w, h: LH })),
     ...(you ? [{ x: you[0] - 22, y: you[1] - 22, w: 80, h: 44 }] : []),
   ];
   const nameBoxes = () => [...near].filter((id) => pos[id]).map((id) => {
-    const w = labelWidth(bundle.thinkers.find((t) => t.id === id).name, 6);
+    const w = labelWidth(bundle.thinkers.find((t) => t.id === id).name, NW);
     return { owner: id, x: pos[id][0] - w / 2, y: pos[id][1] + R + 3, w, h: 16 };
   });
   relax(pos, ids, { w: width, h: height }, { steps: 140, boxes: () => [...fixedBoxes, ...nameBoxes()] });
@@ -398,7 +436,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
       : `<text y="3.6" text-anchor="middle">${esc(t.initials)}</text>`;
     svg += `</g>`;
     if (near.has(t.id)) {
-      const name = t.name.replace(/ \(.*\)/, ""), half = labelWidth(name, 6) / 2;
+      const name = t.name.replace(/ \(.*\)/, ""), half = labelWidth(name, NW) / 2;
       const nx = Math.min(width - half, Math.max(half, x)) - x;
       svg += `<text class="map-name" x="${nx.toFixed(1)}" y="${R + 14}" text-anchor="middle">${esc(name)}</text>`;
     }

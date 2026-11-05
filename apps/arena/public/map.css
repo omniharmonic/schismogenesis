@@ -79,3 +79,10 @@ svg.thinker-map:not(.is-live) .map-readout { display: none; }
 @media (prefers-reduced-motion: reduce) {
   svg.thinker-map .tm-body { transition: none; }
 }
+
+/* a phone-sized map (400 units wide, shown about 330px wide) sets its text larger so it reads
+   at 11px or more on screen; mapSVG sizes the label boxes to match */
+svg.thinker-map.is-narrow .map-school-label text { font-size: 14.5px; stroke-width: 4.5px; }
+svg.thinker-map.is-narrow .map-name { font-size: 13px; stroke-width: 4px; }
+svg.thinker-map.is-narrow .map-thinker text:not(.map-name) { font-size: 11.5px; }
+svg.thinker-map.is-narrow .map-readout { font-size: 13px; }

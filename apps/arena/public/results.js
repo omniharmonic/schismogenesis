@@ -47,12 +47,12 @@ const heatColour = (share) => {
 function crosstab(r) {
   const c = r.crosstab;
   const text = Object.fromEntries(r.statements.map((s) => [s.id, s.text]));
-  const head = `<tr><th>Statement</th>${c.schools.map((s) => `<th scope="col">${esc(s)}</th>`).join("")}</tr>`;
+  const head = `<tr class="head"><th>Statement</th>${c.schools.map((s) => `<th scope="col">${esc(s)}</th>`).join("")}</tr>`;
   const rows = r.statements.map((s) => `<tr><th scope="row" class="stmt">${esc(text[s.id])}</th>${c.schools.map((school) => {
     const cell = c.cells[s.id][school];
-    return cell ? `<td style="background:${heatColour(cell.agree_share)}" data-tip="${esc(school)}: ${pct(cell.agree_share)} agree (${cell.n} people)">${pct(cell.agree_share)}</td>` : `<td class="empty" data-tip="Fewer than ${r.min_cell} people">·</td>`;
+    return cell ? `<td style="background:${heatColour(cell.agree_share)}" data-label="${esc(school)}" data-tip="${esc(school)}: ${pct(cell.agree_share)} agree (${cell.n} people)">${pct(cell.agree_share)}</td>` : `<td class="empty" data-label="${esc(school)}" data-tip="Fewer than ${r.min_cell} people">·</td>`;
   }).join("")}</tr>`).join("");
-  return `<div class="scroll"><table class="heat">${head}${rows}</table></div>`;
+  return `<div class="scroll"><table class="heat stacks">${head}${rows}</table></div>`;
 }
 
 // How the public thinkers split on each statement, from the fingerprint bundle: no visitor data.
@@ -116,9 +116,9 @@ function render(r) {
     ${r.camps.length ? `<h2>Who leans with each camp</h2><p class="muted">Share of people who agree with a camp's thinkers on most statements where the camp takes a side.</p>
       ${hbars(r.camps, (c) => c.label, (c) => c.share_aligned, (c) => `${pct(c.share_aligned)} lean with ${c.label}`)}` : ""}
     ${r.crosstab ? `<h2>How each neighbourhood answers</h2><p class="muted">Share agreeing, among people whose nearest thinker is in that school. Green leans agree, pink leans disagree.</p>${crosstab(r)}` : ""}
-    <details style="margin-top:28px"><summary>Table of every statement</summary><div class="scroll"><table class="camps-table">
-      <tr><th>Statement</th><th>Agree</th><th>Unsure</th><th>Disagree</th><th>Thinkers agree</th></tr>
-      ${r.statements.map((s) => `<tr><td>${esc(s.text)}</td><td>${s.agree}</td><td>${s.unsure}</td><td>${s.disagree}</td><td>${pct(s.thinkers_agree_share)}</td></tr>`).join("")}</table></div></details>
+    <details style="margin-top:28px"><summary>Table of every statement</summary><div class="scroll"><table class="camps-table stacks">
+      <tr class="head"><th scope="col">Statement</th><th scope="col">Agree</th><th scope="col">Unsure</th><th scope="col">Disagree</th><th scope="col">Thinkers agree</th></tr>
+      ${r.statements.map((s) => `<tr><th scope="row" class="plain">${esc(s.text)}</th><td data-label="Agree">${s.agree}</td><td data-label="Unsure">${s.unsure}</td><td data-label="Disagree">${s.disagree}</td><td data-label="Thinkers agree">${pct(s.thinkers_agree_share)}</td></tr>`).join("")}</table></div></details>
     ${notes}
     <p class="small muted">Updated ${new Date(r.computed_at).toLocaleString()}. People who add their answers aren't a random sample, so read this as "the people here", not "the public".</p>`;
   for (const b of el.querySelectorAll("[data-sort]")) b.onclick = () => { sort = b.dataset.sort; render(r); };
