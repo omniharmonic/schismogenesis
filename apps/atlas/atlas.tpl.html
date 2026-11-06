@@ -42,13 +42,22 @@ button{cursor:pointer}
   background:linear-gradient(to bottom,rgba(18,24,32,.96),rgba(18,24,32,.8));border-bottom:1px solid var(--rule);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
-.mark{display:inline-flex;align-items:baseline;text-decoration:none;color:var(--ink);font:400 24px/1 var(--f-macro);letter-spacing:.01em}
-.mark:hover{color:var(--ink)}
-.mark-x{display:inline-block;width:13px;height:13px;margin:0 3px;position:relative;align-self:center}
-.mark-x::before,.mark-x::after{content:"";position:absolute}
-.mark-x::before{left:0;right:0;top:5.5px;height:2px;background:var(--heat)}
-.mark-x::after{top:0;bottom:0;left:5.5px;width:2px;background:var(--recog)}
-.mark:hover .mark-a,.mark:hover .mark-b{text-shadow:2px 0 var(--heat),-2px 0 var(--recog)}
+/* the wordmark (D-31.25): the selection mark, "anti" in IBM Plex Sans, "mɘmes" in Archivo
+   expanded with its first e mirrored to face its twin; recognition blue on the mark's two accents */
+@font-face { font-family: "AM Plex"; font-weight: 500; font-display: swap; src: url("/fonts/IBMPlexSans-Medium.woff2") format("woff2"); }
+@font-face { font-family: "AM Archivo"; font-weight: 600; font-display: swap; src: url("/fonts/Archivo-ExpandedSemiBold.woff2") format("woff2"); }
+.mark, .foot-mark a, p.foot-mark { display: inline-flex; align-items: center; gap: 0; text-decoration: none; color: var(--ink); font-size: 22px; line-height: 1; white-space: nowrap; letter-spacing: 0; }
+.mark-sym { position: relative; width: 0.92em; height: 0.92em; flex: none; margin-right: 0.42em; }
+.mark-sym::before { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(currentColor, currentColor) left top / 30% 9% no-repeat,
+  linear-gradient(currentColor, currentColor) left top / 9% 30% no-repeat,
+  linear-gradient(currentColor, currentColor) right bottom / 30% 9% no-repeat,
+  linear-gradient(currentColor, currentColor) right bottom / 9% 30% no-repeat; }
+.mark-sym::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; border-radius: 50%; background: var(--recog, #8fb0ff); transform: translate(-50%, -50%); }
+.mark-a { font-family: "AM Plex", "IBM Plex Sans Condensed", system-ui, sans-serif; font-weight: 500; letter-spacing: 0.01em; color: var(--ink-2, #9aa7b6); }
+.mark-b { font-family: "AM Archivo", "IBM Plex Sans Condensed", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.mark-mir { display: inline-block; transform: scaleX(-1); color: var(--recog, #8fb0ff); }
+.mark:hover .mark-b, .foot-mark a:hover .mark-b { color: #fff; }
 .slash{color:var(--ink-3);font:400 20px var(--f-ui)}
 .sub-brand{font:600 16px/1 var(--f-ui);color:var(--ink);text-decoration:none;white-space:nowrap}
 .sub-brand:hover{color:#fff}
@@ -184,7 +193,7 @@ body.nogl .hud{display:none}
 @media (max-width:760px){
   :root{--top-h:88px}
   .top{flex-wrap:wrap;align-content:center;gap:0 10px;padding-top:4px;padding-bottom:0}
-  .mark{font-size:21px}
+  .mark{font-size:19px}
   .sub-brand{font-size:16px}
   .top-nav{width:100%;margin:0;gap:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
   .top-nav::-webkit-scrollbar{display:none}
@@ -220,7 +229,7 @@ body.nogl .hud{display:none}
 <a class="skip" href="#view">Skip to the reading panel</a>
 <header class="top">
   <div class="brand">
-    <a class="mark" href="https://antimemes.is" aria-label="antimemes, the lab"><span class="mark-a">anti</span><span class="mark-b">memes</span></a>
+    <a class="mark" href="https://antimemes.is" aria-label="antimemes, the lab"><span class="mark-sym" aria-hidden="true"></span><span class="mark-a">anti</span><span class="mark-b">m<span class="mark-mir">e</span>mes</span></a>
     <span class="slash" aria-hidden="true">/</span>
     <a class="sub-brand" href="https://debate.antimemes.is">The Great AI Debate</a>
   </div>
@@ -251,6 +260,7 @@ body.nogl .hud{display:none}
 </div>
 <div id="time" class="box"><label for="year">Ideas seen by <b id="yearv"></b></label><input id="year" type="range"></div>
 
+<script type="module" src="/nav.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js"></script>
 <script id="data" type="application/json">/*ATLAS*/</script>

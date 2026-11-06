@@ -1,7 +1,7 @@
 COMPOSE = docker compose --env-file .env -f infra/docker-compose.yml --profile cloud-dev
 ALEMBIC = uv run alembic -c packages/arena_core/alembic.ini
 
-.PHONY: ci lint typecheck test test-js load-test redline up down migrate seed bundle app demo-room
+.PHONY: ci lint typecheck test test-js load-test load-test-api redline up down migrate seed bundle app demo-room
 
 ci: lint typecheck test test-js redline
 
@@ -17,6 +17,10 @@ test:
 
 load-test:
 	ARENA_LOAD_TEST=1 uv run pytest packages/arena_rounds/tests/test_launch_analysis.py -k large -s
+
+# tens of thousands of people in the main room: results, people map, account writes
+load-test-api:
+	ARENA_LOAD_TEST=1 ARENA_LOAD_PEOPLE=$${PEOPLE:-50000} uv run pytest -q -s services/api/tests/test_load.py
 
 test-js:
 	node --test apps/arena/tests/*.test.mjs

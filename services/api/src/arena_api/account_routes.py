@@ -13,13 +13,22 @@ import urllib.parse
 from collections.abc import Callable
 
 from arena_fingerprint.agreement import position, ranked
-from fastapi import FastAPI, HTTPException, Request, Response
+from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import JSONResponse, RedirectResponse
 from pydantic import BaseModel, Field
 
 from arena_api import accounts, identity
-from arena_api.account_store import AccountStore
-from arena_api.profiles import SummaryError, clean_answers
+from arena_api.account_store import AccountPages
+from arena_api.profiles import (
+    Summary,
+    SummaryError,
+    anon_name,
+    clean_answers,
+    clean_glyph,
+    clean_summary,
+    new_code,
+)
+from arena_api.store import key_hash
 
 COOKIE = "am_session"
 MAIN_ROOM = "ai-futures"
@@ -49,6 +58,24 @@ class RoomEntry(BaseModel):
     key: str = Field(min_length=32, max_length=128)
 
 
+class OwnProfile(BaseModel):
+    summary: Summary
+    glyph: list[int | None]
+    listed: bool = False
+
+
+class CampName(BaseModel):
+    name: str = Field(min_length=3, max_length=48)
+
+
+class CampVote(BaseModel):
+    up: bool | None
+
+
+class Decision(BaseModel):
+    accept: bool
+
+
 class Answers(BaseModel):
     answers: dict[str, int]
     room: RoomEntry | None = None  # this browser's earlier anonymous entry, taken over once
@@ -58,11 +85,12 @@ def register(
     app: FastAPI,
     *,
     store,
-    astore: AccountStore,
+    astore: AccountPages,
+    admin: Callable = lambda: None,
     config,
     bundle: dict,
     consent_version: str,
-    limit: Callable[[str, int], None],
+    limit: Callable[..., None],
     client: Callable[[Request], str],
     http: accounts.Http = accounts.http,
     sender: accounts.Sender | None = None,
@@ -132,8 +160,87 @@ def register(
                 "sheet": None
                 if sheet is None
                 else {k: sheet[k] for k in ("season", "answers", "updated_at")},
+                "profile": profile_link(account_id),
+                "socials": astore.socials(account_id),
             }
         }
+
+    def profile_link(account_id: str) -> dict | None:
+        row = astore.owned_profile(account_id)
+        if row is None:
+            return None
+        url = f"{config.public_url}/p/{row['code']}"
+        return {"code": row["code"], "url": url, "listed": row["listed"]}
+
+    @app.put("/api/me/profile")
+    def put_profile(body: OwnProfile, request: Request):
+        """The account's public results page: made on first share, refreshed after."""
+        same_origin(request)
+        account_id = need(request)
+        limit(f"own-profile:{account_id}", 120)
+        try:
+            summary = clean_summary(body.summary, bundle)
+            glyph = clean_glyph(body.glyph, bundle)
+        except SummaryError as exc:
+            raise HTTPException(422, str(exc)) from exc
+        account = astore.account(account_id) or {}
+        social = astore.primary_social(account_id)
+        row = {
+            "code": new_code(),
+            "edit_hash": key_hash(secrets.token_urlsafe(32)),  # edited through the session
+            "identity": social["kind"] if social else "anon",
+            "handle": social["handle"] if social else None,
+            "account_id": social["subject"] if social else None,
+            "display_name": (account.get("display_name") or (social or {}).get("handle")
+                             or anon_name())[:80],
+            "avatar_url": account.get("avatar_url") if social else None,
+            "listed": body.listed and social is not None,
+            "summary": summary,
+            "glyph": glyph,
+            "bundle_version": bundle["version"],
+        }  # fmt: skip
+        code = astore.put_owned_profile(account_id, row)
+        return {"code": code, "url": f"{config.public_url}/p/{code}"}
+
+    @app.delete("/api/me/profile")
+    def delete_profile(request: Request):
+        same_origin(request)
+        astore.delete_owned_profile(need(request))
+        return {"ok": True}
+
+    @app.get("/api/me/statements")
+    def my_statements(request: Request):
+        account_id = need(request)
+        sheet = astore.sheet(account_id, season)
+        rows = astore.statements_by(sheet["participant_id"] if sheet else None)
+        room = store.room(MAIN_ROOM)
+        cached = store.cached_report(room["room_id"]) if room else None
+        bridges = ((cached or {}).get("report") or {}).get("bridges") or {}
+        passed = {b["statement"] for b in bridges.get("passed", [])}
+        leaning = {b["statement"] for b in bridges.get("leaning", [])}
+        for r in rows:
+            sid = r.pop("statement_id")
+            r["bridge"] = "passed" if sid in passed else "leaning" if sid in leaning else None
+        return {"statements": rows}
+
+    @app.post("/api/me/room")
+    def my_room(request: Request):
+        """Room credentials for this browser, tied to the account's entry (made if needed)."""
+        same_origin(request)
+        account_id = need(request)
+        room = store.room(MAIN_ROOM)
+        if room is None or room["status"] != "open":
+            raise HTTPException(409, "The room is closed.")
+        sheet = astore.sheet(account_id, season)
+        key = secrets.token_urlsafe(32)
+        participant: str | None = sheet["participant_id"] if sheet else None
+        if participant:
+            astore.rekey_participant(participant, key_hash(key))
+        else:
+            joined: str = store.join(room["room_id"], key, None, consent_version)
+            astore.link_participant(account_id, season, joined)
+            participant = joined
+        return {"participant_id": participant, "key": key}
 
     @app.patch("/api/me")
     def edit(body: AccountEdit, request: Request):
@@ -290,7 +397,8 @@ def register(
         except (accounts.BskyError, OSError, ValueError, KeyError):
             return back(request, None, "&why=bsky")
         account_id = astore.sign_in("bsky", who.did, current(request), handle=who.handle,
-                                    name=who.display_name, avatar=who.avatar_url)  # fmt: skip
+                                    name=who.display_name, avatar=who.avatar_url,
+                                    details=who.details)  # fmt: skip
         return back(request, account_id, to=flow.get("next", ""))
 
     # ---------- X (accounts share the one registered callback with the share-verify flow)
@@ -323,13 +431,90 @@ def register(
             return back(request, None, "&why=x")
         avatar = who.avatar_url and who.avatar_url.replace("_normal.", "_200x200.")
         account_id = astore.sign_in("x", who.account_id, current(request), handle=who.handle,
-                                    name=who.display_name, avatar=avatar)  # fmt: skip
+                                    name=who.display_name, avatar=avatar,
+                                    details=who.details)  # fmt: skip
         return back(request, account_id, to=flow.get("next", ""))
 
     app.state.x_account_callback = x_account_callback
 
+    # ---------- naming camps (proposals from inside the cluster; Benjamin ratifies)
+
+    path_of = {t["id"]: t.get("path") or [] for t in bundle["thinkers"]}
+    tree_nodes = (bundle.get("tree") or {}).get("nodes") or {}
+
+    def my_nodes(account_id: str) -> list[str]:
+        """The camp and school this account's nearest thinker sits in."""
+        nearest = astore.nearest_of(account_id, season)
+        return [n for n in path_of.get(nearest or "", [])[:2] if n in tree_nodes]
+
+    def can_name(account_id: str | None) -> tuple[list[str], bool]:
+        if account_id is None:
+            return [], False
+        return my_nodes(account_id), astore.primary_social(account_id) is not None
+
+    @app.get("/api/camps/names")
+    def camp_names(request: Request):
+        account_id = current(request)
+        nodes, verified = can_name(account_id)
+        names = [n for n in astore.camp_names(season, account_id) if n["node"] in nodes]
+        return {
+            "nodes": [{"id": n, "label": tree_nodes[n]["label"]} for n in nodes],
+            "verified": verified,
+            "names": names if verified else [],
+        }
+
+    def eligible(request: Request, node: str) -> str:
+        account_id = need(request)
+        nodes, verified = can_name(account_id)
+        if not verified:
+            raise HTTPException(403, "Naming is open to people signed in with Bluesky or X.")
+        if node not in nodes:
+            raise HTTPException(403, "You can name only the camp and school you sit in.")
+        return account_id
+
+    @app.post("/api/camps/{node}/names")
+    def propose(node: str, body: CampName, request: Request):
+        same_origin(request)
+        account_id = eligible(request, node)
+        limit(f"camp-name:{account_id}", 10, 86400)
+        name = " ".join(body.name.split())
+        low = name.lower()
+        if len(name) < 3 or any(bad in low for bad in ("http", "www.", "@", ".com")):
+            raise HTTPException(422, "Use plain words: 3 to 48 characters, no links or handles.")
+        return {"id": astore.propose_camp_name(season, node, name, account_id)}
+
+    @app.post("/api/camps/names/{name_id}/vote")
+    def vote_name(name_id: str, body: CampVote, request: Request):
+        same_origin(request)
+        row = astore.camp_name(name_id)
+        if row is None or row["season"] != season or row["status"] != "open":
+            raise HTTPException(404, "No open name here.")
+        account_id = eligible(request, row["node"])
+        limit(f"camp-vote:{account_id}", 300)
+        astore.vote_camp_name(name_id, account_id, body.up)
+        return {"ok": True}
+
+    @app.get("/api/camps/accepted")
+    def accepted_names():
+        """Names Benjamin has accepted; the map shows them in place of the drafted labels."""
+        return {"names": astore.accepted_names(season)}
+
+    @app.get("/api/admin/camps/names", dependencies=[Depends(admin)])
+    def all_names():
+        return {"names": [{**n, "label": tree_nodes.get(n["node"], {}).get("label")}
+                          for n in astore.camp_names(season, None)]}  # fmt: skip
+
+    @app.post("/api/admin/camps/names/{name_id}", dependencies=[Depends(admin)])
+    def decide(name_id: str, body: Decision):
+        if astore.camp_name(name_id) is None or not astore.decide_camp_name(name_id, body.accept):
+            raise HTTPException(404, "No such name.")
+        return {"ok": True}
+
     # ---------- the people map
 
+    xs = [c[0] for c in coords.values()]
+    ys = [c[1] for c in coords.values()]
+    hex_size = max(max(xs) - min(xs), max(ys) - min(ys)) / 60  # about 60 cells across the map
     people_cache: dict[str, tuple[float, dict]] = {}
     app.state.people_cache = people_cache
 
@@ -338,6 +523,11 @@ def register(
         cached = people_cache.get(season)
         if cached and time.monotonic() - cached[0] < 60:
             return cached[1]
+        data = store.shared(f"people:{season}", 60, compute_people)
+        people_cache[season] = (time.monotonic(), data)
+        return data
+
+    def compute_people() -> dict:
         people = astore.map_people(season)
         # people who added answers without an account are dots too, placed the same way
         room = store.room(MAIN_ROOM)
@@ -353,7 +543,45 @@ def register(
         for p in people:
             if p.get("nearest"):
                 p["nearest"] = names.get(p["nearest"], p["nearest"])
-        data = {"min_cell": min_cell, "count": len(people),
-                "people": people if len(people) >= min_cell else []}  # fmt: skip
+        data: dict = {"min_cell": min_cell, "count": len(people), "people": [], "bins": None}
+        if len(people) >= min_cell:
+            if len(people) <= DOTS_MAX:
+                data["people"] = people
+            else:
+                # at scale: faces stay individual, everyone else becomes counts on a hex grid
+                faces = [p for p in people if "face" in p][:FACES_MAX]
+                data["people"] = faces
+                data["bins"] = hex_bins([p for p in people if "face" not in p], hex_size)
+        return data
         people_cache[season] = (time.monotonic(), data)
         return data
+
+
+DOTS_MAX = 400  # above this the anonymous dots are sent as hex-bin counts
+FACES_MAX = 600
+
+
+def hex_bins(points: list[dict], size: float) -> dict:
+    """Pointy-top hexagons of the given size (centre to corner) in map coordinates.
+    Returns {size, cells: [[x, y, n], ...]}; a cell's x, y is its centre."""
+    import math
+
+    counts: dict[tuple[int, int], int] = {}
+    for p in points:
+        q = (math.sqrt(3) / 3 * p["x"] - p["y"] / 3) / size
+        r = (2 / 3 * p["y"]) / size
+        # cube rounding
+        x, z = q, r
+        y = -x - z
+        rx, ry, rz = round(x), round(y), round(z)
+        dx, dy, dz = abs(rx - x), abs(ry - y), abs(rz - z)
+        if dx > dy and dx > dz:
+            rx = -ry - rz
+        elif dy <= dz:
+            rz = -rx - ry
+        counts[(rx, rz)] = counts.get((rx, rz), 0) + 1
+    cells = [
+        [round(size * math.sqrt(3) * (q + r / 2), 2), round(size * 1.5 * r, 2), n]
+        for (q, r), n in counts.items()
+    ]
+    return {"size": round(size, 3), "cells": sorted(cells, key=lambda c: -c[2])}

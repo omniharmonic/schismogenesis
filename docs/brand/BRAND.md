@@ -7,12 +7,12 @@ One site, one visual language, one sub-brand. Owner: Benjamin Life (@omniharmoni
 ## Architecture
 - **antimemes.is**: the lab. The scroll story, the idea, the instruments, the rules.
 - **debate.antimemes.is**: **The Great AI Debate**, the first release. The survey, results, thinkers, profiles, statements, the 3D Lifeworld Atlas, About, privacy.
-- They are one site in two places. Every page on both carries the same top bar: the antimemes wordmark at left (`antimemes`, one word in Anton, no symbol) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
+- They are one site in two places. Every page on both carries the same top bar: the antimemes wordmark at left (see Wordmark below) linking to https://antimemes.is, then on debate pages a slash and the sub-brand "The Great AI Debate" linking to the debate home. Same footer on both: "antimemes.is, an arts lab by Benjamin Life", links to the lab, the debate, About/method, privacy, portrait credits.
 - Links between them are absolute and live in one config constant per app (`LAB_URL = "https://antimemes.is"`, `DEBATE_URL = "https://debate.antimemes.is"`).
 
 ## Ground and type (shared, from the lab)
 - Dark first, everywhere: ground `#121820`, ground-2 `#19212b`, panel `#161d26`, rule `#2b3644`, rule-2 `#3a4757`, ink `#dde4eb`, ink-2 `#9aa7b6`, ink-3 `#6f7c8c`. A light theme may remain for the debate as an option, but the default and all screenshots/OG cards are dark.
-- Type: Newsreader (argument, headlines, body), IBM Plex Sans Condensed (UI, labels, data readouts), Anton only for meme moments and the wordmark. No other faces.
+- Type: Newsreader (argument, headlines, body), IBM Plex Sans Condensed (UI, labels, data readouts), Anton only for meme moments. The wordmark alone uses IBM Plex Sans Medium and Archivo SemiBold Expanded (self-hosted in fonts/). No other faces.
 - Two signals with fixed meaning across both: `--heat #ff5468` = rivalry, contagion, "unlike you"/disagreement-as-heat; `--recog #8fb0ff` = recognition, understanding, links, focus rings.
 - Four camp colours (data encoding only, same everywhere, camp order c1..c4): `#e2b14a`, `#4cc2ae`, `#c08cf0`, `#e6dfcf`; ungrouped `#6e7b8b`.
 - Ops-console furniture used sparingly: hairline corner brackets on framed panels, small Plex readouts (tabular numerals), crosshair on the graph. No neon glows, no gradients as decoration.
@@ -34,3 +34,6 @@ The debate's results page ends with this handoff ("You've seen the map. Now meet
 
 ## Copy rules
 Plain, sharp, sentence case, no lorem ipsum, no fabricated numbers, no all-caps labels except Anton meme moments. Public figures only from their own public words; quotes ≤280 chars with links; a dispute route stays visible.
+
+## Wordmark (Benjamin's decision, 2026-11-05; D-31.25)
+`[selection mark] anti` + `mɘmes`: the selection mark from option B (two corner brackets around a recognition-blue node: a person singled out to be understood, and a screenshot crop); "anti" in IBM Plex Sans Medium in the quieter ink-2 grey; "mɘmes" in Archivo SemiBold Expanded with its first e mirrored, in recognition blue, to face its twin (rivals becoming mirror images; the lab's answer is to face the other without becoming their copy). One word, two voices: the negation quiet, the memes loud. No glitch, split-shadow or 3D effects anywhere. Favicon: the selection mark alone on slate (the Debate's adds its fingerprint ring). On coloured story slides the whole mark takes the slide's ink. The options Benjamin chose from: `docs/brand/wordmark-options-2026-11-05.html`.

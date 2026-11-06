@@ -110,17 +110,21 @@ def results(
     # how each neighbourhood answers each statement, for neighbourhoods big enough to show
     big = [h["school"] for h in out["homes"]]
     cells: dict[str, dict[str, dict]] = defaultdict(dict)
+    tally: dict[tuple[str, str], list[int]] = defaultdict(lambda: [0, 0])  # (anchor, school)
+    shown = set(big)
+    for p, school in homes.items():
+        if school not in shown:
+            continue
+        for anchor, v in counted[p].items():
+            if v in (1, -1):
+                pair = tally[(anchor, school)]
+                pair[0] += v == 1
+                pair[1] += 1
     for anchor in bundle["anchors"]:
         for school in big:
-            votes = [
-                counted[p][anchor["id"]]
-                for p, s in homes.items()
-                if s == school and counted[p].get(anchor["id"]) in (1, -1)
-            ]
+            yes, total = tally.get((anchor["id"], school), (0, 0))
             cells[anchor["id"]][school] = (
-                {"agree_share": round(votes.count(1) / len(votes), 3), "n": len(votes)}
-                if len(votes) >= min_cell
-                else None
+                {"agree_share": round(yes / total, 3), "n": total} if total >= min_cell else None
             )
     if len(big) >= 2:
         out["crosstab"] = {"schools": big, "cells": dict(cells)}
@@ -131,15 +135,19 @@ def results(
 
     for camp in bundle["camps"]:
         aligned = 0
+        # the camp's side on each statement doesn't depend on the person: work it out once
+        sides = {}
+        for anchor, entry in stances.items():
+            side = sum(entry.get(m, 0) for m in camp["members"])
+            if side:
+                sides[anchor] = side > 0
         for answers in counted.values():
             agree = total = 0
             for anchor, v in answers.items():
-                if v not in (1, -1) or anchor not in stances:
+                if v not in (1, -1) or anchor not in sides:
                     continue
-                side = sum(stances[anchor].get(m, 0) for m in camp["members"])
-                if side:
-                    total += 1
-                    agree += int((side > 0) == (v > 0))
+                total += 1
+                agree += int(sides[anchor] == (v > 0))
             if total and agree / total > 0.5:
                 aligned += 1
         out["camps"].append(

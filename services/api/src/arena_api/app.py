@@ -25,7 +25,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import Engine
 
 from arena_api import account_routes, identity, turnstile
-from arena_api.account_store import AccountStore
+from arena_api.account_store import AccountPages
 from arena_api.cards import profile_card, statement_card
 from arena_api.profiles import (
     Summary,
@@ -243,6 +243,7 @@ def create_app(
     thinker_ids = set(names)
     anchor_ids = {a["id"] for a in bundle["anchors"]}
     store = Store(engine)
+    astore = AccountPages(engine)
     # rate-limit buckets hold hashed addresses, never raw ones
     salt = config.rate_salt or secrets.token_hex(16)
     app = FastAPI(title="The Great AI Debate (antimemes.is)", docs_url=None, redoc_url=None)
@@ -314,7 +315,14 @@ def create_app(
             request.method == "GET"
             and response.status_code == 200
             and (
-                path in ("/api/results", "/api/people", "/api/config", "/api/map/people")
+                path
+                in (
+                    "/api/results",
+                    "/api/people",
+                    "/api/config",
+                    "/api/map/people",
+                    "/api/camps/accepted",
+                )
                 or path == "/oauth/client-metadata.json"
                 or path.startswith(("/s/", "/p/"))
                 or (path.startswith("/api/rooms/") and path.count("/") == 3)
@@ -685,7 +693,7 @@ def create_app(
 
     @app.get("/api/profiles/{code}")
     def get_profile(code: str):
-        return public_profile(live_profile(code))
+        return {**public_profile(live_profile(code)), **(astore.profile_owner_extras(code) or {})}
 
     @app.patch("/api/profiles/{code}")
     def edit_profile(code: str, body: ProfileEdit, x_edit_key: str = Header(...)):
@@ -718,10 +726,15 @@ def create_app(
         if row is None:
             raise HTTPException(404, "No such room.")
         demo = bool(row["config"].get("demo"))
-        sheets = store.anchor_sheets(row["room_id"], include_synthetic=demo)
-        data = public_results(sheets, bundle, [] if demo else store.visible_profiles())
-        data["computed_at"] = datetime.datetime.now(datetime.UTC).isoformat()
-        data["demo"] = demo
+
+        def compute() -> dict:
+            sheets = store.anchor_sheets(row["room_id"], include_synthetic=demo)
+            out = public_results(sheets, bundle, [] if demo else store.visible_profiles())
+            out["computed_at"] = datetime.datetime.now(datetime.UTC).isoformat()
+            out["demo"] = demo
+            return out
+
+        data = store.shared(f"results:{room}:{bundle['version']}", results_max_age, compute)
         if len(results_cache) > 20:
             results_cache.clear()
         results_cache[room] = (now, data)
@@ -754,7 +767,7 @@ def create_app(
     @app.get("/p/{code}")
     def profile_page(code: str):
         row = live_profile(code)
-        data = public_profile(row)
+        data = {**public_profile(row), **(astore.profile_owner_extras(code) or {})}
         who = data["display_name"] + (f" (@{data['handle']})" if data["handle"] else "")
         title = f"{who}: closest to “{data['summary']['home']}”"
         nearest = ", ".join(names[m["id"]] for m in data["summary"]["nearest"])
@@ -859,7 +872,8 @@ def create_app(
     account_routes.register(
         app,
         store=store,
-        astore=AccountStore(engine),
+        astore=astore,
+        admin=admin,
         config=config,
         bundle=bundle,
         consent_version=CONSENT_VERSION,

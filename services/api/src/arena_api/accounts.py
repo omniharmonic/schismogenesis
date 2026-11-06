@@ -322,6 +322,19 @@ class BskyAccount:
     handle: str
     display_name: str
     avatar_url: str | None
+    details: dict | None = None
+
+
+def bsky_details(profile: dict, handle: str) -> dict:
+    banner = profile.get("banner")
+    return {
+        "description": str(profile.get("description") or "")[:300],
+        "followers": int(profile.get("followersCount") or 0),
+        "banner": banner
+        if isinstance(banner, str) and banner.startswith("https://cdn.bsky.app/")
+        else None,
+        "url": f"https://bsky.app/profile/{handle}",
+    }
 
 
 def bsky_finish(http_: Http, public_url: str, flow: dict, code: str, iss: str) -> BskyAccount:
@@ -356,4 +369,5 @@ def bsky_finish(http_: Http, public_url: str, flow: dict, code: str, iss: str) -
         avatar_url=avatar
         if isinstance(avatar, str) and avatar.startswith("https://cdn.bsky.app/")
         else None,
+        details=bsky_details(profile, handle),
     )

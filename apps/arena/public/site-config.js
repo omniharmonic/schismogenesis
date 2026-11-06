@@ -1,5 +1,6 @@
 // antimemes.is is one site in two places: the lab, and The Great AI Debate on its own subdomain.
 // Every link between them reads from these two constants (docs/brand/BRAND.md).
+import "./nav.js"; // the top bar's "You" shows your picture when you're signed in
 export const LAB_URL = "https://antimemes.is";
 export const DEBATE_URL = "https://debate.antimemes.is";
 export const DEBATE_HOST = new URL(DEBATE_URL).host;

@@ -21,7 +21,10 @@ from dataclasses import dataclass
 BSKY_API = "https://public.api.bsky.app/xrpc"
 X_AUTHORIZE = "https://x.com/i/oauth2/authorize"
 X_TOKEN = "https://api.x.com/2/oauth2/token"
-X_ME = "https://api.x.com/2/users/me?user.fields=profile_image_url,name,username"
+X_ME = (
+    "https://api.x.com/2/users/me?user.fields=profile_image_url,name,username,description,"
+    "location,url,verified,public_metrics,created_at,entities"
+)
 HANDLE = re.compile(r"^[a-z0-9][a-z0-9.-]{1,252}\.[a-z]{2,}$")
 TIMEOUT = 8
 
@@ -51,6 +54,7 @@ class Verified:
     account_id: str
     display_name: str
     avatar_url: str | None
+    details: dict | None = None  # public profile fields: bio, location, website, followers
 
 
 def _posted_at(post: dict) -> datetime.datetime | None:
@@ -149,4 +153,24 @@ def x_exchange(
         avatar_url=avatar
         if isinstance(avatar, str) and avatar.startswith("https://pbs.twimg.com/")
         else None,
+        details=x_details(data),
     )
+
+
+def x_details(data: dict) -> dict:
+    """The public fields we show: bio, location, website (expanded from t.co), followers."""
+    website = data.get("url") or ""
+    for u in (data.get("entities") or {}).get("url", {}).get("urls", []) or []:
+        if u.get("url") == website and u.get("expanded_url"):
+            website = u["expanded_url"]
+    metrics = data.get("public_metrics") or {}
+    return {
+        "description": str(data.get("description") or "")[:300],
+        "location": str(data.get("location") or "")[:80],
+        "website": website
+        if website.startswith("https://") or website.startswith("http://")
+        else "",
+        "followers": int(metrics.get("followers_count") or 0),
+        "verified": bool(data.get("verified")),
+        "url": f"https://x.com/{data['username']}",
+    }

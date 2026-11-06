@@ -41,7 +41,7 @@ async function main() {
       ${ok ? `<p class="small muted">Your saved answers from this browser are shown beside theirs.</p>` : `<p><a class="button primary" href="/">Take the survey</a></p><p class="small muted">Then you'll see your own answers beside theirs.</p>`}`,
   });
   // people who added their answers, in the same space as the thinkers
-  const layer = mountLayerSwitch(mapEl);
+  const layer = mountLayerSwitch(mapEl, { findMe: Boolean(ok) });
   fetchPeople().then((crowd) => {
     layer.set(crowd);
     if (crowd.people.length) { mapOptions.people = crowd.people; ex.redraw(); }

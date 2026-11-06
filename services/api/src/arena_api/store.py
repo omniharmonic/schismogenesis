@@ -622,19 +622,19 @@ class Store:
     def anchor_sheets(self, room_id, include_synthetic: bool = False) -> dict[str, dict[str, int]]:
         """Each participant's votes on the anchor statements; synthetic voters only in demo rooms."""
         with self.engine.connect() as c:
+            # one row per person (the database groups the votes), not one per vote: at 50,000
+            # people this is 50,000 rows instead of 1.35 million
             rows = c.execute(
-                text("""SELECT v.participant_id, s.anchor_id, v.vote
+                text("""SELECT v.participant_id::text, jsonb_object_agg(s.anchor_id, v.vote)
                         FROM room_vote v
                         JOIN room_statement s USING (statement_id)
                         JOIN room_participant p USING (participant_id)
                         WHERE s.room_id = :r AND s.anchor_id IS NOT NULL
-                          AND (:syn OR NOT p.is_synthetic)"""),
+                          AND (:syn OR NOT p.is_synthetic)
+                        GROUP BY v.participant_id"""),
                 {"r": room_id, "syn": include_synthetic},
             ).all()
-        sheets: dict[str, dict[str, int]] = {}
-        for participant, anchor, vote in rows:
-            sheets.setdefault(str(participant), {})[anchor] = int(vote)
-        return sheets
+        return {participant: sheet for participant, sheet in rows}
 
     def visible_profiles(self) -> list[dict]:
         with self.engine.connect() as c:
@@ -644,3 +644,36 @@ class Store:
                 .all()
             )
         return [dict(r) for r in rows]
+
+    def shared(self, key: str, max_age: float, compute):
+        """A public, aggregate answer shared by every server instance through the database.
+
+        Fresh copies are served as they are. When the copy is stale, one instance recomputes it
+        (an advisory lock picks which) while the others keep serving the stale copy, so a burst
+        of visitors never sets off a burst of recomputation."""
+        with self.engine.connect() as c:
+            row = c.execute(
+                text(
+                    "SELECT data, extract(epoch FROM now() - computed_at) FROM public_cache "
+                    "WHERE key = :k"
+                ),
+                {"k": key},
+            ).first()
+        if row is not None and float(row[1]) < max_age:
+            return row[0]
+        lock = int.from_bytes(
+            hashlib.sha256(f"cache:{key}".encode()).digest()[:8], "big", signed=True
+        )
+        with self.engine.begin() as c:
+            if not c.execute(text("SELECT pg_try_advisory_xact_lock(:l)"), {"l": lock}).scalar():
+                if row is not None:
+                    return row[0]  # someone else is refreshing it
+            data = compute()
+            c.execute(
+                text("""INSERT INTO public_cache (key, data, computed_at)
+                        VALUES (:k, CAST(:d AS jsonb), now())
+                        ON CONFLICT (key) DO UPDATE SET data = EXCLUDED.data,
+                          computed_at = now()"""),
+                {"k": key, "d": json.dumps(data)},
+            )
+        return data

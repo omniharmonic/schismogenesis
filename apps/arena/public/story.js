@@ -72,7 +72,7 @@ function slides(bundle, answers, r) {
   return out;
 }
 
-function slideHTML(s, bundle, answers, r) {
+function slideHTML(s, bundle, answers, r, youFace = null) {
   let html = "";
   if (s.print) html += valuesSVG(glyphValues(bundle, answers), { cls: "print", label: "Your fingerprint" });
   if (s.eyebrow) html += `<p class="eyebrow">${esc(s.eyebrow)}</p>`;
@@ -83,12 +83,13 @@ function slideHTML(s, bundle, answers, r) {
   if (s.cite) html += `<p class="cite">${esc(s.cite)}</p>`;
   if (s.rows) html += `<ul class="rows">${s.rows.map(([a, b]) => `<li><span>${esc(a)}</span><b>${esc(b)}</b></li>`).join("")}</ul>`;
   if (s.map) {
-    html += `<div class="mini-map" style="--ridge:${s.fg};--ink:${s.fg};--sheet:${s.bg};--paper:${s.bg};--muted:${s.fg}">${mapSVG(bundle, { result: r, width: 440, height: 400 })}</div>`;
+    html += `<div class="mini-map" style="--ridge:${s.fg};--ink:${s.fg};--sheet:${s.bg};--paper:${s.bg};--muted:${s.fg}">${mapSVG(bundle, { result: r, width: 440, height: 400, youFace })}</div>`;
   }
   return html;
 }
 
-export function playStory({ bundle, answers, result, onShare, onDone }) {
+// `youFace`: the signed-in person's picture, drawn inside the You mark on the map slide
+export function playStory({ bundle, answers, result, onShare, onDone, youFace = null }) {
   const specs = slides(bundle, answers, result);
   const values = glyphValues(bundle, answers);
   let i = 0;
@@ -138,7 +139,7 @@ export function playStory({ bundle, answers, result, onShare, onDone }) {
     root.style.setProperty("--slide-bg", s.bg);
     root.style.setProperty("--slide-fg", s.fg);
     slide.className = "slide";
-    slide.innerHTML = slideHTML(s, bundle, answers, result);
+    slide.innerHTML = slideHTML(s, bundle, answers, result, youFace);
     void slide.offsetWidth;  // restart the entrance animation
     slide.classList.add("enter");
     root.querySelectorAll(".story-bars span").forEach((b, k) => { b.className = k < i ? "done" : k === i ? "now" : ""; });

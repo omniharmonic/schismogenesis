@@ -1,6 +1,7 @@
 // A published profile. The data comes embedded in the page; the bundle supplies names and quotes.
 import { valuesSVG } from "./glyph.js";
 import { badge, esc } from "./map.js";
+import { socialsHTML } from "./socials.js";
 import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
@@ -16,7 +17,12 @@ async function main() {
   const own = (() => { try { return JSON.parse(localStorage.getItem("fp.profile")); } catch { return null; } })();
   const mine = (() => { try { return JSON.parse(localStorage.getItem("fp.answers"))?.answers; } catch { return null; } })();
   const isOwner = own && own.code === p.code;
-  const who = p.handle
+  // account pages carry the account's bio and its Bluesky / X identity; older links don't
+  const identity = socialsHTML(p.socials, { bio: p.bio });
+  const who = identity
+    ? `<div class="acc-head">${p.avatar_url ? `<img class="acc-avatar" src="${esc(p.avatar_url)}" alt="" referrerpolicy="no-referrer">` : `<span class="acc-avatar" aria-hidden="true"></span>`}
+        <div class="acc-who"><p class="acc-name">${esc(p.display_name)}</p>${identity}</div></div>`
+    : p.handle
     ? `<div class="who">${p.avatar_url ? `<img src="${esc(p.avatar_url)}" alt="" referrerpolicy="no-referrer">` : `<span class="avatar"></span>`}
         <div><b>${esc(p.display_name)}</b><br><span class="small muted">@${esc(p.handle)} on ${p.identity === "x" ? "X" : "Bluesky"}, verified</span></div></div>`
     : `<p class="muted">${esc(p.display_name)}, shared anonymously</p>`;

@@ -3,6 +3,7 @@ import { esc, mapSVG } from "./map.js";
 import { humanToken } from "./turnstile.js";
 import { attachHoverCard } from "./hovercard.js";
 import { fingerprint } from "./placement.js";
+import { getMe } from "./auth.js";
 
 const params = new URLSearchParams(location.search);
 const SLUG = /^[a-z0-9-]{2,40}$/.test(params.get("room") || "") ? params.get("room") : "ai-futures";
@@ -30,9 +31,26 @@ async function api(path, { method = "GET", body } = {}) {
   return data;
 }
 
+/**
+ * Signed in: the account's own room credentials (POST /api/me/room), stored where an anonymous
+ * join would put them. Null when signed out, for another room, or before the endpoint exists.
+ */
+async function accountSeat() {
+  if (SLUG !== "ai-futures" || !(await getMe())) return null;
+  try {
+    const res = await fetch("/api/me/room", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: "{}" });
+    if (!res.ok) return null;
+    const d = await res.json();
+    if (!d?.participant_id || !d?.key) return null;
+    const seat = { participant_id: d.participant_id, key: d.key };
+    write(seat);
+    return seat;
+  } catch { return null; }
+}
+
 export async function joinRoom({ bundle, answers, handle, show, toast }) {
   ctx = { bundle, show, toast };
-  me = read();
+  me = read() || await accountSeat();
   if (!me) {
     const bytes = crypto.getRandomValues(new Uint8Array(32));
     const key = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -52,7 +70,7 @@ export async function joinRoom({ bundle, answers, handle, show, toast }) {
 
 export async function openRoom({ bundle, show, toast }) {
   ctx = { bundle, show, toast };
-  me = read();
+  me = read() || await accountSeat();
   render();
 }
 

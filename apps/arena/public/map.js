@@ -394,7 +394,7 @@ const live = new Map(); // svg id -> what the live layer needs, until the svg is
 const kinPath = (links, P) => links.map((l) => `M${P[l.a][0].toFixed(1)},${P[l.a][1].toFixed(1)}L${P[l.b][0].toFixed(1)},${P[l.b][1].toFixed(1)}`).join("");
 const tr = (x, y) => `translate(${x.toFixed(1)} ${y.toFixed(1)})`;
 
-export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null, people = null } = {}) {
+export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null, people = null, youFace = null } = {}) {
   const PX = (p) => p.x, PY = (p) => p.y;
   const xs = bundle.thinkers.map(PX), ys = bundle.thinkers.map(PY);
   const pad = 52;
@@ -536,7 +536,12 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
 
   if (you) {
     const [x, y] = you;
-    svg += `<g class="map-you-mark" aria-hidden="true"><circle cx="${x}" cy="${y}" r="22" fill="none" stroke-width="1.5" stroke-dasharray="2 4"/><circle class="map-you" cx="${x}" cy="${y}" r="7"/><text class="map-name" x="${x + 28}" y="${y + 4}" font-weight="700">You</text></g>`;
+    // signed in with a picture: it sits inside the dashed ring, round, in place of the dot
+    const face = typeof youFace === "string" && /^https:\/\//i.test(youFace) ? youFace : null;
+    const centre = face
+      ? `<circle class="map-you-bg" cx="${x}" cy="${y}" r="17"/><image class="map-you-face" href="${esc(face)}" x="${x - 17}" y="${y - 17}" width="34" height="34" clip-path="url(#${clip})" preserveAspectRatio="xMidYMid slice"/>`
+      : `<circle class="map-you" cx="${x}" cy="${y}" r="7"/>`;
+    svg += `<g class="map-you-mark${face ? " has-face" : ""}" aria-hidden="true"><circle class="map-you-pulse" cx="${x}" cy="${y}" r="22" fill="none"/><circle class="map-you-ring" cx="${x}" cy="${y}" r="22" fill="none" stroke-width="1.5" stroke-dasharray="2 4"/>${centre}<text class="map-name" x="${x + 28}" y="${y + 4}" font-weight="700">You</text></g>`;
   }
 
   // group names last, with a halo, so they read over everything

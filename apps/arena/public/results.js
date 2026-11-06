@@ -3,6 +3,7 @@ import { esc, mapSVG, wireMap } from "./map.js";
 import { attachHoverCard } from "./hovercard.js";
 import { fetchPeople, gapsHTML, mountLayerSwitch } from "./crowd.js";
 import { handoffHTML } from "./site-config.js";
+import { fingerprint } from "./placement.js";
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
   empirical: "What will happen", praxis: "What to do" };
@@ -74,6 +75,15 @@ async function thinkerSplit() {
         <div class="barnote"><span>${up} agree</span><span>${n} with a stated view</span><span>${down} disagree</span></div></div></div>`).join("")}`;
 }
 
+function yourResult(bundle) {
+  try {
+    const saved = JSON.parse(localStorage.getItem("fp.answers"));
+    if (!saved?.answers || saved.season !== bundle.season) return null;
+    const r = fingerprint(bundle, saved.answers);
+    return r.status === "ok" ? r : null;
+  } catch { return null; }
+}
+
 let sort = "split";
 let bundlePromise = null;
 const getBundle = () => (bundlePromise ||= fetch("/fingerprint.json").then((r) => r.json()));
@@ -96,8 +106,10 @@ async function crowdMap() {
   const mapEl = crowdNode.querySelector("#crowd-map");
   const [bundle, crowd] = await Promise.all([getBundle(), fetchPeople()]);
   const size = innerWidth < 600 ? { width: 400, height: 560 } : { width: 800, height: 560 };
-  mapEl.innerHTML = mapSVG(bundle, { ...size, people: crowd.people });
-  mountLayerSwitch(mapEl).set(crowd);
+  // this browser's own answers (never sent from here) put "You" on the map, for "Find me"
+  const result = yourResult(bundle);
+  mapEl.innerHTML = mapSVG(bundle, { ...size, people: crowd.people, result });
+  mountLayerSwitch(mapEl, { findMe: Boolean(result) }).set(crowd);
   const toProfile = (id) => { location.href = `/people#${encodeURIComponent(id)}`; };
   wireMap(mapEl, { onThinker: toProfile, onSchool: () => {}, onNode: () => {} });
   attachHoverCard(mapEl, { bundle, onProfile: toProfile });

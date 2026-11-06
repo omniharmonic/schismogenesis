@@ -5,6 +5,7 @@ import { highlights, profileSummary } from "./placement.js";
 import { glyphValues, scrambled } from "./glyph.js";
 import { esc } from "./map.js";
 import { humanToken } from "./turnstile.js";
+import { NotYet, accountProfileBody, profileURL, publishAccountProfile, shareLine, shareLinksHTML, wireShareLinks } from "./share-links.js";
 
 const KEY = "fp.profile";
 const PENDING = "fp.pending-share";
@@ -31,6 +32,42 @@ async function api(path, opts = {}) {
 }
 
 export function savedProfile() { return local.get(KEY); }
+
+/**
+ * Signed in: the account's own page (PUT /api/me/profile, same code each time), then Share on X,
+ * Share on Bluesky, Copy. Falls back to the anonymous sheet while the endpoint doesn't exist.
+ */
+export async function openAccountShare({ bundle, answers, result, toast, account = null }) {
+  const dialog = document.createElement("dialog");
+  dialog.className = "sheet";
+  dialog.setAttribute("aria-label", "Share your results");
+  dialog.innerHTML = `<div class="sheet-body"><h2>Your share link</h2><p class="muted" role="status">Making your link…</p></div>`;
+  document.body.append(dialog);
+  dialog.addEventListener("close", () => dialog.remove());
+  dialog.showModal();
+  let page;
+  try {
+    page = await publishAccountProfile(accountProfileBody(bundle, answers, result, account?.profile?.listed ?? false));
+  } catch (e) {
+    dialog.close();
+    if (e instanceof NotYet) return openShare({ bundle, answers, result, toast });
+    toast(e.message);
+    return;
+  }
+  const url = profileURL(page, location.origin);
+  const text = shareLine(result);
+  event("account_share");
+  dialog.innerHTML = `<div class="sheet-body">
+    <h2>Your link is live</h2>
+    <p class="muted">One page for your account. It keeps up with your answers, and the link stays the same.</p>
+    <p class="share-quote serif">${esc(text)}</p>
+    ${shareLinksHTML(url, text, { id: "as" })}
+    <div class="row" style="margin-top:14px"><a class="button" href="/account.html#results">See it in your account</a><button type="button" class="link-button" id="as-close">Close</button></div>
+  </div>`;
+  wireShareLinks(dialog, url, { toast });
+  dialog.querySelector("#as-close").onclick = () => dialog.close();
+  dialog.querySelector("[data-copy-link]").focus();
+}
 
 export async function openShare({ bundle, answers, result, toast, verified = null }) {
   const values = glyphValues(bundle, answers);

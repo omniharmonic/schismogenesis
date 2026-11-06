@@ -57,7 +57,21 @@ svg.thinker-map .map-name { fill: var(--tm-ink); stroke: var(--tm-halo); font-fa
 
 /* you, your tethers, room/listing tags */
 svg.thinker-map .map-you { fill: var(--tm-ink); }
-svg.thinker-map .map-you-mark circle:not(.map-you) { stroke: var(--tm-ink); }
+svg.thinker-map .map-you-ring { stroke: var(--tm-ink); }
+svg.thinker-map .map-you-bg { fill: var(--tm-node); }
+svg.thinker-map .map-you-face { pointer-events: none; }
+/* "Find me" (crowd.js): a recognition-blue ring pulses out from you three times; with reduced
+   motion it is a still, heavier ring instead */
+svg.thinker-map .map-you-pulse { stroke: var(--tm-recog); stroke-width: 2.5; opacity: 0; transform-box: fill-box; transform-origin: center; pointer-events: none; }
+svg.thinker-map .map-you-mark.is-found .map-you-ring { stroke: var(--tm-recog); stroke-dasharray: none; stroke-width: 2.5; }
+svg.thinker-map .map-you-mark.is-found .map-name { fill: var(--tm-recog); }
+@media (prefers-reduced-motion: no-preference) {
+  svg.thinker-map .map-you-mark.is-found .map-you-pulse { animation: you-pulse 1.4s ease-out 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  svg.thinker-map .map-you-mark.is-found .map-you-pulse { opacity: 1; transform: scale(1.35); }
+}
+@keyframes you-pulse { from { opacity: 0.95; transform: scale(1); } to { opacity: 0; transform: scale(2.6); } }
 svg.thinker-map .map-tether { stroke: var(--tm-recog); stroke-opacity: 0.45; stroke-width: 1; vector-effect: non-scaling-stroke; }
 svg.thinker-map .map-tag { pointer-events: none; }
 svg.thinker-map .map-tag circle { fill: var(--tm-ink); }

@@ -85,7 +85,8 @@ class FakeAtproto:
             return R(200, {}, {"access_token": "t", "token_type": "DPoP", "sub": self.did})
         if "getProfile" in url:
             return R(200, {}, {"did": self.did, "handle": "alice.example.com",
-                               "displayName": "Alice",
+                               "displayName": "Alice", "followersCount": 42,
+                               "description": getattr(self, "description", ""),
                                "avatar": "https://cdn.bsky.app/img/avatar/a.jpg"})  # fmt: skip
         raise AssertionError(f"unexpected {method} {url}")
 
@@ -234,7 +235,7 @@ def test_client_metadata_and_cross_site_writes(world):
     assert evil.status_code == 403
 
 
-def test_people_map_faces_first_and_only_when_shown(world):
+def test_people_map_faces_first_and_only_when_shown(world, engine):
     app, _, atproto = world
     people = []
     for i in range(11):
@@ -248,15 +249,18 @@ def test_people_map_faces_first_and_only_when_shown(world):
     first = browser(app).get("/api/map/people").json()
     assert first["count"] == 12 and all(set(p) == {"x", "y"} for p in first["people"])
     star.patch("/api/me", json={"show_on_map": True, "bio": "  Thinks   about AI. "})
-    app_cache_bust(app)
+    app_cache_bust(app, engine)
     shown = browser(app).get("/api/map/people").json()["people"]
     assert shown[0]["face"].startswith("https://cdn.bsky.app/")
     assert shown[0]["handle"] == "alice.example.com" and shown[0]["bio"] == "Thinks about AI."
     assert sum(1 for p in shown if "face" in p) == 1
 
 
-def app_cache_bust(app):
+def app_cache_bust(app, engine=None):
     app.state.people_cache.clear()
+    if engine is not None:
+        with engine.begin() as c:
+            c.execute(text("DELETE FROM public_cache"))
 
 
 def test_people_map_waits_for_ten(world):
@@ -319,3 +323,119 @@ def test_redirect_sign_in_returns_to_the_account_page(world):
                                 "iss": FakeAtproto.ISSUER})  # fmt: skip
     back = b.get(f"/auth/bsky/callback?{q}", follow_redirects=False)
     assert back.headers["location"] == "/account.html#signed-in"
+
+
+# ---------- round 2: results pages, socials, statements, camp names, scale
+
+SUMMARY = {
+    "home": BUNDLE["schools"][0]["label"],
+    "answered": 20,
+    "nearest": [{"id": BUNDLE["thinkers"][0]["id"], "k": 5, "n": 6}],
+    "furthest": [],
+    "signature": [],
+    "camps": [],
+    "rarest": None,
+}
+GLYPH = ([1, -1, 0, None] * 20)[: len(A)]
+
+
+def test_account_results_page_keeps_its_code_and_shows_socials(world):
+    app, _, atproto = world
+    b = browser(app)
+    bsky_sign_in(b, atproto)
+    first = b.put("/api/me/profile", json={"summary": SUMMARY, "glyph": GLYPH}).json()
+    again = b.put("/api/me/profile", json={"summary": SUMMARY, "glyph": GLYPH, "listed": True})
+    assert again.json()["code"] == first["code"]
+    me = b.get("/api/me").json()["account"]
+    assert me["profile"]["code"] == first["code"] and me["profile"]["listed"]
+    assert me["socials"][0]["handle"] == "alice.example.com"
+    page = browser(app).get(f"/api/profiles/{first['code']}").json()
+    assert page["display_name"] == "Alice" and page["identity"] == "bsky"
+    assert page["socials"][0]["url"].startswith("https://bsky.app/profile/")
+    assert b.delete("/api/me/profile").json()["ok"]
+    assert browser(app).get(f"/api/profiles/{first['code']}").status_code == 404
+
+
+def test_anonymous_account_page_is_anonymous_and_unlisted(world):
+    app, _, _ = world
+    b = browser(app)
+    b.post("/api/auth/key/new")
+    code = b.put("/api/me/profile", json={"summary": SUMMARY, "glyph": GLYPH, "listed": True})
+    page = browser(app).get(f"/api/profiles/{code.json()['code']}").json()
+    assert page["identity"] == "anon" and page["handle"] is None and not page["listed"]
+
+
+def test_provider_bio_fills_an_empty_bio_only(world):
+    app, _, atproto = world
+    atproto.description = "Writes about   AI."
+    fresh = browser(app)
+    bsky_sign_in(fresh, atproto)
+    me = fresh.get("/api/me").json()["account"]
+    assert me["bio"] == "Writes about AI." and me["socials"][0]["followers"] == 42
+    own = browser(app)
+    own.post("/api/auth/key/new")
+    own.patch("/api/me", json={"bio": "Mine."})
+    atproto.did = "did:plc:other"
+    bsky_sign_in(own, atproto)
+    assert own.get("/api/me").json()["account"]["bio"] == "Mine."
+
+
+def test_my_room_credentials_and_statements(world):
+    app, _, _ = world
+    b = browser(app)
+    b.post("/api/auth/key/new")
+    b.put("/api/me/answers", json={"answers": answers()})
+    creds = b.post("/api/me/room").json()
+    headers = {"X-Participant": creds["participant_id"], "X-Key": creds["key"]}
+    r = b.post("/api/rooms/ai-futures/statements",
+               json={"text": "Public labs should publish their safety test results."},
+               headers=headers)  # fmt: skip
+    assert r.status_code == 200, r.text
+    mine = b.get("/api/me/statements").json()["statements"]
+    assert mine[0]["text"].startswith("Public labs") and mine[0]["status"] in (
+        "pending",
+        "approved",
+    )
+    # a second browser gets fresh credentials; the first browser's key stops working
+    again = b.post("/api/me/room").json()
+    assert again["participant_id"] == creds["participant_id"]
+    assert b.get("/api/rooms/ai-futures/me", headers=headers).status_code == 401
+    # the account's map spot survives linking the room entry
+    assert b.get("/api/me").json()["account"]["sheet"]["answers"] == answers()
+
+
+def test_camp_names_inside_the_cluster_only(world):
+    app, _, atproto = world
+    b = browser(app)
+    bsky_sign_in(b, atproto)
+    b.put("/api/me/answers", json={"answers": answers()})
+    mine = b.get("/api/camps/names").json()
+    assert mine["verified"] and mine["nodes"]
+    node = mine["nodes"][0]["id"]
+    other = next(n for n in BUNDLE["tree"]["roots"] if n != node)
+    assert b.post(f"/api/camps/{node}/names", json={"name": "see http://x.com"}).status_code == 422
+    assert b.post(f"/api/camps/{other}/names", json={"name": "Not mine"}).status_code == 403
+    made = b.post(f"/api/camps/{node}/names", json={"name": "Careful   builders"}).json()
+    names = b.get("/api/camps/names").json()["names"]
+    assert names[0]["name"] == "Careful builders" and names[0]["up"] == 1
+    assert names[0]["my_vote"] == "up" and names[0]["proposed_by_me"]
+    # key-only accounts can't propose or vote
+    k = browser(app)
+    k.post("/api/auth/key/new")
+    k.put("/api/me/answers", json={"answers": answers()})
+    assert k.post(f"/api/camps/names/{made['id']}/vote", json={"up": True}).status_code == 403
+    assert not k.get("/api/camps/names").json()["verified"]
+    # Benjamin decides
+    admin = {"Authorization": "Bearer " + "t" * 24}
+    assert browser(app).post(f"/api/admin/camps/names/{made['id']}", json={"accept": True},
+                             headers=admin).json()["ok"]  # fmt: skip
+    assert b.post(f"/api/camps/names/{made['id']}/vote", json={"up": False}).status_code == 404
+    assert browser(app).get("/api/camps/accepted").json()["names"] == {node: "Careful builders"}
+
+
+def test_hex_bins_count_everyone():
+    from arena_api.account_routes import hex_bins
+
+    pts = [{"x": (i % 50) * 3.0, "y": (i // 50) * 2.0} for i in range(5000)]
+    bins = hex_bins(pts, 10.0)
+    assert sum(c[2] for c in bins["cells"]) == 5000 and len(bins["cells"]) < 5000

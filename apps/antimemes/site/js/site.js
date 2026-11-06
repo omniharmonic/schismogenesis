@@ -328,12 +328,11 @@
       else if (k === "schism" || k === "scapegoat") {
         x = lerp(n.mx, n.sx, sep); y = lerp(n.my, n.sy, sep);
         if (k === "scapegoat") {
-          const r = lerp(0.95, 0.5, goat) * n.gj;
+          // no caption: the crowd closing in on the empty node tells it. Two loose rings press
+          // inward as the scene runs; the collision pass keeps faces from overlapping.
+          const r = lerp(0.95, 0.4, goat) * n.gj;
           const asp = (region.y1 - region.y0) / Math.max(1, region.x1 - region.x0);
-          // leave a band above and below the crowd for the "anyone / will do" caption
-          const ry = (region.y1 - region.y0) / 2 || 1;
-          const capY = W < 760 ? clamp(1 - 46 / ry, 0.5, 0.86) : 0.86;
-          const gx = Math.cos(n.ga) * r * Math.min(1, asp * 1.1), gy = Math.sin(n.ga) * r * capY;
+          const gx = Math.cos(n.ga) * r * Math.min(1, asp * 1.1), gy = Math.sin(n.ga) * r * 0.92;
           x = lerp(x, gx, ease(clamp(p * 2.2))); y = lerp(y, gy, ease(clamp(p * 2.2)));
         }
       }
@@ -395,6 +394,16 @@
             const f = ((minD - d) / d) * 0.22;
             a.vx -= dx * f; a.vy -= dy * f; b.vx += dx * f; b.vy += dy * f;
           }
+        }
+      }
+      // the scapegoat: the crowd presses right up to the empty node but never covers it
+      if (anim.goat > 0.01) {
+        const [gx, gy] = toScreen(0, 0);
+        const keep = R * (1.3 + anim.goat * 1.2) + R + 5;
+        for (const n of nodes) {
+          if (pointer.drag === n) continue;
+          const dx = n.x - gx, dy = n.y - gy, d = Math.hypot(dx, dy) || 0.01;
+          if (d < keep) { const f = ((keep - d) / d) * 0.35 * anim.goat; n.vx += dx * f; n.vy += dy * f; }
         }
       }
       for (const n of nodes) {
@@ -569,14 +578,6 @@
       }
     }
 
-    // macro caption around the scapegoat
-    const macro = $("#macro");
-    if (goatXY && anim.goat > 0.35) {
-      macro.style.opacity = String(clamp((anim.goat - 0.35) * 2.5));
-      macro.style.left = region.x0 + "px"; macro.style.width = (region.x1 - region.x0) + "px";
-      macro.style.top = (region.y0 - 6) + "px"; macro.style.height = (region.y1 - region.y0 + 12) + "px";
-    } else macro.style.opacity = "0";
-
     // selection
     const sel = hover || selected;
     if (sel && sel.alpha * A > 0.15) {
@@ -616,7 +617,7 @@
     ctx.globalAlpha = A; brackets(fx, fy, R * 3.2, loop.far.color); ctx.globalAlpha = 1;
     if (A > 0.3) {
       const [lx, ly] = at(out, [yx, yy], [fx, fy], 0.5);
-      loop.tag = [lx, ly, ph >= 2 ? "Move: signed, it comes back" : "Meet: the far side", ph >= 2 ? "Bridging reputation (coming)" : "“" + loop.far.label + "” (next)", C.recog]; // drawn above the faces, in drawYou
+      loop.tag = [lx, ly, ph >= 2 ? "Move: signed, it comes back" : "Meet: a statement crosses", ph >= 2 ? "Bridging reputation (next)" : "Counts if both sides agree (live)", C.recog]; // drawn above the faces, in drawYou
     }
   }
   function drawYou(R) {

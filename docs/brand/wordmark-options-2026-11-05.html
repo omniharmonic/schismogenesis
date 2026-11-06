@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wordmark options</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#121820">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,600&family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Wordmark review sheet for Benjamin. Not linked from the site; build.py may copy it, so it is
+   noindex. Directions A uses the project's own Plex Condensed; B and C load Google Fonts. */
+@font-face { font-family: "Plex Cond"; src: url("fonts/IBMPlexSansCondensed-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Plex Cond"; src: url("fonts/IBMPlexSansCondensed-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Plex Cond"; src: url("fonts/IBMPlexSansCondensed-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/Newsreader.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/Newsreader-Italic.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+
+:root {
+  --ground: #121820; --ground-2: #19212b; --panel: #161d26; --rule: #2b3644; --rule-2: #3a4757;
+  --ink: #dde4eb; --ink-2: #9aa7b6; --ink-3: #6f7c8c; --heat: #ff5468; --recog: #8fb0ff;
+  --f-serif: "Newsreader", Georgia, serif; --f-ui: "Plex Cond", "Arial Narrow", sans-serif;
+  --gutter: clamp(16px, 4vw, 48px);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 18px/1.56 var(--f-serif); overflow-x: hidden; }
+a { color: var(--recog); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--recog); outline-offset: 3px; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+p { margin: 0 0 0.9em; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 48px var(--gutter) 80px; }
+.intro { max-width: 62ch; margin-bottom: 40px; }
+.intro h1 { font: 400 clamp(30px, 4vw, 46px)/1.08 var(--f-serif); letter-spacing: -0.012em; margin-bottom: 14px; }
+.intro p { color: var(--ink-2); }
+
+.dir { border: 1px solid var(--rule); background: var(--panel); margin-bottom: 36px; position: relative; }
+.dir::before, .dir::after { content: ""; position: absolute; width: 12px; height: 12px; border: 0 solid var(--rule-2); }
+.dir::before { left: -1px; top: -1px; border-left-width: 2px; border-top-width: 2px; }
+.dir::after { right: -1px; bottom: -1px; border-right-width: 2px; border-bottom-width: 2px; }
+.dir.rec::before, .dir.rec::after { border-color: var(--recog); }
+.dir-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; padding: 18px 22px; border-bottom: 1px solid var(--rule); }
+.dir-head h2 { font: italic 400 26px/1.1 var(--f-serif); }
+.dir-head .fonts { font: 400 14px/1.3 var(--f-ui); color: var(--ink-2); }
+.dir-head .pick { font: 600 14px/1 var(--f-ui); color: var(--ground); background: var(--recog); padding: 5px 8px; border-radius: 2px; margin-left: auto; }
+
+.hero-row { padding: clamp(36px, 7vw, 84px) 22px; display: grid; place-items: center; border-bottom: 1px solid var(--rule); overflow: hidden; }
+.grid { display: grid; grid-template-columns: 1.3fr 1fr; border-bottom: 1px solid var(--rule); }
+.cell { padding: 18px 22px; min-width: 0; }
+.cell + .cell { border-left: 1px solid var(--rule); }
+.cell-k { font: 400 13px/1.3 var(--f-ui); color: var(--ink-3); margin-bottom: 12px; }
+.why { padding: 18px 22px 20px; max-width: 76ch; }
+.why p { margin: 0; font-size: 17px; }
+
+/* the mock top bar, at the site's real height (60px) with the mark set to 28px tall */
+.bar { height: 60px; display: flex; align-items: center; gap: 14px; padding: 0 16px; background: rgba(18,24,32,0.95); border: 1px solid var(--rule); }
+.bar .slash { font: 400 22px/1 var(--f-ui); color: var(--rule-2); }
+.bar .sub { font: 600 15px/1 var(--f-ui); color: var(--ink); white-space: nowrap; }
+.bar + .bar { margin-top: 10px; }
+.icons { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; }
+.icons figure { margin: 0; display: grid; gap: 6px; justify-items: center; font: 400 12px var(--f-ui); color: var(--ink-3); }
+.ico { display: grid; place-items: center; background: var(--ground-2); border: 1px solid var(--rule-2); border-radius: 3px; overflow: hidden; }
+.ico.s64 { width: 64px; height: 64px; } .ico.s32 { width: 32px; height: 32px; } .ico.s16 { width: 16px; height: 16px; border-radius: 2px; }
+
+/* lockup */
+.lockup { padding: 26px 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; border-bottom: 1px solid var(--rule); }
+.lockup .slash { font: 300 clamp(28px, 4vw, 44px)/1 var(--f-ui); color: var(--rule-2); }
+.lockup .sub { font: 400 clamp(22px, 3vw, 34px)/1.05 var(--f-serif); color: var(--ink); white-space: nowrap; }
+
+/* ---------- A: caret ---------- */
+.wa { font-family: var(--f-ui); font-weight: 500; letter-spacing: 0.01em; color: var(--ink); display: inline-flex; align-items: baseline; white-space: nowrap; line-height: 1; }
+.wa .caret { display: inline-block; width: 0.42em; height: 0.74em; background: var(--recog); margin-left: 0.08em; transform: translateY(0.04em); }
+.wa.big { font-size: clamp(60px, 13vw, 156px); letter-spacing: -0.005em; }
+.wa.nav { font-size: 33px; } /* ascender-to-baseline about 28px */
+.ico .wa { font-weight: 600; }
+.ico.s64 .wa { font-size: 40px; } .ico.s32 .wa { font-size: 21px; } .ico.s16 .wa { font-size: 12px; }
+
+/* ---------- B: selection ---------- */
+.wb { font-family: "IBM Plex Sans", var(--f-ui); font-weight: 500; text-transform: uppercase; letter-spacing: 0.32em; color: var(--ink); display: inline-flex; align-items: center; gap: 0.55em; white-space: nowrap; line-height: 1; }
+.wb .word { margin-right: -0.32em; } /* tracking eats the right edge */
+.sym { --s: 1em; position: relative; width: var(--s); height: var(--s); flex: none; }
+.sym::before { content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(currentColor, currentColor) left top / 30% 9% no-repeat,
+    linear-gradient(currentColor, currentColor) left top / 9% 30% no-repeat,
+    linear-gradient(currentColor, currentColor) right bottom / 30% 9% no-repeat,
+    linear-gradient(currentColor, currentColor) right bottom / 9% 30% no-repeat; }
+.sym::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; border-radius: 50%; background: var(--recog); transform: translate(-50%, -50%); }
+.wb.big { font-size: clamp(30px, 6.4vw, 78px); }
+.wb.nav { font-size: 20px; } .wb.nav .sym { --s: 28px; }
+.wb.big .sym { --s: 1.15em; }
+.ico .sym { color: var(--ink); }
+.ico.s64 .sym { --s: 40px; } .ico.s32 .sym { --s: 22px; } .ico.s16 .sym { --s: 12px; }
+.ico.s16 .sym::before { background:
+    linear-gradient(currentColor, currentColor) left top / 40% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) left top / 1px 40% no-repeat,
+    linear-gradient(currentColor, currentColor) right bottom / 40% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) right bottom / 1px 40% no-repeat; }
+
+/* ---------- C: doubles ---------- */
+.wc { font-family: "Archivo", var(--f-ui); font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; line-height: 1; display: inline-block; }
+.wc .mir { display: inline-block; transform: scaleX(-1); color: var(--ink); }
+.wc .mir.hot { color: var(--recog); }
+.wc.big { font-size: clamp(52px, 11.5vw, 140px); }
+.wc.nav { font-size: 37px; } /* x-height-led: ascender-to-baseline about 28px */
+.ico .wc { letter-spacing: -0.06em; }
+.ico.s64 .wc { font-size: 34px; } .ico.s32 .wc { font-size: 18px; } .ico.s16 .wc { font-size: 10px; letter-spacing: -0.04em; }
+
+.verdict { border-left: 2px solid var(--recog); padding: 4px 0 4px 16px; max-width: 70ch; }
+.verdict h2 { font: 400 28px/1.15 var(--f-serif); margin-bottom: 8px; }
+.verdict p { font-size: 17px; }
+
+@media (max-width: 760px) {
+  .wrap { padding-top: 28px; }
+  .grid { grid-template-columns: 1fr; }
+  .cell + .cell { border-left: 0; border-top: 1px solid var(--rule); }
+  .dir-head .pick { margin-left: 0; }
+  .bar { padding: 0 12px; gap: 10px; }
+  .bar .sub { font-size: 14px; }
+  .wb.nav { font-size: 15px; letter-spacing: 0.24em; }
+  .wb.nav .word { margin-right: -0.24em; }
+  .lockup .sub { white-space: normal; }
+}
+.bar .short { display: none; }
+@media (max-width: 420px) {
+  .bar .full { display: none; } .bar .short { display: inline; }
+  /* phones: the expanded mark steps down to about 23px tall, as the live Anton mark does (22px) */
+  .wc.nav { font-size: 30px; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="intro">
+    <h1>Three wordmarks for antimemes</h1>
+    <p>For Benjamin to pick from. Each is shown large, in the 60px top bar at 28px tall, as an icon at 64, 32 and 16px, and in the lockup with The Great AI Debate. All three sit on the house ground and use the two house signals only: recognition blue as the single accent, no heat. Nothing here is on the live site yet. The current Anton mark stays, minus its glitch hover, until you choose.</p>
+  </header>
+
+  <!-- A -->
+  <section class="dir" aria-labelledby="a-h">
+    <div class="dir-head"><h2 id="a-h">A. Caret</h2><span class="fonts">IBM Plex Sans Condensed Medium (already in the project)</span></div>
+    <div class="hero-row"><span class="wa big" aria-label="antimemes">antimemes<span class="caret"></span></span></div>
+    <div class="grid">
+      <div class="cell"><p class="cell-k">Top bar, mark 28px tall</p>
+        <div class="bar"><span class="wa nav">antimemes<span class="caret"></span></span></div>
+        <div class="bar"><span class="wa nav">antimemes<span class="caret"></span></span><span class="slash">/</span><span class="sub"><span class="full">The Great AI Debate</span><span class="short">AI Debate</span></span></div>
+      </div>
+      <div class="cell"><p class="cell-k">Icon</p>
+        <div class="icons">
+          <figure><span class="ico s64"><span class="wa">a<span class="caret"></span></span></span><figcaption>64</figcaption></figure>
+          <figure><span class="ico s32"><span class="wa">a<span class="caret"></span></span></span><figcaption>32</figcaption></figure>
+          <figure><span class="ico s16"><span class="wa">a<span class="caret"></span></span></span><figcaption>16</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="lockup"><span class="wa big" style="font-size:clamp(34px,5vw,56px)">antimemes<span class="caret"></span></span><span class="slash">/</span><span class="sub">The Great AI Debate</span></div>
+    <div class="why"><p>The quietest option and the cheapest: no new typeface, just the lab's own Plex Condensed set lowercase with a solid text cursor after it. The cursor is the internet in one shape, and it says the thing the lab asks of people: your turn to write. It reads as a console prompt, which fits the ops-console furniture already on the site. The risk is that a blinking or block cursor is a familiar tech-startup move, so it's the least ownable of the three.</p></div>
+  </section>
+
+  <!-- B -->
+  <section class="dir" aria-labelledby="b-h">
+    <div class="dir-head"><h2 id="b-h">B. Selection</h2><span class="fonts">IBM Plex Sans Medium (Google Fonts; same family as the UI face)</span></div>
+    <div class="hero-row"><span class="wb big" aria-label="antimemes"><span class="sym" aria-hidden="true"></span><span class="word">antimemes</span></span></div>
+    <div class="grid">
+      <div class="cell"><p class="cell-k">Top bar, mark 28px tall</p>
+        <div class="bar"><span class="wb nav"><span class="sym"></span><span class="word">antimemes</span></span></div>
+        <div class="bar"><span class="wb nav"><span class="sym"></span><span class="word">antimemes</span></span><span class="slash">/</span><span class="sub"><span class="full">The Great AI Debate</span><span class="short">AI Debate</span></span></div>
+      </div>
+      <div class="cell"><p class="cell-k">Icon</p>
+        <div class="icons">
+          <figure><span class="ico s64"><span class="sym"></span></span><figcaption>64</figcaption></figure>
+          <figure><span class="ico s32"><span class="sym"></span></span><figcaption>32</figcaption></figure>
+          <figure><span class="ico s16"><span class="sym"></span></span><figcaption>16</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="lockup"><span class="wb big" style="font-size:clamp(20px,3vw,32px)"><span class="sym"></span><span class="word">antimemes</span></span><span class="slash">/</span><span class="sub">The Great AI Debate</span></div>
+    <div class="why"><p>The closest to Palantir: capitals, wide tracking, and a small symbol that does the brand's work. The symbol is the selection frame the map already draws around a face you pick, with one node inside it: a person, singled out to be understood rather than piled on. It also reads as a screenshot crop, the way memes get captured and passed around. It is the most institutional and the easiest to scale to new debates, because the symbol can sit beside any sub-brand. It is also the coolest in temperature, and its internet-culture hint is the faintest.</p></div>
+  </section>
+
+  <!-- C -->
+  <section class="dir rec" aria-labelledby="c-h">
+    <div class="dir-head"><h2 id="c-h">C. Doubles</h2><span class="fonts">Archivo SemiBold, expanded width (Google Fonts)</span><span class="pick">Recommended</span></div>
+    <div class="hero-row"><span class="wc big" aria-label="antimemes">antim<span class="mir hot">e</span>mes</span></div>
+    <div class="grid">
+      <div class="cell"><p class="cell-k">Top bar, mark 28px tall</p>
+        <div class="bar"><span class="wc nav" aria-label="antimemes">antim<span class="mir hot">e</span>mes</span></div>
+        <div class="bar"><span class="wc nav" aria-label="antimemes">antim<span class="mir hot">e</span>mes</span><span class="slash">/</span><span class="sub"><span class="full">The Great AI Debate</span><span class="short">AI Debate</span></span></div>
+      </div>
+      <div class="cell"><p class="cell-k">Icon</p>
+        <div class="icons">
+          <figure><span class="ico s64"><span class="wc"><span class="mir hot">e</span>e</span></span><figcaption>64</figcaption></figure>
+          <figure><span class="ico s32"><span class="wc"><span class="mir hot">e</span>e</span></span><figcaption>32</figcaption></figure>
+          <figure><span class="ico s16"><span class="wc"><span class="mir hot">e</span>e</span></span><figcaption>16</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <div class="lockup"><span class="wc big" style="font-size:clamp(32px,4.6vw,52px)" aria-label="antimemes">antim<span class="mir hot">e</span>mes</span><span class="slash">/</span><span class="sub">The Great AI Debate</span></div>
+    <div class="why"><p>The first e is turned to face its twin across the m: "m<b>ɘ</b>me". That is the whole theory in a glyph. Girard's rivals become mirror images of each other, Bateson's split is a mirror answering a mirror, and the lab's answer is to face the other without becoming their copy. The expanded, tightly set sans gives it the precision and weight of an institution. The reversed letter is the internet in it: the same letter play as a backwards meme caption, done once and quietly. The icon is the pair alone, two letters facing each other, which works for any future debate, not just AI.</p></div>
+  </section>
+
+  <section class="verdict" aria-labelledby="v-h">
+    <h2 id="v-h">My pick: C, Doubles.</h2>
+    <p>It's the only one of the three that couldn't belong to another company, because its single idea is this lab's idea. It stays readable as "antimemes" at nav size, and its icon holds up at 16px. It carries no AI imagery, so it can stretch from AI policy to the wider pop-culture landscape. Cost: it brings in a fourth typeface (Archivo, for the wordmark only), which the brand file currently rules out, so choosing it means amending docs/brand/BRAND.md. If you'd rather keep to the existing faces, B is the runner-up and can be rebuilt in Plex Condensed with little loss.</p>
+  </section>
+</main>
+</body>
+</html>

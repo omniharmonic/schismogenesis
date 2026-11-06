@@ -93,11 +93,23 @@ a.skip:focus { top: 12px; color: var(--ground); }
   background: rgba(18, 24, 32, 0.94); border-bottom: 1px solid var(--rule);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.mark { display: inline-flex; align-items: baseline; gap: 0; text-decoration: none; color: var(--ink); font: 400 26px/1 var(--macro); letter-spacing: 0.01em; padding: 6px 0; }
-.mark:hover { color: var(--ink); }
-/* the wordmark: anti+memes, Anton, the "+" in heat, the same lockup as the lab */
-.mark-plus { color: var(--heat); margin: 0 1px; font-size: 1.3em; line-height: 0; }
-.mark:hover .mark-a, .mark:hover .mark-b { text-shadow: 2px 0 var(--heat), -2px 0 var(--recog); }
+/* the wordmark (D-31.25): the selection mark, "anti" in IBM Plex Sans, "mɘmes" in Archivo
+   expanded with its first e mirrored to face its twin; recognition blue on the mark's two accents */
+@font-face { font-family: "AM Plex"; font-weight: 500; font-display: swap; src: url("fonts/IBMPlexSans-Medium.woff2") format("woff2"); }
+@font-face { font-family: "AM Archivo"; font-weight: 600; font-display: swap; src: url("fonts/Archivo-ExpandedSemiBold.woff2") format("woff2"); }
+.mark, .foot-mark a, p.foot-mark { display: inline-flex; align-items: center; gap: 0; text-decoration: none; color: var(--ink); font-size: 22px; line-height: 1; white-space: nowrap; letter-spacing: 0; }
+.mark-sym { position: relative; width: 0.92em; height: 0.92em; flex: none; margin-right: 0.42em; }
+.mark-sym::before { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(currentColor, currentColor) left top / 30% 9% no-repeat,
+  linear-gradient(currentColor, currentColor) left top / 9% 30% no-repeat,
+  linear-gradient(currentColor, currentColor) right bottom / 30% 9% no-repeat,
+  linear-gradient(currentColor, currentColor) right bottom / 9% 30% no-repeat; }
+.mark-sym::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; border-radius: 50%; background: var(--recog, #8fb0ff); transform: translate(-50%, -50%); }
+.mark-a { font-family: "AM Plex", "IBM Plex Sans Condensed", system-ui, sans-serif; font-weight: 500; letter-spacing: 0.01em; color: var(--ink-2, #9aa7b6); }
+.mark-b { font-family: "AM Archivo", "IBM Plex Sans Condensed", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.mark-mir { display: inline-block; transform: scaleX(-1); color: var(--recog, #8fb0ff); }
+.mark:hover .mark-b, .foot-mark a:hover .mark-b { color: #fff; }
+.mark { padding: 6px 0; }
 .top-slash { font: 400 24px/1 var(--sans); color: var(--rule-2); }
 .sub { font: 600 17px/1.2 var(--sans); color: var(--ink); text-decoration: none; padding: 8px 0; white-space: nowrap; }
 .sub:hover { color: #fff; }
@@ -109,7 +121,7 @@ a.skip:focus { top: 12px; color: var(--ground); }
   :root { --top-h: 54px; }
   .top { position: relative; gap: 0 12px; }
   /* both links in the lockup are full-height tap targets */
-  .mark { font-size: 22px; min-height: 48px; align-items: center; padding: 0; }
+  .mark { font-size: 19px; min-height: 48px; padding: 0; }
   .sub { font-size: 16px; min-height: 48px; display: inline-flex; align-items: center; padding: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .top-slash { font-size: 20px; }
   /* the nav drops to its own row and scrolls sideways inside itself if it must (site-config.js
@@ -129,7 +141,7 @@ a.skip:focus { top: 12px; color: var(--ground); }
 .hero-print { width: min(300px, 70vw); height: auto; display: block; margin: 8px 0 24px -8px; }
 .hero { display: grid; gap: 28px; }
 .hero .lede { font-size: 1.3rem; line-height: 1.45; }
-#landing h1 { font-weight: 350; font-size: clamp(2.5rem, 5.4vw, 4.2rem); line-height: 0.98; letter-spacing: -0.022em; text-shadow: 1.5px 0 rgba(255, 84, 104, 0.45), -1.5px 0 rgba(143, 176, 255, 0.45); }
+#landing h1 { font-weight: 350; font-size: clamp(2.5rem, 5.4vw, 4.2rem); line-height: 0.98; letter-spacing: -0.022em; }
 .hero-preview { margin: 0; position: relative; }
 /* the print sits faintly behind the preview card, as a watermark */
 .hero-preview #hero-print { position: absolute; inset: -30px -20px auto auto; opacity: 0.18; pointer-events: none; }
@@ -456,7 +468,7 @@ dialog.sheet::backdrop { background: rgba(8, 11, 15, 0.7); }
 .foot p { font: 400 16px/1.5 var(--serif); }
 .foot .fine { font: 400 14px/1.45 var(--sans); }
 .foot-mark { margin: 0 0 6px; }
-.foot-mark a { font: 400 26px/1 var(--macro); color: var(--ink); text-decoration: none; display: inline-flex; align-items: baseline; }
+.foot-mark a { font-size: 26px; }
 .foot-h { font: 600 14px var(--sans); color: var(--ink-2); margin: 0 0 10px; letter-spacing: 0; }
 .foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .foot-links a { font: 500 15px var(--sans); color: var(--ink); text-decoration: none; display: inline-block; padding: 6px 0; }
@@ -678,3 +690,83 @@ button.danger:hover { border-color: var(--heat); color: #fff; background: color-
 @media (prefers-reduced-motion: reduce) {
   .switch-row input[role="switch"], .switch-row input[role="switch"]::after { transition: none; }
 }
+
+/* ---------- the top bar's "You" when signed in: your picture (nav.js) ---------- */
+.top-nav a.nav-you { padding: 8px 2px; }
+.nav-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; display: block; background: var(--ground-2); border: 1px solid var(--rule-2); }
+.top-nav a.nav-you:hover .nav-avatar { border-color: var(--ink-2); }
+.top-nav a.nav-you[aria-current="page"] .nav-avatar { border-color: var(--recog); }
+
+/* ---------- the account page: Your results and Settings (account.js) ---------- */
+main.acc-main { max-width: 1180px; }
+.acc-layout { display: grid; gap: 22px; }
+.acc-panes { min-width: 0; container-type: inline-size; }
+/* phones: two segments across the top, the same control as the map's layer switch */
+.acc-tabs { display: flex; border: 1px solid var(--rule-2); border-radius: 2px; }
+.acc-tabs a {
+  flex: 1 1 0; min-height: 44px; display: flex; align-items: center; justify-content: center; padding: 8px 12px;
+  font: 500 0.98rem var(--sans); color: var(--ink-2); text-decoration: none; text-align: center;
+}
+.acc-tabs a + a { border-left: 1px solid var(--rule-2); }
+.acc-tabs a:hover { color: var(--ink); }
+.acc-tabs a[aria-current="page"] { color: var(--ink); background: rgba(143, 176, 255, 0.12); box-shadow: inset 0 -2px 0 var(--recog); }
+/* wider: a quiet rail on the left, the current item marked on its edge */
+@media (min-width: 960px) {
+  .acc-layout { grid-template-columns: 176px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .acc-tabs { flex-direction: column; border: 0; border-left: 1px solid var(--rule); position: sticky; top: calc(var(--top-h) + 24px); }
+  .acc-tabs a { flex: 0 0 auto; justify-content: flex-start; text-align: left; padding: 10px 16px; margin-left: -1px; border-left: 2px solid transparent; }
+  .acc-tabs a + a { border-left: 2px solid transparent; }
+  .acc-tabs a[aria-current="page"] { background: none; box-shadow: none; border-left-color: var(--recog); }
+}
+/* the pane keeps a reading column; only the map and its panel use the full width */
+.acc-pane > :not(.result-core), .acc-pane .result-core > * { max-width: 760px; }
+.acc-pane .result-core > .explore { max-width: none; width: auto; margin-left: 0; transform: none; }
+@container (max-width: 860px) {
+  .acc-pane .explore-grid { grid-template-columns: 1fr; }
+  .acc-pane .explore-grid .mapbox, .acc-pane .panel { position: static; max-height: none; }
+}
+
+.acc-head { align-items: flex-start; }
+.acc-who { min-width: 0; }
+h1.acc-name { font-size: clamp(1.9rem, 6vw, 2.5rem); line-height: 1.08; margin: 4px 0 8px; max-width: none; }
+h1.acc-pane-title { font-size: clamp(1.9rem, 6vw, 2.5rem); margin-bottom: 0; }
+h1:focus { outline: none; }
+h1:focus-visible { outline: 2px solid var(--recog); }
+
+/* your X / Bluesky identity (socials.js), here and on the public profile */
+.socials { margin: 0 0 4px; }
+.social-bio { font-size: 1.08rem; line-height: 1.45; margin: 0 0 4px; max-width: 56ch; overflow-wrap: anywhere; }
+.social-line { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; margin: 0; overflow-wrap: anywhere; }
+.social-line a { display: inline-flex; align-items: center; min-height: 44px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* the share panel: what you'd post, your link, the two compose pages */
+.acc-share { background: var(--sheet); border: 1px solid var(--line); border-radius: 2px; padding: 22px; margin: 28px 0 8px; }
+.acc-share h2 { margin-top: 0; font-size: 1.5rem; }
+.share-quote { font-size: clamp(1.2rem, 3.6vw, 1.45rem); line-height: 1.35; margin: 0 0 18px; max-width: 34ch; }
+.share-links label { display: block; margin-bottom: 6px; }
+.share-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 4px; }
+.share-pair .button { width: 100%; padding-left: 10px; padding-right: 10px; white-space: nowrap; text-align: center; }
+.acc-share .gate { margin: 14px 0 4px; }
+.acc-share .link-button.small { min-height: 44px; margin-left: 10px; }
+.acc-actions { margin: 18px 0 10px; padding-top: 18px; border-top: 1px solid var(--rule); }
+h2.acc-result-title { font-size: clamp(2rem, 6vw, 2.8rem); letter-spacing: -0.02em; margin: 0 0 14px; max-width: 18ch; }
+.acc-pane .result-core > .reveal-head { margin-top: 36px; }
+.acc-invite h2 { margin-top: 0; }
+
+/* statements you wrote in the live room */
+.my-statements { list-style: none; padding: 0; margin: 0 0 8px; }
+.my-statements li { border-bottom: 1px solid var(--rule); padding: 14px 0; }
+.my-statement { font-size: 1.15rem; line-height: 1.38; margin: 0 0 6px; }
+.my-statement-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin: 0; }
+.my-statement-meta b { color: var(--ink); font-weight: 600; }
+
+/* "Use this": the provider bio, offered when the account has none */
+.bio-hint { margin-top: 12px; padding: 12px 14px; border: 1px dashed var(--rule-2); border-radius: 2px; }
+.bio-hint p { margin: 0 0 8px; }
+
+/* "Find me" beside the map's layer switch; the ring stands for the mark it rings */
+.find-me { min-height: 44px; padding: 8px 16px; font-size: 0.95rem; }
+.find-me::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--recog); }
+.chip.bridge-passed { color: var(--recog); }
+.chip.bridge-leaning { color: var(--ink-2); }

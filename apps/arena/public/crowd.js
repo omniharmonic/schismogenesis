@@ -39,31 +39,58 @@ export function layerSwitchHTML(current = "both") {
 
 /**
  * Put the switch above a map. `mapEl` keeps the chosen layer in data-layer, which survives the
- * map being redrawn (map.css hides or fades by it). Returns { set(crowd) } to fill in the note.
+ * map being redrawn (map.css hides or fades by it). `findMe` adds a "Find me" button (pass it
+ * only when the map draws your "You" mark). Returns { set(crowd), pick(layer) }.
  */
-export function mountLayerSwitch(mapEl, { initial = "both", onChange = null } = {}) {
+export function mountLayerSwitch(mapEl, { initial = "both", onChange = null, findMe = false } = {}) {
   const wrap = document.createElement("div");
   wrap.className = "layer-bar";
-  wrap.innerHTML = `${layerSwitchHTML(initial)}<p class="small muted layer-note" role="status"></p>`;
+  wrap.innerHTML = `${layerSwitchHTML(initial)}${findMe ? `<button type="button" class="find-me" data-find-me>Find me</button>` : ""}<p class="small muted layer-note" role="status"></p>`;
   (mapEl.closest(".explore-grid") || mapEl).before(wrap);
   mapEl.dataset.layer = initial;
   const note = wrap.querySelector(".layer-note");
-  let crowd = null;
+  let crowd = null, found = "";
   const paint = () => {
     const mode = mapEl.dataset.layer;
-    note.textContent = mode !== "thinkers" && crowd ? peopleNote(crowd) : "";
+    note.textContent = found || (mode !== "thinkers" && crowd ? peopleNote(crowd) : "");
     note.hidden = !note.textContent;
+  };
+  const pick = (mode) => {
+    mapEl.dataset.layer = mode;
+    for (const x of wrap.querySelectorAll("[data-layer-pick]")) x.setAttribute("aria-pressed", String(x.dataset.layerPick === mode));
+    paint();
+    onChange?.(mode);
   };
   wrap.addEventListener("click", (e) => {
     const b = e.target.closest("[data-layer-pick]");
-    if (!b) return;
-    mapEl.dataset.layer = b.dataset.layerPick;
-    for (const x of wrap.querySelectorAll("[data-layer-pick]")) x.setAttribute("aria-pressed", String(x === b));
-    paint();
-    onChange?.(b.dataset.layerPick);
+    if (b) { found = ""; pick(b.dataset.layerPick); return; }
+    if (e.target.closest("[data-find-me]")) {
+      if (mapEl.dataset.layer !== "both") pick("both");
+      found = findYou(mapEl) ? "You're ringed in blue on the map." : "Answer a few more statements to appear on the map.";
+      paint();
+      setTimeout(() => { found = ""; paint(); }, 5000);
+    }
   });
   paint();
-  return { set(c) { crowd = c; paint(); } };
+  return { set(c) { crowd = c; paint(); }, pick };
+}
+
+let foundTimer = 0;
+/**
+ * Ring your "You" mark (a pulse, or a still ring with reduced motion) and bring it into view.
+ * Returns whether there was a mark to find.
+ */
+export function findYou(mapEl) {
+  const mark = mapEl.querySelector(".map-you-mark");
+  if (!mark) return false;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  mapEl.querySelectorAll(".map-you-mark.is-found").forEach((m) => m.classList.remove("is-found"));
+  void mark.getBoundingClientRect(); // restart the pulse on a second press
+  mark.classList.add("is-found");
+  mark.scrollIntoView({ block: "center", inline: "center", behavior: reduce ? "auto" : "smooth" });
+  clearTimeout(foundTimer);
+  foundTimer = setTimeout(() => mark.classList.remove("is-found"), 6000);
+  return true;
 }
 
 /**

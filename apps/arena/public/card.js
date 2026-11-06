@@ -10,12 +10,32 @@ const MACRO = "Anton, Impact, sans-serif";
 // the shared antimemes.is ground (docs/brand/BRAND.md); share cards are always dark
 const C = { ground: "#121820", ink: "#dde4eb", ink2: "#9aa7b6", recog: "#8fb0ff", heat: "#ff5468", rule: "#2b3644" };
 
-/** The antimemes wordmark, right-aligned at (right, y): one word in Anton, as on the lab. */
+/** The antimemes wordmark, right-aligned with its baseline at (right, y): the selection mark,
+ * "anti" in IBM Plex Sans, "mɘmes" in Archivo expanded with the first e mirrored (D-31.25). */
 function wordmark(c, right, y, size, colour = C.ink) {
+  const PLEX = `500 ${size}px "AM Plex", "IBM Plex Sans Condensed", sans-serif`;
+  const ARCH = `600 ${size}px "AM Archivo", "IBM Plex Sans Condensed", sans-serif`;
+  // on the house ground the accents are recognition blue and the quiet grey; on a coloured story
+  // slide the whole mark takes the slide's ink, so nothing disappears into the background
+  const house = colour === C.ink;
+  const accent = house ? C.recog : colour, quiet = house ? C.ink2 : colour;
   c.save();
-  c.font = `400 ${size}px ${MACRO}`;
-  c.fillStyle = colour; c.textAlign = "right";
-  c.fillText("antimemes", right, y);
+  c.font = PLEX; const wa = c.measureText("anti").width;
+  c.font = ARCH;
+  const wm = c.measureText("m").width, we = c.measureText("e").width, wr = c.measureText("mes").width;
+  const s = size * 0.92, gap = size * 0.42;
+  let x = right - (s + gap + wa + wm + we + wr);
+  // the selection mark: two corner brackets and a node, centred on the x-height
+  const top = y - size * 0.62 - s / 2 + size * 0.06, t = Math.max(1.5, s * 0.09), arm = s * 0.3;
+  c.fillStyle = colour;
+  c.fillRect(x, top, arm, t); c.fillRect(x, top, t, arm);
+  c.fillRect(x + s - arm, top + s - t, arm, t); c.fillRect(x + s - t, top + s - arm, t, arm);
+  c.fillStyle = accent; c.beginPath(); c.arc(x + s / 2, top + s / 2, s * 0.17, 0, Math.PI * 2); c.fill();
+  x += s + gap;
+  c.font = PLEX; c.fillStyle = quiet; c.fillText("anti", x, y); x += wa;
+  c.font = ARCH; c.fillStyle = colour; c.fillText("m", x, y); x += wm;
+  c.save(); c.translate(x + we, y); c.scale(-1, 1); c.fillStyle = accent; c.fillText("e", 0, 0); c.restore();
+  x += we; c.fillText("mes", x, y);
   c.restore();
 }
 

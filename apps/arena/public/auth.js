@@ -2,6 +2,8 @@
 // answers to the account. Used by the account page and by the survey's "Save your answers" panel.
 // The session is an httpOnly cookie the server sets; nothing about it lives in this script.
 import { esc } from "./map.js";
+import { initialMe } from "./nav.js";
+export { paintNavYou } from "./nav.js";
 
 const KEY_USER = "antimemes.is"; // the name a password manager files the private key under
 
@@ -24,8 +26,15 @@ export async function api(path, { method = "GET", body } = {}) {
   return data;
 }
 
+let usedInitial = false;
 /** The signed-in account, or null. A missing endpoint (404) or any failure counts as signed out. */
 export async function getMe() {
+  // the first call on a page reuses the top bar's request (nav.js); later calls ask again
+  if (!usedInitial) {
+    usedInitial = true;
+    const first = initialMe();
+    if (first) return first;
+  }
   try {
     const res = await fetch("/api/me", { credentials: "same-origin" });
     if (!res.ok) return null;
