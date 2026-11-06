@@ -168,7 +168,7 @@ export function nodeCard(bundle, id, answers = {}) {
       <p class="eyebrow-level small muted">${LEVEL[Math.min(n.level, LEVEL.length - 1)]}${kids.length ? `, ${kids.length} groups inside` : ""}</p>
       <h3 tabindex="-1">${esc(n.label)}</h3>
       <p class="serif">${esc(n.note)}</p>
-      <p class="small muted">${ids.length} thinkers. When we redraw the groups hundreds of times from resampled evidence, two of them land together ${together}% of the time. A group is something the data finds, not a label they chose.</p></div></header>
+      <p class="small muted">${ids.length} thinkers. When we redraw the groups hundreds of times from resampled evidence, two of them land together ${together}% of the time. A group is something the data finds, not a label they chose.${bundle.named?.[id] ? ` This name was proposed and chosen by its members; the lab's draft was “${esc(n.drafted || "")}”.` : ""}</p></div></header>
     ${kids.length ? `<h4>Groups inside</h4><ul class="subgroups">${kids.map((k) => {
       const kidIds = nodeMembers(bundle, k.id);
       return `<li><button class="school-card small" data-node="${esc(k.id)}">
@@ -232,6 +232,8 @@ export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, 
     if (mapOptions && focus !== drawnFocus) {
       mapEl.innerHTML = mapSVG(bundle, { ...mapOptions, focus });
       drawnFocus = focus;
+      // a zoomable map (map-zoom.js) opens the group's area, or the whole map again
+      mapEl.dispatchEvent(new CustomEvent("thinkermap:focus", { detail: { node: focus } }));
     }
     markSelected(mapEl, current || {});
     if (!current) return;
@@ -272,6 +274,7 @@ export function explorer({ bundle, answers = {}, mapEl, panelEl, gridEl = null, 
   const redraw = () => {
     if (!mapOptions) return;
     mapEl.innerHTML = mapSVG(bundle, { ...mapOptions, focus: drawnFocus });
+    if (drawnFocus) mapEl.dispatchEvent(new CustomEvent("thinkermap:focus", { detail: { node: drawnFocus } }));
     markSelected(mapEl, current || {});
   };
   return { open, redraw };

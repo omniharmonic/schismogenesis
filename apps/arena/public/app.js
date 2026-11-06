@@ -1,5 +1,6 @@
 // Flow: landing → three sets of statements → reveal → (opt-in) room.
-// Before the person joins the room, the only request this page makes is for fingerprint.json.
+// Before the person joins the room, this page asks only for fingerprint.json, the accepted camp
+// names and whether you're signed in; nothing about your answers leaves unless you choose.
 import { fingerprint, teaser } from "./placement.js";
 import { glyphSVG, glyphValues } from "./glyph.js";
 import { esc } from "./map.js";
@@ -7,6 +8,8 @@ import { resultHTML, wireResult } from "./result-view.js";
 import { canvasBlob, drawCard, shareText } from "./card.js";
 import { protectedFetch } from "./turnstile.js";
 import { handoffHTML } from "./site-config.js";
+import { loadBundle } from "./camp-names.js";
+import { nextStepHTML } from "./next-step.js";
 import { getMe, paintNavYou, pickAnswers, saveAnswers, signInHTML, takeSignInHash, wireSignIn, xAvailable } from "./auth.js";
 
 const event = (name) => fetch("/api/event", { method: "POST", headers: { "Content-Type": "application/json" },
@@ -164,6 +167,8 @@ function renderReveal() {
   }
   el.innerHTML = `${resultHTML(bundle, answers, r)}
 
+    <div id="next-slot">${nextStepHTML({ signedIn: Boolean(me), id: "next-step" })}</div>
+
     <h2>Share it</h2>
     <canvas id="card" class="card-preview" aria-label="Share card preview"></canvas>
     <div class="row">
@@ -185,13 +190,11 @@ function renderReveal() {
     </div>
 
     <div class="room-card">
-      <h2 style="margin-top:0">Join the live room</h2>
-      <p>Vote on more statements, including ones other people write, and see the room's own groups and the statements that bridge them.</p>
-      ${me ? `<p class="small muted">You join with your account, so statements you write show on your results in <a href="/account.html#results">your account</a>. Your name is shown only if you show yourself on the map.</p>`
-      : `<p class="small muted">Joining sends your answers above to the room under a random ID. No name or email. You can add a handle if you like.</p>
-      <label class="small" for="handle">Handle (optional)</label>
-      <input type="text" id="handle" maxlength="40" autocomplete="off" placeholder="How you'd like to appear, or leave blank">`}
-      <div class="row" style="margin-top:12px"><button class="primary" id="join">Add my answers to the live room</button></div>
+      <h2 style="margin-top:0">Vote in the live room</h2>
+      <p>Vote on statements other people wrote, and see the room's own groups and the statements that bridge them.</p>
+      <p class="small muted">${me ? "You join with your account. Your name is shown only if you show yourself on the map."
+      : "Joining sends your answers above to the room under a random ID. No name or email."}</p>
+      <div class="row" style="margin-top:12px"><button id="join">Open the live room</button></div>
     </div>
 
     <h2>Was this fair to you?</h2>
@@ -254,9 +257,32 @@ function renderReveal() {
       el.querySelector(".stars").outerHTML = `<p>Thanks. Your rating is recorded.</p>`;
     };
   }
-  $("join").onclick = async () => {
-    const { joinRoom } = await import("./room.js");  // the room code loads only on opt-in
-    joinRoom({ bundle, answers, handle: $("handle")?.value || "", show, toast });
+  $("join").onclick = () => enterRoom();
+  wireNextStep();
+}
+
+// into the room (the room code loads only on opt-in); `write` opens straight on writing
+async function enterRoom({ write = false } = {}) {
+  const { joinRoom } = await import("./room.js");
+  joinRoom({ bundle, answers, handle: "", show, toast, write });
+}
+
+// the next step's buttons: write (signed in, or carrying on without an account), or sign in first
+function wireNextStep() {
+  const slot = $("next-slot");
+  if (!slot) return;
+  slot.onclick = (e) => {
+    const a = e.target.closest("[data-next]");
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    if (a.dataset.next === "signin") {
+      const open = $("save-open");
+      if (open && $("save-ways").hidden) open.click();
+      $("save-card").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      setTimeout(() => $("save-card").querySelector(".signin input:not([type=hidden]), .signin a, .signin button")?.focus({ preventScroll: true }), 400);
+      return;
+    }
+    enterRoom({ write: true });
   };
 }
 
@@ -297,13 +323,15 @@ function afterSignIn() {
   if (!me) { toast("Couldn't sign in"); return; }
   toast("Signed in");
   paintSaveCard();
+  const slot = $("next-slot");
+  if (slot) slot.innerHTML = nextStepHTML({ signedIn: true, id: "next-step" });
   const c = $("contribute");
   if (c) { $("contribute-card").querySelector("h2").textContent = "Counted in the results"; $("contribute-card").querySelector("p").textContent = "Your saved answers are counted in the results, without your name."; c.remove(); }
 }
 
 // ---------- start ----------
 async function boot() {
-  const [b, account] = await Promise.all([fetch("fingerprint.json").then((res) => res.json()), getMe()]);
+  const [b, account] = await Promise.all([loadBundle("/fingerprint.json"), getMe()]);
   bundle = b; me = account;
   const back = takeSignInHash();
   const saved = store.get("fp.answers", null);
@@ -378,6 +406,14 @@ async function boot() {
   if (location.hash === "#room") {
     const { openRoom } = await import("./room.js");
     return openRoom({ bundle, show, toast });
+  }
+  // "Write a statement" from your results or the results page: straight to the room's write step
+  if (location.hash === "#write") {
+    const { openRoom, joinRoom } = await import("./room.js");
+    if (me || store.get("fp.room.ai-futures", null)) return openRoom({ bundle, show, toast, write: true });
+    if (fingerprint(bundle, answers).status === "ok") return joinRoom({ bundle, answers, handle: "", show, toast, write: true });
+    history.replaceState(null, "", location.pathname + location.search);
+    toast("Take the survey first. Then you can write a statement.");
   }
   show("landing");
 }

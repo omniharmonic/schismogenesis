@@ -8,6 +8,8 @@ import { fingerprint } from "./placement.js";
 import { resultHTML, wireResult } from "./result-view.js";
 import { socialsHTML, suggestedBio } from "./socials.js";
 import { NotYet, accountProfileBody, profileURL, publishAccountProfile, shareLine, shareLinksHTML, wireShareLinks } from "./share-links.js";
+import { loadBundle, mountNaming } from "./camp-names.js";
+import { bridgeSummary, nextStepHTML } from "./next-step.js";
 import "./site-config.js";
 
 const local = {
@@ -16,7 +18,7 @@ const local = {
 };
 
 let bundlePromise = null;
-const getBundle = () => (bundlePromise ||= fetch("/fingerprint.json").then((r) => r.json()));
+const getBundle = () => (bundlePromise ||= loadBundle("/fingerprint.json"));
 
 // ---------- pure pieces (tests/share.test.mjs) ----------
 
@@ -41,12 +43,13 @@ export function statementsHTML(list) {
   const rows = [...(list || [])].filter((s) => s && typeof s.text === "string")
     .sort((a, b) => (BRIDGE_RANK[b.bridge] || 0) - (BRIDGE_RANK[a.bridge] || 0) || total(b) - total(a));
   if (!rows.length) return "";
-  return `<ul class="my-statements">${rows.map((s) => {
+  const summary = bridgeSummary(rows);
+  return `${summary ? `<p class="bridge-summary${rows.some((s) => s.bridge === "passed") ? " has-bridge" : ""}">${summary}</p>` : ""}<ul class="my-statements">${rows.map((s) => {
     const { votes, groups } = statementNumbers(s);
     const status = String(s.status || "").toLowerCase();
     const flag = SHOWN.has(status) ? "" : `<span class="chip unsure">${esc(STATUS[status] || s.status)}</span>`;
     const bridge = BRIDGE[s.bridge] ? `<span class="chip bridge-${esc(s.bridge)}">${BRIDGE[s.bridge]}</span>` : "";
-    return `<li><p class="serif my-statement">${esc(s.text)}</p>
+    return `<li${BRIDGE[s.bridge] ? ` class="is-${esc(s.bridge)}"` : ""}><p class="serif my-statement">${esc(s.text)}</p>
       <p class="small muted my-statement-meta">${flag}${bridge}${groups ? `<span><b>${groups}</b></span>` : ""}<span>${votes}</span></p></li>`;
   }).join("")}</ul>`;
 }
@@ -181,7 +184,9 @@ async function renderResults(a, pane) {
       ${Number.isFinite(saved.getTime()) ? `<p class="small muted">Answers saved ${saved.toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}.</p>` : ""}
     </section>
     ${resultHTML(bundle, answers, result, { title: `<h2 class="acc-result-title">Closest to “${esc(result.schools[0].label)}”</h2>` })}
+    ${nextStepHTML({ signedIn: true, write: "/#write", id: "acc-next" })}
     <section class="acc-statements" aria-labelledby="st-title" data-statements></section>
+    <section data-naming hidden></section>
     <ul class="notes small">${bundle.notes.map((n) => `<li>${esc(n)}</li>`).join("")}
       ${result.unranked.length ? `<li>Not enough shared statements to compare you with: ${result.unranked.map((t) => esc(t.name)).join(", ")}.</li>` : ""}</ul>`;
 
@@ -196,6 +201,7 @@ async function renderResults(a, pane) {
     });
   };
   paintStatements(pane.querySelector("[data-statements]"));
+  mountNaming(pane.querySelector("[data-naming]"), { bundle, toast });
 }
 
 function changeAnswers(sheet) {
@@ -263,11 +269,8 @@ async function paintStatements(box) {
   } catch { /* none yet */ }
   const mine = statementsHTML(list);
   box.innerHTML = `<h2 id="st-title">Your statements</h2>
-    ${mine || `<p class="muted">You haven't written any yet.</p>`}
-    <div class="room-card">
-      <p><b>${mine ? "Write another in the live room." : "The next step: write one in the live room."}</b> Put a statement to everyone who took the survey. The ones people in different groups all agree with rise to the top, with your name on them if you show yourself.</p>
-      <div class="row"><a class="button primary" href="/#room">Go to the live room</a></div>
-    </div>`;
+    ${mine || `<p class="muted">None yet. When you write one, it shows here with its votes, and a badge once people in different groups agree with it.</p>`}
+    ${mine ? `<p class="small"><a href="/#write">Write another</a> <span class="muted">or</span> <a href="/#room">vote in the live room</a></p>` : ""}`;
 }
 
 // ---------- Settings ----------

@@ -75,7 +75,7 @@ test("a person's card shows name, handle, bio and their nearest thinker by name"
 });
 
 test("a missing people endpoint means no people", () => {
-  assert.deepEqual(normalisePeople(null), { available: false, min_cell: 10, count: 0, people: [] });
+  assert.deepEqual(normalisePeople(null), { available: false, min_cell: 10, count: 0, people: [], bins: null });
   const d = normalisePeople({ min_cell: 10, count: 4, people: [] });
   assert.equal(peopleNote(d), "People appear here once 10 have added their answers (now 4).");
   assert.equal(peopleNote(normalisePeople({ min_cell: 10, count: 12, people: [{ x: 1, y: 2 }] })), "");

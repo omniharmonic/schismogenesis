@@ -12,13 +12,14 @@ const CONSENT = "room-v1";
 const DONE = { 1: "Agreed", "-1": "Disagreed", 0: "Passed" };
 
 let ctx;
+const VOTE_CARD = `<div class="room-card" id="vote-card" aria-live="polite"></div>`;
 let me = null;
 let queue = [];
 
 const read = () => { try { return JSON.parse(localStorage.getItem(KEY)); } catch { return null; } };
 const write = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch { /* private mode */ } };
 
-async function api(path, { method = "GET", body } = {}) {
+async function api(path, { method = "GET", body } = {}, retried = false) {
   const headers = { "Content-Type": "application/json" };
   if (me) { headers["X-Participant"] = me.participant_id; headers["X-Key"] = me.key; }
   if (method === "POST" && (path === "/join" || path === "/statements")) {
@@ -27,6 +28,11 @@ async function api(path, { method = "GET", body } = {}) {
   }
   const res = await fetch(`/api/rooms/${SLUG}${path}`, { method, headers, body: body ? JSON.stringify(body) : undefined });
   const data = await res.json().catch(() => ({}));
+  // an account seat is re-keyed whenever another device asks for it: ask again, once
+  if (res.status === 401 && me?.account && !retried) {
+    const seat = await accountSeat(true);
+    if (seat) { me = seat; return api(path, { method, body }, true); }
+  }
   if (!res.ok) throw Object.assign(new Error(data.error || `Request failed (${res.status})`), { status: res.status });
   return data;
 }
@@ -35,22 +41,33 @@ async function api(path, { method = "GET", body } = {}) {
  * Signed in: the account's own room credentials (POST /api/me/room), stored where an anonymous
  * join would put them. Null when signed out, for another room, or before the endpoint exists.
  */
-async function accountSeat() {
-  if (SLUG !== "ai-futures" || !(await getMe())) return null;
+async function accountSeat(fresh = false) {
+  if (SLUG !== "ai-futures" || !(fresh || await getMe())) return null;
   try {
     const res = await fetch("/api/me/room", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: "{}" });
     if (!res.ok) return null;
     const d = await res.json();
     if (!d?.participant_id || !d?.key) return null;
-    const seat = { participant_id: d.participant_id, key: d.key };
+    const seat = { participant_id: d.participant_id, key: d.key, account: true };
     write(seat);
     return seat;
   } catch { return null; }
 }
 
-export async function joinRoom({ bundle, answers, handle, show, toast }) {
-  ctx = { bundle, show, toast };
-  me = read() || await accountSeat();
+/**
+ * This device's seat in the room. Signed in, it is the account's own entry (so statements show
+ * on your results page), even if this browser joined anonymously before; signed out, whatever
+ * this browser stored.
+ */
+async function seat() {
+  const stored = read();
+  if (stored?.account) return stored;
+  return (await accountSeat()) || stored;
+}
+
+export async function joinRoom({ bundle, answers, handle, show, toast, write: writeStep = false }) {
+  ctx = { bundle, show, toast, write: writeStep };
+  me = await seat();
   if (!me) {
     const bytes = crypto.getRandomValues(new Uint8Array(32));
     const key = [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -64,13 +81,13 @@ export async function joinRoom({ bundle, answers, handle, show, toast }) {
       return;
     }
   }
-  history.replaceState(null, "", `${location.pathname}${location.search}#room`);
+  history.replaceState(null, "", `${location.pathname}${location.search}#${writeStep ? "write" : "room"}`);
   render();
 }
 
-export async function openRoom({ bundle, show, toast }) {
-  ctx = { bundle, show, toast };
-  me = read() || await accountSeat();
+export async function openRoom({ bundle, show, toast, write: writeStep = false }) {
+  ctx = { bundle, show, toast, write: writeStep };
+  me = await seat();
   render();
 }
 
@@ -91,14 +108,17 @@ async function render() {
     <p class="muted">The live room</p>
     <h1 style="max-width:20ch">${esc(info.title)}</h1>
     <p class="small muted">${info.people} people, ${info.statements} statements, ${info.votes} votes so far.</p>
-    <div class="room-card" id="vote-card" aria-live="polite"></div>
-    <div class="room-card">
-      <h3>Add a statement</h3>
-      <p class="small muted">Write something people who disagree with you might also agree with. Up to 140 characters. A moderator checks it before others see it.</p>
-      <textarea id="new-statement" maxlength="140" aria-label="Your statement"></textarea>
+    ${ctx.write ? "" : VOTE_CARD}
+    <div class="room-card write-card" id="write-card">
+      <h3 id="write-title">Write a statement both sides can sign</h3>
+      <p class="small muted">Something people who disagree with you might also agree with. It goes to everyone here to vote on, and becomes a bridge only when people in different groups agree with it. Up to 140 characters. A moderator checks it before others see it.</p>
+      <label class="small" for="new-statement">Your statement</label>
+      <textarea id="new-statement" maxlength="140" aria-describedby="chars"></textarea>
       <div class="row" style="margin-top:8px"><button class="primary" id="submit-statement">Add statement</button><span class="small muted" id="chars">0 of 140</span></div>
       <p class="small" id="statement-msg" role="status"></p>
+      ${me?.account ? `<p class="small muted">You're writing with your account, so you'll see how it does on <a href="/account.html#results">your results page</a>.</p>` : ""}
     </div>
+    ${ctx.write ? VOTE_CARD : ""}
     <div id="report"></div>
     <div class="row" style="margin-top:32px">
       <button id="refresh">Refresh the report</button>
@@ -111,6 +131,13 @@ async function render() {
   const box = document.getElementById("new-statement");
   box.oninput = () => { document.getElementById("chars").textContent = `${box.value.length} of 140`; };
   document.getElementById("submit-statement").onclick = submitStatement;
+  if (ctx.write) {
+    // straight to the write step: the card in view, the cursor in the box
+    const card = document.getElementById("write-card");
+    card.classList.add("is-asked");
+    card.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    box.focus({ preventScroll: true });
+  }
   await nextCard();
   await renderReport();
 }

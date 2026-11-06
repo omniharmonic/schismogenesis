@@ -4,7 +4,8 @@
 import { glyphSVG } from "./glyph.js";
 import { badge, esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
-import { fetchPeople, mountLayerSwitch } from "./crowd.js";
+import { crowdOptions, fetchPeople, hasCrowd, mountLayerSwitch } from "./crowd.js";
+import { mountZoom } from "./map-zoom.js";
 import { protectedFetch } from "./turnstile.js";
 
 export const ANSWER_LABEL = { 1: "Agree", "-1": "Disagree", 0: "Unsure" };
@@ -119,6 +120,7 @@ export function wireResult(root, { bundle, answers, result: r, youFace = null })
   const core = root.querySelector(".result-core");
   const mapEl = core.querySelector("#reveal-map"), panelEl = core.querySelector("#reveal-panel");
   const mapOptions = { result: r, youFace, ...mapSize() };
+  mountZoom(mapEl);
   core.querySelector(".map-slot").outerHTML = mapSVG(bundle, mapOptions);
   const ex = explorer({
     bundle, answers, mapEl, panelEl, gridEl: core.querySelector("#reveal-schools"),
@@ -132,7 +134,7 @@ export function wireResult(root, { bundle, answers, result: r, youFace = null })
   const layer = mountLayerSwitch(mapEl, { findMe: true });
   fetchPeople().then((crowd) => {
     layer.set(crowd);
-    if (crowd.people.length && mapEl.isConnected) { mapOptions.people = crowd.people; ex.redraw(); }
+    if (hasCrowd(crowd) && mapEl.isConnected) { Object.assign(mapOptions, crowdOptions(crowd)); ex.redraw(); }
   });
 
   core.addEventListener("click", (e) => {

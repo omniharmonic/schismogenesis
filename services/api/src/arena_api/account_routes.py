@@ -443,9 +443,14 @@ def register(
     tree_nodes = (bundle.get("tree") or {}).get("nodes") or {}
 
     def my_nodes(account_id: str) -> list[str]:
-        """The camp and school this account's nearest thinker sits in."""
-        nearest = astore.nearest_of(account_id, season)
-        return [n for n in path_of.get(nearest or "", [])[:2] if n in tree_nodes]
+        """The camp and school of the person's home, by the rule their headline uses: the
+        highest-ranked thinker who sits in a school (an ungrouped new voice can rank first)."""
+        sheet = astore.sheet(account_id, season)
+        for thinker, *_ in ranked((sheet or {}).get("answers") or {}, stances):
+            nodes = [n for n in path_of.get(thinker, [])[:2] if n in tree_nodes]
+            if nodes:
+                return nodes
+        return []
 
     def can_name(account_id: str | None) -> tuple[list[str], bool]:
         if account_id is None:

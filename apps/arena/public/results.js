@@ -1,7 +1,11 @@
 // Public results: aggregates only, from people who chose to add their answers.
 import { esc, mapSVG, wireMap } from "./map.js";
 import { attachHoverCard } from "./hovercard.js";
-import { fetchPeople, gapsHTML, mountLayerSwitch } from "./crowd.js";
+import { crowdOptions, fetchPeople, gapsHTML, mountLayerSwitch } from "./crowd.js";
+import { loadBundle, relabel } from "./camp-names.js";
+import { bridgesStripHTML, nextStepHTML } from "./next-step.js";
+import { mountZoom } from "./map-zoom.js";
+import { getMe } from "./auth.js";
 import { handoffHTML } from "./site-config.js";
 import { fingerprint } from "./placement.js";
 
@@ -50,10 +54,11 @@ const heatColour = (share) => {
 function crosstab(r) {
   const c = r.crosstab;
   const text = Object.fromEntries(r.statements.map((s) => [s.id, s.text]));
-  const head = `<tr class="head"><th>Statement</th>${c.schools.map((s) => `<th scope="col">${esc(s)}</th>`).join("")}</tr>`;
-  const rows = r.statements.map((s) => `<tr><th scope="row" class="stmt">${esc(text[s.id])}</th>${c.schools.map((school) => {
-    const cell = c.cells[s.id][school];
-    return cell ? `<td style="background:${heatColour(cell.agree_share)}" data-label="${esc(school)}" data-tip="${esc(school)}: ${pct(cell.agree_share)} agree (${cell.n} people)">${pct(cell.agree_share)}</td>` : `<td class="empty" data-label="${esc(school)}" data-tip="Fewer than ${r.min_cell} people">·</td>`;
+  const shown = (i) => c.names?.[i] || c.schools[i];
+  const head = `<tr class="head"><th>Statement</th>${c.schools.map((s, i) => `<th scope="col">${esc(shown(i))}</th>`).join("")}</tr>`;
+  const rows = r.statements.map((s) => `<tr><th scope="row" class="stmt">${esc(text[s.id])}</th>${c.schools.map((school, i) => {
+    const cell = c.cells[s.id][school], name = shown(i);
+    return cell ? `<td style="background:${heatColour(cell.agree_share)}" data-label="${esc(name)}" data-tip="${esc(name)}: ${pct(cell.agree_share)} agree (${cell.n} people)">${pct(cell.agree_share)}</td>` : `<td class="empty" data-label="${esc(name)}" data-tip="Fewer than ${r.min_cell} people">·</td>`;
   }).join("")}</tr>`).join("");
   return `<div class="scroll"><table class="heat stacks">${head}${rows}</table></div>`;
 }
@@ -86,7 +91,7 @@ function yourResult(bundle) {
 
 let sort = "split";
 let bundlePromise = null;
-const getBundle = () => (bundlePromise ||= fetch("/fingerprint.json").then((r) => r.json()));
+const getBundle = () => (bundlePromise ||= loadBundle("/fingerprint.json"));
 
 const crowdMapHTML = `<div id="crowd-slot"></div>`;
 let crowdNode = null; // built once, then moved into each redraw of the page (sorting redraws it)
@@ -101,18 +106,41 @@ async function crowdMap() {
   crowdNode.setAttribute("aria-labelledby", "crowd-title");
   crowdNode.innerHTML = `<h2 id="crowd-title">Where everyone sits</h2>
     <p class="muted">Each plain dot is someone who added their answers, placed by the three thinkers they agree with most. Faces are people who chose to show themselves.</p>
-    <div class="mapbox" id="crowd-map"><p class="muted">Loading the map…</p></div>`;
+    <div class="mapbox" id="crowd-map"><p class="muted">Loading the map…</p></div>
+    <div data-next-slot></div>
+    <div data-bridges-slot></div>`;
   slot.replaceWith(crowdNode);
   const mapEl = crowdNode.querySelector("#crowd-map");
   const [bundle, crowd] = await Promise.all([getBundle(), fetchPeople()]);
   const size = innerWidth < 600 ? { width: 400, height: 560 } : { width: 800, height: 560 };
   // this browser's own answers (never sent from here) put "You" on the map, for "Find me"
   const result = yourResult(bundle);
-  mapEl.innerHTML = mapSVG(bundle, { ...size, people: crowd.people, result });
+  mountZoom(mapEl);
+  mapEl.innerHTML = mapSVG(bundle, { ...size, ...crowdOptions(crowd), result });
   mountLayerSwitch(mapEl, { findMe: Boolean(result) }).set(crowd);
+  // once you've found yourself: the one next step, then the bridges the room has made so far
+  if (result) getMe().then((me) => { crowdNode.querySelector("[data-next-slot]").innerHTML = nextStepHTML({ signedIn: Boolean(me), id: "results-next" }); });
+  paintBridges(crowdNode.querySelector("[data-bridges-slot]"));
   const toProfile = (id) => { location.href = `/people#${encodeURIComponent(id)}`; };
   wireMap(mapEl, { onThinker: toProfile, onSchool: () => {}, onNode: () => {} });
   attachHoverCard(mapEl, { bundle, onProfile: toProfile });
+}
+
+async function paintBridges(box) {
+  let report = null;
+  try {
+    const res = await fetch("/api/rooms/ai-futures/report");
+    if (res.ok) report = await res.json();
+  } catch { /* shown as none yet */ }
+  box.innerHTML = bridgesStripHTML(report);
+}
+
+// accepted camp names in place of the drafted ones the server computed the results with
+function relabelResults(r, bundle) {
+  for (const h of r.homes || []) h.school = relabel(bundle, h.school);
+  for (const c of r.camps || []) c.label = relabel(bundle, c.label);
+  if (r.crosstab) r.crosstab.names = r.crosstab.schools.map((x) => relabel(bundle, x));
+  return r;
 }
 
 function render(r) {
@@ -174,7 +202,7 @@ async function main() {
   const room = new URLSearchParams(location.search).get("room");
   const r = await (await fetch(`/api/results${room ? `?room=${encodeURIComponent(room)}` : ""}`)).json();
   if (r.demo) document.getElementById("lede").outerHTML = `<div class="demo-banner">Demo results. These people are synthetic, made up to show how the page works.</div>`;
-  render(r);
+  render(relabelResults(r, await getBundle()));
   document.getElementById("handoff").innerHTML = handoffHTML();
 }
 

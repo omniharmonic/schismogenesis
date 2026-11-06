@@ -387,6 +387,69 @@ export function peopleMarkup({ faces, dots }, clip, nameOf = (id) => id) {
   return { dotsSvg, facesSvg };
 }
 
+// ------------------------------------------------------------------ density and labels (pure)
+
+export const DENSITY_MAX = 0.55; // the fullest hexagon's opacity
+
+/**
+ * The density field: one pointy-top hexagon per cell ({size, cells: [[x, y, n], ...]}, size is
+ * centre to corner, all in bundle coordinates like thinker x/y). Corners go through the map's own
+ * X and Y, so the cells still tile when the map stretches one axis. Opacity is sqrt-scaled.
+ */
+export function densityMarkup(bins, X, Y, { max = DENSITY_MAX } = {}) {
+  const size = Number(bins?.size);
+  const cells = (bins?.cells || []).filter((c) => Number.isFinite(c?.[0]) && Number.isFinite(c?.[1]) && c[2] > 0);
+  if (!(size > 0) || !cells.length) return "";
+  const top = Math.max(...cells.map((c) => c[2]));
+  const corners = [0, 1, 2, 3, 4, 5].map((i) => { const a = (Math.PI / 180) * (60 * i - 30); return [Math.cos(a) * size, Math.sin(a) * size]; });
+  let out = `<g class="map-people map-density" aria-hidden="true">`;
+  for (const [cx, cy, n] of cells) {
+    const d = corners.map(([dx, dy], i) => `${i ? "L" : "M"}${X(cx + dx).toFixed(1)},${Y(cy + dy).toFixed(1)}`).join("");
+    out += `<path d="${d}Z" fill-opacity="${(Math.sqrt(n / top) * max).toFixed(3)}"/>`;
+  }
+  return out + `</g>`;
+}
+
+const YOU_CLEAR = 31; // half the room the "You" mark keeps clear: its ring when found, plus a margin
+
+/** A region's box in map units ("x,y,w,h"), grown by `grow` (half its stroke). For zooming to it. */
+function regionBox(pts, grow = 0) {
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  const x = Math.min(...xs) - grow, y = Math.min(...ys) - grow;
+  return [x, y, Math.max(...xs) + grow - x, Math.max(...ys) + grow - y].map((v) => v.toFixed(1)).join(",");
+}
+
+/**
+ * Where a nearest thinker's name goes: below the face, above it, then beside it, then further
+ * below; the first spot clear of `taken` boxes (group names, the "You" mark and its ring, names
+ * already placed), else the one that overlaps least. Returns the box plus how to draw the text.
+ */
+export function nameSpot({ x, y, w, width, taken = [] }) {
+  const half = w / 2;
+  const spots = [
+    { dx: 0, dy: R + 14, anchor: "middle" }, { dx: 0, dy: -R - 6, anchor: "middle" },
+    { dx: R + 6, dy: 4, anchor: "start" }, { dx: -R - 6, dy: 4, anchor: "end" },
+    { dx: 0, dy: R + 30, anchor: "middle" },
+  ];
+  const boxAt = (sp) => {
+    let left = sp.anchor === "middle" ? x + sp.dx - half : sp.anchor === "start" ? x + sp.dx : x + sp.dx - w;
+    left = Math.min(width - w, Math.max(0, left));
+    const tx = sp.anchor === "middle" ? left + half : sp.anchor === "start" ? left : left + w;
+    return { x: left, y: y + sp.dy - 12, w, h: 16, tx, dy: sp.dy, anchor: sp.anchor };
+  };
+  const overlap = (b) => taken.reduce((t, o) => {
+    const ox = Math.min(b.x + b.w, o.x + o.w) - Math.max(b.x, o.x), oy = Math.min(b.y + b.h, o.y + o.h) - Math.max(b.y, o.y);
+    return t + (ox > 0 && oy > 0 ? ox * oy : 0);
+  }, 0);
+  let best = null;
+  for (const sp of spots) {
+    const b = boxAt(sp), o = overlap(b);
+    if (o === 0) return b;
+    if (!best || o < best.o) best = { b, o };
+  }
+  return best.b;
+}
+
 // ------------------------------------------------------------------ the markup
 
 const live = new Map(); // svg id -> what the live layer needs, until the svg is in the page
@@ -394,7 +457,7 @@ const live = new Map(); // svg id -> what the live layer needs, until the svg is
 const kinPath = (links, P) => links.map((l) => `M${P[l.a][0].toFixed(1)},${P[l.a][1].toFixed(1)}L${P[l.b][0].toFixed(1)},${P[l.b][1].toFixed(1)}`).join("");
 const tr = (x, y) => `translate(${x.toFixed(1)} ${y.toFixed(1)})`;
 
-export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null, people = null, youFace = null } = {}) {
+export function mapSVG(bundle, { result = null, marks = [], width = 720, height = 520, selected = null, focus = null, people = null, bins = null, peopleCount = null, youFace = null } = {}) {
   const PX = (p) => p.x, PY = (p) => p.y;
   const xs = bundle.thinkers.map(PX), ys = bundle.thinkers.map(PY);
   const pad = 52;
@@ -440,7 +503,8 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   spreadLabels(labels, { width, height, h: LH, faces });
   const fixedBoxes = [
     ...labels.map((l) => ({ x: l.x - l.w / 2, y: l.y - LH + 5, w: l.w, h: LH })),
-    ...(you ? [{ x: you[0] - 22, y: you[1] - 22, w: 80, h: 44 }] : []),
+    // the "You" mark with room for its "Find me" ring (r 22, drawn up to 1.35x when found)
+    ...(you ? [{ x: you[0] - YOU_CLEAR, y: you[1] - YOU_CLEAR, w: YOU_CLEAR + 62, h: YOU_CLEAR * 2 }] : []),
   ];
   const nameBoxes = () => [...near].filter((id) => pos[id]).map((id) => {
     const w = labelWidth(bundle.thinkers.find((t) => t.id === id).name, NW);
@@ -470,7 +534,8 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     regionIdx.push(members);
     const key = g.id ? `data-node="${esc(g.id)}"` : `data-school="${esc(g.school)}"`;
     const on = (g.id && selected?.node === g.id) || (!g.id && selected?.school === g.school) ? " is-selected" : "";
-    svg += `<path class="map-region camp-${campOfGroup(bundle, g)}${on}" ${key} style="--i:${n}" d="${region(pts)}" stroke-width="${R * 2 + (focus ? 16 : 22)}"/>`;
+    const sw = R * 2 + (focus ? 16 : 22);
+    svg += `<path class="map-region camp-${campOfGroup(bundle, g)}${on}" ${key} style="--i:${n}" d="${region(pts)}" stroke-width="${sw}" data-box="${regionBox(pts, sw / 2)}"/>`;
   });
   svg += `</g>`;
 
@@ -487,11 +552,16 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
 
   // people sit under the thinkers: plain dots first, faces above them (static; the live layer
   // moves only the thinkers)
-  const crowd = people?.length ? placePeople(people, X, Y, { box }) : null;
+  // at scale the anonymous crowd arrives as hexagon counts: a density field under the faces
+  const density = bins?.cells?.length ? densityMarkup(bins, X, Y) : "";
+  svg += density;
+  const crowd = people?.length || density ? placePeople(people || [], X, Y, { box }) : null;
   if (crowd) {
     const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
     const { dotsSvg, facesSvg } = peopleMarkup(crowd, clip, (id) => names[id] || id);
     svg += dotsSvg + facesSvg;
+    if (density) crowd.total += bins.cells.reduce((t, c) => t + (Number(c[2]) || 0), 0);
+    if (Number.isFinite(peopleCount) && peopleCount > crowd.total) crowd.total = peopleCount;
   }
 
   const placedNames = [];
@@ -516,20 +586,10 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
       : `<text y="3.6" text-anchor="middle">${esc(t.initials)}</text>`;
     svg += `</g>`;
     if (near.has(t.id)) {
-      const name = t.name.replace(/ \(.*\)/, ""), w = labelWidth(name, NW), half = w / 2;
-      // below the face, else above it: the first spot clear of group names, the "You" mark
-      // and the names already placed
-      const spots = [[0, R + 14], [0, -R - 6]];
-      const boxAt = ([dx, dy]) => {
-        const cx = Math.min(width - half, Math.max(half, x + dx));
-        return { x: cx - half, y: y + dy - 12, w, h: 16, cx };
-      };
-      const clear = (b) => ![...fixedBoxes, ...placedNames].some((o) =>
-        b.x < o.x + o.w && o.x < b.x + b.w && b.y < o.y + o.h && o.y < b.y + b.h);
-      const spot = spots.find((sp) => clear(boxAt(sp))) || spots[0];
-      const b = boxAt(spot);
+      const name = t.name.replace(/ \(.*\)/, ""), w = labelWidth(name, NW);
+      const b = nameSpot({ x, y, w, width, taken: [...fixedBoxes, ...placedNames] });
       placedNames.push(b);
-      svg += `<text class="map-name" x="${(b.cx - x).toFixed(1)}" y="${spot[1]}" text-anchor="middle">${esc(name)}</text>`;
+      svg += `<text class="map-name" x="${(b.tx - x).toFixed(1)}" y="${b.dy}" text-anchor="${b.anchor}">${esc(name)}</text>`;
     }
     svg += `</g>`;
   }
@@ -538,10 +598,11 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
     const [x, y] = you;
     // signed in with a picture: it sits inside the dashed ring, round, in place of the dot
     const face = typeof youFace === "string" && /^https:\/\//i.test(youFace) ? youFace : null;
+    // drawn around its own origin, so a zoomed map can keep it a readable size (map-zoom.js)
     const centre = face
-      ? `<circle class="map-you-bg" cx="${x}" cy="${y}" r="17"/><image class="map-you-face" href="${esc(face)}" x="${x - 17}" y="${y - 17}" width="34" height="34" clip-path="url(#${clip})" preserveAspectRatio="xMidYMid slice"/>`
-      : `<circle class="map-you" cx="${x}" cy="${y}" r="7"/>`;
-    svg += `<g class="map-you-mark${face ? " has-face" : ""}" aria-hidden="true"><circle class="map-you-pulse" cx="${x}" cy="${y}" r="22" fill="none"/><circle class="map-you-ring" cx="${x}" cy="${y}" r="22" fill="none" stroke-width="1.5" stroke-dasharray="2 4"/>${centre}<text class="map-name" x="${x + 28}" y="${y + 4}" font-weight="700">You</text></g>`;
+      ? `<circle class="map-you-bg" r="17"/><image class="map-you-face" href="${esc(face)}" x="-17" y="-17" width="34" height="34" clip-path="url(#${clip})" preserveAspectRatio="xMidYMid slice"/>`
+      : `<circle class="map-you" r="7"/>`;
+    svg += `<g class="map-you-mark${face ? " has-face" : ""}" transform="${tr(x, y)}" aria-hidden="true"><g class="map-you-body"><circle class="map-you-pulse" r="22" fill="none"/><circle class="map-you-ring" r="22" fill="none" stroke-width="1.5" stroke-dasharray="2 4"/>${centre}<text class="map-name" x="28" y="4" font-weight="700">You</text></g></g>`;
   }
 
   // group names last, with a halo, so they read over everything
@@ -568,7 +629,7 @@ export function mapSVG(bundle, { result = null, marks = [], width = 720, height 
   // ops-console furniture: focus brackets, crosshair and a small readout (live layer only)
   const s = R + 7, l = 6;
   const br = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => `M${sx * s},${sy * (s - l)}L${sx * s},${sy * s}L${sx * (s - l)},${sy * s}`).join("");
-  svg += `<path class="map-brackets" aria-hidden="true" d="${br}" visibility="hidden"/>`;
+  svg += `<g class="map-brackets" aria-hidden="true" visibility="hidden"><path d="${br}"/></g>`;
   svg += `<g class="map-cross" aria-hidden="true" visibility="hidden"><line class="h" x1="0" x2="${width}" y1="0" y2="0"/><line class="v" y1="0" y2="${height}" x1="0" x2="0"/></g>`;
   svg += `<text class="map-readout" aria-hidden="true" x="${width - 4}" y="${height + READOUT - 6}" text-anchor="end">${ids.length} thinkers · ${links.length} kin links${crowd ? ` · ${crowd.total} people` : ""}</text>`;
 
@@ -727,9 +788,12 @@ function activate(svg, m) {
   let rect = null;
   const toMap = (e) => {
     rect ||= svg.getBoundingClientRect();
-    return [((e.clientX - rect.left) / rect.width) * m.box.w, ((e.clientY - rect.top) / rect.height) * (m.box.h + READOUT)];
+    // through the current viewBox, so dragging and the crosshair still land right when zoomed
+    const vb = svg.viewBox.baseVal;
+    return [vb.x + ((e.clientX - rect.left) / rect.width) * vb.width, vb.y + ((e.clientY - rect.top) / rect.height) * vb.height];
   };
   const forget = () => { rect = null; };
+  svg.addEventListener("thinkermap:view", forget);
   addEventListener("scroll", forget, { passive: true });
   addEventListener("resize", forget, { passive: true });
   const indexOf = (target) => {

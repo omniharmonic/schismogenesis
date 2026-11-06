@@ -72,7 +72,8 @@ def _axis_label(fit, m: VoteMatrix, anchor_of: dict[str, str], bundle: dict) -> 
     col = {s: j for j, s in enumerate(m.statements)}
     rows = np.array([m.participants.index(p) for p in fit.participants]) if fit.participants else []
     values = m.values[rows]
-    statements = [s for s in anchor_of if s in col]
+    # anchors from an earlier season stay in the room but have no stances in this bundle
+    statements = [s for s in anchor_of if s in col and anchor_of[s] in stances]
     columns = [col[s] for s in statements]
     affinity = {}
     for camp in bundle["camps"]:

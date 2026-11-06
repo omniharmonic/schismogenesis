@@ -1,5 +1,6 @@
 // One statement in depth: the thinkers on each side in their own words, and how people answer.
 import { esc } from "./map.js";
+import { loadBundle } from "./camp-names.js";
 import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
@@ -20,7 +21,7 @@ async function main() {
   const el = document.getElementById("statement");
   const id = el.dataset.id;
   const [bundle, results] = await Promise.all([
-    fetch("/fingerprint.json").then((r) => r.json()),
+    loadBundle("/fingerprint.json"),
     fetch("/api/results").then((r) => (r.ok ? r.json() : null)).catch(() => null),
   ]);
   const anchor = bundle.anchors.find((a) => a.id === id);

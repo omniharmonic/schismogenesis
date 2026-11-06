@@ -11,7 +11,45 @@ export function normalisePeople(d) {
     min_cell: ok && Number.isFinite(d.min_cell) ? d.min_cell : 10,
     count: ok && Number.isFinite(d.count) ? d.count : 0,
     people: ok && Array.isArray(d.people) ? d.people.filter((p) => Number.isFinite(p?.x) && Number.isFinite(p?.y)) : [],
+    bins: ok ? normaliseBins(d.bins) : null,
   };
+}
+
+/** Hex-bin counts ({size, cells: [[x, y, n], ...]}) made safe; null when absent or empty. */
+export function normaliseBins(b) {
+  if (!b || typeof b !== "object" || !(Number(b.size) > 0) || !Array.isArray(b.cells)) return null;
+  const cells = b.cells.filter((c) => Array.isArray(c) && Number.isFinite(c[0]) && Number.isFinite(c[1]) && Number.isFinite(c[2]) && c[2] > 0);
+  return cells.length ? { size: Number(b.size), cells } : null;
+}
+
+/** Whether there is any crowd to draw: people, or hexagon counts. */
+export const hasCrowd = (crowd) => Boolean(crowd?.people?.length || crowd?.bins);
+
+/** The map options for a crowd (mapSVG's people, bins and the head count). */
+export const crowdOptions = (crowd) => ({ people: crowd.people, bins: crowd.bins, peopleCount: crowd.count });
+
+/**
+ * Pointy-top hexagon bins, the same way the server makes them (account_routes.hex_bins): `size`
+ * is centre to corner in the points' own units. Returns {size, cells: [[x, y, n], ...]}, the
+ * fullest cell first. Used by tests and to check what the server sends.
+ */
+export function hexBins(points, size) {
+  const counts = new Map();
+  for (const p of points || []) {
+    if (!Number.isFinite(p?.x) || !Number.isFinite(p?.y)) continue;
+    const x = (Math.sqrt(3) / 3 * p.x - p.y / 3) / size, z = (2 / 3 * p.y) / size, y = -x - z;
+    let rx = Math.round(x), ry = Math.round(y), rz = Math.round(z);
+    const dx = Math.abs(rx - x), dy = Math.abs(ry - y), dz = Math.abs(rz - z);
+    if (dx > dy && dx > dz) rx = -ry - rz; else if (dy <= dz) rz = -rx - ry;
+    const key = `${rx},${rz}`;
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  const r2 = (v) => Math.round(v * 100) / 100;
+  const cells = [...counts].map(([k, n]) => {
+    const [q, r] = k.split(",").map(Number);
+    return [r2(size * Math.sqrt(3) * (q + r / 2)), r2(size * 1.5 * r), n];
+  });
+  return { size: Math.round(size * 1000) / 1000, cells: cells.sort((a, b) => b[2] - a[2]) };
 }
 
 let cached = null;
@@ -25,8 +63,8 @@ export function fetchPeople() {
 }
 
 /** The line under the switch while there are too few people to show any. */
-export function peopleNote({ min_cell, count, people }) {
-  if (people.length) return "";
+export function peopleNote({ min_cell, count, people, bins = null }) {
+  if (people.length || bins) return "";
   return `People appear here once ${min_cell} have added their answers (now ${count}).`;
 }
 
@@ -87,6 +125,8 @@ export function findYou(mapEl) {
   mapEl.querySelectorAll(".map-you-mark.is-found").forEach((m) => m.classList.remove("is-found"));
   void mark.getBoundingClientRect(); // restart the pulse on a second press
   mark.classList.add("is-found");
+  // a zoomed map pans to you first (map-zoom.js)
+  mark.dispatchEvent(new CustomEvent("thinkermap:reveal", { bubbles: true }));
   mark.scrollIntoView({ block: "center", inline: "center", behavior: reduce ? "auto" : "smooth" });
   clearTimeout(foundTimer);
   foundTimer = setTimeout(() => mark.classList.remove("is-found"), 6000);

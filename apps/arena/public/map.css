@@ -46,9 +46,9 @@ svg.thinker-map .map-thinker .dot { stroke: var(--camp); stroke-width: 2; }
 svg.thinker-map .map-thinker text:not(.map-name) { fill: var(--tm-ink2); font-family: "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; }
 svg.thinker-map .map-thinker.is-dark text:not(.map-name) { fill: var(--tm-ground); }
 svg.thinker-map .tm-body { transition: transform 0.12s ease-out; }
-svg.thinker-map .map-thinker:hover .tm-body,
-svg.thinker-map .map-thinker:focus-visible .tm-body,
-svg.thinker-map .map-thinker.is-dragged .tm-body { transform: scale(1.22); }
+svg.thinker-map .map-thinker:hover > .tm-body,
+svg.thinker-map .map-thinker:focus-visible > .tm-body,
+svg.thinker-map .map-thinker.is-dragged > .tm-body { transform: scale(calc(var(--fk, 1) * 1.22)); }
 svg.thinker-map .map-thinker:hover .dot,
 svg.thinker-map .map-thinker:focus-visible .dot { stroke-width: 2.4; }
 svg.thinker-map .map-thinker.is-selected .dot { stroke: var(--tm-recog); stroke-width: 3; }
@@ -78,7 +78,7 @@ svg.thinker-map .map-tag circle { fill: var(--tm-ink); }
 svg.thinker-map .map-tag text { fill: var(--tm-ground); }
 
 /* ops-console furniture: focus brackets, crosshair, readout */
-svg.thinker-map .map-brackets { fill: none; stroke: var(--tm-recog); stroke-width: 1.5; pointer-events: none; }
+svg.thinker-map .map-brackets path { fill: none; stroke: var(--tm-recog); stroke-width: 1.5; pointer-events: none; }
 svg.thinker-map .map-cross line { stroke: var(--tm-recog); stroke-opacity: 0.16; stroke-width: 1; vector-effect: non-scaling-stroke; pointer-events: none; }
 svg.thinker-map .map-readout {
   font: 500 11px "IBM Plex Sans Condensed", var(--sans, system-ui), sans-serif; fill: var(--tm-ink3);
@@ -116,3 +116,26 @@ svg.thinker-map .map-person:focus-visible .ring { stroke: var(--tm-recog); strok
 .mapbox[data-layer="people"] svg.thinker-map .map-kin { display: none; }
 .mapbox[data-layer="people"] svg.thinker-map .map-people-dots circle { fill: var(--tm-ink); fill-opacity: 0.85; }
 .mapbox[data-layer="people"] svg.thinker-map .map-thinker { pointer-events: none; }
+
+/* the density field (more than 400 people): hexagons of recognition blue, fuller where more
+   people sit, under the faces and the thinkers */
+svg.thinker-map .map-density path { fill: var(--tm-recog); stroke: none; pointer-events: none; }
+.mapbox[data-layer="people"] svg.thinker-map .map-density path { fill: var(--tm-ink); }
+
+/* zoom (map-zoom.js): the viewBox changes; faces, names, marks and labels are scaled back by
+   --fk so they never appear more than 1.6 times their size, dots by --dk */
+svg.thinker-map.is-zoomable { touch-action: pan-x pan-y; }
+svg.thinker-map.is-zoomed { touch-action: none; cursor: grab; }
+svg.thinker-map.is-panning, svg.thinker-map.is-panning * { cursor: grabbing; }
+svg.thinker-map.is-zoomed .map-readout { display: none; }
+svg.thinker-map .map-thinker > *, svg.thinker-map .map-person > *, svg.thinker-map .map-tag > g,
+svg.thinker-map .map-you-body, svg.thinker-map .map-brackets path { transform: scale(var(--fk, 1)); }
+svg.thinker-map .map-school-label text { transform-box: fill-box; transform-origin: center; transform: scale(var(--fk, 1)); }
+svg.thinker-map.is-zoomed .map-people-dots circle { transform-box: fill-box; transform-origin: center; transform: scale(var(--dk, 1)); }
+.map-zoom { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 8px 0 0; }
+.map-zoom-buttons { display: inline-flex; border: 1px solid var(--rule-2, #3a4757); border-radius: 2px; }
+.map-zoom-buttons button { border: 0; border-radius: 0; min-width: 44px; min-height: 44px; padding: 6px 12px; font-size: 1.05rem; color: var(--ink-2, #9aa7b6); }
+.map-zoom-buttons button[data-zoom="reset"] { font-size: 0.95rem; padding: 6px 16px; }
+.map-zoom-buttons button + button { border-left: 1px solid var(--rule-2, #3a4757); }
+.map-zoom-buttons button:disabled { color: var(--ink-3, #6f7c8c); opacity: 0.6; }
+.map-zoom-hint { margin: 0; flex: 1 1 14em; }

@@ -237,6 +237,10 @@ export function attachHoverCard(container, opts) {
   // the live map: dragging a face closes its card; once the graph settles, an open card
   // re-anchors to where its circle came to rest
   container.addEventListener("thinkermap:drag", () => { if (anchor && container.contains(anchor)) hide(); });
+  // zooming or panning the map (map-zoom.js) moves the circle: the card follows it
+  container.addEventListener("thinkermap:view", () => {
+    if (anchor && card && !card.hidden && container.contains(anchor)) place(card, anchor);
+  });
   container.addEventListener("thinkermap:settle", () => {
     if (anchor && card && !card.hidden && container.contains(anchor)) place(card, anchor);
   });

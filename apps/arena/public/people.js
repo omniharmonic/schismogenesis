@@ -1,7 +1,10 @@
 import { esc, mapSVG } from "./map.js";
 import { explorer, schoolGrid } from "./explore.js";
 import { fingerprint } from "./placement.js";
-import { fetchPeople, mountLayerSwitch } from "./crowd.js";
+import { crowdOptions, fetchPeople, hasCrowd, mountLayerSwitch } from "./crowd.js";
+import { loadBundle, mountNaming } from "./camp-names.js";
+import { mountZoom } from "./map-zoom.js";
+import { getMe, toast } from "./auth.js";
 import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 // answers saved by this browser, if the visitor took it here; never sent anywhere from this page
@@ -14,7 +17,7 @@ function savedAnswers(bundle) {
 
 async function main() {
   const [bundle, data] = await Promise.all([
-    fetch("/fingerprint.json").then((r) => r.json()),
+    loadBundle("/fingerprint.json"),
     fetch("/api/people").then((r) => r.json()).catch(() => ({ people: [] })),
   ]);
   const people = data.people || [];
@@ -30,6 +33,7 @@ async function main() {
   const size = innerWidth < 600 ? { width: 400, height: 640 } : { width: 800, height: 640 };
   const mapEl = document.getElementById("people-map");
   const mapOptions = { marks, result: ok, ...size };
+  mountZoom(mapEl);
   mapEl.innerHTML = mapSVG(bundle, mapOptions);
   document.getElementById("people-schools").innerHTML = schoolGrid(bundle, ok);
   const ex = explorer({
@@ -44,7 +48,7 @@ async function main() {
   const layer = mountLayerSwitch(mapEl, { findMe: Boolean(ok) });
   fetchPeople().then((crowd) => {
     layer.set(crowd);
-    if (crowd.people.length) { mapOptions.people = crowd.people; ex.redraw(); }
+    if (hasCrowd(crowd)) { Object.assign(mapOptions, crowdOptions(crowd)); ex.redraw(); }
   });
   // /people#<thinker-id> opens that thinker's card (linked from shared profiles)
   const fromHash = () => {
@@ -52,6 +56,8 @@ async function main() {
     if (bundle.thinkers.some((t) => t.id === id)) ex.open({ thinker: id });
   };
   fromHash();
+  // signed in: the short version of naming your camp, under the camps
+  getMe().then((me) => { if (me) mountNaming(document.getElementById("people-naming"), { bundle, compact: true, toast }); });
   addEventListener("hashchange", fromHash);
   document.getElementById("people-list").innerHTML = people.map((p) => `<li><a href="/p/${esc(p.code)}">
     ${p.avatar_url ? `<img class="avatar" src="${esc(p.avatar_url)}" alt="" referrerpolicy="no-referrer">` : `<span class="avatar"></span>`}

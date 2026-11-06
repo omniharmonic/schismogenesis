@@ -2,6 +2,7 @@
 import { valuesSVG } from "./glyph.js";
 import { badge, esc } from "./map.js";
 import { socialsHTML } from "./socials.js";
+import { loadBundle } from "./camp-names.js";
 import "./site-config.js";  // keeps the lab links in step with LAB_URL
 
 const LAYER = { ontological: "What AI is", epistemic: "How we know", axiological: "What matters",
@@ -11,7 +12,7 @@ const CLS = { 1: "agree", "-1": "disagree", 0: "unsure" };
 
 async function main() {
   const p = JSON.parse(document.getElementById("profile-data").textContent);
-  const bundle = await (await fetch("/fingerprint.json")).json();
+  const bundle = await loadBundle("/fingerprint.json");
   const names = Object.fromEntries(bundle.thinkers.map((t) => [t.id, t.name]));
   const s = p.summary;
   const own = (() => { try { return JSON.parse(localStorage.getItem("fp.profile")); } catch { return null; } })();
